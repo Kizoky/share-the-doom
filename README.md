@@ -1,6 +1,8 @@
 # Postal 2: Share the Doom 03.09.2019
 
-Status:
+# Status: Unfinished
+[Please note this mod is extremely unfinished, may have features broken, unfinished, or non-existent]
+[If you have found bugs please feel free to create a new issue, or contribute!]
 
 [Weapons]
 - Baton 				|| Primary and Secondary attack (+proper sounds) are done, needs last touching fixes if NPCs are done=NPC Headache State
@@ -26,3 +28,13 @@ Status:
 - Tazer					|| Only animation frames are done; unfinished
 - Urethra				|| Partially done, needs Postal 2 pissing effects
 - W.M.D.				|| Only animation frames are done; unfinished; HUD icon is improperly placed
+
+[Credits]
+- Running With Scissors
+- WhackJob Interactive
+- Marise Kirisame
+- phantombeta
+- Jekyll Grim Payne
+- the ZDoom discord
+- Nash
+- ...
