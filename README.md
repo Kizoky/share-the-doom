@@ -4,6 +4,8 @@
 [Please note this mod is extremely unfinished, may have features broken, unfinished, or non-existent]
 [If you have found bugs please feel free to create a new issue, or contribute!]
 
+Note: Multiplayer MAY work, I ONLY tested it in LAN, I'm not sure if it would work via p2p
+
 [Weapons]
 - Baton 				|| Primary and Secondary attack (+proper sounds) are done, needs last touching fixes if NPCs are done=NPC Headache State
 - Petition Clipboard	|| Very basic functionality, lacks 3 continous conversations, only 1 is hardcoded; unfinished
