@@ -175,8 +175,6 @@ class PostalDude_Data : Inventory
 
 class PostalDude : PlayerPawn replaces DoomPlayer
 {
-	
-	
 	PostalDude_Data PlayerData;
 	bool Kick, Map;
 	bool isinPain;
