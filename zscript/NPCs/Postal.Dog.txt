@@ -10,6 +10,17 @@ class Champ : PostalActor
 		Busy = false;
 	}
 	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (target && target.bKILLED)
+		{
+			target = null;
+		}
+	
+	}
+	
 	Default
 	{
 		//$Category NPCs
