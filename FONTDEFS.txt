@@ -1,0 +1,9 @@
+SMASHFONT
+{
+	template "SMASH%03d"
+}
+
+DARKERSMASH
+{
+	template "DARKS%03d"
+}

@@ -1,0 +1,251 @@
+Model "PostMolotov"
+{
+	Path "models\weapons\molotov"
+	Model 0 "PostMolotov.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "molotov/molotov_label3.tga"
+	SurfaceSkin 0 2 "molotov/molotov_glass2.tga"
+	SurfaceSkin 0 3 "molotov/Matchbox_3.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 1 0 -17.3 //X Y Z
+
+	// Select 184-211
+	FrameIndex MOLS A 0 184
+	FrameIndex MOLS B 0 185
+	FrameIndex MOLS C 0 186
+	FrameIndex MOLS D 0 187
+	FrameIndex MOLS E 0 188
+	FrameIndex MOLS F 0 189
+	FrameIndex MOLS G 0 190
+	FrameIndex MOLS H 0 191
+	FrameIndex MOLS I 0 192
+	FrameIndex MOLS J 0 193
+	FrameIndex MOLS K 0 194
+	FrameIndex MOLS L 0 195
+	FrameIndex MOLS M 0 196
+	FrameIndex MOLS N 0 197
+	FrameIndex MOLS O 0 198
+	FrameIndex MOLS P 0 199
+	FrameIndex MOLS Q 0 200
+	FrameIndex MOLS R 0 201
+	FrameIndex MOLS S 0 202
+	FrameIndex MOLS T 0 203
+	FrameIndex MOLS U 0 204
+	FrameIndex MOLS V 0 205
+	FrameIndex MOLS W 0 206
+	FrameIndex MOLS X 0 207
+	FrameIndex MOLS Y 0 209
+	FrameIndex MOLS Z 0 211
+	
+	// Deselect 212-237
+	FrameIndex MOLD A 0 212
+	FrameIndex MOLD B 0 213
+	FrameIndex MOLD C 0 214
+	FrameIndex MOLD D 0 215
+	FrameIndex MOLD E 0 216
+	FrameIndex MOLD F 0 217
+	FrameIndex MOLD G 0 218
+	FrameIndex MOLD H 0 219
+	FrameIndex MOLD I 0 220
+	FrameIndex MOLD J 0 221
+	FrameIndex MOLD K 0 222
+	FrameIndex MOLD L 0 223
+	FrameIndex MOLD M 0 224
+	FrameIndex MOLD N 0 225
+	FrameIndex MOLD O 0 226
+	FrameIndex MOLD P 0 227
+	FrameIndex MOLD Q 0 228
+	FrameIndex MOLD R 0 229
+	FrameIndex MOLD S 0 230
+	FrameIndex MOLD T 0 231
+	FrameIndex MOLD U 0 232
+	FrameIndex MOLD V 0 233
+	FrameIndex MOLD W 0 234
+	FrameIndex MOLD X 0 235
+	FrameIndex MOLD Y 0 236
+	FrameIndex MOLD Z 0 237
+	
+	// Idle 145-183
+	FrameIndex MOLI A 0 145
+	FrameIndex MOLI B 0 147
+	FrameIndex MOLI C 0 149
+	FrameIndex MOLI D 0 151
+	FrameIndex MOLI E 0 153
+	FrameIndex MOLI F 0 155
+	FrameIndex MOLI G 0 157
+	FrameIndex MOLI H 0 159
+	FrameIndex MOLI I 0 161
+	FrameIndex MOLI J 0 163
+	FrameIndex MOLI K 0 165
+	FrameIndex MOLI L 0 167
+	FrameIndex MOLI M 0 169
+	FrameIndex MOLI N 0 171
+	FrameIndex MOLI O 0 173
+	FrameIndex MOLI P 0 175
+	FrameIndex MOLI Q 0 177
+	FrameIndex MOLI R 0 179
+	FrameIndex MOLI S 0 181
+	FrameIndex MOLI T 0 183
+	
+	// Fire 52-112
+	FrameIndex MOL1 A 0 52 
+	FrameIndex MOL1 B 0 54 
+	FrameIndex MOL1 C 0 56 
+	FrameIndex MOL1 D 0 58 
+	FrameIndex MOL1 E 0 60 
+	FrameIndex MOL1 F 0 62 
+	FrameIndex MOL1 G 0 64 
+	FrameIndex MOL1 H 0 66 
+	FrameIndex MOL1 I 0 68 
+	FrameIndex MOL1 J 0 70 
+	FrameIndex MOL1 K 0 72 
+	FrameIndex MOL1 L 0 74 
+	FrameIndex MOL1 M 0 76 
+	FrameIndex MOL1 N 0 78 
+	FrameIndex MOL1 O 0 80 
+	FrameIndex MOL1 P 0 82 
+	FrameIndex MOL1 Q 0 84 
+	FrameIndex MOL1 R 0 86 
+	FrameIndex MOL1 S 0 88 
+	FrameIndex MOL1 T 0 90 
+	FrameIndex MOL1 U 0 92 
+	FrameIndex MOL1 V 0 94 
+	FrameIndex MOL1 W 0 96 
+	FrameIndex MOL1 X 0 98 
+	FrameIndex MOL1 Y 0 100
+	FrameIndex MOL1 Z 0 102
+	
+	FrameIndex MOL2 A 0 104 
+	FrameIndex MOL2 B 0 106 
+	FrameIndex MOL2 C 0 108 
+	FrameIndex MOL2 D 0 110 
+	FrameIndex MOL2 E 0 112
+	
+	// Secondary Fire 113-144
+	FrameIndex MLSF A 0 113
+	FrameIndex MLSF B 0 115
+	FrameIndex MLSF C 0 117
+	FrameIndex MLSF D 0 119
+	FrameIndex MLSF E 0 121
+	FrameIndex MLSF F 0 123
+	FrameIndex MLSF G 0 125
+	FrameIndex MLSF H 0 127
+	FrameIndex MLSF I 0 129
+	FrameIndex MLSF J 0 131
+	FrameIndex MLSF K 0 133
+	FrameIndex MLSF L 0 135
+	FrameIndex MLSF M 0 137
+	FrameIndex MLSF N 0 139
+	FrameIndex MLSF O 0 141
+	FrameIndex MLSF P 0 143
+	FrameIndex MLSF Q 0 144
+	
+	// Hold Start 29-51
+	/*FrameIndex MHLS A 0 29
+	FrameIndex MHLS B 0 30
+	FrameIndex MHLS C 0 31
+	FrameIndex MHLS D 0 32
+	FrameIndex MHLS E 0 33
+	FrameIndex MHLS F 0 34
+	FrameIndex MHLS G 0 35
+	FrameIndex MHLS H 0 36
+	FrameIndex MHLS I 0 37
+	FrameIndex MHLS J 0 38
+	FrameIndex MHLS K 0 39
+	FrameIndex MHLS L 0 40
+	FrameIndex MHLS M 0 41
+	FrameIndex MHLS N 0 42
+	FrameIndex MHLS O 0 43
+	FrameIndex MHLS P 0 44
+	FrameIndex MHLS Q 0 45
+	FrameIndex MHLS R 0 46
+	FrameIndex MHLS S 0 47
+	FrameIndex MHLS T 0 48
+	FrameIndex MHLS U 0 49
+	FrameIndex MHLS V 0 50
+	FrameIndex MHLS W 0 51
+	
+	// Hold 1-28
+	FrameIndex MHLH A 0 1 
+	FrameIndex MHLH B 0 3 
+	FrameIndex MHLH C 0 5 
+	FrameIndex MHLH D 0 7 
+	FrameIndex MHLH E 0 9 
+	FrameIndex MHLH F 0 11
+	FrameIndex MHLH G 0 13
+	FrameIndex MHLH H 0 15
+	FrameIndex MHLH I 0 17
+	FrameIndex MHLH J 0 19
+	FrameIndex MHLH K 0 21
+	FrameIndex MHLH L 0 23
+	FrameIndex MHLH M 0 25
+	FrameIndex MHLH N 0 27
+	FrameIndex MHLH O 0 28
+	
+	// Throw 238-245
+	FrameIndex THRO A 0 238
+	FrameIndex THRO B 0 239
+	FrameIndex THRO C 0 240
+	FrameIndex THRO D 0 241
+	FrameIndex THRO E 0 242
+	FrameIndex THRO F 0 243
+	FrameIndex THRO G 0 244
+	FrameIndex THRO H 0 245*/
+
+}
+
+Model "PostMolotov"
+{
+	Path "models\weapons\molotov"
+	Model 0 "MolotovPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "molotov/molotov_label3.tga"
+	SurfaceSkin 0 1 "molotov/molotov_glass2.tga"
+	//SurfaceSkin 0 2 "molotov/Matchbox_3.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 0
+	Scale -1 1 1
+	Offset 0 0 13 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostMolotov"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

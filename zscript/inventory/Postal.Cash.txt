@@ -1,0 +1,23 @@
+class PostalCash : CustomInventory
+{
+	Default
+	{
+		+COUNTITEM
+		Inventory.MaxAmount 99999999;
+		Inventory.PickupFlash "PickupFlash";
+		+INVENTORY.INVBAR 
+		+INVENTORY.FANCYPICKUPSOUND
+		Inventory.Icon "cashinv";
+		Inventory.PickupSound "misc/p_pkup";
+		Inventory.PickupMessage "Picked up some cash.";
+	}
+	States
+	{
+	Spawn:
+		POSS A -1;
+		stop;
+	Use:
+		TNT1 A 0;
+		stop;
+	}
+}

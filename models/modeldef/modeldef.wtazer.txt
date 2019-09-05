@@ -1,0 +1,190 @@
+Model "PostTazer"
+{
+	Path "models\weapons\tazer"
+	Model 0 "PostTazer.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "tazer/taser_timb.tga"
+	SurfaceSkin 0 2 "gascan/gas_can_metal.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 1 -1.000000 -10.0000 //X Y Z
+
+	// Select 1-12
+	FrameIndex TAZS A 0 1 
+	FrameIndex TAZS B 0 2 
+	FrameIndex TAZS C 0 3 
+	FrameIndex TAZS D 0 4 
+	FrameIndex TAZS E 0 5 
+	FrameIndex TAZS F 0 6 
+	FrameIndex TAZS G 0 7 
+	FrameIndex TAZS H 0 8 
+	FrameIndex TAZS I 0 9 
+	FrameIndex TAZS J 0 10
+	FrameIndex TAZS K 0 11
+	FrameIndex TAZS L 0 12
+	
+	// Deselect 13-25
+	FrameIndex TAZD A 0 13
+	FrameIndex TAZD B 0 14
+	FrameIndex TAZD C 0 15
+	FrameIndex TAZD D 0 16
+	FrameIndex TAZD E 0 17
+	FrameIndex TAZD F 0 18
+	FrameIndex TAZD G 0 19
+	FrameIndex TAZD H 0 20
+	FrameIndex TAZD I 0 21
+	FrameIndex TAZD J 0 22
+	FrameIndex TAZD K 0 23
+	FrameIndex TAZD L 0 24
+	FrameIndex TAZD M 0 25
+	
+	// Idle 26-57
+	FrameIndex TAZI A 0 26
+	FrameIndex TAZI B 0 28
+	FrameIndex TAZI C 0 30
+	FrameIndex TAZI D 0 32
+	FrameIndex TAZI E 0 34
+	FrameIndex TAZI F 0 36
+	FrameIndex TAZI G 0 38
+	FrameIndex TAZI H 0 40
+	FrameIndex TAZI I 0 42
+	FrameIndex TAZI J 0 44
+	FrameIndex TAZI K 0 46
+	FrameIndex TAZI L 0 48
+	FrameIndex TAZI M 0 50
+	FrameIndex TAZI N 0 52
+	FrameIndex TAZI O 0 54
+	FrameIndex TAZI P 0 56
+	FrameIndex TAZI Q 0 57
+	
+	// Fire 58-79
+	FrameIndex TAZF A 0 58
+	FrameIndex TAZF B 0 59
+	FrameIndex TAZF C 0 60
+	FrameIndex TAZF D 0 61
+	FrameIndex TAZF E 0 62
+	FrameIndex TAZF F 0 63
+	FrameIndex TAZF G 0 64
+	FrameIndex TAZF H 0 65
+	FrameIndex TAZF I 0 66
+	FrameIndex TAZF J 0 67
+	FrameIndex TAZF K 0 68
+	FrameIndex TAZF L 0 69
+	FrameIndex TAZF M 0 70
+	FrameIndex TAZF N 0 71
+	FrameIndex TAZF O 0 72
+	FrameIndex TAZF P 0 73
+	FrameIndex TAZF Q 0 74
+	FrameIndex TAZF R 0 75
+	FrameIndex TAZF S 0 76
+	FrameIndex TAZF T 0 77
+	FrameIndex TAZF U 0 78
+	FrameIndex TAZF V 0 79
+	
+	// Hold 80-105
+	/*FrameIndex TZHO A 0 80 
+	FrameIndex TZHO B 0 81 
+	FrameIndex TZHO C 0 82 
+	FrameIndex TZHO D 0 83 
+	FrameIndex TZHO E 0 84 
+	FrameIndex TZHO F 0 85 
+	FrameIndex TZHO G 0 86 
+	FrameIndex TZHO H 0 87 
+	FrameIndex TZHO I 0 88 
+	FrameIndex TZHO J 0 89 
+	FrameIndex TZHO K 0 90 
+	FrameIndex TZHO L 0 91 
+	FrameIndex TZHO M 0 92 
+	FrameIndex TZHO N 0 93 
+	FrameIndex TZHO O 0 94 
+	FrameIndex TZHO P 0 95 
+	FrameIndex TZHO Q 0 96 
+	FrameIndex TZHO R 0 97 
+	FrameIndex TZHO S 0 98 
+	FrameIndex TZHO T 0 99 
+	FrameIndex TZHO U 0 100
+	FrameIndex TZHO V 0 101
+	FrameIndex TZHO W 0 102
+	FrameIndex TZHO X 0 103
+	FrameIndex TZHO Y 0 104
+	FrameIndex TZHO Z 0 105
+	
+	// Hold End 106-127
+	FrameIndex TZEN A 0 106
+	FrameIndex TZEN B 0 107
+	FrameIndex TZEN C 0 108
+	FrameIndex TZEN D 0 109
+	FrameIndex TZEN E 0 110
+	FrameIndex TZEN F 0 111
+	FrameIndex TZEN G 0 112
+	FrameIndex TZEN H 0 113
+	FrameIndex TZEN I 0 114
+	FrameIndex TZEN J 0 115
+	FrameIndex TZEN K 0 116
+	FrameIndex TZEN L 0 117
+	FrameIndex TZEN M 0 118
+	FrameIndex TZEN N 0 119
+	FrameIndex TZEN O 0 120
+	FrameIndex TZEN P 0 121
+	FrameIndex TZEN Q 0 122
+	FrameIndex TZEN R 0 123
+	FrameIndex TZEN S 0 124
+	FrameIndex TZEN T 0 125
+	FrameIndex TZEN U 0 126
+	FrameIndex TZEN V 0 127*/
+
+}
+
+Model "PostTazer"
+{
+	Path "models\weapons\tazer"
+	Model 0 "TazerPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "tazer/taser_timb.tga"
+	SurfaceSkin 0 1 "gascan/gas_can_metal.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostTazer"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

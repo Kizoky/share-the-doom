@@ -1,0 +1,118 @@
+[enu default]
+
+MNU_CHOOSESKILL	= "How are you feeling today?";
+
+TXT_YES = "Yes";
+TXT_NO = "No";
+
+STSTR_DQDON = "Sissy!"; //IDDQD
+STSTR_DQDOFF = "My grandmother could beat the game if she cheated as much as you did!"; //IDDQD off
+STSTR_NCON = "You feel free…"; //IDCLIP
+STSTR_NCOFF = "You no longer feel free."; //IDCLIP off
+
+QUITMSG1 = "Do you regret nothing?";
+QUITMSG2 = "Time to put down the Shovel?";
+QUITMSG3 = "Stick the Grenade in your mouth?";
+QUITMSG4 = "Stop going Postal?";
+QUITMSG5 = "End your killing spree?";
+QUITMSG6 = "The earth demands cleansing, will it feast?";
+QUITMSG7 = "Is this the end?";
+QUITMSG8 = "Have you gone Postal?";
+QUITMSG9 = "Are you bored already?";
+QUITMSG10 = "Do you seek the lizard king?";
+QUITMSG11 = "Was this week an apocalypse?";
+QUITMSG12 = "Have you played Postal 2?";
+QUITMSG13 = "Felt offended?";
+QUITMSG14 = "Have you liked Phoenix?";
+
+PRESSKEY = "press a key.";
+PRESSYN = "press y or n.";
+LOADNET = "You can't load a game while in MP!";
+QLOADNET = "You can't quickload while in MP!";
+QSAVESPOT = "Quicksave first!";
+SAVEDEAD = "I mean, that certainly won't be weird at all being dead!";
+SWSTRING = "Tim likes to play with Hunt Down the Freeman, he's a hardcore fan!";
+SECRETMESSAGE = "You have found a secret!";
+
+STSTR_KFAADDED = "I like eating chips with bread.";
+STSTR_FAADDED = "Woah, hold on buddy, this isn't Postal 3";
+STSTR_CHOPPERS = "I’d prefer a Weed Whacker, personally.";
+STSTR_CLEV = "%o entered the cheater Load Zone...\n";
+
+OB_SUICIDE = "%o went postal on themselves!";
+OB_FALLING = "%o slipped!";
+OB_CRUSH = "%o became bloody mess!";
+OB_EXIT = "%o tried to leave, what a loser!";
+OB_WATER = "%o couldn't swim";
+OB_SLIME = "%o tried to swim like an idiot, and mutated!";
+OB_LAVA = "Hey %o, have you tried avoiding the lava?";
+OB_BARREL = "%o ate a lot of explosion!";
+OB_SPLASH = "%o stood in the wrong spot. Oops?";
+OB_R_SPLASH = "%o should have stood back. Oops?";
+OB_ROCKET = "%o should have stood back. Oops?";
+OB_KILLEDSELF = "%o did not regret anything.";
+
+OB_MONTELEFRAG = "Hey %o, try moving a little bit faster next time!";
+
+OB_DEFAULT = "%o died to something. excuse me what?";
+OB_MPDEFAULT = "%o was killed by %k.";
+OB_FRIENDLY1 = "%k mows down a teammate.";
+OB_FRIENDLY2 = "%k checks %p glasses.";
+OB_FRIENDLY3 = "%k gets a frag for the other team. Goodjob dude!";
+OB_FRIENDLY4 = "%k went postal on a teammate.";
+
+GOTARMOR = "Picked up a Kevlar Vest.";
+GOTMEGA = "Picked up the SiC Body Armor!";
+GOTHTHBONUS = "Picked up a minor health boost.";
+GOTARMBONUS = "Picked up some small armor.";
+GOTSTIM = "Picked up some food.";
+GOTMEDINEED = "Picked up a medpack that you REALLY needed!";
+GOTMEDIKIT = "Picked up a medpack.";
+
+
+
+GOTBLUECARD = "Picked up a blue keycard.";
+GOTYELWCARD = "Picked up a yellow keycard.";
+GOTREDCARD = "Picked up a red keycard.";
+GOTBLUESKUL = "Picked up a blue skull key.";
+GOTYELWSKUL = "Picked up a yellow skull key.";
+GOTREDSKUL = "Picked up a red skull key.";
+
+GOTSUPER = "You smoked a Crack Pipe!!";
+GOTINVUL = "Chompy Game Cart! Chompies Mystical Energy will protect you!";
+GOTBERSERK = "Vodka!";
+GOTINVIS = "Random Wardrobe! Your enemies can mistake you for other people!";
+GOTSUIT = "Survivalist Hazmat Suit";
+GOTMAP = "Map of Phoenix";
+GOTVISOR = "You snorted some Catnip!";
+GOTMSPHERE = "Power-Infused Gary Autobiography! You’ll have a rockin’ good time with this!";
+
+GOTCLIP = "Picked up a magazine.";
+GOTCLIPBOX = "Picked up a box of bullets.";
+GOTROCKET = "Picked up a rocket.";
+GOTROCKBOX = "Picked up a box of rockets.";
+GOTCELL = "Picked up an energy cell.";
+GOTCELLBOX = "Picked up an energy cell pack.";
+GOTSHELLS = "Picked up 4 shotgun shells.";
+GOTSHELLBOX = "Picked up a box of shotgun shells.";
+GOTBACKPACK = "Picked up a backpack full of ammo!";
+GOTBFG9000 = "You got the BFG9000!  Oh, yes.";
+GOTCHAINGUN = "You got the Machinegun!";
+GOTCHAINSAW = "A chainsaw!  Find some meat!";
+GOTLAUNCHER = "You got the rocket launcher!";
+GOTPLASMA = "You got the plasma gun!";
+GOTSHOTGUN = "You got the shotgun!";
+GOTSHOTGUN2 = "You got the sawn off shotgun!";
+
+PD_BLUEO = "You need a blue key to activate this object";
+PD_REDO = "You need a red key to activate this object";
+PD_YELLOWO = "You need a yellow key to activate this object";
+PD_BLUEK = "You need a blue key to open this door";
+PD_REDK = "You need a red key to open this door";
+PD_YELLOWK = "You need a yellow key to open this door";
+PD_BLUECO = "You need a blue card to activate this object";
+PD_REDCO = "You need a red card to activate this object";
+PD_YELLOWCO = "You need a yellow card to activate this object";
+PD_BLUESO = "You need a blue skull to activate this object";
+PD_REDSO = "You need a red skull to activate this object";
+PD_YELLOWSO = "You need a yellow skull to activate this object";

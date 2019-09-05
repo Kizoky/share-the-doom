@@ -1,0 +1,53 @@
+class PostShotgun : PostalWeapon replaces Shotgun
+{
+	Default
+	{
+    Weapon.Kickback 100;
+    Weapon.SelectionOrder 1300;
+	Weapon.AmmoUse 1;
+	Weapon.AmmoGive 8;
+	Weapon.AmmoType "Shell";
+	Obituary "$OB_MPSHOTGUN";
+    Tag "$TAG_SHOTGUN";
+	Inventory.PickupMessage "$GOTSHOTGUN";
+	}
+	States
+	{
+	Ready:
+		SHXD ABCDEFGHIJKLMNOPQRS 4 A_WeaponReady;
+		Goto Ready;
+	Deselect:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
+		SH2H ABCDEFGHIJKLMNN 1;
+		Loop;
+	Select:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
+		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
+		TNT1 A 0 A_PlaySound("weaponselect4", 7 | 4096);
+		SHST ABCDEFGHIJKLMNOPQRR 2;
+		SHXD A 1;
+		//shst
+		Loop;
+	Fire:
+		//ABCDEFGHIJKLMNOPQR
+		SHSH A 3;
+		SHSH B 0 A_SetPitch(pitch-0.66);
+		SHSH B 5 A_FireShotgun;
+		SHSH C 0 A_SetPitch(pitch+0.66);
+		SHSH CD 3;
+		SHSH E 0 A_PlaySound("weapons/shotgr");
+		SHSH EFGH 3;
+		SHSH IJKLMNOPQ 2;
+		//Needed for Shell visual glitch
+		SHSH QPONMLKJIHGFEDCBA 0;
+		Goto Ready;
+	Flash:
+		//PGNS B 3 Offset(0, 0) Bright A_Light2;
+		//PGNS A 2 Offset(0, 0) Bright A_Light1;
+		Goto LightDone;
+	Spawn:
+		TNT1 A 0;
+		PICK A -1;
+		Stop;
+	}
+}

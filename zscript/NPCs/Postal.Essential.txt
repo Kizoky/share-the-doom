@@ -1,0 +1,1 @@
+//NPCs like Uncle Dave, RWS staff, Cowboss, Gary, etc. should be in here

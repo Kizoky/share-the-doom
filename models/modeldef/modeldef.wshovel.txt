@@ -1,0 +1,198 @@
+Model "PostShovel"
+{
+	Path "models\weapons\shovel"
+	Model 0 "PostShovel.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 1 "shovel/shovel_texture.tga"
+	SurfaceSkin 0 0 "dude_hands.png"
+	AngleOffset 15 //40
+	Scale -1 0.75 1
+	Offset -3 -4 -25.25 //X Y Z
+	ZOffset -14.05
+
+	// Select 1-26
+	
+	FrameIndex SHOS A 0 1
+	FrameIndex SHOS B 0 2
+	FrameIndex SHOS C 0 3
+	FrameIndex SHOS D 0 4
+	FrameIndex SHOS E 0 5
+	FrameIndex SHOS F 0 6
+	FrameIndex SHOS G 0 7
+	FrameIndex SHOS H 0 8
+	FrameIndex SHOS I 0 9
+	FrameIndex SHOS J 0 10
+	FrameIndex SHOS K 0 11
+	FrameIndex SHOS L 0 12
+	FrameIndex SHOS M 0 13
+	FrameIndex SHOS N 0 14
+	FrameIndex SHOS O 0 15
+	FrameIndex SHOS P 0 16
+	FrameIndex SHOS Q 0 17
+	FrameIndex SHOS R 0 18
+	FrameIndex SHOS S 0 19
+	FrameIndex SHOS T 0 20
+	FrameIndex SHOS U 0 21
+	FrameIndex SHOS V 0 22
+	FrameIndex SHOS W 0 23
+	FrameIndex SHOS X 0 24
+	FrameIndex SHOS Y 0 25
+	FrameIndex SHOS Z 0 26
+	
+	// DeSelect 27-51
+	
+	FrameIndex SHOD A 0 27
+	FrameIndex SHOD B 0 28
+	FrameIndex SHOD C 0 29
+	FrameIndex SHOD D 0 30
+	FrameIndex SHOD E 0 31
+	FrameIndex SHOD F 0 32
+	FrameIndex SHOD G 0 33
+	FrameIndex SHOD H 0 34
+	FrameIndex SHOD I 0 35
+	FrameIndex SHOD J 0 36
+	FrameIndex SHOD K 0 37
+	FrameIndex SHOD L 0 38
+	FrameIndex SHOD M 0 39
+	FrameIndex SHOD N 0 40
+	FrameIndex SHOD O 0 41
+	FrameIndex SHOD P 0 42
+	FrameIndex SHOD Q 0 43
+	FrameIndex SHOD R 0 44
+	FrameIndex SHOD S 0 45
+	FrameIndex SHOD T 0 46
+	FrameIndex SHOD U 0 47
+	FrameIndex SHOD V 0 48
+	FrameIndex SHOD W 0 49
+	FrameIndex SHOD X 0 50
+	FrameIndex SHOD Y 0 51
+	
+	// Idle 52-97
+	
+	FrameIndex SHOI A 0 52
+	FrameIndex SHOI B 0 54
+	FrameIndex SHOI C 0 56
+	FrameIndex SHOI D 0 58
+	FrameIndex SHOI E 0 60
+	FrameIndex SHOI F 0 62
+	FrameIndex SHOI G 0 64
+	FrameIndex SHOI H 0 66
+	FrameIndex SHOI I 0 68
+	FrameIndex SHOI J 0 70
+	FrameIndex SHOI K 0 72
+	FrameIndex SHOI L 0 74
+	FrameIndex SHOI M 0 76
+	FrameIndex SHOI N 0 78
+	FrameIndex SHOI O 0 80
+	FrameIndex SHOI P 0 82
+	FrameIndex SHOI Q 0 84
+	FrameIndex SHOI R 0 86
+	FrameIndex SHOI S 0 88
+	FrameIndex SHOI T 0 90
+	FrameIndex SHOI U 0 92
+	FrameIndex SHOI V 0 94
+	FrameIndex SHOI W 0 95
+	FrameIndex SHOI X 0 96
+	FrameIndex SHOI Y 0 97
+	
+	// Attack 98-142
+	
+	FrameIndex SHOA A 0 98
+	FrameIndex SHOA B 0 100
+	FrameIndex SHOA C 0 102
+	FrameIndex SHOA D 0 104
+	FrameIndex SHOA E 0 106
+	FrameIndex SHOA F 0 108
+	FrameIndex SHOA G 0 110
+	FrameIndex SHOA H 0 112
+	FrameIndex SHOA I 0 114
+	FrameIndex SHOA J 0 116
+	FrameIndex SHOA K 0 118
+	FrameIndex SHOA L 0 120
+	FrameIndex SHOA M 0 122
+	FrameIndex SHOA N 0 124
+	FrameIndex SHOA O 0 126
+	FrameIndex SHOA P 0 128
+	FrameIndex SHOA Q 0 130
+	FrameIndex SHOA R 0 132
+	FrameIndex SHOA S 0 134
+	FrameIndex SHOA T 0 136
+	FrameIndex SHOA U 0 138
+	FrameIndex SHOA V 0 140
+	FrameIndex SHOA W 0 142
+	
+	// Secondary Attack 144-177
+	
+	FrameIndex SHO2 A 0 144
+	FrameIndex SHO2 B 0 146
+	FrameIndex SHO2 C 0 148
+	FrameIndex SHO2 D 0 150
+	FrameIndex SHO2 E 0 152
+	FrameIndex SHO2 F 0 154
+	FrameIndex SHO2 G 0 156
+	FrameIndex SHO2 H 0 158
+	FrameIndex SHO2 I 0 160
+	FrameIndex SHO2 J 0 162
+	FrameIndex SHO2 K 0 164
+	FrameIndex SHO2 L 0 166
+	FrameIndex SHO2 M 0 168
+	FrameIndex SHO2 N 0 170
+	FrameIndex SHO2 O 0 172
+	FrameIndex SHO2 P 0 174
+	FrameIndex SHO2 Q 0 175
+	FrameIndex SHO2 R 0 176
+	FrameIndex SHO2 S 0 177
+	
+}
+
+Model "PostShovel"
+{
+	Path "models\weapons\shovel"
+	Model 0 "ShovelPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "shovel/shovel_texture.tga"
+	
+	AngleOffset 0 //40
+	RollOffset 75
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostShovel"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

@@ -1,0 +1,204 @@
+class PostalCatnip : CustomInventory
+{
+	
+	bool CatnipInEffect;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		CatnipInEffect = false;
+	}
+	
+	Default
+	{
+		+COUNTITEM
+		+FLOATBOB
+		Inventory.RespawnTics 4230;
+		Inventory.DefMaxAmount;
+		Inventory.PickupFlash "PickupFlash";
+		+INVENTORY.INVBAR 
+		+INVENTORY.FANCYPICKUPSOUND
+		Inventory.Icon "CATNIP";
+		Inventory.PickupSound "misc/p_pkup";
+		Inventory.PickupMessage "Picked up a catnip.";
+		Tag "$TAG_ARTISUMMON";
+	}
+	States
+	{
+	Spawn:
+		POSS A -1;
+		stop;
+	Use:
+		TNT1 A 0 A_CatnipCheck();
+		stop;
+	}
+}
+
+extend class PostalCatnip
+{
+	action void A_CatnipCheck()
+	{
+		//let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
+		let player = PostalDude(self);
+		
+		if (player.PlayerData.CatnipInProgress != true)
+		{
+			Player.PlayerData.CatnipInProgress = true;
+			A_GiveInventory("PostalCatnip", 1);
+		}
+		else
+			A_GiveInventory("PostalCatnip", 1);
+	
+	}
+}
+
+
+class CatnipPower : Powerup
+{
+	Default
+	{
+		Powerup.Duration 1575; //2100 is 1 minute
+	}
+}
+
+class CatnipSphere : PowerupGiver
+{
+	Default
+	{
+		+COUNTITEM
+		+VISIBILITYPULSE
+		+ZDOOMTRANS
+		+INVENTORY.AUTOACTIVATE
+		+INVENTORY.ALWAYSPICKUP
+		+INVENTORY.BIGPOWERUP
+		Inventory.MaxAmount 0;
+		Powerup.Type "CatnipPower";
+		Powerup.Color "GreenMap", 0.33333;
+		RenderStyle "Translucent";
+		Inventory.PickupMessage "$GOTINVIS";
+	}
+	States
+	{
+	Spawn:
+		PINS ABCD 6 Bright;
+		Loop;
+	}
+}
+
+class CatnipSmoke : PostalActor
+{
+	override void Tick()
+	{
+		Super.Tick();
+		Thrust(0.04);
+	}
+	
+  Default
+  {
+	  +NOBLOCKMAP
+	  +NOGRAVITY
+	  +PUFFONACTORS
+	  RenderStyle "Translucent";
+	  Alpha 0.5;
+	  Speed 2;
+	  Scale 4;
+	  //SeeSound "FighterAxeHitThing"
+	  //AttackSound "FighterHammerHitWall"
+	  //ActiveSound "FighterHammerMiss"
+  }
+  States
+  {
+  Spawn:
+    CATN ABC 18;
+    Stop;
+  }
+}
+
+
+// ------------------------------------------------------------------------------------------------
+//
+//   A version of PowerTimeFreezer which does not mute sound while in effect.
+//
+// ------------------------------------------------------------------------------------------------
+// Credits: Blue Shadow & Kinsie, thank you!
+// Original thread: https://forum.zdoom.org/viewtopic.php?f=43&t=57013
+
+class SMPowerTimeFreezerSound : PowerTimeFreezer
+{
+	override void InitEffect()
+	{
+		int freezemask;
+
+		Powerup.InitEffect();
+
+		if (Owner == null || Owner.player == null)
+			return;
+
+		// When this powerup is in effect, pause the music.
+		S_PauseSound(true, true);
+
+		// Give the player and his teammates the power to move when time is frozen.
+		freezemask = 1 << Owner.PlayerNumber();
+		Owner.player.timefreezer |= freezemask;
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (playeringame[i] &&
+				players[i].mo != null &&
+				players[i].mo.IsTeammate(Owner)
+			   )
+			{
+				players[i].timefreezer |= freezemask;
+			}
+		}
+
+		// [RH] The effect ends one tic after the counter hits zero, so make
+		// sure we start at an odd count.
+		EffectTics += !(EffectTics & 1);
+		if ((EffectTics & 1) == 0)
+		{
+			EffectTics++;
+		}
+		// Make sure the effect starts and ends on an even tic.
+		if ((level.time & 1) == 0)
+		{
+			level.frozen = true;;
+		}
+		else
+		{
+			// Compensate for skipped tic, but beware of overflow.
+			if(EffectTics < 0x7fffffff)
+				EffectTics++;
+		}
+	}
+
+	override void EndEffect()
+	{
+		Powerup.EndEffect();
+
+		// If there is an owner, remove the timefreeze flag corresponding to
+		// her from all players.
+		if (Owner != null && Owner.player != null)
+		{
+			int freezemask = ~(1 << Owner.PlayerNumber());
+			for (int i = 0; i < MAXPLAYERS; ++i)
+			{
+				players[i].timefreezer &= freezemask;
+			}
+		}
+
+		// Are there any players who still have timefreezer bits set?
+		for (int i = 0; i < MAXPLAYERS; ++i)
+		{
+			if (playeringame[i] && players[i].timefreezer != 0)
+			{
+				return;
+			}
+		}
+
+		// No, so allow other actors to move about freely once again.
+		level.frozen = false;
+
+		// Also, turn the music back on.
+		S_ResumeSound(true);
+	}
+}

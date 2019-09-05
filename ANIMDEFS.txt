@@ -1,0 +1,27 @@
+//texture optional heart1
+//pic heart1 tics 8
+//pic heart2 tics 8
+//pic heart4 tics 8
+//pic heart5 tics 8
+//pic heart6 tics 8
+
+//texture optional heart1
+//pic heart1 tics 8
+//pic heart2 tics 3
+//pic heart4 tics 6
+//pic heart5 tics 3
+//pic heart6 tics 6
+
+//texture optional heart1
+//pic heart1 tics 5
+//pic heart2 tics 3
+//pic heart4 tics 5
+//pic heart5 tics 3
+//pic heart6 tics 5
+
+//texture optional hrt751
+//pic hrt751 tics 6
+//pic hrt752 tics 6
+//pic hrt754 tics 6
+//pic hrt755 tics 6
+//pic hrt756 tics 6

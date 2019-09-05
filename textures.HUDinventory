@@ -1,0 +1,79 @@
+//for 64x64 pictures use 2.6 scaling on both X Y
+//for 256x256 pictures use 10 scaling on both X Y
+
+graphic catinv, 64, 64
+{
+	Graphic catinv,0,0
+	XScale 2.6
+	YScale 2.6
+}
+
+graphic Catnip, 64, 64
+{
+	Graphic Catnip,0,0
+	XScale 2.6
+	YScale 2.6
+}
+
+graphic copinv, 64, 64
+{
+	Graphic copinv,0,0
+	XScale 2.6
+	YScale 2.6
+}
+
+graphic crackinv, 256, 256
+{
+	Graphic crackinv,0,0
+	XScale 10
+	YScale 10
+}
+
+graphic doginv, 256, 256
+{
+	Graphic doginv,0,0
+	XScale 10
+	YScale 10
+}
+
+graphic doughinv, 256, 256
+{
+	Graphic doughinv,0,0
+	XScale 10
+	YScale 10
+}
+
+graphic dudeinv, 64, 64
+{
+	Graphic dudeinv,0,0
+	XScale 2.6
+	YScale 2.6
+}
+
+graphic foodinv, 256, 256
+{
+	Graphic foodinv,0,0
+	XScale 10
+	YScale 10
+}
+
+graphic pizzainv, 256, 256
+{
+	Graphic pizzainv,0,0
+	XScale 10
+	YScale 10
+}
+
+graphic newinv, 256, 256
+{
+	Graphic newinv,0,0
+	XScale 10
+	YScale 10
+}
+
+graphic cashinv, 256, 256
+{
+	Graphic cashinv,0,0
+	XScale 10
+	YScale 10
+}

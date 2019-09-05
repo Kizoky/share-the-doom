@@ -1,0 +1,26 @@
+//NOTE: Using .TGA textures won't work!!!
+//Convert them to .PNG + Change the texture in GZDoom Builder
+
+material texture "textures/building/zo_acebricks.png"
+{
+	normal "materials/normalmaps/zo_acebricks_NRM.png"
+	specular "materials/specular/zo_acebricks_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 2.5
+}
+
+material flat "textures/ground/Ground01Tex.png"
+{
+	normal "materials/normalmaps/Ground01Tex_NRM.png"
+	specular "materials/specular/Ground01Tex_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 2.5
+}
+
+material texture "textures/other/wood-fence-nasty-dark-solid-sw.png"
+{
+	normal "materials/normalmaps/wood-fence-nasty-dark-solid-sw_NRM.png"
+	specular "materials/specular/wood-fence-nasty-dark-solid-sw_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 1.0
+}

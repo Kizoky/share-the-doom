@@ -1,0 +1,517 @@
+class PostalStatusBar : BaseStatusBar
+{
+	HUDFont mHUDFont;
+	HUDFont mAmountFont;
+	HUDFont mDarkerFont;
+	InventoryBarState diparms;
+	double ticsX;
+	double ticsY;
+	double HealthtoAlpha;
+	double CatnipAlpha;
+	
+	double RedSkullAlpha, SkullAlpha;
+	double PainAlpha;
+	
+	double SmokeX;
+	double SmokeY;
+	
+	double SliderX;
+	
+	int extraX;
+	int extraY;
+
+	override void Init()
+	{
+		Super.Init();
+		SetSize(0, 320, 200);
+
+		// Create the font used for the fullscreen HUD
+		Font fnt = "SMASHFONT";
+		
+		mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
+		
+		mAmountFont = HUDFont.Create("SMASHFONT");
+		mDarkerFont = HUDFont.Create("DARKERSMASH");
+		
+		fullscreenOffsets = true;
+		
+		diparms = InventoryBarState.Create();
+	}
+
+	override void Draw (int state, double TicFrac)
+	{
+		Super.Draw (state, TicFrac);
+
+		if (state == HUD_StatusBar)
+		{
+			BeginStatusBar();
+			DrawMainBar (TicFrac);
+		}
+		else if (state == HUD_Fullscreen)
+		{
+			BeginHUD();
+			DrawFullScreenStuff ();
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		PostalDude PPlayer = PostalDude(CPlayer.mo);
+		
+		//console.printf("%d %d", extraX, extraY);
+		
+		double PlayerHealth = CPlayer.mo.Health;
+		
+		double PumpingSpeed = (PlayerHealth / 100000);
+		
+		//Every Tics we'll add these values for the Pumping heart "animation"
+		ticsX = ticsX + 0.0010*4 + abs((-0.001000 + PumpingSpeed));
+		ticsY = ticsY - 0.0009*4 + ((-0.000500 + (PumpingSpeed - 0.000500)) * 4);
+		
+		//Convert the Player's health to double, otherwise it won't work
+		
+		
+		if (PPlayer)
+		{
+			//If catnip is in effect, make the heart pump faster, and set the Yellow heart's alpha so it can be visible
+			if (PPlayer.PlayerData.CatnipInhaleFinished == true)
+			{
+				ticsX = (ticsX + 0.0003*4) * 1.8;
+				ticsY = (ticsY - 0.0002*4) * 1.8;
+				CatnipAlpha = 0.44;
+			}
+			else
+				CatnipAlpha = 0;
+				
+			if (PPlayer.PlayerData.FirstWarning == true && PPlayer.PlayerData.SecondWarning != true && PPlayer != null)
+			{
+				ticsX = (ticsX + 0.0003*4) * 1.05;
+				ticsY = (ticsY - 0.0002*4) * 1.05;
+				SmokeX = 0.10;
+				SmokeY = 0.34;
+				//Console.Printf("First warning");
+			}
+			
+			if (PPlayer.PlayerData.SecondWarning == true && PPlayer.PlayerData.FirstWarning == true && PPlayer != null)
+			{
+				ticsX = (ticsX + 0.0003*4) * 1.35;
+				ticsY = (ticsY - 0.0002*4) * 1.35;
+				SmokeX = 0.14;
+				SmokeY = 0.50;
+				//Console.Printf("Second warning");
+			}
+			
+			if (PPlayer.PlayerData.SecondWarning == false && PPlayer.PlayerData.FirstWarning == false && PPlayer != null)
+			{
+				SmokeX = 0;
+				SmokeY = 0;
+			}
+		}
+		// Pump it up
+		
+		//The trick behind the Reddish heart is just a complete red version of the Heart
+		//We'll draw the Red heart, and assign Alpha to it according to how much health the
+		//Player has.
+		if (20 > PlayerHealth)
+			HealthtoAlpha = 0.75;
+		else
+			HealthtoAlpha = 1.0 - (PlayerHealth / 100);
+		
+		if (CPlayer.mo.Health > 0)
+		{
+			if (-0.12 > ticsY)
+			{
+				ticsX = 0;
+				ticsY = 0;
+			}
+				
+		}
+		
+		//Console.Printf("%f", (abs((-0.001000 + PumpingSpeed))));
+		
+		//if (PPlayer.PlayerData.isinPainCooldown > level.time)
+		//	PainAlpha += 0.05;
+			
+		//if (level.time > PPlayer.PlayerData.isinPainCooldown)
+		//	PainAlpha = 0;
+		
+	}
+	
+	virtual void GetScreenSize()
+	{
+	
+		//Note: There's a much easier way to get screen size, but instead I made it fixed
+		//Worst case scenario someone will have a really weird screen resolution and it will break
+		// ¯\_(ツ)_/¯
+		
+		if (Screen.GetWidth() == 640 && Screen.GetHeight() == 480)
+		{
+			extraX = -10;
+			extraY = 40;
+		}
+		if (Screen.GetWidth() == 1024 && Screen.GetHeight() == 768)
+		{
+			extraX = -5;
+			extraY = -255;
+		}
+		if (Screen.GetWidth() == 1280 && Screen.GetHeight() == 960)
+		{
+			extraX = -5;
+			extraY = 30;
+		}
+		if (Screen.GetWidth() == 1600 && Screen.GetHeight() == 1200)
+		{
+			extraX = -10;
+			extraY = -85;
+		}
+		if (Screen.GetWidth() == 1280 && Screen.GetHeight() == 1024)
+		{
+			extraX = -10;
+			extraY = 0;
+		}
+		if (Screen.GetWidth() == 960 && Screen.GetHeight() == 540)
+		{
+			extraX = -10;
+			extraY = 0;
+		}
+		if (Screen.GetWidth() == 1280 && Screen.GetHeight() == 720)
+		{
+			extraX = -10;
+			extraY = -200;
+		}
+		if (Screen.GetWidth() == 1366 && Screen.GetHeight() == 768)
+		{
+			extraX = -15;
+			extraY = -240;
+		}
+		if (Screen.GetWidth() == 2560 && Screen.GetHeight() == 1440)
+		{
+			extraX = -15;
+			extraY = -15;
+		}
+		if (Screen.GetWidth() == 3840 && Screen.GetHeight() == 2160)
+		{
+			extraX = -15;
+			extraY = -15;
+		}
+		if (Screen.GetWidth() == 960 && Screen.GetHeight() == 600)
+		{
+			extraX = -15;
+			extraY = -85;
+		}
+		if (Screen.GetWidth() == 1280 && Screen.GetHeight() == 800)
+		{
+			extraX = -5;
+			extraY = 105;
+		}
+		if (Screen.GetWidth() == 1440 && Screen.GetHeight() == 900)
+		{
+			extraX = -5;
+			extraY = 60;
+		}
+		if (Screen.GetWidth() == 1680 && Screen.GetHeight() == 1050)
+		{
+			extraX = -5;
+			extraY = 0;
+		}
+		if (Screen.GetWidth() == 1920 && Screen.GetHeight() == 1200)
+		{
+			extraX = -5;
+			extraY = 0;
+		}
+		if (Screen.GetWidth() == 1920 && Screen.GetHeight() == 1080)
+		{
+			extraX = 0;
+			extraY = 0;
+		}
+	
+	}
+	
+	protected void DrawMainBar (double TicFrac)
+	{
+		PostalDude PPlayer = PostalDude(CPlayer.mo);
+		
+		fullscreenOffsets = true;
+		
+		if (!(CheckInventory("HUDViewable"))) return;
+		
+		//Note, this is in DrawMainBar just for "live preview"
+		
+		GetScreenSize();
+		
+		//cvar extraXcvar = cvar.findcvar("postalUI_X");
+		//int extraX2 = (extraXcvar.GetInt ());
+		//extraX = extraX2;
+		
+		//cvar extraYcvar = cvar.findcvar("postalUI_Y");
+		//int extraY2 = (extraYcvar.GetInt ());
+		//extraY = extraY2;
+		
+		//vector2 diff = (pos.xy
+		
+		if (PPlayer)
+		{
+			
+			if (PPlayer.isonFire == true)
+			{
+				//Console.Printf("You are now on fire. .... .... .... Do something..?");
+			}
+			
+			if (PPlayer.Map == true)
+			{
+				if (level.mapname == "devmap")
+				{
+					DrawImage("devmap", (450, 270), DI_ITEM_CENTER, 1, (-1, -1), (0.75, 0.75));
+					DrawImage("arrow", (410+(PPlayer.pos.x/35), 300+(-PPlayer.pos.y/35)), DI_ITEM_CENTER, 1, (-1, -1), (0.75, 0.75));
+				}
+				else
+					Console.Printf("Enable it on devmap please!");
+			}
+			
+			double PunishPoints = PPlayer.PunishPoints;
+			
+			//Console.Printf("PunishPoints: %d", PunishPoints);
+			
+			SliderX = PunishPoints;
+			
+			if (PunishPoints > 0)
+			{
+				DrawImage("ICNCP", (-42+extraX, -200+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.75, 0.75));
+				DrawImage("ICNSLD", (-57+extraX+SliderX+SliderX, -181+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.75+SliderX, 0.75));
+			}
+		}
+		//if (SliderX > 8)
+		//	SliderX = 0;
+		
+		//Draw heart splats to the screen
+		DrawImage("blsplt1", (-45+extraX, -450+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.75, 0.75));
+		DrawImage("blsplt2", (-45+extraX, -360+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.75, 0.75));
+		DrawImage("blsplt3", (-45+extraX, -270+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.75, 0.75));
+		
+		//Draw currently selected Weapon's ammo to the screen
+		Inventory SelectedWeaponAmmo = GetCurrentAmmo();
+		if (SelectedWeaponAmmo != null)
+		{
+			DrawString(mDarkerFont, FormatNumber(SelectedWeaponAmmo.Amount, 4), (-9+extraX, -439+extraY), DI_TEXT_ALIGN_RIGHT);
+			DrawString(mAmountFont, FormatNumber(SelectedWeaponAmmo.Amount, 4), (-10+extraX, -440+extraY), DI_TEXT_ALIGN_RIGHT);
+		}
+		
+		//Only draw the Pumping heart when the Player has more than 0 Health
+		if (CPlayer.mo.Health > 0)
+		{
+			DrawImage ("heart1", (-43+extraX, -281+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.75+ticsX+SmokeX, 0.75+ticsY+SmokeX));
+			
+			DrawImage ("heart7", (-43+extraX, -281+extraY), DI_ITEM_CENTER, HealthtoAlpha, (-1, -1), (0.75+ticsX+SmokeX, 0.75+ticsY+SmokeY));
+			
+			DrawImage ("heart8", (-43+extraX, -281+extraY), DI_ITEM_CENTER, CatnipAlpha, (-1, -1), (0.75+ticsX+SmokeX, 0.75+ticsY+SmokeY));
+			
+			//Check if the Player is in Pain state, if yes the Skull gets drawn
+			if (PPlayer)
+			{
+				if (PPlayer.isinPain == true)
+				{
+					DrawImage ("YourDead", (-465+extraX, -275+extraY), DI_ITEM_CENTER, (HealthtoAlpha-0.65)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1, 1));
+					DrawImage ("YourRed", (-465+extraX, -275+extraY), DI_ITEM_CENTER, (HealthtoAlpha-0.60)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1, 1));
+				}
+			}
+			
+			DrawString(mDarkerFont, FormatNumber(CPlayer.health, 3), (-9+extraX, -257+extraY), DI_TEXT_ALIGN_RIGHT);
+			DrawString(mAmountFont, FormatNumber(CPlayer.health, 3), (-10+extraX, -258+extraY), DI_TEXT_ALIGN_RIGHT);
+			
+			//todo: Armor is not yet implemented
+			let armor = CPlayer.mo.FindInventory("BasicArmor");
+			if (armor != null && armor.Amount > 0)
+			{
+				DrawString(mDarkerFont, FormatNumber(GetArmorAmount(), 3), (-54+extraX, -252+extraY), DI_TEXT_ALIGN_RIGHT);
+				DrawString(mAmountFont, FormatNumber(GetArmorAmount(), 3), (-55+extraX, -253+extraY), DI_TEXT_ALIGN_RIGHT);
+				if (CheckInventory("PostalBrownKevlar_X"))
+					DrawImage ("icnbrwn", (-67+extraX, -273+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.15, 0.15));
+				if (CheckInventory("PostalBlueKevlar_X"))
+					DrawImage ("icnarmor", (-67+extraX, -273+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.15, 0.15));
+			}
+		
+		}
+		else
+			{
+				DrawImage ("heart1", (-43+extraX, -281+extraY), DI_ITEM_CENTER, 1, (-1, -1), (0.75, 0.75));
+				DrawImage ("heart7", (-43+extraX, -281+extraY), DI_ITEM_CENTER, 0.80, (-1, -1), (0.75, 0.75));
+			}
+			
+			
+		// ---- ---------------Draw weapon icons
+		// 256x256 weapon icons
+		double Sfirst = -70+extraX;
+		double Ssecond = -487+extraY;
+		// 512x256 weapon icons
+		double Bfirst = -80+extraX;
+		double Bsecond = -479+extraY;
+		
+		if (CheckWeaponSelected("PostDebug")) // 256x256
+			DrawImage("ICNDBG", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		
+		if (CheckWeaponSelected("PostHands")) // 256x256
+			DrawImage("emptyh", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostShovel")) // 512x256
+			DrawImage("ICNSHVL", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostPistol")) // 256x256
+			DrawImage("ICNPSTL", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostShotgun")) // 512x256
+			DrawImage("ICNSHTG", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostMachete")) // 512x256
+			DrawImage("ICNMCHT", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostSledge")) // 512x256
+			DrawImage("ICNSLDG", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostM16")) // 512x256
+			DrawImage("ICNMCHN", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostRLauncher")) // 512x256
+			DrawImage("ICNRL", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostClipboard")) // 256x256
+			DrawImage("ICNCLP", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostUrethra")) // 128x256
+			DrawImage("zipper", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostGrenade")) // 256x256
+			DrawImage("ICNGRND", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		//if (CheckWeaponSelected("PostBetaShotgun")) // 256x256
+		//	DrawImage("ICNBSHT", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostMatchbox")) // 256x256
+			DrawImage("ICNMTCH", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostCowhead")) // 256x256
+			DrawImage("ICNCOW", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostGascan")) // 256x256
+			DrawImage("ICNGAS", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostMolotov")) // 256x256
+			DrawImage("ICNMLTV", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostNapalmLauncher")) // 512x256
+			DrawImage("ICNNAPM", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostRifle")) // 512x256
+			DrawImage("ICNRIFL", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostBaton")) // 512x256
+			DrawImage("ICNBATN", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostScissors")) // 256x256
+			DrawImage("ICNSISS", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostTazer")) // 256x256
+			DrawImage("ICNTASR", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		if (CheckWeaponSelected("PostScythe")) // 512x256
+			DrawImage("ICNSYTH", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+		if (CheckWeaponSelected("PostWMD")) // 128x64
+			DrawImage("ICNWMD", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.50, 0.50));
+		
+			
+		
+		//Draw the Inventory icon + amount
+		if (CPlayer.mo.InvSel != null && !Level.NoInventoryBar)
+		{
+			DrawInventoryIcon(CPlayer.mo.InvSel, (-45+extraX, -374+extraY), DI_ITEM_CENTER, 1.0, (-1, -1), (1.85,1.85));
+			if (CPlayer.mo.InvSel.Amount > 1)
+			{
+				DrawString(mDarkerFont, FormatNumber(CPlayer.mo.InvSel.Amount), (-9+extraX, -349+extraY), DI_TEXT_ALIGN_RIGHT);
+				DrawString(mAmountFont, FormatNumber(CPlayer.mo.InvSel.Amount), (-10+extraX, -350+extraY), DI_TEXT_ALIGN_RIGHT);
+			}
+		}
+		
+	}
+
+	protected void DrawFullScreenStuff ()
+	{
+		
+		if (!(CheckInventory("HUDViewable"))) return;
+		
+		Vector2 iconbox = (40, 20);
+		// Draw health
+		
+		//Draw the Player's health to the screen and the Heart
+		//Every Tics we'll add these values for the Pumping heart "animation"
+		//ticsX = ticsX + 0.0003*4;
+		//ticsY = ticsY - 0.0002*4;
+		
+		//Convert the Player's health to double, otherwise it won't work
+		double PlayerHealth = CPlayer.mo.Health;
+		
+		//The trick behind the Reddish heart is just a complete red version of the Heart
+		//We'll draw the Red heart, and assign Alpha to it according to how much health the
+		//Player has.
+		if (20 > PlayerHealth)
+			HealthtoAlpha = 0.75;
+		else
+			HealthtoAlpha = 1.0 - (PlayerHealth / 100);
+		
+		//Only draw the Pumping heart when the Player has more than 0 Health
+		if (CPlayer.mo.Health > 0)
+		{
+			DrawImage ("heart1", (146, -14), DI_ITEM_CENTER, 1, (-1, -1), (0.35+ticsX, 0.35+ticsY));
+			DrawImage ("heart7", (146, -14), DI_ITEM_CENTER, HealthtoAlpha, (-1, -1), (0.35+ticsX, 0.35+ticsY));
+			
+			//double PumpingSpeed = (PlayerHealth / 1000);
+			if (-0.08 > ticsY)
+			{
+				ticsX = 0;
+				ticsY = 0;
+			}
+			
+		}
+		
+		
+		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (154, -20));
+		
+		let armor = CPlayer.mo.FindInventory("BasicArmor");
+		if (armor != null && armor.Amount > 0)
+		{
+			if (CheckInventory("PostalBrownKevlar_X"))
+				DrawImage ("icnbrwn", (20, -15), DI_ITEM_CENTER, 1, (-1, -1), (0.11, 0.11));
+			if (CheckInventory("PostalBlueKevlar_X"))
+				DrawImage ("icnarmor", (20, -15), DI_ITEM_CENTER, 1, (-1, -1), (0.11, 0.11));
+			
+			DrawString(mHUDFont, FormatNumber(armor.Amount, 3), (34, -20));
+		}
+		Inventory ammotype1, ammotype2;
+		[ammotype1, ammotype2] = GetCurrentAmmo();
+		
+		int invY = -20;
+		
+		//left - right || up - down
+		if (CheckWeaponSelected("PostHands")) // 256x256
+				DrawImage("emptyh", (-25, -28), DI_ITEM_OFFSETS, 1, (-1, -1), (0.10, 0.10));
+		invY -= 20;
+		
+		//These weapons doesn't have ammo counters
+		if (CheckWeaponSelected("PostShovel")) // 512x256
+			DrawImage("ICNSHVL", (-37, -22), DI_ITEM_OFFSETS, 1, (-1, -1), (0.07, 0.07));
+		if (CheckWeaponSelected("PostMachete")) // 512x256
+			DrawImage("ICNMCHT", (-37, -22), DI_ITEM_OFFSETS, 1, (-1, -1), (0.07, 0.07));
+		if (CheckWeaponSelected("PostSledge")) // 512x256
+			DrawImage("ICNSLDG", (-37, -22), DI_ITEM_OFFSETS, 1, (-1, -1), (0.07, 0.07));
+		if (CheckWeaponSelected("PostBaton")) // 512x256
+			DrawImage("ICNBATN", (-37, -22), DI_ITEM_OFFSETS, 1, (-1, -1), (0.07, 0.07));
+		if (CheckWeaponSelected("PostScythe")) // 512x256
+			DrawImage("ICNSYTH", (-37, -22), DI_ITEM_OFFSETS, 1, (-1, -1), (0.07, 0.07));
+		
+		if (ammotype1 != null)
+		{
+			//DrawInventoryIcon(ammotype1, (-14, -4));
+			if (CheckWeaponSelected("PostPistol")) // 256x256
+				DrawImage("ICNPSTL", (-30, -30), DI_ITEM_OFFSETS, 1, (-1, -1), (0.12, 0.12));
+			if (CheckWeaponSelected("PostShotgun")) // 512x256
+				DrawImage("ICNSHTG", (-37, -22), DI_ITEM_OFFSETS, 1, (-1, -1), (0.07, 0.07));
+			
+			DrawString(mHUDFont, FormatNumber(ammotype1.Amount, 3), (-30, -20), DI_TEXT_ALIGN_RIGHT);
+		}
+		if (ammotype2 != null && ammotype2 != ammotype1)
+		{
+			DrawInventoryIcon(ammotype2, (-14, invY + 17));
+			DrawString(mHUDFont, FormatNumber(ammotype2.Amount, 3), (-30, invY), DI_TEXT_ALIGN_RIGHT);
+			invY -= 20;
+		}
+		if (!isInventoryBarVisible() && !Level.NoInventoryBar && CPlayer.mo.InvSel != null)
+		{
+			DrawInventoryIcon(CPlayer.mo.InvSel, (-14, invY + 17));
+			DrawString(mHUDFont, FormatNumber(CPlayer.mo.InvSel.Amount, 3), (-30, invY), DI_TEXT_ALIGN_RIGHT);
+		}
+		
+		if (isInventoryBarVisible())
+		{
+			DrawInventoryBar(diparms, (0, 0), 7, DI_SCREEN_CENTER_BOTTOM, HX_SHADOW);
+		}
+	}
+}

@@ -1,0 +1,172 @@
+class PostalActor : Actor { }
+class PostalInventory : Inventory { }
+
+extend class PostalActor
+{
+	Actor AnnoyingFire;
+	
+	
+	/*
+	Override void Die(Actor source, Actor inflictor, int dmgflags, Name MeansOfDeath)
+	{
+		if (source == null) 
+			return Super.Die(source, inflictor, dmgflags, MeansOfDeath);
+	
+		if (source.player)
+		{
+			let PDude = PostalDude(source);
+			
+			// A Dead man never says cruel words!
+			if (PDude != null && !(PDude.bKILLED))
+				PDude.InitLine = true;
+		}
+		
+		Super.Die(source, inflictor, dmgflags);
+	}
+	*/
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (self is 'PostalZombieMan')
+		{
+			bSPECIAL = true;
+			bPICKUP = true;
+			bFLOORCLIP = true;
+		}
+	}
+	
+	action void A_CheckForTargets()
+	{
+		//many thanks to phantombeta!!
+		double fov = 110; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+
+			if (!next.bShootable || next.bKilled || next.health < 1)
+			{
+				continue;
+			}
+
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
+
+			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				continue;
+
+			// Do things with the "next" pointer here
+
+							if (next is 'NPCCore' || next is 'Champ' || next is 'PostalCatInv')
+							{
+								A_PlaySound(SeeSound);
+								target = next;
+								SetStateLabel("See");
+							}
+							
+							//Imo, this isn't much different from A_Look, but we do this anyway
+							if (next is 'PostalDude')
+							{
+								let PlayerDude = PostalDude(next);
+								if (PlayerDude.PlayerData.P_NoTarget != true)
+								{
+									A_PlaySound(SeeSound);
+									target = next;
+									SetStateLabel("See");
+								}
+							}
+						
+						}
+		}
+		
+		virtual void A_PlaySelfSound() { A_PlaySound(SeeSound); }
+			
+			
+}
+
+
+extend class PostalInventory
+{
+	override void Touch (Actor toucher)
+	{
+		if (toucher is 'PostalDude')
+		{
+		
+			let player = toucher.player;
+
+			// If a voodoo doll touches something, pretend the real player touched it instead.
+			if (player != NULL)
+			{
+				toucher = player.mo;
+			}
+
+			//bool localview = toucher.CheckLocalView();
+
+			//if (!toucher.CanTouchItem(self))
+			//	return;
+
+			bool res;
+			[res, toucher] = CallTryPickup(toucher);
+			if (!res) return;
+
+			// This is the only situation when a pickup flash should ever play.
+			if (PickupFlash != NULL && !ShouldStay())
+			{
+				Spawn(PickupFlash, Pos, ALLOW_REPLACE);
+			}
+
+			if (!bQuiet)
+			{
+				//PrintPickupMessage(localview, PickupMessage ());
+
+				// Special check so voodoo dolls picking up items cause the
+				// real player to make noise.
+				if (player != NULL)
+				{
+					PlayPickupSound (player.mo);
+					if (!bNoScreenFlash)
+					{
+						player.bonuscount = BONUSADD;
+					}
+				}
+				else
+				{
+					PlayPickupSound (toucher);
+				}
+			}							
+
+			// [RH] Execute an attached special (if any)
+			DoPickupSpecial (toucher);
+
+			if (bCountItem)
+			{
+				if (player != NULL)
+				{
+					player.itemcount++;
+				}
+				level.found_items++;
+			}
+
+			if (bCountSecret)
+			{
+				Actor ac = player != NULL? Actor(player.mo) : toucher;
+				ac.GiveSecret(true, true);
+			}
+
+			//Added by MC: Check if item taken was the roam destination of any bot
+			for (int i = 0; i < MAXPLAYERS; i++)
+			{
+				if (players[i].Bot != NULL && self == players[i].Bot.dest)
+					players[i].Bot.dest = NULL;
+			}
+		
+		}
+	}
+
+
+
+}

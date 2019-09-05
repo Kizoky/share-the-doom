@@ -1,0 +1,4 @@
+STARTUPTITLE = "POSTAL 2: Share the Doom"
+STARTUPCOLORS = "00 00 00", "AA 00 00"
+StartupType = "Hexen"
+StartupSong = "Homestuck.wav"

@@ -1,0 +1,8 @@
+//assuming the Target of the head is the body, set through the A_SpawnItemEx flag
+Override void tick()
+{
+super.tick();
+SetOrigin(target.pos, TRUE);
+SetAngle(target.angle, SPF_INTERPOLATE);
+SetPitch(target.pitch,SPF_INTERPOLATE); 
+}

@@ -1,0 +1,310 @@
+Model "Champ"
+{
+	Path "models\animals"
+	Model 0 "Dog.md3"
+	SurfaceSkin 0 0 "textures/Dog.png"
+	SurfaceSkin 0 1 "textures/Dog.png"
+	SurfaceSkin 0 2 "textures/Dog.png"
+	AngleOffset -90
+	Scale -1.75 -1.75 1.75
+	Offset 0.0 6.5 0 //X Y Z
+
+	// Bitey 173 to 211
+	
+	FrameIndex DOGA A 0 173
+	FrameIndex DOGA B 0 175
+	FrameIndex DOGA C 0 177
+	FrameIndex DOGA D 0 179
+	FrameIndex DOGA E 0 181
+	FrameIndex DOGA F 0 183
+	FrameIndex DOGA G 0 185
+	FrameIndex DOGA H 0 187
+	FrameIndex DOGA I 0 189
+	FrameIndex DOGA J 0 191
+	FrameIndex DOGA K 0 193
+	FrameIndex DOGA L 0 195
+	FrameIndex DOGA M 0 197
+	FrameIndex DOGA N 0 199
+	FrameIndex DOGA O 0 201
+	FrameIndex DOGA P 0 203
+	FrameIndex DOGA Q 0 205
+	FrameIndex DOGA R 0 207
+	FrameIndex DOGA S 0 209
+	FrameIndex DOGA T 0 211
+	FrameIndex DOGA U 0 212
+	
+	// Noodle Dog 213 to 235
+	
+	FrameIndex DOGD A 0 213
+	FrameIndex DOGD B 0 215
+	FrameIndex DOGD C 0 217
+	FrameIndex DOGD D 0 219
+	FrameIndex DOGD E 0 221
+	FrameIndex DOGD F 0 223
+	FrameIndex DOGD G 0 225
+	FrameIndex DOGD H 0 227
+	FrameIndex DOGD I 0 229
+	FrameIndex DOGD J 0 231
+	FrameIndex DOGD K 0 233
+	FrameIndex DOGD L 0 235
+	
+	// Wandering Champ 236 to 268
+	
+	FrameIndex DOGW A 0 236
+	FrameIndex DOGW B 0 238
+	FrameIndex DOGW C 0 240
+	FrameIndex DOGW D 0 242
+	FrameIndex DOGW E 0 244
+	FrameIndex DOGW F 0 246
+	FrameIndex DOGW G 0 248
+	FrameIndex DOGW H 0 250
+	FrameIndex DOGW I 0 252
+	FrameIndex DOGW J 0 254
+	FrameIndex DOGW K 0 256
+	FrameIndex DOGW L 0 258
+	FrameIndex DOGW M 0 260
+	FrameIndex DOGW N 0 262
+	FrameIndex DOGW O 0 264
+	FrameIndex DOGW P 0 266
+	FrameIndex DOGW Q 0 268
+	
+	// Running doge 269 to 288
+	
+	FrameIndex DOGR A 0 269
+	FrameIndex DOGR B 0 270
+	FrameIndex DOGR C 0 271
+	FrameIndex DOGR D 0 272
+	FrameIndex DOGR E 0 273
+	FrameIndex DOGR F 0 274
+	FrameIndex DOGR G 0 275
+	FrameIndex DOGR H 0 276
+	FrameIndex DOGR I 0 277
+	FrameIndex DOGR J 0 278
+	FrameIndex DOGR K 0 279
+	FrameIndex DOGR L 0 280
+	FrameIndex DOGR M 0 281
+	FrameIndex DOGR N 0 282
+	FrameIndex DOGR O 0 283
+	FrameIndex DOGR P 0 284
+	FrameIndex DOGR Q 0 285
+	FrameIndex DOGR R 0 286
+	FrameIndex DOGR S 0 287
+	FrameIndex DOGR T 0 288
+	
+	// Watchful boy 289 to 431
+	
+	FrameIndex DOGI A 0 289
+	FrameIndex DOGI A 0 291
+	FrameIndex DOGI B 0 293
+	FrameIndex DOGI C 0 295
+	FrameIndex DOGI D 0 297
+	FrameIndex DOGI E 0 299
+	FrameIndex DOGI F 0 301
+	FrameIndex DOGI G 0 303
+	FrameIndex DOGI H 0 305
+	FrameIndex DOGI I 0 307
+	FrameIndex DOGI J 0 309
+	FrameIndex DOGI K 0 311
+	FrameIndex DOGI L 0 313
+	FrameIndex DOGI M 0 315
+	FrameIndex DOGI N 0 317
+	FrameIndex DOGI O 0 319
+	FrameIndex DOGI P 0 321
+	FrameIndex DOGI Q 0 323
+	FrameIndex DOGI R 0 325
+	FrameIndex DOGI S 0 327
+	FrameIndex DOGI T 0 329
+	FrameIndex DOGI U 0 331
+	FrameIndex DOGI V 0 333
+	FrameIndex DOGI W 0 335
+	FrameIndex DOGI X 0 337
+	FrameIndex DOGI Y 0 339
+	FrameIndex DOGI Z 0 341
+	
+	
+	// BARK BARK BARK 432 to 463
+	// Note: It's commented out because it is currently unused
+	
+	FrameIndex DOGB A 0 432
+	FrameIndex DOGB B 0 434
+	FrameIndex DOGB C 0 436
+	FrameIndex DOGB D 0 438
+	FrameIndex DOGB E 0 440
+	FrameIndex DOGB F 0 442
+	FrameIndex DOGB G 0 444
+	FrameIndex DOGB H 0 446
+	FrameIndex DOGB I 0 448
+	FrameIndex DOGB J 0 450
+	FrameIndex DOGB K 0 452
+	FrameIndex DOGB L 0 454
+	FrameIndex DOGB M 0 456
+	FrameIndex DOGB N 0 458
+	FrameIndex DOGB O 0 460
+	FrameIndex DOGB P 0 462
+	FrameIndex DOGB Q 0 463
+	
+}
+
+Model "PostalCatInv"
+{
+	Path "models\animals"
+	Model 0 "Cat.md3"
+	SurfaceSkin 0 0 "textures/Cat_Orange.tga"
+	AngleOffset -90
+	Scale -0.60 -0.60 0.60
+	Offset 0.0 6.5 0 //X Y Z
+
+	// Running 91-109
+	
+	FrameIndex CATR A 0 91 
+	FrameIndex CATR B 0 92 
+	FrameIndex CATR C 0 93 
+	FrameIndex CATR D 0 94 
+	FrameIndex CATR E 0 95 
+	FrameIndex CATR F 0 96 
+	FrameIndex CATR G 0 97 
+	FrameIndex CATR H 0 98 
+	FrameIndex CATR I 0 99 
+	FrameIndex CATR J 0 100
+	FrameIndex CATR K 0 101
+	FrameIndex CATR L 0 102
+	FrameIndex CATR M 0 103
+	FrameIndex CATR N 0 104
+	FrameIndex CATR O 0 105
+	FrameIndex CATR P 0 106
+	FrameIndex CATR Q 0 107
+	FrameIndex CATR R 0 108
+	FrameIndex CATR S 0 109
+	
+	// Walking 1105-1136
+	
+	FrameIndex CATW A 0 1105
+	FrameIndex CATW B 0 1107
+	FrameIndex CATW C 0 1109
+	FrameIndex CATW D 0 1111
+	FrameIndex CATW E 0 1113
+	FrameIndex CATW F 0 1115
+	FrameIndex CATW G 0 1117
+	FrameIndex CATW H 0 1119
+	FrameIndex CATW I 0 1121
+	FrameIndex CATW J 0 1123
+	FrameIndex CATW K 0 1125
+	FrameIndex CATW L 0 1127
+	FrameIndex CATW M 0 1129
+	FrameIndex CATW N 0 1131
+	FrameIndex CATW O 0 1133
+	FrameIndex CATW P 0 1135
+	FrameIndex CATW Q 0 1136
+	
+	// Flying cat/Pickup inventory 1075-1104
+	
+	/*FrameIndex CATA A 0 1075
+	FrameIndex CATA B 0 1077
+	FrameIndex CATA C 0 1079
+	FrameIndex CATA D 0 1081
+	FrameIndex CATA E 0 1083
+	FrameIndex CATA F 0 1085
+	FrameIndex CATA G 0 1087
+	FrameIndex CATA H 0 1089
+	FrameIndex CATA I 0 1091
+	FrameIndex CATA J 0 1093
+	FrameIndex CATA K 0 1095
+	FrameIndex CATA L 0 1097
+	FrameIndex CATA M 0 1099
+	FrameIndex CATA N 0 1101
+	FrameIndex CATA O 0 1103
+	FrameIndex CATA P 0 1104*/
+	
+	// Death 1406-1477
+	
+	FrameIndex CATD A 0 1406
+	FrameIndex CATD B 0 1408
+	FrameIndex CATD C 0 1410
+	FrameIndex CATD D 0 1412
+	FrameIndex CATD E 0 1414
+	FrameIndex CATD F 0 1416
+	FrameIndex CATD G 0 1418
+	FrameIndex CATD H 0 1420
+	FrameIndex CATD I 0 1422
+	FrameIndex CATD J 0 1424
+	FrameIndex CATD K 0 1426
+	FrameIndex CATD L 0 1428
+	FrameIndex CATD M 0 1430
+	FrameIndex CATD N 0 1432
+	FrameIndex CATD O 0 1434
+	FrameIndex CATD P 0 1436
+	FrameIndex CATD Q 0 1438
+	FrameIndex CATD R 0 1440
+	FrameIndex CATD S 0 1442
+	FrameIndex CATD T 0 1444
+	FrameIndex CATD U 0 1446
+	FrameIndex CATD V 0 1448
+	FrameIndex CATD W 0 1450
+	FrameIndex CATD X 0 1452
+	FrameIndex CATD Y 0 1454
+	FrameIndex CATD Z 0 1456
+	
+	// Hiss 1034-1074
+	
+	FrameIndex HISS A 0 1034
+	FrameIndex HISS B 0 1036
+	FrameIndex HISS C 0 1038
+	FrameIndex HISS D 0 1040
+	FrameIndex HISS E 0 1042
+	FrameIndex HISS F 0 1044
+	FrameIndex HISS G 0 1046
+	FrameIndex HISS H 0 1048
+	FrameIndex HISS I 0 1050
+	FrameIndex HISS J 0 1052
+	FrameIndex HISS K 0 1054
+	FrameIndex HISS L 0 1056
+	FrameIndex HISS M 0 1058
+	FrameIndex HISS N 0 1060
+	FrameIndex HISS O 0 1062
+	FrameIndex HISS P 0 1064
+	FrameIndex HISS Q 0 1066
+	FrameIndex HISS R 0 1068
+	FrameIndex HISS S 0 1070
+	FrameIndex HISS T 0 1072
+	FrameIndex HISS U 0 1074
+	
+}
+
+Model "PostalDeadCat"
+{
+	Path "models\animals"
+	Model 0 "Cat.md3"
+	SurfaceSkin 0 0 "textures/Cat_Orange.tga"
+	AngleOffset -90
+	Scale -0.60 -0.60 0.60
+	Offset 0.0 6.5 0 //X Y Z
+	
+		// Death 1406-1477
+	
+	FrameIndex CATD A 0 1406
+	FrameIndex CATD B 0 1408
+	FrameIndex CATD C 0 1410
+	FrameIndex CATD D 0 1412
+	FrameIndex CATD E 0 1414
+	FrameIndex CATD F 0 1416
+	FrameIndex CATD G 0 1418
+	FrameIndex CATD H 0 1420
+	FrameIndex CATD I 0 1422
+	FrameIndex CATD J 0 1424
+	FrameIndex CATD K 0 1426
+	FrameIndex CATD L 0 1428
+	FrameIndex CATD M 0 1430
+	FrameIndex CATD N 0 1432
+	FrameIndex CATD O 0 1434
+	FrameIndex CATD P 0 1436
+	FrameIndex CATD Q 0 1438
+	FrameIndex CATD R 0 1440
+	FrameIndex CATD S 0 1442
+	FrameIndex CATD T 0 1444
+	FrameIndex CATD U 0 1446
+	FrameIndex CATD V 0 1448
+	FrameIndex CATD W 0 1450
+	FrameIndex CATD X 0 1452
+	FrameIndex CATD Y 0 1454
+	FrameIndex CATD Z 0 1456
+}

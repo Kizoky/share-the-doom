@@ -1,0 +1,268 @@
+class Champ : PostalActor
+{
+	Actor staringAt;
+	bool isFriendly, Stare, HitOnce, TargetDead, Busy;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		TargetDead = True;
+		Busy = false;
+	}
+	
+	Default
+	{
+		//$Category NPCs
+		//$Title "Champ"
+		//$Sprite DOGIA0
+		Health 150;
+		PainChance 256;
+		Speed 4;
+		Radius 30;
+		Height 56;
+		Mass 400;
+		Monster;
+		+FLOORCLIP
+		+SPECIAL
+		-FRIENDLY
+		+INTERPOLATEANGLES
+		+SOLID
+		+SHOOTABLE
+		+DROPOFF
+		+NOTDMATCH
+		+SLIDESONWALLS
+		+CANPASS
+		+CANPUSHWALLS
+		+FLOORCLIP
+		+WINDTHRUST
+		+TELESTOMP
+		+NOBLOCKMONST
+		-COUNTKILL
+		SeeSound "dogsight";
+		AttackSound "dogattack";
+		PainSound "doghit";
+		DeathSound "";
+		ActiveSound "";
+		Obituary "%o tried to headpat Champ.";
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		{
+			A_ClearTarget();
+			bFRIENDLY = FALSE;
+			bFRIENDLY = TRUE;
+			bFRIENDLY = FALSE;
+			bSOLID = True; // We don't want ghost Champs
+			//A_DogThink();
+		}
+		DOGW ABCDEFGHIJKLMN 3 A_Wander(flags: CHF_STOPIFBLOCKED);
+		TNT1 A 0 A_DogThink();
+		Loop;
+	StaringCat:
+		TNT1 A 0
+		{
+			Busy = true;
+			
+			if (hitOnce == true)
+				SetStateLabel("See");
+			else
+			{
+				//Our target is the fool that bumped into us
+				//target = staringAt;
+				A_PlaySound("dogsight",0);
+			}
+		}
+		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		TNT1 A 0
+		{
+			A_PlaySound("dogattack2",0);
+			
+			if (target is 'PostalCatInv')
+			{
+				let p = PostalCatInv(target);
+				
+				p.target = self;
+				p.DogSee = true;
+			}
+			
+		}
+		DOGB ABCDEFGHIJKLMNOPQ 3;
+		//Champ/Dogs in Postal 2 looks straight ahead, while their idling anim is looping
+		Goto See;
+	Staring:
+		TNT1 A 0
+		{
+			Busy = true;
+			
+			if (hitOnce == true)
+				SetStateLabel("See");
+			else
+			{
+				//Our target is the fool that bumped into us
+				staringAt = target;
+				A_PlaySound("dogsight",0);
+			}
+		}
+		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		//Champ/Dogs in Postal 2 looks straight ahead, while their idling anim is looping
+		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
+		TNT1 A 0
+		{
+			//Clear our target, so we won't be going after it
+			Stare = false;
+			A_ClearTarget();
+			
+			if (staringAt != target)
+				A_ClearTarget();
+				
+			Busy = false;
+		}
+		Goto Spawn;
+	See:
+		TNT1 A 0 { bSOLID = True; target = staringAt; Busy = True;} //We don't want ghost Champs
+		DOGR ABCDEFGHIJKLM 2 Fast A_Chase();
+		TNT1 A 0
+		{
+			//If our target got killed, do the following
+			if (target.bKILLED && target != null) 
+			{
+				//Console.Printf("Target killed");
+				A_ClearTarget();
+				bFRIENDLY = TRUE;
+				HitOnce = false;
+				TargetDead = True;
+				Busy = false;
+				Speed = Default.Speed;
+				SetStateLabel("Spawn");
+			}
+			
+			//return ResolveState(null);
+		}
+		Loop;
+	Melee:
+		TNT1 A 0
+		{
+			bSOLID = False;
+			A_FaceTarget();
+			Thrust(10);
+		}
+		DOGA ABC 2 Fast A_FaceTarget;
+		TNT1 A 0 A_ChampAttack();
+		DOGA DEFGHIJKLMNOPQR 2 Fast;
+		TNT1 A 0 { bSOLID = True; }
+		Goto See;
+	Pain:
+		//Needed for void Touch, because it can clear Target
+		TNT1 A 0 { HitOnce = true; Busy = true; }
+		DOGR B 2 Fast;
+		DOGR B 2 Fast A_Pain;
+		Goto See;
+	Death:
+		DOGD ABC 8;
+		DOGD DEF 8 A_Scream;
+		DOGD GHI 4;
+		DOGD I 4 A_NoBlocking;
+		DOGD I -1;
+		Stop;
+	}
+}
+
+extend class Champ
+{
+
+	override void Touch(Actor toucher)
+	{
+		if (toucher)
+		{
+			if (Stare != true && health > 0 && HitOnce != true && Busy == false)
+			{
+				// The target is the toucher
+				// Needed for Staring state
+				
+				//todo: stare at the cat and bark
+				
+				if (toucher is 'PostalCatInv')
+				{
+					if (TargetDead == True)
+					{
+						Console.Printf("Got touched by damn cat");
+						target = toucher;
+						A_FaceTarget();
+						TargetDead = False;
+						staringAt = target;
+						Speed = 11;
+						SetStateLabel("See");
+					}
+				}
+				
+				if (!(toucher is 'PostalCatInv'))
+				{
+					if (TargetDead == True)
+					{
+						target = toucher;
+						staringAt = target;
+						A_FaceTarget();
+						Stare = true;
+						SetStateLabel("Staring");
+					}
+				}
+				
+			}
+	    }
+	}
+	
+	void A_ChampAttack()
+	{
+		let targ = target;
+		if (targ && CheckMeleeRange())
+		{
+			int damage = 5;
+			int newdam = targ.DamageMobj (self, self, damage, "Melee");
+			targ.TraceBleed (newdam > 0 ? newdam : damage, self);
+		}
+	}
+	
+	action void A_DogThink()
+	{
+		//many thanks to phantombeta!!
+		double fov = 120; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+
+			if (!next.bShootable || next.bKilled || next.health < 1)
+			{
+				continue;
+			}
+
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
+
+			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				continue;
+			
+			// It sounds stupid, the cat hears the Player by seeing it
+			// And it makes ton of unhealthy puns.
+			
+							if (next is 'PostalCatInv')
+							{
+								target = next;
+								invoker.staringAt = target;
+								A_FaceTarget();
+								invoker.Stare = true;
+								Speed = 11;
+								SetStateLabel("StaringCat");
+							}
+						
+			}
+			
+			
+    }
+	
+	
+}

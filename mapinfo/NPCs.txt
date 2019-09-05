@@ -1,0 +1,12 @@
+DoomEdNums
+{
+  30000 = Champ
+  //29999 = Demon
+  29998 = NPCCore
+  29997 = PostalCatInv
+  //29996 = NPCKrotchy
+  29995 = CowMike
+  29994 = NPCCop
+  29993 = Postal_Node
+  29992 = Postal_TrainNode
+}

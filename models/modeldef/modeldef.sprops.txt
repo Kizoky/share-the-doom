@@ -1,0 +1,842 @@
+Model "DudeCar"
+{
+	Path "models\props"
+	Model 0 "DudeCar.md3"
+	SurfaceSkin 0 0 "textures/smocklar_cream.png"
+	SurfaceSkin 0 1 "textures/smocklar_engine.png"
+	AngleOffset -270
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 6.5 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "DudeTrailer"
+{
+	Path "models\props"
+	Model 0 "DudeTrailer.md3"
+	Skin 0 "textures/trailer_timb.png"
+	AngleOffset 180
+	Scale -0.70 -0.50 0.50
+	Offset 0.0 6.5 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Workbench"
+{
+	Path "models\props"
+	Model 0 "Workbench.md3"
+	Skin 0 "textures/goblintree_timb.tga"
+	//Note: Texture is missing!
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 6.5 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Tree1"
+{
+	Path "models\props"
+	Model 0 "Tree1.md3"
+	SurfaceSkin 0 0 "textures/leaves3.png"
+	SurfaceSkin 0 1 "textures/tree_bark.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 -60 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+Model "Tree2"
+{
+	Path "models\props"
+	Model 0 "Tree2.md3"
+	SurfaceSkin 0 0 "textures/tree_bark.png"
+	SurfaceSkin 0 1 "textures/leaves3.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 -10 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+Model "Tree3"
+{
+	Path "models\props"
+	Model 0 "Tree3.md3"
+	SurfaceSkin 0 0 "textures/leaves3.png"
+	SurfaceSkin 0 1 "textures/tree_bark.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Doghouse"
+{
+	Path "models\props"
+	Model 0 "Doghouse.md3"
+	Skin 0 "textures/doghouse_timb.png"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 6.5 27 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "TelephonePoleMD3"
+{
+	Path "models\props"
+	Model 0 "telephone_polemd3.md3"
+	SurfaceSkin 0 0 "textures/zo_transformer.png"
+	SurfaceSkin 0 1 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 2 "textures/zo_graymetal1.png"
+	AngleOffset 90
+	Scale -1.00 -1.00 1.00
+	Offset 0.0 6.5 -3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Phonepole"
+{
+	Path "models\props"
+	Model 0 "phonepole.md3"
+	SurfaceSkin 0 0 "textures/green-128-dirty.png"
+	SurfaceSkin 0 1 "textures/icebox-top-vent-dk.png"
+	SurfaceSkin 0 2 "textures/telephone-pole-256.png"
+	SurfaceSkin 0 3 "textures/glass-brick-64.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 -3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Billboard"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "textures/zo_foa_ad1.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Billboard2"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "textures/billboard-placeholder.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BillboardCustom"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "textures/billboard-custom.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+//huge ass update involving MD3 models starts here
+
+Model "fortyoz"
+{
+	Path "models\props"
+	Model 0 "40oz.md3"
+	SurfaceSkin 0 0 "textures/40_juice.tga"
+	SurfaceSkin 0 1 "textures/40_bottom_copy.tga"
+	SurfaceSkin 0 2 "textures/ghetto40.tga"
+	SurfaceSkin 0 3 "textures/40_cap.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 9 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "sixtyninefine"
+{
+	Path "models\props"
+	Model 0 "69fine.md3"
+	SurfaceSkin 0 0 "textures/7up_Front01a_timb.tga"
+	SurfaceSkin 0 1 "textures/7up01a.tga"
+	SurfaceSkin 0 2 "textures/black_panel_timb.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 35 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "ACunit"
+{
+	Path "models\props"
+	Model 0 "ACunit.md3"
+	SurfaceSkin 0 0 "textures/AC_unit_timb.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 9 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "AngelDawn"
+{
+	Path "models\props"
+	Model 0 "AngelDawn.md3"
+	SurfaceSkin 0 0 "textures/concrete-dingy-JL.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "APC"
+{
+	Path "models\props"
+	Model 0 "APC.md3"
+	SurfaceSkin 0 0 "textures/APC_timb.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Tank"
+{
+	Path "models\props"
+	Model 0 "Tank.md3"
+	SurfaceSkin 0 0 "textures/ATF_tank_timb.tga"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "ATM"
+{
+	Path "models\props"
+	Model 0 "ATM.md3"
+	SurfaceSkin 0 0 "textures/FeeOfA_ATM_new.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -5 0 -1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "barrelcactus"
+{
+	Path "models\props"
+	Model 0 "barrelcactus.md3"
+	SurfaceSkin 0 0 "textures/zo_cactus.tga"
+	SurfaceSkin 0 1 "textures/pear.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -5 0 -1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "barchair"
+{
+	Path "models\props"
+	Model 0 "barchair.md3"
+	SurfaceSkin 0 0 "textures/simwood.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -5 0 -1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "basketballhoop"
+{
+	Path "models\props"
+	Model 0 "basketballhoop.md3"
+	SurfaceSkin 0 0 "textures/bball_HOOP_texture.tga"
+	SurfaceSkin 0 1 "textures/bball_net__TRANS_texture.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -5 0 48 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bathtubone"
+{
+	Path "models\props"
+	Model 0 "bathtub1.md3"
+	SurfaceSkin 0 0 "textures/porcelain_timb.tga"
+	SurfaceSkin 0 1 "textures/porcelain2_timb.tga"
+	SurfaceSkin 0 2 "textures/porcelain_drain.tga"
+	SurfaceSkin 0 3 "textures/dull_metal.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 7 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bathtubtwo"
+{
+	Path "models\props"
+	Model 0 "bathtubtwo.md3"
+	SurfaceSkin 0 0 "textures/porcelain_timb.tga"
+	SurfaceSkin 0 1 "textures/porcelain2_timb.tga"
+	SurfaceSkin 0 2 "textures/porcelain_drain.tga"
+	SurfaceSkin 0 3 "textures/dull_metal.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 20 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bedone"
+{
+	Path "models\props"
+	Model 0 "bedone.md3"
+	SurfaceSkin 0 0 "textures/bed_bars_timb.tga"
+	SurfaceSkin 0 1 "textures/black_metal_timb.tga"
+	SurfaceSkin 0 2 "textures/wool_blanket_timb.tga"
+	SurfaceSkin 0 3 "textures/sheets_timb.tga"
+	SurfaceSkin 0 4 "textures/matress_timb.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 -3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bedtwo"
+{
+	Path "models\props"
+	Model 0 "bedtwo.md3"
+	SurfaceSkin 0 0 "textures/wool_blanket_timb.tga"
+	SurfaceSkin 0 1 "textures/sheets_timb.tga"
+	SurfaceSkin 0 2 "textures/matress_timb.tga"
+	SurfaceSkin 0 3 "textures/simwood.tga"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 -3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bewareofdog"
+{
+	Path "models\props"
+	Model 0 "bewareofdog.md3"
+	SurfaceSkin 0 0 "textures/bewareofdog.tga"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bewareofdogtwo"
+{
+	Path "models\props"
+	Model 0 "bewareofdog.md3"
+	SurfaceSkin 0 0 "textures/bewareofdog2.tga"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bondagechair"
+{
+	Path "models\props"
+	Model 0 "bondagechair.md3"
+	SurfaceSkin 0 0 "textures/bondage_ring_timb.tga"
+	SurfaceSkin 0 1 "textures/noskid_plate_timb.tga"
+	SurfaceSkin 0 2 "textures/metal_bar_timb.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 40 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bookcase"
+{
+	Path "models\props"
+	Model 0 "bookcase.md3"
+	SurfaceSkin 0 0 "textures/simwood.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 33 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bookcasetwo"
+{
+	Path "models\props"
+	Model 0 "bookcasetwo.md3"
+	SurfaceSkin 0 0 "textures/simwood.tga"
+	SurfaceSkin 0 1 "textures/booksa_timb.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 33 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bookcaselibrary"
+{
+	Path "models\props"
+	Model 0 "bookcaselibrary.md3"
+	SurfaceSkin 0 0 "textures/library_bookshelf.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 -3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "boombox"
+{
+	Path "models\props"
+	Model 0 "boombox.md3"
+	SurfaceSkin 0 0 "textures/boombox.tga"
+	AngleOffset 0
+	Scale -0.25 -0.25 0.25
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bosschair"
+{
+	Path "models\props"
+	Model 0 "bosschair.md3"
+	SurfaceSkin 0 0 "textures/darkbrown_leather.tga"
+	SurfaceSkin 0 1 "textures/exec_desk_timb.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 15 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bulldozer"
+{
+	Path "models\props"
+	Model 0 "bulldozer.md3"
+	SurfaceSkin 0 0 "textures/constr2_timb.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 15 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bureau"
+{
+	Path "models\props"
+	Model 0 "bureau.md3"
+	SurfaceSkin 0 0 "textures/gothic_bureau_timb.tga"
+	SurfaceSkin 0 1 "textures/bureau_side_timb.tga"
+	SurfaceSkin 0 2 "textures/bureau_decor_timb.tga"
+	SurfaceSkin 0 3 "textures/gothic_bureau_timb.tga"
+	SurfaceSkin 0 4 "textures/bureau_side_timb.tga"
+	SurfaceSkin 0 5 "textures/bureau_decor_timb.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 37 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bush666"
+{
+	Path "models\props"
+	Model 0 "bush666.md3"
+	SurfaceSkin 0 0 "textures/bush_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 -2 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivan_BLUE"
+{
+	Path "models\props"
+	Model 0 "minivan.md3"
+	SurfaceSkin 0 0 "textures/minivan_blue.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivan_GOLD"
+{
+	Path "models\props"
+	Model 0 "minivan.md3"
+	SurfaceSkin 0 0 "textures/minivan_gold.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivan_GREEN"
+{
+	Path "models\props"
+	Model 0 "minivan.md3"
+	SurfaceSkin 0 0 "textures/minivan_GREEN.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivanBurnt_BLUE"
+{
+	Path "models\props"
+	Model 0 "minivanburnt.md3"
+	SurfaceSkin 0 0 "textures/minivan_blue_burnt.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivanBurnt_GOLD"
+{
+	Path "models\props"
+	Model 0 "minivanburnt.md3"
+	SurfaceSkin 0 0 "textures/minivan_gold_burnt.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivanBurnt_GREEN"
+{
+	Path "models\props"
+	Model 0 "minivanburnt.md3"
+	SurfaceSkin 0 0 "textures/minivan_green_burnt.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivanBurnt_WHITE"
+{
+	Path "models\props"
+	Model 0 "minivanburnt.md3"
+	SurfaceSkin 0 0 "textures/minivan_white_burnt.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivanBurnt_BROWN"
+{
+	Path "models\props"
+	Model 0 "minivanburnt.md3"
+	SurfaceSkin 0 0 "textures/minivan_brown_burnt.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivan_WHITE"
+{
+	Path "models\props"
+	Model 0 "minivan.md3"
+	SurfaceSkin 0 0 "textures/car_minivan_new_timb.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "minivan_BROWN"
+{
+	Path "models\props"
+	Model 0 "minivan.md3"
+	SurfaceSkin 0 0 "textures/minivan_brown.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "schoolbus"
+{
+	Path "models\props"
+	Model 0 "schoolbus.md3"
+	SurfaceSkin 0 0 "textures/car_schoolbus_timb.tga"
+	SurfaceSkin 0 1 "textures/stop_sign_mask_timb.tga"
+	AngleOffset 0
+	Scale -1.00 -1.00 1.00
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "train01"
+{
+	Path "models\trains"
+	Model 0 "train001out.md3"
+	SurfaceSkin 0 0 "textures/train01.tga"
+	SurfaceSkin 0 1 "textures/train01_glass.tga"
+	AngleOffset 90
+	Scale -1.00 -1.00 1.00
+	Offset 0 0 93 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Cream"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar.md3"
+	SurfaceSkin 0 0 "textures/smocklar_cream.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Silver"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar.md3"
+	SurfaceSkin 0 0 "textures/smocklar_new_timb.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Blue"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar.md3"
+	SurfaceSkin 0 0 "textures/smocklar_blue.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Red"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar.md3"
+	SurfaceSkin 0 0 "textures/smocklar_red.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Cream_Wrecked"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar_Wrecked.md3"
+	SurfaceSkin 0 0 "textures/smocklar_burnt_cream.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Silver_Wrecked"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar_Wrecked.md3"
+	SurfaceSkin 0 0 "textures/smocklar_burnt_silver.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Blue_Wrecked"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar_Wrecked.md3"
+	SurfaceSkin 0 0 "textures/smocklar_burnt_blue.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smocklar_Red_Wrecked"
+{
+	Path "models\props"
+	Model 0 "CarSmocklar_Wrecked.md3"
+	SurfaceSkin 0 0 "textures/smocklar_burnt_red.tga"
+	AngleOffset 90
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "copcar_cruiser"
+{
+	Path "models\props"
+	Model 0 "copcar1.md3"
+	SurfaceSkin 0 0 "textures/car_cop_cruiser2.tga"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "copcar"
+{
+	Path "models\props"
+	Model 0 "copcar2.md3"
+	SurfaceSkin 0 0 "textures/car_copcar_new.tga"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "copcar_burnt"
+{
+	Path "models\props"
+	Model 0 "copcar2.md3"
+	SurfaceSkin 0 0 "textures/car_copcar_new_burnt.tga"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "copcar_vandalized"
+{
+	Path "models\props"
+	Model 0 "copcar2.md3"
+	SurfaceSkin 0 0 "textures/car_copcar_security_vandalized_burnt.tga"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}

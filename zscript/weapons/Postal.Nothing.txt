@@ -1,0 +1,24 @@
+class PostHands : PostalWeapon
+{
+	Default
+	{
+	Weapon.Kickback 100;
+	Weapon.SelectionOrder 9999;
+	Obituary "The developers of this mod were fucking high";
+	+Weapon.NoAlert;
+	}
+	States
+	{
+	Ready:
+		ABAB A 1 A_WeaponReady;
+		Goto Ready;
+	Deselect:
+		ABAB A 1 A_Lower;
+		Loop;
+	Select:
+		ABAB A 1 A_Raise;
+		Loop;
+	Fire:
+		Goto Ready;
+	}
+}

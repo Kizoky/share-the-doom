@@ -1,0 +1,174 @@
+Model "PostCowhead"
+{
+	Path "models\weapons\cowhead"
+	Model 0 "PostCowhead.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "cowhead/CowHead_new.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 2.0000 0.000 -10.0000 //X Y Z
+
+	// Select 69-100
+	FrameIndex COWS A 0 69
+	FrameIndex COWS B 0 70
+	FrameIndex COWS C 0 71
+	FrameIndex COWS D 0 72
+	FrameIndex COWS E 0 73
+	FrameIndex COWS F 0 74
+	FrameIndex COWS G 0 75
+	FrameIndex COWS H 0 76
+	FrameIndex COWS I 0 77
+	FrameIndex COWS J 0 78
+	FrameIndex COWS K 0 79
+	FrameIndex COWS L 0 80
+	FrameIndex COWS M 0 82
+	FrameIndex COWS N 0 84
+	FrameIndex COWS O 0 86
+	FrameIndex COWS P 0 88
+	FrameIndex COWS Q 0 90
+	FrameIndex COWS R 0 92
+	FrameIndex COWS S 0 94
+	FrameIndex COWS T 0 96
+	FrameIndex COWS U 0 98
+	FrameIndex COWS V 0 100
+	
+	// Deselect 101-129
+	FrameIndex COWD A 0 101
+	FrameIndex COWD B 0 102
+	FrameIndex COWD C 0 103
+	FrameIndex COWD D 0 104
+	FrameIndex COWD E 0 105
+	FrameIndex COWD F 0 106
+	FrameIndex COWD G 0 107
+	FrameIndex COWD H 0 108
+	FrameIndex COWD I 0 109
+	FrameIndex COWD J 0 110
+	FrameIndex COWD K 0 111
+	FrameIndex COWD L 0 112
+	FrameIndex COWD M 0 113
+	FrameIndex COWD N 0 114
+	FrameIndex COWD O 0 115
+	FrameIndex COWD P 0 116
+	FrameIndex COWD Q 0 117
+	FrameIndex COWD R 0 118
+	FrameIndex COWD S 0 119
+	FrameIndex COWD T 0 120
+	FrameIndex COWD U 0 122
+	FrameIndex COWD V 0 124
+	FrameIndex COWD W 0 126
+	FrameIndex COWD X 0 127
+	FrameIndex COWD Y 0 128
+	FrameIndex COWD Z 0 129
+	
+	// Idle 130-182
+	FrameIndex COWI A 0 130
+	FrameIndex COWI B 0 132
+	FrameIndex COWI C 0 134
+	FrameIndex COWI D 0 136
+	FrameIndex COWI E 0 138
+	FrameIndex COWI F 0 140
+	FrameIndex COWI G 0 142
+	FrameIndex COWI H 0 144
+	FrameIndex COWI I 0 146
+	FrameIndex COWI J 0 148
+	FrameIndex COWI K 0 150
+	FrameIndex COWI L 0 152
+	FrameIndex COWI M 0 154
+	FrameIndex COWI N 0 156
+	FrameIndex COWI O 0 158
+	FrameIndex COWI P 0 160
+	FrameIndex COWI Q 0 162
+	FrameIndex COWI R 0 164
+	FrameIndex COWI S 0 166
+	FrameIndex COWI T 0 168
+	FrameIndex COWI U 0 170
+	FrameIndex COWI V 0 172
+	FrameIndex COWI W 0 174
+	FrameIndex COWI X 0 176
+	FrameIndex COWI Y 0 178
+	FrameIndex COWI Z 0 180
+	
+	// Fire 20-68
+	FrameIndex COWF A 0 20
+	FrameIndex COWF B 0 22
+	FrameIndex COWF C 0 24
+	FrameIndex COWF D 0 26
+	FrameIndex COWF E 0 28
+	FrameIndex COWF F 0 30
+	FrameIndex COWF G 0 32
+	FrameIndex COWF H 0 34
+	FrameIndex COWF I 0 36
+	FrameIndex COWF J 0 38
+	FrameIndex COWF K 0 40
+	FrameIndex COWF L 0 42
+	FrameIndex COWF M 0 44
+	FrameIndex COWF N 0 46
+	FrameIndex COWF O 0 48
+	FrameIndex COWF P 0 50
+	FrameIndex COWF Q 0 52
+	FrameIndex COWF R 0 54
+	FrameIndex COWF S 0 56
+	FrameIndex COWF T 0 58
+	FrameIndex COWF U 0 60
+	FrameIndex COWF V 0 62
+	FrameIndex COWF W 0 64
+	FrameIndex COWF X 0 66
+	FrameIndex COWF Y 0 68
+	
+	// Secondary Fire 1-19
+	FrameIndex COSF A 0 1 
+	FrameIndex COSF B 0 2 
+	FrameIndex COSF C 0 3 
+	FrameIndex COSF D 0 4 
+	FrameIndex COSF E 0 5 
+	FrameIndex COSF F 0 6 
+	FrameIndex COSF G 0 7 
+	FrameIndex COSF H 0 8 
+	FrameIndex COSF I 0 9 
+	FrameIndex COSF J 0 10
+	FrameIndex COSF K 0 11
+	FrameIndex COSF L 0 12
+	FrameIndex COSF M 0 13
+	FrameIndex COSF N 0 14
+	FrameIndex COSF O 0 15
+	FrameIndex COSF P 0 16
+	FrameIndex COSF Q 0 17
+	FrameIndex COSF R 0 18
+	FrameIndex COSF S 0 19
+
+}
+
+Model "PostCowhead"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

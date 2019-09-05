@@ -1,0 +1,133 @@
+Model "PostM16"
+{
+	Path "models\weapons\machinegun"
+	Model 0 "PostMachinegun.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "machinegun/m-16_timb.png"
+	SurfaceSkin 0 2 "machinegun/m-16_timb.png"
+	AngleOffset -6
+	Scale -1 0.75 1.00
+	Offset 1 0.300000 -10.3000 //X Y Z
+
+	// Select 1 to 33
+	FrameIndex MGST A 0 1
+	FrameIndex MGST B 0 3
+	FrameIndex MGST C 0 5
+	FrameIndex MGST D 0 7
+	FrameIndex MGST E 0 9
+	FrameIndex MGST F 0 11
+	FrameIndex MGST G 0 13
+	FrameIndex MGST H 0 15
+	FrameIndex MGST I 0 17
+	FrameIndex MGST J 0 19
+	FrameIndex MGST K 0 21
+	FrameIndex MGST L 0 23
+	FrameIndex MGST M 0 25
+	FrameIndex MGST N 0 27
+	FrameIndex MGST O 0 29
+	FrameIndex MGST P 0 31
+	FrameIndex MGST Q 0 33
+	
+	// Deselect 36 to 54
+	
+	FrameIndex MGDT A 0 36
+	FrameIndex MGDT B 0 37
+	FrameIndex MGDT C 0 38
+	
+	// Idle 55 to 95
+	
+	FrameIndex MGID A 0 55
+	FrameIndex MGID B 0 57
+	FrameIndex MGID C 0 59
+	FrameIndex MGID D 0 61
+	FrameIndex MGID E 0 63
+	FrameIndex MGID F 0 65
+	FrameIndex MGID G 0 67
+	FrameIndex MGID H 0 69
+	FrameIndex MGID I 0 71
+	FrameIndex MGID J 0 73
+	FrameIndex MGID K 0 75
+	FrameIndex MGID L 0 77
+	FrameIndex MGID M 0 79
+	FrameIndex MGID N 0 81
+	FrameIndex MGID O 0 83
+	FrameIndex MGID P 0 85
+	FrameIndex MGID Q 0 87
+	FrameIndex MGID R 0 89
+	FrameIndex MGID S 0 91
+	FrameIndex MGID T 0 93
+	FrameIndex MGID U 0 95
+	
+	// Fire 96 to 126
+	
+	FrameIndex MGFE A 0 96
+	FrameIndex MGFE B 0 98
+	FrameIndex MGFE C 0 100
+	FrameIndex MGFE D 0 102
+	FrameIndex MGFE E 0 104
+	FrameIndex MGFE F 0 106
+	FrameIndex MGFE G 0 108
+	FrameIndex MGFE H 0 110
+	FrameIndex MGFE I 0 112
+	FrameIndex MGFE J 0 114
+	FrameIndex MGFE K 0 116
+	FrameIndex MGFE L 0 118
+	FrameIndex MGFE M 0 120
+	FrameIndex MGFE N 0 122
+	FrameIndex MGFE O 0 124
+	FrameIndex MGFE P 0 126
+
+}
+
+Model "PostM16"
+{
+	Path "models\weapons\machinegun"
+	Model 0 "MachineGunPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "machinegun/m-16_timb.png"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostM16"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

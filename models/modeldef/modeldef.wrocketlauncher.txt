@@ -1,0 +1,190 @@
+Model "PostRLauncher"
+{
+	Path "models\weapons\rocketlauncher"
+	Model 0 "PostRLauncher.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "rocketlauncher/launcher_timb2.png"
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_NEW.png"
+	SurfaceSkin 0 3 "rocketlauncher/fuel_gauge_full.png"
+	AngleOffset -5
+	Scale -1 0.75 1
+	Offset 2.0000 0.000000 -15.0000
+	
+	
+	//Todo: There are several animations, which I don't know what their purpose is
+
+	// Select 1 to 21
+	FrameIndex RLSE A 0 1
+	FrameIndex RLSE B 0 2
+	FrameIndex RLSE C 0 3
+	FrameIndex RLSE D 0 4
+	FrameIndex RLSE E 0 5
+	FrameIndex RLSE F 0 6
+	FrameIndex RLSE G 0 7
+	FrameIndex RLSE H 0 8
+	FrameIndex RLSE I 0 9
+	FrameIndex RLSE J 0 10
+	FrameIndex RLSE K 0 11
+	FrameIndex RLSE L 0 12
+	FrameIndex RLSE M 0 13
+	FrameIndex RLSE N 0 14
+	FrameIndex RLSE O 0 15
+	FrameIndex RLSE P 0 16
+	FrameIndex RLSE Q 0 17
+	FrameIndex RLSE R 0 18
+	FrameIndex RLSE S 0 19
+	FrameIndex RLSE T 0 20
+	FrameIndex RLSE U 0 21
+	
+	// Deselect 22 to 30
+	FrameIndex RLDE A 0 22
+	FrameIndex RLDE B 0 23
+	FrameIndex RLDE C 0 24
+	FrameIndex RLDE D 0 25
+	FrameIndex RLDE E 0 26
+	FrameIndex RLDE F 0 27
+	FrameIndex RLDE G 0 28
+	FrameIndex RLDE H 0 29
+	FrameIndex RLDE I 0 30
+	
+	// Idling 31 to 60
+	
+	FrameIndex RLID A 0 31
+	FrameIndex RLID B 0 32
+	FrameIndex RLID C 0 33
+	FrameIndex RLID D 0 34
+	FrameIndex RLID E 0 35
+	FrameIndex RLID F 0 36
+	FrameIndex RLID G 0 37
+	FrameIndex RLID H 0 38
+	FrameIndex RLID I 0 39
+	FrameIndex RLID J 0 40
+	FrameIndex RLID K 0 41
+	FrameIndex RLID L 0 42
+	FrameIndex RLID M 0 43
+	FrameIndex RLID N 0 44
+	FrameIndex RLID O 0 45
+	FrameIndex RLID P 0 46
+	FrameIndex RLID Q 0 47
+	FrameIndex RLID R 0 48
+	FrameIndex RLID S 0 49
+	FrameIndex RLID T 0 50
+	FrameIndex RLID U 0 51
+	FrameIndex RLID V 0 52
+	FrameIndex RLID W 0 53
+	FrameIndex RLID X 0 54
+	FrameIndex RLID Y 0 55
+	FrameIndex RLID Z 0 56
+	//Usually this is why we skip 1 frames always
+	//Because it doesn't fit into the English alphabet
+	
+	// Hold attack 86 to 159
+	// Seperated into 13-13-13 frames
+	
+	FrameIndex RLHA A 0 86
+	FrameIndex RLHA B 0 88
+	FrameIndex RLHA C 0 90
+	FrameIndex RLHA D 0 92
+	FrameIndex RLHA E 0 94
+	FrameIndex RLHA F 0 96
+	FrameIndex RLHA G 0 98
+	FrameIndex RLHA H 0 100
+	FrameIndex RLHA I 0 102
+	FrameIndex RLHA J 0 104
+	FrameIndex RLHA K 0 106
+	FrameIndex RLHA L 0 108
+	FrameIndex RLHA M 0 110
+	
+	FrameIndex RLH2 A 0 112
+	FrameIndex RLH2 B 0 114
+	FrameIndex RLH2 C 0 116
+	FrameIndex RLH2 D 0 118
+	FrameIndex RLH2 E 0 120
+	FrameIndex RLH2 F 0 122
+	FrameIndex RLH2 G 0 124
+	FrameIndex RLH2 H 0 126
+	FrameIndex RLH2 I 0 128
+	FrameIndex RLH2 J 0 130
+	FrameIndex RLH2 K 0 132
+	FrameIndex RLH2 L 0 134
+	FrameIndex RLH2 M 0 136
+	
+	FrameIndex RLH3 A 0 138
+	FrameIndex RLH3 B 0 140
+	FrameIndex RLH3 C 0 142
+	FrameIndex RLH3 D 0 144
+	FrameIndex RLH3 E 0 146
+	FrameIndex RLH3 F 0 148
+	FrameIndex RLH3 G 0 150
+	FrameIndex RLH3 H 0 152
+	FrameIndex RLH3 I 0 154
+	FrameIndex RLH3 J 0 156
+	FrameIndex RLH3 K 0 157
+	FrameIndex RLH3 L 0 158
+	FrameIndex RLH3 M 0 159
+	
+	// Fire attack Frames 160 to 180 
+	
+	FrameIndex RLFA A 0 160
+	FrameIndex RLFA B 0 161
+	FrameIndex RLFA C 0 162
+	FrameIndex RLFA D 0 163
+	FrameIndex RLFA E 0 164
+	FrameIndex RLFA F 0 165
+	FrameIndex RLFA G 0 166
+	FrameIndex RLFA H 0 167
+	FrameIndex RLFA I 0 168
+	FrameIndex RLFA J 0 169
+	FrameIndex RLFA K 0 170
+	FrameIndex RLFA L 0 171
+	FrameIndex RLFA M 0 172
+	FrameIndex RLFA N 0 173
+	FrameIndex RLFA O 0 174
+	FrameIndex RLFA P 0 175
+	FrameIndex RLFA Q 0 176
+	FrameIndex RLFA R 0 177
+	FrameIndex RLFA S 0 178
+	FrameIndex RLFA T 0 179
+	FrameIndex RLFA U 0 180
+	//FrameIndex RLFA V 0 97
+	//FrameIndex RLFA W 0 98
+	//FrameIndex RLFA X 0 99
+	//FrameIndex RLFA Y 0 100
+	//FrameIndex RLFA Z 0 101
+	
+}
+
+Model "PostRLauncher"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

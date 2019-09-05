@@ -1,0 +1,40 @@
+s_holster_dh 0-17 (big weapons)
+s_holster_sh 18-41 (small weapons)
+s_holster_shovel 42-59 (shovel)
+
+s_load_dh 60-91 (big weapons)
+s_load_sh 92-117 (small weapons)
+s_load_shovel 118-149 (shovel)
+
+sd1_base 150-180 (M-16)
+sd1_recoil_singleframe1 181-182 (M-16)
+sd1_run 183-201 (M-16)
+
+sd2_base 202-229 (Shotgun)
+sd2_recoil_singleframe1 230-231 (Shotgun)
+sd2_run 232-252 (Shotgun)
+
+sd_base 253-294 (Machete idle)
+sd_base_gas 295-336 (Gascan, Cowhead)
+
+sd_baton1 337-377 (Baton hit)
+sd_run 378-396 (Running, Grenade, etc..)
+
+sd_run_gas 397-415 (Running, Gascan, Cowhead, etc...)
+
+sd_shovel1 416-453 (Shovel hit)
+
+sg_base 454-495 (Grenade idle)
+sg_pull_pin 496-516 (Grenade pin pull)
+sg_run 517-534 (Grenade run)
+sg_throw 535-545 (Grenade throw)
+sg_throw_match 546-606 (Match throw)
+sg_throw_scissors 607-619 (Scissor throw)
+
+ss_run 620-636 (Pistol run, down)
+ss_run2 637-653 (Pistol run, up)
+
+sd1_base2 654-684 (M-16)
+sd1_recoil_singleframe3 685-686 (M-16 single frame)
+
+ss_base_singleframe 687-689

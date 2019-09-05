@@ -1,0 +1,1502 @@
+// For debugging purposes, this NPC will always shriek
+class NPCPussy : NPCCore
+{
+	override void NPC_Settings()
+	{
+		RandomHostility = 1;
+		
+		//Sounds are defined here for NPCs
+		NPC_Scream = "mikej/scream";
+		NPC_Bump = "mikej/bump";
+		NPC_PetitionDeny = "noway";
+		NPC_Dickout = "mikej/dickout";
+		
+		//Walking styles are randomized, but you can set it manually if wanted
+		WalkingStyle = random(1,6);
+		
+		//Spawn head hitbox
+		class<actor> Head = "NPCHead";
+		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
+		if (MyHead)
+		{
+			MyHead.Angle = self.Angle;
+			let p = NPCHead(MyHead);
+			p.Owner = self;
+		}
+		
+	}
+
+}
+
+// The core of all Bystanders
+// If spawned it will use Postal Dude's models, and Mike J's voice
+
+class NPCHead : PostalActor
+{	
+	Actor Owner;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		let p = NPCCore(Owner);
+		if (Owner)
+		{
+			SetOrigin(Owner.pos+(0,0,56), TRUE);
+			
+			if (p.bKILLED)
+				SetStateLabel("Death");
+			
+		}
+			
+		//Console.Printf("NPCHead Health: %d", self.health);
+		//Console.Printf("NPCCore Health: %d", p.health);
+	
+	}
+	
+	Default
+	{
+		Health 50;
+		Radius 15;
+		Height 10;
+		Speed 0;
+		PainChance 256;
+		//Monster;
+		-SOLID
+		+SHOOTABLE
+		DropItem "None";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 1;
+			Loop;
+		See:
+			TNT1 A 1 A_Look;
+			Goto Spawn;
+		Pain:
+			TNT1 A 1
+			{
+				let p = Owner;
+				if (p)
+				{
+					p.A_SetHealth(p.Health - (self.health / 2));
+					p.target = self.target;
+					p.SetStateLabel("Pain");
+				}
+			}
+			Goto Spawn;
+		Death:
+			TNT1 A 1
+			{
+				let p = NPCCore(Owner);
+				if (p)
+				{
+					p.A_DamageSelf(p.Health);
+				}
+				
+				let t = PostalDude(target);
+				if (t)
+				{
+					if (t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) && p && p.isKrotchy != true)
+					{
+						A_PlaySound("misc/gibbed",0);
+						p.SetStateLabel("Headless.Death");
+					}
+				}
+			}
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
+ }
+}
+
+class NPCCore : PostalActor
+{
+	int Hostility, PetitionNumber, RandomHostility;
+	bool Stare, Screaming, Deciding, Petitioning;
+	Actor staringAt;
+	
+	string PistolObituary, ShotgunObituary;
+	
+	int RandomizedWeapon;
+	bool PreloadModels;
+	
+	//An array where we store "known" corpses
+	int deadpeople[999999];
+	//An Unique ID attached to every Bystander
+	int UniqueID;
+	
+	int WalkingStyle;
+	
+	bool isKrotchy;
+	
+	//Sometimes scaredy NPCs will "walk run", this will set their state to See
+	bool initScared;
+	
+	//Fix sliding
+	vector3 savedPosition;
+	
+	bool isCop;
+	
+	//This NPC is the core of all other NPCs/Bystanders
+	//We'll use these strings for defining sounds for newly created NPCs, because they obviously don't sound the same
+	string NPC_Scream, NPC_Bump, NPC_PetitionDeny, NPC_PetitionAccept, NPC_Dickout, NPC_Laugh, NPC_Taunt, NPC_Cry, NPC_Pickup, NPC_Confusion, NPC_Cat, NPC_Dog, NPC_House, NPC_PissedOn;
+	
+	//For NPCs inherited from NPCCore can just override this void for these settings
+	//If not overriden, every NPC will have Mike J's voice, probably you don't want that
+	virtual void NPC_Settings()
+	{
+		//Sounds are defined here for NPCs
+		NPC_Scream = "mikej/scream";
+		NPC_Bump = "mikej/bump";
+		NPC_PetitionDeny = "noway";
+		NPC_Dickout = "mikej/dickout";
+		
+		//Walking styles are randomized, but you can set it manually if wanted
+		WalkingStyle = random(1,6);
+		
+		//Spawn head hitbox
+		class<actor> Head = "NPCHead";
+		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
+		if (MyHead)
+		{
+			MyHead.Angle = self.Angle;
+			let p = NPCHead(MyHead);
+			p.Owner = self;
+		}
+		
+	}
+	
+	//For custom obituaries set for NPCs
+	virtual void NPC_Obituaries()
+	{
+		PistolObituary = "%o was shot down by a Bystander's pistol.";
+		ShotgunObituary = "%o tasted a Bystander's shotgun. Yummy!";
+	}
+	
+	override void Tick()
+	{
+		//SetOrigin((master.pos.x,master.pos.y,master.pos.z),true);
+		Super.Tick();
+		
+		if (!bKILLED)
+			savedPosition = pos;
+		else
+			pos == savedPosition;
+		
+		if (Hostility == 1)
+			Speed = 9;
+		else
+			if (Hostility == 2)
+				Speed = 6;
+			else
+				if (Hostility == 0)
+					Speed = Default.Speed;
+		
+		//0 = Wandering (default)
+		//1 = Flee
+		//2 = Hostile
+		//3 = Ally (todo: RWS members will ignore it if you hurt them, for a certain of time)
+		if (bFRIGHTENED == true && initScared != true)
+		{
+			SetStateLabel("See");
+			initScared = true;
+		}
+		
+	}
+	
+	//This changes obituary depending on what weapon the Bystander is carrying
+	//of course, the default obituary won't change if it doesn't have a randomized weapon.
+	override String GetObituary(Actor victim, Actor inflictor, Name mod, bool playerattack)
+	{
+		if (RandomizedWeapon == 1)
+			return PistolObituary;
+			
+		if (RandomizedWeapon == 2)
+			return ShotgunObituary;
+			
+		return Obituary;
+	}
+	
+	//Note: NEVER override PostBeginPlay, you should only override voids above for new NPCs
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		initScared = false;
+		//Force load models at the beginning to prevent lag spikes when playing normally
+		//SetStateLabel("LoadModels");
+		
+		Hostility = 0;
+		Deciding = false;
+		Petitioning = false;
+		PreloadModels = false;
+		PetitionNumber = 0; //up to max 3
+		
+		staringAt = null;
+		
+		//Needed for checking corpses + May come in handy in the future
+		UniqueID = random(1,999999);
+		
+		//0 = Wandering (default)
+		//1 = Flee
+		//2 = Hostile
+		//3 = Ally (todo: RWS members will ignore it if you hurt them, for a certain of time)
+		
+		// A Randomization on whether the NPC will be forever frightened, or hostile (a scenario where the NPC has a weapon or not)
+		int p = random(0,50);
+		if (p > 26)
+			RandomHostility = 1;
+		else 
+			RandomHostility = 2;
+			
+		
+		if (isCop)
+			RandomHostility = 2;
+		
+		if (RandomHostility == 2)
+		{
+			int w = random(1,2);
+			
+			// 1 == Pistol
+			// 2 == Shotgun
+			// todo: finish this ugly thing
+			
+				switch(w)
+				{
+					default:
+					case 1:
+						RandomizedWeapon = 1;
+						break;
+					case 2:
+						RandomizedWeapon = 2;
+						break;
+				
+				}
+		
+		}
+		
+		NPC_Settings();
+		NPC_Obituaries();
+		
+	}
+	
+	Default
+	{
+		//$Category NPCs
+		//$Title "Debug Dude"
+		//$Sprite DUDEA0
+		Health 150;
+		Radius 13;
+		Height 65;
+		Speed 2.5;
+		PainChance 256;
+		Monster;
+		+INTERPOLATEANGLES
+		SeeSound "";
+		AttackSound "weapons/pistol";
+		PainSound "dudehurt";
+		DeathSound "dudehurt16";
+		ActiveSound "";
+		Obituary "%o was somehow got killed by a Bystander. What, how is that possible??";
+		DropItem "None";
+		//+NOTARGETSWITCH;
+		+SOLID
+		+SHOOTABLE
+		+DROPOFF
+		+PICKUP
+		+NOTDMATCH
+		-FRIENDLY
+		+SLIDESONWALLS
+		+CANPASS
+		+CANPUSHWALLS
+		+FLOORCLIP
+		+WINDTHRUST
+		+TELESTOMP
+		+NOBLOCKMONST
+		+SPECIAL
+		+FORCEPAIN
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		{
+			cvar lowaiperformance = cvar.findcvar('postal_lowai');
+			bool lowai = (lowaiperformance != null && lowaiperformance.GetBool ());
+			
+			bFRIENDLY = FALSE;
+			
+			//Another check for ensuring they won't attack the Player after their target died
+			
+			if (isKrotchy == true)
+				return ResolveState ("Spawn.Krotchy");
+			
+			if (invoker.Hostility == 2)
+				bFRIENDLY = FALSE;
+				
+			if (invoker.Hostility == 1)
+				SetStateLabel("See");
+				
+			if (lowai)
+				return ResolveState ("Spawn");
+			else
+				return ResolveState ("Spawn.Low");
+			
+			return ResolveState (null);	
+			
+		}
+		// Check for Hostile NPCs or Player while wandering
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		DUDW ABCD 3
+		{
+			A_Wander(flags: CHF_NORANDOMTURN);
+		}
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		//TNT1 A 0 A_NewBystanderThink();
+		DUDW EFGH 3 A_Wander();
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		//TNT1 A 0 A_NewBystanderThink();
+		DUDW IJKL 3 A_Wander(flags: CHF_NORANDOMTURN);
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		//TNT1 A 0 A_NewBystanderThink();
+		DUDW MNOPQR 3 A_Wander(flags: CHF_NORANDOMTURN);
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		TNT1 A 0 A_NewBystanderThink();
+		Loop;
+	Spawn.Krotchy:
+		TNT1 A 0
+		{		
+			if (invoker.Hostility == 2)
+				bFRIENDLY = FALSE;
+				
+			if (bFRIGHTENED == TRUE)
+				SetStateLabel("See");
+			
+		}
+		// Check for Hostile NPCs or Player while wandering
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		DUDW ABCD 3
+		{
+			A_Wander(flags: CHF_NORANDOMTURN);
+		}
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		//TNT1 A 0 A_NewBystanderThink();
+		DUDW EFGH 3 A_Wander();
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		//TNT1 A 0 A_NewBystanderThink();
+		DUDW IJKL 3 A_Wander(flags: CHF_NORANDOMTURN);
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		//TNT1 A 0 A_NewBystanderThink();
+		DUDW MNOPQRSTUVW 3 A_Wander(flags: CHF_NORANDOMTURN);
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		TNT1 A 0 A_NewBystanderThink();
+		Loop;
+	LoadModels:
+		XXXX A 1;
+		XXXF ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		SHOT ABCDEFGHIJKLMNOPQRSTU 1;
+		SHOF A 1;
+		TNT1 A 0 { PreloadModels = true; }
+		Goto Spawn;
+	Spawn.Low:
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		DUDW ABCD 3
+		{
+			A_Wander(flags: CHF_NORANDOMTURN);
+		}
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		DUDW EFGH 3 A_Wander();
+		DUDW IJKL 3 A_Wander(flags: CHF_NORANDOMTURN);
+		TNT1 A 0 A_NewBystanderThink();
+		DUDW MNOPQR 3 A_Wander(flags: CHF_NORANDOMTURN);
+		TNT1 A 0 { if (Petitioning == true) SetStateLabel("Petitioning"); }
+		Goto Spawn;
+	See:
+		TNT1 A 0
+		{
+			//Check if we are scared as fuck, then do the following
+			if (Hostility == 1)
+			{
+				//Check if our target(attacker) killed
+				if (target && target.bKILLED) 
+				{
+					bFRIENDLY = TRUE;
+					Hostility = 0;
+					A_ClearTarget();
+					bFRIGHTENED = FALSE;
+					SetStateLabel("Spawn");
+				}
+				else
+				{
+				//If not keep screaming like a pussy
+				
+					//Hostility = 1;
+					int Chance = random(0,100);
+					if (Chance > 44)
+					{
+						//Console.Printf("AAAAAAAAAAAAAAAAAAAAA I SCREAM AAAAAAAAAAAAAAAAAAA");
+						if (Screaming == false)
+						{
+							A_PlaySound(NPC_Scream,0);
+							Screaming = True;
+						}
+					}
+					
+				}
+			}
+			//Hostile NPCs have another state
+			if (Hostility == 2)
+			{
+				SetStateLabel("Hostile");
+			}
+		}
+		FLEE ABCDEFGHIJ 3 A_Chase(flags: CHF_STOPIFBLOCKED);
+		FLEE ABCDEFGHIJ 3 A_Chase(flags: CHF_STOPIFBLOCKED);
+		FLEE ABCDEFGHIJ 3 A_Chase(flags: CHF_STOPIFBLOCKED);
+		FLEE ABCDEFGHIJ 3 A_Chase;
+		//Scream spam checker
+		TNT1 A 0 { Screaming = False; }
+		Loop;
+	Hostile:
+		TNT1 A 0
+		{
+			switch(RandomizedWeapon)
+			{
+				default:
+				case 1:
+					SetStateLabel("Hostile.Pistol");
+					break;
+				case 2:
+					SetStateLabel("Hostile.Shotgun");
+					break;
+			}
+		}
+		//Loop;
+	Hostile.Pistol:
+		TNT1 A 0
+		{
+			//If our target got killed, do the following
+			if (target && target.bKILLED) 
+			{
+				//If our last target, or enemy isn't killed, make it our target
+				if (lastenemy != null)
+				{
+					if (!lastenemy.bKILLED)
+					{
+						lastenemy = target;
+					}
+					else
+					{
+						bFRIENDLY = TRUE;
+						Hostility = 0;
+						A_ClearTarget();
+						SetStateLabel("Spawn");
+					}
+					//if our last target is killed too, become calm
+				}
+				bFRIENDLY = TRUE;
+				Hostility = 0;
+				A_ClearTarget();
+				SetStateLabel("Spawn");
+			}
+		}
+		//DUDS
+		XXXX ABCDEFGH 2 A_Chase(flags: CHF_STOPIFBLOCKED);
+		XXXX IJKLMNOPQ 2 A_Chase(flags: CHF_STOPIFBLOCKED);
+		XXXX ABCDEFGHI 2 A_Chase(flags: CHF_STOPIFBLOCKED);
+		XXXX JKLMNOPQ 2 A_Chase;
+		
+		TNT1 A 0
+		{
+			//If our target got killed, do the following
+			if (target && target.bKILLED) 
+			{
+				//If our last target, or enemy isn't killed, make it our target
+				if (lastenemy != null)
+				{
+					if (!lastenemy.bKILLED)
+					{
+						lastenemy = target;
+					}
+					else
+					{
+						bFRIENDLY = TRUE;
+						Hostility = 0;
+						A_ClearTarget();
+						SetStateLabel("Spawn");
+					}
+					//if our last target is killed too, become calm
+				}
+				
+				bFRIENDLY = TRUE;
+				Hostility = 0;
+				A_ClearTarget();
+				SetStateLabel("Spawn");
+				
+			}
+		}
+		Loop;
+	Hostile.Shotgun:
+		TNT1 A 0
+		{
+			//If our target got killed, do the following
+			if (target && target.bKILLED) 
+			{
+				//If our last target, or enemy isn't killed, make it our target
+				if (lastenemy != null)
+				{
+					if (!lastenemy.bKILLED)
+					{
+						lastenemy = target;
+					}
+					else
+					{
+						bFRIENDLY = TRUE;
+						Hostility = 0;
+						A_ClearTarget();
+						SetStateLabel("Spawn");
+					}
+					//if our last target is killed too, become calm
+				}
+				bFRIENDLY = TRUE;
+				Hostility = 0;
+				A_ClearTarget();
+				SetStateLabel("Spawn");
+			}
+		}
+		//DUDS
+		SHOT ABCDEFGH 2 A_Chase(flags: CHF_STOPIFBLOCKED);
+		SHOT IJKLMNOPQ 2 A_Chase(flags: CHF_STOPIFBLOCKED);
+		SHOT ABCDEFGHI 2 A_Chase(flags: CHF_STOPIFBLOCKED);
+		SHOT JKLMNOPQRSTU 2 A_Chase;
+		
+		TNT1 A 0
+		{
+			//If our target got killed, do the following
+			if (target && target.bKILLED) 
+			{
+				//If our last target, or enemy isn't killed, make it our target
+				if (lastenemy != null)
+				{
+					if (!lastenemy.bKILLED)
+					{
+						lastenemy = target;
+					}
+					else
+					{
+						bFRIENDLY = TRUE;
+						Hostility = 0;
+						A_ClearTarget();
+						SetStateLabel("Spawn");
+					}
+					//if our last target is killed too, become calm
+				}
+				
+				bFRIENDLY = TRUE;
+				Hostility = 0;
+				A_ClearTarget();
+				SetStateLabel("Spawn");
+				
+			}
+		}
+		Loop;
+	Staring:
+		TNT1 A 0
+		{
+			if (isKrotchy == true)
+				SetStateLabel("Staring.Krotchy");
+			
+			//Our target is the fool that bumped into us
+			if (isKrotchy != true)
+			{
+				staringAt = target;
+				A_PlaySound(NPC_Bump,0);
+			}
+		}
+		
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		
+		TNT1 A 0
+		{
+			//Clear our target, so we won't be going after it
+			Stare = false;
+			A_ClearTarget();
+		}
+		
+		TNT1 A 0
+		{
+			//An additional check ensuring that the fool we are staring isn't the same target we'll shoot down
+			//although this might goes unused
+			if (staringAt != target)
+				A_ClearTarget();
+		}
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	Staring.Krotchy:
+		TNT1 A 0
+		{	
+			//Our target is the fool that bumped into us
+			staringAt = target;
+			A_PlaySound(NPC_Bump,0);
+		}
+		
+		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		IDLE ABCDEFG 3 A_FaceTarget();
+		
+		TNT1 A 0
+		{
+			//Clear our target, so we won't be going after it
+			Stare = false;
+			A_ClearTarget();
+		}
+		
+		TNT1 A 0
+		{
+			//An additional check ensuring that the fool we are staring isn't the same target we'll shoot down
+			//although this might goes unused
+			if (staringAt != target)
+				A_ClearTarget();
+		}
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	Petitioning:
+		TNT1 A 0
+		{
+			if (isKrotchy == true)
+				SetStateLabel("Petitioning.Krotchy");
+			
+			let PlayerDude = PostalDude(target);
+			staringAt = target;
+			//Stare = true;
+			if (PetitionNumber != 3)
+				PetitionNumber++;
+				
+			A_FaceTarget();
+		}
+		
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { staringAt = target; A_FaceTarget(); }
+		DUDE ABCDEFGHIJKLMNOP 3 { staringAt = target; A_FaceTarget(); }
+		
+		TNT1 A 0 A_PlaySound(NPC_PetitionDeny,0);
+		PINK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { staringAt = target; A_FaceTarget(); }
+		
+		TNT1 A 0
+		{
+			//Clear our target, so we won't be going after it
+			//Stare = false;
+			A_ClearTarget();
+			Petitioning = false;
+		}
+		
+		TNT1 A 0 ACS_Execute(1003,0);
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	Petitioning.Krotchy:
+		TNT1 A 0
+		{	
+			let PlayerDude = PostalDude(target);
+			staringAt = target;
+			//Stare = true;
+			if (PetitionNumber != 3)
+				PetitionNumber++;
+				
+			A_FaceTarget();
+		}
+		
+		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { staringAt = target; A_FaceTarget(); }
+		IDLE ABCDEFG 3 { staringAt = target; A_FaceTarget(); }
+		KROC ABCDEFGHIJKLMNOP 3 { staringAt = target; A_FaceTarget(); }
+		
+		TNT1 A 0 A_PlaySound(NPC_PetitionDeny,0);
+		PINK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { staringAt = target; A_FaceTarget(); }
+		
+		TNT1 A 0
+		{
+			//Clear our target, so we won't be going after it
+			//Stare = false;
+			A_ClearTarget();
+			Petitioning = false;
+		}
+		
+		TNT1 A 0 ACS_Execute(1003,0);
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	Dickout:
+		TNT1 A 0
+		{
+			if (isKrotchy == true)
+				SetStateLabel("Dickout.Krotchy");
+		}
+		TNT1 A 0 { target = staringAt; Stare = true; }
+		TNT1 A 0 A_PlaySound(NPC_Dickout,0);
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget();
+		
+		TNT1 A 0
+		{
+			//our target is the Player always in this state
+			let PlayerDude = PostalDude(target);
+			
+			//Check if Player's onscreen weapon is Urethra, pretty self explanatory
+			if (PlayerDude.Player.ReadyWeapon == PlayerDude.PlayerData.UrethraWeapon)
+			{
+				Stare = false;
+				SetStateLabel("Spawn");
+			}
+			else
+			{
+				Stare = false;
+				A_ClearTarget();
+			}
+			//Although this may never happen (or can if the Player suddenly zipped it's pants), we don't want to make nasty mistakes.
+			Stare = false;
+		}
+		
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	Dickout.Krotchy:
+		TNT1 A 0 { target = staringAt; Stare = true; }
+		TNT1 A 0 A_PlaySound(NPC_Dickout,0);
+		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		IDLE ABCDEFG 3 A_FaceTarget();
+		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget();
+		IDLE ABCDEFG 2 A_FaceTarget();
+		
+		TNT1 A 0
+		{
+			//our target is the Player always in this state
+			let PlayerDude = PostalDude(target);
+			
+			//Check if Player's onscreen weapon is Urethra, pretty self explanatory
+			if (PlayerDude.Player.ReadyWeapon == PlayerDude.PlayerData.UrethraWeapon)
+			{
+				Stare = false;
+				SetStateLabel("Spawn");
+			}
+			else
+			{
+				Stare = false;
+				A_ClearTarget();
+			}
+			//Although this may never happen (or can if the Player suddenly zipped it's pants), we don't want to make nasty mistakes.
+			Stare = false;
+		}
+		
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	StaringWeapon:
+		TNT1 A 0
+		{
+			if (isKrotchy == true)
+				SetStateLabel("StaringWeapon.Krotchy");
+		}
+		//the target is stored in staringAt variable, from A_BystanderThink() 
+		TNT1 A 0 { target = staringAt; }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		//Be hostile, or flee from the frightening Player
+		TNT1 A 0 A_BystanderDecide();
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	StaringWeapon.Krotchy:
+		//the target is stored in staringAt variable, from A_BystanderThink() 
+		TNT1 A 0 { target = staringAt; }
+		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		IDLE ABCDEFG 3 A_FaceTarget();
+		//Be hostile, or flee from the frightening Player
+		TNT1 A 0 A_BystanderDecide();
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	StaringNPC:
+		TNT1 A 0 
+		{
+			if (isKrotchy == true)
+				SetStateLabel("StaringNPC.Krotchy");
+			
+			//Again, target is stored in staringAt
+			target = staringAt;
+			let pp = NPCCore(target);
+			
+			//If the Unique ID attached to the corpse is the same in our deadpeople array, then forget about it
+			//If this is the first time then just assign the element of deadpeople to the corpse's element
+			//so the NPC will always ignore it, that is if it's a Hostile-type NPC
+			if (deadpeople[pp.UniqueID] == pp.UniqueID && RandomHostility == 2)
+						SetStateLabel("Spawn");
+					else
+						deadpeople[pp.UniqueID] = pp.UniqueID;
+			
+		}
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		TNT1 A 0 
+		{
+			Deciding = true;
+			//Grab the target's variables
+			let pp = NPCCore(target);
+			//Console.Printf("NPCCore let pp");
+			
+			//If the NPC's (not target's) Hostility is 0
+			if (Hostility == 0 && Deciding == true)
+			{
+				if (target is 'NPCCore')
+				{
+				//Console.Printf("Hostility 0 yada yada");
+				//If target's Hostility is 2 (Hostile)
+				let pp = NPCCore(target);
+				if (pp.Hostility == 2)
+				{
+						target = staringAt;
+						let pp = NPCCore(target);
+						//Console.Printf("NPCCore is my target");
+						//Console.Printf("HE'S GOT A GUN!!!");
+										if (RandomHostility == 2)
+										{
+											target = pp;
+											Hostility = 2;
+											Deciding = false;
+											A_PlaySound(NPC_Taunt,0);
+											SetStateLabel("Hostile");
+										}
+										else
+										{
+											if (RandomHostility == 1)
+											{
+												Hostility = 1;
+												bFRIGHTENED = TRUE;
+												Deciding = false;
+												SetStateLabel("See");
+											}
+										}
+				}
+					//If something happened during decision, clear our target, and pretend none of this has happened
+					else
+					{
+						A_ClearTarget();
+						Deciding = false;
+						SetStateLabel("Spawn");
+					}
+					
+				if (pp.Health < 1)
+				{
+					let pp = NPCCore(target);
+					target = pp;
+					if (RandomHostility == 1)
+					{
+						Hostility = 1;
+						bFRIGHTENED = TRUE;
+						Deciding = false;
+						SetStateLabel("See");
+					}
+				}
+				
+				}
+			}
+			Deciding = false;
+			
+			return ResolveState (null);
+		}
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	StaringNPC.Krotchy:
+		TNT1 A 0 
+		{
+			//Again, target is stored in staringAt
+			target = staringAt;
+			let pp = NPCCore(target);
+			
+			//If the Unique ID attached to the corpse is the same in our deadpeople array, then forget about it
+			//If this is the first time then just assign the element of deadpeople to the corpse's element
+			//so the NPC will always ignore it, that is if it's a Hostile-type NPC
+			if (deadpeople[pp.UniqueID] == pp.UniqueID && RandomHostility == 2)
+						SetStateLabel("Spawn");
+					else
+						deadpeople[pp.UniqueID] = pp.UniqueID;
+			
+		}
+		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		IDLE ABCDEFG 3 A_FaceTarget();
+		TNT1 A 0 
+		{
+			Deciding = true;
+			//Grab the target's variables
+			let pp = NPCCore(target);
+			//Console.Printf("NPCCore let pp");
+			
+			//If the NPC's (not target's) Hostility is 0
+			if (Hostility == 0 && Deciding == true)
+			{
+				if (target is 'NPCCore')
+				{
+				//Console.Printf("Hostility 0 yada yada");
+				//If target's Hostility is 2 (Hostile)
+				let pp = NPCCore(target);
+				if (pp.Hostility == 2)
+				{
+						target = staringAt;
+						let pp = NPCCore(target);
+						//Console.Printf("NPCCore is my target");
+						//Console.Printf("HE'S GOT A GUN!!!");
+										if (RandomHostility == 2)
+										{
+											target = pp;
+											Hostility = 2;
+											Deciding = false;
+											A_PlaySound(NPC_Taunt,0);
+											SetStateLabel("Hostile");
+										}
+										else
+										{
+											if (RandomHostility == 1)
+											{
+												Hostility = 1;
+												bFRIGHTENED = TRUE;
+												Deciding = false;
+												SetStateLabel("See");
+											}
+										}
+				}
+					//If something happened during decision, clear our target, and pretend none of this has happened
+					else
+					{
+						A_ClearTarget();
+						Deciding = false;
+						SetStateLabel("Spawn");
+					}
+					
+				if (pp.Health < 1)
+				{
+					let pp = NPCCore(target);
+					target = pp;
+					if (RandomHostility == 1)
+					{
+						Hostility = 1;
+						bFRIGHTENED = TRUE;
+						Deciding = false;
+						SetStateLabel("See");
+					}
+				}
+				
+				}
+			}
+			Deciding = false;
+			
+			return ResolveState (null);
+		}
+		TNT1 A 0 { staringAt = null; }
+		Goto Spawn;
+	Missile:
+		TNT1 A 0
+		{
+			if (RandomizedWeapon == 1)
+				SetStateLabel("Missile.Pistol");
+			else
+				SetStateLabel("Missile.Shotgun");
+		}
+		Goto See;
+	Missile.Pistol:
+		TNT1 A 0
+		{
+			//Check if the NPC is a pussy, if yes go to See state
+			//never attack back at the player
+			if (Hostility == 1)
+				return ResolveState ("See");
+				
+			return ResolveState (null);
+		}
+		
+		//dud2
+		XXXF A 10 A_FaceTarget;
+		
+		TNT1 A 0
+		{
+			//Check if the NPC is a pussy, if yes go to See state
+			//never attack back at the player
+			if (Hostility == 1)
+				return ResolveState ("See");
+				
+			return ResolveState (null);
+		}
+		
+		XXXF A 6 A_NPCPistolAttack();
+		XXXF A 8;
+		Goto See;
+	Missile.Shotgun:
+		TNT1 A 0
+		{
+			//Check if the NPC is a pussy, if yes go to See state
+			//never attack back at the player
+			if (Hostility == 1)
+				return ResolveState ("See");
+				
+			return ResolveState (null);
+		}
+		
+		//dud2
+		SHOF A 10 A_FaceTarget;
+		
+		TNT1 A 0
+		{
+			//Check if the NPC is a pussy, if yes go to See state
+			//never attack back at the player
+			if (Hostility == 1)
+				return ResolveState ("See");
+				
+			return ResolveState (null);
+		}
+		
+		SHOF A 6 A_NPCShotgunAttack();
+		SHOF A 4;
+		TNT1 A 0 A_PlaySound("weapons/shotgr", CHAN_WEAPON);
+		SHOF A 6;
+		Goto See;
+	Pain:
+		TNT1 A 0
+		{
+			if (isKrotchy == true)
+				SetStateLabel("Pain.Krotchy");
+				
+			if (isKrotchy != true)
+			{
+				//Staring is immediately stopped, do a Hostile/Fleeing randomization
+				Stare = false;
+				staringAt = null;
+				if (Hostility != 1 || Hostility != 2)
+					A_Frightening();
+			}
+		}
+		
+		TNT1 A 0
+		{
+			//Check if the NPC is a pussy, if yes go to See state
+			//never attack back at the player
+			if (Hostility == 1)
+				SetStateLabel("See");
+		}
+		
+		DUDE A 3;
+		
+		DUDE A 3 A_Pain;
+		Goto See;
+	Pain.Krotchy:
+		TNT1 A 0
+		{	
+			//Staring is immediately stopped, do a Hostile/Fleeing randomization
+			Stare = false;
+			staringAt = null;
+			if (Hostility != 1 || Hostility != 2)
+				A_Frightening();
+		}
+		
+		IDLE G 3;
+		
+		TNT1 A 0
+		{
+			//Check if the NPC is a pussy, if yes go to See state
+			//never attack back at the player
+			if (Hostility == 1)
+				return ResolveState ("See");
+				
+			return ResolveState (null);
+		}
+		
+		IDLE G 3 A_Pain;
+		Goto See;
+	Death:
+		TNT1 A 0 A_Scream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		TNT1 A 0 A_NoBlocking;
+		TNT1 A 0
+		{
+			if (RandomizedWeapon == 1)
+				A_SpawnItemEx("PostPistol");
+			if (RandomizedWeapon == 2)
+				A_SpawnItemEx("PostShotgun");
+		
+		}
+		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUD2 P -1;
+		Stop;
+	Headless.Death:
+		TNT1 A 0 A_Scream;
+		XYXY ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		TNT1 A 0 A_NoBlocking;
+		TNT1 A 0
+		{
+			if (RandomizedWeapon == 1)
+				A_SpawnItemEx("PostPistol");
+			if (RandomizedWeapon == 2)
+				A_SpawnItemEx("PostShotgun");
+		
+		}
+		XYX2 ABCDEFGHIJKLMNOP 2;
+		XYX2 P -1;
+		Stop;
+	XDeath:
+		TNT1 A 0 A_Scream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		TNT1 A 0 A_NoBlocking;
+		TNT1 A 0
+		{
+			if (RandomizedWeapon == 1)
+				A_SpawnItemEx("PostPistol");
+			if (RandomizedWeapon == 2)
+				A_SpawnItemEx("PostShotgun");
+		
+		}
+		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUD2 P -1;
+		Stop;
+	Raise:
+		Stop;
+	}
+}
+
+extend class NPCCore
+{
+
+    //////////////////////////////////
+	/////// Hostile - Flee
+	//////////////////////////////////
+
+	action void A_Frightening()
+	{
+		//0 = Wandering (default)
+		//1 = Flee
+		//2 = Hostile
+		//3 = Ally (todo: RWS members will ignore it if you hurt them, for a certain of time)
+		
+			//If we are Wandering currently, do:
+			if (invoker.Hostility == 0)
+			{
+				if (invoker.RandomHostility == 1)
+					invoker.Hostility = 1;
+				else
+					if (invoker.RandomHostility == 2)
+						invoker.Hostility = 2;
+			}
+			
+			//If we became a pussy, add a new flag
+			//Hostile's code is defined in "Hostile" and "See" state
+			if (invoker.Hostility == 1)
+			{
+				bFRIGHTENED = TRUE;
+			}
+	}
+
+	
+	//////////////////////////////////
+	/////// Bump/Touch feature
+	//////////////////////////////////
+	
+	override void Touch(Actor toucher)
+	{
+		if (toucher)
+		{
+			//If we aren't staring, nor we have more than 0 HP, or we aren't hostile atm, do:
+			//Checking for 0 HP is needed because we don't want to resurrect dead NPCs into Ghost ones that are unkillable
+			if (Stare != true && health > 0)
+			{
+				target = toucher;
+				// If the target is Postal Dude, do this
+				if (target is 'PostalDude' && Hostility != 2 && Hostility != 1)
+				{
+					let PlayerDude = PostalDude(target);
+					if (Hostility == 0)
+					{
+						if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostCowhead")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostGrenade")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMachete")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostM16")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMolotov")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostNapalmLauncher")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostPistol")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRLauncher")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScissors")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScythe")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostShotgun")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRifle")) || 
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")) ||
+						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostWMD")))
+						{
+							//Console.Printf("omg lethal weapon");
+										//Console.Printf("HE'S GOT A GUN!!!");
+										if (RandomHostility == 2)
+										{
+											target = PlayerDude;
+											staringAt = PlayerDude;
+											Hostility = 2;
+											A_PlaySound(NPC_Taunt,0);
+											SetStateLabel("Hostile");
+										}
+										else
+										{
+											if (RandomHostility == 1)
+											{
+												target = PlayerDude;
+												Hostility = 1;
+												bFRIGHTENED = TRUE;
+												SetStateLabel("See");
+											}
+										}
+						}
+						else
+						{
+							A_FaceTarget();
+							Stare = true;
+							SetStateLabel("Staring");
+						}
+					}
+				}
+
+				// If our target is another NPCCore, then do the following
+				if (target is 'NPCCore' && Hostility != 2 && Hostility != 1)
+				{
+					let pp = NPCCore(target);
+					//If we aren't Hostile or Fleeing, do:
+						//Calm, normal wandering/walking
+						if (pp.Hostility == 0)
+						{
+							// blank
+						}
+						else
+						{
+							//Fleeing, running around and screaming like hell
+							if (pp.Hostility == 1)
+							{
+								//Console.Printf("STOP RUNNING INTO ME YOU SCREAMING PUSSY");
+								A_FaceTarget();
+								target = pp;
+								Stare = true;
+								SetStateLabel("Staring");
+							}
+							else
+							{
+								//Hostile, attacks the target
+								//If we aren't fleeing or Hostile, do:
+								if (Hostility != 1 || Hostility != 2)
+								{
+								
+									if (pp.Hostility == 2)
+									{
+										//Console.Printf("HE'S GOT A GUN!!!");
+										if (RandomHostility == 2)
+										{
+											target = pp;
+											Hostility = 2;
+											A_PlaySound(NPC_Taunt,0);
+											SetStateLabel("Hostile");
+										}
+										else
+										{
+											if (RandomHostility == 1)
+											{
+												Hostility = 1;
+												bFRIGHTENED = TRUE;
+												target = pp;
+												SetStateLabel("See");
+											}
+										}
+										
+									}
+								
+								}
+							}
+						}
+				}
+				
+				if (target is 'Champ' && Hostility != 2 && Hostility != 1)
+				{
+					SetStateLabel("Spawn");
+				}
+				
+				if (target is 'PostalCatInv' && Hostility != 2 && Hostility != 1)
+				{
+					SetStateLabel("Spawn");
+				}
+				
+			}
+			
+		}	
+	}
+	
+	action void A_BystanderDecide()
+	{
+		let me = self;
+		if (invoker.Hostility == 0)
+		{
+										//Console.Printf("omg lethal weapon");
+										//Console.Printf("HE'S GOT A GUN!!!");
+										if (invoker.RandomHostility == 2)
+										{
+											let PlayerDude = PostalDude(target);
+											target = PlayerDude;
+											invoker.Hostility = 2;
+											A_PlaySound(invoker.NPC_Taunt,0);
+											SetStateLabel("Hostile");
+										}
+										else
+										{
+											if (invoker.RandomHostility == 1)
+											{
+												let PlayerDude = PostalDude(target);
+												target = PlayerDude;
+												invoker.Hostility = 1;
+												bFRIGHTENED = TRUE;
+												SetStateLabel("See");
+											}
+										}
+		}
+	}
+
+	
+	action void A_NewBystanderThink()
+	{
+		//many thanks to phantombeta!!
+		double fov = 90; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+
+			//if (!next.bShootable) // || next.bKilled || next.health < 1)
+			//{
+			//	continue;
+			//}
+
+			
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
+
+			
+			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				continue;
+
+			// Do things with the "next" pointer here
+			
+						if (!invoker.Hostility == 1 || !invoker.Hostility == 2)
+						{
+							if (next is 'PostalDude' && !(next.bKILLED))
+							{
+								let PlayerDude = PostalDude(next);
+								if (PlayerDude != null && PlayerDude.player.ReadyWeapon != null)
+								{
+									if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")))
+									{
+										//A_PlaySound("grunt/sight",0);
+										invoker.staringAt = next;
+										SetStateLabel("DickOut");
+									}
+									else
+										if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostCowhead")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostGrenade")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMachete")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostM16")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMolotov")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostNapalmLauncher")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostPistol")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRLauncher")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScissors")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScythe")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostShotgun")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRifle")) || 
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")) ||
+										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostWMD")))
+										{
+												invoker.staringAt = next;
+												SetStateLabel("StaringWeapon");
+												break;
+										}
+								}
+							}
+							
+							
+							if (next is 'NPCCore' && !(next.bKILLED))
+							{
+									let pp = NPCCore(next);
+									if (pp.Hostility == 2 && invoker.Deciding == false)
+									{
+										//Console.Printf("I see NPCCore");
+										invoker.staringAt = next;
+										target = pp;
+										SetStateLabel("StaringNPC");
+										break;
+									}
+							}
+							
+							if (next is 'NPCCore' && next.bCORPSE)
+							{
+								let pp = NPCCore(next);
+								if (!(invoker.deadpeople[pp.UniqueID] == pp.UniqueID))
+								{
+									invoker.staringAt = next;
+									target = next;
+									SetStateLabel("StaringNPC");
+									break;
+								}
+							
+							}
+							
+							
+							if (next.bIsMonster && !(next.bKILLED) && !(next is 'NPCCore') && !(next is 'Champ') && !(next is 'PostalCatInv'))
+							{
+										if (invoker.RandomHostility == 2)
+										{
+											target = next;
+											invoker.Hostility = 2;
+											A_PlaySound(invoker.NPC_Taunt,0);
+											SetStateLabel("Hostile");
+										}
+										else
+										{
+											if (invoker.RandomHostility == 1)
+											{
+												target = next;
+												invoker.Hostility = 1;
+												bFRIGHTENED = TRUE;
+												SetStateLabel("See");
+											}
+										}
+							}
+							
+						}
+			}
+    }
+	
+	action void A_NPCPistolAttack()
+	{
+		if (target)
+		{
+			A_FaceTarget();
+			double ang = angle;
+			double slope = AimLineAttack(ang, MISSILERANGE);
+			A_PlaySound("weapons/pistol", CHAN_WEAPON);
+			ang  += Random2[PosAttack]() * (22.5/256);
+			int damage = Random[PosAttack](1, 5) * 3;
+			LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff");
+		}
+	}
+	
+	action void A_NPCShotgunAttack()
+	{
+		if (target)
+		{
+			A_FaceTarget();
+			double bangle = angle;
+			double slope = AimLineAttack(bangle, MISSILERANGE);
+			
+			A_PlaySound("weapons/shotgf", CHAN_WEAPON);
+			
+			for (int i=0 ; i<3 ; i++)
+			{
+				double ang = bangle + Random2[SPosAttack]() * (22.5/256);
+				int damage = Random[SPosAttack](1, 5) * 3;
+				LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff");
+			}
+		}
+    }
+	
+}

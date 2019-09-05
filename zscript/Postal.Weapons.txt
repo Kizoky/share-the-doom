@@ -1,0 +1,161 @@
+class PostalWeapon : Weapon
+{
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (owner != null && owner is 'PostalDude')
+		{
+			//Always do bobbing
+			Owner.player.WeaponState |= WF_WEAPONBOBBING;
+			
+			//Disable auto aiming no matter what
+			bNOAUTOAIM = true;
+			
+			//Disable knockback on all weapons
+			Kickback = 0;
+			
+		}
+			
+		
+	}
+	
+	override void Touch (Actor toucher)
+	{
+		if (toucher is 'PostalDude')
+		{
+		
+			let player = toucher.player;
+
+			// If a voodoo doll touches something, pretend the real player touched it instead.
+			if (player != NULL)
+			{
+				toucher = player.mo;
+			}
+
+			//bool localview = toucher.CheckLocalView();
+
+			//if (!toucher.CanTouchItem(self))
+			//	return;
+
+			bool res;
+			[res, toucher] = CallTryPickup(toucher);
+			if (!res) return;
+
+			// This is the only situation when a pickup flash should ever play.
+			if (PickupFlash != NULL && !ShouldStay())
+			{
+				Spawn(PickupFlash, Pos, ALLOW_REPLACE);
+			}
+
+			if (!bQuiet)
+			{
+				//PrintPickupMessage(localview, PickupMessage ());
+
+				// Special check so voodoo dolls picking up items cause the
+				// real player to make noise.
+				if (player != NULL)
+				{
+					PlayPickupSound (player.mo);
+					if (!bNoScreenFlash)
+					{
+						player.bonuscount = BONUSADD;
+					}
+				}
+				else
+				{
+					PlayPickupSound (toucher);
+				}
+			}							
+
+			// [RH] Execute an attached special (if any)
+			DoPickupSpecial (toucher);
+
+			if (bCountItem)
+			{
+				if (player != NULL)
+				{
+					player.itemcount++;
+				}
+				level.found_items++;
+			}
+
+			if (bCountSecret)
+			{
+				Actor ac = player != NULL? Actor(player.mo) : toucher;
+				ac.GiveSecret(true, true);
+			}
+
+			//Added by MC: Check if item taken was the roam destination of any bot
+			for (int i = 0; i < MAXPLAYERS; i++)
+			{
+				if (players[i].Bot != NULL && self == players[i].Bot.dest)
+					players[i].Bot.dest = NULL;
+			}
+		
+		}
+	}
+	
+	Default
+	{
+		//Tim's original adjustments
+		//Weapon.BobRangeX 0.05; //  was 0.1
+		//Weapon.BobRangeY -0.2; // was -0.1
+		//Weapon.BobSpeed 2.5; // was 1.7 
+		//Weapon.BobStyle "Alpha";
+		
+		Weapon.BobStyle "Normal";
+		Weapon.BobSpeed 2.4;
+		Weapon.BobRangeX 0.2;
+		Weapon.BobRangeY -0.25;
+		Weapon.YAdjust 0;
+		
+		//Weapon.BobStyle "Normal";
+		//Weapon.BobSpeed 0.35;
+		//Weapon.BobRangeX 0.5;
+		//Weapon.BobRangeY 0.5;
+		//Weapon.YAdjust 0;
+		
+	}
+}
+
+extend class PostalWeapon
+{
+//Sometimes Postal Dude becomes right or left handed, this will fix that
+//This will only work on sprites, use negative value on scaling instead
+	action void A_FixMirror()
+	{
+			A_OverlayFlags (1,PSPF_MIRROR,true);
+			A_OverlayFlags (1,PSPF_FLIP,true);
+			A_OverlayFlags (PSP_FLASH,PSPF_MIRROR,true);
+			A_OverlayFlags (PSP_FLASH,PSPF_FLIP,true);
+	}
+	
+}
+
+class PostalBulletPuff : BulletPuff replaces BulletPuff
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ALLOWPARTICLES
+		+RANDOMIZE
+		+DONTSPLASH
+		+ZDOOMTRANS
+		RenderStyle "Translucent";
+		Alpha 0.5;
+		VSpeed 1;
+		Mass 5;
+		SeeSound "missp";
+		AttackSound "hitwall";
+		ActiveSound "missp";
+	}
+	States
+	{
+	Spawn:
+		PUFF A 4 Bright;
+		PUFF BCD 4;
+		Stop;
+	}
+}

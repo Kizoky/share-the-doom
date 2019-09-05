@@ -1,0 +1,7 @@
+material texture "models/props/textures/smocklar_cream.png"
+{
+	normal "materials/normalmaps/smocklar_cream_NRM.png"
+	specular "materials/specular/smocklar_cream_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 1.5
+}

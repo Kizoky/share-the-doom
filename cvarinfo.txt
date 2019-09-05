@@ -1,0 +1,8 @@
+//Share the Doom cvars
+user bool postal_idleanim = true;     //Disables or enables idling animations on weapons
+user bool postal_dummy = true;
+user String radiusDebug = "None";
+user bool postal_lowai = false;		//Reduces the "think" of all Postal NPCs/Actors for low end computers
+user bool postal_preload = true;		//Disables or enables model preloading
+user int postalUI_X = 0;
+user int postalUI_Y = 0;

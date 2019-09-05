@@ -1,0 +1,536 @@
+class Doghouse : Actor
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Doghouse"
+		Radius 40;
+		Height 59;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Workbench : Actor
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Workbench"
+		Radius 20;
+		Height 37;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class TelephonePoleMD3 : Actor
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Telephone Pole"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Phonepole : Actor
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Phone Pole"
+		Radius 15;
+		Height 475;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class PhonepoleOBJ : Actor
+{
+	Default
+	{
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Billboard : Actor
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Billboard"
+		Radius 100;
+		Height 350;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Billboard2 : Actor
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Billboard 2"
+		Radius 100;
+		Height 350;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardCustom : Actor
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Billboard Customized"
+		Radius 100;
+		Height 350;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardOBJ : Actor
+{
+	Default
+	{
+		Radius 100;
+		Height 350;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class fortyoz : Actor
+{
+	Default
+	{
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class sixtyninefine : Actor
+{
+	Default
+	{
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class ACunit : Actor
+{
+	Default
+	{
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class AngelDawn : Actor
+{
+	Default
+	{
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class APC : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "APC"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Tank : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Tank"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class ATM : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class barrelcactus : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class barchair : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class basketballhoop : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bathtubone : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bathtubtwo : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bedone : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bedtwo : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bewareofdog : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+		+FLOAT;
+		+NOGRAVITY;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bewareofdogtwo : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+		+FLOAT;
+		+NOGRAVITY;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bondagechair : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bookcase : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bookcasetwo : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bookcaselibrary : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class boombox : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bosschair : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bulldozer : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Bulldozer"
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bureau : Actor
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bush666 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Bush 666"
+		Radius 5;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

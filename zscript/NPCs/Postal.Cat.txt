@@ -1,0 +1,191 @@
+class PostalCatInv : PostalInventory
+{
+	bool Dead, DogSee;
+	
+	Default
+	{
+		//$Category NPCs
+		//$Title "Cat"
+		//$Sprite CATWA0
+		+COUNTITEM
+		-FLOATBOB
+		Inventory.RespawnTics 4230;
+		Inventory.DefMaxAmount;
+		Speed 3;
+		Health 50;
+		Radius 30;
+		Height 56;
+		PainChance 256;
+		Inventory.PickupFlash "PickupFlash";
+		+INVENTORY.INVBAR 
+		+INVENTORY.FANCYPICKUPSOUND
+		Inventory.Icon "CATINV";
+		Inventory.PickupSound "catpickup";
+		Inventory.PickupMessage "Picked up a cat.";
+		//The following actors below can pick up the cat, we don't want to make them being able to do that.
+		Tag "$TAG_ARTISUMMON";
+		Monster;
+		-SOLID
+		+SPECIAL
+		+SHOOTABLE
+		+DROPOFF
+		+PICKUP
+		+NOTDMATCH
+		+SLIDESONWALLS
+		+CANPASS
+		+CANPUSHWALLS
+		+FLOORCLIP
+		+WINDTHRUST
+		+TELESTOMP
+		+NOBLOCKMONST
+		+INTERPOLATEANGLES
+		-COUNTKILL
+	}
+	States
+	{
+	Spawn:
+		CATW ABCDEFGHIJKLMNOPQ 3
+		{	
+			A_Wander();
+			//A_CatThink();
+				
+			if (DogSee == True)
+				SetStateLabel("Hiss");
+			
+		}
+		TNT1 A 0 A_CatThink();
+		Loop;
+	See:
+		TNT1 A 0
+		{
+			bPICKUP = False;
+			bSPECIAL = False;
+		}
+		CATR ABCDEFGHIJKLMNOPQRS 3 A_Chase;
+		Loop;
+	Hiss:
+		TNT1 A 0 A_PlaySound("cathiss",0);
+		HISS ABCDEFGHIJKLMNOPQRSTU 3 A_FaceTarget();
+		TNT1 A 0
+		{
+			bFRIGHTENED = true;
+			self.Speed = 25;
+			bPICKUP = false;
+			A_PlaySound("catscream",0);
+		}
+		Goto See;
+	Pain:
+		CATW A 12 A_Pain;
+		TNT1 A 0
+		{
+			bFRIGHTENED = true;
+			self.Speed = 25;
+			bPICKUP = false;
+			A_PlaySound("catscream",0);
+		}
+		Goto See;
+	Death:
+		TNT1 A 0
+		{
+			bPICKUP = False;
+			bSPECIAL = False;
+		}
+		CATD ABCDEFGHIJKLMNOPQRSTUVWXYZ 7;
+		CATD Z -1;
+		Stop;
+	}
+	
+}
+	
+// unused
+class PostalDeadCat : Actor
+{
+	Default
+	{
+		//$Category NPCs
+		//$Title "Dead Cat"
+		Health 50;
+		Radius 30;
+		Height 56;
+		-SOLID
+	}
+	States
+	{
+	Spawn:
+		CATD ABCDEFGHIJKLMNOPQRSTUVWXYZ 7;
+		CATD Z -1;
+		Stop;
+}
+
+}
+
+extend class PostalCatInv
+{
+	action void A_CatThink()
+	{
+		//many thanks to phantombeta!!
+		double fov = 360; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+
+			if (!next.bShootable || next.bKilled || next.health < 1)
+			{
+				continue;
+			}
+
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
+
+			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				continue;
+
+			// Do things with the "next" pointer here
+					
+			// It sounds stupid, the cat hears the Player by seeing it
+			// And it makes ton of unhealthy puns.
+			
+							if (next is 'PostalDude')
+							{
+								let PlayerDude = PostalDude(next);
+								
+								if (PlayerDude)
+								{
+									//Postal Dude has a variable that saves the currently moving speed.
+									//If it's higher than 4, meaning the Player is most likely running, then the cat will go shriek
+									if (PlayerDude.PlayerData.MoveSpeed > 3)
+									{
+										target = next;
+										bFRIGHTENED = TRUE;
+										self.Speed = 25;
+										A_PlaySound("catscream",0);
+										SetStateLabel("See");
+									}
+								}
+							}
+						
+			}
+			
+			
+    }
+	
+	// unused
+	action void A_CorpseSpawn(class<actor> corpse = "PostalDeadCat")
+	{
+		Actor DeadCat;
+		// Spawn the corpse with as the variable above, 
+		// the second argument will spawn it with the actor's position + replacing it
+		DeadCat = spawn(corpse, self.pos, ALLOW_REPLACE);
+		
+		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
+		// but make sure to check it's not null or else GZDoom will crash
+		if (DeadCat)
+			DeadCat.angle = self.angle;
+		
+	}
+
+
+}

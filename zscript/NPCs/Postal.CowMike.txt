@@ -1,0 +1,685 @@
+class PostalMadCowArmor : BasicArmorPickup
+{
+	Default
+	{
+		Radius 20;
+		Height 16;
+		Inventory.PickupMessage "Picked up the Mad Cow's armor. Wait a second... you aren't supposed to!!!";
+		Inventory.Icon "icnarmor";
+		Armor.SavePercent 100;
+		Armor.SaveAmount 666666;
+	}
+	States
+	{
+	Spawn:
+		ARM1 A 6;
+		Loop;
+  }
+}
+
+class CowMike : PostalActor
+{	
+	int HeadAmount, DestroyedHeads, HeadRespawnMax, HeadRespawnCount;
+	int initHeadSpawn, LaughingCooldown;
+	bool Timer, TimerCount, initHeadSpawnCounted, isArmorDestroyed, isShooting, HeadsSpittingDone, AllHeadsSpawned;
+	int SavedArmor;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (!bKILLED)
+		{
+		
+			if (initHeadSpawnCounted != true)
+			{
+				//3 seconds before a head is spawned
+				initHeadSpawn = level.time + (35 * 3);
+			}
+			
+			if (HeadAmount < 6 && DestroyedHeads < 1 && AllHeadsSpawned != true)
+			{	
+				initHeadSpawnCounted = true;
+				if (level.time > initHeadSpawn)
+				{
+					class<actor> Head = "GaryHead";
+					Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
+					if (MyHead)
+					{
+						SetStateLabel("Spit");
+						MyHead.Angle = random(0,360);
+						let p = GaryHead(MyHead);
+						p.Owner = self;
+						p.RandomizedZ = random(20,40);
+						p.RandomizedPOS = random(-45,45);
+						
+						p.OriginalRadius = random(1,45);
+						p.OriginalY = p.OriginalRadius;
+						
+						int UpAndDown = random(1,2);
+						if (UpAndDown == 1)
+							p.upndown = true;
+						else
+							p.upndown = false;
+							
+						int RightLeft = random(1,2);
+						if (RightLeft == 1)
+							p.rightnleft = true;
+						else
+							p.rightnleft = false;
+							
+						HeadAmount++;
+						initHeadSpawnCounted = false;
+					}
+				}
+				
+				if (HeadAmount == 6)
+					AllHeadsSpawned = true;
+			}
+			
+			let armor = FindInventory("BasicArmor");
+			if (DestroyedHeads == 6)
+			{	
+				armor.Amount = 0;
+				Timer = true;
+				isArmorDestroyed = true;
+				DestroyedHeads++;
+			}
+			
+			if (Timer == true)
+			{
+				// The player has 15 seconds to inflict damage upon CowMike
+				HeadRespawnMax = level.time + (35 * 15);
+				Timer = false;
+				TimerCount = true;
+				bNoBlood = false;
+			}
+			
+			if (TimerCount == true)
+			{
+				//If 15 seconds has exceeded
+				if (level.time > HeadRespawnMax)
+				{
+					DestroyedHeads = 0;
+					TimerCount = false;
+					isArmorDestroyed = false;
+					AllHeadsSpawned = false;
+					GiveInventory("PostalMadCowArmor", 1);
+					bNoBlood = true;
+				}
+			}
+				
+			//Console.Printf("Armor: %d", armor.Amount);
+			
+			if (SavedArmor != armor.Amount && LaughingCooldown < level.time && isShooting != true && AllHeadsSpawned == true)
+			{
+				
+				SavedArmor = armor.Amount;
+				SetStateLabel("Laugh");
+				Console.Printf("Took some damage");
+				LaughingCooldown = level.time + (35 * 25);
+			}
+			
+			
+		}
+			
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		GiveInventory("PostalMadCowArmor", 1);
+		initHeadSpawn = level.time - 1;
+		DestroyedHeads = 0;
+		bNoBlood = true;
+		
+		let armor = FindInventory("BasicArmor");
+		SavedArmor = armor.Amount;
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		target = source;
+		
+		//Pissing off him won't do much
+		if (source is 'PostalDude' && inflictor is 'Urine')
+		{
+			Health += damage;
+		}
+		
+		if (inflictor is 'Bulletpuff' && bNoBlood == false)
+			A_PlaySound("hitflesh",0 | 4096);
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	Default
+	{
+		Health 6000;
+		Radius 60;
+		Height 150;
+		Speed 2.5;
+		PainChance 128;
+		Monster;
+		+SOLID
+		+SHOOTABLE
+		DropItem "None";
+		PainSound "madcow/pain";
+		DeathSound "dudehurt16";
+	}
+	States
+	{
+		Spawn:
+			//TNT1 A 0 A_CheckForTargets();
+			TNT1 A 0;
+			MIKE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+			MIK2 ABCDEFGHIJKLMNOPQRSTUVWXY 2;
+			Loop;
+		Spit:
+			TNT1 A 0 A_PlaySound("madcow/spit",0);
+			SPIT ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
+			SPI2 ABCDE 3;
+			SPI2 EEEEEE 3;
+			Goto Spawn;
+		See:
+			WALK ABCDEFGHIJKLMNOPQRS 3 A_Chase;
+			Loop;
+		Pain:
+			TNT1 A 0
+			{
+				int asd = random(1,2);
+				
+				if (asd == 1)
+					SetStateLabel("Pain.One");
+				else
+					SetStateLabel("Pain.Two");
+			}
+		Pain.One:
+			MHIT AAA 3 A_Pain;
+			Goto See;
+		Pain.Two:
+			MHIT BBB 3 A_Pain;
+			Goto See;
+		Laugh:
+			TNT1 A 0 A_PlaySound("madcow/laugh",0);
+			LAUG ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+			LAU2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+			LAU3 ABCDEFGHIJKLMNOPQRSTUVWX 2;
+			Goto See;
+		Death:
+			TNT1 A 0 A_Scream;
+			DEAD ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
+			DEA2 ABCDEFGHIJKLMNOPQRST 3;
+			TNT1 A 0 A_NoBlocking;
+			DEA2 T -1;
+			Stop;
+		Missile:
+			TNT1 A 0
+			{
+				int chance = random(1,3);
+				if (chance == 1)
+					SetStateLabel("LeftThrow");
+				if (chance == 2)
+					SetStateLabel("RightThrow");
+				if (chance == 3)
+					SetStateLabel("LeftThrow");
+			}
+		LeftThrow:
+			TNT1 A 0 { isShooting = true; PainChance = 0; }
+			TNT1 A 0 A_PlaySound("madcow/attack",0);
+			LTH1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
+			LTH2 ABC 2 A_FaceTarget;
+			TNT1 A 0 A_GaryHeadThrow(50);
+			LTH2 DEFGHIJKLMNOPQRSTUVWXY 2 A_FaceTarget;
+			TNT1 A 0 { isShooting = false; PainChance = Default.PainChance; }
+			Goto See;
+		RightThrow:
+			TNT1 A 0 { isShooting = true; PainChance = 0; }
+			TNT1 A 0 A_PlaySound("madcow/attack",0);
+			RTH1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
+			RTH2 ABC 2 A_FaceTarget;
+			TNT1 A 0 A_GaryHeadThrow(-50);
+			RTH2 DEFGHIJKLMNOPQRSTUVWXY 2 A_FaceTarget;
+			TNT1 A 0 { isShooting = false; PainChance = Default.PainChance; }
+			Goto See;
+		UtterShoot:
+			UTER ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
+			UTE2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
+			UTE3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
+			UTE4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
+			UTE5 ABC 2 A_FaceTarget;
+			Goto See;
+		Melee:
+			Stop;
+ }
+}
+
+extend class CowMike
+{
+	void A_GaryHeadThrow(double RightLeft)
+	{
+		if (target == null) return;
+		A_FaceTarget();
+		
+		Actor shoot = SpawnMissile (target, "GaryHeadProjectile");
+		
+		if (shoot != null)
+		{
+			shoot.Angle = Angle;
+			shoot.SetXYZ(shoot.pos + (0, RightLeft, 120));
+			shoot.SetOrigin(shoot.Vec3Offset(shoot.Vel.X, shoot.Vel.Y, 0.), false);
+			shoot.tracer = target;
+		}
+	
+	}
+
+
+}
+
+class GaryHead : PostalActor
+{	
+	Actor Owner;
+	double OriginalZ, OriginalRadius, OriginalY;
+	int HeadNumber;
+	bool inc, upndown, rightnleft, done;
+	int FireSpawn;
+	
+	double RandomizedZ, RandomizedPOS, RandomizedAngle;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		OriginalY = 0;
+		upndown = true;
+		rightnleft = true;
+		//RandomizedPOS = 0;
+		
+		RandomizedAngle = random(-5,5);
+		if (RandomizedAngle == 1 || RandomizedAngle == 0)
+			RandomizedAngle = 2;
+		if (RandomizedAngle == -1)
+			RandomizedAngle = -2;
+			
+		FireSpawn = level.time;
+	
+	}
+	
+	override void Tick()
+	{
+			Super.Tick();
+		
+			let pp = CowMike(Owner);
+			
+			//May never happen in a normal gameplay, but let's destroy them anyway
+			
+			if (pp)
+			{
+					if (pp.bKILLED)
+						Destroy();
+					
+					OriginalZ = 180;
+					
+					if (OriginalRadius < 50 && inc != true)
+					{
+						if (OriginalRadius > 49)
+						{
+							inc = true;
+						}
+						OriginalRadius += 0.1;
+						OriginalY += 0.1;
+					}
+					
+					if (inc != false && OriginalRadius > 0)
+					{
+						if (OriginalRadius < 1)
+							inc = false;
+							
+						OriginalRadius -= 0.2;
+						OriginalY -= 0.2;
+					}
+					
+					vector3 RandomPOS = pp.pos + (RandomizedPOS, RandomizedPOS, RandomizedPOS);
+					
+					if (upndown == true)
+					{
+						SetOrigin(RandomPOS + (OriginalRadius * cos(angle), OriginalRadius*sin(angle),OriginalZ+RandomizedZ+OriginalY), TRUE);
+						/*if (rightnleft == true)
+							Prev = pp.pos + (OriginalRadius * cos (angle - 2) + RandomizedPOS, OriginalRadius * sin (angle - 5), OriginalZ+RandomizedZ+OriginalY);
+						else
+							Prev = pp.pos + (OriginalRadius * cos (angle + 2) + RandomizedPOS, OriginalRadius * sin (angle - 5), OriginalZ+RandomizedZ+OriginalY);*/
+					}
+					else
+					{
+						SetOrigin(RandomPOS + (OriginalRadius * cos(angle), OriginalRadius*sin(angle),OriginalZ+RandomizedZ-OriginalY), TRUE);
+						/*if (rightnleft == true)
+							Prev = pp.pos + (OriginalRadius * cos (angle - 2) + RandomizedPOS, OriginalRadius * sin (angle - 5), OriginalZ+RandomizedZ+OriginalY);
+						else
+							Prev = pp.pos + (OriginalRadius * cos (angle + 2) + RandomizedPOS, OriginalRadius * sin (angle - 5), OriginalZ+RandomizedZ+OriginalY);*/
+					}
+					
+						angle += RandomizedAngle;
+					
+					//Console.Printf("Radius: %d", OriginalRadius);
+					//Console.Printf("OriginalY: %d", OriginalY);
+				
+			}
+			
+			//Attach ONE fireball to the head, will destroy if it's dead
+			if (done != true)
+			{
+				class<actor> Fire = "RedGaryHeadHomingFire";
+				Actor MyFire = spawn(Fire, self.pos, ALLOW_REPLACE);
+				if (MyFire)
+				{
+					let p = RedGaryHeadHomingFire(MyFire);
+					p.HeadFlame = self;
+				}
+				
+				done = true;
+			}
+			
+			//Spawn the fire trails every 3 tics
+			if (level.time > FireSpawn)
+			{
+				Actor smoke = Spawn ("RedGaryHeadHomingFireTrail", self.pos, ALLOW_REPLACE);
+				FireSpawn = level.time + 3;
+			}
+			
+		//Console.Printf("NPCCore Health: %d", p.health);
+	
+	}
+	
+	Default
+	{
+		Health 50;
+		Radius 10;
+		Height 13;
+		Speed 0;
+		PainChance 256;
+		//Monster;
+		-SOLID
+		+SHOOTABLE
+		DropItem "None";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			{
+				int chance = random(0,100);
+				if (chance > 50)
+					A_PlaySound("gary/laugh",CHAN_VOICE | CHAN_NOSTOP);
+			}
+			TNT1 A 1;
+			Goto GaryHead;
+		GaryHead:
+			TNT1 A 0
+			{
+				int chance = random(0,100);
+				if (chance > 50)
+					A_PlaySound("gary/laugh",CHAN_VOICE | CHAN_NOSTOP);
+			}
+			GARY A 4;
+			Loop;
+		See:
+			GARY A 1 A_Look;
+			Goto Spawn;
+		Pain:
+			TNT1 A 1;
+			Goto Spawn;
+		Death:
+			TNT1 A 1 A_PlaySound("misc/gibbed",0);
+			TNT1 A 0
+			{
+				if (Owner != null)
+				{
+					let pp = CowMike(Owner);
+					pp.HeadAmount--;
+					pp.DestroyedHeads++;
+				}
+			}
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
+ }
+}
+
+class DummyShootableHead : Actor
+{
+	actor AttachTo;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		If (AttachTo)
+		{
+			SetOrigin(AttachTo.pos+(0,0,0), TRUE);
+		}
+	
+	}
+	
+	Default
+	{
+		Health 75;
+		Radius 11;
+		Height 14;
+		Speed 0;
+		PainChance 256;
+		-SOLID
+		+SHOOTABLE
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 1;
+			Loop;
+		Pain:
+			TNT1 A 1;
+			Goto Spawn;
+		Death:
+			//TNT1 A 0 { if (AttachTo) AttachTo.Destroy(); }
+			TNT1 A 1 A_PlaySound("misc/gibbed",0);
+			Stop;
+ }
+}
+
+class GaryHeadProjectile : Actor
+{	
+	
+	void A_GaryHeadHoming()
+	{	
+		Actor smoke = Spawn ("GaryHeadHomingFireTrail", Vec3Offset(-Vel.X, -Vel.Y, 0.), ALLOW_REPLACE);
+		
+		A_Tracer2(16.875);
+	
+	}
+	
+	bool done;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (done != true)
+		{
+			class<actor> Fire = "GaryHeadHomingFire";
+			Actor MyFire = spawn(Fire, self.pos, ALLOW_REPLACE);
+			if (MyFire)
+			{
+				let p = GaryHeadHomingFire(MyFire);
+				p.HeadFlame = self;
+			}
+			
+			/*class<actor> Dummy = "DummyShootableHead";
+			Actor DummyHead = spawn(Dummy, self.pos, ALLOW_REPLACE);
+			if (DummyHead)
+			{
+				let p = DummyShootableHead(DummyHead);
+				p.AttachTo = self;
+			}*/
+			
+			done = true;
+		}
+	}
+	
+	Default
+	{
+		Health 50;
+		Radius 10;
+		Height 13;
+		Speed 5;
+		Damage 5;
+		Projectile;
+		//Monster;
+		+SOLID
+		+SHOOTABLE
+		+SEEKERMISSILE
+		-NOBLOCKMAP
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0
+			{
+				int chance = random(0,100);
+				if (chance > 50)
+					A_PlaySound("gary/laugh",CHAN_VOICE | CHAN_NOSTOP);
+					
+			}
+			GARY A 4 A_GaryHeadHoming();
+			Loop;
+		Pain:
+			TNT1 A 1;
+			Goto Spawn;
+		Death:
+			TNT1 A 1 A_PlaySound("misc/gibbed",0);
+			Stop;
+ }
+}
+
+class GaryHeadHomingFire : Actor
+{
+	Actor HeadFlame;
+	int holdingOn;
+	bool done, smokeOnly;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (HeadFlame)
+		{
+			if (holdingOn > level.time)
+				SetOrigin(HeadFlame.pos+(0,0,0), TRUE);
+			else
+			{
+				let p = GaryHeadProjectile(HeadFlame);
+				p.done = false;
+				Destroy();
+			}
+		}
+		
+		if (HeadFlame == null)
+			Destroy();
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		holdingOn = level.time + (35 * 1);
+	
+	}
+	
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+NOTELEPORT
+		+ZDOOMTRANS
+		Scale 0.5;
+	}
+	States
+	{	
+	Spawn:
+		GFRB BA 7;
+		Loop;
+	Smoke:
+		GFRB CD 4;
+		Stop;
+	}
+}
+
+class GaryHeadHomingFireTrail : Actor
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+NOTELEPORT
+		+ZDOOMTRANS
+		Scale 0.5;
+	}
+	States
+	{	
+	Spawn:
+		GFRB BCDBDCDCB 3;
+		Stop;
+	}
+}
+
+class RedGaryHeadHomingFire : Actor
+{
+	Actor HeadFlame;
+	int holdingOn;
+	bool done, smokeOnly;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (HeadFlame)
+		{
+			SetOrigin(HeadFlame.pos+(0,0,0), TRUE);
+		}
+		
+		if (HeadFlame == null)
+			Destroy();
+	}
+	
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+NOTELEPORT
+		+ZDOOMTRANS
+		Scale 0.5;
+	}
+	States
+	{	
+	Spawn:
+		RFRB ABCD 7;
+		Loop;
+	}
+}
+
+class RedGaryHeadHomingFireTrail : Actor
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+NOTELEPORT
+		+ZDOOMTRANS
+		Scale 0.5;
+	}
+	States
+	{	
+	Spawn:
+		TNT1 A 1;
+		RFRB DACB 6;
+		Stop;
+	}
+}

@@ -1,0 +1,121 @@
+in-game: X
+Frames defined in modeldef: Y
+
+yes, what's this doing here
+
+Grenade X Y
+-------------
+Select: 1-25
+Holster: 26-42
+Idle: 43-84
+Fire: 85-121
+ThrowPrimary: 122-136
+Hold: 137-194
+ThrowSecondary: 195-210
+
+Gascan X Y
+--------------
+Select: 1-32
+Holster: 33-59
+Idle: 60-100
+Fire: 101-127
+Hold: 128-156
+HoldEnd: 158-171
+SecondaryFire: 172-208
+
+Shovel X Y
+----------------
+Select: 1-26
+Holster: 27-51
+Idle: 52-97
+Fire: 98-142
+SecondaryFire: 144-177
+
+Cowhead (the frames are correct) X Y
+-----------------
+Select: 69-100
+Holster: 101-129
+Idle: 130-182
+Fire: 20-68
+SecondaryFire: 1-19
+
+Tazer X Y
+-----------------
+Select: 1-12
+Holster: 13-25
+Idle: 26-57
+Fire: 58-79
+Hold: 80-105
+HoldEnd: 106-127
+
+Scissors (again, the frames are correct) X Y
+------------------
+Select: 28-64
+Holster: 65-79
+Idle: 1-27
+Fire: 80-91
+SecondaryFire: 92-129
+
+Matchbox X Y
+------------------
+Select: 1-15
+Holster: 16-28
+Idle: 29-60
+Fire: 61-163
+
+Baton X Y
+----------------
+Select: 1-15
+Holster: 16-29
+Idle: 30-72
+Fire: 73-99
+SecondaryFire: 100-119
+
+Molotov (what were you smoking RWS animator?) X Y
+-----------------
+Select: 184-211
+Holster: 212-237
+Idle: 145-183
+Fire: 52-112
+SecondaryFire: 113-144
+Hold: 1-28
+HoldStart: 29-51
+Throw: 238-245
+
+Napalm Launcher X Y
+--------------------
+Select: 1-17
+Holster: 18-27
+SecondaryFire: 28-37 (probably unused?)
+Idle: 38-73
+Fire: 74-86
+Reload: 87-128
+Fire2: 129-140
+
+Sniper Rifle X Y
+--------------------
+Select: 1-37
+Holster: 38-64
+Idle: 65-103
+Fire: 104-148
+SecondaryFire(Zoom): 149-159
+SecondaryFireEnd: 160-171
+
+WMD (please...) X (THIS WEAPON WILL PROBABLY NEVER BE IMPLEMENTED DUE TO HIGH POLYS)
+-------------------
+Select: 1-25
+Holster: 51-62
+Idle: 26-50
+Fire: 63-89
+SecondaryFire: 90-114
+Reload1: 115-173
+Reload2: 174-232
+
+Clipboard X Y
+--------------------
+Select: 1-21
+Holster: 22-36
+Idle: 37-65
+Unused: 66-87
+Fire: 88-176
+PetitionGot: 177-220

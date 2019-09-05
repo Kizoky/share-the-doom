@@ -1,0 +1,422 @@
+$random dudehurt { dudehurt1 dudehurt2 dudehurt3 dudehurt4 dudehurt5 dudehurt6 dudehurt11 dudehurt12 dudehurt16 dudehurt18 dudehurt19 dudehurt20 }
+$random dudelonghurt { dudehurt7 dudehurt8 dudehurt9 dudehurt10 dudehurt13 dudehurt14 dudehurt15 dudehurt17 }
+$random dudepain { dudehurt dudelonghurt }
+
+$volume dudepain 0.7
+$volume dudehurt 0.7
+$volume dudelonghurt 0.7
+dudehurt1 sounds/dude_ak.wav
+dudehurt2 sounds/dude_augh.wav
+dudehurt3 sounds/dude_augh2.wav
+dudehurt4 sounds/dude_augh3.wav
+dudehurt5 sounds/dude_augh4.wav
+dudehurt6 sounds/dude_fuck.wav
+dudehurt7 sounds/dude_heynowicantfeel.wav
+dudehurt8 sounds/dude_ohmynads.wav
+dudehurt9 sounds/dude_ohrightinthestuff.wav
+dudehurt10 sounds/dude_ohthatcanthave.wav
+dudehurt11 sounds/dude_oof.wav
+dudehurt12 sounds/dude_ow.wav
+dudehurt13 sounds/dude_owmyclavichord.wav
+dudehurt14 sounds/dude_owoohthatcantbe.wav
+dudehurt15 sounds/dude_owsothatswhatthat.wav
+dudehurt16 sounds/dude_shit.wav
+dudehurt17 sounds/dude_ughnowmyspleens.wav
+dudehurt18 sounds/dude_whuff.wav
+dudehurt19 sounds/oww.wav
+dudehurt20 sounds/oww2.wav
+
+$random dudekill { dudeline1 dudeline2 dudeline8 dudeline9 dudeline12 dudeline17 dudeline25 dudeline27 dudeline28 dudeline29 dudeline36 dudeline37 dudeline42 dudeline45 dudeline46 dudeline54 dudeline55 dudeline56 dudeline57 dudeline59 dudeline60 dudeline61 }
+$random dudecatnip { dudeline26 dudeline53 }
+
+dudeline1 sounds/dude_alliwantedwas.wav
+dudeline2 sounds/dude_andonetogrowon.wav
+dudeline3 sounds/dude_buttsauce.wav
+dudeline4 sounds/dude_fascinating.wav
+dudeline5 sounds/dude_fuckyou.wav
+dudeline6 sounds/dude_getthefuckdown.wav
+dudeline7 sounds/dude_gottastopsmoking.wav // Health Pipe; warning
+dudeline8 sounds/dude_gunsdontkill.wav
+dudeline9 sounds/dude_haveaniceday.wav
+dudeline10 sounds/dude_healthcantbegood.wav // Health Pipe; initate
+dudeline11 sounds/dude_healthpipemy.wav // Health Pipe; hurt
+dudeline12 sounds/dude_hehhehheh.wav
+dudeline13 sounds/dude_herecatch.wav
+dudeline14 sounds/dude_heressomeleadfor.wav
+dudeline15 sounds/dude_heyitsnotmyfault.wav
+dudeline16 sounds/dude_howconvenient.wav
+dudeline17 sounds/dude_howwouldyoulike.wav
+dudeline18 sounds/dude_idefinitelyneed.wav // food
+dudeline19 sounds/dude_idontfeelsogood.wav
+dudeline20 sounds/dude_ifeelbetter.wav // food
+dudeline21 sounds/dude_ifeellikeshit.wav // Health Pipe; warning
+dudeline22 sounds/dude_igottafindmore.wav // food
+dudeline23 sounds/dude_iknewishouldnt.wav
+dudeline24 sounds/dude_imsorry.wav
+dudeline25 sounds/dude_imsoryapparently.wav
+dudeline26 sounds/dude_innagadda.wav
+dudeline27 sounds/dude_iregretnothing.wav
+dudeline28 sounds/dude_isupposeitwould.wav
+dudeline29 sounds/dude_justkiddin.wav
+dudeline30 sounds/dude_nicecatch2.wav
+dudeline31 sounds/dude_nope.wav
+dudeline32 sounds/dude_no.wav
+dudeline33 sounds/dude_nothingtoseehere.wav
+dudeline34 sounds/dude_nowmydayis.wav
+dudeline35 sounds/dude_nowtheflowers.wav
+dudeline36 sounds/dude_onlymyweapon.wav
+dudeline37 sounds/dude_oohmedicareaint.wav
+//fire only
+dudeline38 sounds/dude_saythatactually.wav
+//cop only
+dudeline39 sounds/dude_someonestolemy.wav
+//unknown
+dudeline40 sounds/dude_sothatswhatthat.wav
+dudeline41 sounds/dude_stuffwasntgood.wav // Health pipe; warning
+dudeline42 sounds/dude_thatsgoingto.wav
+dudeline43 sounds/dude_thatstheticket.wav
+dudeline44 sounds/dude_thatstuffreally.wav // food
+dudeline45 sounds/dude_thatwasbadofme.wav
+dudeline46 sounds/dude_videogamesdont.wav
+dudeline47 sounds/dude_vote_whatmoron.wav
+dudeline48 sounds/dude_wellwhodathought.wav
+dudeline49 sounds/dude_wherethehellami.wav
+dudeline50 sounds/dude_whoeverdesigned.wav
+dudeline51 sounds/dude_whydoesthisnot.wav
+dudeline52 sounds/dude_withdrawalisa.wav
+dudeline53 sounds/dude_yeahbabyiam.wav
+dudeline54 sounds/dude_yeahthatswhat.wav
+dudeline55 sounds/dude_yougogirl.wav
+dudeline56 sounds/dude_youprobablythink.wav
+dudeline57 sounds/dude_youthoughtyou.wav
+dudeline58 sounds/dude_youvegottabe.wav
+dudeline59 sounds/imprettygoodatthis.wav
+dudeline60 sounds/Laughing.wav
+dudeline61 sounds/mybad.wav
+dudeline62 sounds/dude_iknewishouldnt.wav // Health Pipe; hurt
+dudeline63 sounds/dude_imsowrong.wav
+
+dude/sissy sounds/dude_sissy.wav
+
+$random cheater { dudeline58 dudeline55 dudeline3 }
+
+dudepetition1a sounds/dude_petition1a.wav
+dudepetition1b sounds/dude_petition1b.wav
+dudepetition2a sounds/dude_petition2a.wav
+dudepetition2b sounds/dude_petition2b.wav
+dudepetition3a sounds/dude_petition3a.wav
+dudepetition3b sounds/dude_petition3b.wav
+
+dude_save1 sounds/DudeDialog/dude_areyousaving.wav
+dude_save2 sounds/DudeDialog/dude_didntyoujustsave.wav
+dude_save3 sounds/DudeDialog/dude_mygrandmothercould.wav
+
+
+misc/chat sounds/Talk.wav
+
+$random dudeusefail { dudehurt6 dudefuck2 dudefuck3 dudefuck4 dudeuhuh dudeoops }
+dudefuck2 sounds/dude_fuck2.wav
+dudefuck3 sounds/dude_fuck3.wav
+dudefuck4 sounds/dude_fuck4.wav
+dudeuhuh  sounds/dude_uhuh.wav
+dudeoops  sounds/dude_oops.wav
+
+hitflesh1 sounds/bullet_hitflesh1.wav
+hitflesh2 sounds/bullet_hitflesh2.wav
+hitflesh3 sounds/bullet_hitflesh3.wav
+hitflesh4 sounds/bullet_hitflesh4.wav
+
+$random hitflesh { hitflesh1 hitflesh2 hitflesh3 hitflesh4 }
+
+hitwall1 sounds/bullet_hitwall1.wav
+hitwall2 sounds/bullet_hitwall2.wav
+
+$random hitwall { hitwall1 hitwall2 }
+
+missp1 sounds/bullet_ricochet1.wav
+missp2 sounds/bullet_ricochet2.wav
+
+$random missp { missp1 missp2 }
+
+doghit1 sounds/dog_hit1.wav
+doghit2 sounds/dog_hit2.wav
+dogsight sounds/dog_meanbark2.wav
+dogattack1 sounds/dog_biting2.wav
+dogattack2 sounds/dog_biting3.wav
+$random doghit { doghit1 doghit2 }
+$random dogattack { dogattack1 dogattack2 }
+
+weapons/rocklf	sounds/launcher_fire.wav
+weapons/rocklx	sounds/rocket_explode.wav
+
+weapons/fueling sounds/launcher_fueling.wav
+weapons/seeker sounds/launcher_seeker.wav
+weapons/bounce sounds/rocket_bounce.wav
+
+$limit dudehurt 1
+$limit dudehurt1 1
+$limit dudehurt2 1
+$limit dudehurt3 1
+$limit dudehurt4 1
+$limit dudehurt5 1
+$limit dudehurt6 1
+$limit dudehurt7 1
+$limit dudehurt8 1
+$limit dudehurt9 1
+$limit dudehurt10 1
+$limit dudehurt11 1
+$limit dudehurt12 1
+$limit dudehurt13 1
+$limit dudehurt14 1
+$limit dudehurt15 1
+$limit dudehurt16 1
+$limit dudehurt17 1
+$limit dudehurt18 1
+$limit dudehurt19 1
+$limit dudehurt20 1
+$singular dudehurt7
+$singular dudehurt8
+$singular dudehurt9
+$singular dudehurt10
+$singular dudehurt13
+$singular dudehurt14
+$singular dudehurt15
+$singular dudehurt17
+
+//This was an attempt to limit pain sounds playing just once, and not triggering while
+//an another is still playing
+
+ddeathtemp sounds/yougottabefuckingkidding.wav
+BirdAmbient sounds/BirdScary.wav
+GrassAmbient sounds/GrassHoppers.wav
+Homestuck sounds/Homestuck.wav
+SpinMe sounds/SpinMe.wav
+$alias AmbientSound1 BirdAmbient
+$ambient 1 AmbientSound1 point periodic 7.0 1.0
+
+$alias AmbientSound2 GrassAmbient
+$ambient 2 AmbientSound2 point periodic 3.0 0.3
+
+$alias AmbientSound3 Homestuck
+$ambient 3 AmbientSound3 point continuous 1.0
+
+$alias AmbientSound4 SpinMe
+$ambient 4 AmbientSound4 point continuous 1.0
+
+
+//There may be "deeper" hurt sounds for Dude playing at lower health
+//I'm not sure
+$playeralias           PostalDude  male    *death          dudehurt6
+$playeralias		   PostalDude  male	   *xdeath		   dudehurt6
+$playeralias           PostalDude  male    *pain100        dudehurt
+$playeralias		   PostalDude  male	   *gibbed		   dudehurt6
+$playeralias           PostalDude  male    *pain75         *pain100
+$playeralias           PostalDude  male    *pain50         *pain100
+$playeralias           PostalDude  male    *pain25         *pain100
+$playeralias		   PostalDude  male    *grunt          footstep
+$playeralias		   PostalDude  male    *land           footstep
+$playeralias		   PostalDude  male    *usefail        dudeusefail
+
+$random footstep { footstep1 footstep2 footstep3 footstep4 footstep5 footstep6 }
+$volume footstep 0.7
+footstep1 sounds/footstep1.wav
+footstep2 sounds/footstep2.wav
+footstep3 sounds/footstep3.wav
+footstep4 sounds/footstep4.wav
+footstep5 sounds/footstep5.wav
+footstep6 sounds/footstep6.wav
+
+footfire sounds/foot_fire.wav
+footWall sounds/foot_kickwall.wav
+footLiving sounds/foot_kickguy.wav
+
+//misc stuff
+
+misc/gibbed sounds/flesh_explode.wav
+misc/w_pkup sounds/weapon_pickup.wav
+misc/p_pkup sounds/weapon_pickup.wav
+misc/i_pkup sounds/weapon_pickup.wav
+misc/k_pkup sounds/weapon_pickup.wav
+misc/secret sounds/dude_nothingtoseehere.wav
+
+menu/activate			sounds/MiscSounds/MenuBeat.wav	// Activate a new menu
+menu/backup			sounds/MiscSounds/MenuSquirt.wav	// Backup to previous menu
+menu/prompt			sounds/MiscSounds/MenuSquirt.wav	// Activate a prompt "menu"
+menu/cursor			sounds/MiscSounds/MenuNew.wav	// Move cursor up/down
+menu/change			sounds/MiscSounds/MenuBeat.wav	// Select new value for option
+menu/invalid			dudehurt6		// Menu not available
+menu/dismiss			sounds/MiscSounds/MenuSquirt.wav	// Dismiss a prompt message
+menu/choose			sounds/MiscSounds/MenuStab.wav	// Choose a menu item
+menu/clear			sounds/MiscSounds/MenuSquirt.wav	// Close top menu
+
+$random menu/quit1 { dudeline36 dudehurt6 dude/sissy misc/gibbed hitflesh madcow/attack3 madcow/spit2 footfire }
+$random menu/quit2 { BirdAmbient misc/p_pkup missp1 misc/gibbed dudeoops dudeline24 dudeline29 dudeline12  }
+
+
+intermission/tick			sounds/MiscSounds/MenuClick.wav
+intermission/cooptotal		sounds/Laughing.wav
+intermission/nextstage		sounds/Laughing.wav
+intermission/paststats		sounds/dude_iregretnothing.wav
+intermission/pastcoopstats	sounds/dude_iregretnothing.wav
+intermission/pastdmstats	*gibbed
+
+weaponselect sounds/weapon_select.wav
+
+//I'm a masochist
+//Postal 2 does not override sounds when selecting through weapons
+//And somehow the weapons are making duplicated sounds, so it had to be done
+//this way
+
+weaponselect1 sounds/weapon_select.wav
+weaponselect2 sounds/weapon_select.wav
+weaponselect3 sounds/weapon_select.wav
+weaponselect4 sounds/weapon_select.wav
+weaponselect5 sounds/weapon_select.wav
+weaponselect6 sounds/weapon_select.wav
+weaponselect7 sounds/weapon_select.wav
+weaponselect8 sounds/weapon_select.wav
+weaponselect9 sounds/weapon_select.wav
+
+//Weapons
+$volume weapons/shotgf 0.7
+$volume weapons/shotgr 0.7
+weapons/pistol sounds/pistol_fire.wav
+weapons/shotgf sounds/shotgun_fire.wav
+weapons/shotgr sounds/shotgun_ejectshell.wav
+weapons/chngun sounds/Machinegun_fire.wav
+
+piss/loop sounds/Piss_Loop.wav
+piss/zipperup sounds/piss_ZipperUp.wav
+piss/zipperdown sounds/piss_ZipperDown.wav
+piss/start sounds/Piss_Start.wav
+piss/end sounds/Piss_End.wav
+
+smoke/inhale sounds/wm_inhale.wav
+smoke/exhale sounds/wm_exhale.wav
+
+mikej/scream1 sounds/Scream_1.wav
+mikej/scream2 sounds/Scream_2.wav
+mikej/scream3 sounds/Scream_3.wav
+$random mikej/scream { mikej/scream1 mikej/scream2 mikej/scream3 }
+
+mikej/dickout1 sounds/Noticed_Dick_Out_1.wav
+mikej/dickout2 sounds/Noticed_Dick_Out_2.wav
+mikej/dickout3 sounds/Noticed_Dick_Out_3.wav
+$random mikej/dickout { mikej/dickout1 mikej/dickout2 mikej/dickout3 }
+
+mikej/bump1 sounds/Got_Bumped_1.wav
+mikej/bump2 sounds/Got_Bumped_2.wav
+$random mikej/bump { mikej/bump1 mikej/bump2 }
+
+noway sounds/wm_dontsignpetition.wav
+
+catpickup sounds/CatShreak.wav
+catscream sounds/CatScream.wav
+catfalling sounds/CatScream_loop1.wav
+catvicious sounds/CatVicious.wav
+CatHiss sounds/CatHiss.wav
+
+$random player/healthpickup { dudeline20 dudeline22 dudeline44 dudeline18 }
+$random player/healthpipewarning { dudeline7 dudeline21 dudeline41 }
+$random player/healthpipehurt { dudeline11 dudeline62 }
+
+krotchy/bump sounds/wm_krotchy_getoffme.wav
+krotchy/taunt sounds/wm_krotchy_youthinkyou.wav
+
+male1/hurt1 sounds/wm_aahimhit.wav
+male1/hurt2 sounds/wm_aghk.wav
+male1/hurt3 sounds/wm_argh.wav
+
+$random male1/hurt { male1/hurt1 male1/hurt2 male1/hurt3 }
+
+male1/scream1 sounds/wm_scream1.wav
+male1/scream2 sounds/wm_scream2.wav
+male1/scream3 sounds/wm_scream3.wav
+male1/scream4 sounds/wm_scream4.wav
+
+$random male1/scream { male1/scream1 male1/scream2 male1/scream3 male1/scream4 }
+
+male1/bump1 sounds/wm_oofidiot.wav
+male1/bump2 sounds/wm_oneside.wav
+male1/bump3 sounds/wm_heywatchit.wav
+
+$random male1/bump { male1/bump1 male1/bump2 male1/bump3 }
+
+male1/dickout1 sounds/wm_geezstopdoingthat.wav
+male1/dickout2 sounds/wm_geezpullyourpants.wav
+
+$random male1/dickout { male1/dickout1 male1/dickout2 }
+
+malecop1/suspect1 sounds/wm_cop_gotthescumbag.wav
+malecop1/suspect2 sounds/wm_cop_ivegottheperp.wav
+
+$random malecop1/suspect { malecop1/suspect1 malecop1/suspect2 }
+
+malecop1/arrest1 sounds/wm_cop_thatsityoure.wav
+malecop1/arrest2 sounds/wm_cop_okayyourecome.wav
+
+$random malecop1/arrest { malecop1/arrest1 malecop1/arrest2 }
+
+malecop1/drop1 sounds/wm_cop_dropitasshole.wav
+malecop1/drop2 sounds/wm_cop_dropyourweapon.wav
+malecop1/drop3 sounds/wm_cop_putyourweapon.wav
+
+$random malecop1/drop { malecop1/drop1 malecop1/drop2 malecop1/drop3 }
+
+gary/laugh sounds/gary_bwahahaha.wav
+
+madcow/spit1 sounds/madcow/Mikej_OOah.wav
+madcow/spit2 sounds/madcow/Mikej_WAH.wav
+
+$random madcow/spit { madcow/spit1 madcow/spit2 }
+
+madcow/pain1 sounds/madcow/Mikej_fuck.wav
+madcow/pain2 sounds/madcow/Mikej_AHHH.wav
+madcow/pain3 sounds/madcow/Mikej_shit.wav
+
+$random madcow/pain { madcow/pain1 madcow/pain2 madcow/pain3 }
+
+madcow/attack1 sounds/madcow/Mikej_YourchinMyballs.wav
+madcow/attack2 sounds/madcow/Mikej_Yourass.wav
+madcow/attack3 sounds/madcow/Mikej_bendover.wav
+
+$random madcow/attack { madcow/attack1  madcow/attack2 madcow/attack3 }
+
+madcow/laugh1 sounds/madcow/Mikej_Laugh.wav
+madcow/laugh2 sounds/madcow/Mikej_Laugh2.wav
+madcow/laugh3 sounds/madcow/Mikej_Laugh3.wav
+madcow/laugh4 sounds/madcow/Mikej_Laugh4.wav
+
+$random madcow/laugh { madcow/laugh1 madcow/laugh2 madcow/laugh3 madcow/laugh4 }
+
+map/crumple sounds/MapCrumple.wav
+map/uncrumple sounds/MapUncrumple.wav
+
+hl2train sounds/hl2train.wav
+
+match/light sounds/match_light.wav
+fire sounds/fire_large.wav
+gascan/end sounds/GasCan_End.wav
+gascan/loop sounds/GasCan_Loop.wav
+gascan/start sounds/GasCan_Start.wav
+
+weapons/shovel_pf sounds/shovel_fire2.wav
+weapons/shovel_sf sounds/shovel_fire1.wav
+weapons/shovel_stab sounds/shovel_stab.wav
+weapons/shovel_hitwall sounds/shovel_hitwall.wav
+weapons/shovel_hithead sounds/shovel_hithead.wav
+weapons/shovel_hitbody sounds/shovel_hitbody.wav
+
+weapons/baton_pf sounds/baton_fire2.wav
+weapons/baton_sf sounds/baton_fire1.wav
+weapons/baton_hit sounds/baton_hit.wav
+
+weapons/machete_swingmiss sounds/macheteswingmiss.wav
+weapons/machete_slice sounds/macheteslice.wav
+weapons/machete_slicelimb sounds/machetelimbhit.wav
+weapons/machete_hitwall sounds/machetehitwall.wav
+weapons/machete_hitground sounds/machetehitground.wav
+weapons/machete_return sounds/machetebrandish2.wav
+weapons/machete_throw sounds/machetethrowin.wav
+weapons/machete_throwloop sounds/machetethrowloop.wav
+weapons/machete_richochet sounds/macheterichochet.wav

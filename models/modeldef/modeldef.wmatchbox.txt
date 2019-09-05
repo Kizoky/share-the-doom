@@ -1,0 +1,170 @@
+Model "PostMatchbox"
+{
+	Path "models\weapons\matchbox"
+	Model 0 "PostMatchbox.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "matchbox/Matchbox_2.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 1 0 -14.05 //X Y Z
+
+	// Select 1-15
+	FrameIndex MATS A 0 1 
+	FrameIndex MATS B 0 2 
+	FrameIndex MATS C 0 3 
+	FrameIndex MATS D 0 4 
+	FrameIndex MATS E 0 5 
+	FrameIndex MATS F 0 6 
+	FrameIndex MATS G 0 7 
+	FrameIndex MATS H 0 8 
+	FrameIndex MATS I 0 9 
+	FrameIndex MATS J 0 10
+	FrameIndex MATS K 0 11
+	FrameIndex MATS L 0 12
+	FrameIndex MATS M 0 13
+	FrameIndex MATS N 0 14
+	FrameIndex MATS O 0 15
+	
+	// Deselect 16-28
+	FrameIndex MATD A 0 16
+	FrameIndex MATD B 0 17
+	FrameIndex MATD C 0 18
+	FrameIndex MATD D 0 19
+	FrameIndex MATD E 0 20
+	FrameIndex MATD F 0 21
+	FrameIndex MATD G 0 22
+	FrameIndex MATD H 0 23
+	FrameIndex MATD I 0 24
+	FrameIndex MATD J 0 25
+	FrameIndex MATD K 0 26
+	FrameIndex MATD L 0 27
+	FrameIndex MATD M 0 28
+	
+	// Idle 29-60
+	FrameIndex MATI A 0 29
+	FrameIndex MATI B 0 31
+	FrameIndex MATI C 0 33
+	FrameIndex MATI D 0 35
+	FrameIndex MATI E 0 37
+	FrameIndex MATI F 0 39
+	FrameIndex MATI G 0 41
+	FrameIndex MATI H 0 43
+	FrameIndex MATI I 0 45
+	FrameIndex MATI J 0 47
+	FrameIndex MATI K 0 49
+	FrameIndex MATI L 0 51
+	FrameIndex MATI M 0 53
+	FrameIndex MATI N 0 55
+	FrameIndex MATI O 0 57
+	FrameIndex MATI P 0 59
+	FrameIndex MATI Q 0 60
+	
+	// Fire 61-163
+	FrameIndex MA1F A 0 61 
+	FrameIndex MA1F B 0 63 
+	FrameIndex MA1F C 0 65 
+	FrameIndex MA1F D 0 67 
+	FrameIndex MA1F E 0 69 
+	FrameIndex MA1F F 0 71 
+	FrameIndex MA1F G 0 73 
+	FrameIndex MA1F H 0 75 
+	FrameIndex MA1F I 0 77 
+	FrameIndex MA1F J 0 79 
+	FrameIndex MA1F K 0 81 
+	FrameIndex MA1F L 0 83 
+	FrameIndex MA1F M 0 85 
+	FrameIndex MA1F N 0 87 
+	FrameIndex MA1F O 0 89 
+	FrameIndex MA1F P 0 91 
+	FrameIndex MA1F Q 0 93 
+	FrameIndex MA1F R 0 95 
+	FrameIndex MA1F S 0 97 
+	FrameIndex MA1F T 0 99 
+	FrameIndex MA1F U 0 101
+	FrameIndex MA1F V 0 103
+	FrameIndex MA1F W 0 105
+	FrameIndex MA1F X 0 107
+	FrameIndex MA1F Y 0 109
+	FrameIndex MA1F Z 0 111
+
+	FrameIndex MA2F A 0 113
+	FrameIndex MA2F B 0 115
+	FrameIndex MA2F C 0 117
+	FrameIndex MA2F D 0 119
+	FrameIndex MA2F E 0 121
+	FrameIndex MA2F F 0 123
+	FrameIndex MA2F G 0 125
+	FrameIndex MA2F H 0 127
+	FrameIndex MA2F I 0 129
+	FrameIndex MA2F J 0 131
+	FrameIndex MA2F K 0 133
+	FrameIndex MA2F L 0 135
+	FrameIndex MA2F M 0 137
+	FrameIndex MA2F N 0 139
+	FrameIndex MA2F O 0 141
+	FrameIndex MA2F P 0 143
+	FrameIndex MA2F Q 0 145
+	FrameIndex MA2F R 0 147
+	FrameIndex MA2F S 0 149
+	FrameIndex MA2F T 0 151
+	FrameIndex MA2F U 0 153
+	FrameIndex MA2F V 0 155
+	FrameIndex MA2F W 0 157
+	FrameIndex MA2F X 0 159
+	FrameIndex MA2F Y 0 161
+	FrameIndex MA2F Z 0 163
+
+}
+
+Model "PostMatchbox"
+{
+	Path "models\weapons\matchbox"
+	Model 0 "MatchesPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 1 "matchbox/Matchbox_2.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostMatchbox"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

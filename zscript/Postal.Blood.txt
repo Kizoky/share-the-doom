@@ -1,0 +1,227 @@
+class Postal_Blood : PostalActor replaces Blood
+{
+	vector3 spawnpos;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		SetOrigin(spawnpos+(0,0,0), TRUE);
+		Alpha -= 0.037;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		//A_PlaySound("hitflesh",0 | 4096);
+		spawnpos = pos;
+	}
+	
+	
+	Default
+	{
+		Mass 5;
+		+NOBLOCKMAP;
+		+NOTELEPORT;
+		+ALLOWPARTICLES;
+		ActiveSound "";
+		SeeSound "";
+		AttackSound "";
+		RenderStyle "Translucent";
+		Alpha 1;
+		Scale 0.32;
+	}
+	States
+	{
+	Spawn:
+		BLUD ABCDEFG 5;
+		Stop;
+	}
+}
+
+class Postal_Skullchunk : PostalActor
+{
+	vector3 spawnpos;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		Alpha -= 0.011;
+		if (Alpha < 0)
+			Destroy();
+			
+		roll += 17;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		//A_PlaySound("hitflesh",0 | 4096);
+		spawnpos = pos;
+		int random = random(1,2);
+		if (random == 1)
+			SetStateLabel("SkullChunk1");
+		else
+			SetStateLabel("SkullChunk2");
+		SetOrigin(spawnpos+(0,0,0), TRUE);
+	}
+	
+	
+	Default
+	{
+		Mass 5;
+		//+NOBLOCKMAP;
+		//+NOTELEPORT;
+		+ALLOWPARTICLES;
+		-NOGRAVITY;
+		RenderStyle "Translucent";
+		Alpha 1;
+		Scale 0.32;
+		Speed 0.2;
+		Gravity 0.25;
+		+RANDOMIZE;
+		BounceType "Hexen";
+		BounceCount 5;
+		+BOUNCEONFLOORS;
+		+BOUNCEONWALLS;
+		+BOUNCEONCEILINGS;
+		+BOUNCEONACTORS;
+		+MISSILE;
+		-SOLID;
+		BounceFactor 0.4;
+		+ROLLSPRITE;
+	}
+	States
+	{
+	Spawn:
+		BLUD ABCDEFG 5;
+		Stop;
+	SkullChunk1:
+		HSKU A 60;
+		Loop;
+	SkullChunk2:
+		HSKU B 60;
+		Loop;
+	}
+}
+
+class Postal_HeadExplode : PostalActor
+{
+	vector3 spawnpos;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		SetOrigin(spawnpos+(0,0,0), TRUE);
+		Alpha -= 0.025;
+		if (Alpha < 0)
+			Destroy();
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		spawnpos = pos;
+	}
+	
+	
+	Default
+	{
+		Mass 5;
+		+NOBLOCKMAP;
+		+NOTELEPORT;
+		+ALLOWPARTICLES;
+		-NOGRAVITY;
+		RenderStyle "Translucent";
+		Alpha 1;
+		Scale 0.75;
+		Speed 0.2;
+		Gravity 0.25;
+		+RANDOMIZE;
+		-SOLID;
+		BounceFactor 0.4;
+	}
+	States
+	{
+	Spawn:
+		BLIM ABC 5;
+		Stop;
+	}
+}
+
+class Postal_Brainchunk : PostalActor
+{
+	vector3 spawnpos;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		Alpha -= 0.009;
+		if (Alpha < 0)
+			Destroy();
+			
+		roll += 13;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		//A_PlaySound("hitflesh",0 | 4096);
+		spawnpos = pos;
+		int random = random(1,4);
+		if (random == 1)
+			SetStateLabel("BrainChunk1");
+		if (random == 2)
+			SetStateLabel("BrainChunk2");
+		if (random == 3)
+			SetStateLabel("BrainChunk3");
+		if (random == 4)
+			SetStateLabel("BrainChunk4");
+		SetOrigin(spawnpos+(0,0,0), TRUE);
+	}
+	
+	
+	Default
+	{
+		Mass 5;
+		//+NOBLOCKMAP;
+		//+NOTELEPORT;
+		+ALLOWPARTICLES;
+		-NOGRAVITY;
+		RenderStyle "Translucent";
+		Alpha 1;
+		Scale 0.75;
+		Speed 0.2;
+		Gravity 0.25;
+		+RANDOMIZE;
+		BounceType "Hexen";
+		BounceCount 5;
+		+BOUNCEONFLOORS;
+		+BOUNCEONWALLS;
+		+BOUNCEONCEILINGS;
+		+BOUNCEONACTORS;
+		+MISSILE;
+		-SOLID;
+		BounceFactor 0.4;
+		+ROLLSPRITE;
+	}
+	States
+	{
+	Spawn:
+		CHU1 AAAAAA 5;
+		Stop;
+	BrainChunk1:
+		CHU1 A 60;
+		Loop;
+	BrainChunk2:
+		CHU2 A 60;
+		Loop;
+	BrainChunk3:
+		CHU3 A 60;
+		Loop;
+	BrainChunk4:
+		CHU4 A 60;
+		Loop;
+	}
+}

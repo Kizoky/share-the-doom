@@ -1,0 +1,79 @@
+Model "PostDebug"
+{
+	Path "models\weapons\debugweapon"
+	Model 0 "PostDebug.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	//AngleOffset 90 //40
+	Scale -1 0.75 1
+	Offset 1 0 -14 //X Y Z
+
+	// Select 30-67
+	AngleOffset 105
+	FrameIndex DEBU A 0 30
+	FrameIndex DEBU B 0 32
+	FrameIndex DEBU C 0 34
+	FrameIndex DEBU D 0 36
+	FrameIndex DEBU E 0 38
+	FrameIndex DEBU F 0 40
+	FrameIndex DEBU G 0 42
+	FrameIndex DEBU H 0 44
+	FrameIndex DEBU I 0 46
+	FrameIndex DEBU J 0 48
+	FrameIndex DEBU K 0 50
+	FrameIndex DEBU L 0 52
+	FrameIndex DEBU M 0 54
+	FrameIndex DEBU N 0 56
+	FrameIndex DEBU O 0 58
+	FrameIndex DEBU P 0 60
+	FrameIndex DEBU Q 0 62
+	FrameIndex DEBU R 0 64
+	FrameIndex DEBU S 0 66
+	
+	AngleOffset 90
+	FrameIndex XXXX A 0 85
+	
+	FrameIndex XXXX B 0 10
+	FrameIndex XXXX C 0 12
+	FrameIndex XXXX D 0 14
+	FrameIndex XXXX E 0 16
+	FrameIndex XXXX F 0 18
+	FrameIndex XXXX G 0 20
+	FrameIndex XXXX H 0 22
+	FrameIndex XXXX I 0 24
+	FrameIndex XXXX J 0 25
+}
+
+Model "PostDebug"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

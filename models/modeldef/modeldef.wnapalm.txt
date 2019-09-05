@@ -1,0 +1,164 @@
+Model "PostNapalmLauncher"
+{
+	Path "models\weapons\napalmlauncher"
+	Model 0 "PostNapalm.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "napalmlauncher/napalmGun_JL.tga"
+	SurfaceSkin 0 2 "napalmlauncher/crosshairs_ben.png"
+	SurfaceSkin 0 3 "napalmlauncher/napalmCanister.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 1.7000 0.000000 -6.3000 //X Y Z
+
+	// Select 1-17
+	FrameIndex NAPS A 0 1 
+	FrameIndex NAPS B 0 2 
+	FrameIndex NAPS C 0 3 
+	FrameIndex NAPS D 0 4 
+	FrameIndex NAPS E 0 5 
+	FrameIndex NAPS F 0 6 
+	FrameIndex NAPS G 0 7 
+	FrameIndex NAPS H 0 8 
+	FrameIndex NAPS I 0 9 
+	FrameIndex NAPS J 0 10
+	FrameIndex NAPS K 0 11
+	FrameIndex NAPS L 0 12
+	FrameIndex NAPS M 0 13
+	FrameIndex NAPS N 0 14
+	FrameIndex NAPS O 0 15
+	FrameIndex NAPS P 0 16
+	FrameIndex NAPS Q 0 17
+	
+	// Deselect 18-27
+	FrameIndex NAPD A 0 18
+	FrameIndex NAPD B 0 19
+	FrameIndex NAPD C 0 20
+	FrameIndex NAPD D 0 21
+	FrameIndex NAPD E 0 22
+	FrameIndex NAPD F 0 23
+	FrameIndex NAPD G 0 24
+	FrameIndex NAPD H 0 25
+	FrameIndex NAPD I 0 26
+	FrameIndex NAPD J 0 27
+	
+	// Secondary Fire ??? 28-37
+	FrameIndex NASF A 0 28
+	FrameIndex NASF B 0 29
+	FrameIndex NASF C 0 30
+	FrameIndex NASF D 0 31
+	FrameIndex NASF E 0 32
+	FrameIndex NASF F 0 33
+	FrameIndex NASF G 0 34
+	FrameIndex NASF H 0 35
+	FrameIndex NASF I 0 36
+	FrameIndex NASF J 0 37
+	
+	// Idle 38-73
+	FrameIndex NAPI A 0 38
+	FrameIndex NAPI B 0 40
+	FrameIndex NAPI C 0 42
+	FrameIndex NAPI D 0 44
+	FrameIndex NAPI E 0 46
+	FrameIndex NAPI F 0 48
+	FrameIndex NAPI G 0 50
+	FrameIndex NAPI H 0 52
+	FrameIndex NAPI I 0 54
+	FrameIndex NAPI J 0 56
+	FrameIndex NAPI K 0 58
+	FrameIndex NAPI L 0 60
+	FrameIndex NAPI M 0 62
+	FrameIndex NAPI N 0 64
+	FrameIndex NAPI O 0 66
+	FrameIndex NAPI P 0 68
+	FrameIndex NAPI Q 0 70
+	FrameIndex NAPI R 0 72
+	FrameIndex NAPI S 0 73
+	
+	// Fire 74-86
+	FrameIndex NAPF A 0 74
+	FrameIndex NAPF B 0 75
+	FrameIndex NAPF C 0 76
+	FrameIndex NAPF D 0 77
+	FrameIndex NAPF E 0 78
+	FrameIndex NAPF F 0 79
+	FrameIndex NAPF G 0 80
+	FrameIndex NAPF H 0 81
+	FrameIndex NAPF I 0 82
+	FrameIndex NAPF J 0 83
+	FrameIndex NAPF K 0 84
+	FrameIndex NAPF L 0 85
+	FrameIndex NAPF M 0 86
+	
+	// Reload 87-128
+	FrameIndex NAPR A 0 87 
+	FrameIndex NAPR B 0 89 
+	FrameIndex NAPR C 0 91 
+	FrameIndex NAPR D 0 93 
+	FrameIndex NAPR E 0 95 
+	FrameIndex NAPR F 0 97 
+	FrameIndex NAPR G 0 99 
+	FrameIndex NAPR H 0 101
+	FrameIndex NAPR I 0 103
+	FrameIndex NAPR J 0 105
+	FrameIndex NAPR K 0 107
+	FrameIndex NAPR L 0 109
+	FrameIndex NAPR M 0 111
+	FrameIndex NAPR N 0 113
+	FrameIndex NAPR O 0 115
+	FrameIndex NAPR P 0 117
+	FrameIndex NAPR Q 0 119
+	FrameIndex NAPR R 0 121
+	FrameIndex NAPR S 0 123
+	FrameIndex NAPR T 0 125
+	FrameIndex NAPR U 0 127
+	
+	// Fire2 129-140
+	FrameIndex NAP2 A 0 129
+	FrameIndex NAP2 B 0 130
+	FrameIndex NAP2 C 0 131
+	FrameIndex NAP2 D 0 132
+	FrameIndex NAP2 E 0 133
+	FrameIndex NAP2 F 0 134
+	FrameIndex NAP2 G 0 135
+	FrameIndex NAP2 H 0 136
+	FrameIndex NAP2 I 0 137
+	FrameIndex NAP2 J 0 138
+	FrameIndex NAP2 K 0 139
+	FrameIndex NAP2 L 0 140
+
+}
+
+Model "PostNapalmLauncher"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

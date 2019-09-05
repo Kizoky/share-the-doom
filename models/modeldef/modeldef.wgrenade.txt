@@ -1,0 +1,227 @@
+Model "PostGrenade"
+{
+	Path "models\weapons\grenade"
+	Model 0 "PostGrenade.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "grenade/grenade3_timb.tga"
+	SurfaceSkin 0 2 "grenade/jailbars.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 1.0000 0.000000 -17.0000 //X Y Z
+
+	// Select 1-25
+	FrameIndex GRES A 0 1 
+	FrameIndex GRES B 0 2 
+	FrameIndex GRES C 0 3 
+	FrameIndex GRES D 0 4 
+	FrameIndex GRES E 0 5 
+	FrameIndex GRES F 0 6 
+	FrameIndex GRES G 0 7 
+	FrameIndex GRES H 0 8 
+	FrameIndex GRES I 0 9 
+	FrameIndex GRES J 0 10
+	FrameIndex GRES K 0 11
+	FrameIndex GRES L 0 12
+	FrameIndex GRES M 0 13
+	FrameIndex GRES N 0 14
+	FrameIndex GRES O 0 15
+	FrameIndex GRES P 0 16
+	FrameIndex GRES Q 0 17
+	FrameIndex GRES R 0 18
+	FrameIndex GRES S 0 19
+	FrameIndex GRES T 0 20
+	FrameIndex GRES U 0 21
+	FrameIndex GRES V 0 22
+	FrameIndex GRES W 0 23
+	FrameIndex GRES X 0 24
+	FrameIndex GRES Y 0 25
+	
+	// Deselect 26-42
+	FrameIndex GRED A 0 26
+	FrameIndex GRED B 0 27
+	FrameIndex GRED C 0 28
+	FrameIndex GRED D 0 29
+	FrameIndex GRED E 0 30
+	FrameIndex GRED F 0 31
+	FrameIndex GRED G 0 32
+	FrameIndex GRED H 0 33
+	FrameIndex GRED I 0 34
+	FrameIndex GRED J 0 35
+	FrameIndex GRED K 0 36
+	FrameIndex GRED L 0 37
+	FrameIndex GRED M 0 38
+	FrameIndex GRED N 0 39
+	FrameIndex GRED O 0 40
+	FrameIndex GRED P 0 41
+	FrameIndex GRED Q 0 42
+	
+	// Idle 43-84
+	FrameIndex GREI A 0 43
+	FrameIndex GREI B 0 45
+	FrameIndex GREI C 0 47
+	FrameIndex GREI D 0 49
+	FrameIndex GREI E 0 51
+	FrameIndex GREI F 0 53
+	FrameIndex GREI G 0 55
+	FrameIndex GREI H 0 57
+	FrameIndex GREI I 0 59
+	FrameIndex GREI J 0 61
+	FrameIndex GREI K 0 63
+	FrameIndex GREI L 0 65
+	FrameIndex GREI M 0 67
+	FrameIndex GREI N 0 69
+	FrameIndex GREI O 0 71
+	FrameIndex GREI P 0 73
+	FrameIndex GREI Q 0 75
+	FrameIndex GREI R 0 77
+	FrameIndex GREI S 0 79
+	FrameIndex GREI T 0 81
+	FrameIndex GREI U 0 82
+	FrameIndex GREI V 0 83
+	FrameIndex GREI W 0 84
+	
+	// Fire 85-121
+	FrameIndex GREF A 0 85 
+	FrameIndex GREF B 0 87 
+	FrameIndex GREF C 0 89 
+	FrameIndex GREF D 0 91 
+	FrameIndex GREF E 0 93 
+	FrameIndex GREF F 0 95 
+	FrameIndex GREF G 0 97 
+	FrameIndex GREF H 0 99 
+	FrameIndex GREF I 0 101
+	FrameIndex GREF J 0 103
+	FrameIndex GREF K 0 105
+	FrameIndex GREF L 0 107
+	FrameIndex GREF M 0 109
+	FrameIndex GREF N 0 111
+	FrameIndex GREF O 0 113
+	FrameIndex GREF P 0 115
+	FrameIndex GREF Q 0 117
+	FrameIndex GREF R 0 119
+	FrameIndex GREF S 0 121
+	
+	// Throw Primary 122-136
+	/*FrameIndex GRTP A 0 122
+	FrameIndex GRTP B 0 123
+	FrameIndex GRTP C 0 124
+	FrameIndex GRTP D 0 125
+	FrameIndex GRTP E 0 126
+	FrameIndex GRTP F 0 127
+	FrameIndex GRTP G 0 128
+	FrameIndex GRTP H 0 129
+	FrameIndex GRTP I 0 130
+	FrameIndex GRTP J 0 131
+	FrameIndex GRTP K 0 132
+	FrameIndex GRTP L 0 133
+	FrameIndex GRTP M 0 134
+	FrameIndex GRTP N 0 135
+	FrameIndex GRTP O 0 136*/
+	
+	// Throw Secondary 195-210
+	FrameIndex GRTS A 0 195
+	FrameIndex GRTS B 0 196
+	FrameIndex GRTS C 0 197
+	FrameIndex GRTS D 0 198
+	FrameIndex GRTS E 0 199
+	FrameIndex GRTS F 0 200
+	FrameIndex GRTS G 0 201
+	FrameIndex GRTS H 0 202
+	FrameIndex GRTS I 0 203
+	FrameIndex GRTS J 0 204
+	FrameIndex GRTS K 0 205
+	FrameIndex GRTS L 0 206
+	FrameIndex GRTS M 0 207
+	FrameIndex GRTS N 0 208
+	FrameIndex GRTS O 0 209
+	FrameIndex GRTS P 0 210
+	
+	// Hold 137-194
+	/*FrameIndex #### A 0 137
+	FrameIndex #### B 0 139
+	FrameIndex #### C 0 141
+	FrameIndex #### D 0 143
+	FrameIndex #### E 0 145
+	FrameIndex #### F 0 147
+	FrameIndex #### G 0 149
+	FrameIndex #### H 0 151
+	FrameIndex #### I 0 153
+	FrameIndex #### J 0 155
+	FrameIndex #### K 0 157
+	FrameIndex #### L 0 159
+	FrameIndex #### M 0 161
+	FrameIndex #### N 0 163
+	FrameIndex #### O 0 165
+	FrameIndex #### P 0 167
+	FrameIndex #### Q 0 169
+	FrameIndex #### R 0 171
+	FrameIndex #### S 0 173
+	FrameIndex #### T 0 175
+	FrameIndex #### U 0 177
+	FrameIndex #### V 0 179
+	FrameIndex #### W 0 181
+	FrameIndex #### X 0 183
+	FrameIndex #### Y 0 185
+	FrameIndex #### Z 0 187
+	
+	FrameIndex HOLD A 0 189
+	FrameIndex HOLD B 0 191
+	FrameIndex HOLD C 0 192
+	FrameIndex HOLD D 0 193
+	FrameIndex HOLD E 0 194*/
+
+}
+
+Model "PostGrenade"
+{
+	Path "models\weapons\grenade"
+	Model 0 "GrenadePickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "grenade/grenade3_timb.tga"
+	SurfaceSkin 0 1 "grenade/jailbars.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 0
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostGrenade"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

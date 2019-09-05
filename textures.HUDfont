@@ -1,0 +1,139 @@
+graphic DARKS048, 60, 94
+{
+Graphic DARKS048,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS049, 67, 96
+{
+Graphic DARKS049,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS050, 67, 94
+{
+Graphic DARKS050,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS051, 63, 96
+{
+Graphic DARKS051,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS052, 66, 95
+{
+Graphic DARKS052,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS053, 65, 94
+{
+Graphic DARKS053,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS054, 63, 110
+{
+Graphic DARKS054,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS055, 70, 96
+{
+Graphic DARKS055,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS056, 63, 95
+{
+Graphic DARKS056,0,0
+XScale 7
+YScale 7
+}
+
+graphic DARKS057, 65, 97
+{
+Graphic DARKS057,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH048, 60, 94
+{
+Graphic SMASH048,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH049, 67, 96
+{
+Graphic SMASH049,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH050, 67, 94
+{
+Graphic SMASH050,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH051, 63, 96
+{
+Graphic SMASH051,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH052, 66, 95
+{
+Graphic SMASH052,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH053, 65, 94
+{
+Graphic SMASH053,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH054, 63, 110
+{
+Graphic SMASH054,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH055, 70, 96
+{
+Graphic SMASH055,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH056, 63, 95
+{
+Graphic SMASH056,0,0
+XScale 7
+YScale 7
+}
+
+graphic SMASH057, 65, 97
+{
+Graphic SMASH057,0,0
+XScale 7
+YScale 7
+}

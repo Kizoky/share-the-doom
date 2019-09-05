@@ -1,0 +1,75 @@
+// 400 seconds
+// 35 tics is equal to 1 second
+// 14000 tics
+
+class PostalCrackPipe : CustomInventory
+{
+	bool CheatFix, inHaleDone;
+	double InHaleCount;
+	
+	Default
+	{
+		+COUNTITEM
+		Inventory.MaxAmount 99;
+		Inventory.PickupFlash "PickupFlash";
+		+INVENTORY.INVBAR 
+		+INVENTORY.FANCYPICKUPSOUND
+		Inventory.Icon "crackinv";
+		Inventory.PickupSound "misc/p_pkup";
+		Inventory.PickupMessage "Picked up a crack pipe.";
+	}
+	States
+	{
+	Spawn:
+		POSS A -1;
+		stop;
+	Use:
+		TNT1 A 0 A_Crack();
+		stop;
+	}
+}
+
+extend class PostalCrackPipe
+{
+	action void A_Crack()
+	{
+		let player = PostalDude(self);
+		
+		let item = invoker.GetClassName();
+		Inventory CurrentAmount = FindInventory(item);
+		
+		//For whatever reason, the mod will always take 1 inventory item if cheating when it shouldn't when the Player has 100 health
+		//This will fix that
+		if (invoker.CheatFix != true)
+		{
+			if (CurrentAmount.Amount == invoker.Default.MaxAmount)
+			{
+				invoker.MaxAmount = invoker.Default.MaxAmount+1;
+				invoker.CheatFix = true;
+			}
+		}
+		
+		//Give back the player the consumed Crack Pipe (because Doom always takes one inventory item)
+		//It will be taken in Postal.Dude
+		A_GiveInventory(item,1);
+		player.PlayerData.PipeSmoked = true;
+		
+		//Check if the Player has finished inhaling the Health Pipe
+		if (player.PlayerData.SmokeFinished == true)
+		{
+			player.PlayerData.SavedLevelTimePipe = false;
+			player.PlayerData.InitPipeValue = false;
+			player.PlayerData.InitPipeTimeCheck = false;
+			player.PlayerData.SmokeInhale = false;
+			player.PlayerData.SmokeFinished = false;
+			player.PlayerData.PipeDuration = 0;
+			player.PlayerData.FirstWarning = false;
+			player.PlayerData.SecondWarning = false;
+		}
+			
+		
+	
+	}
+	
+	
+}

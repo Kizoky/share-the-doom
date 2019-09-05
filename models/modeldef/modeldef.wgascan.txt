@@ -1,0 +1,234 @@
+Model "PostGascan"
+{
+	Path "models\weapons\gascan"
+	Model 0 "PostGascan.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "gascan/gas_can_label.tga"
+	SurfaceSkin 0 2 "gascan/gas_can_metal.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 4.0000 0.000000 -8.0000 //X Y Z
+
+	// Select 1-32
+	FrameIndex GASS A 0 1 
+	FrameIndex GASS B 0 2 
+	FrameIndex GASS C 0 3 
+	FrameIndex GASS D 0 4 
+	FrameIndex GASS E 0 5 
+	FrameIndex GASS F 0 6 
+	FrameIndex GASS G 0 7 
+	FrameIndex GASS H 0 8 
+	FrameIndex GASS I 0 9 
+	FrameIndex GASS J 0 10
+	FrameIndex GASS K 0 11
+	FrameIndex GASS L 0 12
+	FrameIndex GASS M 0 13
+	FrameIndex GASS N 0 14
+	FrameIndex GASS O 0 15
+	FrameIndex GASS P 0 16
+	FrameIndex GASS Q 0 17
+	FrameIndex GASS R 0 18
+	FrameIndex GASS S 0 19
+	FrameIndex GASS T 0 20
+	FrameIndex GASS U 0 22
+	FrameIndex GASS V 0 24
+	FrameIndex GASS W 0 26
+	FrameIndex GASS X 0 28
+	FrameIndex GASS Y 0 30
+	FrameIndex GASS Z 0 32
+	
+	// Deselect 33-59
+	FrameIndex GASD A 0 33
+	FrameIndex GASD B 0 34
+	FrameIndex GASD C 0 35
+	FrameIndex GASD D 0 36
+	FrameIndex GASD E 0 37
+	FrameIndex GASD F 0 38
+	FrameIndex GASD G 0 39
+	FrameIndex GASD H 0 40
+	FrameIndex GASD I 0 41
+	FrameIndex GASD J 0 42
+	FrameIndex GASD K 0 43
+	FrameIndex GASD L 0 44
+	FrameIndex GASD M 0 45
+	FrameIndex GASD N 0 46
+	FrameIndex GASD O 0 47
+	FrameIndex GASD P 0 48
+	FrameIndex GASD Q 0 49
+	FrameIndex GASD R 0 50
+	FrameIndex GASD S 0 51
+	FrameIndex GASD T 0 52
+	FrameIndex GASD U 0 53
+	FrameIndex GASD V 0 54
+	FrameIndex GASD W 0 55
+	FrameIndex GASD X 0 56
+	FrameIndex GASD Y 0 57
+	FrameIndex GASD Z 0 59
+	
+	//Idle 60-100
+	FrameIndex GASI A 0 60 
+	FrameIndex GASI B 0 62 
+	FrameIndex GASI C 0 64 
+	FrameIndex GASI D 0 66 
+	FrameIndex GASI E 0 68 
+	FrameIndex GASI F 0 70 
+	FrameIndex GASI G 0 72 
+	FrameIndex GASI H 0 74 
+	FrameIndex GASI I 0 76 
+	FrameIndex GASI J 0 78 
+	FrameIndex GASI K 0 80 
+	FrameIndex GASI L 0 82 
+	FrameIndex GASI M 0 84 
+	FrameIndex GASI N 0 86 
+	FrameIndex GASI O 0 88 
+	FrameIndex GASI P 0 90 
+	FrameIndex GASI Q 0 92 
+	FrameIndex GASI R 0 94 
+	FrameIndex GASI S 0 96 
+	FrameIndex GASI T 0 98 
+	FrameIndex GASI U 0 100
+	
+	//Fire 101-127
+	FrameIndex GASF A 0 101
+	FrameIndex GASF B 0 102
+	FrameIndex GASF C 0 103
+	FrameIndex GASF D 0 104
+	FrameIndex GASF E 0 105
+	FrameIndex GASF F 0 106
+	FrameIndex GASF G 0 107
+	FrameIndex GASF H 0 108
+	FrameIndex GASF I 0 109
+	FrameIndex GASF J 0 110
+	FrameIndex GASF K 0 111
+	FrameIndex GASF L 0 112
+	FrameIndex GASF M 0 113
+	FrameIndex GASF N 0 114
+	FrameIndex GASF O 0 115
+	FrameIndex GASF P 0 116
+	FrameIndex GASF Q 0 117
+	FrameIndex GASF R 0 118
+	FrameIndex GASF S 0 119
+	FrameIndex GASF T 0 120
+	FrameIndex GASF U 0 121
+	FrameIndex GASF V 0 122
+	FrameIndex GASF W 0 123
+	FrameIndex GASF X 0 124
+	FrameIndex GASF Y 0 125
+	FrameIndex GASF Z 0 127
+	
+	//Hold 128-156
+	FrameIndex GASH A 0 128
+	FrameIndex GASH B 0 130
+	FrameIndex GASH C 0 132
+	FrameIndex GASH D 0 134
+	FrameIndex GASH E 0 136
+	FrameIndex GASH F 0 138
+	FrameIndex GASH G 0 140
+	FrameIndex GASH H 0 142
+	FrameIndex GASH I 0 144
+	FrameIndex GASH J 0 146
+	FrameIndex GASH K 0 148
+	FrameIndex GASH L 0 150
+	FrameIndex GASH M 0 152
+	FrameIndex GASH N 0 154
+	FrameIndex GASH O 0 156
+	
+	//Hold End 158-171
+	FrameIndex GASE A 0 158
+	FrameIndex GASE B 0 159
+	FrameIndex GASE C 0 160
+	FrameIndex GASE D 0 161
+	FrameIndex GASE E 0 162
+	FrameIndex GASE F 0 163
+	FrameIndex GASE G 0 164
+	FrameIndex GASE H 0 165
+	FrameIndex GASE I 0 166
+	FrameIndex GASE J 0 167
+	FrameIndex GASE K 0 168
+	FrameIndex GASE L 0 169
+	FrameIndex GASE M 0 170
+	FrameIndex GASE N 0 171
+	
+	//Secondary Fire 172-208
+	FrameIndex GSSF A 0 172
+	FrameIndex GSSF B 0 173
+	FrameIndex GSSF C 0 174
+	FrameIndex GSSF D 0 175
+	FrameIndex GSSF E 0 176
+	FrameIndex GSSF F 0 177
+	FrameIndex GSSF G 0 178
+	FrameIndex GSSF H 0 179
+	FrameIndex GSSF I 0 180
+	FrameIndex GSSF J 0 181
+	FrameIndex GSSF K 0 182
+	FrameIndex GSSF L 0 183
+	FrameIndex GSSF M 0 184
+	FrameIndex GSSF N 0 185
+	FrameIndex GSSF O 0 186
+	FrameIndex GSSF P 0 188
+	FrameIndex GSSF Q 0 190
+	FrameIndex GSSF R 0 192
+	FrameIndex GSSF S 0 194
+	FrameIndex GSSF T 0 196
+	FrameIndex GSSF U 0 198
+	FrameIndex GSSF V 0 200
+	FrameIndex GSSF W 0 202
+	FrameIndex GSSF X 0 204
+	FrameIndex GSSF Y 0 206
+	FrameIndex GSSF Z 0 208
+
+}
+
+Model "PostGascan"
+{
+	Path "models\weapons\gascan"
+	Model 0 "GascanPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "gascan/gas_can_label.tga"
+	SurfaceSkin 0 1 "gascan/gas_can_metal.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostGascan"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

@@ -1,0 +1,147 @@
+class PostBaton : PostalWeapon
+{
+	
+	action void A_BatonHit()
+	{
+		FTranslatedLineTarget t;
+
+		int damage = random(4, 7);
+
+		double ang = angle;
+		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
+
+		LineAttack (ang, DEFMELEERANGE, pitch, damage, 'Melee', "PostalMeleeHitPuff", LAF_ISMELEEATTACK, t);
+		
+	}
+	
+	Default
+	{
+    Weapon.Kickback 100;
+    Weapon.SelectionOrder 1300;
+	Obituary "$OB_MPSHOTGUN";
+    Tag "$TAG_SHOTGUN";
+	Inventory.PickupMessage "$GOTSHOTGUN";
+	+Weapon.NoAlert;
+	}
+	States
+	{
+	Ready:
+		TNT1 A 1
+		{
+			cvar idlinganimcvar = cvar.findcvar('postal_idleanim');
+			bool idlinganim = (idlingAnimCVar != null && idlingAnimCVar.GetBool ());
+			
+			if (idlinganim)
+				return ResolveState ("Ready.IdleAnim");
+			else
+				return ResolveState ("Ready.NoIdleAnim");
+			
+			return ResolveState (null);
+		}
+		Loop;
+	Ready.IdleAnim:
+		BATI ABCDEFGHIJKLMNOPQRSTU 7 A_WeaponReady;
+		Goto Ready;
+	Ready.NoIdleAnim:
+		BATI A 1 A_WeaponReady;
+		Goto Ready;
+	Deselect:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
+		BATD ABCDEFGHIJKLMN 2;
+		Loop;
+	Select:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
+		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
+		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
+		BATS ABCDEFGHIJKLMNO 2;
+		Loop;
+	Fire:
+		BATF ABCDE 1;
+		BATF F 0
+		{
+				FLineTraceData lineData;
+				LineTrace(angle,52,pitch,offsetz: height, data: LineData);
+				
+				if (LineData.HitType == TRACE_HitNone)
+					A_PlaySound("weapons/baton_pf", 7 | 4096);
+				
+				if (LineData.HitType == TRACE_HitActor)
+				{
+					if (lineData.HitActor is 'NPCHead')
+					{
+						A_PlaySound("weapons/baton_hit", 7 | 4096);
+						A_BatonHit();
+						return;
+					}
+					
+					if (lineData.HitActor is 'NPCCore')
+					{
+						A_PlaySound("weapons/baton_hit", 7 | 4096);
+						A_BatonHit();
+						return;
+					}
+					
+					if (lineData.HitActor is 'PostalActor' || lineData.HitActor.Health > 0)
+					{
+						A_PlaySound("weapons/baton_hit", 7 | 4096);
+						A_BatonHit();
+						return;
+					}
+				}
+				
+				if (LineData.HitType == TRACE_HitWall || LineData.HitType == TRACE_HitFloor || LineData.HitType == TRACE_HitCeiling)
+				{
+					A_PlaySound("weapons/baton_hit", 7 | 4096);
+					A_BatonHit();
+				}
+				
+		}
+		BATF FGHIJKLMNOPQRSTUVWXYZ 1;
+		Goto Ready;
+	AltFire:
+		BASF ABC 1;
+		BASF D 0
+		{
+				FLineTraceData lineData;
+				LineTrace(angle,52,pitch,offsetz: height, data: LineData);
+				
+				if (LineData.HitType == TRACE_HitNone)
+					A_PlaySound("weapons/baton_sf", 7 | 4096);
+				
+				if (LineData.HitType == TRACE_HitActor)
+				{
+					if (lineData.HitActor is 'NPCHead')
+					{
+						A_PlaySound("weapons/baton_hit", 7 | 4096);
+						A_BatonHit();
+						return;
+					}
+						if (lineData.HitActor is 'NPCCore')
+						{
+							A_PlaySound("weapons/baton_hit", 7 | 4096);
+							A_BatonHit();
+							return;
+						}
+							if (lineData.HitActor is 'PostalActor' || lineData.HitActor.Health > 0)
+							{
+								A_PlaySound("weapons/baton_hit", 7 | 4096);
+								A_BatonHit();
+								return;
+							}
+				}
+				
+				if (LineData.HitType == TRACE_HitWall || LineData.HitType == TRACE_HitFloor || LineData.HitType == TRACE_HitCeiling)
+				{
+					A_PlaySound("weapons/baton_hit", 7 | 4096);
+					A_BatonHit();
+				}
+		
+		}
+		BASF DEFGHIJKLMNOPQRST 1;
+		Goto Ready;
+	Spawn:
+		TNT1 A 0;
+		PICK A -1;
+		Stop;
+	}
+}

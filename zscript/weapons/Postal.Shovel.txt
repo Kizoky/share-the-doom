@@ -1,0 +1,162 @@
+class PostShovel : PostalWeapon
+{
+	
+	action void A_ShovelHit()
+	{
+		FTranslatedLineTarget t;
+
+		int damage = random(9, 13);
+
+		double ang = angle;
+		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
+
+		LineAttack (ang, DEFMELEERANGE, pitch, damage, 'Melee', "PostalMeleeHitPuff", LAF_ISMELEEATTACK, t);
+		
+	}
+	
+	action void A_ShovelTryHit(string SecondaryOrPrimary)
+	{
+		FLineTraceData lineData;
+		LineTrace(angle,52,pitch,offsetz: height, data: LineData);
+		
+		if (LineData.HitType == TRACE_HitNone)
+		{
+			if (SecondaryOrPrimary ~== "primary")
+				A_PlaySound("weapons/shovel_pf", CHAN_WEAPON);
+			else if (SecondaryOrPrimary ~== "secondary")
+				A_PlaySound("weapons/shovel_sf", CHAN_WEAPON);
+		}
+		
+		if (LineData.HitType == TRACE_HitActor)
+		{
+			if (lineData.HitActor is 'NPCHead')
+			{
+				if (SecondaryOrPrimary ~== "primary")
+					A_PlaySound("weapons/shovel_hithead", CHAN_WEAPON);
+				else if (SecondaryOrPrimary ~== "secondary")
+					A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
+				
+				A_ShovelHit();
+				//Console.Printf("Hit head!");
+				return;
+			}
+			
+			if (lineData.HitActor is 'NPCCore')
+			{
+				if (SecondaryOrPrimary ~== "primary")
+					A_PlaySound("weapons/shovel_hitbody", CHAN_WEAPON);
+				else if (SecondaryOrPrimary ~== "secondary")
+					A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
+				
+				A_ShovelHit();
+				//Console.Printf("Hit an NPC!");
+				return;
+			}
+			
+			if (lineData.HitActor is 'PostalActor' || lineData.HitActor.Health > 0)
+			{
+				if (SecondaryOrPrimary ~== "primary")
+					A_PlaySound("weapons/shovel_hitbody", CHAN_WEAPON);
+				else if (SecondaryOrPrimary ~== "secondary")
+					A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
+				
+				A_ShovelHit();
+				//Console.Printf("Hit body: PostalActor or not PostalActor");
+				return;
+			}
+		}
+		
+		if (LineData.HitType == TRACE_HitWall || LineData.HitType == TRACE_HitFloor || LineData.HitType == TRACE_HitCeiling)
+		{
+			A_PlaySound("weapons/shovel_hitwall", 7 | 4096);
+			A_ShovelHit();
+		}
+	
+	
+	}
+	
+	Default
+	{
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$TAG_SHOTGUN";
+		Inventory.PickupMessage "$GOTSHOTGUN";
+		+Weapon.NoAlert;
+	}
+	States
+	{
+	Ready:
+		TNT1 A 1
+		{
+			cvar idlinganimcvar = cvar.findcvar('postal_idleanim');
+			bool idlinganim = (idlingAnimCVar != null && idlingAnimCVar.GetBool ());
+			
+			if (idlinganim)
+				return ResolveState ("Ready.IdleAnim");
+			else
+				return ResolveState ("Ready.NoIdleAnim");
+			
+			return ResolveState (null);
+		}
+		Loop;
+	Ready.IdleAnim:
+		SHOI ABCDEFGHIJKLMNOPQRSTUVWXA 6 A_WeaponReady;
+		Goto Ready;
+	Ready.NoIdleAnim:
+		SHOI A 1 A_WeaponReady;
+		Goto Ready;
+	Deselect:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
+		SHOD ABCDEFGHIJKLMNOPQRSTUVWX 1;
+		Loop;
+	Select:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
+		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
+		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
+		SHOS ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		Loop;
+	Fire:
+		SHOA ABC 2;
+		SHOA D 0 A_ShovelTryHit("primary");
+		SHOA DEFGHIJKLMNOPQRSTUVW 2;
+		Goto Ready;
+	AltFire:
+		SHO2 ABCD 2;
+		SHO2 E 0 A_ShovelTryHit("secondary");
+		SHO2 EFGHIJKLMNOPQRS 2;
+		Goto Ready;
+	Spawn:
+		TNT1 A 0;
+		PICK A -1;
+		Stop;
+	}
+}
+
+//todo: Find the texture Postal is using for that "smoke" when hitting the wall or anything with the shovel
+class PostalMeleeHitPuff : Actor
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ALLOWPARTICLES
+		+RANDOMIZE
+		+DONTSPLASH
+		+ZDOOMTRANS
+		RenderStyle "Translucent";
+		Alpha 0.5;
+		VSpeed 1;
+		Mass 5;
+		SeeSound "";
+		AttackSound "";
+		ActiveSound "";
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 4;
+		TNT1 AAA 4;
+		Stop;
+	}
+}

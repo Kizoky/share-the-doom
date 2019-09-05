@@ -1,0 +1,70 @@
+//Fun fact: Lower value means that prop was added much later than the rest of them
+DoomEdNums
+{
+  32766 = DudeCar
+  32765 = DudeTrailer
+  32764 = Workbench
+  32763 = Tree1
+  32762 = Tree2
+  32761 = Tree3
+  32760 = Doghouse
+  32759 = TelephonePolemd3
+  32758 = Phonepole
+  //32757 = PhonepoleOBJ
+  32756 = Billboard
+  //32755 = BillboardOBJ
+  32754 = Billboard2
+  32753 = BillboardCustom
+  32752 = fortyoz
+  32751 = sixtyninefine
+  32750 = ACunit
+  32749 = AngelDawn
+  32748 = APC
+  32747 = Tank
+  32746 = ATM
+  32745 = barrelcactus
+  32744 = barchair
+  32743 = basketballhoop
+  32742 = bathtubone
+  32741 = bathtubtwo
+  32740 = bedone
+  32739 = bedtwo
+  32738 = bewareofdog
+  32737 = bewareofdogtwo
+  32736 = bondagechair
+  32735 = bookcase
+  32734 = bookcasetwo
+  32733 = bookcaselibrary
+  32732 = boombox
+  32731 = bosschair
+  32730 = bulldozer
+  32729 = bureau
+  32728 = bush666
+  32727 = minivan_BLUE
+  32726 = minivan_GOLD
+  32725 = minivan_GREEN
+  
+  32724 = minivanBurnt_BLUE
+  32723 = minivanBurnt_GOLD
+  32722 = minivanBurnt_GREEN
+  32721 = minivanBurnt_WHITE
+  32720 = minivanBurnt_BROWN
+  32719 = minivan_BROWN
+  32718 = minivan_WHITE
+  32717 = schoolbus
+  32716 = train01
+  
+  32715 = smocklar_Cream
+  32714 = smocklar_Silver
+  32713 = smocklar_Blue
+  32712 = smocklar_Red
+  32711 = smocklar_Cream_Wrecked
+  32710 = smocklar_Silver_Wrecked
+  32709 = smocklar_Blue_Wrecked
+  32708 = smocklar_Red_Wrecked
+  32707 = copcar_cruiser
+  32706 = copcar
+  32705 = copcar_burnt
+  32704 = copcar_vandalized
+  
+}

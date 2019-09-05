@@ -1,0 +1,80 @@
+//Add Global Variables here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+class PostalVariables : GlobalsContainer
+{
+    int CatnipInEffect;
+    int IsThisWorking;
+	bool PD_Kick;
+	bool PD_Holster;
+	Weapon PD_HolsterSave;
+	Weapon PD_HolsterCheck;
+	Weapon PD_UrethraSave;
+	bool PD_Urethra;
+	Weapon PD_Hands;
+	Weapon PD_UrethraWeapon;
+	int PostalDudes;
+
+    override void InitializeDefaults()
+    {
+        CatnipInEffect = 0;
+        IsThisWorking  = 123456;
+		PD_Kick = false;
+		PD_Holster = false;
+		PD_HolsterSave = null;
+		PostalDudes = 0;
+    }
+}
+
+// use with
+// let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"))
+
+
+
+
+
+
+
+
+
+
+
+
+Class Debugger : Actor
+{
+	override void PostBeginPlay(void)
+	{
+		let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
+		if (vars)
+		{
+			Console.Printf("CatnipInEffect is: %d", vars.CatnipInEffect);
+			Console.Printf("HolsterSave is: %%", vars.PD_HolsterCheck);
+		}
+		
+		Super.BeginPlay();
+	}
+}
+
+class GlobalsContainer : Thinker abstract
+{
+    static GlobalsContainer Find(Class<GlobalsContainer> type)
+    {
+        let it = ThinkerIterator.Create(type, STAT_STATIC);
+        let th = GlobalsContainer(it.Next());
+        return th ? th : GlobalsContainer(new(type));
+    }
+
+    override void PostBeginPlay()
+    {
+        super.PostBeginPlay();
+        super.ChangeStatNum(STAT_STATIC);
+        InitializeDefaults();
+    }
+
+    virtual void InitializeDefaults()
+    {
+    }
+
+    override void Tick()
+    {
+    }
+}

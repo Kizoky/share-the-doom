@@ -1,0 +1,16 @@
+Model "PostalLiquidGas"
+{
+	Path "models\misc\gasoline"
+	Model 0 "gasoline.md3"
+	Skin 0 "GASSA0.png"
+	ZOffset 0.0001
+	UseActorPitch
+	UseActorRoll
+	//AngleOffset 270
+	Scale 20 20 20
+	Offset 0 0 1 //X Y Z
+
+	// Idle Pose 90-190	
+		
+	FrameIndex GASS A 0 0
+}

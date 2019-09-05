@@ -1,0 +1,225 @@
+// Welcome to this big pile of mess.
+
+class NPCShop : PlayerPawn
+{
+	Actor Consumer;
+	double SavedAngle;
+	bool OutOfSight;
+	
+	int Conversation;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		//Store the default angle here
+		SavedAngle = angle;
+		Conversation = 0;
+		OutOfSight = false;
+	}
+	
+	Default
+	{
+		//$Category NPCs
+		//$Title "Shop Dude"
+		//$Sprite DUDEA0
+		Health 150;
+		Radius 13;
+		Height 65;
+		Speed 2.5;
+		PainChance 256;
+		Monster;
+		//+FLOORCLIP
+		+INTERPOLATEANGLES
+		SeeSound "";
+		AttackSound "weapons/pistol";
+		PainSound "dudehurt";
+		DeathSound "dudehurt16";
+		ActiveSound "";
+		Obituary "$OB_ZOMBIE";
+		DropItem "Clip";
+		//+NOTARGETSWITCH;
+		+ACTIVATEIMPACT;
+		+CANPUSHWALLS;
+		+CANUSEWALLS;
+		+SPECIAL;
+		-FRIENDLY;
+	}
+	States
+	{
+	Spawn:
+		DUDE ABCD 3;
+		DUDE EFGH 3;
+		DUDE IJKL 3;
+		DUDE MNOPQR 3;
+		TNT1 A 0 A_ShopThinker();
+		Loop;
+	WithinShopRange:
+		TNT1 A 0 
+		{
+			target = Consumer; 
+			Conversation++;
+		}
+		DUDE ABCD 3 A_FaceTarget;
+		DUDE EFGH 3  A_FaceTarget;
+		DUDE IJKL 3  A_FaceTarget;
+		DUDE MNOPQR 3 A_FaceTarget;
+		TNT1 A 0 { angle = SavedAngle; A_Conversation();}
+		Goto Spawn;
+	Conversation1:
+		TNT1 A 0 
+		{
+			if (Consumer != null)
+			{
+				target = Consumer; 
+				Conversation++;
+			}
+			else
+			{
+				A_ClearTarget();
+				Conversation = 0;
+				SetStateLabel("Spawn");
+			}
+		}
+		TNT1 A 0 { Console.Printf("Conversation 1 state"); }
+		DUDE ARAR 3 A_FaceTarget;
+		DUDE ARAR 3 A_FaceTarget;
+		DUDE ARAR 3 A_FaceTarget;
+		DUDE ARARAR 3 A_FaceTarget;
+		TNT1 A 0 { angle = SavedAngle; A_ClearTarget(); A_Conversation();}
+	Conversation2:
+		TNT1 A 0 
+		{
+			if (Consumer != null)
+			{
+				target = Consumer; 
+				Conversation++;
+			}
+			else
+			{
+				A_ClearTarget();
+				Conversation = 0;
+				SetStateLabel("Spawn");
+			}
+		}
+		TNT1 A 0 { Console.Printf("Conversation 2 state!!"); }
+		DUDE ARAR 3 A_FaceTarget;
+		DUDE ARAR 3 A_FaceTarget;
+		DUDE ARAR 3 A_FaceTarget;
+		DUDE ARARAR 3 A_FaceTarget;
+		//todo: wait for the Player to press enter to take money (or check money)
+		TNT1 A 0 { angle = SavedAngle; Conversation = 0; A_ClearTarget(); A_Conversation();}
+		Goto Spawn;
+	See:
+		FLEE ABCDEFGHIJ 3 A_Chase(flags: CHF_STOPIFBLOCKED);
+		FLEE ABCDEFGHIJ 3 A_Chase(flags: CHF_STOPIFBLOCKED);
+		FLEE ABCDEFGHIJ 3 A_Chase(flags: CHF_STOPIFBLOCKED);
+		FLEE ABCDEFGHIJ 3 A_Chase;
+		Loop;
+	Pain:
+		DUDE A 3;
+		DUDE A 3 A_Pain;
+		Goto See;
+	Death:
+		TNT1 A 0 A_Scream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		TNT1 A 0 A_NoBlocking;
+		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUD2 P -1;
+		Stop;
+	XDeath:
+		POSS M 5;
+		POSS N 5 A_XScream;
+		POSS O 5 A_NoBlocking;
+		POSS PQRST 5;
+		POSS U -1;
+		Stop;
+	Raise:
+		Stop;
+	}
+}
+
+extend class NPCShop
+{
+	action void A_ShopThinker()
+	{
+		//many thanks to phantombeta!!
+		double fov = 120; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 21); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+
+			if (!next.bShootable || next.bKilled || next.health < 1)
+			{
+				continue;
+			}
+
+			
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
+
+			
+			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				continue;
+
+			// Do things with the "next" pointer here
+			
+							if (next is 'PostalDude')
+							{
+								invoker.Consumer = next;
+								SetStateLabel("WithinShopRange");
+								break;
+							}
+			}
+    }
+	
+	action void A_Conversation()
+	{
+		//many thanks to phantombeta!!
+		double fov = 120; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 21); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+
+			if (!next.bShootable || next.bKilled || next.health < 1)
+			{
+				continue;
+			}
+
+			
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
+
+			
+			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				continue;
+
+			// Do things with the "next" pointer here
+			
+							if (next == invoker.Consumer && invoker.Conversation == 1)
+							{
+								invoker.Consumer = next;
+								SetStateLabel("Conversation1");
+								break;
+							}
+							else
+								if (next == invoker.Consumer && invoker.Conversation == 2)
+								{
+									invoker.Consumer = next;
+									SetStateLabel("Conversation2");
+									break;
+								}
+								else
+								{
+									invoker.Consumer = null;
+								}
+									
+			}
+    }
+	
+}

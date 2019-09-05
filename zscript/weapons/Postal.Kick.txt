@@ -1,0 +1,120 @@
+class PostKick : CustomInventory
+{
+
+   default
+   {
+      Inventory.Amount 1;
+      inventory.maxamount 9999;
+      +INVENTORY.ALWAYSPICKUP;
+      +INVENTORY.AUTOACTIVATE;
+   }
+   
+   states 
+   {   
+      use:
+         TNT1 A 0
+         {
+            statelabel nextstate = "remove";
+            let ownr = PostalDude(invoker.owner); 
+            if (ownr)                            
+            {
+               nextstate = "startoverlay";
+            }
+         return resolvestate(nextstate);
+         }
+         stop;
+      
+      remove:
+         stop;
+      
+      startoverlay:
+         TNT1 A 0
+         {
+            A_OverLay(-2,"KickReady");
+            A_OverlayOffset(-2,0,32,WOF_KEEPX);
+			A_OverlayFlags(-2,PSPF_ADDWEAPON,true);
+         }
+         wait;
+         
+      KickReady:
+	  TNT1 A 0
+	  {
+		if (!bKILLED)
+			A_PlaySound("footfire", 7 | 4096);
+	  }
+	  TNT1 A 0
+	  {
+			//let PlayerDude = PostalDude(self);
+			//PlayerDude.PlayerData.KickDone = false; 
+	  }
+      KICK ABC 1;
+	  TNT1 A 0
+	  {
+				if (bKILLED) return;
+				
+				FLineTraceData lineData;
+				LineTrace(angle,64,pitch,offsetz: height-12, data: LineData);
+				if (LineData.HitType == TRACE_HitWall && LineData.HitType != TRACE_HitActor)
+				{
+					LineData.HitLine.Activate(self,0,SPAC_Use);
+					A_QuakeEx(0, 3, 3, 7, 0, 60 );
+					A_PlaySound("footWall", 7 | 4096);
+					//Console.Printf("Got Usable stuff!");
+				}
+				else
+				{
+					if (LineData.HitType == TRACE_HitActor)
+					{
+						let pp = Actor(lineData.HitActor);
+						pp.PainChance = 256;
+						//Console.Printf("Scumbag kicked");
+						A_QuakeEx(0, 3, 3, 7, 0, 60 );
+						A_PlaySound("footLiving", 7 | 4096);
+						
+						let wep = Player.ReadyWeapon;
+						//int origKickBack = wep.KickBack;
+						
+						wep.Kickback = 1000;
+						pp.target = self;
+						A_Kick();
+						wep.Kickback = wep.Default.Kickback;
+						pp.PainChance = pp.Default.PainChance;
+					}
+				}
+	  }
+	  KICK CDEFGHI 1;
+	  KICK JKLMNOPQR 2;
+	  TNT1 A 1 
+	  {
+			A_TakeInventory("PostKick",100);
+			let PlayerDude = PostalDude(self);
+			
+			PlayerDude.Kick = false;
+	  }
+	  stop;
+	  
+      
+      Spawn:
+         TNT1 A -1;
+         Stop;
+   }
+
+}
+
+extend class PostKick
+{
+	//This is basically Doom's Fist
+	action void A_Kick()
+	{
+		FTranslatedLineTarget t;
+
+		int damage = random[Punch](5, 7) << 1;
+
+		double ang = angle;
+		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
+
+		LineAttack (ang, DEFMELEERANGE, pitch, damage, 'Melee', "BulletPuff", LAF_ISMELEEATTACK, t);
+
+		
+	}
+}

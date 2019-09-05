@@ -1,0 +1,386 @@
+class train01 : PostalActor
+{
+	action void A_TrainNode()
+	{
+		//many thanks to phantombeta!!
+		double fov = 160; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+				let next = it.Thing;
+				
+				//if (!next.bShootable) // || next.bKilled || next.health < 1)
+				//{
+				//	continue;
+				//}
+				
+				
+				if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+				{
+					continue;
+				}
+				
+				
+				//if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				//	continue;
+				
+				if (invoker.ActiveNode == null)
+				{
+					if (next is 'Postal_TrainNode')
+					{
+						invoker.ActiveNode = next;
+					}
+				}
+						
+			}
+    }
+	
+	Actor ActiveNode;
+	int collisionAmount;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		A_SpawnItemEx("fakeTrainCollision", 250);
+		
+		A_SpawnItemEx("fakeTrainCollision");
+		
+		A_SpawnItemEx("fakeTrainCollision", -200);
+		//A_SpawnItemEx("fakeTrainCollision", -70);
+		
+		/*if (collisionAmount != 4)
+		{
+			collisionAmount++;
+			class<actor> collision = "fakeTrainCollision";
+			Actor ExtraCollision = spawn(collision, self.pos, ALLOW_REPLACE);
+			if (ExtraCollision)
+			{
+				ExtraCollision.Angle = self.Angle;
+				let p = fakeTrainCollision(ExtraCollision);
+				p.Owner = self;
+				p.Position = collisionAmount;
+			}
+		}*/
+		
+		Thrust(0.5);
+		
+		if (ActiveNode != null)
+		{
+			Angle = AngleTo(ActiveNode);
+			A_PlaySound("hl2train",0 | CHAN_NOSTOP);
+			Console.Printf("%d", angle);
+			//vector2 diff = (pos.xy - ActiveNode.pos.xy).Unit();
+			if ((
+					(Distance2D(ActiveNode) < 0.1) || 
+					(Distance2D(ActiveNode) < 0.5) || 
+					(Distance2D(ActiveNode) < 1) || 
+					(Distance2D(ActiveNode) < 2) || 
+					(Distance2D(ActiveNode) < 3) || 
+					(Distance2D(ActiveNode) < 4) || 
+					(Distance2D(ActiveNode) < 5) || 
+					(Distance2D(ActiveNode) < 6) || 
+					(Distance2D(ActiveNode) < 7) || 
+					(Distance2D(ActiveNode) < 8) || 
+					(Distance2D(ActiveNode) < 9) || 
+					(Distance2D(ActiveNode) < 10)) && ActiveNode != null)
+			{
+				double SavedAngle = angle;
+				
+				let node = Postal_TrainNode(ActiveNode);
+				if (node.NextNode != null)
+					ActiveNode = node.NextNode;
+				else
+					ActiveNode = null;
+					
+				angle = SavedAngle;
+				Console.Printf("train null");
+			}
+		}
+	
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		health += damage;
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	Default
+	{
+		//$Category Trains
+		//$Title "Train 01 Front"
+		Radius 1;
+		Height 1;
+		Speed 1;
+		Mass 999999999;
+		Health 999999;
+		Monster;
+		Obituary "Next time %k should stop hugging trains";
+		-SOLID
+		+SPECTRAL
+	}
+	States
+	{
+	Spawn:
+		PROP A 10
+		{
+			A_TrainNode();
+			if (ActiveNode != null)
+			{
+				Angle = AngleTo(ActiveNode);
+				Console.Printf("%d", Distance2D(ActiveNode));
+				//vector2 diff = (pos.xy - ActiveNode.pos.xy).Unit();
+				if ((
+					(Distance2D(ActiveNode) < 0.1) || 
+					(Distance2D(ActiveNode) < 0.5) || 
+					(Distance2D(ActiveNode) < 1) || 
+					(Distance2D(ActiveNode) < 2) || 
+					(Distance2D(ActiveNode) < 3) || 
+					(Distance2D(ActiveNode) < 4) || 
+					(Distance2D(ActiveNode) < 5) || 
+					(Distance2D(ActiveNode) < 6) || 
+					(Distance2D(ActiveNode) < 7) || 
+					(Distance2D(ActiveNode) < 8) || 
+					(Distance2D(ActiveNode) < 9) || 
+					(Distance2D(ActiveNode) < 10)) && ActiveNode != null)
+				{
+					double SavedAngle = angle;
+					
+					let node = Postal_TrainNode(ActiveNode);
+					if (node.NextNode != null)
+						ActiveNode = node.NextNode;
+					else
+						ActiveNode = null;
+						
+					angle = SavedAngle;
+					Console.Printf("train null");
+				}
+			}
+		}
+		Loop;
+	See:
+		TNT1 A 0;
+		Goto Spawn;
+	Pain:
+		TNT1 A 0;
+		Goto Spawn;
+	Death:
+		TNT1 A 0;
+		Stop;
+	}
+}
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+//// Train node
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+
+class Postal_TrainNode : PostalActor
+{
+	Actor NextNode, PreviousNode;
+	int DynamicIncrease;
+	
+	int WarningTime;
+	bool SpawnedMark;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		DynamicIncrease = 0;
+		WarningTime = level.time;
+	
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (NextNode == null)
+		{
+			DynamicIncrease += 50;
+		}
+		
+		//All nodes should be able to find their next nodes under 10 seconds
+		if ((WarningTime + 35 * 20) < level.time)
+		{
+			if (NextNode == null)
+			{
+				if (SpawnedMark != true)
+				{
+					Console.Printf("Warning: Next Node for a path node hasn't been found. Marked with a confused Dude head.");
+					spawn("Postal_FailedPathnode", self.pos+(0,0,50), ALLOW_REPLACE);
+					if (PreviousNode != null)
+						NextNode = PreviousNode;
+					else
+						NextNode = self;
+						
+					SpawnedMark = true;
+				}
+				
+			}
+		}
+	}
+	
+	Default
+	{
+		+NOGRAVITY;
+		-SOLID;
+	}
+	States
+	{
+	Spawn:
+		PLSS AB 5
+		{
+			//Check if the NextNode actor pointer is null
+			//Continously creating an iterator will degrade performance
+			if (NextNode == null)
+				A_SetNextNode();
+		
+		}
+		Loop;
+	}
+	
+	//It is sensitive to angle, so If you are placing them on a map make sure they are facing a node
+	action void A_SetNextNode()
+	{
+		//many thanks to phantombeta!!
+		double fov = 50; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, invoker.DynamicIncrease); // 1024
+		
+		while (it.Next ()) {
+				let next = it.Thing;
+				
+				//if (!next.bShootable) // || next.bKilled || next.health < 1)
+				//{
+				//	continue;
+				//}
+				
+				
+				if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+				{
+					continue;
+				}
+				
+				
+				//if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				//	continue;
+				
+				if (invoker.NextNode == null)
+				{
+					//Hopefully by the time the NPC approaches it's node it will already attach an actor pointer;
+					if (next is 'Postal_TrainNode' && next != self)
+					{
+							//double diff = deltaangle(angle, AngleTo(next));
+							//double delta = abs(diff);
+							let node = Postal_TrainNode(next);
+							
+							if (next != self)
+								invoker.NextNode = next;
+							
+							node.PreviousNode = self;
+							
+							//Angle += AngleTo(next);
+							//Console.Printf("I see a Postal_Node.");
+					}
+				}
+						
+			}
+    }
+}
+
+// It's only purpose is to extend the train's radius
+// There's no other way of doing this (prove me wrong though)
+
+class fakeTrainCollision : PostalActor
+{	
+	Actor Owner;
+	int Position;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		//if (level.time > TimeBeforeDestroy)
+		Destroy();
+		
+		/*let p = train01(Owner);
+		if (Owner)
+		{
+			// 1 - front; 2 - back
+			if (Position == 1)
+				SetOrigin(Owner.pos+(265,Owner.angle,0), TRUE);
+			if (Position == 3)
+				SetOrigin(Owner.pos+(157,Owner.angle,0), TRUE);
+				
+				
+			if (Position == 2)
+				SetOrigin(Owner.pos+(-265,Owner.angle,0), TRUE);
+			if (Position == 4)
+				SetOrigin(Owner.pos+(-200,Owner.angle,0), TRUE);
+			
+			//A_SetAngle(Owner.angle, SPF_INTERPOLATE);
+			//A_SetPitch(Owner.pitch,SPF_INTERPOLATE);
+			
+			//Angle = AngleTo(Owner);
+				
+			target = null;
+			
+		}*/
+	}
+	
+	int TimeBeforeDestroy;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		Destroy();
+		TimeBeforeDestroy = level.time + 15;
+		
+	}
+	
+	Default
+	{
+		Radius 75;
+		Height 165;
+		Species "Hello";
+		Speed 0;
+		PainChance 256;
+		Damage 1000;
+		//Monster;
+		Projectile;
+		+SOLID
+		+MISSILE
+		+RIPPER
+		+THRUSPECIES
+		+MTHRUSPECIES
+		-NOBLOCKMAP
+		+SHOOTABLE
+		+ISMONSTER
+		DropItem "None";
+		+DONTHURTSPECIES
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 5;
+			TNT1 A 0 { Destroy(); }
+			Loop;
+		See:
+			TNT1 A 1 A_Look;
+			TNT1 A 0 { Destroy(); }
+			Goto Spawn;
+		Pain:
+			TNT1 A 1;
+			Goto Spawn;
+		Death:
+			TNT1 A 1;
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
+ }
+}

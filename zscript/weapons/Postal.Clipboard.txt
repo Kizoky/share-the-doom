@@ -1,0 +1,185 @@
+class PostClipboard : PostalWeapon
+{
+	Default
+	{
+	Weapon.Kickback 100;
+	Decal "bulletchip";
+	Weapon.SelectionOrder 1900;
+	//Weapon.AmmoUse 1;
+	//Weapon.AmmoGive 20;
+	//Weapon.AmmoType "Clip";
+	Obituary "$OB_MPPISTOL";
+	//+WEAPON.WIMPY_WEAPON;
+	+Weapon.NoAlert;
+	Tag "$TAG_PISTOL";
+	Inventory.PickupMessage "$GOTPISTOL";
+	}
+	States
+	{
+	Ready:
+		TNT1 A 1
+		{
+			cvar idlinganimcvar = cvar.findcvar('postal_idleanim');
+			bool idlinganim = (idlingAnimCVar != null && idlingAnimCVar.GetBool ());
+			
+			if (idlinganim)
+				return ResolveState ("Ready.IdleAnim");
+			else
+				return ResolveState ("Ready.NoIdleAnim");
+			
+			return ResolveState (null);
+		}
+	Ready.IdleAnim:
+		CLID ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_WeaponReady;
+		Goto Ready;
+	Ready.NoIdleAnim:
+		CLID A 1 A_WeaponReady;
+		Goto Ready;
+	Deselect:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
+		CLIH ABCDEFGHIJKLMN 1;
+		Loop;
+	Select:
+		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
+		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
+		TNT1 A 0 A_PlaySound("weaponselect3", 7 | 4096);
+		CLII ABCDEFGHIJKLMNOPQRSTU 1;
+		Loop;
+	Fire:
+		TNT1 A 0
+		{
+			if (invoker.Monsta == null && invoker.PetitionedNPC == null)
+			{
+				FLineTraceData lineData;
+				LineTrace(angle,100,pitch,offsetz: height-12, data: LineData);
+				
+				if (LineData.HitType == TRACE_HitActor)
+				{
+					if (!(lineData.HitActor is 'PostalActor'))
+						{
+							int randomm = random(1,2);
+							
+							if (randomm == 1)
+								A_PlaySound("dudeline31", 7 | 4096);
+							else
+								A_PlaySound("dudeline32", 7 | 4096);
+							
+							return ResolveState("Ready");
+							
+						}
+						else
+						{
+							A_PlaySound("dudepetition1a", 7 | 4096);
+							A_Petition();
+						}
+				}
+			}
+			else
+				return ResolveState ("Ready");
+				
+			return ResolveState (null);
+		}
+		CLFI ABCDEFGHIJKLMN 2;
+		CLFI OPQRSTUVWXYZ 3;
+		CLF2 ABCDEFGHIJKLMNOPQR 3;
+		Goto Ready;
+	Spawn:
+		TNT1 A 0;
+		PICK A -1;
+		Stop;
+	}
+}
+
+extend class PostClipboard
+{
+	action void A_Petition()
+	{
+				FLineTraceData lineData;
+				LineTrace(angle,100,pitch,offsetz: height-12, data: LineData);
+				
+					if (LineData.HitType == TRACE_HitActor)
+					{
+						if (lineData.HitActor is 'NPCCore')
+						{
+							Console.Printf("target is NPCCore");
+							let pp = NPCCore(lineData.HitActor);
+							pp.target = self;
+							pp.MyTarget = self;
+							pp.Petitioning = true;
+							
+							invoker.PetitionedNPC = pp;
+							invoker.TimeBeforeBoomBoom = level.time + 125;
+							
+						}
+						
+						if (lineData.HitActor is 'PostalActor')
+						{
+							let aactor = PostalActor(lineData.HitActor);
+							
+							if (aactor.target != invoker.owner && !(aactor.bKILLED))
+							{
+								aactor.target = invoker.owner;
+								aactor.Angle = AngleTo(invoker.owner);
+								aactor.SetStateLabel("Spawn");
+								invoker.Monsta = aactor;
+								invoker.TimeBeforeBoomBoom = level.time + 125;
+							}
+							else
+								if (aactor.bFRIENDLY && aactor.target == null)
+								{
+									aactor.target = invoker.owner;
+									aactor.Angle = AngleTo(invoker.owner);
+									aactor.SetStateLabel("Spawn");
+									invoker.Monsta = aactor;
+									invoker.TimeBeforeBoomBoom = level.time + 125;
+								}
+						}
+					}
+	}
+	
+	actor Monsta, PetitionedNPC;
+	int TimeBeforeBoomBoom;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (Monsta != null && !(Monsta.bKILLED))
+		{
+			if (TimeBeforeBoomBoom > level.time)
+			{
+				Monsta.A_FaceTarget();
+				Monsta.Tics = -1;
+			}
+			
+			if (level.time > TimeBeforeBoomBoom)
+			{
+				Console.Printf("Entered?");
+				
+				let p = PostalActor(Monsta);
+				p.A_PlaySelfSound();
+				
+				if (Monsta.bFRIENDLY)
+				{
+					Monsta.target = null;
+					Monsta.SetStateLabel("Spawn");
+				}
+				else
+					Monsta.SetStateLabel("See");
+					
+				Monsta.Tics = 1;
+				Monsta = null;
+				
+			}
+		}
+		
+		if (PetitionedNPC != null)
+		{
+			if (level.time > TimeBeforeBoomBoom)
+				PetitionedNPC = null;
+		
+		}
+		
+	}
+	
+	
+}

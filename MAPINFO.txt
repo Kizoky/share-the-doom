@@ -1,0 +1,205 @@
+include "mapinfo/Staticmeshes.txt"
+include "mapinfo/NPCs.txt"
+
+gameinfo
+{
+	playerclasses="PostalDude"
+	dimcolor = "RED"
+	menufontcolor_title = "RED"
+	menufontcolor_label = "RED"
+	menufontcolor_value = "RED"
+	menufontcolor_action = "RED"
+	menufontcolor_header = "RED"
+	menufontcolor_highlight = "RED"
+	menufontcolor_selection = "RED"
+	
+	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler"
+	statusbarclass = "PostalStatusBar"
+}
+
+clearepisodes
+
+//episode MAP01
+//{
+//	name="Postal 2"
+//}
+
+episode DEVMAP
+{
+	name="Development level"
+}
+
+episode TESTPOST
+{
+	name="Cutscene test"
+}
+
+episode DEVMAP2
+{
+	name="Hexen hub test"
+}
+
+episode NODETEST
+{
+	name="Doom Builder flag test"
+}
+
+defaultmap
+{
+	sky1=F_SKY1
+	//music=D_RUNRUN
+	Nointermission
+	EvenLighting
+	FallingDamage
+	MonsterFallingDamage
+	PrecacheClasses = "NPCDude", "NPCshop", "Champ", "PostalCatInv"
+}
+
+cluster 1
+{
+	hub
+}
+
+map DEVMAP "Whoever designed this was on serious crack"
+{
+	levelnum = 1
+	//music=D_FFL1
+	sky1=F_SKY1
+	cluster=1
+}
+
+map DEVMAP2 "Maisth loves corruption"
+{
+	levelnum = 2
+	//music=D_FFL1
+	sky1=F_SKY1
+	cluster=1
+}
+
+map TESTPOST lookup "Cinematic experience"
+{
+	//music=D_FFL1
+	sky1 = "zo_dusk1", 0.035
+}
+
+clearskills
+
+skill liebermode
+{
+   SpawnFilter = Easy
+   Name = "Liebermode"
+   Key = "1"
+   
+}
+
+skill tooeasy
+{
+   SpawnFilter = Easy
+   Name = "Too Easy"
+   
+}
+
+skill veryeasy
+{
+   SpawnFilter = Easy
+   Name = "Very Easy"
+   
+}
+
+skill easy
+{
+   SpawnFilter = Easy
+   Name = "Easy"
+   Key = "2"
+   
+}
+
+skill remedial
+{
+   SpawnFilter = Easy
+   Name = "Remedial"
+   
+}
+
+skill average
+{
+   SpawnFilter = Normal
+   Name = "Average"
+   Key = "3"
+   
+}
+
+skill agressive
+{
+   SpawnFilter = Hard
+   Name = "Agressive"
+   
+}
+
+skill hard
+{
+   SpawnFilter = Hard
+   Name = "Hard"
+   Key = "4"
+   
+}
+
+skill veryhard
+{
+   SpawnFilter = Hard
+   Name = "Very Hard"
+   
+}
+
+skill manic
+{
+   SpawnFilter = Hard
+   Name = "Manic"
+   
+}
+
+skill hestonworld
+{
+   SpawnFilter = Hard
+   Name = "Hestonworld"
+   Key = "5"
+   
+}
+
+skill insaneo
+{
+   SpawnFilter = Hard
+   Name = "Insane-o"
+   Key = "6"
+   
+}
+
+skill theyhateme
+{
+   SpawnFilter = Hard
+   Name = "They Hate Me"
+   Key = "7"
+   
+}
+
+skill POSTAL
+{
+   SpawnFilter = Nightmare
+   FastMonsters
+   DamageFactor = 1.5
+   Aggressiveness = 0.75
+   Name = "POSTAL"
+   MustConfirm = "Warning, everyone will try to kill you at sight!"
+   Key = "8"
+}
+
+skill impossible
+{
+   SpawnFilter = Nightmare
+   FastMonsters
+   DamageFactor = 1.5
+   Aggressiveness = 0.75
+   Name = "Impossible"
+   MustConfirm = "Warning, everyone will try to kill you at sight!"
+   Key = "9"
+}

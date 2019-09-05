@@ -1,0 +1,182 @@
+class DudeCoreHandler : EventHandler 
+{
+	
+	int SavedTimes;
+	bool SavedTrigger;
+	
+   override void NetworkProcess (ConsoleEvent e)
+   {
+	  //let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
+      if (e.Name ~== "Kicking")
+	  {
+			PostalDude p = PostalDude(players[e.Player].mo);
+			PlayerInfo player = players [e.Player];
+			Console.Printf("Q pressed (Mighty Foot Engaged)");
+			p.Kick = true;
+	  }
+	  
+	  if (e.Name ~== "Holster")
+	  {
+			PlayerInfo player = players [e.Player];
+			PostalDude p = PostalDude(players[e.Player].mo);
+
+				if (p.PlayerData.Holster == false)
+				{
+					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
+					//Console.Printf("E is pressed (Holster is true)");
+					p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
+					p.PlayerData.Holster = true;
+				}
+				else
+				{
+					//Console.Printf("E is pressed (Holster is false)");
+					if (p.Player.ReadyWeapon == p.PlayerData.HolsterWeapon)
+					{
+						p.player.PendingWeapon = p.PlayerData.HolsterSave;
+						p.PlayerData.Holster = false;
+					}
+					else
+					{
+						p.PlayerData.HolsterSave = p.player.ReadyWeapon;
+						p.PlayerData.Holster = false;
+					}
+				}
+	  }
+
+	  if (e.Name ~== "Urethra")
+	  {
+			PlayerInfo player = players [e.Player];
+			PostalDude p = PostalDude(players[e.Player].mo);
+			//Console.Printf("R is pressed (Now the flowers will grow)");
+			
+			//Pretty much it works the same way like Holster
+			if (p.PlayerData.Urethra == false)
+			{
+				if (p.Player.ReadyWeapon == p.PlayerData.UrethraWeapon)
+				{
+					p.PlayerData.Urethra = false;
+					//Console.Printf("ReadyWeapon is same as UrethraWeapon");
+				}
+				else
+				{
+					p.PlayerData.UrethraSave = p.Player.ReadyWeapon;
+					p.PlayerData.Urethra = true;
+					p.Player.PendingWeapon = p.PlayerData.UrethraWeapon;
+					//Console.Printf("ReadyWeapon is not same as UrethraWeapon");
+				}
+			}
+			else
+			{
+				if (p.player.ReadyWeapon != p.PlayerData.UrethraSave)
+				{
+					p.Player.PendingWeapon = p.PlayerData.UrethraSave;
+					p.PlayerData.Urethra = false;
+					//Console.Printf("If ReadyWeapon not same as PD_UrethraSave");
+				}
+				else
+				{
+					p.PlayerData.Urethra = false;
+					//Console.Printf("If ReadyWeapon not same as PD_UrethraSave (else)");
+				}
+			}
+	  }
+	  
+	  if (e.Name ~== "Suicide")
+	  {
+			PostalDude p = PostalDude(players[e.Player].mo);
+			PlayerInfo player = players [e.Player];
+			//Console.Printf("K pressed (I regret nothing)");
+			p.PlayerData.Suicide = true;
+	  }
+	  
+	  if (e.Name ~== "Map")
+	  {
+			PostalDude p = PostalDude(players[e.Player].mo);
+			PlayerInfo player = players [e.Player];
+			Console.Printf("M pressed");
+			if (p.Map == false)
+			{
+				p.Map = true;
+				p.A_PlaySound("map/uncrumple",0);
+			}
+			else
+			{
+				p.Map = false;
+				p.A_PlaySound("map/crumple",0);
+			}
+	  }
+	  
+   }
+   
+   override void PlayerEntered (PlayerEvent e)
+   {
+		PostalDude p = PostalDude(players[e.PlayerNumber].mo);
+		
+		if (p != null)
+		{
+			p.A_TakeInventory("PostKick",100);
+			p.Kick = false;
+			return;
+		}
+		
+		PlayerPawn n = PlayerPawn(players[e.PlayerNumber].mo);
+		if (n && p == null)
+		{
+			n.A_GiveInventory("HUDViewable",1);
+			n.A_GiveInventory("YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound",1);
+		}
+   }
+   
+	override void WorldTick()
+	{
+		if (gameaction == ga_savegame || gameaction == ga_autosave)
+		{
+			let player = players[consoleplayer].mo;
+			
+			if (SavedTimes == 4 && SavedTrigger != true)
+			{
+				player.A_PlaySound("dude_save2",0);
+				SavedTrigger = true;
+			}
+			
+			if (SavedTimes == 5 && SavedTrigger != true)
+			{
+				player.A_PlaySound("dude_save1",0);
+				SavedTrigger = true;
+			}
+			
+			if (SavedTimes == 6 && SavedTrigger != true)
+			{
+				player.A_PlaySound("dude_save3",0);
+				SavedTimes = 0;
+				SavedTrigger = true;
+			}
+			
+			SavedTimes++;
+			SavedTrigger = false;
+		}
+	
+	}
+	
+	override void WorldThingDied(WorldEvent e)
+	{	
+		if (e.Inflictor && e.Thing)
+		{
+			let player = players[consoleplayer].mo;
+			let p = PostalDude(player);
+			
+			if (e.Thing != p)
+			{
+				//Is there a way to maybe get the killer and not the target?
+				if (e.Thing.target == p)
+				{
+					//Console.Printf("works");
+					if (p != null && !(p.bKILLED))
+						p.InitLine = true;
+				}
+			}
+			//else if (e.Thing == PostalDude(e.Inflictor))
+			//	Console.Printf("Player suicided!");
+		}
+	}
+}

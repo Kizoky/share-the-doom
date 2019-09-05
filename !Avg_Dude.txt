@@ -1,0 +1,106 @@
+Point Finger at you like an idiot: 5270-5311
+Clap clap clap clap: 5312-5519
+Standing idle: 5583-5645
+Dance like a faggot: 5827-6019
+You will kill a party Dance: 6020-6121
+Go around and around like a fag Dance: 6122-6212
+Slow falling backwards: 6689-6810
+Slow falling onwards: 6811-6909
+Static dying animation: 6910-6992
+Laughing, arms in air animation: 6993-7092
+Fire, Fire and Fire!!: 7093-7335
+Come come: 7336-7460
+Generic Talk animation: 7674-7737
+Generic Talk animation 2: 7738-7787
+Generic Talk animation 3: 7788-7828
+Give animation: 8102-8165
+Weapon up: 8166-8183 (baseball bat, heavy weapons)
+Weapon up 2: 8184-8207 (Pistol? and small stuff probs)
+Weapon holster: 8208-8225 (heavy weapons, probs)
+Crotch adjust idle: 8597-8682
+Standing idle 2: 8683-8773
+Standing idle 3: 8774-8847
+Shoe adjust idle: 8848-8930
+Random stuff on street bleeh idle: 8939-9164
+Impatience idle: 9511-9622
+Look around, arms on wrist anim: 9623-9880
+Laugh hysterically anim: 10081-10261
+Weapon select? : 10262-10293 (baseball bat, baton, etc)
+Weapon select? 2 : 10294-10319 (Pistol, tazer, etc.)
+Weapon select? same? : 10320-10351
+Marching band: 10863-10922
+YO MAMA: 10923-10986
+a-a-a: 10987-11167
+Tired after running: 11168-11218
+Walking and holding weapon? : 11573-11637
+Kick : 11638-11705
+I'M BURNING I'M BURNING: 11706-11724
+Running away, scared, looking back: 11725-11743
+Running, scared, looking forward : 11744-11762
+Running, head down a little : 11763-11779 (Player using this)
+Jump: 11789-11824
+Shriek: 11825-11945
+Hit by Tazer: 11946-12009
+Pain (unused, but we'll probably use it anyways): 12131; 12133; 12135; 12137; 12139; 12141;
+Sweat anim: 12143-12254
+Go left, scared slowly: 12294-12313
+Go right, scared slowly: 12314-12333
+Ow my head: 12334-12534
+I regret nothing: 12694-12851
+Take away: 12882-12945
+Typing: 13125-13189
+Vomit: 13190-13478
+Walking: 13479-13515
+Walking 2: 13516-13550
+Walking 3: 13551-13581 (unused probably)
+Walking 4: 13582-13610 (unused probably)
+Walking 5: 13611-13649
+Walking 6: 13650-13690
+Walking 7: 13691-13725 (used by Player)
+Cowhead idle: 14445-14505
+Cowhead bringup: 14545-14575
+Cowhead run: 14783-14801
+Cowhead attack: 14985-15045
+Cowhead walk: 15046-15080
+Rifle idle: 15081-15111
+Rifle run: 15310-15328
+Rifle walk: 15331-15360
+Shotgun idle: 15361-15388
+Shotgun run: 15581-15601
+Shotgun walk: 15643-15672
+Rifle ? run: 16091-16110
+Rifle ? walk: 16131-16158
+Throwable idle: 16523-16564
+Gascan idle: 16565-16606
+Small melee weapon attack: 16607-16648
+Scissors attack: 16649-16711
+Machete run: 17256-17274
+Gascan run: 17275-17293
+Sledge attack: 17401-17439
+Machete walk: 17503-17536
+Gascan walk: 17537-17571
+Retarded/feminime idle: 17572-17750
+Retarded/feminime running: 18498-18531
+Retarded/feminime running 2: 18532-18551
+Retarded/feminime running 3: 18552-18569
+Feminime walking: 18742-18775
+Feminime walking 2: 18776-18810
+Feminime walking 3: 18811-18849
+Feminime walking 4: 18850-18889 (actually I can't decide if it's feminime)
+Zombie walking: 18890-18986
+Feminime walking 5: 18987-19010
+Grenade idle: 19011-19052
+Grenade fire: 19053-19073
+Tazer fire: 19074-19084
+Grenade run: 19085-19102
+Grenade throw: 19103-19113
+Match throw: 19114-19174
+Scissors throw: 19175-19187
+Scissors walk: 19188-19219
+Pistol run: 19334-19350
+Pistol run up: 19351-19367
+Pistol 1 frame: 19333
+Pistol walk: 20062-20088
+Urethra: 20089-20169 (needs to be checked later for loop anim)
+M16 idle: 20170-20200
+

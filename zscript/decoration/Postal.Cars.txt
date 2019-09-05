@@ -1,0 +1,424 @@
+class DudeCar : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Basic Car, Roof open (Light Blue)"
+		Radius 75;
+		Height 70;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class DudeTrailer : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Dude's Trailer"
+		Radius 70;
+		Height 85;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivan_BLUE : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Blue"
+		Radius 55;
+		Height 85;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivan_GOLD : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Gold"
+		Radius 55;
+		Height 85;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivan_GREEN : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Green"
+		Radius 55;
+		Height 85;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivan_BROWN : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Brown"
+		Radius 55;
+		Height 85;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivan_WHITE : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan White"
+		Radius 55;
+		Height 85;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivanBurnt_BLUE : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Blue (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivanBurnt_GOLD : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Gold (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivanBurnt_GREEN : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Green (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivanBurnt_WHITE : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan White (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class minivanBurnt_BROWN : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Minivan Brown (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class schoolbus : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Schoolbus"
+		Radius 55;
+		Height 110;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Blue_Wrecked : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Blue (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Blue : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Blue"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Red : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Red"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Red_Wrecked : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Red (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Silver : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Silver"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Silver_Wrecked : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Silver (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Cream : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Cream"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class smocklar_Cream_Wrecked : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Smocklar Cream (Destroyed)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class copcar : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Cop Car"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class copcar_cruiser : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Cop Car (Cruiser)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class copcar_burnt : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Cop Car (Burnt)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class copcar_vandalized : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Cop Car (Vandalized)"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

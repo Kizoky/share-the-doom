@@ -1,0 +1,38 @@
+class TestDude : Actor
+{
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		//angle = level.time*25;
+	
+	}
+	
+	Default
+	{
+		Health 50;
+		Radius 1;
+		Height 1;
+		-SOLID
+		Obituary "%k commited suicide!";
+	}
+	States
+	{
+	Spawn:
+		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
+		IDLE ABCDEF 3;
+		Loop;
+	Suicide:
+		TNT1 A 0 A_PlaySound("dudeline27",6);
+		SUIC ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		SUI2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		SUI3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		SUI4 ABCDEFGH 2;
+		TNT1 A 0 A_playSound("weapons/rocklx",6);
+		TNT1 A 0 A_Explode(200, 256, XF_NOTMISSILE);
+		MISL BCD 7 Bright Offset(45,45);
+		Stop;
+}
+
+}

@@ -1,0 +1,177 @@
+class NPCHead : PostalActor
+{	
+	Actor Owner;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		let p = NPCCore(Owner);
+		if (Owner)
+		{
+			SetOrigin(Owner.pos+(0,0,56), TRUE);
+			A_SetAngle(Owner.angle, SPF_INTERPOLATE);
+			A_SetPitch(Owner.pitch,SPF_INTERPOLATE); 
+			
+			if (p.bKILLED)
+				Destroy();
+				
+			target = null;
+			
+		}
+		
+		if (p is 'NPCKrotchy')
+			Destroy();
+			
+		//Console.Printf("NPCHead Health: %d", self.health);
+		//Console.Printf("NPCCore Health: %d", p.health);
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		let p = NPCCore(Owner);
+		p.MyTarget = source;
+		p.target = source;
+		
+		if (self is 'NPCFollower')
+		{
+			if (source is 'PostalDude' || source is 'NPCFollower')
+			{
+				p.target = null;
+				p.MyTarget = null;
+				
+				health += damage;
+				
+			}
+		}
+		
+		//Check if we have a host, and if we do remove their health with the damage we took
+		if (p != null && !(source is 'PostalDude' && inflictor is 'Urine'))
+		{
+			if (!(damage > p.Health))
+				p.Health -= damage;
+		}
+		
+		//For cop NPCs, check if the source damage is the Player
+		let cop = NPCCop(Owner);
+		if (cop && source is 'PostalDude')
+		{
+			let PlayerDude = PostalDude(source);
+			PlayerDude.PunishPoints += 0.3;
+		}
+		
+		//Let's enter the pain state if we take damage
+		if (p && p.Health > 1)
+		{
+			if (inflictor is 'Bulletpuff')
+			{
+				//Console.Printf("Clip clip clip");
+				A_PlaySound("hitflesh",0 | 4096);
+			}
+				
+			p.SetStateLabel("Pain");
+		}
+		
+		//If the damage the head will take will result in the health less than 1
+		if (((Health - damage) < 1) && !(inflictor is 'fakeTrainCollision') && !(self is 'NPCFollower'))
+		{
+			bNoBlood = true;
+			if (p)
+			{
+				p.A_DamageSelf(p.Health);
+				
+				let t = PostalDude(source);
+				if (t)
+				{
+					if (t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) && Distance2D(source) < 85)
+					{
+						A_PlaySound("misc/gibbed",0);
+						p.SetStateLabel("Headless.Death");
+						SetStateLabel("Headless.Death");
+						Console.Printf("Distance Headshot: %d",Distance2D(source));
+					}
+				
+				}
+				
+				let foe = NPCCore(source);
+				if (foe)
+				{
+					if (foe.NPCWeapon ~== "Shotgun"  && Distance2D(source) < 85)
+					{
+						A_PlaySound("misc/gibbed",0);
+						p.SetStateLabel("Headless.Death");
+						SetStateLabel("Headless.Death");
+					}
+				}
+			}
+			//Destroy();
+		}
+		
+		if (source is 'PostalDude' && inflictor is 'Urine')
+		{
+			Health += damage;
+		}
+		
+		//Console.Printf("%d", damage);
+		
+		/*if (source is 'train01')
+		{
+			Thrust(20);
+			p.A_DamageSelf(p.Health);
+			//p.SetStateLabel("Headless.Death");
+			//SetStateLabel("Headless.Death");
+			
+		}*/
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	Default
+	{
+		Health 50;
+		Radius 15;
+		Height 10;
+		Speed 0;
+		PainChance 256;
+		//Monster;
+		-SOLID
+		+SHOOTABLE
+		DropItem "None";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 1;
+			Loop;
+		See:
+			TNT1 A 1 A_Look;
+			Goto Spawn;
+		Pain:
+			TNT1 A 1;
+			Goto Spawn;
+		Death:
+			TNT1 A 1;
+			Stop;
+		Headless.Death:
+			//Let's start with the HeadExplode sprite first.. Hopefully this is what Postal 2 is using first
+			TNT1 A 0 A_SpawnItemEx("Postal_HeadExplode");
+			
+			//Spawn spinning Skull chunks that are slightly bouncing off from the floors, walls, etc..
+			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			
+			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
+ }
+}

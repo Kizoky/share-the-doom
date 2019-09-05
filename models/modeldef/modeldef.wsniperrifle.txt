@@ -1,0 +1,195 @@
+Model "PostRifle"
+{
+	Path "models\weapons\rifle"
+	Model 0 "PostRifle.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "sniper/sniper_timb_2.tga"
+	SurfaceSkin 0 2 "sniper/brass-01_2.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset -3.5 5.5 -14.75 //X Y Z
+
+	// Select 1 to 37
+	
+	FrameIndex RIFS A 0 1
+	FrameIndex RIFS B 0 3
+	FrameIndex RIFS C 0 5
+	FrameIndex RIFS D 0 7
+	FrameIndex RIFS E 0 9
+	FrameIndex RIFS F 0 11
+	FrameIndex RIFS G 0 13
+	FrameIndex RIFS H 0 15
+	FrameIndex RIFS I 0 17
+	FrameIndex RIFS J 0 19
+	FrameIndex RIFS K 0 21
+	FrameIndex RIFS L 0 23
+	FrameIndex RIFS M 0 25
+	FrameIndex RIFS N 0 27
+	FrameIndex RIFS O 0 29
+	FrameIndex RIFS P 0 31
+	FrameIndex RIFS Q 0 33
+	FrameIndex RIFS R 0 35
+	FrameIndex RIFS S 0 37
+	
+	// Deselect 38 to 64
+	
+	FrameIndex RIFD A 0 38
+	FrameIndex RIFD B 0 39
+	FrameIndex RIFD C 0 40
+	FrameIndex RIFD D 0 41
+	FrameIndex RIFD E 0 42
+	FrameIndex RIFD F 0 43
+	FrameIndex RIFD G 0 44
+	FrameIndex RIFD H 0 45
+	FrameIndex RIFD I 0 46
+	FrameIndex RIFD J 0 47
+	FrameIndex RIFD K 0 48
+	FrameIndex RIFD L 0 49
+	FrameIndex RIFD M 0 50
+	FrameIndex RIFD N 0 51
+	FrameIndex RIFD O 0 52
+	FrameIndex RIFD P 0 53
+	FrameIndex RIFD Q 0 54
+	FrameIndex RIFD R 0 55
+	FrameIndex RIFD S 0 56
+	FrameIndex RIFD T 0 57
+	FrameIndex RIFD U 0 58
+	FrameIndex RIFD V 0 59
+	FrameIndex RIFD W 0 60
+	FrameIndex RIFD X 0 61
+	FrameIndex RIFD Y 0 62
+	FrameIndex RIFD Z 0 64
+	
+	// Idle 65 to 103
+	
+	FrameIndex RIFI A 0 65
+	FrameIndex RIFI B 0 67
+	FrameIndex RIFI C 0 69
+	FrameIndex RIFI D 0 71
+	FrameIndex RIFI E 0 73
+	FrameIndex RIFI F 0 75
+	FrameIndex RIFI G 0 77
+	FrameIndex RIFI H 0 79
+	FrameIndex RIFI I 0 81
+	FrameIndex RIFI J 0 83
+	FrameIndex RIFI K 0 85
+	FrameIndex RIFI L 0 87
+	FrameIndex RIFI M 0 89
+	FrameIndex RIFI N 0 91
+	FrameIndex RIFI O 0 93
+	FrameIndex RIFI P 0 95
+	FrameIndex RIFI Q 0 97
+	FrameIndex RIFI R 0 99
+	FrameIndex RIFI S 0 101
+	FrameIndex RIFI T 0 103
+	
+	// Shoot 104 to 148
+	
+	FrameIndex RIFF A 0 104
+	FrameIndex RIFF B 0 106
+	FrameIndex RIFF C 0 108
+	FrameIndex RIFF D 0 110
+	FrameIndex RIFF E 0 112
+	FrameIndex RIFF F 0 114
+	FrameIndex RIFF G 0 116
+	FrameIndex RIFF H 0 118
+	FrameIndex RIFF I 0 120
+	FrameIndex RIFF J 0 122
+	FrameIndex RIFF K 0 124
+	FrameIndex RIFF L 0 126
+	FrameIndex RIFF M 0 128
+	FrameIndex RIFF N 0 130
+	FrameIndex RIFF O 0 132
+	FrameIndex RIFF P 0 134
+	FrameIndex RIFF Q 0 136
+	FrameIndex RIFF R 0 138
+	FrameIndex RIFF S 0 140
+	FrameIndex RIFF T 0 142
+	FrameIndex RIFF U 0 144
+	FrameIndex RIFF V 0 146
+	FrameIndex RIFF W 0 148
+	
+	// Secondary Fire (Zoom) 149-159
+	
+	/*FrameIndex RIFZ A 0 149
+	FrameIndex RIFZ B 0 150
+	FrameIndex RIFZ C 0 151
+	FrameIndex RIFZ D 0 152
+	FrameIndex RIFZ E 0 153
+	FrameIndex RIFZ F 0 154
+	FrameIndex RIFZ G 0 155
+	FrameIndex RIFZ H 0 156
+	FrameIndex RIFZ I 0 157
+	FrameIndex RIFZ J 0 158
+	FrameIndex RIFZ K 0 159*/
+
+	// Zoom end 160-171
+	
+	/*FrameIndex RIZE A 0 160
+	FrameIndex RIZE B 0 161
+	FrameIndex RIZE C 0 162
+	FrameIndex RIZE D 0 163
+	FrameIndex RIZE E 0 164
+	FrameIndex RIZE F 0 165
+	FrameIndex RIZE G 0 166
+	FrameIndex RIZE H 0 167
+	FrameIndex RIZE I 0 168
+	FrameIndex RIZE J 0 169
+	FrameIndex RIZE K 0 170
+	FrameIndex RIZE L 0 171*/
+
+}
+
+Model "PostRifle"
+{
+	Path "models\weapons\rifle"
+	Model 0 "SniperPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "sniper/sniper_timb_2.tga"
+	SurfaceSkin 0 1 "sniper/brass-01_2.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostRifle"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

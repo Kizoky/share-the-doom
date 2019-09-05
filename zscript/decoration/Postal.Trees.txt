@@ -1,0 +1,53 @@
+class Tree1 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 1"
+		Radius 40;
+		Height 300;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Tree2 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 2"
+		Radius 15;
+		Height 150;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Tree3 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 3"
+		Radius 40;
+		Height 325;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

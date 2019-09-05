@@ -1,0 +1,166 @@
+Model "PostScissors"
+{
+	Path "models\weapons\scissors"
+	Model 0 "PostScissors.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "scissors/scissors_timb.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 2 0.000000 -17.5000 //X Y Z
+
+	// Select 28-64
+	FrameIndex SCIS A 0 28
+	FrameIndex SCIS B 0 30
+	FrameIndex SCIS C 0 32
+	FrameIndex SCIS D 0 34
+	FrameIndex SCIS E 0 36
+	FrameIndex SCIS F 0 38
+	FrameIndex SCIS G 0 40
+	FrameIndex SCIS H 0 42
+	FrameIndex SCIS I 0 44
+	FrameIndex SCIS J 0 46
+	FrameIndex SCIS K 0 48
+	FrameIndex SCIS L 0 50
+	FrameIndex SCIS M 0 52
+	FrameIndex SCIS N 0 54
+	FrameIndex SCIS O 0 56
+	FrameIndex SCIS P 0 58
+	FrameIndex SCIS Q 0 60
+	FrameIndex SCIS R 0 62
+	FrameIndex SCIS S 0 64
+	
+	// Deselect 65-79
+	FrameIndex SCID A 0 65
+	FrameIndex SCID B 0 66
+	FrameIndex SCID C 0 67
+	FrameIndex SCID D 0 68
+	FrameIndex SCID E 0 69
+	FrameIndex SCID F 0 70
+	FrameIndex SCID G 0 71
+	FrameIndex SCID H 0 72
+	FrameIndex SCID I 0 73
+	FrameIndex SCID J 0 74
+	FrameIndex SCID K 0 75
+	FrameIndex SCID L 0 76
+	FrameIndex SCID M 0 77
+	FrameIndex SCID N 0 78
+	FrameIndex SCID O 0 79
+	
+	// Idle 1-27
+	FrameIndex SCII A 0 1 
+	FrameIndex SCII B 0 2 
+	FrameIndex SCII C 0 3 
+	FrameIndex SCII D 0 4 
+	FrameIndex SCII E 0 5 
+	FrameIndex SCII F 0 6 
+	FrameIndex SCII G 0 7 
+	FrameIndex SCII H 0 8 
+	FrameIndex SCII I 0 9 
+	FrameIndex SCII J 0 10
+	FrameIndex SCII K 0 11
+	FrameIndex SCII L 0 12
+	FrameIndex SCII M 0 13
+	FrameIndex SCII N 0 14
+	FrameIndex SCII O 0 15
+	FrameIndex SCII P 0 16
+	FrameIndex SCII Q 0 17
+	FrameIndex SCII R 0 18
+	FrameIndex SCII S 0 19
+	FrameIndex SCII T 0 20
+	FrameIndex SCII U 0 21
+	FrameIndex SCII V 0 22
+	FrameIndex SCII W 0 23
+	FrameIndex SCII X 0 24
+	FrameIndex SCII Y 0 25
+	FrameIndex SCII Z 0 26
+	
+	// Fire 80-91
+	FrameIndex SCIF A 0 80 
+	FrameIndex SCIF B 0 81 
+	FrameIndex SCIF C 0 82 
+	FrameIndex SCIF D 0 83 
+	FrameIndex SCIF E 0 84 
+	FrameIndex SCIF F 0 85 
+	FrameIndex SCIF G 0 86 
+	FrameIndex SCIF H 0 87 
+	FrameIndex SCIF I 0 88 
+	FrameIndex SCIF J 0 89 
+	FrameIndex SCIF K 0 90 
+	FrameIndex SCIF L 0 91
+	
+	// Secondary Fire 92-129
+	FrameIndex SCSF A 0 92 
+	FrameIndex SCSF B 0 94 
+	FrameIndex SCSF C 0 96 
+	FrameIndex SCSF D 0 98 
+	FrameIndex SCSF E 0 100
+	FrameIndex SCSF F 0 102
+	FrameIndex SCSF G 0 104
+	FrameIndex SCSF H 0 106
+	FrameIndex SCSF I 0 108
+	FrameIndex SCSF J 0 110
+	FrameIndex SCSF K 0 112
+	FrameIndex SCSF L 0 114
+	FrameIndex SCSF M 0 116
+	FrameIndex SCSF N 0 118
+	FrameIndex SCSF O 0 120
+	FrameIndex SCSF P 0 122
+	FrameIndex SCSF Q 0 124
+	FrameIndex SCSF R 0 126
+	FrameIndex SCSF S 0 128
+	FrameIndex SCSF T 0 129
+
+}
+
+Model "PostScissors"
+{
+	Path "models\weapons\scissors"
+	Model 0 "ScissorsPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "scissors/scissors_timb.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostScissors"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

@@ -1,0 +1,171 @@
+Model "PostBaton"
+{
+	Path "models\weapons\baton"
+	Model 0 "PostBaton.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "baton/baton_timb.tga"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 1 0 -26.5 //X Y Z
+
+	// Select 1-15
+	FrameIndex BATS A 0 1 
+	FrameIndex BATS B 0 2 
+	FrameIndex BATS C 0 3 
+	FrameIndex BATS D 0 4 
+	FrameIndex BATS E 0 5 
+	FrameIndex BATS F 0 6 
+	FrameIndex BATS G 0 7 
+	FrameIndex BATS H 0 8 
+	FrameIndex BATS I 0 9 
+	FrameIndex BATS J 0 10
+	FrameIndex BATS K 0 11
+	FrameIndex BATS L 0 12
+	FrameIndex BATS M 0 13
+	FrameIndex BATS N 0 14
+	FrameIndex BATS O 0 15
+	
+	// Deselect 16-29
+	FrameIndex BATD A 0 16
+	FrameIndex BATD B 0 17
+	FrameIndex BATD C 0 18
+	FrameIndex BATD D 0 19
+	FrameIndex BATD E 0 20
+	FrameIndex BATD F 0 21
+	FrameIndex BATD G 0 22
+	FrameIndex BATD H 0 23
+	FrameIndex BATD I 0 24
+	FrameIndex BATD J 0 25
+	FrameIndex BATD K 0 26
+	FrameIndex BATD L 0 27
+	FrameIndex BATD M 0 28
+	FrameIndex BATD N 0 29
+	
+	// Idle 30-72
+	FrameIndex BATI A 0 30
+	FrameIndex BATI B 0 32
+	FrameIndex BATI C 0 34
+	FrameIndex BATI D 0 36
+	FrameIndex BATI E 0 38
+	FrameIndex BATI F 0 40
+	FrameIndex BATI G 0 42
+	FrameIndex BATI H 0 44
+	FrameIndex BATI I 0 46
+	FrameIndex BATI J 0 48
+	FrameIndex BATI K 0 50
+	FrameIndex BATI L 0 52
+	FrameIndex BATI M 0 54
+	FrameIndex BATI N 0 56
+	FrameIndex BATI O 0 58
+	FrameIndex BATI P 0 60
+	FrameIndex BATI Q 0 62
+	FrameIndex BATI R 0 64
+	FrameIndex BATI S 0 66
+	FrameIndex BATI T 0 68
+	FrameIndex BATI U 0 70
+	FrameIndex BATI V 0 72
+	
+	// Fire 73-99
+	FrameIndex BATF A 0 73
+	FrameIndex BATF B 0 74
+	FrameIndex BATF C 0 75
+	FrameIndex BATF D 0 76
+	FrameIndex BATF E 0 77
+	FrameIndex BATF F 0 78
+	FrameIndex BATF G 0 79
+	FrameIndex BATF H 0 80
+	FrameIndex BATF I 0 81
+	FrameIndex BATF J 0 82
+	FrameIndex BATF K 0 83
+	FrameIndex BATF L 0 84
+	FrameIndex BATF M 0 85
+	FrameIndex BATF N 0 86
+	FrameIndex BATF O 0 87
+	FrameIndex BATF P 0 88
+	FrameIndex BATF Q 0 89
+	FrameIndex BATF R 0 90
+	FrameIndex BATF S 0 91
+	FrameIndex BATF T 0 92
+	FrameIndex BATF U 0 93
+	FrameIndex BATF V 0 94
+	FrameIndex BATF W 0 95
+	FrameIndex BATF X 0 96
+	FrameIndex BATF Y 0 97
+	FrameIndex BATF Z 0 99
+	
+	// Secondary Fire 100-119
+	FrameIndex BASF A 0 100
+	FrameIndex BASF B 0 101
+	FrameIndex BASF C 0 102
+	FrameIndex BASF D 0 103
+	FrameIndex BASF E 0 104
+	FrameIndex BASF F 0 105
+	FrameIndex BASF G 0 106
+	FrameIndex BASF H 0 107
+	FrameIndex BASF I 0 108
+	FrameIndex BASF J 0 109
+	FrameIndex BASF K 0 110
+	FrameIndex BASF L 0 111
+	FrameIndex BASF M 0 112
+	FrameIndex BASF N 0 113
+	FrameIndex BASF O 0 114
+	FrameIndex BASF P 0 115
+	FrameIndex BASF Q 0 116
+	FrameIndex BASF R 0 117
+	FrameIndex BASF S 0 118
+	FrameIndex BASF T 0 119
+
+}
+
+Model "PostBaton"
+{
+	Path "models\weapons\baton"
+	Model 0 "BatonPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "baton/baton_timb.tga"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostBaton"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

@@ -1,0 +1,133 @@
+version "4.2"
+
+//------------ Postal stuff
+#include "zscript/Postal.Actor.txt"
+#include "zscript/Postal.Blood.txt"
+#include "zscript/Postal.Weapons.txt"
+#include "zscript/Postal.Dude.txt"
+#include "zscript/Postal.Dude.Other.txt"
+#include "zscript/Postal.Test.txt"
+//#include "zscript/Postal.GlobalVariables.txt"
+#include "zscript/Postal.EventHandlers.txt"
+
+//------------ Postal weapons
+
+#include "zscript/weapons/Postal.Debug.txt"
+
+#include "zscript/weapons/Postal.Baton.txt"
+#include "zscript/weapons/Postal.Clipboard.txt"
+#include "zscript/weapons/Postal.Cowhead.txt"
+#include "zscript/weapons/Postal.Gascan.txt"
+#include "zscript/weapons/Postal.Grenade.txt"
+#include "zscript/weapons/Postal.Machete.txt"
+#include "zscript/weapons/Postal.Machinegun.txt"
+#include "zscript/weapons/Postal.Matchbox.txt"
+#include "zscript/weapons/Postal.Molotov.txt"
+#include "zscript/weapons/Postal.NapalmLauncher.txt"
+#include "zscript/weapons/Postal.Nothing.txt"
+#include "zscript/weapons/Postal.Pistol.txt"
+#include "zscript/weapons/Postal.RocketLauncher.txt"
+#include "zscript/weapons/Postal.Scissors.txt"
+#include "zscript/weapons/Postal.Scythe.txt"
+#include "zscript/weapons/Postal.Shotgun.txt"
+#include "zscript/weapons/Postal.Shovel.txt"
+#include "zscript/weapons/Postal.Sledge.txt"
+#include "zscript/weapons/Postal.Tazer.txt"
+#include "zscript/weapons/Postal.Urethra.txt"
+#include "zscript/weapons/Postal.WMD.txt"
+
+#include "zscript/weapons/Postal.Kick.txt"
+#include "zscript/weapons/Postal.Sniper.txt"
+
+//------------ Postal Inventories
+
+#include "zscript/inventory/Postal.Armor.txt"
+#include "zscript/inventory/Postal.Cash.txt"
+#include "zscript/inventory/Postal.Cat.txt"
+#include "zscript/inventory/Postal.Catnip.txt"
+#include "zscript/inventory/Postal.Clothes.txt"
+#include "zscript/inventory/Postal.Crack.txt"
+#include "zscript/inventory/Postal.DoggieTreat.txt"
+#include "zscript/inventory/Postal.FishFinder.txt"
+#include "zscript/inventory/Postal.Food.txt"
+#include "zscript/inventory/Postal.GaryBook.txt"
+#include "zscript/inventory/Postal.Health.txt"
+#include "zscript/inventory/Postal.Map.txt"
+#include "zscript/inventory/Postal.RocketCamera.txt"
+
+//------------ Postal Core NPCs
+
+#include "zscript/NPCs/Postal.Bystanders.Bodyparts.txt"
+#include "zscript/NPCs/Postal.Bystanders.Node.txt"
+#include "zscript/NPCs/Postal.Dog.txt"
+#include "zscript/NPCs/Postal.Bystanders.Core.New.txt"
+#include "zscript/NPCs/Postal.Bystanders.Core.Follower.txt"
+#include "zscript/NPCs/Postal.Bystanders.Cop.txt"
+#include "zscript/NPCs/Postal.Bystanders.Shop.txt"
+#include "zscript/NPCs/Postal.Cat.txt"
+#include "zscript/NPCs/Postal.Cow.txt"
+#include "zscript/NPCs/Postal.CowMike.txt"
+#include "zscript/NPCs/Postal.Monkey.txt"
+#include "zscript/NPCs/Postal.Zombies.txt"
+#include "zscript/NPCs/Postal.Essential.txt"
+
+//------------ Postal Bystanders
+
+//#include "zscript/NPCs/Bystanders/Postal.Male.Shorts.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Male.Fat.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Female.Fat.txt"
+//#include "zscript/NPCs/Bystanders/Postal.RWS.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Female.Shorts.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Male.Cop.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Female.Pants.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Male.Jacket.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Gimp.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Military.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Male.Band.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Female.Band.txt"
+//#include "zscript/NPCs/Bystanders/Postal.Male.Pants.txt"
+#include "zscript/NPCs/Bystanders/Postal.Krotchy.txt"
+
+
+//------------ Postal Decorations
+
+#include "zscript/decoration/Postal.Cars.txt"
+#include "zscript/decoration/Postal.Other.txt"
+#include "zscript/decoration/Postal.Trees.txt"
+
+//------------ Postal UI stuff
+
+#include "zscript/UI/Postal.HUD.txt"
+
+//------------ Postal Train(s)
+
+#include "zscript/train/Postal.Train.txt"
+
+//------------ doom monsters
+
+#include "zscript/doommonsta/arachnotron.txt"
+#include "zscript/doommonsta/archvile.txt"
+#include "zscript/doommonsta/bruiser.txt"
+#include "zscript/doommonsta/cacodemon.txt"
+#include "zscript/doommonsta/cyberdemon.txt"
+#include "zscript/doommonsta/demon.txt"
+#include "zscript/doommonsta/doomimp.txt"
+#include "zscript/doommonsta/fatso.txt"
+#include "zscript/doommonsta/lostsoul.txt"
+#include "zscript/doommonsta/painelemental.txt"
+#include "zscript/doommonsta/possessed.txt"
+#include "zscript/doommonsta/revenant.txt"
+#include "zscript/doommonsta/spidermaster.txt"
+#include "zscript/doommonsta/stealthmonsters.txt"
+
+//------------- Debug stuff (made by Nash)
+#include "zscript/RadiusDebug/RadiusDebug.zc"
+
+//------------- ChaseCam2
+#include "zscript/ChaseCam2/ChaseCam2.txt"
+
+//------------- mk_math (Marisa Kirisame's Math helper classes)
+#include "zscript/mk_math/mk_coordutil.zsc"
+#include "zscript/mk_math/mk_matrix.zsc"
+#include "zscript/mk_math/mk_quaternion.zsc"
+

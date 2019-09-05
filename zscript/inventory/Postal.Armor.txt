@@ -1,0 +1,164 @@
+class PostalBlueKevlar_X : CustomInventory
+{
+	Default
+	{
+		+COUNTITEM
+		Inventory.MaxAmount 1;
+		-INVENTORY.INVBAR 
+		-INVENTORY.FANCYPICKUPSOUND
+	}
+	States
+	{
+	Spawn:
+		POSS A -1;
+		stop;
+	Use:
+		TNT1 A 0;
+		stop;
+	}
+}
+
+class PostalBrownKevlar_X : CustomInventory
+{
+	Default
+	{
+		+COUNTITEM
+		Inventory.MaxAmount 1;
+		-INVENTORY.INVBAR 
+		-INVENTORY.FANCYPICKUPSOUND
+	}
+	States
+	{
+	Spawn:
+		POSS A -1;
+		stop;
+	Use:
+		TNT1 A 0;
+		stop;
+	}
+}
+
+
+class PostalBlueKevlar : BasicArmorPickup replaces GreenArmor
+{
+	Default
+	{
+		Radius 20;
+		Height 16;
+		Inventory.PickupMessage "Picked up a blue kevlar.";
+		Inventory.Icon "icnarmor";
+		Armor.SavePercent 100;
+		Armor.SaveAmount 100;
+	}
+	States
+	{
+	Spawn:
+		ARM1 A 6;
+		ARM1 B 7 Bright;
+		Loop;
+  }
+  
+   override bool Use (bool pickup)
+   {
+      let armor = BasicArmor(Owner.FindInventory("BasicArmor"));
+
+      // This should really never happen but let's be prepared for a broken inventory.
+      if (armor == null)
+      {
+         armor = BasicArmor(Spawn("BasicArmor"));
+         armor.BecomeItem ();
+         Owner.AddInventory (armor);
+      }
+      else
+      {
+         // If you already have more armor than this item gives you, you can't
+         // use it.
+         if (armor.Amount >= SaveAmount + armor.BonusCount)
+         {
+            return false;
+         }
+         // Don't use it if you're picking it up and already have some.
+         if (pickup && armor.Amount > 0 && MaxAmount > 0)
+         {
+            return false;
+         }
+      }
+      
+      armor.SavePercent = clamp(SavePercent, 0, 100) / 100;
+      armor.Amount = SaveAmount + armor.BonusCount;
+      armor.MaxAmount = SaveAmount;
+      armor.Icon = Icon;
+      armor.MaxAbsorb = MaxAbsorb;
+      armor.MaxFullAbsorb = MaxFullAbsorb;
+      armor.ArmorType = GetClassName();
+      armor.ActualSaveAmount = SaveAmount;
+	  
+	  Owner.GiveInventory('PostalBlueKevlar_X', 1);
+	  Owner.A_TakeInventory("PostalBrownKevlar_X", 1);
+	  
+      return true;
+   }
+  
+}
+
+class PostalBrownKevlar : BasicArmorPickup replaces BlueArmor
+{
+	Default
+	{
+		Radius 20;
+		Height 16;
+		Inventory.PickupMessage "Picked up a brown kevlar.";
+		Inventory.Icon "icnbrwn";
+		Armor.SavePercent 100;
+		Armor.SaveAmount 200;
+	}
+	States
+	{
+	Spawn:
+		ARM1 A 6;
+		ARM1 B 7 Bright;
+		Loop;
+  }
+  
+  override bool Use (bool pickup)
+   {
+      let armor = BasicArmor(Owner.FindInventory("BasicArmor"));
+
+      // This should really never happen but let's be prepared for a broken inventory.
+      if (armor == null)
+      {
+         armor = BasicArmor(Spawn("BasicArmor"));
+         armor.BecomeItem ();
+         Owner.AddInventory (armor);
+      }
+      else
+      {
+         // If you already have more armor than this item gives you, you can't
+         // use it.
+         if (armor.Amount >= SaveAmount + armor.BonusCount)
+         {
+            return false;
+         }
+         // Don't use it if you're picking it up and already have some.
+         if (pickup && armor.Amount > 0 && MaxAmount > 0)
+         {
+            return false;
+         }
+      }
+      
+      armor.SavePercent = clamp(SavePercent, 0, 100) / 100;
+      armor.Amount = SaveAmount + armor.BonusCount;
+      armor.MaxAmount = SaveAmount;
+      armor.Icon = Icon;
+      armor.MaxAbsorb = MaxAbsorb;
+      armor.MaxFullAbsorb = MaxFullAbsorb;
+      armor.ArmorType = GetClassName();
+      armor.ActualSaveAmount = SaveAmount;
+	  
+	  Owner.A_TakeInventory('PostalBlueKevlar_X', 1);
+	  Owner.GiveInventory("PostalBrownKevlar_X", 1);
+	  
+      return true;
+   }
+  
+}

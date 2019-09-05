@@ -1,0 +1,39 @@
+material texture "textures/weapons/dude_hands.png"
+{
+	normal "materials/normalmaps/dude_hands_d.png"
+	specular "materials/specular/dude_hands_s.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/shotgun/shotgun_timb.png"
+{
+	normal "materials/normalmaps/shotgun_timb.png"
+	specular "materials/specular/shotgun_timb_s.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/pistol/pistol_timb.png"
+{
+	normal "materials/normalmaps/pistol_timb_d.png"
+	specular "materials/specular/pistol_timb_s.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/machinegun/m-16_timb.png"
+{
+	normal "materials/normalmaps/m-16_timb_d.png"
+	specular "materials/specular/m-16_timb_s.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/rocketlauncher/launcher_timb2.png"
+{
+	normal "materials/normalmaps/launcher_timb2_d.png"
+	specular "materials/specular/launcher_timb2_s.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}

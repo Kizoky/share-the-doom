@@ -1,0 +1,125 @@
+height 0;
+//Resolution 150,150;
+
+statusbar FullScreen, fullscreenoffsets, forcescaled // Standard Doom Status bar // X Y
+{
+	InInventory HUDViewable, 1
+	{
+	
+	
+	//Weapon bloodsplat
+    drawimage "blsplt1", 420, 13, none, 45, 45;
+	drawnumber 4, DARKERSMASH, untranslated, ammo1, 458, 40;
+	drawnumber 4, SMASHFONT, untranslated, ammo1, 457, 39;
+	//Displaying Weapon icon(s)
+	IsSelected PostHands
+	{
+		drawimage "emptyh", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostShovel
+	{
+		drawimage "ICNSHVL", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostPistol
+	{
+		drawimage "ICNPSTL", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostShotgun
+	{
+		drawimage "ICNSHTG", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostMachete
+	{
+		drawimage "ICNMCHT", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostSledge
+	{
+		drawimage "ICNSLDG", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostM16
+	{
+		drawimage "ICNMCHN", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostRLauncher
+	{
+		drawimage "ICNRL", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostClipboard
+	{
+		drawimage "ICNCLP", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostUrethra
+	{
+		drawimage "zipper", 436, 18,none, 45,25; //128x256
+	}
+	IsSelected PostGrenade
+	{
+		drawimage "ICNGRND", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostBetashotgun
+	{
+		drawimage "ICNBSHT", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostMatchbox
+	{
+		drawimage "ICNMTCH", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostCowhead
+	{
+		drawimage "ICNCOW", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostGascan
+	{
+		drawimage "ICNGAS", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostMolotov
+	{
+		drawimage "ICNMLTV", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostNapalmLauncher
+	{
+		drawimage "ICNNAPM", 427, 21,none, 31,30; // 512x256
+	}
+	IsSelected PostRifle
+	{
+		drawimage "ICNRIFL", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostBaton
+	{
+		drawimage "ICNBATN", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostScissors
+	{
+		drawimage "ICNSISS", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostTazer
+	{
+		drawimage "ICNTASR", 432, 17,none, 21,21; //256x256
+	}
+	IsSelected PostScythe
+	{
+		drawimage "ICNSYTH", 427, 21,none, 31,30; //512x256
+	}
+	IsSelected PostWMD
+	{
+		drawimage "ICNWMD", 427, 21,none, 31,30; //512x256
+	}
+
+	//Inventory bloodsplat
+	drawimage "blsplt2", 420, 56, none, 45, 45;
+	//Displaying Inventory icon(s)
+	//Note: For actual Inventory icon sizes, check "textures.inventory" file
+	drawselectedinventory alwaysshowcounter, DARKERSMASH, 430, 59, 458, 82 , untranslated, 1;
+	drawselectedinventory alwaysshowcounter, SMASHFONT, 430, 59, 457, 81 , untranslated, 1;
+	
+	//Health bloodsplat
+	drawimage "blsplt3", 420, 99, none, 45, 45;
+	//Animated Heart (currently "static")
+	drawimage "heart1", 426, 102, none, 35, 35;
+	//Draw Health number, also the hacky shadow font too
+	drawnumber 3, DARKERSMASH, untranslated, health, 458, 129;
+	drawnumber 3, SMASHFONT, untranslated, health, 457, 128;
+	
+	}
+	
+}

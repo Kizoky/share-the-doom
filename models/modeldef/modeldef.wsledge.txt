@@ -1,0 +1,125 @@
+Model "PostSledge"
+{
+	Path "models\weapons\sledge"
+	Model 0 "PostSledge.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "sledge/sledge_1.png"
+	SurfaceSkin 0 2 "sledge/sledge_wood.png"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 1 0 -12 //X Y Z
+
+	// Select 1-10
+	FrameIndex POHS A 0 1 
+	FrameIndex POHS B 0 2 
+	FrameIndex POHS C 0 3 
+	FrameIndex POHS D 0 4 
+	FrameIndex POHS E 0 5 
+	FrameIndex POHS F 0 6 
+	FrameIndex POHS G 0 7 
+	FrameIndex POHS H 0 8 
+	FrameIndex POHS I 0 9 
+	FrameIndex POHS J 0 10
+	
+	// Deselect 9-16
+	FrameIndex SLED A 0 11 
+	FrameIndex SLED B 0 12
+	FrameIndex SLED C 0 13
+	FrameIndex SLED D 0 14
+	FrameIndex SLED E 0 15
+	FrameIndex SLED F 0 16
+	
+	// Idling Frames 17 to 47
+	FrameIndex POHI A 0 17
+	FrameIndex POHI B 0 19
+	FrameIndex POHI C 0 21
+	FrameIndex POHI D 0 23
+	FrameIndex POHI E 0 25
+	FrameIndex POHI F 0 27
+	FrameIndex POHI G 0 29
+	FrameIndex POHI H 0 31
+	FrameIndex POHI I 0 33
+	FrameIndex POHI J 0 35
+	FrameIndex POHI K 0 37
+	FrameIndex POHI L 0 39
+	FrameIndex POHI M 0 41
+	FrameIndex POHI N 0 43
+	FrameIndex POHI O 0 45
+	FrameIndex POHI P 0 47
+	
+	// Secondary Attack 59-68
+	FrameIndex SLES A 0 59
+	FrameIndex SLES B 0 60
+	FrameIndex SLES C 0 61
+	FrameIndex SLES D 0 62
+	FrameIndex SLES E 0 63
+	FrameIndex SLES F 0 64
+	FrameIndex SLES G 0 65
+	FrameIndex SLES H 0 66
+	FrameIndex SLES I 0 67
+	FrameIndex SLES J 0 68
+	
+	// Weapon throw Frames 71 to 75
+	
+	// Attack Frames 76 to 98
+	
+	FrameIndex POH2 A 0 76 
+	FrameIndex POH2 B 0 77 
+	FrameIndex POH2 C 0 78 
+	FrameIndex POH2 D 0 79 
+	FrameIndex POH2 E 0 80 
+	FrameIndex POH2 F 0 81 
+	FrameIndex POH2 G 0 82 
+	FrameIndex POH2 H 0 83 
+	FrameIndex POH2 I 0 84 
+	FrameIndex POH2 J 0 85 
+	FrameIndex POH2 K 0 86 
+	FrameIndex POH2 L 0 87 
+	FrameIndex POH2 M 0 88 
+	FrameIndex POH2 N 0 89 
+	FrameIndex POH2 O 0 90 
+	FrameIndex POH2 P 0 91 
+	FrameIndex POH2 Q 0 92 
+	FrameIndex POH2 R 0 93 
+	FrameIndex POH2 S 0 94 
+	FrameIndex POH2 T 0 95 
+	FrameIndex POH2 U 0 96 
+	FrameIndex POH2 V 0 97 
+	FrameIndex POH2 W 0 98
+	
+}
+
+Model "PostSledge"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

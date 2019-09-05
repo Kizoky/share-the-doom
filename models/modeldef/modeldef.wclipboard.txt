@@ -1,0 +1,214 @@
+Model "PostClipboard"
+{
+	Path "models/weapons/clipboard"
+	Model 0 "PostClipboard.md3"
+	
+	Path "textures/weapons"
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "clipboard/clipboard_timb.png"
+	//SurfaceSkin 0 2 "blank.tga"
+	//SurfaceSkin 0 3 "blank.tga"
+	//SurfaceSkin 0 4 "blank.tga"
+	//SurfaceSkin 0 5 "blank.tga"
+	//SurfaceSkin 0 1 "clipboard_timb.png"
+	//SurfaceSkin 0 2 "blank.png"
+	//SurfaceSkin 0 3 "blank.png"
+	//SurfaceSkin 0 4 "blank.png"
+	//AngleOffset 90
+	Scale -1 0.75 1
+	Offset 0 0 -12 //X Y Z
+
+	// Select 1 to 21
+	
+	FrameIndex CLII A 0 1
+	FrameIndex CLII B 0 2
+	FrameIndex CLII C 0 3
+	FrameIndex CLII D 0 4
+	FrameIndex CLII E 0 5
+	FrameIndex CLII F 0 6
+	FrameIndex CLII G 0 7
+	FrameIndex CLII H 0 8
+	FrameIndex CLII I 0 9
+	FrameIndex CLII J 0 10
+	FrameIndex CLII K 0 11
+	FrameIndex CLII L 0 12
+	FrameIndex CLII M 0 13
+	FrameIndex CLII N 0 14
+	FrameIndex CLII O 0 15
+	FrameIndex CLII P 0 16
+	FrameIndex CLII Q 0 17
+	FrameIndex CLII R 0 18
+	FrameIndex CLII S 0 19
+	FrameIndex CLII T 0 20
+	FrameIndex CLII U 0 21
+	FrameIndex CLII V 0 22
+	FrameIndex CLII W 0 23
+	FrameIndex CLII X 0 24
+	FrameIndex CLII Y 0 25
+	FrameIndex CLII Z 0 26
+	
+	
+	// Holster 51 to 62 frames
+	
+	FrameIndex CLIH A 0 22
+	FrameIndex CLIH B 0 23
+	FrameIndex CLIH C 0 24
+	FrameIndex CLIH D 0 25
+	FrameIndex CLIH E 0 26
+	FrameIndex CLIH F 0 27
+	FrameIndex CLIH G 0 28
+	FrameIndex CLIH H 0 29
+	FrameIndex CLIH I 0 30
+	FrameIndex CLIH J 0 31
+	FrameIndex CLIH K 0 32
+	FrameIndex CLIH L 0 33
+	FrameIndex CLIH M 0 34
+	FrameIndex CLIH N 0 35
+	FrameIndex CLIH O 0 36
+	
+	
+	// Idle 37 to 65
+	
+	FrameIndex CLID A 0 37
+	FrameIndex CLID B 0 38
+	FrameIndex CLID C 0 39
+	FrameIndex CLID D 0 40
+	FrameIndex CLID E 0 41
+	FrameIndex CLID F 0 42
+	FrameIndex CLID G 0 43
+	FrameIndex CLID H 0 44
+	FrameIndex CLID I 0 45
+	FrameIndex CLID J 0 46
+	FrameIndex CLID K 0 47
+	FrameIndex CLID L 0 48
+	FrameIndex CLID M 0 49
+	FrameIndex CLID N 0 50
+	FrameIndex CLID O 0 51
+	FrameIndex CLID P 0 52
+	FrameIndex CLID Q 0 53
+	FrameIndex CLID R 0 54
+	FrameIndex CLID S 0 55
+	FrameIndex CLID T 0 56
+	FrameIndex CLID U 0 57
+	FrameIndex CLID V 0 58
+	FrameIndex CLID W 0 59
+	FrameIndex CLID X 0 60
+	FrameIndex CLID Y 0 62
+	FrameIndex CLID Z 0 64
+	
+	
+	// Fire Frames 88 to 176
+	
+	FrameIndex CLFI A 0 88
+	FrameIndex CLFI B 0 90
+	FrameIndex CLFI C 0 92
+	FrameIndex CLFI D 0 94
+	FrameIndex CLFI E 0 96
+	FrameIndex CLFI F 0 98
+	FrameIndex CLFI G 0 100
+	FrameIndex CLFI H 0 102
+	FrameIndex CLFI I 0 104
+	FrameIndex CLFI J 0 106
+	FrameIndex CLFI K 0 108
+	FrameIndex CLFI L 0 110
+	FrameIndex CLFI M 0 112
+	FrameIndex CLFI N 0 114
+	FrameIndex CLFI O 0 116
+	FrameIndex CLFI P 0 118
+	FrameIndex CLFI Q 0 120
+	FrameIndex CLFI R 0 122
+	FrameIndex CLFI S 0 124
+	FrameIndex CLFI T 0 126
+	FrameIndex CLFI U 0 128
+	FrameIndex CLFI V 0 130
+	FrameIndex CLFI W 0 132
+	FrameIndex CLFI X 0 134
+	FrameIndex CLFI Y 0 136
+	FrameIndex CLFI Z 0 138
+	
+	FrameIndex CLF2 A 0 140
+	FrameIndex CLF2 B 0 142
+	FrameIndex CLF2 C 0 144
+	FrameIndex CLF2 D 0 146
+	FrameIndex CLF2 E 0 148
+	FrameIndex CLF2 F 0 150
+	FrameIndex CLF2 G 0 152
+	FrameIndex CLF2 H 0 154
+	FrameIndex CLF2 I 0 156
+	FrameIndex CLF2 J 0 158
+	FrameIndex CLF2 K 0 160
+	FrameIndex CLF2 L 0 162
+	FrameIndex CLF2 M 0 164
+	FrameIndex CLF2 N 0 166
+	FrameIndex CLF2 O 0 168
+	FrameIndex CLF2 P 0 170
+	FrameIndex CLF2 Q 0 172
+	FrameIndex CLF2 R 0 174
+	FrameIndex CLF2 S 0 176
+	
+	// Petition Got Frames 177 to 220
+	
+	//FrameIndex PETI A 0 177
+	//FrameIndex PETI B 0 178
+	//FrameIndex PETI C 0 179
+	//FrameIndex PETI D 0 180
+	//FrameIndex PETI E 0 181
+	//FrameIndex PETI F 0 182
+	//FrameIndex PETI G 0 183
+	//FrameIndex PETI H 0 184
+	//FrameIndex PETI I 0 185
+	//FrameIndex PETI J 0 186
+	//FrameIndex PETI K 0 187
+	//FrameIndex PETI L 0 188
+	//FrameIndex PETI M 0 189
+	//FrameIndex PETI N 0 190
+	//FrameIndex PETI O 0 192
+	//FrameIndex PETI P 0 194
+	//FrameIndex PETI Q 0 196
+	//FrameIndex PETI R 0 198
+	//FrameIndex PETI S 0 200
+	//FrameIndex PETI T 0 202
+	//FrameIndex PETI U 0 204
+	//FrameIndex PETI V 0 206
+	//FrameIndex PETI W 0 208
+	//FrameIndex PETI X 0 210
+	//FrameIndex PETI Y 0 212
+	//FrameIndex PETI Z 0 214
+	
+	//FrameIndex PET2 A 0 216
+	//FrameIndex PET2 B 0 218
+	//FrameIndex PET2 C 0 220
+	
+}
+
+Model "PostClipboard"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

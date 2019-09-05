@@ -1,0 +1,28 @@
+class PostalCatInvX : Inventory
+{
+	Default
+	{
+		+COUNTITEM
+		+FLOATBOB
+		Inventory.RespawnTics 4230;
+		Inventory.DefMaxAmount;
+		Speed 12;
+		Inventory.PickupFlash "PickupFlash";
+		+INVENTORY.INVBAR 
+		+INVENTORY.FANCYPICKUPSOUND
+		Inventory.Icon "CATINV";
+		Inventory.PickupSound "misc/p_pkup";
+		Inventory.PickupMessage "Picked up a cat.";
+		Tag "$TAG_ARTISUMMON";
+		Monster;
+	}
+	States
+	{
+	Spawn:
+		POSS A 350;
+		Loop;
+	See:
+		POSS AB 12 A_Chase;
+		Loop;
+	}
+}

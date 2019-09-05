@@ -1,0 +1,153 @@
+Model "PostShotgun"
+{
+	Path "models\weapons\shotgun"
+	Model 0 "PostShotgun.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "shotgun/shotgun_timb.png"
+	SurfaceSkin 0 2 "dude_hands.png"
+	SurfaceSkin 0 3 "dude_hands.png"
+	SurfaceSkin 0 4 "dude_hands.png"
+	
+	AngleOffset -2 //40
+	Scale -1.25 0.70 1.25
+	Offset 1 -3 -12 //X Y Z
+	ZOffset -16
+
+	// Select 33 to 65
+	
+	FrameIndex SHST A 0 33
+	FrameIndex SHST B 0 35
+	FrameIndex SHST C 0 37
+	FrameIndex SHST D 0 39
+	FrameIndex SHST E 0 41
+	FrameIndex SHST F 0 43
+	FrameIndex SHST G 0 45
+	FrameIndex SHST H 0 47
+	FrameIndex SHST I 0 49
+	FrameIndex SHST J 0 52
+	FrameIndex SHST K 0 54
+	FrameIndex SHST L 0 56
+	FrameIndex SHST M 0 58
+	FrameIndex SHST N 0 60
+	FrameIndex SHST O 0 62
+	FrameIndex SHST P 0 63
+	FrameIndex SHST Q 0 64
+	FrameIndex SHST R 0 65
+	
+	
+	
+	// Deselect 68 to 82
+	
+	FrameIndex SH2H A 0 68
+	FrameIndex SH2H B 0 69
+	FrameIndex SH2H C 0 70
+	FrameIndex SH2H D 0 71
+	FrameIndex SH2H E 0 72
+	FrameIndex SH2H F 0 73
+	FrameIndex SH2H G 0 74
+	FrameIndex SH2H H 0 75
+	FrameIndex SH2H I 0 76
+	FrameIndex SH2H J 0 77
+	FrameIndex SH2H K 0 78
+	FrameIndex SH2H L 0 79
+	FrameIndex SH2H M 0 80
+	FrameIndex SH2H N 0 81
+	FrameIndex SH2H O 0 82
+	
+	// Idle 83 to 121
+	FrameIndex SHXD A 0 83
+	FrameIndex SHXD B 0 85
+	FrameIndex SHXD C 0 87
+	FrameIndex SHXD D 0 89
+	FrameIndex SHXD E 0 91
+	FrameIndex SHXD F 0 93
+	FrameIndex SHXD G 0 95
+	FrameIndex SHXD H 0 97
+	FrameIndex SHXD I 0 99
+	FrameIndex SHXD J 0 101
+	FrameIndex SHXD K 0 103
+	FrameIndex SHXD L 0 105
+	FrameIndex SHXD M 0 107
+	FrameIndex SHXD N 0 109
+	FrameIndex SHXD O 0 111
+	FrameIndex SHXD P 0 113
+	FrameIndex SHXD Q 0 115
+	FrameIndex SHXD R 0 117
+	FrameIndex SHXD S 0 119
+	FrameIndex SHXD T 0 121
+	
+	// Shoot 1 to 32
+	
+	FrameIndex SHSH A 0 1
+	FrameIndex SHSH B 0 3
+	FrameIndex SHSH C 0 5
+	FrameIndex SHSH D 0 7
+	FrameIndex SHSH E 0 9
+	FrameIndex SHSH F 0 11
+	FrameIndex SHSH G 0 13
+	FrameIndex SHSH H 0 15
+	FrameIndex SHSH I 0 17
+	FrameIndex SHSH J 0 19
+	FrameIndex SHSH K 0 21
+	FrameIndex SHSH L 0 23
+	FrameIndex SHSH M 0 25
+	FrameIndex SHSH N 0 27
+	FrameIndex SHSH O 0 29
+	FrameIndex SHSH P 0 30
+	FrameIndex SHSH Q 0 31
+	FrameIndex SHSH R 0 32
+	
+}
+
+Model "PostShotgun"
+{
+	Path "models\weapons\shotgun"
+	Model 0 "ShotgunPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "shotgun/shotgun_timb.png"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostShotgun"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

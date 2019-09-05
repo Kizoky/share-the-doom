@@ -1,0 +1,263 @@
+Model "PostPistol"
+{
+	Path "models\weapons\pistol"
+	Model 0 "PostPistol.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "pistol/pistol_timb.png"
+	SurfaceSkin 0 2 "pistol/pistol_brass.png"
+	SurfaceSkin 0 3 "pistol/pistol_brass.png"
+	AngleOffset -12.0 //orig: -15
+	Scale -1 0.75 1
+	Offset 0 -9 -9 //X Y Z
+	ZOffset -7.5
+
+	// Select 55 to 80
+	FrameIndex POPS A 0 55
+	FrameIndex POPS B 0 56
+	FrameIndex POPS C 0 57
+	FrameIndex POPS D 0 58
+	FrameIndex POPS E 0 59
+	FrameIndex POPS F 0 60
+	FrameIndex POPS G 0 61
+	FrameIndex POPS H 0 62
+	FrameIndex POPS I 0 63
+	FrameIndex POPS J 0 64
+	FrameIndex POPS K 0 65
+	FrameIndex POPS L 0 66
+	FrameIndex POPS M 0 67
+	FrameIndex POPS N 0 68
+	FrameIndex POPS O 0 69
+	FrameIndex POPS P 0 70
+	FrameIndex POPS Q 0 71
+	FrameIndex POPS R 0 72
+	FrameIndex POPS S 0 73
+	FrameIndex POPS T 0 74
+	FrameIndex POPS U 0 75
+	FrameIndex POPS V 0 76
+	FrameIndex POPS W 0 77
+	FrameIndex POPS X 0 78
+	FrameIndex POPS Y 0 79
+	FrameIndex POPS Z 0 80
+	
+	// Attack 1 to 30 frames
+	
+	FrameIndex POXA A 0 1
+	FrameIndex POXA B 0 2
+	FrameIndex POXA C 0 3
+	FrameIndex POXA D 0 4
+	FrameIndex POXA E 0 5
+	FrameIndex POXA F 0 6
+	FrameIndex POXA G 0 7
+	FrameIndex POXA H 0 8
+	FrameIndex POXA I 0 9
+	FrameIndex POXA J 0 10
+	FrameIndex POXA K 0 11
+	FrameIndex POXA L 0 12
+	FrameIndex POXA M 0 13
+	FrameIndex POXA N 0 14
+	FrameIndex POXA O 0 15
+	FrameIndex POXA P 0 16
+	FrameIndex POXA Q 0 17
+	FrameIndex POXA R 0 18
+	FrameIndex POXA S 0 19
+	FrameIndex POXA T 0 20
+	FrameIndex POXA U 0 21
+	FrameIndex POXA V 0 22
+	FrameIndex POXA W 0 23
+	FrameIndex POXA X 0 24
+	FrameIndex POXA Y 0 25
+	FrameIndex POXA Z 0 26
+	FrameIndex POX2 A 0 27
+	FrameIndex POX2 B 0 28
+	FrameIndex POX2 C 0 29
+	FrameIndex POX2 D 0 30
+	
+	// Deselect 31 to 54
+	
+	FrameIndex PXXX A 0 31
+	FrameIndex PXXX B 0 32
+	FrameIndex PXXX C 0 33
+	FrameIndex PXXX D 0 34
+	FrameIndex PXXX E 0 35
+	FrameIndex PXXX F 0 36
+	FrameIndex PXXX G 0 37
+	FrameIndex PXXX H 0 38
+	FrameIndex PXXX I 0 39
+	FrameIndex PXXX J 0 40
+	FrameIndex PXXX K 0 41
+	FrameIndex PXXX L 0 42
+	FrameIndex PXXX M 0 43
+	FrameIndex PXXX N 0 44
+	FrameIndex PXXX O 0 45
+	FrameIndex PXXX P 0 46
+	FrameIndex PXXX Q 0 47
+	FrameIndex PXXX R 0 48
+	FrameIndex PXXX S 0 49
+	FrameIndex PXXX T 0 50
+	FrameIndex PXXX U 0 51
+	FrameIndex PXXX V 0 52
+	FrameIndex PXXX W 0 53
+	FrameIndex PXXX X 0 54
+	
+	// Reload 142 to 217
+	
+	/*FrameIndex PIS1 A 0 142
+	FrameIndex PIS1 B 0 143
+	FrameIndex PIS1 C 0 144
+	FrameIndex PIS1 D 0 145
+	FrameIndex PIS1 E 0 146
+	FrameIndex PIS1 F 0 147
+	FrameIndex PIS1 G 0 148
+	FrameIndex PIS1 H 0 149
+	FrameIndex PIS1 I 0 150
+	FrameIndex PIS1 J 0 151
+	FrameIndex PIS1 K 0 152
+	FrameIndex PIS1 L 0 153
+	FrameIndex PIS1 M 0 154
+	FrameIndex PIS1 N 0 155
+	FrameIndex PIS1 O 0 156
+	FrameIndex PIS1 P 0 157
+	FrameIndex PIS1 Q 0 158
+	FrameIndex PIS1 R 0 159
+	FrameIndex PIS1 S 0 160
+	FrameIndex PIS1 T 0 161
+	FrameIndex PIS1 U 0 162
+	FrameIndex PIS1 V 0 163
+	FrameIndex PIS1 W 0 164
+	FrameIndex PIS1 X 0 165
+	FrameIndex PIS1 Y 0 166
+	FrameIndex PIS1 Z 0 167	
+	FrameIndex PIS2 A 0 168
+	FrameIndex PIS2 B 0 169
+	FrameIndex PIS2 C 0 170
+	FrameIndex PIS2 D 0 171
+	FrameIndex PIS2 E 0 172
+	FrameIndex PIS2 F 0 173
+	FrameIndex PIS2 G 0 174
+	FrameIndex PIS2 H 0 175
+	FrameIndex PIS2 I 0 176
+	FrameIndex PIS2 J 0 177
+	FrameIndex PIS2 K 0 178
+	FrameIndex PIS2 L 0 179
+	FrameIndex PIS2 M 0 180
+	FrameIndex PIS2 N 0 181
+	FrameIndex PIS2 O 0 182
+	FrameIndex PIS2 P 0 183
+	FrameIndex PIS2 Q 0 184
+	FrameIndex PIS2 R 0 185
+	FrameIndex PIS2 S 0 186
+	FrameIndex PIS2 T 0 187
+	FrameIndex PIS2 U 0 188
+	FrameIndex PIS2 V 0 189
+	FrameIndex PIS2 W 0 190
+	FrameIndex PIS2 X 0 191
+	FrameIndex PIS2 Y 0 192
+	FrameIndex PIS2 Z 0 193
+	FrameIndex PIS3 A 0 194
+	FrameIndex PIS3 B 0 195
+	FrameIndex PIS3 C 0 196
+	FrameIndex PIS3 D 0 197
+	FrameIndex PIS3 E 0 198
+	FrameIndex PIS3 F 0 199
+	FrameIndex PIS3 G 0 200
+	FrameIndex PIS3 H 0 201
+	FrameIndex PIS3 I 0 202
+	FrameIndex PIS3 J 0 203
+	FrameIndex PIS3 K 0 204
+	FrameIndex PIS3 L 0 205
+	FrameIndex PIS3 M 0 206
+	FrameIndex PIS3 N 0 207
+	FrameIndex PIS3 O 0 208
+	FrameIndex PIS3 P 0 209
+	FrameIndex PIS3 Q 0 210
+	FrameIndex PIS3 R 0 211
+	FrameIndex PIS3 S 0 212
+	FrameIndex PIS3 T 0 213
+	FrameIndex PIS3 U 0 214
+	FrameIndex PIS3 V 0 215
+	FrameIndex PIS3 W 0 216
+	FrameIndex PIS3 X 0 217*/
+	
+	// Idling Frames 82 to 92
+	FrameIndex POXX A 0 82
+	FrameIndex POXX B 0 83
+	FrameIndex POXX C 0 84
+	FrameIndex POXX D 0 85
+	FrameIndex POXX E 0 86
+	FrameIndex POXX F 0 87
+	FrameIndex POXX G 0 88
+	FrameIndex POXX H 0 89
+	FrameIndex POXX I 0 90
+	FrameIndex POXX J 0 91
+	FrameIndex POXX K 0 92
+	FrameIndex POXX L 0 93
+	FrameIndex POXX M 0 94
+	FrameIndex POXX N 0 95
+	FrameIndex POXX O 0 96
+	FrameIndex POXX P 0 97
+	FrameIndex POXX Q 0 98
+	FrameIndex POXX R 0 99
+	FrameIndex POXX S 0 100
+	FrameIndex POXX T 0 101
+	FrameIndex POXX U 0 102
+	FrameIndex POXX V 0 103
+	FrameIndex POXX W 0 104
+	FrameIndex POXX X 0 105
+	FrameIndex POXX Y 0 106
+	FrameIndex POXX Z 0 107
+	
+}
+
+Model "PostPistol"
+{
+	Path "models\weapons\pistol"
+	Model 0 "PistolPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "pistol/pistol_timb.png"
+	SurfaceSkin 0 1 "pistol/pistol_brass.png"
+	
+	AngleOffset 90 //40
+	RollOffset 90
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostPistol"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

@@ -1,0 +1,139 @@
+// This is a very hacky method of making NPCs move to one node to another
+// It cannot move from node to node to reach the shortest route to the target... yet
+
+
+class Postal_Node : PostalActor
+{
+	Actor NextNode, PreviousNode;
+	int DynamicIncrease;
+	
+	int WarningTime;
+	bool SpawnedMark;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		DynamicIncrease = 0;
+		WarningTime = level.time;
+	
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (NextNode == null)
+		{
+			DynamicIncrease += 25;
+		}
+		
+		//All nodes should be able to find their next nodes under 10 seconds
+		if ((WarningTime + 35 * 20) < level.time)
+		{
+			if (NextNode == null)
+			{
+				if (SpawnedMark != true)
+				{
+					Console.Printf("Warning: Next Node for a path node hasn't been found. Marked with a confused Dude head.");
+					spawn("Postal_FailedPathnode", self.pos+(0,0,50), ALLOW_REPLACE);
+					
+					if (PreviousNode != null)
+						NextNode = PreviousNode;
+					else
+						NextNode = self;
+						
+					SetStateLabel("Done");
+					
+					SpawnedMark = true;
+				}
+			}
+		}
+	}
+	
+	Default
+	{
+		+NOGRAVITY;
+		-SOLID;
+	}
+	States
+	{
+	Spawn:
+		PLSS AB 5
+		{
+			//Check if the NextNode actor pointer is null
+			//Continously creating an iterator will degrade performance
+			if (NextNode == null)
+				A_SetNextNode();
+		
+		}
+		Loop;
+	Done:
+		TNT1 A 20;
+		Loop;
+	}
+	
+	//It is sensitive to angle, so If you are placing them on a map make sure they are facing a node
+	action void A_SetNextNode()
+	{
+		//many thanks to phantombeta!!
+		double fov = 40; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, invoker.DynamicIncrease); // 1024
+		
+		while (it.Next ()) {
+				let next = it.Thing;
+				
+				//if (!next.bShootable) // || next.bKilled || next.health < 1)
+				//{
+				//	continue;
+				//}
+				
+				
+				if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+				{
+					continue;
+				}
+				
+				
+				//if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				//	continue;
+				
+				if (invoker.NextNode == null)
+				{
+					//Hopefully by the time the NPC approaches it's node it will already attach an actor pointer;
+					if (next is 'Postal_Node' && next != self)
+					{
+							//double diff = deltaangle(angle, AngleTo(next));
+							//double delta = abs(diff);
+							
+							invoker.NextNode = next;
+							
+							let node = Postal_Node(next);
+							node.PreviousNode = self;
+							
+							//Angle += AngleTo(next);
+							//Console.Printf("I see a Postal_Node.");
+					}
+				}
+						
+			}
+    }
+}
+
+class Postal_FailedPathnode : PostalActor
+{
+	Default
+	{
+		Radius 32;
+		Height 56;
+		+NOGRAVITY;
+		+NOBLOCKMAP;
+		+DONTSPLASH;
+		Scale 0.09;
+	}
+  States
+  {
+  Spawn:
+    NODE A -1;
+    Stop;
+  }
+}
