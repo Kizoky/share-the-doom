@@ -106,7 +106,7 @@ class NPCCore : PostalActor
 		
 		//The pitch of the NPC's voice is randomized, except Krotchy's
 		if (!(self is 'NPCKrotchy'))
-			MyVoice = frandom(0.6,1.4);
+			MyVoice = frandom(0.7,1.2);
 		
 		//Spawn head hitbox
 		
