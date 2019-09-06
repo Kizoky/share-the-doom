@@ -420,3 +420,16 @@ weapons/machete_return sounds/machetebrandish2.wav
 weapons/machete_throw sounds/machetethrowin.wav
 weapons/machete_throwloop sounds/machetethrowloop.wav
 weapons/machete_richochet sounds/macheterichochet.wav
+
+krotchytoy/boop1 sounds/krotchy_fall_01.wav
+krotchytoy/boop2 sounds/krotchy_fall_02.wav
+krotchytoy/boop3 sounds/krotchy_fall_03.wav
+krotchytoy/boop4 sounds/krotchy_fall_04.wav
+
+krotchytoy/alert1 sounds/krotchy_throw_01.wav
+krotchytoy/alert2 sounds/krotchy_throw_02.wav
+krotchytoy/alert3 sounds/krotchy_throw_03.wav
+krotchytoy/alert4 sounds/krotchy_throw_04.wav
+
+$random krotchytoy/boop { krotchytoy/boop1 krotchytoy/boop2 krotchytoy/boop3 krotchytoy/boop4 }
+$random krotchytoy/alert { krotchytoy/alert1 krotchytoy/alert2 krotchytoy/alert3 krotchytoy/alert4 }

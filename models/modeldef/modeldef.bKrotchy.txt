@@ -212,3 +212,20 @@ Model "NPCKrotchy"
 	FrameIndex SHOF A 0 230
 	
 }
+
+model "GiantKrotchyToy"
+{
+	Path "models\misc\NPCs"
+	Model 0 "krotchy_toy_01out.md3"
+	SurfaceSkin 0 0 "krotchy_toy_01.tga"
+	AngleOffset 0
+	Scale 10 10 10
+	Offset 0 0 -2 //X Y Z
+	
+	FrameIndex KROC A 0 0
+	
+	SurfaceSkin 0 0 "angery.png"
+	FrameIndex MADD A 0 0
+
+
+}
