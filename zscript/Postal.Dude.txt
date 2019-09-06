@@ -978,7 +978,7 @@ extend class PostalDude
 	{
 		//many thanks to phantombeta!!
 		
-		if (Player.ReadyWeapon == Weapon(FindInventory("PostHands")) || Player.ReadyWeapon == Weapon(FindInventory("PostUrethra")))
+		if (Player.ReadyWeapon == Weapon(FindInventory("PostHands")) || Player.ReadyWeapon == Weapon(FindInventory("PostUrethra")) || Player.ReadyWeapon == Weapon(FindInventory("PostClipboard")))
 			return;
 		
 		BlockThingsIterator it;
