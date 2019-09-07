@@ -588,4 +588,16 @@ extend class PostalDude
 		return;
 	}
 	
+	// Removes any weapons that normally cannot be equipped by Postal Dude, i.e.: Doom's Chainsaw
+	
+	virtual void CheckForNonPostalWeapons ()
+	{
+		class<weapon> PostWeapon = "PostalWeapon";
+		
+		if (!(Player.ReadyWeapon is PostWeapon))
+		{
+			Player.PendingWeapon = Weapon(FindInventory("PostHands"));
+		}
+	}
+	
 }

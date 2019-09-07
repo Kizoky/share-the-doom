@@ -312,6 +312,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		CheatDetector();
 		PD_Pain();
 		A_TriggerDudeLine();
+		CheckForNonPostalWeapons();
 		
 		//Console.Printf("%d", AmountofLiquid.Size());
 		

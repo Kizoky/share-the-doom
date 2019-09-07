@@ -219,7 +219,7 @@ model "GiantKrotchyToy"
 	Model 0 "krotchy_toy_01out.md3"
 	SurfaceSkin 0 0 "krotchy_toy_01.tga"
 	AngleOffset 0
-	Scale 10 10 10
+	Scale 1 1 1
 	Offset 0 0 -2 //X Y Z
 	
 	FrameIndex KROC A 0 0
