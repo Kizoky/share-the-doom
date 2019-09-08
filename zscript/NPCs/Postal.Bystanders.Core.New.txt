@@ -351,6 +351,44 @@ class NPCCore : PostalActor
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
 	
+	// Mimics Postal 2's weird slow rotation towards it's target
+	// todo: Prevent NPCs to turn around if Angle is too high or too low
+	
+	virtual void A_FacePostalTarget()
+	{
+		float RotationSpeed = 16;
+		bool TargetLockedOnOnce;
+		
+		if (target)
+		{	
+			if ((AngleTo (target)) - angle > -25 && (AngleTo (target)) - angle < 25)
+			{
+				angle = AngleTo (target);
+				TargetLockedOnOnce = true;
+				return;
+			}
+			
+			if (TargetLockedOnOnce == true)
+			{
+				angle = AngleTo (target);
+				return;
+			}
+			
+			if (TargetLockedOnOnce != true)
+			{
+				if ((AngleTo (target)) > angle)
+				{
+					angle += RotationSpeed;
+				}
+				else if ((AngleTo (target)) < angle) angle -= RotationSpeed;
+			}
+			
+			Console.Printf("Angle To Target: %f", (AngleTo (target)));
+			Console.Printf("Angle: %f", angle);
+			
+		}
+	}
+	
 	Default
 	{
 		//$Category NPCs
@@ -403,12 +441,12 @@ class NPCCore : PostalActor
 			if (PetitionNumber != 3)
 				PetitionNumber++;
 			
-			A_FaceTarget();
+			A_FacePostalTarget();
 		}
-		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FaceTarget(); target = MyTarget; }
-		DUDE ABCDEFGHIJKLMNOP 3 { A_FaceTarget(); target = MyTarget; }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FacePostalTarget(); target = MyTarget; }
+		DUDE ABCDEFGHIJKLMNOP 3 { A_FacePostalTarget(); target = MyTarget; }
 		TNT1 A 0 A_PlaySound(NPC_PetitionDeny,0);
-		PINK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FaceTarget(); target = MyTarget; }
+		PINK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FacePostalTarget(); target = MyTarget; }
 		TNT1 A 0
 		{
 			//Clear our target, so we won't be going after it
@@ -634,7 +672,7 @@ class NPCCore : PostalActor
 	Bumping:
 		TNT1 A 0 A_PlaySound(NPC_Bump,0, 1.0, false, 1, false, MyVoice);
 		TNT1 A 0 { vel.xy = (0,0); }
-		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FaceTarget(); }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		
 		TNT1 A 0
 		{
@@ -646,8 +684,8 @@ class NPCCore : PostalActor
 	DickOut:
 		TNT1 A 0 A_PlaySound(NPC_Dickout,0 , 1.0, false, 1, false, MyVoice);
 		TNT1 A 0 { vel.xy = (0,0); }
-		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FaceTarget(); }
-		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 { target = MyTarget; A_FaceTarget(); }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 { target = MyTarget; A_FacePostalTarget(); }
 		
 		TNT1 A 0
 		{
@@ -672,7 +710,7 @@ class NPCCore : PostalActor
 		Goto Spawn;
 	StaringWeapon:
 		TNT1 A 0 { vel.xy = (0,0); }
-		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FaceTarget(); }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		//Be hostile, or flee from the frightening Player
 		TNT1 A 0 { isAfterTarget = true; A_PlaySound(NPC_Taunt,0); }
 		Goto See;
@@ -703,7 +741,7 @@ class NPCCore : PostalActor
 			}
 			
 		}
-		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FaceTarget(); }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		TNT1 A 0 
 		{
 			//Grab the target's variables
@@ -994,7 +1032,7 @@ extend class NPCCore
 						{
 							target = PlayerDude;
 							MyTarget = PlayerDude;
-							A_FaceTarget();
+							A_FacePostalTarget();
 							isBusy = true;
 							SetStateLabel("Bumping");
 						}
@@ -1023,7 +1061,7 @@ extend class NPCCore
 							if (pp.Hostility == "Pussy" && pp.isAfterTarget == true)
 							{
 								//Console.Printf("STOP RUNNING INTO ME YOU SCREAMING PUSSY");
-								A_FaceTarget();
+								A_FacePostalTarget();
 								target = pp;
 								MyTarget = pp;
 								isBusy = true;
@@ -1292,7 +1330,7 @@ extend class NPCCore
 		if (target)
 		{
 			vel.xy = (0,0);
-			A_FaceTarget();
+			invoker.A_FacePostalTarget();
 			double ang = angle;
 			double slope = AimLineAttack(ang, MISSILERANGE);
 			A_PlaySound("weapons/pistol", CHAN_WEAPON);
@@ -1307,7 +1345,7 @@ extend class NPCCore
 		if (target)
 		{
 			vel.xy = (0,0);
-			A_FaceTarget();
+			invoker.A_FacePostalTarget();
 			double bangle = angle;
 			double slope = AimLineAttack(bangle, MISSILERANGE);
 			
