@@ -357,45 +357,9 @@ class NPCCore : PostalActor
 	virtual void A_FacePostalTarget()
 	{
 		float RotationSpeed = 16;
-		bool TargetLockedOnOnce;
-		
-		/*
-		if (target)
-		{	
-			if ((AngleTo (target)) - angle > -25 && (AngleTo (target)) - angle < 25)
-			{
-				angle = AngleTo (target);
-				TargetLockedOnOnce = true;
-				return;
-			}
-			
-			if (TargetLockedOnOnce == true)
-			{
-				angle = AngleTo (target);
-				return;
-			}
-			
-			if (TargetLockedOnOnce != true)
-			{
-				if ((AngleTo (target)) > angle)
-				{
-					angle += RotationSpeed;
-				}
-				else if ((AngleTo (target)) < angle) angle -= RotationSpeed;
-			}
-			
-			Console.Printf("Angle To Target: %f", (AngleTo (target)));
-			Console.Printf("Angle: %f", angle);
-			
-		}
-		*/
 		
 		if (target)
 		{
-			let normAngle = angle % 360;
-			if (normAngle < 0)
-				normAngle += 360;
-			
 			if (abs (deltaangle (angle, AngleTo (target))) < 25)
 			{
 				angle = AngleTo (target);
@@ -404,9 +368,9 @@ class NPCCore : PostalActor
 			
 			if (((AngleTo (target)) - angle + 360) % 360 < 180)
 			{	
-				angle += RotationSpeed;
+				A_SetAngle(angle+RotationSpeed, SPF_INTERPOLATE);
 			}
-			else angle -= RotationSpeed;
+			else A_SetAngle(angle-RotationSpeed, SPF_INTERPOLATE);
 			
 			Console.Printf("Angle To Target: %f", AngleTo (target));
 			Console.Printf("Angle: %f", angle);
@@ -426,7 +390,6 @@ class NPCCore : PostalActor
 		Speed 0;
 		PainChance 256;
 		Monster;
-		+INTERPOLATEANGLES
 		SeeSound "";
 		AttackSound "weapons/pistol";
 		PainSound "dudehurt";
@@ -456,6 +419,7 @@ class NPCCore : PostalActor
 		+QUICKTORETALIATE
 		+ALLOWPAIN
 		-COUNTKILL
+		+INTERPOLATEANGLES
 	}
 	States
 	{
