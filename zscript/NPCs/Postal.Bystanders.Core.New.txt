@@ -359,6 +359,7 @@ class NPCCore : PostalActor
 		float RotationSpeed = 16;
 		bool TargetLockedOnOnce;
 		
+		/*
 		if (target)
 		{	
 			if ((AngleTo (target)) - angle > -25 && (AngleTo (target)) - angle < 25)
@@ -387,6 +388,31 @@ class NPCCore : PostalActor
 			Console.Printf("Angle: %f", angle);
 			
 		}
+		*/
+		
+		if (target)
+		{
+			let normAngle = angle % 360;
+			if (normAngle < 0)
+				normAngle += 360;
+			
+			if (AngleTo(target) - angle > -25 && AngleTo(target) - angle < 25)
+			{
+				angle = AngleTo (target);
+				return;
+			}
+			
+			if (((AngleTo (target)) - angle + 360) % 360 < 180)
+			{	
+				angle += RotationSpeed;
+			}
+			else angle -= RotationSpeed;
+			
+			Console.Printf("Angle To Target: %f", AngleTo (target));
+			Console.Printf("Angle: %f", angle);
+			
+		}
+		
 	}
 	
 	Default
