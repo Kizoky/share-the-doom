@@ -11,7 +11,10 @@ class DudeCoreHandler : EventHandler
 	  {
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
-			Console.Printf("Q pressed (Mighty Foot Engaged)");
+			
+			if (p.bKILLED) return;
+			
+			//Console.Printf("Q pressed (Mighty Foot Engaged)");
 			p.Kick = true;
 	  }
 	  
@@ -19,7 +22,9 @@ class DudeCoreHandler : EventHandler
 	  {
 			PlayerInfo player = players [e.Player];
 			PostalDude p = PostalDude(players[e.Player].mo);
-
+			
+			if (p.bKILLED) return;
+			
 				if (p.PlayerData.Holster == false)
 				{
 					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
@@ -50,6 +55,9 @@ class DudeCoreHandler : EventHandler
 			//Console.Printf("R is pressed (Now the flowers will grow)");
 			
 			//Pretty much it works the same way like Holster
+			
+			if (p.bKILLED) return;
+			
 			if (p.PlayerData.Urethra == false)
 			{
 				if (p.Player.ReadyWeapon == p.PlayerData.UrethraWeapon)
@@ -85,6 +93,9 @@ class DudeCoreHandler : EventHandler
 	  {
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
+			
+			if (p.bKILLED) return;
+			
 			//Console.Printf("K pressed (I regret nothing)");
 			p.PlayerData.Suicide = true;
 	  }
@@ -93,6 +104,9 @@ class DudeCoreHandler : EventHandler
 	  {
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
+			
+			if (p.bKILLED) return;
+			
 			Console.Printf("M pressed");
 			if (p.Map == false)
 			{
