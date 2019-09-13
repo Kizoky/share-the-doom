@@ -114,7 +114,7 @@ class PostShovel : PostalWeapon
 		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
 		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
 		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
-		SHOS ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		SHOS ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_WeaponReady;
 		Loop;
 	Fire:
 		SHOA ABC 2;

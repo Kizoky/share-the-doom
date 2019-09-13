@@ -36,7 +36,12 @@ class PostCowhead : PostalWeapon
 		Loop;
 	Select:
 		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
-		COWS ABCDEFGHIJKLMNOPQRSTUV 2 A_Raise;
+		COWS ABCDEFGHIJKLMNOPQRSTUV 2
+		{
+			A_Raise();
+			A_WeaponReady();
+		
+		}
 		Loop;
 	Fire:
 		COWF ABCDEFGHIJKLMNOPQRSTUVWXY 3 A_FireShotgun;

@@ -98,8 +98,8 @@ class PostMachete : PostalWeapon
 		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
 		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
 		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
-		PGNS ABCDE 2;
-		MAID A 0;
+		PGNS ABCDE 2 A_WeaponReady;
+		MAID A 0 A_WeaponReady;
 		Loop;
 	Fire:
 		TNT1 A 0
