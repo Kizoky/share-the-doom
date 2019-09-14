@@ -40,3 +40,7 @@ Note: Multiplayer MAY work, I ONLY tested it in LAN, I'm not sure if it would wo
 - the ZDoom discord
 - Nash
 - ...
+
+# Regarding use of assets from this mod
+
+Do not use any assets you pull from this mod to use in your paid game, all the assets belong to Running With Scissors. For public projects that are/will be free is fine just make sure to credit Running With Scissors! For Doom mods please credit me, that's all I ask
