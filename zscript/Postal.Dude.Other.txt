@@ -69,6 +69,14 @@ class YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound : Pow
 	{
 		Super.InitEffect();
 		S_ChangeMusic("spinme");
+		class<actor> krotchytoy = "giantkrotchytoy";
+		for (int i = 0; i < 100; i++)
+		{
+			int randomm = random(-i,i);
+			Actor krr = spawn(krotchytoy, owner.pos+(randomm,randomm,randomm), NO_REPLACE);
+			krr.target = owner;
+			krr.SetStateLabel("See");
+		}
 	}
 
 	override void EndEffect ()
