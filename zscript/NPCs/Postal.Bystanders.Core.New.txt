@@ -532,6 +532,8 @@ class NPCCore : PostalActor
 		{
 			// temp fix: spawn dozen of NPCs, kill them instantly, all NPCs will enter this state if they saw them
 			
+			PainChance = 0;
+			
 			if (AnnoyingFire == null)
 			{
 				if (isBusy == true && isAfterTarget == true)
@@ -575,8 +577,11 @@ class NPCCore : PostalActor
 		SHO3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		SHO4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		SHO5 ABCDEFGHIJKLMNOPQ 3;
+		DUDW A 0 { AnnoyingFire.Destroy(); }
 		DUDW A 0
 		{
+			PainChance = Default.PainChance;
+			
 			if (target != null)
 			{
 				if (Hostility == "Pussy")

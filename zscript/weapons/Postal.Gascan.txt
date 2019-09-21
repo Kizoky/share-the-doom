@@ -37,8 +37,8 @@ class PostGascan : PostalWeapon
 		Loop;
 	Select:
 		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
-		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
-		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
+		GASS A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
+		GASS A 0 A_PlaySound("weaponselect1", 7 | 4096);
 		GASS ABCDEFGHIJKLMNOPQRSTUVWXY 1 A_WeaponReady;
 		Loop;
 	Fire:
@@ -46,30 +46,34 @@ class PostGascan : PostalWeapon
 		GASF ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		Goto Hold;
 	Hold:
-		TNT1 A 0 A_PlaySound("gascan/loop", 1 | 4096);
-		GASH ABCDEFGHIJKLMNO 2
+		GASH A 0 A_PlaySound("gascan/loop", 1 | 4096);
+		GASH ABCDEFGHIJKLMNONMLKJIHGFEDCBA 2
 		{
-			//A_SpawnLiquid();
-			//A_SpawnItemEx("PouringGas", 10, 0, 70);
-			A_FireProjectile("PouringGas", 0, 1, 10, -2, -40);
+			if (player.cmd.buttons & BT_ATTACK)
+				A_FireProjectile("PouringGas", 0, 1, 10, -2, -40);
+			else
+				return ResolveState ("HoldEnd");
+				
+			return ResolveState (null);
 		}
-		TNT1 A 0 A_PlaySound("gascan/loop", 1 | 4096);
-		GASH ONMLKJIHGFEDCBA 2
+		TNT1 A 0
 		{
-			//A_SpawnLiquid();
-			//A_SpawnItemEx("PouringGas", 10, 0, 70);
-			A_FireProjectile("PouringGas", 0, 1, 10, -2, -40);
+			if (player.cmd.buttons & BT_ATTACK)
+				return ResolveState ("Hold");
+			else
+				return ResolveState ("HoldEnd");
+				
+			return ResolveState(null);
+		
 		}
-		TNT1 A 0 A_ReFire;
-		Goto HoldEnd;
 	HoldEnd:
-		TNT1 A 0 A_PlaySound("gascan/end", 1 | 4096);
-		GASE ABCDEFGHIJKLM 2;
+		GASE A 0 A_PlaySound("gascan/end", 1 | 4096);
+		GASE ABCDEFGHIJKLM 1;
 		Goto Ready;
 	AltFire:
 		GSSF ABCDEFGHIJKLMNOPQRSTUVWXY 1;
-		TNT1 A 0 A_FireProjectile("PostalFire");
-		TNT1 A 0 A_PlaySound("match/light", 1 | 4096);
+		GSSF A 0 A_FireProjectile("PostalFire");
+		GSSF A 0 A_PlaySound("match/light", 1 | 4096);
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
@@ -140,7 +144,7 @@ class PostalFire : PostalActor
 	actor Owner;
 	int TimeBeforeDisappearing;
 	int Counter;
-	bool ThisOneHurts;
+	bool ThisOneHurts, EnterFireEndState;
 	
 	override void Tick()
 	{
@@ -173,7 +177,22 @@ class PostalFire : PostalActor
 		{
 			let ppostal = PostalActor(Owner);
 			
-			if (TimeBeforeDisappearing < level.time) Destroy();
+			if (TimeBeforeDisappearing < level.time && EnterFireEndState == false)
+			{
+				if (ppostal is 'NPCCore')
+				{
+					if (ppostal.bKILLED)
+					{
+						Destroy();
+						return;
+					}
+					
+					ppostal.SetStateLabel("FireChaseEnd");
+					EnterFireEndState = true;
+				
+				}
+			
+			}
 			if (ppostal.AnnoyingFire == null) Destroy();
 			if (Counter == 0) SetOrigin(Owner.pos+(0,0,50), TRUE);
 			
@@ -187,6 +206,7 @@ class PostalFire : PostalActor
 		Super.PostBeginPlay();
 		
 		int PlayerOrNPC;
+		EnterFireEndState = false;
 		
 		if (Owner is 'PostalDude') PlayerOrNPC = 12; else PlayerOrNPC = 22;
 		
@@ -201,6 +221,9 @@ class PostalFire : PostalActor
 			{
 				if (ThisOneHurts)
 				{
+					if (EnterFireEndState == true)
+						return;
+					
 					if ((Owner is 'PostalDude' || Owner is 'PostalActor') && !(Owner is 'NPCCore'))
 						Owner.A_DamageSelf(3);
 						
