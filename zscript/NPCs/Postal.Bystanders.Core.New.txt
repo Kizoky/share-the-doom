@@ -453,6 +453,7 @@ class NPCCore : PostalActor
 		}
 		Loop;
 	Spawn:
+		TNT1 A 0;
 		DUDW A 0
 		{
 			if (target == null && Hostility == "Pussy" && Hostility == "Hostile")
