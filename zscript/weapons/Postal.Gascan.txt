@@ -311,6 +311,9 @@ class PostalLiquidGas : PostalActor
 	
 	int TimeBeforeNotSpreading;
 	
+	bool CanDisappear;
+	int TimeBeforeDisappearing, TimeBeforeSmokeDisappearing;
+	
 	override void Tick()
 	{
 		Super.Tick();
@@ -331,6 +334,16 @@ class PostalLiquidGas : PostalActor
 				
 				TimeBeforeNotSpreading += 1;
 			}
+			
+			if (helpme == true && TimeBeforeDisappearing == 0 && CanDisappear != true)
+			{
+				TimeBeforeDisappearing = level.time + 35 * 25;
+				TimeBeforeSmokeDisappearing = level.time + 35 * 20;
+				CanDisappear = true;
+			}
+			
+			if (CanDisappear == true && helpme == true && TimeBeforeDisappearing < level.time)
+				Destroy();
 			
 		}
 	}
@@ -516,6 +529,7 @@ class PostalLiquidGas : PostalActor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
+		TimeBeforeDisappearing = 0;
 	
 	}
 	
@@ -564,7 +578,10 @@ class PostalLiquidGas : PostalActor
 			int randomm = random(1,6);
 			
 			if (randomm == 5)
-				A_SpawnItemEx("FireSmokeUp",frandom(-5,5),frandom(-5,5),frandom(100,160),0,0,0);
+			{
+				if (TimeBeforeSmokeDisappearing > level.time)
+					A_SpawnItemEx("FireSmokeUp",frandom(-5,5),frandom(-5,5),frandom(100,160),0,0,0);
+			}
 		}
 		TNT1 A 1 {
             A_SpawnItemEx("RandomPostalFire",frandom(-3,3),frandom(-3,3),frandom(0,12),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.6,1.2));
