@@ -528,7 +528,7 @@ class NPCCore : PostalActor
 			}
 		}
 	FireChase:
-		TNT1 A 0
+		FIRE A 0
 		{
 			// temp fix: spawn dozen of NPCs, kill them instantly, all NPCs will enter this state if they saw them
 			
@@ -536,6 +536,8 @@ class NPCCore : PostalActor
 			{
 				if (isBusy == true && isAfterTarget == true)
 					SetStateLabel("See");
+				else
+					SetStateLabel("Spawn");
 			
 			}
 		
@@ -554,6 +556,20 @@ class NPCCore : PostalActor
 		}
 		Loop;
 	FireChaseEnd:
+		SHOO A 0
+		{
+			// temp fix: spawn dozen of NPCs, kill them instantly, all NPCs will enter this state if they saw them
+			
+			if (AnnoyingFire == null)
+			{
+				if (isBusy == true && isAfterTarget == true)
+					SetStateLabel("See");
+				else
+					SetStateLabel("Spawn");
+			
+			}
+		
+		}
 		SHOO ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		SHO2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		SHO3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
