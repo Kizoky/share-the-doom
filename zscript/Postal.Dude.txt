@@ -1012,7 +1012,7 @@ extend class PostalDude
 					{
 						//Console.Printf("Within fov!");
 						let p = NPCCore(next);
-						if (p.isBusy != true)
+						if (p.isBusy != true && p.isAfterTarget == false)
 						{
 							p.isBusy = true;
 							p.MyTarget = self;
@@ -1026,7 +1026,7 @@ extend class PostalDude
 					if (isMeleeAttack != true)
 					{
 						let p = NPCCore(next);
-						if (p.isBusy != true)
+						if (p.isBusy != true && p.isAfterTarget == false)
 						{
 							p.isBusy = true;
 							p.MyTarget = self;
