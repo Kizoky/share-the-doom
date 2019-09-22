@@ -1187,9 +1187,14 @@ extend class NPCCore
 		if (invoker.Petitioning == true)
 				SetStateLabel("Petitioning");
 		
-		while (it.Next ()) {
-			let next = it.Thing;
+		while (it.Next () && it.Thing != null) {
+				let next = it.Thing;
 
+			if (next == null)
+			{
+				break;
+			}
+			
 			if (!next.bShootable) // || next.bKilled || next.health < 1)
 			{
 				continue;
@@ -1206,8 +1211,6 @@ extend class NPCCore
 				continue;
 
 			// Do things with the "next" pointer here
-						
-						if (next == null) break;
 						
 						if (invoker.isAfterTarget != true)
 						{
