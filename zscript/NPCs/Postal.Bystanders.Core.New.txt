@@ -360,7 +360,7 @@ class NPCCore : PostalActor
 		
 		if (target)
 		{
-			if (abs (deltaangle (angle, AngleTo (target))) < 25)
+			if (abs (deltaangle (angle, AngleTo (target))) < 10)
 			{
 				angle = AngleTo (target);
 				return;
