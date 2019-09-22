@@ -60,6 +60,12 @@ cluster 1
 	hub
 }
 
+map TITLEMAP "11011010101"
+{
+	sky1 = "zo_dusk1", 0.035
+
+}
+
 map DEVMAP "Whoever designed this was on serious crack"
 {
 	levelnum = 1

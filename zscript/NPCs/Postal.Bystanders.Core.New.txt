@@ -226,36 +226,41 @@ class NPCCore : PostalActor
 		//The AI in Postal 2 is stupid, so we'll make a countdown later, after that the bool will get resetted
 		//And if it sees a corpse again, it will start all over again
 		//the hasSeenCorpse just prevents clearing the target
-		if (Hostility == "Pussy" && hasSeenCorpse != true && target != null)
-		{
-			if (target.bKILLED)
-			{
-				//Console.Printf("Target killed");
-				isAfterTarget = false;
-				bFRIGHTENED = false;
-				Speed = Default.Speed;
-				A_ClearTarget();
-				ActiveNode = null;
-				isBusy = false;
-				SetStateLabel("Spawn");
-			}
-		}
 		
-		if (Hostility == "Hostile" && target != null)
+		if (target)
 		{
-			if (target.Health < 1)
-			{
-				//Console.Printf("Target killed");
-				isAfterTarget = false;
-				bFRIGHTENED = false;
-				Speed = Default.Speed;
-				A_ClearTarget();
-				ActiveNode = null;
-				isBusy = false;
-				SetStateLabel("Spawn");
-			}
-		}
 		
+			if (Hostility == "Pussy" && hasSeenCorpse != true && target != null)
+			{
+				if (target.bKILLED)
+				{
+					//Console.Printf("Target killed");
+					isAfterTarget = false;
+					bFRIGHTENED = false;
+					Speed = Default.Speed;
+					A_ClearTarget();
+					ActiveNode = null;
+					isBusy = false;
+					SetStateLabel("Spawn");
+				}
+			}
+			
+			if (Hostility == "Hostile" && target != null)
+			{
+				if (target.Health < 1)
+				{
+					//Console.Printf("Target killed");
+					isAfterTarget = false;
+					bFRIGHTENED = false;
+					Speed = Default.Speed;
+					A_ClearTarget();
+					ActiveNode = null;
+					isBusy = false;
+					SetStateLabel("Spawn");
+				}
+			}
+		
+		}
 	}
 	
 	virtual void A_PussyScream()
@@ -347,6 +352,9 @@ class NPCCore : PostalActor
 			//SetStateLabel("Headless.Death");
 			
 		}
+		
+		MyTarget = source;
+		target = source;
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
@@ -629,7 +637,7 @@ class NPCCore : PostalActor
 	HostileChase:
 		TNT1 A 0
 		{	
-			A_ConcentratedTarget();
+			//A_ConcentratedTarget();
 			
 			if (NPCWeapon == "Pistol")
 				SetStateLabel("HostileChase.Pistol");
@@ -648,7 +656,7 @@ class NPCCore : PostalActor
 	Missile:
 		TNT1 A 0
 		{
-			A_ConcentratedTarget();
+			//A_ConcentratedTarget();
 			
 			if (Hostility == "Hostile" && isAfterTarget == true)
 			{
@@ -664,7 +672,7 @@ class NPCCore : PostalActor
 		XXXF A 0 A_PostalTarget();
 		XXXF A 6 A_NPCPistolAttack();
 		XXXF A 8;
-		XXXF A 0 A_ConcentratedTarget();
+		//XXXF A 0 A_ConcentratedTarget();
 		Goto HostileChase.Pistol;
 	Missile.Shotgun:
 		SHOF A 0 { vel.xy = (0,0); }
@@ -674,7 +682,7 @@ class NPCCore : PostalActor
 		SHOF A 4;
 		SHOF A 0 A_PlaySound("weapons/shotgr", CHAN_WEAPON);
 		SHOF A 6;
-		SHOF A 0 A_ConcentratedTarget();
+		//SHOF A 0 A_ConcentratedTarget();
 		Goto HostileChase.Shotgun;
 	Pain:
 		DUDE A 0 { if (gotPissedOn == true) { isAfterTarget = false; SetStateLabel("Debug"); }}
@@ -731,6 +739,9 @@ class NPCCore : PostalActor
 		
 		DUDE A 0 
 		{
+			
+			/*
+			
 			let pp = NPCCore(MyTarget);
 			
 			//If the Unique ID attached to the corpse is the same in our deadpeople array, then forget about it
@@ -751,11 +762,15 @@ class NPCCore : PostalActor
 					hasSeenCorpse = true;
 				}
 			}
+			*/
 			
 		}
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		TNT1 A 0 
 		{
+		
+			/*
+			
 			//Grab the target's variables
 			let pp = NPCCore(target);
 			//Console.Printf("NPCCore let pp");
@@ -795,6 +810,8 @@ class NPCCore : PostalActor
 					}
 				}
 			}
+			
+			*/
 		}
 		Goto See;
 	Death:
@@ -1160,8 +1177,11 @@ extend class NPCCore
 	action void A_BystanderThink()
 	{
 		//many thanks to phantombeta!!
+		
+		if (target != null && !target.bKILLED) return;
+		
 		double fov = 90; // this should be an argument, variable or constant instead, this is just here as an example
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 400); // The number here is (possibly roughly) the maximum distance they can see
 		Actor unknownentity;
 		
 		if (invoker.Petitioning == true)
@@ -1170,10 +1190,10 @@ extend class NPCCore
 		while (it.Next ()) {
 			let next = it.Thing;
 
-			//if (!next.bShootable) // || next.bKilled || next.health < 1)
-			//{
-			//	continue;
-			//}
+			if (!next.bShootable) // || next.bKilled || next.health < 1)
+			{
+				continue;
+			}
 
 			
 			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
@@ -1186,7 +1206,9 @@ extend class NPCCore
 				continue;
 
 			// Do things with the "next" pointer here
-			
+						
+						if (next == null) break;
+						
 						if (invoker.isAfterTarget != true)
 						{
 							if (next is 'PostalDude' && !(next.bKILLED))
@@ -1231,7 +1253,7 @@ extend class NPCCore
 							}
 							
 							
-							if (next is 'NPCCore' && !(next.bKILLED))
+							if (next is 'NPCCore')
 							{
 									let pp = NPCCore(next);
 									if (pp.Hostility == "Hostile" && pp.isAfterTarget == true)
@@ -1241,8 +1263,8 @@ extend class NPCCore
 										invoker.isBusy = true;
 										if (invoker.user_attacksplayeronsight != true)
 										{
-											invoker.MyTarget = pp;
-											target = pp;
+											invoker.MyTarget = next;
+											target = next;
 											vel.xy = (0,0);
 											SetStateLabel("StaringNPC");
 											break;
@@ -1251,8 +1273,8 @@ extend class NPCCore
 										{
 											if (pp.target is 'PostalDude' || pp.MyTarget is 'PostalDude')
 											{
-												target = pp.target;
-												invoker.MyTarget = pp.target;
+												target = next.target;
+												invoker.MyTarget = next.target;
 												break;
 											}
 										}
@@ -1266,8 +1288,8 @@ extend class NPCCore
 								{
 									//invoker.staringAt = next;
 									invoker.isBusy = true;
-									invoker.MyTarget = pp;
-									target = pp;
+									invoker.MyTarget = next;
+									target = next;
 									vel.xy = (0,0);
 									SetStateLabel("StaringNPC");
 									break;
@@ -1276,31 +1298,15 @@ extend class NPCCore
 							}
 							
 							
-							if (next.bIsMonster && !(next.bKILLED) && !(next is 'NPCCore') && !(next is 'Champ') && !(next is 'PostalCatInv') && !(next is 'PostalLiquidGas') && !(next is 'PostalFire') && !(next is 'PouringGas') 
-							&& !(next is 'RandomPostalFire') && !(next is 'FireParticleBottom') && !(next is 'FireSmokeUp'))
+							if (next is 'PostalSpiderMasterMind')
 							{
-								unknownentity = next;
-								
-										if (invoker.Hostility == "Hostile")
-										{
-											invoker.isAfterTarget = true;
-											A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
-											invoker.MyTarget = unknownentity;
-											vel.xy = (0,0);
-											SetStateLabel("See");
-											break;
-										}
-										else
-										{
-											if (invoker.Hostility == "Pussy")
-											{
-												invoker.isAfterTarget = true;
-												invoker.MyTarget = unknownentity;
-												vel.xy = (0,0);
-												SetStateLabel("See");
-												break;
-											}
-										}
+								invoker.isAfterTarget = true;
+								A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+								invoker.MyTarget = next;
+								target = next;
+								vel.xy = (0,0);
+								SetStateLabel("See");
+								break;
 							}
 							
 							if (next is 'CowMike')

@@ -4,44 +4,13 @@ class PostalInventory : Inventory { }
 extend class PostalActor
 {
 	Actor AnnoyingFire;
-	
-	
-	/*
-	Override void Die(Actor source, Actor inflictor, int dmgflags, Name MeansOfDeath)
-	{
-		if (source == null) 
-			return Super.Die(source, inflictor, dmgflags, MeansOfDeath);
-	
-		if (source.player)
-		{
-			let PDude = PostalDude(source);
-			
-			// A Dead man never says cruel words!
-			if (PDude != null && !(PDude.bKILLED))
-				PDude.InitLine = true;
-		}
-		
-		Super.Die(source, inflictor, dmgflags);
-	}
-	*/
-	
-	override void Tick()
-	{
-		Super.Tick();
-		
-		if (self is 'PostalZombieMan')
-		{
-			bSPECIAL = true;
-			bPICKUP = true;
-			bFLOORCLIP = true;
-		}
-	}
+	int Delayy;
 	
 	action void A_CheckForTargets()
 	{
 		//many thanks to phantombeta!!
 		double fov = 110; // this should be an argument, variable or constant instead, this is just here as an example
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 500); // The number here is (possibly roughly) the maximum distance they can see
 		
 		while (it.Next ()) {
 			let next = it.Thing;
@@ -55,33 +24,57 @@ extend class PostalActor
 			{
 				continue;
 			}
-
+			
 			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
 				continue;
 
 			// Do things with the "next" pointer here
-
-							if (next is 'NPCCore' || next is 'Champ' || next is 'PostalCatInv')
-							{
-								A_PlaySound(SeeSound);
-								target = next;
-								SetStateLabel("See");
-							}
-							
-							//Imo, this isn't much different from A_Look, but we do this anyway
-							if (next is 'PostalDude')
-							{
-								let PlayerDude = PostalDude(next);
-								if (PlayerDude.PlayerData.P_NoTarget != true)
-								{
-									A_PlaySound(SeeSound);
-									target = next;
-									SetStateLabel("See");
-								}
-							}
-						
+			
+				if (next != null)
+				{
+					if (next is 'NPCCore' && !next.bKILLED) //|| next is 'Champ' || next is 'PostalCatInv')
+					{
+						A_PlaySound(SeeSound);
+						target = next;
+						SetStateLabel("See");
+						Console.Printf("Target in sight!");
+						return;
+					}
+					
+					//Imo, this isn't much different from A_Look, but we do this anyway
+					if (next is 'PostalDude')
+					{
+						let PlayerDude = PostalDude(next);
+						if (PlayerDude.PlayerData.P_NoTarget != true)
+						{
+							A_PlaySound(SeeSound);
+							target = next;
+							SetStateLabel("See");
 						}
+					}
+				}
+			
+			}
+			
 		}
+		
+		/*override void Tick()
+		{
+			Super.Tick();
+			if (level.time > Delayy)
+			{
+				Delayy = level.time + 35 * 2;
+				A_CheckForTargets();
+			}
+		}
+		
+		override void PostBeginPlay()
+		{
+			Super.PostBeginPlay();
+			Delayy = level.time + 35 * 2;
+		
+		}
+		*/
 		
 		virtual void A_PlaySelfSound() { A_PlaySound(SeeSound); }
 			

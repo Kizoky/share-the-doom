@@ -534,3 +534,22 @@ class bush666 : Actor
 		Loop;
 	}
 }
+
+class nastyfence : Actor
+{
+	Default
+	{
+		//$Category Fences
+		//$Title "Dark Wood Fence"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

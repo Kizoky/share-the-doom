@@ -840,3 +840,17 @@ Model "copcar_vandalized"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "nastyfence"
+{
+	Path "models\props"
+	Model 0 "nastyfence.md3"
+	SurfaceSkin 0 0 "textures/wood-fence-nasty-dark-solid-sw.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 40 0 -3 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
