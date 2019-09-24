@@ -15,20 +15,17 @@ extend class PostalActor
 		while (it.Next () && it.Thing != null) {
 			let next = it.Thing;
 			
-			
-			if (next == null)
-			{
-				break;
-			}
-			
 			if (!next.bShootable || next.bKilled || next.health < 1)
 			{
 				continue;
 			}
-
-			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			
+			if (!(level.mapname ~== "titlemap"))
 			{
-				continue;
+				if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+				{
+					continue;
+				}
 			}
 			
 			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
