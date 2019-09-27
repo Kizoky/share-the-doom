@@ -1180,8 +1180,6 @@ extend class NPCCore
 	{
 		//many thanks to phantombeta!!
 		
-		if (target != null && !target.bKILLED) return;
-		
 		double fov = 90; // this should be an argument, variable or constant instead, this is just here as an example
 		BlockThingsIterator it = BlockThingsIterator.Create (self, 400); // The number here is (possibly roughly) the maximum distance they can see
 		Actor unknownentity;
