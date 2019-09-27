@@ -132,11 +132,24 @@ class Champ : PostalActor
 		}
 		Goto Spawn;
 	See:
-		TNT1 A 0 { bSOLID = True; target = staringAt; Busy = True;} //We don't want ghost Champs
+		TNT1 A 0 { bSOLID = True; if (target != null) {target = staringAt;} Busy = True;} //We don't want ghost Champs
 		DOGR ABCDEFGHIJKLM 2 Fast A_Chase();
 		TNT1 A 0
 		{
 			//If our target got killed, do the following
+			
+			if (target == null)
+			{
+				SetStateLabel("Spawn");
+				HitOnce = false;
+				TargetDead = True;
+				Busy = false;
+				Speed = Default.Speed;
+				return;
+				
+			
+			}
+			
 			if (target.bKILLED && target != null) 
 			{
 				//Console.Printf("Target killed");
