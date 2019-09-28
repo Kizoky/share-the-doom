@@ -26,23 +26,47 @@ class PostScythe : PostalWeapon
 		}
 		Loop;
 	Ready.IdleAnim:
-		SCYS A 9 A_WeaponReady;
+		SCYI ABCDEFGHIJKLMNOP 5 A_WeaponReady;
 		Goto Ready;
 	Ready.NoIdleAnim:
 		SCYS A 1 A_WeaponReady;
 		Goto Ready;
 	Deselect:
 		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
-		SCYS A 2 Offset(0,0);
+		SCYH ABCDE 2 Offset(0,0);
 		Loop;
 	Select:
 		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
 		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
 		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
-		SCYS A 2 A_WeaponReady;
+		SCYS ABCDE 2;
 		Loop;
 	Fire:
-		SCYS A 5 A_FireShotgun;
+		SWIN ABC 3;
+		Goto PullLoop;
+	PullLoop:
+		SWIN D 3
+		{
+			if (!(player.cmd.buttons & BT_ATTACK))
+				return ResolveState ("SwingFinish");
+				
+			return ResolveState (null);
+		}
+		Loop;
+	SwingFinish:
+		SHOO ABCDEF 4;
+		Goto Ready;
+	AltFire:
+		PEPT ABCD 3;
+		SHO2 ABCDE 3;
+		Goto Ready;
+	UnusedStates:
+		// Throw Idle
+		TIDL AB 2;
+		
+		// HolsterEmpty
+		HEMP ABCD 2;
+		
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
