@@ -433,3 +433,13 @@ krotchytoy/alert4 sounds/krotchy_throw_04.wav
 
 $random krotchytoy/boop { krotchytoy/boop1 krotchytoy/boop2 krotchytoy/boop3 krotchytoy/boop4 }
 $random krotchytoy/alert { krotchytoy/alert1 krotchytoy/alert2 krotchytoy/alert3 krotchytoy/alert4 }
+
+weapons/scythe_hitground sounds/scythehitground.wav
+weapons/scythe_hitwall sounds/scythehitwall.wav
+weapons/scythe_limbhit sounds/scythelimbhit.wav
+weapons/scythe_ricochet sounds/scythericochet.wav
+weapons/scythe_slice sounds/scytheslice.wav
+weapons/scythe_stick sounds/scythestick.wav
+weapons/scythe_swingmiss sounds/scytheswingmiss.wav
+weapons/scythe_throw sounds/scythethrowin.wav
+weapons/scythe_throwloop sounds/scythethrowloop.wav
