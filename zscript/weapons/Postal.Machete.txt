@@ -58,6 +58,21 @@ class PostMachete : PostalWeapon
 	
 	}
 	
+	bool HitGroundOnce;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (owner) return;
+			
+		if (pos.z == floorz && HitGroundOnce != true)
+		{
+			A_PlaySound("weapons/machete_hitground", CHAN_WEAPON);
+			HitGroundOnce = true;
+		}
+	}
+	
 	Default
 	{
 		Weapon.Kickback 100;

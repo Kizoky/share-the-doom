@@ -55,6 +55,20 @@ class PostScythe : PostalWeapon
 	
 	}
 	
+	bool HitGroundOnce;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (owner) return;
+		
+		if (pos.z == floorz && HitGroundOnce != true)
+		{
+			A_PlaySound("weapons/scythe_hitground", CHAN_WEAPON);
+			HitGroundOnce = true;
+		}
+	}
 	
 	Default
 	{
@@ -172,7 +186,6 @@ class ThrownScythe : PlasmaBall
 		
 		if (BounceCount == 1)
 		{
-			A_PlaySound("weapons/scythe_hitground", CHAN_WEAPON);
 			A_SpawnItemEx("PostScythe");
 			Destroy();
 		}
