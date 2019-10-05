@@ -175,14 +175,14 @@ class PostMachete : PostalWeapon
 		{
 			A_PlaySound("weapons/machete_throw", CHAN_WEAPON);
 			
-			class<actor> Boomerang = "BoomerangBall";
+			class<actor> Boomerang = "ThrownMachete";
 			
 			Actor BoomerangShoot = SpawnPlayerMissile(Boomerang);
 			//BoomerangShoot.Angle = self.Angle;
 			
 			if (BoomerangShoot)
 			{
-				let pp = BoomerangBall(BoomerangShoot);
+				let pp = ThrownMachete(BoomerangShoot);
 				
 				pp.Owner = self;
 				invoker.Blade = pp;
@@ -236,12 +236,12 @@ class PostMachete : PostalWeapon
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
-		PICK A -1;
+		POST A -1;
 		Stop;
 	}
 }
 
-class BoomerangBall : PlasmaBall
+class ThrownMachete : Actor
 {
 	int TimeBeforeGoingBackToOwner, TimeBeforeAbsoluteVelocity;
 	Actor Owner;
@@ -252,12 +252,6 @@ class BoomerangBall : PlasmaBall
 		Super.PostBeginPlay();
 		TimeBeforeGoingBackToOwner = level.time + 150;
 		TimeBeforeAbsoluteVelocity = 0;
-		
-		if (owner)
-			Console.Printf("yes, I have an owner");
-		
-	
-	
 	}
 	
 	override void Tick()
@@ -268,8 +262,6 @@ class BoomerangBall : PlasmaBall
 		{
 			if (Distance3D(Owner) < 80 && CanDestroy == true)
 			{
-				Console.Printf("Close!");
-				
 				let plr = PostalDude(Owner);
 				
 				let weapon = plr.player.ReadyWeapon;
@@ -283,7 +275,7 @@ class BoomerangBall : PlasmaBall
 			if (CanDestroy == true && TimeBeforeAbsoluteVelocity == 0)
 				TimeBeforeAbsoluteVelocity = level.time + 70;
 			
-			Console.Printf("Distance under or above: %f", Distance3D(Owner));
+			//Console.Printf("Distance under or above: %f", Distance3D(Owner));
 			//Console.Printf("Pitch: %f", pitch);
 		}
 	
@@ -318,19 +310,29 @@ class BoomerangBall : PlasmaBall
 		BounceSound "weapons/machete_hitwall";
 		SeeSound "";
 		DeathSound "weapons/machete_hitground";
+		Projectile;
+		+RANDOMIZE
+		+INTERPOLATEANGLES
+		Scale 1.2;
 	}
   States
   {
   Spawn:
-    PLSS AB 6 Bright
+    THRO AA 6 Bright
 	{
 		A_BackToOwner();
 		A_PlaySound("weapons/machete_throwloop", CHAN_WEAPON);
-		A_SpawnItemEx("Postal_Woosh");
+			
+		Actor Woosh = SpawnPlayerMissile("Postal_Woosh");
+		if (Woosh)
+		{
+			let pp = Postal_Woosh(Woosh);
+			pp.Entity = self;
+			
+		}
 	}
 	Loop;
   Death:
-    PLSE ABCDE 4 Bright;
 	TNT1 A 0 A_SpawnItemEx("PostMachete");
     Stop;
   }
@@ -340,15 +342,18 @@ class Postal_Woosh : PostalActor
 {
 	vector3 spawnpos;
 	bool randomroll;
+	Actor entity;
 	
 	override void Tick()
 	{
 		Super.Tick();
 		
-		/*Alpha -= 0.011;
+		if (entity == null)
+			Destroy();
+		
+		Alpha -= 0.025;
 		if (Alpha < 0)
 			Destroy();
-		*/
 		
 		if (randomroll)
 			roll += 17;
@@ -373,7 +378,7 @@ class Postal_Woosh : PostalActor
 		//+NOBLOCKMAP;
 		//+NOTELEPORT;
 		+ALLOWPARTICLES;
-		RenderStyle "Translucent";
+		RenderStyle "Add";
 		Alpha 1;
 		Scale 1.00;
 		Speed 0.2;
@@ -389,6 +394,6 @@ class Postal_Woosh : PostalActor
 	{
 	Spawn:
 		WHOS AAAAAA 5;
-		Stop;
+		Loop;
 	}
 }
