@@ -210,6 +210,7 @@ class ThrownScythe : PlasmaBall
     PLSS AB 6 Bright
 	{
 		A_PlaySound("weapons/scythe_throwloop", CHAN_WEAPON);
+		A_SpawnItemEx("Postal_Woosh");
 	}
 	Loop;
   Death:

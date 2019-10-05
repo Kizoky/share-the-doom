@@ -314,7 +314,7 @@ class BoomerangBall : PlasmaBall
 		+BOUNCEONWALLS
 		+BOUNCEONFLOORS
 		+BOUNCEONCEILINGS
-		BounceCount 15;
+		BounceCount 10;
 		BounceSound "weapons/machete_hitwall";
 		SeeSound "";
 		DeathSound "weapons/machete_hitground";
@@ -326,6 +326,7 @@ class BoomerangBall : PlasmaBall
 	{
 		A_BackToOwner();
 		A_PlaySound("weapons/machete_throwloop", CHAN_WEAPON);
+		A_SpawnItemEx("Postal_Woosh");
 	}
 	Loop;
   Death:
@@ -333,4 +334,61 @@ class BoomerangBall : PlasmaBall
 	TNT1 A 0 A_SpawnItemEx("PostMachete");
     Stop;
   }
+}
+
+class Postal_Woosh : PostalActor
+{
+	vector3 spawnpos;
+	bool randomroll;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		/*Alpha -= 0.011;
+		if (Alpha < 0)
+			Destroy();
+		*/
+		
+		if (randomroll)
+			roll += 17;
+		else
+			roll -= 17;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		spawnpos = pos;
+		SetOrigin(spawnpos+(0,0,0), TRUE);
+		
+		randomroll = random(0,1);
+		
+	}
+	
+	
+	Default
+	{
+		Mass 5;
+		//+NOBLOCKMAP;
+		//+NOTELEPORT;
+		+ALLOWPARTICLES;
+		RenderStyle "Translucent";
+		Alpha 1;
+		Scale 1.00;
+		Speed 0.2;
+		Gravity 0.25;
+		+RANDOMIZE;
+		+MISSILE;
+		-SOLID;
+		+NOGRAVITY;
+		+ROLLSPRITE;
+		+FLATSPRITE;
+	}
+	States
+	{
+	Spawn:
+		WHOS AAAAAA 5;
+		Stop;
+	}
 }
