@@ -443,3 +443,10 @@ weapons/scythe_stick sounds/scythestick.wav
 weapons/scythe_swingmiss sounds/scytheswingmiss.wav
 weapons/scythe_throw sounds/scythethrowin.wav
 weapons/scythe_throwloop sounds/scythethrowloop.wav
+
+weapons/hammer_hitground sounds/hammerhitground.wav
+weapons/hammer_hitwall sounds/hammerhitwall_metalhit.wav
+weapons/hammer_bodyhit sounds/hammersmashbody.wav
+weapons/hammer_swingmiss sounds/hammerswingmiss.wav
+weapons/hammer_throw sounds/hammerthrowin.wav
+weapons/hammer_throwloop sounds/hammerthrowloop.wav

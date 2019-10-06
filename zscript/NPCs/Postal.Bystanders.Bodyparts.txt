@@ -72,6 +72,14 @@ class NPCHead : PostalActor
 			p.SetStateLabel("Pain");
 		}
 		
+		if (inflictor is 'ThrownMachete' || inflictor is 'ThrownScythe')
+		{
+			p.A_DamageSelf(p.Health);
+			A_PlaySound("misc/gibbed",0);
+			p.SetStateLabel("Headless.Death");
+			SetStateLabel("Headless.Death");
+		}
+		
 		//If the damage the head will take will result in the health less than 1
 		if (((Health - damage) < 1) && !(inflictor is 'fakeTrainCollision') && !(self is 'NPCFollower'))
 		{
@@ -83,7 +91,7 @@ class NPCHead : PostalActor
 				let t = PostalDude(source);
 				if (t)
 				{
-					if (t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) && Distance2D(source) < 85)
+					if ((t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) || t.Player.ReadyWeapon == Weapon(t.FindInventory("PostSledge"))) && Distance2D(source) < 85)
 					{
 						A_PlaySound("misc/gibbed",0);
 						p.SetStateLabel("Headless.Death");

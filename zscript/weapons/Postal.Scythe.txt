@@ -145,8 +145,8 @@ class PostScythe : PostalWeapon
 		{
 			A_PlaySound("weapons/scythe_throw", CHAN_WEAPON);
 			
-			class<actor> Boomerang = "ThrownScythe";
-			Actor ScytheShoot = SpawnPlayerMissile(Boomerang);
+			class<actor> Scythe = "ThrownScythe";
+			Actor ScytheShoot = SpawnPlayerMissile(Scythe);
 		
 		}
 		SHO2 ABCD 4;
@@ -206,6 +206,7 @@ class ThrownScythe : Actor
 		Projectile;
 		+RANDOMIZE
 		+INTERPOLATEANGLES
+		+RIPPER
 		Scale 1.2;
 	}
   States

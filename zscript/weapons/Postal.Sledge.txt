@@ -1,5 +1,75 @@
 class PostSledge : PostalWeapon
 {
+	action void A_SledgeTryHit()
+	{
+		FLineTraceData lineData;
+		LineTrace(angle,52,pitch,offsetz: height, data: LineData);
+		
+		if (LineData.HitType == TRACE_HitNone)
+		{
+			A_PlaySound("weapons/hammer_swingmiss", CHAN_WEAPON);
+			return;
+		}
+		
+		if (LineData.HitType == TRACE_HitActor)
+		{
+			if (LineData.HitActor is 'NPCHead')
+			{
+				A_PlaySound("weapons/hammer_bodyhit", CHAN_WEAPON);
+				A_SledgeHit(LineData.HitActor.Health);
+				return;
+			}
+			
+			A_PlaySound("weapons/hammer_bodyhit", CHAN_WEAPON);
+			A_SledgeHit(0);
+			return;
+		}
+		
+		// Todo bodyparts attack (i.e. limbattack)
+		
+		if (LineData.HitType == TRACE_HitWall)
+		{
+			A_PlaySound("weapons/hammer_hitwall", CHAN_WEAPON);
+			A_SledgeHit(0);
+			return;
+		}
+		
+		if (LineData.HitType == TRACE_HitFloor || LineData.HitType == TRACE_HitCeiling)
+		{
+			A_PlaySound("weapons/scythe_hitground", CHAN_WEAPON);
+			A_SledgeHit(0);
+			return;
+		}
+	}
+	
+	action void A_SledgeHit(int extradamage)
+	{
+		FTranslatedLineTarget t;
+
+		int damage = extradamage + random(14, 18);
+
+		double ang = angle;
+		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
+
+		LineAttack (ang, DEFMELEERANGE, pitch, damage, 'Melee', "PostalMeleeHitPuff", LAF_ISMELEEATTACK, t);
+	
+	}
+	
+	bool HitGroundOnce;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (owner) return;
+		
+		if (pos.z == floorz && HitGroundOnce != true)
+		{
+			A_PlaySound("weapons/hammer_hitground", CHAN_WEAPON);
+			HitGroundOnce = true;
+		}
+	}
+	
 	Default
 	{
 		Weapon.Kickback 100;
@@ -55,7 +125,7 @@ class PostSledge : PostalWeapon
 		Loop;
 	FireFinish:
 		SHOO AB 2;
-		SHOO C 0 A_Punch();
+		SHOO C 0 A_SledgeTryHit();
 		SHOO CDEF 2;
 		Goto Ready;
 	AltFire:
@@ -71,6 +141,14 @@ class PostSledge : PostalWeapon
 		}
 		Loop;
 	AltFireFinish:
+		SHO2 A 0
+		{
+			A_PlaySound("weapons/hammer_throw", CHAN_WEAPON);
+			
+			class<actor> Hammer = "ThrownHammer";
+			Actor HammerShoot = SpawnPlayerMissile(Hammer);
+		
+		}
 		SHO2 ABCDE 3;
 		TNT1 A 0
 		{
@@ -89,4 +167,60 @@ class PostSledge : PostalWeapon
 		PICK A -1;
 		Stop;
 	}
+}
+
+class ThrownHammer : Actor
+{	
+
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (BounceCount == 1)
+		{
+			A_SpawnItemEx("PostSledge");
+			Destroy();
+		}
+	
+	}
+	
+	Default
+	{
+		Scale 2.5;
+		Speed 7;
+		+BOUNCEONWALLS
+		+BOUNCEONFLOORS
+		+BOUNCEONCEILINGS
+		BounceCount 2;
+		BounceSound "weapons/hammer_hitwall";
+		SeeSound "";
+		DeathSound "weapons/hammer_hitground";
+		Projectile;
+		+RANDOMIZE
+		+INTERPOLATEANGLES
+		Scale 1.2;
+	}
+  States
+  {
+  Spawn:
+    THRO AA 6 Bright
+	{
+		A_PlaySound("weapons/hammer_throwloop", CHAN_WEAPON);
+		
+		Actor Woosh = SpawnPlayerMissile("Postal_Woosh");
+		if (Woosh)
+		{
+			let pp = Postal_Woosh(Woosh);
+			pp.Entity = self;
+			pp.bFLATSPRITE = false;
+			//pp.ScaleX = 2.5;
+			//pp.ScaleY = 2.5;
+			
+		}
+	}
+	Loop;
+  Death:
+	TNT1 A 0 A_SpawnItemEx("PostSledge");
+    Stop;
+  }
 }

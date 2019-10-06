@@ -313,6 +313,8 @@ class ThrownMachete : Actor
 		Projectile;
 		+RANDOMIZE
 		+INTERPOLATEANGLES
+		+RIPPER
+		Damage 1;
 		Scale 1.2;
 	}
   States
