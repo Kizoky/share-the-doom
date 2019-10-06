@@ -157,7 +157,7 @@ Model "ThrownMachete"
 	INTERPOLATEDOUBLEDFRAMES
 	ROTATING
 	Rotation-Vector 0 5.0 0
-	Rotation-Speed 25.0
+	Rotation-Speed -25.0
 
 	FrameIndex THRO A 0 0
 	

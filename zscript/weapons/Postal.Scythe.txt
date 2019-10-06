@@ -76,7 +76,7 @@ class PostScythe : PostalWeapon
 		Weapon.SelectionOrder 1300;
 		Obituary "$OB_MPSHOTGUN";
 		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupMessage "Picked up a Scythe";
 		+Weapon.NoAlert;
 	}
 	States
@@ -172,12 +172,12 @@ class PostScythe : PostalWeapon
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
-		PICK A -1;
+		POST A -1;
 		Stop;
 	}
 }
 
-class ThrownScythe : PlasmaBall
+class ThrownScythe : Actor
 {	
 
 	override void Tick()
@@ -203,11 +203,15 @@ class ThrownScythe : PlasmaBall
 		BounceSound "weapons/scythe_hitwall";
 		SeeSound "";
 		DeathSound "weapons/scythe_hitground";
+		Projectile;
+		+RANDOMIZE
+		+INTERPOLATEANGLES
+		Scale 1.2;
 	}
   States
   {
   Spawn:
-    PLSS AB 6 Bright
+    THRO AA 6 Bright
 	{
 		A_PlaySound("weapons/scythe_throwloop", CHAN_WEAPON);
 		
@@ -216,12 +220,13 @@ class ThrownScythe : PlasmaBall
 		{
 			let pp = Postal_Woosh(Woosh);
 			pp.Entity = self;
+			pp.ScaleX = 2.5;
+			pp.ScaleY = 2.5;
 			
 		}
 	}
 	Loop;
   Death:
-    PLSE ABCDE 4 Bright;
 	TNT1 A 0 A_SpawnItemEx("PostScythe");
     Stop;
   }
