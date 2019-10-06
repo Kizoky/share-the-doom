@@ -16,83 +16,78 @@ class PostalWeapon : Weapon
 			Kickback = 0;
 			
 		}
-			
-		
 	}
 	
 	override void Touch (Actor toucher)
 	{
-		if (toucher is 'PostalDude')
-		{
+		if (!(toucher is 'PostalDude')) return;
 		
-			let player = toucher.player;
+		let player = toucher.player;
 
-			// If a voodoo doll touches something, pretend the real player touched it instead.
+		// If a voodoo doll touches something, pretend the real player touched it instead.
+		if (player != NULL)
+		{
+			toucher = player.mo;
+		}
+
+		bool localview = toucher.CheckLocalView();
+
+		if (!toucher.CanTouchItem(self))
+			return;
+
+		bool res;
+		[res, toucher] = CallTryPickup(toucher);
+		if (!res) return;
+
+		// This is the only situation when a pickup flash should ever play.
+		if (PickupFlash != NULL && !ShouldStay())
+		{
+			Spawn(PickupFlash, Pos, ALLOW_REPLACE);
+		}
+
+		if (!bQuiet)
+		{
+			PrintPickupMessage(localview, PickupMessage ());
+
+			// Special check so voodoo dolls picking up items cause the
+			// real player to make noise.
 			if (player != NULL)
 			{
-				toucher = player.mo;
-			}
-
-			//bool localview = toucher.CheckLocalView();
-
-			//if (!toucher.CanTouchItem(self))
-			//	return;
-
-			bool res;
-			[res, toucher] = CallTryPickup(toucher);
-			if (!res) return;
-
-			// This is the only situation when a pickup flash should ever play.
-			if (PickupFlash != NULL && !ShouldStay())
-			{
-				Spawn(PickupFlash, Pos, ALLOW_REPLACE);
-			}
-
-			if (!bQuiet)
-			{
-				//PrintPickupMessage(localview, PickupMessage ());
-
-				// Special check so voodoo dolls picking up items cause the
-				// real player to make noise.
-				if (player != NULL)
+				PlayPickupSound (player.mo);
+				if (!bNoScreenFlash)
 				{
-					PlayPickupSound (player.mo);
-					if (!bNoScreenFlash)
-					{
-						player.bonuscount = BONUSADD;
-					}
+					player.bonuscount = BONUSADD;
 				}
-				else
-				{
-					PlayPickupSound (toucher);
-				}
-			}							
-
-			// [RH] Execute an attached special (if any)
-			DoPickupSpecial (toucher);
-
-			if (bCountItem)
-			{
-				if (player != NULL)
-				{
-					player.itemcount++;
-				}
-				level.found_items++;
 			}
-
-			if (bCountSecret)
+			else
 			{
-				Actor ac = player != NULL? Actor(player.mo) : toucher;
-				ac.GiveSecret(true, true);
+				PlayPickupSound (toucher);
 			}
+		}							
 
-			//Added by MC: Check if item taken was the roam destination of any bot
-			for (int i = 0; i < MAXPLAYERS; i++)
+		// [RH] Execute an attached special (if any)
+		DoPickupSpecial (toucher);
+
+		if (bCountItem)
+		{
+			if (player != NULL)
 			{
-				if (players[i].Bot != NULL && self == players[i].Bot.dest)
-					players[i].Bot.dest = NULL;
+				player.itemcount++;
 			}
-		
+			level.found_items++;
+		}
+
+		if (bCountSecret)
+		{
+			Actor ac = player != NULL? Actor(player.mo) : toucher;
+			ac.GiveSecret(true, true);
+		}
+
+		//Added by MC: Check if item taken was the roam destination of any bot
+		for (int i = 0; i < MAXPLAYERS; i++)
+		{
+			if (players[i].Bot != NULL && self == players[i].Bot.dest)
+				players[i].Bot.dest = NULL;
 		}
 	}
 	
@@ -109,7 +104,9 @@ class PostalWeapon : Weapon
 		Weapon.BobRangeX 0.2;
 		Weapon.BobRangeY -0.25;
 		Weapon.YAdjust 0;
-		
+		Inventory.PickupFlash "";
+		Inventory.PickupMessage "Picked up a Postal weapon.";
+		+INVENTORY.NOSCREENFLASH
 		//Weapon.BobStyle "Normal";
 		//Weapon.BobSpeed 0.35;
 		//Weapon.BobRangeX 0.5;

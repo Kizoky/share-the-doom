@@ -12,25 +12,20 @@ Model "PostSledge"
 	Scale -1 0.75 1
 	Offset 1 0 -12 //X Y Z
 
-	// Select 1-10
-	FrameIndex POHS A 0 1 
-	FrameIndex POHS B 0 2 
-	FrameIndex POHS C 0 3 
-	FrameIndex POHS D 0 4 
-	FrameIndex POHS E 0 5 
-	FrameIndex POHS F 0 6 
-	FrameIndex POHS G 0 7 
-	FrameIndex POHS H 0 8 
-	FrameIndex POHS I 0 9 
-	FrameIndex POHS J 0 10
+	// Select 0-7
+	FrameIndex POHS A 0 0
+	FrameIndex POHS B 0 2
+	FrameIndex POHS C 0 4
+	FrameIndex POHS D 0 5
+	FrameIndex POHS E 0 6
+	FrameIndex POHS F 0 7
 	
-	// Deselect 9-16
-	FrameIndex SLED A 0 11 
-	FrameIndex SLED B 0 12
-	FrameIndex SLED C 0 13
+	// Deselect 8-16
+	FrameIndex SLED A 0 8 
+	FrameIndex SLED B 0 10
+	FrameIndex SLED C 0 12
 	FrameIndex SLED D 0 14
-	FrameIndex SLED E 0 15
-	FrameIndex SLED F 0 16
+	FrameIndex SLED E 0 16
 	
 	// Idling Frames 17 to 47
 	FrameIndex POHI A 0 17
@@ -50,45 +45,50 @@ Model "PostSledge"
 	FrameIndex POHI O 0 45
 	FrameIndex POHI P 0 47
 	
-	// Secondary Attack 59-68
-	FrameIndex SLES A 0 59
+	// Shoot1 48 to 57
+	FrameIndex SHOO A 0 48
+	FrameIndex SHOO B 0 50
+	FrameIndex SHOO C 0 52
+	FrameIndex SHOO D 0 54
+	FrameIndex SHOO E 0 56
+	FrameIndex SHOO F 0 57
+	
+	// Secondary Attack 58-62 (prepthrow)
+	FrameIndex SLES A 0 58
 	FrameIndex SLES B 0 60
-	FrameIndex SLES C 0 61
-	FrameIndex SLES D 0 62
-	FrameIndex SLES E 0 63
-	FrameIndex SLES F 0 64
-	FrameIndex SLES G 0 65
-	FrameIndex SLES H 0 66
-	FrameIndex SLES I 0 67
-	FrameIndex SLES J 0 68
+	FrameIndex SLES C 0 62
+	
+	// Shoot2 63 to 68
+	FrameIndex SHO2 A 0 63
+	FrameIndex SHO2 B 0 64
+	FrameIndex SHO2 C 0 65
+	FrameIndex SHO2 D 0 66
+	FrameIndex SHO2 E 0 67
+	FrameIndex SHO2 F 0 68
+	FrameIndex SHO2 G 0 69
+	FrameIndex SHO2 H 0 70
+	FrameIndex SHO2 I 0 71
+	FrameIndex SHO2 J 0 72
+	FrameIndex SHO2 K 0 73
+	FrameIndex SHO2 L 0 74
+	FrameIndex SHO2 M 0 75
 	
 	// Weapon throw Frames 71 to 75
 	
 	// Attack Frames 76 to 98
 	
-	FrameIndex POH2 A 0 76 
-	FrameIndex POH2 B 0 77 
-	FrameIndex POH2 C 0 78 
-	FrameIndex POH2 D 0 79 
-	FrameIndex POH2 E 0 80 
-	FrameIndex POH2 F 0 81 
-	FrameIndex POH2 G 0 82 
-	FrameIndex POH2 H 0 83 
-	FrameIndex POH2 I 0 84 
-	FrameIndex POH2 J 0 85 
-	FrameIndex POH2 K 0 86 
-	FrameIndex POH2 L 0 87 
-	FrameIndex POH2 M 0 88 
-	FrameIndex POH2 N 0 89 
-	FrameIndex POH2 O 0 90 
-	FrameIndex POH2 P 0 91 
-	FrameIndex POH2 Q 0 92 
-	FrameIndex POH2 R 0 93 
-	FrameIndex POH2 S 0 94 
-	FrameIndex POH2 T 0 95 
-	FrameIndex POH2 U 0 96 
-	FrameIndex POH2 V 0 97 
-	FrameIndex POH2 W 0 98
+	FrameIndex POH2 A 0 76
+	FrameIndex POH2 B 0 78
+	FrameIndex POH2 C 0 80
+	FrameIndex POH2 D 0 82
+	FrameIndex POH2 E 0 84
+	FrameIndex POH2 F 0 86
+	FrameIndex POH2 G 0 88
+	FrameIndex POH2 H 0 90
+	FrameIndex POH2 I 0 92
+	FrameIndex POH2 J 0 94
+	FrameIndex POH2 K 0 96
+	FrameIndex POH2 L 0 98
 	
 }
 
