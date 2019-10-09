@@ -321,6 +321,8 @@ extend class PostalDude
 			if (PlayerDude.DummyCorpse)
 			{
 				PlayerDude.DummyCorpse.Destroy();
+				A_TakeInventory("CameraRunner", 1);
+				A_GiveInventory("HUDViewable", 1);
 			}
 			PlayerDude.DummyCorpseSpawned = false;
 		}
