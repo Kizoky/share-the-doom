@@ -162,20 +162,22 @@ class NPCHead : PostalActor
 			Stop;
 		Headless.Death:
 			//Let's start with the HeadExplode sprite first.. Hopefully this is what Postal 2 is using first
-			TNT1 A 0 A_SpawnItemEx("Postal_HeadExplode");
+			TNT1 A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(4.0, 6.0));
+			TNT1 A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(4.0, 6.0));
+			//Spawn blood particle too to make it feel like the head is crushed
+			TNT1 A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(4.0, 6.0));
+			TNT1 A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(4.0, 6.0));
 			
-			//Spawn spinning Skull chunks that are slightly bouncing off from the floors, walls, etc..
-			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			
-			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-			TNT1 A 0 A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			//Spawn spinning Skull and brain chunks that are slightly bouncing off from the floors, walls, etc..
+			TNT1 A 0
+			{
+				int i = 0;
+				while (i < 8) {
+					A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0, 6.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+					A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0, 15.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+					i++;
+				}
+			}
 			Stop;
 		Melee:
 			Stop;
