@@ -189,6 +189,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	Actor IdlingTarget;
 	
+	int SuicideAngle;
+	
 	// Needed for Cop AI
 	double PunishPoints;
 	bool ResetDoneByCop;
@@ -375,7 +377,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				// but make sure to check it's not null or else GZDoom will crash
 				if (DummyCorpse)
 				{
-					DummyCorpse.angle = self.angle;
+					DummyCorpse.angle = SuicideAngle;
 					
 					let dd = DummyDude(DummyCorpse);
 					dd.MyDude = self;
@@ -888,6 +890,15 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	}
 }
 
+class DummyDude2 : DummyDude
+{
+	override void PostBeginPlay()
+	{
+		SetStateLabel("Corpse");
+	}
+
+}
+
 class DummyDude : Actor
 {
 	actor MyDude;
@@ -911,11 +922,10 @@ class DummyDude : Actor
 					}
 				}
 			}
+			
+			if (MyDude.bKILLED)
+				SetOrigin(MyDude.pos+(0,0,0), TRUE);
 		}
-		
-		if (MyDude.bKILLED)
-			SetOrigin(MyDude.pos+(0,0,0), TRUE);
-		
 	}
 
 	Default
@@ -947,6 +957,23 @@ class DummyDude : Actor
 		MISL BCD 7 Bright Offset(45,45);
 		Stop;
 	Corpse:
+		DUDD A 0 A_PlaySound("misc/gibbed",0);
+		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(54.0, 56.0));
+		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(54.0, 56.0));
+		//Spawn blood particle too to make it feel like the head is crushed
+		DUDD A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(54.0, 56.0));
+		DUDD A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(54.0, 56.0));
+		
+		//Spawn spinning Skull and brain chunks that are slightly bouncing off from the floors, walls, etc..
+		DUDD A 0
+		{
+			int i = 0;
+			while (i < 8) {
+				A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(54.0, 56.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+				A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(52.0, 55.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+				i++;
+			}
+		}
 		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		DUD2 ABCDEFGHIJKLMNOP 2;
 		DUD2 P -1;

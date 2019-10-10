@@ -597,6 +597,7 @@ Model "DummyDude"
 	FrameIndex DUDE Z 0 591
 	
 	// Death 221 to 287
+	SurfaceSkin 0 1 "invis.png"
 	
 	FrameIndex DUDD A 0 1211
 	FrameIndex DUDD B 0 1213
