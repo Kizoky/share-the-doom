@@ -92,6 +92,44 @@ Model "PostSledge"
 	
 }
 
+Model "ThrownHammer"
+{
+	Path "models\weapons\sledge"
+	Model 0 "Sledgethrow.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "sledge/sledge_1.png"
+	SurfaceSkin 0 1 "sledge/sledge_wood.png"
+	AngleOffset 90 //40
+	Scale -1 0.75 1
+	Offset 0 0 11 //X Y Z
+	INTERPOLATEDOUBLEDFRAMES
+	ROTATING
+	Rotation-Vector 0 0 5.0
+	Rotation-Speed -25.0
+
+	FrameIndex THRO A 0 0
+	
+}
+
+Model "PostSledge"
+{
+	Path "models\weapons\sledge"
+	Model 0 "SledgePickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "sledge/sledge_wood.png"
+	SurfaceSkin 0 1 "sledge/sledge_1.png"
+	AngleOffset 90 //40
+	Scale -1 0.75 1
+	Offset 0 0 0 //X Y Z
+
+	FrameIndex POST A 0 0
+	
+}
+
 Model "PostSledge"
 {
 	Path "models\weapons\kick"

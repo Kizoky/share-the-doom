@@ -164,7 +164,7 @@ class PostSledge : PostalWeapon
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
-		PICK A -1;
+		POST A -1;
 		Stop;
 	}
 }
@@ -199,6 +199,7 @@ class ThrownHammer : Actor
 		+RANDOMIZE
 		+INTERPOLATEANGLES
 		Scale 1.2;
+		Damage 1;
 	}
   States
   {

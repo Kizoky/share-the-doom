@@ -72,7 +72,7 @@ class NPCHead : PostalActor
 			p.SetStateLabel("Pain");
 		}
 		
-		if (inflictor is 'ThrownMachete' || inflictor is 'ThrownScythe')
+		if (inflictor is 'ThrownMachete' || inflictor is 'ThrownScythe' || inflictor is 'ThrownHammer')
 		{
 			p.A_DamageSelf(p.Health);
 			A_PlaySound("misc/gibbed",0);
