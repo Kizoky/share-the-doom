@@ -34,9 +34,9 @@ class PostShotgun : PostalWeapon replaces Shotgun
 		SHSH B 0 A_SetPitch(pitch-0.66);
 		SHSH B 5 A_FireShotgun;
 		SHSH C 0 A_SetPitch(pitch+0.66);
-		SHSH CD 3;
+		SHSH CD 2;
 		SHSH E 0 A_PlaySound("weapons/shotgr");
-		SHSH EFGH 3;
+		SHSH EFGH 2;
 		SHSH IJKLMNOPQ 2;
 		//Needed for Shell visual glitch
 		SHSH QPONMLKJIHGFEDCBA 0;
