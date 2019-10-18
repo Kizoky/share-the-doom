@@ -44,6 +44,11 @@ episode NODETEST
 	name="Doom Builder flag test"
 }
 
+episode WORLD1
+{
+	name="Actual map(s) that will be used in the final version"
+}
+
 defaultmap
 {
 	sky1=F_SKY1
@@ -78,6 +83,16 @@ map DEVMAP2 "Maisth loves corruption"
 {
 	levelnum = 2
 	//music=D_FFL1
+	sky1=F_SKY1
+	cluster=1
+}
+
+
+
+map WORLD1 "Phoenix Outskirts - Day!"
+{
+	levelnum = 0
+	music=Amb_01
 	sky1=F_SKY1
 	cluster=1
 }
