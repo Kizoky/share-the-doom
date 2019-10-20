@@ -85,7 +85,7 @@ Model "PostTazer"
 	FrameIndex TAZF V 0 79
 	
 	// Hold 80-105
-	/*FrameIndex TZHO A 0 80 
+	FrameIndex TZHO A 0 80 
 	FrameIndex TZHO B 0 81 
 	FrameIndex TZHO C 0 82 
 	FrameIndex TZHO D 0 83 
@@ -134,7 +134,7 @@ Model "PostTazer"
 	FrameIndex TZEN S 0 124
 	FrameIndex TZEN T 0 125
 	FrameIndex TZEN U 0 126
-	FrameIndex TZEN V 0 127*/
+	FrameIndex TZEN V 0 127
 
 }
 

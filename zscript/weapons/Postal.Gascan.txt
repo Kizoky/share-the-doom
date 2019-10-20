@@ -437,6 +437,9 @@ class PostalLiquidGas : PostalActor
 		{
 			let PlayerDude = PostalDude(source);
 			
+			// Note: This was a failed experiment if I could make the fire spreading faster by putting them into an Array
+			// Turns out this had many flaws... So currently it would only work if you set the last poured gas on fire, it would look nice.
+			
 			/*
 			for (int i = 0; i < PlayerDude.AmountofLiquid.Size(); i++)
 			{

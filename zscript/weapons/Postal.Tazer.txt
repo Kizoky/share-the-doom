@@ -1,13 +1,118 @@
-class PostTazer : PostalWeapon
+class TazerStun : Powerup
 {
 	Default
 	{
-    Weapon.Kickback 100;
-    Weapon.SelectionOrder 1300;
-	Obituary "$OB_MPSHOTGUN";
-    Tag "$TAG_SHOTGUN";
-	Inventory.PickupMessage "$GOTSHOTGUN";
-	+Weapon.NoAlert;
+		Powerup.Duration -10000;
+		+INVENTORY.HUBPOWER
+		Inventory.MaxAmount 1;
+	}
+	
+	int TimeBeforeEnd;
+	int SavedAngle;
+	double WaitTime, WaitTime2;
+	vector3 SavedPos;
+	
+	override void InitEffect ()
+	{
+		Super.InitEffect();
+		Owner.Speed = 0;
+		Owner.bAVOIDMELEE = true;
+		SavedPos = owner.pos;
+		TimeBeforeEnd = level.time + 35 * 3;
+		WaitTime = level.time + 2;
+		WaitTime2 = level.time + 4;
+		SavedAngle = owner.Angle;
+	}
+
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if (Owner == NULL || Owner.player == NULL)
+		{
+			return;
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (owner == null) return;
+		
+		Console.Printf("%d", EffectTics);
+		Console.Printf("%d < %d", TimeBeforeEnd,level.time);
+		
+		if (TimeBeforeEnd < level.time)
+		{
+			let p = Actor(Owner);
+			Owner.Speed = p.Default.Speed;
+			
+			Owner.bAVOIDMELEE = false;
+			
+			self.EffectTics = 0;
+			
+			return;
+		
+		}
+		
+		owner.SetOrigin(SavedPos+(0,0,0), TRUE);
+		Owner.Angle = SavedAngle;
+		if (WaitTime < level.time)
+		{
+			WaitTime = level.time + 2;
+			Owner.A_PlaySound(PainSound);
+			Owner.SetStateLabel("Pain");
+			Owner.A_SetTics(1);
+		}
+		
+		if (WaitTime2 < level.time)
+		{
+			WaitTime2 = level.time + 4;
+			Owner.SetStateLabel("See");
+		}
+	}
+}
+
+class PostTazer : PostalWeapon
+{
+	action void A_TazerTryHit()
+	{
+		FLineTraceData lineData;
+		LineTrace(angle,52,pitch,offsetz: height, data: LineData);
+		
+		if (LineData.HitType == TRACE_HitNone)
+		{
+			return;
+		}
+		
+		if (LineData.HitType == TRACE_HitActor)
+		{		
+			A_PlaySound("weapons/tazer_hit", CHAN_WEAPON | 4096);
+			if (LineData.HitActor.CheckInventory("TazerStun",1))
+			{
+				Console.Printf("Already has a powerup");
+				
+				let p = LineData.HitActor.FindInventory("TazerStun");
+				let pp = TazerStun(p);
+				
+				pp.TimeBeforeEnd = level.time + 35 * 3;
+				
+				LineData.HitActor.A_DamageSelf(1);
+				
+				return;
+			}
+			
+			LineData.HitActor.A_GiveInventory("TazerStun");
+		}
+	}
+	
+	Default
+	{
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$TAG_SHOTGUN";
+		Inventory.PickupMessage "$GOTSHOTGUN";
+		+Weapon.NoAlert;
 	}
 	States
 	{
@@ -42,7 +147,25 @@ class PostTazer : PostalWeapon
 		TAZS ABCDEFGH 2 A_WeaponReady;
 		Loop;
 	Fire:
-		TAZF ABCDEFGHIJKLMNOPQRSTUV 3 A_FireShotgun;
+		TAZF ABCDEFGHIJKLMNOPQ 1;
+		TAZF R 0 A_PlaySound("weapons/tazer_fire", CHAN_WEAPON);
+		TAZF RSTUV 1;
+		Goto Hold;
+	Hold:
+		TZHO ABCDEFGHIJKLMNOPQRSTUVWXYZ 2
+		{
+			A_PlaySound("weapons/tazer_loop", CHAN_WEAPON | 4096);
+			A_TazerTryHit();
+			
+			if (!(player.cmd.buttons & BT_ATTACK))
+				return ResolveState ("HoldEnd");
+			
+			return ResolveState (null);
+		}
+		Loop;
+	HoldEnd:
+		TZEN A 0 A_PlaySound("weapons/tazer_end", CHAN_WEAPON);
+		TZEN ABCDEFGHIJKLMNOPQRSTUV 1;
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;

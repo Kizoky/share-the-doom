@@ -450,3 +450,8 @@ weapons/hammer_bodyhit sounds/hammersmashbody.wav
 weapons/hammer_swingmiss sounds/hammerswingmiss.wav
 weapons/hammer_throw sounds/hammerthrowin.wav
 weapons/hammer_throwloop sounds/hammerthrowloop.wav
+
+weapons/tazer_hit sounds/tazer_hit.wav
+weapons/tazer_loop sounds/tazer_loop.wav
+weapons/tazer_fire sounds/tazer_fire.wav
+weapons/tazer_end sounds/tazer_end.wav
