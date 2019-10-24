@@ -1,0 +1,118 @@
+class PostalDoor : Actor
+{
+	int AngleBefore;
+	int DoorCloseTime;
+	bool DoorClosed;
+	bool HitOnce;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		//Check to prevent spamming that would break the door
+		if (DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		HitOnce = true;
+		AngleBefore = self.angle;
+		DoorCloseTime = level.time + (35 * 5);
+		SetStateLabel("Open");
+		A_PlaySound("door/kick", 0);
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	virtual void A_OpenDoor()
+	{
+		DoorClosed = false;
+		float RotationSpeed = 16;
+		
+			if (abs (deltaangle (angle, AngleBefore-90)) < 10)
+			{
+				angle = AngleBefore-90;
+				SetStateLabel("Spawn");
+				return;
+			}
+			
+			if (((AngleBefore-90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+			
+			Console.Printf("Angle: %f", angle);
+		
+	}
+	
+	virtual void A_CloseDoor()
+	{
+		float RotationSpeed = 16;
+		
+			if (abs (deltaangle (angle, AngleBefore)) < 10)
+			{
+				angle = AngleBefore;
+				A_PlaySound("door/close", 0);
+				SetStateLabel("Spawn");
+				DoorClosed = true;
+				return;
+			}
+			
+			if (((AngleBefore) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+			
+			Console.Printf("Angle: %f", angle);
+		
+	}
+	
+	vector3 OriginalPos;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		DoorClosed = true;
+		OriginalPos = pos;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		SetOrigin(OriginalPos, TRUE);
+		
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Door"
+		Radius 5;
+		Height 85;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+NOTARGET
+		MONSTER;
+		+FRIENDLY
+		+INTERPOLATEANGLES
+		PainChance 0;
+		Health 99999999;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10
+		{
+			if (level.time > DoorCloseTime && DoorClosed == false && HitOnce == true)
+			{
+				SetStateLabel("Close");
+			}
+		}
+		Loop;
+	Open:
+		PROP A 2 A_OpenDoor();
+		Loop;
+	Close:
+		PROP A 2 A_CloseDoor();
+		Loop;
+	}
+}

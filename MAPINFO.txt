@@ -29,6 +29,11 @@ episode DEVMAP
 	name="Development level"
 }
 
+episode testdoor
+{
+	name="Door and Window test"
+}
+
 episode TESTPOST
 {
 	name="Cutscene test"

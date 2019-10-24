@@ -67,5 +67,6 @@ DoomEdNums
   32705 = copcar_burnt
   32704 = copcar_vandalized
   32703 = nastyfence
+  32702 = postaldoor
   
 }

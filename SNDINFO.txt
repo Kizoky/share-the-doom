@@ -455,3 +455,7 @@ weapons/tazer_hit sounds/tazer_hit.wav
 weapons/tazer_loop sounds/tazer_loop.wav
 weapons/tazer_fire sounds/tazer_fire.wav
 weapons/tazer_end sounds/tazer_end.wav
+
+door/open sounds/DoorOpen.wav
+door/close sounds/DoorClose.wav
+door/kick sounds/foot_kickdoor.wav

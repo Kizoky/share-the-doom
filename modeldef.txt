@@ -7,6 +7,7 @@
 #include "models/modeldef/modeldef.mGasoline.txt"
 #include "models/modeldef/modeldef.bNPCCop.txt"
 #include "models/modeldef/modeldef.bNPCCore.txt"
+#include "models/modeldef/modeldef.environment.txt"
 #include "models/modeldef/modeldef.bNPCFollower.txt"
 #include "models/modeldef/modeldef.bKrotchy.txt"
 #include "models/modeldef/modeldef.nanimals.txt"
