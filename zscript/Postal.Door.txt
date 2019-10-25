@@ -47,10 +47,10 @@ class PostalDoor : Actor
 		
 			if (abs (deltaangle (angle, AngleBefore)) < 10)
 			{
+				DoorClosed = true;
 				angle = AngleBefore;
 				A_PlaySound("door/close", 0);
 				SetStateLabel("Spawn");
-				DoorClosed = true;
 				return;
 			}
 			
