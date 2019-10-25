@@ -89,10 +89,19 @@ map DEVMAP2 "Maisth loves corruption"
 
 
 
-map WORLD1 "Phoenix Outskirts - Day!"
+map WORLD1 "Phoenix Outskirts - Day"
 {
 	levelnum = 0
 	music=Amb_01
+	sky1=F_SKY1
+	cluster=1
+}
+
+
+map WORLD2 "Factory - Day"
+{
+	levelnum = 2
+	music=Amb_02
 	sky1=F_SKY1
 	cluster=1
 }
