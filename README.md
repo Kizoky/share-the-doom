@@ -6,6 +6,8 @@
 
 Note: Multiplayer MAY work, I ONLY tested it in LAN, I'm not sure if it would work via p2p
 
+For mapping check out these GZDB Flags: https://github.com/Kizoky/share-the-doom/blob/master/GZDBFlags.md
+
 [Weapons]
 - All the weapons are currently unfinished or just partially working, but are functional.
 - Vanilla Postal 2 & AW weapons are in the mod
