@@ -85,7 +85,9 @@ class PostTazer : PostalWeapon
 		}
 		
 		if (LineData.HitType == TRACE_HitActor)
-		{		
+		{
+			if (LineData.HitActor is 'postaldoor' || LineData.HitActor is 'postaldoor_extender') return;
+			
 			A_PlaySound("weapons/tazer_hit", CHAN_WEAPON | 4096);
 			if (LineData.HitActor.CheckInventory("TazerStun",1))
 			{
