@@ -1,21 +1,147 @@
+// The Doom engine is limited, and according to Graf changing the width of certain actors won't be possible like ever
+// This is some sort of "hack" to make the Player feel they are actually interacting with a door and can't pass through it
+
+class PostalDoor_Extender : Actor
+{
+	Actor AttachedToDoor;
+	int AngleBefore;
+	
+	action void A_SearchForDoor()
+	{
+		if (invoker.AttachedToDoor != null) return;
+		
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 10);
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+			
+			if (invoker.AttachedToDoor == null)
+			{
+				if (next is 'PostalDoor')
+				{
+					invoker.AttachedToDoor = next;
+				}
+			}
+		}
+    }
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		let door = PostalDoor(AttachedToDoor);
+		if (door != null)
+		{
+			if (abs (DeltaAngle (door.AngleBefore, source.angle)) >= 90)
+			{
+				Console.Printf("Front: %d", source.angle);
+			} else Console.Printf("Back: %d", source.angle);
+			
+			if (door.DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			
+			door.HitOnce = true;
+			door.DoorCloseTime = level.time + (35 * 5);
+			A_PlaySound("door/kick", 0);
+			
+			// A simple check to detect if Door was hit in front or back
+			if (abs (DeltaAngle (door.AngleBefore, source.angle)) >= 90)
+			{
+				door.FrontBack = false;
+				door.SetStateLabel("Open");
+				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			} 
+			else 
+			{
+				door.FrontBack = true;
+				door.SetStateLabel("Open");
+				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			}
+		}
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	vector3 OriginalPos;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		OriginalPos = pos;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		SetOrigin(OriginalPos, TRUE);
+		
+		let door = PostalDoor(AttachedToDoor);
+		if (door != null)
+		{
+			if (door.DoorClosed == false) bNOCLIP = true;
+			else bNOCLIP = false;
+		}
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Door Extender"
+		Radius 5;
+		Height 85;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+NOTARGET
+		MONSTER;
+		+FRIENDLY
+		+INTERPOLATEANGLES
+		+NOBLOOD
+		PainChance 0;
+		Health 99999999;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 10 A_SearchForDoor();
+		Loop;
+	}
+}
+
 class PostalDoor : Actor
 {
 	int AngleBefore;
 	int DoorCloseTime;
 	bool DoorClosed;
 	bool HitOnce;
+	bool FrontBack;
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			Console.Printf("Front: %d", source.angle);
+		} else Console.Printf("Back: %d", source.angle);
+		
 		//Check to prevent spamming that would break the door
 		if (DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		
 		HitOnce = true;
-		AngleBefore = self.angle;
 		DoorCloseTime = level.time + (35 * 5);
-		SetStateLabel("Open");
 		A_PlaySound("door/kick", 0);
 		
+		// A simple check to detect if Door was hit in front or back
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			FrontBack = false;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		} 
+		else 
+		{
+			FrontBack = true;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		}
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
 	
@@ -24,6 +150,10 @@ class PostalDoor : Actor
 		DoorClosed = false;
 		float RotationSpeed = 16;
 		
+		// If hit from front
+		if (FrontBack == true)
+		{
+			//Console.Printf("Hitting front");
 			if (abs (deltaangle (angle, AngleBefore-90)) < 10)
 			{
 				angle = AngleBefore-90;
@@ -36,8 +166,25 @@ class PostalDoor : Actor
 				angle = angle+RotationSpeed;
 			}
 			else angle = angle-RotationSpeed;
+		}
+		
+		// If hit from back
+		if (FrontBack == false)
+		{
+			//Console.Printf("Hitting back");
+			if (abs (deltaangle (angle, AngleBefore+90)) < 10)
+			{
+				angle = AngleBefore+90;
+				SetStateLabel("Spawn");
+				return;
+			}
 			
-			Console.Printf("Angle: %f", angle);
+			if (((AngleBefore+90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+		}
 		
 	}
 	
@@ -59,8 +206,6 @@ class PostalDoor : Actor
 				angle = angle+RotationSpeed;
 			}
 			else angle = angle-RotationSpeed;
-			
-			Console.Printf("Angle: %f", angle);
 		
 	}
 	
@@ -69,6 +214,7 @@ class PostalDoor : Actor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
+		AngleBefore = self.angle;
 		DoorClosed = true;
 		OriginalPos = pos;
 	}
@@ -94,6 +240,7 @@ class PostalDoor : Actor
 		MONSTER;
 		+FRIENDLY
 		+INTERPOLATEANGLES
+		+NOBLOOD
 		PainChance 0;
 		Health 99999999;
 	}
