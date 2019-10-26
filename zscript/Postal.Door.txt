@@ -45,18 +45,56 @@ class PostalDoor_Extender : Actor
 			if (abs (DeltaAngle (door.AngleBefore, source.angle)) >= 90)
 			{
 				door.FrontBack = false;
+				door.RotationSpeed = 16;
 				door.SetStateLabel("Open");
 				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 			} 
 			else 
 			{
 				door.FrontBack = true;
+				door.RotationSpeed = 16;
 				door.SetStateLabel("Open");
 				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 			}
 		}
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	override void Touch(Actor toucher)
+	{
+		if (toucher)
+		{
+			let door = PostalDoor(AttachedToDoor);
+			let NPC = NPCCore(toucher);
+			
+			//if (NPC) NPC.SetStateLabel("Standing");
+			
+			if (door != null)
+			{
+				if (door.DoorClosed == false) return;
+				
+				door.HitOnce = true;
+				door.DoorCloseTime = level.time + (35 * 5);
+				A_PlaySound("door/open", 0);
+				
+				// A simple check to detect if Door was hit in front or back
+				if (abs (DeltaAngle (door.AngleBefore, toucher.angle)) >= 90)
+				{
+					door.FrontBack = false;
+					door.RotationSpeed = 8;
+					door.SetStateLabel("Open");
+					return;
+				} 
+				else 
+				{
+					door.FrontBack = true;
+					door.RotationSpeed = 8;
+					door.SetStateLabel("Open");
+					return;
+				}
+			}
+		}
 	}
 	
 	vector3 OriginalPos;
@@ -95,6 +133,7 @@ class PostalDoor_Extender : Actor
 		+FRIENDLY
 		+INTERPOLATEANGLES
 		+NOBLOOD
+		+SPECIAL
 		PainChance 0;
 		Health 99999999;
 	}
@@ -113,6 +152,8 @@ class PostalDoor : Actor
 	bool DoorClosed;
 	bool HitOnce;
 	bool FrontBack;
+	
+	float RotationSpeed;
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
@@ -148,7 +189,6 @@ class PostalDoor : Actor
 	virtual void A_OpenDoor()
 	{
 		DoorClosed = false;
-		float RotationSpeed = 16;
 		
 		// If hit from front
 		if (FrontBack == true)
@@ -190,22 +230,22 @@ class PostalDoor : Actor
 	
 	virtual void A_CloseDoor()
 	{
-		float RotationSpeed = 16;
+		RotationSpeed = 16;
 		
-			if (abs (deltaangle (angle, AngleBefore)) < 10)
-			{
-				DoorClosed = true;
-				angle = AngleBefore;
-				A_PlaySound("door/close", 0);
-				SetStateLabel("Spawn");
-				return;
-			}
-			
-			if (((AngleBefore) - angle + 360) % 360 < 180)
-			{	
-				angle = angle+RotationSpeed;
-			}
-			else angle = angle-RotationSpeed;
+		if (abs (deltaangle (angle, AngleBefore)) < 10)
+		{
+			DoorClosed = true;
+			angle = AngleBefore;
+			A_PlaySound("door/close", 0);
+			SetStateLabel("Spawn");
+			return;
+		}
+		
+		if (((AngleBefore) - angle + 360) % 360 < 180)
+		{	
+			angle = angle+RotationSpeed;
+		}
+		else angle = angle-RotationSpeed;
 		
 	}
 	
@@ -217,6 +257,7 @@ class PostalDoor : Actor
 		AngleBefore = self.angle;
 		DoorClosed = true;
 		OriginalPos = pos;
+		RotationSpeed = 16;
 	}
 	
 	override void Tick()
