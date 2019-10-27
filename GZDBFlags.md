@@ -39,6 +39,9 @@ user_shop_patiencetimes: Only works with user_shop_patient; Defines the amount o
 - user_openAfter: Door is unlocked after the amount specified. For example, "35x10=350", adding 350 would make the Door unlocked after 10 seconds. (default int: 0)
 - user_noNPCdamage: Door cannot be destroyed by NPCs. (default: false)
 - user_ignoreDoomDamage: Door cannot be destroyed by non-Postal monsters/actors. (default: false)
+- user_key: Door can only be opened with this key. (default string: none)
+Possible keys with Skulls and Keycards: 'blueS';'blueK';'redS';'redK';'yellowS';'yellowK'
+STD will probably have Postalified Doom keys, those will work too.
 
 # Dogs
 
