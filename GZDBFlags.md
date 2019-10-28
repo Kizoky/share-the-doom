@@ -15,6 +15,8 @@
 - user_hatesXYZgroup: Will attack this particular hate group on sight (default string: 'none')
 - user_ignoredoommonsters: Will ignore Doom monsters (default: false)
 - user_ignoresvisibleweapon: Will ignore anyone with a weapon visible, but will retaliate if it took damage (default: false)
+- user_standstill: Will stand still and look for possible threats/targets depending on Hostility. (default: false)
+
 - user_shop_money: How much money will it cost for whatever item they are selling (default int: 15)
 - user_shop_item: What item the NPC is selling (default string: 'Postalpizzainv')
 - user_shop_hatesplayer: If set, it won't sell anything for the player (default: false)
