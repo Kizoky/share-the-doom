@@ -113,8 +113,11 @@ class PostalDoor_Extender : Actor
 		let door = PostalDoor(AttachedToDoor);
 		if (door != null)
 		{
-			if (door.DoorClosed == false) bNOCLIP = true;
-			else bNOCLIP = false;
+			if (door.DoorClosed == false)
+			{
+				bNOCLIP = true; 
+				bSHOOTABLE = false;
+			} else { bNOCLIP = false; bSHOOTABLE = true; }
 		}
 	}
 	
