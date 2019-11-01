@@ -394,10 +394,18 @@ class NPCCore : PostalActor
 		if (LineData.HitType == TRACE_HitActor)
 		{
 			if (lineData.HitActor != target && !(lineData.HitActor is 'NPCHead'))
-				Console.Printf("Something's in my way!");
+			{
+				bool ff = random(0,1);
+				
+				Console.Printf("Someone's in my way");
+				if (ff)
+					Thrust(8, Angle - 90);
+				else
+					Thrust(8, Angle + 90);
+					
+				SetStateLabel("HostileChase");
+			}
 		}
-		
-	
 	}
 	
 	Default
@@ -1374,7 +1382,7 @@ extend class NPCCore
 			A_PlaySound("weapons/pistol", CHAN_WEAPON);
 			//ang  += Random2[PosAttack]() * (22.5/256);
 			int damage = Random[PosAttack](1, 5) * 3;
-			LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff", 0, null, 30, 4.5);
+			LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff", 0, null, 30, 0.5);
 		}
 	}
 	
@@ -1393,7 +1401,7 @@ extend class NPCCore
 			{
 				double ang = bangle; // + Random2[SPosAttack]() * (22.5/256);
 				int damage = Random[SPosAttack](1, 5) * 3;
-				LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff", 0, null, 30, 4.5);
+				LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff", 0, null, 30, 0.5);
 			}
 		}
     }
