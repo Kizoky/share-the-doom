@@ -30,10 +30,18 @@ class PostalDoor_Extender : Actor
 		let door = PostalDoor(AttachedToDoor);
 		if (door != null)
 		{
+			/*
 			if (abs (DeltaAngle (door.AngleBefore, source.angle)) >= 90)
 			{
 				Console.Printf("Front: %d", source.angle);
 			} else Console.Printf("Back: %d", source.angle);
+			*/
+			
+			if (door.user_locked == true)
+			{
+				A_PlaySound("door/kick", 0);
+				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			}
 			
 			if (door.DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 			
@@ -72,6 +80,8 @@ class PostalDoor_Extender : Actor
 			
 			if (door != null)
 			{
+				if (door.user_locked == true) return;
+				
 				if (door.DoorClosed == false) return;
 				
 				door.HitOnce = true;
@@ -158,13 +168,29 @@ class PostalDoor : Actor
 	
 	float RotationSpeed;
 	
+	
+	//GZDB Flags
+	
+	bool user_locked, user_destroyable;
+	bool user_openonce, user_onlyNPC;
+	bool user_onlyPlayer;
+	
+	int user_lockAfter, user_openAfter;
+	
+	bool user_noNPCdamage, user_ignoreDoomDamage;
+	
+	string user_key;
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		
+		/*
 		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
 		{
 			Console.Printf("Front: %d", source.angle);
 		} else Console.Printf("Back: %d", source.angle);
+		*/
+		
+		if (user_locked == true) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		
 		//Check to prevent spamming that would break the door
 		if (DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
