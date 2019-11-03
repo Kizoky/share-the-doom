@@ -75,6 +75,9 @@ class PostMachete : PostalWeapon
 	
 	Default
 	{
+		//$Category STD Weapons
+		//$Title "Machete"
+		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
 		Obituary "$OB_MPSHOTGUN";

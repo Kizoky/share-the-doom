@@ -2,14 +2,17 @@ class PostRifle : PostalWeapon
 {
 	Default
 	{
-    Weapon.Kickback 100;
-    Weapon.SelectionOrder 1300;
-	Weapon.AmmoUse 1;
-	Weapon.AmmoGive 8;
-	Weapon.AmmoType "Clip";
-	Obituary "$OB_MPSHOTGUN";
-    Tag "$TAG_SHOTGUN";
-	Inventory.PickupMessage "$GOTSHOTGUN";
+		//$Category STD Weapons
+		//$Title "Sniper Rifle"
+		//$Sprite PICKA0
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 8;
+		Weapon.AmmoType "Clip";
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$TAG_SHOTGUN";
+		Inventory.PickupMessage "$GOTSHOTGUN";
 	}
 	States
 	{

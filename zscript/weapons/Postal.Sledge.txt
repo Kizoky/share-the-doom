@@ -72,6 +72,9 @@ class PostSledge : PostalWeapon
 	
 	Default
 	{
+		//$Category STD Weapons
+		//$Title "Sledgehammer"
+		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
 		Obituary "$OB_MPSHOTGUN";
@@ -164,7 +167,7 @@ class PostSledge : PostalWeapon
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
-		POST A -1;
+		PICK A -1;
 		Stop;
 	}
 }

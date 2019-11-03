@@ -125,7 +125,7 @@ Model "PostScissors"
 	SurfaceSkin 0 0 "scissors/scissors_timb.tga"
 	
 	AngleOffset 90 //40
-	RollOffset 90
+	RollOffset 0
 	Scale -1 1 1
 	Offset 0 0 2 //X Y Z
 	

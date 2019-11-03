@@ -1,0 +1,21 @@
+DoomEdNums
+{
+  31000 = PostBaton
+  30999 = PostCowhead
+  30998 = PostGascan
+  30997 = PostGrenade
+  30996 = PostMachete
+  30995 = PostM16
+  30994 = PostMolotov
+  30993 = PostNapalmLauncher
+  30992 = PostPistol
+  30991 = PostScissors
+  30990 = PostScythe
+  30989 = PostShotgun
+  30988 = PostShovel
+  30987 = PostSledge
+  30986 = PostRifle
+  30985 = PostTazer
+  30984 = PostWMD
+  30983 = PostRLauncher
+}

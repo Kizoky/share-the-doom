@@ -2,12 +2,15 @@ class PostScissors : PostalWeapon
 {
 	Default
 	{
-    Weapon.Kickback 100;
-    Weapon.SelectionOrder 1300;
-	Obituary "$OB_MPSHOTGUN";
-    Tag "$TAG_SHOTGUN";
-	Inventory.PickupMessage "$GOTSHOTGUN";
-	+Weapon.NoAlert;
+		//$Category STD Weapons
+		//$Title "Scissors"
+		//$Sprite PICKA0
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$TAG_SHOTGUN";
+		Inventory.PickupMessage "$GOTSHOTGUN";
+		+Weapon.NoAlert;
 	}
 	States
 	{

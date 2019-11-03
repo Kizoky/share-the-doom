@@ -109,6 +109,9 @@ class PostTazer : PostalWeapon
 	
 	Default
 	{
+		//$Category STD Weapons
+		//$Title "Tazer"
+		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
 		Obituary "$OB_MPSHOTGUN";

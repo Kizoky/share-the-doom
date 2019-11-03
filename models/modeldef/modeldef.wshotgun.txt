@@ -114,7 +114,7 @@ Model "PostShotgun"
 	AngleOffset 90 //40
 	RollOffset 90
 	Scale -1 1 1
-	Offset 0 0 2 //X Y Z
+	Offset 0 0 -1 //X Y Z
 	
 	FrameIndex PICK A 0 0
 	

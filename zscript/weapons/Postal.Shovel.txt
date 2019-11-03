@@ -77,6 +77,9 @@ class PostShovel : PostalWeapon
 	
 	Default
 	{
+		//$Category STD Weapons
+		//$Title "Shovel"
+		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
 		Obituary "$OB_MPSHOTGUN";

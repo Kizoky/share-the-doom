@@ -2,16 +2,19 @@ class PostPistol : PostalWeapon replaces Pistol
 {
 	Default
 	{
-	Weapon.Kickback 100;
-	Decal "bulletchip";
-	Weapon.SelectionOrder 1900;
-	Weapon.AmmoUse 1;
-	Weapon.AmmoGive 20;
-	Weapon.AmmoType "Clip";
-	Obituary "$OB_MPPISTOL";
-	//+WEAPON.WIMPY_WEAPON;
-	Tag "$TAG_PISTOL";
-	Inventory.PickupMessage "$GOTPISTOL";
+		//$Category STD Weapons
+		//$Title "Pistol"
+		//$Sprite PICKA0
+		Weapon.Kickback 100;
+		Decal "bulletchip";
+		Weapon.SelectionOrder 1900;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 20;
+		Weapon.AmmoType "Clip";
+		Obituary "$OB_MPPISTOL";
+		//+WEAPON.WIMPY_WEAPON;
+		Tag "$TAG_PISTOL";
+		Inventory.PickupMessage "$GOTPISTOL";
 	}
 	States
 	{

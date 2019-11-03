@@ -176,7 +176,7 @@ Model "PostMachete"
 	Scale -1 0.75 1
 	Offset 0 0 0 //X Y Z
 
-	FrameIndex POST A 0 0
+	FrameIndex PICK A 0 0
 	
 }
 

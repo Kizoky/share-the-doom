@@ -133,6 +133,24 @@ Model "PostNapalmLauncher"
 
 Model "PostNapalmLauncher"
 {
+	Path "models\weapons\napalmlauncher"
+	Model 0 "NapalmPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "napalmlauncher/napalmCanister.tga"
+	SurfaceSkin 0 1 "napalmlauncher/napalmGun_JL.tga"
+	SurfaceSkin 0 2 "napalmlauncher/crosshairs_ben.png"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 0 0 0 //X Y Z
+
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostNapalmLauncher"
+{
 	Path "models\weapons\kick"
 	Model 1 "PostKick.md3"
 	SurfaceSkin 1 0 "Dude.png"

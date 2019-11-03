@@ -157,9 +157,9 @@ Model "PostShovel"
 	SurfaceSkin 0 0 "shovel/shovel_texture.tga"
 	
 	AngleOffset 0 //40
-	RollOffset 75
+	RollOffset -90
 	Scale -1 1 1
-	Offset 0 0 2 //X Y Z
+	Offset 0 0 11 //X Y Z
 	
 	FrameIndex PICK A 0 0
 	

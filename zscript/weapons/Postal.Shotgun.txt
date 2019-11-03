@@ -2,14 +2,17 @@ class PostShotgun : PostalWeapon replaces Shotgun
 {
 	Default
 	{
-    Weapon.Kickback 100;
-    Weapon.SelectionOrder 1300;
-	Weapon.AmmoUse 1;
-	Weapon.AmmoGive 8;
-	Weapon.AmmoType "Shell";
-	Obituary "$OB_MPSHOTGUN";
-    Tag "$TAG_SHOTGUN";
-	Inventory.PickupMessage "$GOTSHOTGUN";
+		//$Category STD Weapons
+		//$Title "Shotgun"
+		//$Sprite PICKA0
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 8;
+		Weapon.AmmoType "Shell";
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$TAG_SHOTGUN";
+		Inventory.PickupMessage "$GOTSHOTGUN";
 	}
 	States
 	{

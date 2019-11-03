@@ -30,6 +30,22 @@ Model "PostWMD"
 
 Model "PostWMD"
 {
+	Path "models\weapons\WMD"
+	Model 0 "WMDPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "WMD/WMD.tga"
+	AngleOffset 90 //40
+	Scale -1 0.75 1
+	Offset 0 0 0 //X Y Z
+
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostWMD"
+{
 	Path "models\weapons\kick"
 	Model 1 "PostKick.md3"
 	SurfaceSkin 1 0 "Dude.png"

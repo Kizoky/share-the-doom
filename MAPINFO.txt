@@ -1,5 +1,6 @@
 include "mapinfo/Staticmeshes.txt"
 include "mapinfo/NPCs.txt"
+include "mapinfo/Weapons.txt"
 
 gameinfo
 {
