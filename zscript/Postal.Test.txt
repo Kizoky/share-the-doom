@@ -20,8 +20,8 @@ class TestDude : Actor
 	States
 	{
 	Spawn:
-		KROC ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
-		IDLE ABCDEF 3;
+		KROC AE 1;
+		IDLE A 1;
 		Loop;
 	Suicide:
 		TNT1 A 0 A_PlaySound("dudeline27",6);

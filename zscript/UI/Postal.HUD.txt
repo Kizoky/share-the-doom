@@ -19,7 +19,9 @@ class PostalStatusBar : BaseStatusBar
 	
 	int extraX;
 	int extraY;
-
+	
+	bool LZDoomWarning;
+	
 	override void Init()
 	{
 		Super.Init();
@@ -72,6 +74,15 @@ class PostalStatusBar : BaseStatusBar
 		
 		//Convert the Player's health to double, otherwise it won't work
 		
+		if (PPlayer.PlayerData == null)
+		{
+			if (LZDoomWarning != true)
+			{
+				console.printf("Warning, you are using an outdated version of GZDoom, Heart will not change during Catnip or Smoking!!");
+				LZDoomWarning = true;
+			}
+			return;
+		}
 		
 		if (PPlayer)
 		{
