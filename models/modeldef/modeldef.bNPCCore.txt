@@ -643,6 +643,53 @@ Model "DummyDude"
 	FrameIndex DUD2 O 0 1291
 	FrameIndex DUD2 P 0 1293
 	
+	// Used for Head death anim
+	SurfaceSkin 0 1 "DudeHead.png"
+	
+	FrameIndex HEAD A 0 1211
+	FrameIndex HEAD B 0 1213
+	FrameIndex HEAD C 0 1215
+	FrameIndex HEAD D 0 1217
+	FrameIndex HEAD E 0 1219
+	FrameIndex HEAD F 0 1221
+	FrameIndex HEAD G 0 1223
+	FrameIndex HEAD H 0 1225
+	FrameIndex HEAD I 0 1227
+	FrameIndex HEAD J 0 1229
+	FrameIndex HEAD K 0 1231
+	FrameIndex HEAD L 0 1233
+	FrameIndex HEAD M 0 1235
+	FrameIndex HEAD N 0 1237
+	FrameIndex HEAD O 0 1239
+	FrameIndex HEAD P 0 1241
+	FrameIndex HEAD Q 0 1243
+	FrameIndex HEAD R 0 1245
+	FrameIndex HEAD S 0 1247
+	FrameIndex HEAD T 0 1249
+	FrameIndex HEAD U 0 1251
+	FrameIndex HEAD V 0 1253
+	FrameIndex HEAD W 0 1255
+	FrameIndex HEAD X 0 1257
+	FrameIndex HEAD Y 0 1259
+	FrameIndex HEAD Z 0 1261
+	
+	FrameIndex HEA2 A 0 1263
+	FrameIndex HEA2 B 0 1265
+	FrameIndex HEA2 C 0 1267
+	FrameIndex HEA2 D 0 1269
+	FrameIndex HEA2 E 0 1271
+	FrameIndex HEA2 F 0 1273
+	FrameIndex HEA2 G 0 1275
+	FrameIndex HEA2 H 0 1277
+	FrameIndex HEA2 I 0 1279
+	FrameIndex HEA2 J 0 1281
+	FrameIndex HEA2 K 0 1283
+	FrameIndex HEA2 L 0 1285
+	FrameIndex HEA2 M 0 1287
+	FrameIndex HEA2 N 0 1289
+	FrameIndex HEA2 O 0 1291
+	FrameIndex HEA2 P 0 1293
+	
 }
 
 Model "DummyDude"

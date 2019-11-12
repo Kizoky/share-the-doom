@@ -317,6 +317,7 @@ extend class PostalDude
 		{
 			Speed = Default.Speed;
 			PlayerDude.isDead = false;
+			PlayerDude.Suicided = false;
 			JumpZ = Default.JumpZ;
 			if (PlayerDude.DummyCorpse)
 			{

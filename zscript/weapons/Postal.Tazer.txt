@@ -103,6 +103,7 @@ class PostTazer : PostalWeapon
 				return;
 			}
 			
+			if (!(LineData.HitActor.bIsMonster)) return;
 			LineData.HitActor.A_GiveInventory("TazerStun");
 		}
 	}

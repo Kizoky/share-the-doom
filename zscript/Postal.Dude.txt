@@ -204,6 +204,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	bool InitLine;
 	
+	bool Suicided;
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		PlayerData.isinPainCooldown = level.time + 35;
@@ -382,7 +384,9 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					let dd = DummyDude(DummyCorpse);
 					dd.MyDude = self;
 					dd.CorpseOnly = true;
-					dd.SetStateLabel("Corpse");
+					if (Suicided == true) dd.SetStateLabel("Corpse");
+					else dd.SetStateLabel("Corpse.Head");
+					
 				}
 				
 				JumpZ = 0;
@@ -949,6 +953,9 @@ class DummyDude : Actor
 		SUI4 ABCDEF 2;
 		DUDD A 0
 		{
+			let p = PostalDude(MyDude);
+			p.Suicided = true;
+			
 			A_playSound("weapons/rocklx",6);
 			A_Explode(200, 256, XF_NOTMISSILE);
 			//let p = PostalDude(MyDude);
@@ -977,6 +984,15 @@ class DummyDude : Actor
 		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		DUD2 ABCDEFGHIJKLMNOP 2;
 		DUD2 P -1;
+		Stop;
+	Corpse.Head:
+		TNT1 A 0
+		{
+			angle = MyDude.angle;
+		}
+		HEAD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		HEA2 ABCDEFGHIJKLMNOP 2;
+		HEA2 P -1;
 		Stop;
 	Disappear:
 		TNT1 A 0;
