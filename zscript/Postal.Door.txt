@@ -17,7 +17,7 @@ class PostalDoor_Extender : Actor
 			
 			if (invoker.AttachedToDoor == null)
 			{
-				if (next is 'PostalDoor')
+				if (next is 'PostalDoor' && next.pos.z == self.pos.z)
 				{
 					invoker.AttachedToDoor = next;
 				}
