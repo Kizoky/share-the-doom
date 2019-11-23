@@ -208,8 +208,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		PlayerData.isinPainCooldown = level.time + 35;
-		PlayerData.isinPainAlpha = 0;
+		if (PlayerData)
+		{
+			PlayerData.isinPainCooldown = level.time + 35;
+			PlayerData.isinPainAlpha = 0;
+		}
 		isinPain = true;
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
@@ -776,6 +779,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		DUDW A 0; //<--- This frame is needed for fixing that weird twitching, remove it yourself to test it
 		XXXX ABCDEFGHIJKLMNOPQ 2
 		{
+			if (PlayerData == null) return;
+			
 			if (PlayerData.MoveSpeed == 0)
 				SetStateLabel("Spawn");
 			else
@@ -790,12 +795,14 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	Missile:
 		TNT1 A 0
 		{
-			if (PlayerData.Suicide == true)
-				MissileOnce = true;
-		
-			if (PlayerData.Suicide == true)
-				SetStateLabel("Invis");
+			if (PlayerData)
+			{
+				if (PlayerData.Suicide == true)
+					MissileOnce = true;
 				
+				if (PlayerData.Suicide == true)
+					SetStateLabel("Invis");
+			}
 			A_ShriekNearbyNPCs();
 		}
 		DUDF A 12;
@@ -803,6 +810,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	Melee:
 	    TNT1 A 0
 		{
+			if (PlayerData == null) return;
+			
 			if (PlayerData.Suicide == true)
 				SetStateLabel("Invis");
 		}
@@ -835,22 +844,20 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	Pain:
 		TNT1 A 0
 		{
-			if ((player.mo == self || player) && PlayerData != null)
-			{
+			if (PlayerData == null) return;
+			
 				if (PlayerData.Suicide == true)
 					SetStateLabel("Invis");
-			}
 		}
 		DUDE A 4;
 		DUDE A 4
 		{
-			if ((player.mo == self || player) && PlayerData != null)
-			{
+			if (PlayerData == null) A_DudePain(); return;
+			
 				if (PlayerData.SmokePain == true)
 					PlayerData.SmokePain = false;
 				else
 					A_DudePain();
-			}
 		}
 		Goto Spawn;
 	Death:
