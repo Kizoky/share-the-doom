@@ -93,6 +93,11 @@ extend class PostDebug
 				A_PlaySound("dudeline5", 7 | 4096);
 					
 			}
+			else
+				if (LineData.HitActor.bSPECIAL == true)
+					Console.Printf("SPECIAL is true");
+				else
+					Console.Printf("SPECIAL is false");
 		}
 	}
 }

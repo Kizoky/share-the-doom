@@ -142,6 +142,15 @@ class DudeCoreHandler : EventHandler
 		}
    }
    
+   //Needed for fire and other things
+   override void WorldThingSpawned (Worldevent e)
+   {
+		if (!(e.thing is 'PostalActor') && e.thing.bISMONSTER) 
+		{
+			e.thing.bSPECIAL = true;
+			e.thing.bPICKUP = true;
+		}
+   }
 	override void WorldTick()
 	{
 		if (gameaction == ga_savegame || gameaction == ga_autosave)

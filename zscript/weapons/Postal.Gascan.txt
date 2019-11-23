@@ -1,5 +1,25 @@
 class PostGascan : PostalWeapon
 {
+	action void A_SpawnLiquid(class<actor> Liquid = "PostalLiquidGas")
+	{
+		
+		Actor LiquidGas;
+		// Spawn the corpse with as the variable above, 
+		// the second argument will spawn it with the actor's position + replacing it
+		LiquidGas = spawn(Liquid, self.pos, ALLOW_REPLACE);
+		
+		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
+		// but make sure to check it's not null or else GZDoom will crash
+		if (LiquidGas)
+		{
+			let dd = PostalLiquidGas(LiquidGas);
+			
+			let PlayerDude = PostalDude(invoker.Owner);
+			PlayerDude.AmountofLiquid.push(dd);
+		}
+		
+	}
+	
 	Default
 	{
 		//$Category STD Weapons
@@ -83,25 +103,65 @@ class PostGascan : PostalWeapon
 		PICK A -1;
 		Stop;
 	}
+}
 	
-	action void A_SpawnLiquid(class<actor> Liquid = "PostalLiquidGas")
+class FireSpawnerAid : Powerup
+{
+	Actor AttachedFire;
+	int TimeBeforeEnd;
+	
+	Default
 	{
-		
-		Actor LiquidGas;
-		// Spawn the corpse with as the variable above, 
-		// the second argument will spawn it with the actor's position + replacing it
-		LiquidGas = spawn(Liquid, self.pos, ALLOW_REPLACE);
+		Powerup.Duration -10000;
+		+INVENTORY.HUBPOWER
+		Inventory.MaxAmount 1;
+	}
+	
+	override void InitEffect ()
+	{
+		Super.InitEffect();
+		TimeBeforeEnd = level.time + 35 * 22;
+		class<actor> Fire = "PostalFire";
+		AttachedFire = spawn(Fire, owner.pos, ALLOW_REPLACE);
 		
 		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
 		// but make sure to check it's not null or else GZDoom will crash
-		if (LiquidGas)
+		if (AttachedFire)
 		{
-			let dd = PostalLiquidGas(LiquidGas);
+			let dd = PostalFire(AttachedFire);
+			dd.Owner = Owner;
+			dd.ThisOneHurts = true;
+			dd.Counter = 0;
 			
-			let PlayerDude = PostalDude(invoker.Owner);
-			PlayerDude.AmountofLiquid.push(dd);
+			//There's not enough time for the newly spawned Fire to cause damage
+			dd.TimeBeforeDisappearing = level.time + (35 * 12);
 		}
 		
+		Owner.bPICKUP = false; //prevent monsters picking up items, oof!
+	}
+
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if (Owner == NULL || Owner.player == NULL)
+		{
+			return;
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (owner == null) return;
+		
+		//Console.Printf("%d", EffectTics);
+		
+		if (TimeBeforeEnd < level.time)
+		{
+			self.EffectTics = 0;
+			
+			return;
+		}
 	}
 }
 
@@ -174,6 +234,7 @@ class PostalFire : PostalActor
 			A_SpawnItemEx("RandomPostalFire",frandom(-3,3),frandom(-3,3),frandom(-12, -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.6,1.2));
             A_SpawnItemEx("FireParticleBottom",frandom(-3,3),frandom(-3,3),frandom(-12 , -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.1,0.25));
 			
+			return;
 		}
 		
 		if (Owner is 'PostalActor')
@@ -201,7 +262,30 @@ class PostalFire : PostalActor
 			
 			A_SpawnItemEx("RandomPostalFire",frandom(-3,3),frandom(-3,3),frandom(-12, -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.6,1.2));
             A_SpawnItemEx("FireParticleBottom",frandom(-3,3),frandom(-3,3),frandom(-12 , -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.1,0.25));
+			
+			return;
 		}
+		
+		if (Owner)
+		{
+			if (TimeBeforeDisappearing < level.time && EnterFireEndState == false)
+			{
+					if (Owner.bKILLED)
+					{
+						Destroy();
+						return;
+					}
+					EnterFireEndState = true;
+				
+			}
+			if (Counter == 0) SetOrigin(Owner.pos+(0,0,50), TRUE);
+			
+			A_SpawnItemEx("RandomPostalFire",frandom(-3,3),frandom(-3,3),frandom(-12, -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.6,1.2));
+            A_SpawnItemEx("FireParticleBottom",frandom(-3,3),frandom(-3,3),frandom(-12 , -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.1,0.25));
+			
+			return;
+		}
+		
 	}
 	
 	override void PostBeginPlay()
@@ -228,6 +312,9 @@ class PostalFire : PostalActor
 						return;
 					
 					if ((Owner is 'PostalDude' || Owner is 'PostalActor') && !(Owner is 'NPCCore'))
+						Owner.A_DamageSelf(3);
+						
+					if (!(Owner is 'PostalActor'))
 						Owner.A_DamageSelf(3);
 						
 					if (Owner is 'NPCCore')
@@ -317,6 +404,8 @@ class PostalLiquidGas : PostalActor
 	bool CanDisappear;
 	int TimeBeforeDisappearing, TimeBeforeSmokeDisappearing;
 	
+	int Timer;
+	
 	override void Tick()
 	{
 		Super.Tick();
@@ -336,6 +425,21 @@ class PostalLiquidGas : PostalActor
 				A_SetFire();
 				
 				TimeBeforeNotSpreading += 1;
+				
+				/*
+				double fov = 400; // this should be an argument, variable or constant instead, this is just here as an example
+				BlockThingsIterator it = BlockThingsIterator.Create (self, -1); // 1024
+					while (it.Next ()) {
+							let next = it.Thing;
+							
+								if (!(next is 'PostalActor'))
+								{	
+									Console.Printf(" I see!!");
+									
+								}
+							
+						}
+				*/
 			}
 			
 			if (helpme == true && TimeBeforeDisappearing == 0 && CanDisappear != true)
@@ -355,6 +459,9 @@ class PostalLiquidGas : PostalActor
 	{
 		if (toucher)
 		{
+			if (!(toucher is 'PostalDude') && !(toucher is 'PostalActor') && helpme == true)
+				toucher.A_GiveInventory("FireSpawnerAid");
+			
 			if (toucher is 'PostalDude' && helpme == true)
 			{
 				let PlayerDude = PostalDude(toucher);
@@ -388,6 +495,8 @@ class PostalLiquidGas : PostalActor
 							PlayerDude.MyAnnoyingFire = AttachedFire;
 					}
 				}
+				
+				return;
 			}
 			
 			if (toucher is 'PostalActor')
@@ -428,9 +537,8 @@ class PostalLiquidGas : PostalActor
 						else
 							ppostal.AnnoyingFire = AttachedFire;
 					}
-			
+				return;
 			}
-			
 		}
 	}
 	
