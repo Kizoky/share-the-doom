@@ -67,9 +67,13 @@ class PostalStatusBar : BaseStatusBar
 		double PumpingSpeed = (PlayerHealth / 100000);
 		
 		//Every Tics we'll add these values for the Pumping heart "animation"
-		ticsX = ticsX + 0.0010*4 + abs((-0.001000 + PumpingSpeed));
-		ticsY = ticsY - 0.0009*4 + ((-0.000500 + (PumpingSpeed - 0.000500)) * 4);
 		
+		//Mind you, this is extremely broken when Player has atleast 200 or more health
+		if (CPlayer.mo.Health < 126)
+		{
+			ticsX = ticsX + 0.0010*4 + abs((-0.001000 + PumpingSpeed));
+			ticsY = ticsY - 0.0009*4 + ((-0.000500 + (PumpingSpeed - 0.000500)) * 4);
+		}
 		//Convert the Player's health to double, otherwise it won't work
 		
 		if (PPlayer)
