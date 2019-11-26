@@ -315,17 +315,29 @@ extend class PostalDude
 		}
 		else
 		{
-			PlayerDude.isDead = false;
-			PlayerDude.Suicided = false;
+			if (PlayerDude.PlayerData)
+			{
+				// prevent the player from crouching when suiciding
+				if (PlayerDude.PlayerData.Suicide == true)
+				{
+					player.uncrouch();
+				}
+			}
+			
 			if (PlayerDude.DummyCorpse)
 			{
+				PlayerDude.PlayerData.SpawnedOnce = false;
+				PlayerDude.PlayerData.Suicide = false;
+				PlayerDude.MissileOnce = false;
+				PlayerDude.isDead = false;
+				PlayerDude.Suicided = false;
 				Speed = Default.Speed;
 				JumpZ = Default.JumpZ;
 				PlayerDude.DummyCorpse.Destroy();
 				A_TakeInventory("CameraRunner", 1);
 				A_GiveInventory("HUDViewable", 1);
-			}
-			PlayerDude.DummyCorpseSpawned = false;
+				PlayerDude.DummyCorpseSpawned = false;
+			}	
 		}
 		
 		////////////////////////////////////////////////////////////////

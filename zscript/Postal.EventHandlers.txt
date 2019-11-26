@@ -100,8 +100,6 @@ class DudeCoreHandler : EventHandler
 			p.PlayerData.Suicide = true;
 			p.SuicideAngle = p.Angle;
 			
-			p.Speed = 0;
-			p.JumpZ = 0;
 			
 	  }
 	  
