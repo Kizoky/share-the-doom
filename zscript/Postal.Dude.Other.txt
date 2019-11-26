@@ -315,12 +315,12 @@ extend class PostalDude
 		}
 		else
 		{
-			Speed = Default.Speed;
 			PlayerDude.isDead = false;
 			PlayerDude.Suicided = false;
-			JumpZ = Default.JumpZ;
 			if (PlayerDude.DummyCorpse)
 			{
+				Speed = Default.Speed;
+				JumpZ = Default.JumpZ;
 				PlayerDude.DummyCorpse.Destroy();
 				A_TakeInventory("CameraRunner", 1);
 				A_GiveInventory("HUDViewable", 1);

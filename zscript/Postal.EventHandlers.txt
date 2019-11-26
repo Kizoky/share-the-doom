@@ -99,6 +99,10 @@ class DudeCoreHandler : EventHandler
 			//Console.Printf("K pressed (I regret nothing)");
 			p.PlayerData.Suicide = true;
 			p.SuicideAngle = p.Angle;
+			
+			p.Speed = 0;
+			p.JumpZ = 0;
+			
 	  }
 	  
 	  if (e.Name ~== "Map")
