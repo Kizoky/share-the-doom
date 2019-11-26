@@ -304,11 +304,20 @@ extend class PostalDude
 					}
 				}
 				
+				let a = DummyDude(PlayerDude.DummyCorpse);
+				
+				if (a) a.Multiplayer = true;
+				
+				PlayerDude.PlayerData.SpawnedOnce = false;
+				PlayerDude.PlayerData.Suicide = false;
+				PlayerDude.MissileOnce = false;
+				PlayerDude.isDead = false;
+				PlayerDude.Suicided = false;
+				Speed = Default.Speed;
+				JumpZ = Default.JumpZ;
 				A_TakeInventory("CameraRunner", 1);
 				A_GiveInventory("HUDViewable", 1);
 				PlayerDude.DummyCorpseSpawned = false;
-				PlayerDude.isDead = false;
-				PlayerDude.DummyCorpse.Destroy();
 				
 			}
 			

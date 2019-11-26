@@ -913,14 +913,25 @@ class DummyDude2 : DummyDude
 class DummyDude : Actor
 {
 	actor MyDude;
-	bool Done, CorpseOnly;
+	bool Done, CorpseOnly, Multiplayer;
 	
 	override void Tick()
 	{
 		Super.Tick();
+		
+		if (Multiplayer == true)
+		{
+			if (MyDude != null) MyDude = null;
+			
+			return;
+		}
+		
 		if (MyDude)
-		{		//vector3 is X,Y,Z
-			SetOrigin(MyDude.pos+(0,0,0), TRUE);
+		{
+			//deatach from the Player if it's multiplayer
+			if (Multiplayer != true)
+				SetOrigin(MyDude.pos+(0,0,0), TRUE);
+				
 			let p = PostalDude(MyDude);
 			if (Done != true)
 			{
@@ -934,7 +945,7 @@ class DummyDude : Actor
 				}
 			}
 			
-			if (MyDude.bKILLED)
+			if (MyDude.bKILLED && MyDude)
 				SetOrigin(MyDude.pos+(0,0,0), TRUE);
 		}
 	}
