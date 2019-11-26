@@ -28,7 +28,7 @@ class Champ : PostalActor
 		//$Sprite DOGIA0
 		Health 150;
 		PainChance 256;
-		Speed 4;
+		Speed 3.5;
 		Radius 30;
 		Height 56;
 		Mass 400;
@@ -68,7 +68,7 @@ class Champ : PostalActor
 			bSOLID = True; // We don't want ghost Champs
 			//A_DogThink();
 		}
-		DOGW ABCDEFGHIJKLMN 3 A_Wander(flags: CHF_STOPIFBLOCKED);
+		DOGW AABBCCDDEEFFGGHHIIJJKKLLMMNN 1 A_Wander(flags: CHF_STOPIFBLOCKED);
 		TNT1 A 0 A_DogThink();
 		Loop;
 	StaringCat:
@@ -85,7 +85,7 @@ class Champ : PostalActor
 				A_PlaySound("dogsight",0);
 			}
 		}
-		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		DOGI AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ 1 A_FaceTarget();
 		TNT1 A 0
 		{
 			A_PlaySound("dogattack2",0);
@@ -99,7 +99,7 @@ class Champ : PostalActor
 			}
 			
 		}
-		DOGB ABCDEFGHIJKLMNOPQ 3;
+		DOGB AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQ 1;
 		//Champ/Dogs in Postal 2 looks straight ahead, while their idling anim is looping
 		Goto See;
 	Staring:
@@ -118,7 +118,7 @@ class Champ : PostalActor
 		}
 		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
 		//Champ/Dogs in Postal 2 looks straight ahead, while their idling anim is looping
-		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
+		DOGI AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ 1;
 		TNT1 A 0
 		{
 			//Clear our target, so we won't be going after it
@@ -133,7 +133,7 @@ class Champ : PostalActor
 		Goto Spawn;
 	See:
 		TNT1 A 0 { bSOLID = True; if (target != null) {target = staringAt;} Busy = True;} //We don't want ghost Champs
-		DOGR ABCDEFGHIJKLM 2 Fast A_Chase();
+		DOGR AABBCCDDEEFFGGHHIIJJKKLLMM 1 Fast A_Chase();
 		TNT1 A 0
 		{
 			//If our target got killed, do the following

@@ -1,5 +1,6 @@
 include "mapinfo/Staticmeshes.txt"
 include "mapinfo/NPCs.txt"
+include "mapinfo/Weapons.txt"
 
 gameinfo
 {
@@ -27,6 +28,11 @@ clearepisodes
 episode DEVMAP
 {
 	name="Development level"
+}
+
+episode testdoor
+{
+	name="Door and Window test"
 }
 
 episode TESTPOST
@@ -91,7 +97,7 @@ map DEVMAP2 "Maisth loves corruption"
 
 map WORLD1 "Phoenix Outskirts - Day"
 {
-	levelnum = 0
+	levelnum = 67
 	music=Amb_01
 	sky1=F_SKY1
 	cluster=1
@@ -100,7 +106,7 @@ map WORLD1 "Phoenix Outskirts - Day"
 
 map WORLD2 "Factory - Day"
 {
-	levelnum = 2
+	levelnum = 17
 	music=Amb_02
 	sky1=F_SKY1
 	cluster=1
