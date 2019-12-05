@@ -2,7 +2,7 @@
 
 IWad
 {
-	Name = "Postal 2: Share the Doom"
+	Name = "Postal 2: Share the Doomm"
 	Autoname = "Postal"
 	Game = "Doom"
 	Config = "Postal"
