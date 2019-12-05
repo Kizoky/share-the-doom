@@ -61,4 +61,16 @@ STD will probably have Postalified Doom keys, those will work too.
 - user_unpickable: If set, Cat can't be picked up. (default: false)
 - user_ignorecatnip: If set, Cat won't care about Catnips laying on the ground after the Player tossed/used it. (default: false)
 
+# Postal Zombies
+
+- user_ignoreplayer: If set, Zombie will ignore the Player. (default: false)
+- user_spit: If set, Zombie will have missile attacks if target is far away. (default: true)
+- user_pickup: If set, Zombie can pickup any item from the ground. (default: false)
+- user_notargetswitch: If set, Zombie will never switch targets. (default: true)
+- user_Health: If set, upon spawn the Zombie will have this amount of HP. (default int: null)
+- user_headstays: If set, the Zombie will be literally invincible. (default: false)
+- user_infect: If set, the Zombie can infect any Bystander it hit with melee attacks. (default: false)
+- user_cancharge: If set, the Zombie can charge towards a target very fast on random chance. (default: true)
+- user_backfromhell: If set, the Zombie will slowly resurrect and behave like a normal zombie again. (default: false)
+- user_canalert: If set, the Zombie can alert nearby zombies to attack the target. (default: false ?)
 
