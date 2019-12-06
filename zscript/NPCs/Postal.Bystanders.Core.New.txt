@@ -797,9 +797,6 @@ class NPCCore : PostalActor
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		TNT1 A 0 
 		{
-		
-			
-			
 			//Grab the target's variables
 			let pp = NPCCore(target);
 			//Console.Printf("NPCCore let pp");
@@ -825,18 +822,27 @@ class NPCCore : PostalActor
 								A_PlaySound(NPC_Taunt,0);
 								isAfterTarget = true;
 								SetStateLabel("See");
+								return;
 							}
-							else
+							
+							if (Hostility == "Pussy")
 							{
-								if (Hostility == "Pussy")
-								{
-									target = pp;
-									isBusy = false;
-									isAfterTarget = true;
-									SetStateLabel("See");
-								}
+								target = pp;
+								isBusy = false;
+								isAfterTarget = true;
+								SetStateLabel("See");
+								return;
 							}
 					}
+				}
+				
+				//todo: Add a StaringCorpse state
+				if (target is 'NPCCore' && Hostility == "Pussy" && target.bCORPSE)
+				{
+					target = pp;
+					isBusy = false;
+					isAfterTarget = true;
+					SetStateLabel("See");
 				}
 			}
 			
@@ -1219,11 +1225,12 @@ extend class NPCCore
 		while (it.Next () && it.Thing != null) {
 				let next = it.Thing;
 			
+			/*
 			if (!next.bShootable || next.bKilled || next.health < 1)
 			{
 				continue;
 			}
-
+			*/
 			
 			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
 			{
@@ -1250,7 +1257,6 @@ extend class NPCCore
 										invoker.MyTarget = PlayerDude;
 										vel.xy = (0,0);
 										SetStateLabel("DickOut");
-										break;
 									}
 									else
 										if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostCowhead")) || 
@@ -1274,56 +1280,49 @@ extend class NPCCore
 												invoker.MyTarget = PlayerDude;
 												vel.xy = (0,0);
 												SetStateLabel("StaringWeapon");
-												break;
 										}
 								}
 							}
 							
 							
-							if (next is 'NPCCore')
-							{
-									let pp = NPCCore(next);
-									if (pp.Hostility == "Hostile" && pp.isAfterTarget == true)
-									{
-										//Console.Printf("I see NPCCore");
-										//invoker.staringAt = next;
-										invoker.isBusy = true;
-										if (invoker.user_attacksplayeronsight != true)
-										{
-											invoker.MyTarget = next;
-											target = next;
-											vel.xy = (0,0);
-											SetStateLabel("StaringNPC");
-											break;
-										}
-										else
-										{
-											if (pp.target is 'PostalDude' || pp.MyTarget is 'PostalDude')
-											{
-												target = next.target;
-												invoker.MyTarget = next.target;
-												break;
-											}
-										}
-									}
-							}
-							
-							if (next is 'NPCCore' && next.bCORPSE)
+							if (next is 'NPCCore' && next != self)
 							{
 								let pp = NPCCore(next);
-								if (!(invoker.deadpeople[pp.UniqueID] == pp.UniqueID))
+								if (pp.bCORPSE)
 								{
+									if (!(invoker.deadpeople[pp.UniqueID] == pp.UniqueID))
+									{
+										//invoker.staringAt = next;
+										invoker.isBusy = true;
+										invoker.MyTarget = next;
+										target = next;
+										vel.xy = (0,0);
+										SetStateLabel("StaringNPC");
+									}
+								}
+								
+								if (pp.Hostility == "Hostile" && pp.isAfterTarget == true && !pp.bKILLED)
+								{
+									//Console.Printf("I see NPCCore");
 									//invoker.staringAt = next;
 									invoker.isBusy = true;
-									invoker.MyTarget = next;
-									target = next;
-									vel.xy = (0,0);
-									SetStateLabel("StaringNPC");
-									break;
+									if (invoker.user_attacksplayeronsight != true)
+									{
+										invoker.MyTarget = next;
+										target = next;
+										vel.xy = (0,0);
+										SetStateLabel("StaringNPC");
+									}
+									else
+									{
+										if (pp.target is 'PostalDude' || pp.MyTarget is 'PostalDude')
+										{
+											target = next.target;
+											invoker.MyTarget = next.target;
+										}
+									}
 								}
-							
 							}
-							
 							
 							if (next.bIsMonster && !(next.bKILLED) && !(next is 'NPCCore') && !(next is 'Champ') && !(next is 'PostalCatInv') && !(next is 'PostalLiquidGas') && !(next is 'PostalFire') && !(next is 'PouringGas') 
 							&& !(next is 'RandomPostalFire') && !(next is 'FireParticleBottom') && !(next is 'FireSmokeUp') && !(next is 'PostalDoor') && !(next is 'PostalDoor_Extender'))
@@ -1334,10 +1333,9 @@ extend class NPCCore
 								target = next;
 								vel.xy = (0,0);
 								SetStateLabel("See");
-								break;
 							}
 							
-							if (next is 'CowMike')
+							if (next is 'CowMike' && !next.bKILLED)
 							{
 							
 									Actor madcow = next;
@@ -1349,7 +1347,6 @@ extend class NPCCore
 											invoker.MyTarget = madcow;
 											vel.xy = (0,0);
 											SetStateLabel("See");
-											break;
 										}
 										else
 										{
@@ -1359,7 +1356,6 @@ extend class NPCCore
 												invoker.MyTarget = madcow;
 												vel.xy = (0,0);
 												SetStateLabel("See");
-												break;
 											}
 										}
 							
