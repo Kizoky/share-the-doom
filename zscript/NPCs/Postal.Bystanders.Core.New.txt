@@ -263,11 +263,11 @@ class NPCCore : PostalActor
 	
 	virtual void A_PussyScream()
 	{
-			int Prob = random(0,100);
-			if (Prob > 78)
-			{
-				A_PlaySound(NPC_Scream,0 , 1.0, false, 1, false, MyVoice);
-			}
+		int Prob = random(0,100);
+		if (Prob > 78)
+		{
+			A_PlaySound(NPC_Scream,0 , 1.0, false, 1, false, MyVoice);
+		}
 	}
 	
 	virtual void A_HostileWalk(int variant)
