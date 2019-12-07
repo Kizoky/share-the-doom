@@ -138,22 +138,31 @@ class NPCCore : PostalActor
 		
 		if (Hostility == "Hostile")
 		{
-			int RandomizedWeapon = random(1,2);
-			
-			switch(RandomizedWeapon)
+			static const string WeaponList[] =
 			{
-				default:
-					Console.Printf("Warning, weapon for a Hostile NPC hasn't been set!");
-					Destroy();
-					break;
-				case 1:
-					NPCWeapon = "Pistol";
-					break;
-				case 2:
-					NPCWeapon = "Shotgun";
-					break;
+				"Pistol",
+				"Shotgun"
+				/*"RocketLauncher",
+				"Scissor",
+				"Machete",
+				"Scythe",
+				"Sledge",
+				"Sniper",
+				"Gascan",
+				"Napalm",
+				"M16",
+				"StreetFighter",
+				"Tazer",
+				"Baton",
+				"Shovel",
+				"Cowhead",
+				"Grenade",
+				"Plague"
+				*/
+			};
+			int i = random(0,WeaponList.Size()-1);
 			
-			}
+			NPCWeapon = WeaponList[i];
 		}
 		
 		if (!(user_weapon == ""))
