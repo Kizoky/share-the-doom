@@ -196,7 +196,6 @@ class DudeCoreHandler : EventHandler
 				//Is there a way to maybe get the killer and not the target?
 				if (e.Thing.target == p)
 				{
-					//Console.Printf("works");
 					if (p != null && !(p.bKILLED))
 						p.InitLine = true;
 				}

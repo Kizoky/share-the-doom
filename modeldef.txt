@@ -3,6 +3,7 @@
 #include "models/modeldef/modeldef.aakick.txt"
 #include "models/modeldef/modeldef.aaPlayer.txt"
 //#include "models/modeldef/modeldef.aaPreload.txt"
+#include "models/modeldef/modeldef.bZombie.txt"
 #include "models/modeldef/modeldef.bCowBoss.txt"
 #include "models/modeldef/modeldef.mGasoline.txt"
 #include "models/modeldef/modeldef.bNPCCop.txt"
