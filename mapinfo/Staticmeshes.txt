@@ -71,4 +71,11 @@ DoomEdNums
   32702 = postaldoor
   32701 = postaldoor_extender
   
+  32700 = roof_two
+  32699 = roof_tri
+  
+  32698 = storeshelf_one
+  32697 = storeshelf_two
+  32696 = storeshelf_three
+  
 }

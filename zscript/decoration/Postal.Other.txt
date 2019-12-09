@@ -553,3 +553,106 @@ class nastyfence : Actor
 		Loop;
 	}
 }
+
+class roof_two : Actor
+{
+	Default
+	{
+		//$Category Roofs
+		//$Title "Roof 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOGRAVITY
+		+NOBLOCKMAP
+		+NOCLIP
+		-CANPASS
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class roof_tri : Actor
+{
+	Default
+	{
+		//$Category Roofs
+		//$Title "Roof Middle Triangle"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOGRAVITY
+		+NOBLOCKMAP
+		+NOCLIP
+		-CANPASS
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class storeshelf_one : Actor
+{
+	Default
+	{
+		//$Category Store Shelves
+		//$Title "Storeshelf 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class storeshelf_two : Actor
+{
+	Default
+	{
+		//$Category Store Shelves
+		//$Title "Storeshelf 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class storeshelf_three : Actor
+{
+	Default
+	{
+		//$Category Store Shelves
+		//$Title "Storeshelf 3"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

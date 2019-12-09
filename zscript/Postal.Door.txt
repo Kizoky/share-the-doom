@@ -135,7 +135,8 @@ class PostalDoor_Extender : Actor
 	{
 		//$Category Gameplay
 		//$Title "Door Extender"
-		Radius 5;
+		//$Color 1
+		Radius 7;
 		Height 85;
 		+SHOOTABLE
 		+ROLLSPRITE
@@ -300,6 +301,7 @@ class PostalDoor : Actor
 	{
 		//$Category Gameplay
 		//$Title "Door"
+		//$Color 5
 		Radius 5;
 		Height 85;
 		+SHOOTABLE

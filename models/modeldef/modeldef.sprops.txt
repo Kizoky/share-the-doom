@@ -854,3 +854,80 @@ Model "nastyfence"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "roof_two"
+{
+	Path "models\props"
+	Model 0 "roof_2.md3"
+	SurfaceSkin 0 0 "textures/asphalt-1-tile-256-C.png"
+	SurfaceSkin 0 1 "textures/blue-128-dirty.png"
+	SurfaceSkin 0 2 "textures/stucco-dk-stained.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 -75 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "roof_tri"
+{
+	Path "models\props"
+	Model 0 "roof-tri.md3"
+	SurfaceSkin 0 0 "textures/stucco-dk-stained.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 -75 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "storeshelf_one"
+{
+	Path "models\props"
+	Model 0 "storeshelf_one.md3"
+	SurfaceSkin 0 0 "textures/shelf_hires2_timb.png"
+	SurfaceSkin 0 1 "textures/shelf_hires1_timb.png"
+	SurfaceSkin 0 2 "textures/shelfside_timb.png"
+	AngleOffset 90
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "storeshelf_two"
+{
+	Path "models\props"
+	Model 0 "storeshelf_two.md3"
+	SurfaceSkin 0 0 "textures/jarshelf_timb.png"
+	SurfaceSkin 0 1 "textures/shelfside_timb.png"
+	AngleOffset 90
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "storeshelf_three"
+{
+	Path "models\props"
+	Model 0 "storeshelf_three.md3"
+	SurfaceSkin 0 0 "textures/shelf3_timb.png"
+	SurfaceSkin 0 1 "textures/shelfside_timb.png"
+	SurfaceSkin 0 2 "textures/shelf2_timb.png"
+	AngleOffset 90
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
