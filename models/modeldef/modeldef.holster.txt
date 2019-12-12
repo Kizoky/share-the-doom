@@ -10,7 +10,7 @@ Model "PostHands"
 	
 	AngleOffset 0 //40
 	Scale -1 0.75 1
-	Offset 1 0 -12 //X Y Z
+	Offset 1 0 -50 //X Y Z
 	
 	FrameIndex ABAB A 0 0
 	

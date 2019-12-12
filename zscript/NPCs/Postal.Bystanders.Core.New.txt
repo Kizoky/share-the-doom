@@ -734,6 +734,9 @@ class NPCCore : PostalActor
 			//Clear our target, so we won't be going after it
 			isBusy = false;
 			A_ClearTarget();
+			
+			//Before eventually going back to Spawn, let's check our surroundings
+			A_BystanderThink();
 		}
 		Goto Spawn;
 	Standing:
