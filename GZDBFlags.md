@@ -27,7 +27,7 @@
 - user_shop_hatescops: If set, it won't sell anything for cops. (default: false)
 - user_shop_breaktime: If set, upon entering the level it's in, after that amount it will disappear if it's out of sight from the Player(s). (tics, 35 tics = 1 second) (default int: null)
 - user_shop_patient: If true, the shopkeeper will ignore the Player's actions, like making it wait long, or going far away. If false, after user_shop_patiencetimes the user_shop_hatesplayer will be set. (default: true)
-user_shop_patiencetimes: Only works with user_shop_patient; Defines the amount of times before the shopkeeper gets enough with the Player's shit (default int: 4)
+- user_shop_patiencetimes: Only works with user_shop_patient; Defines the amount of times before the shopkeeper gets enough with the Player's shit (default int: 4)
 - user_shop_ignoreplayertaunt: If set, it will ignore Player's "Fuck you" or "Get the fuck down" and instead laughs. The opposite will make the shopkeeper shriek or attack the Player. (default: false)
 
 # Doors
@@ -74,3 +74,14 @@ STD will probably have Postalified Doom keys, those will work too.
 - user_backfromhell: If set, the Zombie will slowly resurrect and behave like a normal zombie again. (default: false)
 - user_canalert: If set, the Zombie can alert nearby zombies to attack the target. (default: false ?)
 
+# Pigeons
+
+- user_ignoreall: If set, pigeon will ignore anything in it's surroundings, kicking them will still make them fly off. (default: false)
+- user_flyonly: If set, Pigeon will roam around the map and will never land. (default: false)
+- user_standstill: If set, Pigeon will stand in one place while playing idle animation, startling the Pigeon will make it fly off and will behave like a normal Pigeon. Can be combined with *user_ignoreall*. (default: false)
+- user_pooValue: Normally the chance for the Pigeons to spawn a birdie is randomized, however this will overwrite that randomness and instead it can be given after how many seconds it should poop if it's flying. (default int: null)
+- user_bomb: If set, killing the Pigeon will make it blow up. (default: false)
+- user_hatetype: Pigeons have 2 different hate types, *harasser* and *attacker*, harasser will continously annoy the heck out of the player, and within range the Pigeon will flee. Attacker will fly onto the Player and peck it's head causing 5% damage of the Player's health, combined with *user_bomb* there's a random chance the Pigeon will blow up if the Player does not kick away the Pigeon in time. (default string: null)
+- user_ignorenodes: If set, Pigeon will ignore nodes placed around the level for interest, they will just randomly roam around the map and will land, but will still behave normally. (default: false)
+- user_ignorecorpse: If set, Pigeon will not attempt to eat from any Postal corpse. (default: false)
+- user_isZombie: If set, Pigeon will become a Zombie-like enemy that will shoot poo at the Player while flying, will never land unless a certain amount of health is missing and afterwards it will chase the player. (default: false)
