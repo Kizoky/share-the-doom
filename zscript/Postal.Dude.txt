@@ -206,6 +206,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	bool Suicided;
 	
+	virtual void CheckEpisode()
+	{
+		string CurrentEpisode = level.mapname.Left(2);
+	}
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		if (PlayerData)
