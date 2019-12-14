@@ -10,7 +10,7 @@ class PostalDoor_Extender : Actor
 	{
 		if (invoker.AttachedToDoor != null) return;
 		
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 30);
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 50);
 		double fov = 20;
 		
 		while (it.Next ()) {
