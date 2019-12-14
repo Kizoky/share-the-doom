@@ -10,10 +10,16 @@ class PostalDoor_Extender : Actor
 	{
 		if (invoker.AttachedToDoor != null) return;
 		
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 10);
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 30);
+		double fov = 20;
 		
 		while (it.Next ()) {
 			let next = it.Thing;
+			
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
 			
 			if (invoker.AttachedToDoor == null)
 			{
