@@ -3,12 +3,14 @@
 
 class PostalDoor_Extender : Actor
 {
-	Actor AttachedToDoor;
+	Actor AttachedToDoor, AttachedToDoor2;
 	int AngleBefore;
+	
+	bool user_middle, SearchFinished;
 	
 	action void A_SearchForDoor()
 	{
-		if (invoker.AttachedToDoor != null) return;
+		if (invoker.SearchFinished == true) return;
 		
 		BlockThingsIterator it = BlockThingsIterator.Create (self, 50);
 		double fov = 20;
@@ -26,6 +28,26 @@ class PostalDoor_Extender : Actor
 				if (next is 'PostalDoor' && next.pos.z == self.pos.z)
 				{
 					invoker.AttachedToDoor = next;
+					
+					if (invoker.user_middle) angle = angle + 180;
+					
+					if (invoker.user_middle != true)
+					{
+						invoker.SearchFinished = true;
+						return;
+					}
+				}
+			}
+			
+			if (invoker.user_middle == true)
+			{
+				if (invoker.AttachedToDoor2 == null)
+				{
+					if (next != invoker.AttachedToDoor && next is 'PostalDoor' && next.pos.z == self.pos.z)
+					{
+						invoker.AttachedToDoor2 = next;
+						invoker.SearchFinished = true;
+					}
 				}
 			}
 		}
@@ -34,6 +56,8 @@ class PostalDoor_Extender : Actor
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		let door = PostalDoor(AttachedToDoor);
+		let door2 = PostalDoor(AttachedToDoor2);
+		
 		if (door != null)
 		{
 			/*
@@ -53,6 +77,12 @@ class PostalDoor_Extender : Actor
 			
 			door.HitOnce = true;
 			door.DoorCloseTime = level.time + (35 * 5);
+			if (door2 != null)
+			{
+				door2.HitOnce = true;
+				door2.DoorCloseTime = level.time + (35 * 5);
+			}
+			
 			A_PlaySound("door/kick", 0);
 			
 			// A simple check to detect if Door was hit in front or back
@@ -61,6 +91,14 @@ class PostalDoor_Extender : Actor
 				door.FrontBack = false;
 				door.RotationSpeed = 16;
 				door.SetStateLabel("Open");
+				
+				if (door2 != null)
+				{
+					door2.FrontBack = true;
+					door2.RotationSpeed = 16;
+					door2.SetStateLabel("Open");
+				}
+				
 				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 			} 
 			else 
@@ -68,6 +106,14 @@ class PostalDoor_Extender : Actor
 				door.FrontBack = true;
 				door.RotationSpeed = 16;
 				door.SetStateLabel("Open");
+				
+				if (door2 != null)
+				{
+					door2.FrontBack = false;
+					door2.RotationSpeed = 16;
+					door2.SetStateLabel("Open");
+				}
+				
 				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 			}
 		}
@@ -80,6 +126,7 @@ class PostalDoor_Extender : Actor
 		if (toucher)
 		{
 			let door = PostalDoor(AttachedToDoor);
+			let door2 = PostalDoor(AttachedToDoor2);
 			let NPC = NPCCore(toucher);
 			
 			//if (NPC) NPC.SetStateLabel("Standing");
@@ -92,6 +139,13 @@ class PostalDoor_Extender : Actor
 				
 				door.HitOnce = true;
 				door.DoorCloseTime = level.time + (35 * 5);
+				
+				if (door2 != null)
+				{
+					door2.HitOnce = true;
+					door2.DoorCloseTime = level.time + (35 * 5);
+				}
+				
 				A_PlaySound("door/open", 0);
 				
 				// A simple check to detect if Door was hit in front or back
@@ -100,6 +154,15 @@ class PostalDoor_Extender : Actor
 					door.FrontBack = false;
 					door.RotationSpeed = 8;
 					door.SetStateLabel("Open");
+					
+					if (door2 != null)
+					{
+						door2.FrontBack = true;
+						door2.RotationSpeed = 8;
+						door2.SetStateLabel("Open");
+					
+					}
+					
 					return;
 				} 
 				else 
@@ -107,6 +170,13 @@ class PostalDoor_Extender : Actor
 					door.FrontBack = true;
 					door.RotationSpeed = 8;
 					door.SetStateLabel("Open");
+					
+					if (door2 != null)
+					{
+						door2.FrontBack = false;
+						door2.RotationSpeed = 8;
+						door2.SetStateLabel("Open");
+					}
 					return;
 				}
 			}
