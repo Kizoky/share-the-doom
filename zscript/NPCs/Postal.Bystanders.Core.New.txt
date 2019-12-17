@@ -911,7 +911,25 @@ class NPCCore : PostalActor
 }
 
 extend class NPCCore
-{	
+{
+	// List of weapons NPCs don't like seeing
+	static const string DangerList[] =
+	{
+		"PostCowhead",
+		"PostGrenade",
+		"PostM16",
+		"PostMolotov",
+		"PostNapalmLauncher",
+		"PostPistol",
+		"PostRLauncher",
+		"PostScissors",
+		"PostScythe",
+		"PostShotgun",
+		"PostRifle",
+		"PostUrethra",
+		"PostWMD"
+	};
+	
 	//////////////////////////////////
 	/////// Bump/Touch feature
 	//////////////////////////////////
@@ -923,75 +941,79 @@ extend class NPCCore
 			if (toucher is 'PostalDude')
 			{
 				let PlayerDude = PostalDude(toucher);
+				
+				// Let's check if there's Fire attached on the Player...
+				if (PlayerDude.MyAnnoyingFire != null)
+				{
+					class<actor> Fire = "PostalFire";
+					actor AttachedFire = spawn(Fire, toucher.pos, ALLOW_REPLACE);
+					
+					// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
+					// but make sure to check it's not null or else GZDoom will crash
+					if (AttachedFire)
+					{
+						let dd = PostalFire(AttachedFire);
+						dd.Owner = self;
+						dd.ThisOneHurts = true;
+						dd.Counter = 0;
 						
-						// Let's check if there's Fire attached on the Player...
-						if (PlayerDude.MyAnnoyingFire != null)
+						if (AnnoyingFire != null)
 						{
-							class<actor> Fire = "PostalFire";
-							actor AttachedFire = spawn(Fire, toucher.pos, ALLOW_REPLACE);
+							//There's not enough time for the newly spawned Fire to cause damage
+							AttachedFire.Destroy();
 							
-							// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
-							// but make sure to check it's not null or else GZDoom will crash
-							if (AttachedFire)
-							{
-								let dd = PostalFire(AttachedFire);
-								dd.Owner = self;
-								dd.ThisOneHurts = true;
-								dd.Counter = 0;
-								
-								if (AnnoyingFire != null)
-								{
-									//There's not enough time for the newly spawned Fire to cause damage
-									AttachedFire.Destroy();
-									
-									dd.TimeBeforeDisappearing = level.time + (35 * 12);
-								}
-								else
-									AnnoyingFire = AttachedFire;
-							}
+							dd.TimeBeforeDisappearing = level.time + (35 * 12);
 						}
+						else
+							AnnoyingFire = AttachedFire;
+					}
+				}
+				
+				
+				if (PlayerDude.MyAnnoyingFire == null && AnnoyingFire != null)
+				{
+					//woah dude you don't have a fire on you? Let me help you!
+					
+					if (PlayerDude.PlayerData.P_GodMode != true)
+					{
+					
+						Console.Printf("Dude doesn't have fire");
 						
-						if (PlayerDude.MyAnnoyingFire == null && AnnoyingFire != null)
+						class<actor> Fire = "PostalFire";
+						actor AttachedFire = spawn(Fire, toucher.pos, ALLOW_REPLACE);
+						
+						// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
+						// but make sure to check it's not null or else GZDoom will crash
+						if (AttachedFire)
 						{
-							//woah dude you don't have a fire on you? Let me help you!
+							let dd = PostalFire(AttachedFire);
+							dd.Owner = PlayerDude;
+							dd.ThisOneHurts = true;
+							dd.Counter = 0;
 							
-							if (PlayerDude.PlayerData.P_GodMode != true)
+							if (PlayerDude.MyAnnoyingFire != null)
 							{
-							
-								Console.Printf("Dude doesn't have fire");
+								//There's not enough time for the newly spawned Fire to cause damage
+								AttachedFire.Destroy();
 								
-								class<actor> Fire = "PostalFire";
-								actor AttachedFire = spawn(Fire, toucher.pos, ALLOW_REPLACE);
-								
-								// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
-								// but make sure to check it's not null or else GZDoom will crash
-								if (AttachedFire)
-								{
-									let dd = PostalFire(AttachedFire);
-									dd.Owner = PlayerDude;
-									dd.ThisOneHurts = true;
-									dd.Counter = 0;
-									
-									if (PlayerDude.MyAnnoyingFire != null)
-									{
-										//There's not enough time for the newly spawned Fire to cause damage
-										AttachedFire.Destroy();
-										
-										dd.TimeBeforeDisappearing = level.time + (35 * 12);
-									}
-									else
-										PlayerDude.MyAnnoyingFire = AttachedFire;
-								}
+								dd.TimeBeforeDisappearing = level.time + (35 * 12);
 							}
+							else
+								PlayerDude.MyAnnoyingFire = AttachedFire;
 						}
+					}
+				}
+				
+				
 			}
-			
 				//Note: This could have been in toucher.NPCCore aswell, but since we are aiming for the Fire to be kinda "universal"
 				//I put it here - who knows maybe in the future I'll figure out how can I make the Fire attach to any custom monster without
 				//relying on PostalActor
 				if (toucher is 'PostalActor')
 				{	
 						let asd = PostalActor(toucher);
+						
+						
 						if (asd.AnnoyingFire != null)
 						{
 							class<actor> Fire = "PostalFire";
@@ -1020,6 +1042,7 @@ extend class NPCCore
 							//Let's exit anyway
 							return;
 						}
+						
 						
 						if (asd.AnnoyingFire == null && AnnoyingFire != null)
 						{
@@ -1057,53 +1080,43 @@ extend class NPCCore
 			
 			if (isAfterTarget != true && health > 0 && isBusy != true)
 			{
-				//target = toucher;
 				// If the target is Postal Dude, do this
 				if (toucher is 'PostalDude' && isAfterTarget != true)
 				{
 					let PlayerDude = PostalDude(toucher);
+					bool dangerousWeapon;
+					
 					if (isAfterTarget == false)
 					{
-						
-						if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostCowhead")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostGrenade")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMachete")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostM16")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMolotov")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostNapalmLauncher")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostPistol")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRLauncher")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScissors")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScythe")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostShotgun")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRifle")) || 
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")) ||
-						PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostWMD")) ||
-						user_attacksplayeronsight == true
-						)
+						for (int i = 0; i < DangerList.Size()-1; i++)
 						{
-							//Console.Printf("omg lethal weapon");
-										//Console.Printf("HE'S GOT A GUN!!!");
-										if (Hostility == "Hostile")
-										{
-											target = PlayerDude;
-											MyTarget = PlayerDude;
-											isAfterTarget = true;
-											A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
-											SetStateLabel("HostileChase");
-										}
-										else
-										{
-											if (Hostility == "Pussy")
-											{
-												target = PlayerDude;
-												MyTarget = PlayerDude;
-												isAfterTarget = true;
-												SetStateLabel("See");
-											}
-										}
+							if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory(DangerList[i])) || user_attacksplayeronsight == true)
+							{
+								if (Hostility == "Hostile")
+								{
+									target = PlayerDude;
+									MyTarget = PlayerDude;
+									isAfterTarget = true;
+									A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
+									SetStateLabel("HostileChase");
+								}
+								else
+								{
+									if (Hostility == "Pussy")
+									{
+										target = PlayerDude;
+										MyTarget = PlayerDude;
+										isAfterTarget = true;
+										SetStateLabel("See");
+									}
+								}
+								dangerousWeapon = true;
+								break;
+							}
 						}
-						else
+						
+						
+						if (dangerousWeapon != true)
 						{
 							target = PlayerDude;
 							MyTarget = PlayerDude;
@@ -1111,6 +1124,8 @@ extend class NPCCore
 							isBusy = true;
 							SetStateLabel("Bumping");
 						}
+						
+						
 					}
 				}
 				
@@ -1123,6 +1138,7 @@ extend class NPCCore
 						//Calm, normal wandering/walking
 						
 						if (isAfterTarget == true) return;
+						
 						
 						if (pp.isAfterTarget == false)
 						{
@@ -1151,7 +1167,6 @@ extend class NPCCore
 								//If we aren't fleeing or Hostile, do:
 								if (isAfterTarget != true)
 								{
-								
 									if (pp.Hostility == "Hostile" && pp.isAfterTarget == true)
 									{
 										//Console.Printf("HE'S GOT A GUN!!!");
@@ -1175,21 +1190,17 @@ extend class NPCCore
 										}
 										
 									}
-								
 								}
 							}
 						}
 				}
 				
-				if (toucher is 'Champ' && isAfterTarget != true)
+				
+				if ((toucher is 'Champ'  || toucher is 'PostalCatInv') && isAfterTarget != true)
 				{
 					SetStateLabel("Spawn");
 				}
 				
-				if (toucher is 'PostalCatInv' && isAfterTarget != true)
-				{
-					SetStateLabel("Spawn");
-				}
 				
 				if (toucher is 'CowMike' && isAfterTarget != true)
 				{			
@@ -1211,11 +1222,10 @@ extend class NPCCore
 							SetStateLabel("See");
 						}
 					}
-				
 				}
 				
+				
 			}
-			
 		}	
 	}
 	
@@ -1254,129 +1264,120 @@ extend class NPCCore
 				continue;
 
 			// Do things with the "next" pointer here
-						
-						if (invoker.isAfterTarget != true)
+			
+				if (invoker.isAfterTarget != true)
+				{
+					if (next is 'PostalDude' && !(next.bKILLED))
+					{
+						let PlayerDude = PostalDude(next);
+						if (PlayerDude != null && PlayerDude.player.ReadyWeapon != null)
 						{
-							if (next is 'PostalDude' && !(next.bKILLED))
+							if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")))
 							{
-								let PlayerDude = PostalDude(next);
-								if (PlayerDude != null && PlayerDude.player.ReadyWeapon != null)
-								{
-									if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")))
-									{
-										//A_PlaySound("grunt/sight",0);
-										invoker.isBusy = true;
-										invoker.MyTarget = PlayerDude;
-										vel.xy = (0,0);
-										SetStateLabel("DickOut");
-									}
-									else
-										if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostCowhead")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostGrenade")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMachete")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostM16")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostMolotov")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostNapalmLauncher")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostPistol")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRLauncher")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScissors")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostScythe")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostShotgun")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostRifle")) || 
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")) ||
-										PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostWMD")) ||
-										invoker.user_attacksplayeronsight == true
-										)
-										{
-												invoker.isBusy = true;
-												invoker.MyTarget = PlayerDude;
-												vel.xy = (0,0);
-												SetStateLabel("StaringWeapon");
-										}
-								}
-							}
-							
-							
-							if (next is 'NPCCore' && next != self)
-							{
-								let pp = NPCCore(next);
-								if (pp.bCORPSE)
-								{
-									if (!(invoker.deadpeople[pp.UniqueID] == pp.UniqueID))
-									{
-										//invoker.staringAt = next;
-										invoker.isBusy = true;
-										invoker.MyTarget = next;
-										target = next;
-										vel.xy = (0,0);
-										SetStateLabel("StaringNPC");
-									}
-									break;
-								}
-								
-								if (pp.Hostility == "Hostile" && pp.isAfterTarget == true && !pp.bKILLED)
-								{
-									//Console.Printf("I see NPCCore");
-									//invoker.staringAt = next;
-									invoker.isBusy = true;
-									if (invoker.user_attacksplayeronsight != true)
-									{
-										invoker.MyTarget = next;
-										target = next;
-										vel.xy = (0,0);
-										SetStateLabel("StaringNPC");
-									}
-									else
-									{
-										if (pp.target is 'PostalDude' || pp.MyTarget is 'PostalDude')
-										{
-											target = next.target;
-											invoker.MyTarget = next.target;
-										}
-									}
-								}
-							}
-							
-							if (next.bIsMonster && !(next.bKILLED) && !(next is 'NPCCore') && !(next is 'Champ') && !(next is 'PostalCatInv') && !(next is 'PostalLiquidGas') && !(next is 'PostalFire') && !(next is 'PouringGas') 
-							&& !(next is 'RandomPostalFire') && !(next is 'FireParticleBottom') && !(next is 'FireSmokeUp') && !(next is 'PostalDoor') && !(next is 'PostalDoor_Extender'))
-							{
-								invoker.isAfterTarget = true;
-								A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
-								invoker.MyTarget = next;
-								target = next;
+								//A_PlaySound("grunt/sight",0);
+								invoker.isBusy = true;
+								invoker.MyTarget = PlayerDude;
 								vel.xy = (0,0);
-								SetStateLabel("See");
+								SetStateLabel("DickOut");
 							}
 							
-							if (next is 'CowMike' && !next.bKILLED)
+							
+							for (int i = 0; i < invoker.DangerList.Size()-1; i++)
 							{
-							
-									Actor madcow = next;
-									
-										if (invoker.Hostility == "Hostile")
-										{
-											invoker.isAfterTarget = true;
-											A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
-											invoker.MyTarget = madcow;
-											vel.xy = (0,0);
-											SetStateLabel("See");
-										}
-										else
-										{
-											if (invoker.Hostility == "Pussy")
-											{
-												invoker.isAfterTarget = true;
-												invoker.MyTarget = madcow;
-												vel.xy = (0,0);
-												SetStateLabel("See");
-											}
-										}
-							
+								if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory(invoker.DangerList[i])) || invoker.user_attacksplayeronsight == true)
+								{
+									invoker.isBusy = true;
+									invoker.MyTarget = PlayerDude;
+									vel.xy = (0,0);
+									SetStateLabel("StaringWeapon");
+								}
 							}
 							
 						}
+					}
+					
+					
+					if (next is 'NPCCore' && next != self)
+					{
+						let pp = NPCCore(next);
+						if (pp.bCORPSE)
+						{
+							if (!(invoker.deadpeople[pp.UniqueID] == pp.UniqueID))
+							{
+								//invoker.staringAt = next;
+								invoker.isBusy = true;
+								invoker.MyTarget = next;
+								target = next;
+								vel.xy = (0,0);
+								SetStateLabel("StaringNPC");
+							}
+							break;
+						}
 						
-					//A_ClearTarget();
+						
+						if (pp.Hostility == "Hostile" && pp.isAfterTarget == true && !pp.bKILLED)
+						{
+							//Console.Printf("I see NPCCore");
+							//invoker.staringAt = next;
+							invoker.isBusy = true;
+							if (invoker.user_attacksplayeronsight != true)
+							{
+								invoker.MyTarget = next;
+								target = next;
+								vel.xy = (0,0);
+								SetStateLabel("StaringNPC");
+							}
+							else
+							{
+								if (pp.target is 'PostalDude' || pp.MyTarget is 'PostalDude')
+								{
+									target = next.target;
+									invoker.MyTarget = next.target;
+								}
+							}
+						}
+					}
+					
+					
+					if (next.bIsMonster && !(next.bKILLED) && !(next is 'NPCCore') && !(next is 'Champ') && !(next is 'PostalCatInv') && !(next is 'PostalLiquidGas') && !(next is 'PostalFire') && !(next is 'PouringGas') 
+					&& !(next is 'RandomPostalFire') && !(next is 'FireParticleBottom') && !(next is 'FireSmokeUp') && !(next is 'PostalDoor') && !(next is 'PostalDoor_Extender'))
+					{
+						invoker.isAfterTarget = true;
+						A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+						invoker.MyTarget = next;
+						target = next;
+						vel.xy = (0,0);
+						SetStateLabel("See");
+					}
+					
+					
+					if (next is 'CowMike' && !next.bKILLED)
+					{
+						Actor madcow = next;
+						if (invoker.Hostility == "Hostile")
+						{
+							invoker.isAfterTarget = true;
+							A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+							invoker.MyTarget = madcow;
+							vel.xy = (0,0);
+							SetStateLabel("See");
+						}
+						else
+						{
+							if (invoker.Hostility == "Pussy")
+							{
+								invoker.isAfterTarget = true;
+								invoker.MyTarget = madcow;
+								vel.xy = (0,0);
+								SetStateLabel("See");
+							}
+						}
+					
+					}
+					
+					
+					
+				}
 			}
     }
 	
@@ -1443,16 +1444,15 @@ extend class NPCCore
 				{
 					if (next is 'Postal_Node')
 					{
-							//double diff = deltaangle(angle, AngleTo(next));
-							//double delta = abs(diff);
-							
-							invoker.ActiveNode = next;
-							//Angle += AngleTo(next);
-							//Console.Printf("I see a Postal_Node.");
-							return;
+						//double diff = deltaangle(angle, AngleTo(next));
+						//double delta = abs(diff);
+						
+						invoker.ActiveNode = next;
+						//Angle += AngleTo(next);
+						//Console.Printf("I see a Postal_Node.");
+						return;
 					}
 				}
-						
 			}
     }
 }
