@@ -1311,6 +1311,7 @@ extend class NPCCore
 										vel.xy = (0,0);
 										SetStateLabel("StaringNPC");
 									}
+									break;
 								}
 								
 								if (pp.Hostility == "Hostile" && pp.isAfterTarget == true && !pp.bKILLED)
