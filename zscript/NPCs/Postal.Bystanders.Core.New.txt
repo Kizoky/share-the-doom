@@ -1099,33 +1099,25 @@ extend class NPCCore
 									isAfterTarget = true;
 									A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
 									SetStateLabel("HostileChase");
+									return;
 								}
-								else
+								
+								if (Hostility == "Pussy")
 								{
-									if (Hostility == "Pussy")
-									{
-										target = PlayerDude;
-										MyTarget = PlayerDude;
-										isAfterTarget = true;
-										SetStateLabel("See");
-									}
+									target = PlayerDude;
+									MyTarget = PlayerDude;
+									isAfterTarget = true;
+									SetStateLabel("See");
+									return;
 								}
-								dangerousWeapon = true;
-								break;
 							}
 						}
 						
-						
-						if (dangerousWeapon != true)
-						{
-							target = PlayerDude;
-							MyTarget = PlayerDude;
-							A_FacePostalTarget();
-							isBusy = true;
-							SetStateLabel("Bumping");
-						}
-						
-						
+						target = PlayerDude;
+						MyTarget = PlayerDude;
+						A_FacePostalTarget();
+						isBusy = true;
+						SetStateLabel("Bumping");
 					}
 				}
 				
@@ -1133,72 +1125,68 @@ extend class NPCCore
 				// If our target is another NPCCore, then do the following
 				if (toucher is 'NPCCore' && isAfterTarget != true)
 				{
-						let pp = NPCCore(toucher);
-						//If we aren't Hostile or Fleeing, do:
-						//Calm, normal wandering/walking
-						
-						if (isAfterTarget == true) return;
-						
-						
-						if (pp.isAfterTarget == false)
+					let pp = NPCCore(toucher);
+					//If we aren't Hostile or Fleeing, do:
+					//Calm, normal wandering/walking
+					
+					if (pp.isAfterTarget == false)
+					{
+						if (StopGoingAfterNode != true)
 						{
-							if (StopGoingAfterNode != true)
-							{
-								NodeCooldown = level.time;
-								StopGoingAfterNode = true;
-								ActiveNode = null;
-							}
+							NodeCooldown = level.time;
+							StopGoingAfterNode = true;
+							ActiveNode = null;
 						}
-						else
+						
+						return;
+					}
+					
+					if (pp.isAfterTarget == true)
+					{
+						//Fleeing, running around and screaming like hell
+						if (pp.Hostility == "Pussy" && pp.isAfterTarget == true)
 						{
-							//Fleeing, running around and screaming like hell
-							if (pp.Hostility == "Pussy" && pp.isAfterTarget == true)
+							//Console.Printf("STOP RUNNING INTO ME YOU SCREAMING PUSSY");
+							A_FacePostalTarget();
+							target = pp;
+							MyTarget = pp;
+							isBusy = true;
+							SetStateLabel("Bumping");
+							return;
+						}
+						
+						//Hostile, attacks the target
+						//If we aren't fleeing or Hostile, do:
+						if (pp.Hostility == "Hostile" && pp.isAfterTarget == true)
+						{
+							//Console.Printf("HE'S GOT A GUN!!!");
+							if (Hostility == "Hostile")
 							{
-								//Console.Printf("STOP RUNNING INTO ME YOU SCREAMING PUSSY");
-								A_FacePostalTarget();
 								target = pp;
 								MyTarget = pp;
-								isBusy = true;
-								SetStateLabel("Bumping");
+								isAfterTarget = true;
+								A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
+								SetStateLabel("HostileChase");
+								return;
 							}
-							else
+							
+							if (Hostility == "Pussy")
 							{
-								//Hostile, attacks the target
-								//If we aren't fleeing or Hostile, do:
-								if (isAfterTarget != true)
-								{
-									if (pp.Hostility == "Hostile" && pp.isAfterTarget == true)
-									{
-										//Console.Printf("HE'S GOT A GUN!!!");
-										if (Hostility == "Hostile")
-										{
-											target = pp;
-											MyTarget = pp;
-											isAfterTarget = true;
-											A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
-											SetStateLabel("HostileChase");
-										}
-										else
-										{
-											if (Hostility == "Pussy")
-											{
-												isAfterTarget = true;
-												target = pp;
-												MyTarget = pp;
-												SetStateLabel("See");
-											}
-										}
-										
-									}
-								}
+								isAfterTarget = true;
+								target = pp;
+								MyTarget = pp;
+								SetStateLabel("See");
+								return;
 							}
 						}
+					}
 				}
 				
 				
 				if ((toucher is 'Champ'  || toucher is 'PostalCatInv') && isAfterTarget != true)
 				{
 					SetStateLabel("Spawn");
+					return;
 				}
 				
 				
@@ -1211,16 +1199,16 @@ extend class NPCCore
 						isAfterTarget = true;
 						A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
 						SetStateLabel("HostileChase");
+						return;
 					}
-					else
+					
+					if (Hostility == "Pussy")
 					{
-						if (Hostility == "Pussy")
-						{
-							isAfterTarget = true;
-							target = toucher;
-							MyTarget = toucher;
-							SetStateLabel("See");
-						}
+						isAfterTarget = true;
+						target = toucher;
+						MyTarget = toucher;
+						SetStateLabel("See");
+						return;
 					}
 				}
 				
@@ -1241,27 +1229,21 @@ extend class NPCCore
 		BlockThingsIterator it = BlockThingsIterator.Create (self, 400); // The number here is (possibly roughly) the maximum distance they can see
 		Actor unknownentity;
 		
-		if (invoker.Petitioning == true)
-				SetStateLabel("Petitioning");
+		if (invoker.isAfterTarget == true)
+		{
+			Console.Printf("Warning, NPC entered A_BystanderThink on Spawn state");
+			return;
+		}
 		
 		while (it.Next () && it.Thing != null) {
 				let next = it.Thing;
+				
 			
-			/*
-			if (!next.bShootable || next.bKilled || next.health < 1)
-			{
-				continue;
-			}
-			*/
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) continue;
 			
-			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
-			{
-				continue;
-			}
-
+			if (!CheckSight (next, SF_SeePastShootableLines)) continue;
 			
-			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
-				continue;
+			
 
 			// Do things with the "next" pointer here
 			
@@ -1279,8 +1261,8 @@ extend class NPCCore
 								invoker.MyTarget = PlayerDude;
 								vel.xy = (0,0);
 								SetStateLabel("DickOut");
+								return;
 							}
-							
 							
 							for (int i = 0; i < invoker.DangerList.Size()-1; i++)
 							{
@@ -1290,9 +1272,9 @@ extend class NPCCore
 									invoker.MyTarget = PlayerDude;
 									vel.xy = (0,0);
 									SetStateLabel("StaringWeapon");
+									return;
 								}
 							}
-							
 						}
 					}
 					
@@ -1310,8 +1292,8 @@ extend class NPCCore
 								target = next;
 								vel.xy = (0,0);
 								SetStateLabel("StaringNPC");
+								return;
 							}
-							break;
 						}
 						
 						
@@ -1326,6 +1308,7 @@ extend class NPCCore
 								target = next;
 								vel.xy = (0,0);
 								SetStateLabel("StaringNPC");
+								return;
 							}
 							else
 							{
@@ -1333,6 +1316,7 @@ extend class NPCCore
 								{
 									target = next.target;
 									invoker.MyTarget = next.target;
+									return;
 								}
 							}
 						}
@@ -1348,6 +1332,7 @@ extend class NPCCore
 						target = next;
 						vel.xy = (0,0);
 						SetStateLabel("See");
+						return;
 					}
 					
 					
@@ -1361,20 +1346,19 @@ extend class NPCCore
 							invoker.MyTarget = madcow;
 							vel.xy = (0,0);
 							SetStateLabel("See");
+							return;
 						}
-						else
+						
+						
+						if (invoker.Hostility == "Pussy")
 						{
-							if (invoker.Hostility == "Pussy")
-							{
-								invoker.isAfterTarget = true;
-								invoker.MyTarget = madcow;
-								vel.xy = (0,0);
-								SetStateLabel("See");
-							}
+							invoker.isAfterTarget = true;
+							invoker.MyTarget = madcow;
+							vel.xy = (0,0);
+							SetStateLabel("See");
+							return;
 						}
-					
 					}
-					
 					
 					
 				}
