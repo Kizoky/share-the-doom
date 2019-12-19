@@ -214,7 +214,7 @@ class NPCCore : PostalActor
 				else
 					ActiveNode = null;
 					
-				Console.Printf("null");
+				//Console.Printf("null");
 			}
 		}
 	}
@@ -378,8 +378,8 @@ class NPCCore : PostalActor
 			}
 			else A_SetAngle(angle-RotationSpeed, SPF_INTERPOLATE);
 			
-			Console.Printf("Angle To Target: %f", AngleTo (target));
-			Console.Printf("Angle: %f", angle);
+			//Console.Printf("Angle To Target: %f", AngleTo (target));
+			//Console.Printf("Angle: %f", angle);
 			
 		}
 		
@@ -392,7 +392,7 @@ class NPCCore : PostalActor
 		
 		//Let's get the pitch from A_FaceTarget
 		A_FaceTarget(0,0);
-		Console.Printf("Pitch: %d",pitch);
+		//Console.Printf("Pitch: %d",pitch);
 		//Let's check the Distance to the target
 		double DistanceTarget = Distance2D(target);
 		
@@ -406,7 +406,7 @@ class NPCCore : PostalActor
 			{
 				bool ff = random(0,1);
 				
-				Console.Printf("Someone's in my way");
+				//Console.Printf("Someone's in my way");
 				if (ff)
 					Thrust(8, Angle - 90);
 				else
