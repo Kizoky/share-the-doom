@@ -9,4 +9,5 @@ DoomEdNums
   29994 = NPCCop
   29993 = Postal_Node
   29992 = Postal_TrainNode
+  29991 = NPCZombie
 }

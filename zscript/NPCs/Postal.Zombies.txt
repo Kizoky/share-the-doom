@@ -14,8 +14,10 @@ class NPCZombie : PostalActor
 	{
 		//$Category NPCs
 		//$Title "Postal Zombie"
-		//$Sprite ZOMBA0
-		Health 150;
+		
+		//$Color 4
+		//$Sprite TESTA0
+		Health 99999999;
 		Radius 13;
 		Height 65;
 		Speed 3;
@@ -26,7 +28,7 @@ class NPCZombie : PostalActor
 		PainSound "dudehurt";
 		DeathSound "";
 		ActiveSound "";
-		Obituary "%o was somehow got killed by a Bystander. What, how is that possible??";
+		Obituary "%o got it's organs eaten out by a Zombie.";
 		DropItem "None";
 		//+NOTARGETSWITCH;
 		+SOLID

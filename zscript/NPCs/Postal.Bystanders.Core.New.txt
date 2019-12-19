@@ -422,6 +422,7 @@ class NPCCore : PostalActor
 		//$Category NPCs
 		//$Title "Debug Dude"
 		//$Sprite DUDEA0
+		//$Color 9
 		Health 150;
 		Radius 13;
 		Height 65;
@@ -492,7 +493,6 @@ class NPCCore : PostalActor
 		}
 		Loop;
 	Spawn:
-		TNT1 A 0;
 		DUDW A 0
 		{
 			if (target == null && Hostility == "Pussy" && Hostility == "Hostile")

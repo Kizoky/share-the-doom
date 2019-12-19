@@ -4,6 +4,8 @@ Sprite "PICKA0",1,1{}
 
 Sprite "WALKA0",1,1{}
 
+Sprite "DUDWA0",1,1{}
+
 Sprite "DOGIA0",1,1{}
 Sprite "DOGAA0",1,1{}
 Sprite "DOGAB0",1,1{}
@@ -3325,3 +3327,5 @@ Sprite "SWINA0",1,1{}
 Sprite "SWINB0",1,1{}
 Sprite "SWINC0",1,1{}
 Sprite "SWIND0",1,1{}
+
+Sprite "IDLEA0",1,1{}
