@@ -912,7 +912,8 @@ class NPCCore : PostalActor
 
 extend class NPCCore
 {
-	// List of weapons NPCs don't like seeing
+	// List of weapons NPCs don't like seeing from the Player
+	// Gets checked when NPCs are being bumped, or seeing
 	static const string DangerList[] =
 	{
 		"PostCowhead",
@@ -928,6 +929,32 @@ extend class NPCCore
 		"PostRifle",
 		"PostUrethra",
 		"PostWMD"
+	};
+	
+	// NPCs will keep distance if the Player has the following weapons equipped
+	// Player version
+	static const string Player_DistanceList[] =
+	{
+		"PostCowhead",
+		"PostGrenade",
+		"PostMolotov",
+		"PostNapalmLauncher",
+		"PostRLauncher",
+		"PostShotgun",
+		"PostWMD"
+	};
+	
+	// NPCs will keep distance if the NPC has the following weapons equipped
+	// NPC version
+	static const string NPC_DistanceList[] =
+	{
+		"Cowhead",
+		"Grenade",
+		"Molotov",
+		"NapalmLauncher",
+		"RocketLauncher",
+		"Shotgun",
+		"WMD"
 	};
 	
 	//////////////////////////////////
