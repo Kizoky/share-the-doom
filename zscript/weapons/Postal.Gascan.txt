@@ -528,6 +528,8 @@ class PostalLiquidGas : PostalActor
 							if (toucher is 'NPCCore')
 							{
 								let p2 = NPCCore(toucher);
+								
+								// Check if NPC is in said State
 								if (!(InStateSequence(p2.CurState, p2.ResolveState("FireChase"))))
 								{
 									p2.SetStateLabel("FireChase");

@@ -358,7 +358,6 @@ class NPCCore : PostalActor
 	}
 	
 	// Mimics Postal 2's weird slow rotation towards it's target
-	// todo: Prevent NPCs to turn around if Angle is too high or too low
 	
 	virtual void A_FacePostalTarget()
 	{

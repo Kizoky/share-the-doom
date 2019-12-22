@@ -10,6 +10,48 @@ class NPCZombie : PostalActor
 		WalkingStyle = random(1,2);
 	}
 	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		float RotationSpeed = 4;
+		
+		if (target)
+		{
+			if (InStateSequence(CurState, ResolveState("WalkOne")) || InStateSequence(CurState, ResolveState("WalkTwo")))
+			{
+				if(Distance2D(target) < 37)
+					SetStateLabel("Melee");
+				
+				if (abs (deltaangle (angle, AngleTo (target))) < 7)
+				{
+					angle = AngleTo (target);
+					return;
+				}
+				
+				if (((AngleTo (target)) - angle + 360) % 360 < 180)
+				{	
+					A_SetAngle(angle+RotationSpeed, SPF_INTERPOLATE);
+				}
+				else A_SetAngle(angle-RotationSpeed, SPF_INTERPOLATE);
+			}
+			
+			if (InStateSequence(CurState, ResolveState("Charge")))
+			{
+				if(Distance2D(target) < 37)
+					SetStateLabel("Melee");
+			}
+			
+			if (target.bKILLED)
+			{
+				A_ClearTarget();
+				SetStateLabel("Spawn");
+			}
+			
+		}
+	
+	}
+	
 	Default
 	{
 		//$Category NPCs
@@ -25,12 +67,12 @@ class NPCZombie : PostalActor
 		Monster;
 		SeeSound "";
 		AttackSound "";
-		PainSound "dudehurt";
+		PainSound "";
 		DeathSound "";
 		ActiveSound "";
 		Obituary "%o got it's organs eaten out by a Zombie.";
 		DropItem "None";
-		//+NOTARGETSWITCH;
+		+NOTARGETSWITCH;
 		+SOLID
 		+SHOOTABLE
 		+DROPOFF
@@ -51,6 +93,7 @@ class NPCZombie : PostalActor
 		+QUICKTORETALIATE
 		+ALLOWPAIN
 		-COUNTKILL
+		+NOPAIN
 		+INTERPOLATEANGLES
 		CameraHeight 59;
 	}
@@ -76,12 +119,12 @@ class NPCZombie : PostalActor
 			else SetStateLabel("WalkTwo");
 		}
 	WalkOne:
-		WALK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_Chase("Melee",null);
-		WAL2 ABCD 3 A_Chase("Melee",null);
+		WALK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); }
+		WAL2 ABCD 3 { A_Recoil(-0.35); }
 		Goto See;
 	WalkTwo:
-		W2LK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_Chase("Melee",null);
-		W2L2 ABCD 3 A_Chase("Melee",null);
+		W2LK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); }
+		W2L2 ABCD 3 { A_Recoil(-0.35); }
 		Goto See;
 	Charge:
 		CHAR ABCDEFGHIJKLMNOPQRSTUVWXYZ 2
@@ -92,9 +135,9 @@ class NPCZombie : PostalActor
 		IDLE A 0 { vel.xy = (0,0); }
 		Goto See;
 	Missile:
-		SPIT ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 A_FaceTarget;
-		SPI2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 A_FaceTarget;
-		SPI3 ABCDEFGHIJKLMNOP 1 A_FaceTarget;
+		SPIT ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		SPI2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		SPI3 ABCDEFGHIJKLMNOP 1;
 		Goto See;
 	Melee:
 		TNT1 A 0
@@ -107,12 +150,14 @@ class NPCZombie : PostalActor
 				SetStateLabel("SwipeRight");
 		}
 	SwipeLeft:
-		ATLE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
-		ATL2 ABCDEFGHIJKLMNOPQRSTU 2 A_FaceTarget;
+		ATLE A 0 { A_FaceTarget(); vel.xy = (0,0); }
+		ATLE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		ATL2 ABCDEFGHIJKLMNOPQRSTU 2;
 		Goto See;
 	SwipeRight:
-		ATRI ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_FaceTarget;
-		ATR2 ABCDEFGHIJKLMNOPQRSTU 2 A_FaceTarget;
+		ATRI A 0 { A_FaceTarget(); vel.xy = (0,0); }
+		ATRI ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		ATR2 ABCDEFGHIJKLMNOPQRSTU 2;
 		Goto See;
 	Pain:
 		IDLE A 3 A_Pain;
