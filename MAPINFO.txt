@@ -5,14 +5,14 @@ include "mapinfo/Weapons.txt"
 gameinfo
 {
 	playerclasses="PostalDude"
-	dimcolor = "RED"
-	menufontcolor_title = "RED"
-	menufontcolor_label = "RED"
+	//dimcolor = "RED"
+	menufontcolor_title = "WHITE"
+	menufontcolor_label = "WHITE"
 	menufontcolor_value = "RED"
 	menufontcolor_action = "RED"
 	menufontcolor_header = "RED"
 	menufontcolor_highlight = "RED"
-	menufontcolor_selection = "RED"
+	menufontcolor_selection = "GREEN"
 	
 	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler"
 	statusbarclass = "PostalStatusBar"
