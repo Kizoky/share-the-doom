@@ -112,6 +112,14 @@ map WORLD2 "Factory - Day"
 	cluster=1
 }
 
+map WORLD3 "Downtown - Day"
+{
+	levelnum = 3
+	music=Amb_03
+	sky1=F_SKY1
+	cluster=1
+}
+
 map TESTPOST lookup "Cinematic experience"
 {
 	//music=D_FFL1
