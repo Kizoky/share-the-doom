@@ -459,3 +459,48 @@ weapons/tazer_end sounds/tazer_end.wav
 door/open sounds/DoorOpen.wav
 door/close sounds/DoorClose.wav
 door/kick sounds/foot_kickdoor.wav
+
+zombie/anger1 sounds/AWDialog/zombie_anger1.wav
+zombie/anger2 sounds/AWDialog/zombie_anger2.wav
+zombie/anger3 sounds/AWDialog/zombie_anger3.wav
+zombie/anger4 sounds/AWDialog/zombie_anger4.wav
+zombie/anger5 sounds/AWDialog/zombie_anger5.wav
+zombie/anger6 sounds/AWDialog/zombie_anger6.wav
+zombie/anger7 sounds/AWDialog/zombie_anger7.wav
+zombie/anger8 sounds/AWDialog/zombie_anger8.wav
+
+$random zombie/anger { zombie/anger1 zombie/anger2 zombie/anger3 zombie/anger4 zombie/anger5 zombie/anger6 zombie/anger7 zombie/anger8 }
+
+zombie/barf1 sounds/AWDialog/zombie_barf1.wav
+zombie/barf2 sounds/AWDialog/zombie_barf2.wav
+zombie/barf3 sounds/AWDialog/zombie_barf3.wav
+
+$random zombie/barf { zombie/barf1 zombie/barf2 zombie/barf3 }
+
+zombie/curse1 sounds/AWDialog/zombie_curse1.wav
+zombie/curse2 sounds/AWDialog/zombie_curse2.wav
+zombie/curse3 sounds/AWDialog/zombie_curse3.wav
+zombie/curse4 sounds/AWDialog/zombie_curse4.wav
+zombie/curse5 sounds/AWDialog/zombie_curse5.wav
+zombie/curse6 sounds/AWDialog/zombie_curse6.wav
+zombie/curse7 sounds/AWDialog/zombie_curse7.wav
+
+$random zombie/curse { zombie/curse1 zombie/curse2 zombie/curse3 zombie/curse4 zombie/curse5 zombie/curse6 zombie/curse7 }
+
+zombie/moan1 sounds/AWDialog/zombie_moan1.wav
+zombie/moan2 sounds/AWDialog/zombie_moan2.wav
+zombie/moan3 sounds/AWDialog/zombie_moan3.wav
+zombie/moan4 sounds/AWDialog/zombie_moan4.wav
+zombie/moan5 sounds/AWDialog/zombie_moan5.wav
+zombie/moan6 sounds/AWDialog/zombie_moan6.wav
+
+$random zombie/moan { zombie/moan1 zombie/moan2 zombie/moan3 zombie/moan4 zombie/moan5 zombie/moan6 }
+
+zombie/pain1 sounds/AWDialog/zombie_pain1.wav
+zombie/pain2 sounds/AWDialog/zombie_pain2.wav
+zombie/pain3 sounds/AWDialog/zombie_pain3.wav
+zombie/pain4 sounds/AWDialog/zombie_pain4.wav
+zombie/pain5 sounds/AWDialog/zombie_pain5.wav
+zombie/pain6 sounds/AWDialog/zombie_pain6.wav
+
+$random zombie/pain { zombie/pain1 zombie/pain2 zombie/pain3 zombie/pain4 zombie/pain5 zombie/pain6 }
