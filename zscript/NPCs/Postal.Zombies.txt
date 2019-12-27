@@ -68,6 +68,19 @@ class NPCZombie : PostalActor
 	
 	}
 	
+	void A_ZombieAttack(int damage)
+	{
+		let targ = target;
+		if (targ && CheckMeleeRange())
+		{
+			//Zombies seem to only deal 9 damage when biting, and when hitting the target's head with 2 arms
+			//And deal 5 damage when hitting left or right for 2 times at maximum
+			
+			int newdam = targ.DamageMobj (self, self, damage, "Melee");
+			targ.TraceBleed (newdam > 0 ? newdam : damage, self);
+		}
+	}
+	
 	Default
 	{
 		//$Category NPCs
@@ -152,7 +165,7 @@ class NPCZombie : PostalActor
 			
 			
 			if (WalkingStyle == 1) SetStateLabel("WalkOne");
-			else SetStateLabel("WalkTwo");
+				else SetStateLabel("WalkTwo");
 		}
 	WalkOne:
 		WALK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); }
@@ -190,12 +203,20 @@ class NPCZombie : PostalActor
 		}
 	SwipeLeft:
 		ATLE A 0 { A_FaceTarget(); vel.xy = (0,0); }
-		ATLE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		ATLE ABCDEFGHIJKLMNO 2;
+		ATLE P 0 A_ZombieAttack(5);
+		ATLE PQRSTUVWXY 2;
+		ATLE Z 0 A_ZombieAttack(5);
+		ATLE Z 2;
 		ATL2 ABCDEFGHIJKLMNOPQRSTU 2;
 		Goto See;
 	SwipeRight:
 		ATRI A 0 { A_FaceTarget(); vel.xy = (0,0); }
-		ATRI ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		ATRI ABCDEFGHIJKLMNO 2;
+		ATRI P 0 A_ZombieAttack(5);
+		ATRI PQRSTUVWXY 2;
+		ATRI Z 0 A_ZombieAttack(5);
+		ATRI Z 2;
 		ATR2 ABCDEFGHIJKLMNOPQRSTU 2;
 		Goto See;
 	Pain:
