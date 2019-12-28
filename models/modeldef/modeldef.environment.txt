@@ -2,7 +2,7 @@ Model "PostalDoor"
 {
 	Path "models\misc\door"
 	Model 0 "door.md3"
-	SurfaceSkin 0 0 "textures/door-wood-private.png"
+	SurfaceSkin 0 0 "door-wood-private.png"
 	AngleOffset 0
 	USEACTORPITCH
 	Scale -0.50 -0.50 0.50

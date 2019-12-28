@@ -662,7 +662,7 @@ Model "schoolbus"
 	Path "models\props"
 	Model 0 "schoolbus.md3"
 	SurfaceSkin 0 0 "textures/car_schoolbus_timb.tga"
-	SurfaceSkin 0 1 "textures/stop_sign_mask_timb.tga"
+	SurfaceSkin 0 1 "textures/stop_sign_timb.tga"
 	AngleOffset 0
 	Scale -1.00 -1.00 1.00
 	Offset 0 0 0 //X Y Z
