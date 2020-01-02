@@ -4,6 +4,12 @@ class NPCZombie : PostalActor
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		if (target == null)
+		{
+			target = source;
+			SetStateLabel("See");
+		}
+		
 		int Prob = random(0,100);
 		if (Prob > 78)
 		{
@@ -66,6 +72,54 @@ class NPCZombie : PostalActor
 			
 		}
 	
+	}
+	
+	override void Touch(Actor toucher)
+	{
+		if (target != null) return;
+		
+		if (toucher)
+		{
+			if (!(toucher is 'NPCZombie'))
+			{
+				let PlayerDude = PostalDude(toucher);
+				if (toucher == PlayerDude && PlayerDude.PlayerData.P_NoTarget) return;
+				
+				if (toucher is 'PostalDoor' || toucher is 'PostalDoor_Extender' || toucher is 'PostalFire' || toucher is 'PostalLiquidGas' || toucher is 'RandomPostalFire') return;
+				if (toucher is 'CowMike') return;
+				
+				target = toucher;
+				SetStateLabel("See");
+			}
+		}
+	}
+	
+	action void A_ZombieThink()
+	{
+		if (target != null) return;
+		
+		double fov = 90;
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 700);
+		
+		while (it.Next () && it.Thing != null) {
+				let next = it.Thing;
+				
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) continue;
+				
+			if (!CheckSight (next, SF_SeePastShootableLines)) continue;
+			
+			if (!(next is 'NPCZombie') && next != self && next.Health > 1)
+			{
+				if (next is 'PostalDoor' || next is 'PostalDoor_Extender' || next is 'PostalFire' || next is 'PostalLiquidGas' || next is 'RandomPostalFire') return;
+				if (next is 'CowMike') return;
+				
+				let PlayerDude = PostalDude(next);
+				if (next == PlayerDude && PlayerDude.PlayerData.P_NoTarget) return;
+				
+				target = next;
+				SetStateLabel("See");
+			}
+		}
 	}
 	
 	void A_ZombieAttack(int damage)
@@ -136,8 +190,12 @@ class NPCZombie : PostalActor
 			{
 				A_PlaySound("zombie/moan", 0 , 1.0, false, 1, false);
 			}
+			
+			A_ZombieThink();
+			
 		}
 		IDLE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_Look;
+		IDL2 A 0 A_ZombieThink();
 		IDL2 ABCD 3 A_Look;
 		Loop;
 	See:
