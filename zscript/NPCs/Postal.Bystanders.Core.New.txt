@@ -1118,7 +1118,7 @@ extend class NPCCore
 					{
 						for (int i = 0; i < DangerList.Size()-1; i++)
 						{
-							if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory(DangerList[i])) || user_attacksplayeronsight == true)
+							if (PlayerDude.Player.ReadyWeapon is DangerList[i] || user_attacksplayeronsight == true)
 							{
 								if (Hostility == "Hostile")
 								{
@@ -1294,7 +1294,7 @@ extend class NPCCore
 							
 							for (int i = 0; i < invoker.DangerList.Size()-1; i++)
 							{
-								if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory(invoker.DangerList[i])) || invoker.user_attacksplayeronsight == true)
+								if (PlayerDude.Player.ReadyWeapon is invoker.DangerList[i] || invoker.user_attacksplayeronsight == true)
 								{
 									invoker.isBusy = true;
 									invoker.MyTarget = PlayerDude;
