@@ -421,6 +421,9 @@ weapons/machete_throw sounds/machetethrowin.wav
 weapons/machete_throwloop sounds/machetethrowloop.wav
 weapons/machete_richochet sounds/macheterichochet.wav
 
+weapons/snifire sounds/Sniper_Fire.wav
+weapons/snibolt sounds/Sniper_Bolt.wav
+
 krotchytoy/boop1 sounds/krotchy_fall_01.wav
 krotchytoy/boop2 sounds/krotchy_fall_02.wav
 krotchytoy/boop3 sounds/krotchy_fall_03.wav

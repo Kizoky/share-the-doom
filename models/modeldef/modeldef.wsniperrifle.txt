@@ -112,9 +112,9 @@ Model "PostRifle"
 	FrameIndex RIFF V 0 146
 	FrameIndex RIFF W 0 148
 	
-	// Secondary Fire (Zoom) 149-159
+	//Secondary Fire (Zoom) 149-159
 	
-	/*FrameIndex RIFZ A 0 149
+	FrameIndex RIFZ A 0 149
 	FrameIndex RIFZ B 0 150
 	FrameIndex RIFZ C 0 151
 	FrameIndex RIFZ D 0 152
@@ -124,23 +124,7 @@ Model "PostRifle"
 	FrameIndex RIFZ H 0 156
 	FrameIndex RIFZ I 0 157
 	FrameIndex RIFZ J 0 158
-	FrameIndex RIFZ K 0 159*/
-
-	// Zoom end 160-171
-	
-	/*FrameIndex RIZE A 0 160
-	FrameIndex RIZE B 0 161
-	FrameIndex RIZE C 0 162
-	FrameIndex RIZE D 0 163
-	FrameIndex RIZE E 0 164
-	FrameIndex RIZE F 0 165
-	FrameIndex RIZE G 0 166
-	FrameIndex RIZE H 0 167
-	FrameIndex RIZE I 0 168
-	FrameIndex RIZE J 0 169
-	FrameIndex RIZE K 0 170
-	FrameIndex RIZE L 0 171*/
-
+	FrameIndex RIFZ K 0 159
 }
 
 Model "PostRifle"
