@@ -1,5 +1,34 @@
 class PostScissors : PostalWeapon
 {
+	bool onWall;
+	vector3 savedPOS;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (owner != null) return;
+		
+		if (onWall)
+		{
+			SetOrigin(savedPOS, TRUE);
+		}
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		if (owner == null)
+		{
+			if (onWall)
+			{
+				savedPOS = pos;
+			}
+		}
+	
+	}
+	
 	Default
 	{
 		//$Category STD Weapons
@@ -7,10 +36,17 @@ class PostScissors : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 1;
+		Weapon.AmmoType "Clip";
 		Obituary "$OB_MPSHOTGUN";
 		Tag "$TAG_SHOTGUN";
 		Inventory.PickupMessage "$GOTSHOTGUN";
 		+Weapon.NoAlert;
+		+ROLLSPRITE;
+		+ABSMASKPITCH;
+		Radius 12;
+		Height 5;
 	}
 	States
 	{
@@ -28,14 +64,103 @@ class PostScissors : PostalWeapon
 		SCIS ABCDEFGHIJKLMNOPQRS 2 A_WeaponReady;
 		Loop;
 	Fire:
-		SCIF ABCDEFGHIJKL 2;
+		SCIF ABCD 2;
+		SCIF E 0
+		{
+			A_PlaySound("scissors/fire", CHAN_WEAPON);
+			
+			class<actor> Scissor = "PostalScissor";
+			Actor ScissorShoot = SpawnPlayerMissile(Scissor);
+			
+			ScissorShoot.pitch = invoker.owner.pitch;
+		
+		}
+		SCIF EFGHIJKL 2;
 		Goto Ready;
 	AltFire:
-		SCSF ABCDEFGHIJKLMNOPQRST 2;
+		SCSF A 0 A_PlaySound("scissors/altfire", CHAN_WEAPON);
+		SCSF ABCDEFGHIJKLMNOPQ 2;
+		SCSF R 0
+		{	
+			class<actor> Scissor = "PostalScissor";
+			Actor ScissorShoot = SpawnPlayerMissile(Scissor);
+			
+			ScissorShoot.pitch = invoker.owner.pitch;
+			
+			let SS = PostalScissor(ScissorShoot);
+			SS.isBouncing = true;
+		
+		}
+		SCSF RST 2;
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
 		PICK A -1;
+		Stop;
+	}
+}
+
+class PostalScissor : Actor
+{
+	bool isBouncing;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if (isBouncing)
+		{
+			BounceCount = 7;
+			bBOUNCEONWALLS = true;
+			bBOUNCEONFLOORS = true;
+			bBOUNCEONCEILINGS = true;
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (isBouncing)
+			Speed = 60;
+	
+	}
+	
+	Default
+	{
+		Radius 12;
+		Height 5;
+		Speed 20;
+		Damage 11;
+		Projectile;
+		+RANDOMIZE
+		+ROLLSPRITE;
+		+ABSMASKPITCH;
+		SeeSound "";
+		DeathSound "";
+		BounceSound "scissors/bounce";
+		Obituary "$OB_MPROCKET";
+	}
+	States
+	{
+	Spawn:
+		PICK A 1;
+		Loop;
+	Death:
+		TNT1 A 0
+		{
+			class<actor> Scissor = "PostScissors";
+			Actor DroppedScissor = Spawn(Scissor, pos, NO_REPLACE);
+			let DS = PostScissors(DroppedScissor);
+			
+			DS.onWall = true;
+			DS.angle = self.angle;
+			DS.pitch = self.pitch;
+			
+			A_PlaySound("scissors/wallstick", CHAN_AUTO);
+		
+		}
+		Stop;
+	Crash:
+		TNT1 A 0 { A_PlaySound("scissors/bodystick", CHAN_AUTO); }
 		Stop;
 	}
 }

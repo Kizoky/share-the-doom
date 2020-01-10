@@ -124,10 +124,30 @@ Model "PostScissors"
 	Path "textures\weapons" // after model is loaded, redirect to texture path
 	SurfaceSkin 0 0 "scissors/scissors_timb.tga"
 	
-	AngleOffset 90 //40
+	AngleOffset 0 //40
+	USEACTORPITCH
 	RollOffset 0
 	Scale -1 1 1
-	Offset 0 0 2 //X Y Z
+	Offset 9 -3 2 //X Y Z
+	
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostalScissor"
+{
+	Path "models\weapons\scissors"
+	Model 0 "ScissorsPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "scissors/scissors_timb.tga"
+	
+	AngleOffset 0 //40
+	USEACTORPITCH
+	RollOffset 0
+	Scale -1 1 1
+	Offset 9 -3 2 //X Y Z
 	
 	FrameIndex PICK A 0 0
 	

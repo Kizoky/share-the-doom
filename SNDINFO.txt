@@ -507,3 +507,9 @@ zombie/pain5 sounds/AWDialog/zombie_pain5.wav
 zombie/pain6 sounds/AWDialog/zombie_pain6.wav
 
 $random zombie/pain { zombie/pain1 zombie/pain2 zombie/pain3 zombie/pain4 zombie/pain5 zombie/pain6 }
+
+scissors/fire sounds/scissors_fire1.wav
+scissors/altfire sounds/scissors_fire2.wav
+scissors/wallstick sounds/scissors_wallstick.wav
+scissors/bodystick sounds/scissors_bodystick.wav
+scissors/bounce sounds/scissors_bounce.wav
