@@ -7,7 +7,11 @@ class PostScissors : PostalWeapon
 	{
 		Super.Tick();
 		
-		if (owner != null) return;
+		if (owner != null)
+		{
+			Console.Printf("Pitch: %f", owner.pitch);
+			return;
+		}
 		
 		if (onWall)
 		{
@@ -72,7 +76,14 @@ class PostScissors : PostalWeapon
 			class<actor> Scissor = "PostalScissor";
 			Actor ScissorShoot = SpawnPlayerMissile(Scissor);
 			
-			ScissorShoot.pitch = invoker.owner.pitch;
+			if (ScissorShoot)
+			{
+				ScissorShoot.pitch = invoker.owner.pitch;
+				
+				let SS = PostalScissor(ScissorShoot);
+				ss.Owner = invoker.owner;
+			}
+				
 		
 		}
 		SCIF EFGHIJKL 2;
@@ -85,10 +96,15 @@ class PostScissors : PostalWeapon
 			class<actor> Scissor = "PostalScissor";
 			Actor ScissorShoot = SpawnPlayerMissile(Scissor);
 			
-			ScissorShoot.pitch = invoker.owner.pitch;
-			
-			let SS = PostalScissor(ScissorShoot);
-			SS.isBouncing = true;
+			if (ScissorShoot)
+			{
+				ScissorShoot.pitch = invoker.owner.pitch;
+				
+				let SS = PostalScissor(ScissorShoot);
+				SS.isBouncing = true;
+				SS.OwnerPitch = invoker.owner.pitch;
+				ss.Owner = invoker.owner;
+			}
 		
 		}
 		SCSF RST 2;
@@ -102,7 +118,10 @@ class PostScissors : PostalWeapon
 
 class PostalScissor : Actor
 {
-	bool isBouncing;
+	bool isBouncing, hitActor;
+	double OwnerPitch;
+	int CountingBounces;
+	actor Owner;
 	
 	override void PostBeginPlay()
 	{
@@ -110,9 +129,11 @@ class PostalScissor : Actor
 		if (isBouncing)
 		{
 			BounceCount = 7;
+			CountingBounces = BounceCount;
 			bBOUNCEONWALLS = true;
 			bBOUNCEONFLOORS = true;
 			bBOUNCEONCEILINGS = true;
+			Speed = 60;
 		}
 	}
 	
@@ -120,15 +141,44 @@ class PostalScissor : Actor
 	{
 		Super.Tick();
 		if (isBouncing)
-			Speed = 60;
-	
+		{
+			if (CountingBounces > BounceCount) //assuming it bounced off from something
+			{
+				if (hitActor == true)
+				{
+					SetStateLabel("Crash");
+					return;
+				}
+				
+				CountingBounces = BounceCount;
+			
+			}
+		}
+		
+		if (hitActor == true) return;
+		
+		double i = -90;
+		while (i < 90)
+		{
+			FLineTraceData lineData;
+			LineTrace(angle+i,45, i, data: LineData);
+			//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,0), LineData.HitLocation, 2.0, "FF0000", 2);
+			
+			if (LineData.HitType == TRACE_HitActor && lineData.HitActor != Owner && lineData.HitActor.Health > 1)
+			{
+				//Console.Printf("Detected actor");
+				hitActor = true;
+				return;
+			}
+			i++;
+		}
 	}
 	
 	Default
 	{
-		Radius 12;
+		Radius 15;
 		Height 5;
-		Speed 20;
+		Speed 25;
 		Damage 11;
 		Projectile;
 		+RANDOMIZE
@@ -147,6 +197,8 @@ class PostalScissor : Actor
 	Death:
 		TNT1 A 0
 		{
+			if (hitActor) {  A_PlaySound("scissors/bodystick", CHAN_AUTO); return; }
+			
 			class<actor> Scissor = "PostScissors";
 			Actor DroppedScissor = Spawn(Scissor, pos, NO_REPLACE);
 			let DS = PostScissors(DroppedScissor);

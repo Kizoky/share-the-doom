@@ -83,6 +83,14 @@ class PostClipboard : PostalWeapon
 		CLFI OPQRSTUVWXYZ 3;
 		CLF2 ABCDEFGHIJKLMNOPQR 3;
 		Goto Ready;
+	AltFire:
+		PLSG A 0 
+			{
+				FLineTraceData TraceData;
+				LineTrace(Self.angle,9000.0,Self.pitch,0,Player.ViewHeight-5.0,0,0,TraceData);
+				VectorBeam.SpawnVectorBeam(Self.pos + (0,0,Player.ViewHeight - 5.0), TraceData.HitLocation, 2.0, "FF0000", 2);
+			}
+		Goto Ready;
 	Spawn:
 		TNT1 A 0;
 		PICK A -1;

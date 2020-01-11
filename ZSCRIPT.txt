@@ -122,8 +122,9 @@ version "4.2"
 //#include "zscript/doommonsta/spidermaster.txt"
 //#include "zscript/doommonsta/stealthmonsters.txt"
 
-//------------- Debug stuff (made by Nash)
-#include "zscript/RadiusDebug/RadiusDebug.zc"
+//------------- Debug stuff
+#include "zscript/RadiusDebug/RadiusDebug.zc" //made by Nash
+#include "zscript/RadiusDebug/kodi.zc" //LineTrace debugger made by kodi
 
 //------------- ChaseCam2
 #include "zscript/ChaseCam2/ChaseCam2.txt"
