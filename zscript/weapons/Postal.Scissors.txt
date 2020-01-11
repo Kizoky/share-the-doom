@@ -8,13 +8,11 @@ class PostScissors : PostalWeapon
 		Super.Tick();
 		
 		if (owner != null)
-		{
-			Console.Printf("Pitch: %f", owner.pitch);
 			return;
-		}
 		
 		if (onWall)
 		{
+			//todo: detection if scissors is in the air
 			SetOrigin(savedPOS, TRUE);
 		}
 	}
