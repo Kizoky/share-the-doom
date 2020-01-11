@@ -84,6 +84,7 @@ OptionMenu "PostalOptionMenu"
 	Option "Long hurt lines", "", ""
 	Option "Death tips", "", ""
 	Option "Wandering Dude (idling)", "", ""
+	Option "Delta Touch fixes (requires level restart)", "postal_deltatouch", "OnOff"
 	StaticText ""
 	
 	StaticText "Debug Options", "Yellow"

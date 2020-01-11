@@ -185,6 +185,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	bool MissileOnce;
 	Actor MyAnnoyingFire;
 	
+	bool DeltaTouchTweak;
+	
 	Actor DummyCorpse;
 	
 	Actor IdlingTarget;
@@ -302,6 +304,12 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		Tip4 = "Tip: Catharsis feels so far away yet so reborn.";
 		Tip5 = "Tip: Piss off your foes more often. Not just literally.";
 		
+		cvar deltatouchcvar = cvar.findcvar('postal_deltatouch');
+		bool deltatouch = (deltatouchcvar != null && deltatouchcvar.GetBool ());
+			
+		if (deltatouch)
+			DeltaTouchTweak = true;
+		
 	}
 	
 	override void Tick()
@@ -324,28 +332,32 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		// Removes Doom physics from the Player
 		// As in physics, think of that "sliding" when you no longer press movement keys
 		// There's a slight delay before completely stopping the Player, just like in Postal 2
+		// For Delta Touch this can be disabled if you move at a snail's speed
 		UserCmd cmd = player.cmd;
 		
-		if (!(player.cmd.buttons & BT_FORWARD) && !(player.cmd.buttons & BT_BACK) && !(player.cmd.buttons & BT_MOVELEFT) && !(player.cmd.buttons & BT_MOVERIGHT) && !(player.cmd.buttons & BT_JUMP) && player.onground)
-		{	
-			if (level.time > PlayerData.RunningStopCooldown)
-			{
-				vel.xy = (0,0);
-				PlayerData.RunningStop = false;
-			}
-			
-		}
-		else
+		if (DeltaTouchTweak != true)
 		{
-			if (PlayerData.RunningStop != true)
+		
+			if (!(player.cmd.buttons & BT_FORWARD) && !(player.cmd.buttons & BT_BACK) && !(player.cmd.buttons & BT_MOVELEFT) && !(player.cmd.buttons & BT_MOVERIGHT) && !(player.cmd.buttons & BT_JUMP) && player.onground)
+			{	
+				if (level.time > PlayerData.RunningStopCooldown)
+				{
+					vel.xy = (0,0);
+					PlayerData.RunningStop = false;
+				}
+				
+			}
+			else
 			{
-				PlayerData.RunningStopCooldown = level.time + 8;
-				PlayerData.RunningStop = true;
+				if (PlayerData.RunningStop != true)
+				{
+					PlayerData.RunningStopCooldown = level.time + 8;
+					PlayerData.RunningStop = true;
+				}
+			
 			}
 		
 		}
-		
-		
 		//let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
 		
 		//Check if we are dead, and we aren't suiciding
