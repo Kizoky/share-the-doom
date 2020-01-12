@@ -309,6 +309,16 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			
 		if (deltatouch)
 			DeltaTouchTweak = true;
+			
+		cvar developercvar = cvar.findcvar('postal_developer');
+		bool developer = (developercvar != null && developercvar.GetBool ());
+		
+		if (developer && !multiplayer)
+		{
+			Speed = 12;
+			Health = 666;
+			JumpZ = 20;
+		}
 		
 	}
 	

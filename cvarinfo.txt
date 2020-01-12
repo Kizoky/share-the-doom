@@ -1,6 +1,7 @@
 //Share the Doom cvars
 user bool postal_idleanim = true;     //Disables or enables idling animations on weapons
 user bool postal_deltatouch = false;		//Disables or enables Delta Touch tweaks
+user bool postal_developer = false;		//Disables or enables Developer mode
 
 user String radiusDebug = "None";
 user int postalUI_X = 0;

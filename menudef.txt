@@ -85,6 +85,7 @@ OptionMenu "PostalOptionMenu"
 	Option "Death tips", "", ""
 	Option "Wandering Dude (idling)", "", ""
 	Option "Delta Touch fixes (requires level restart)", "postal_deltatouch", "OnOff"
+	Option "Developer mode (increased speed, jump)", "postal_developer", "OnOff"
 	StaticText ""
 	
 	StaticText "Debug Options", "Yellow"
