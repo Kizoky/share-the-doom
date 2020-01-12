@@ -11,9 +11,9 @@ class PostM16 : PostalWeapon replaces Chaingun
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 8;
 		Weapon.AmmoType "Clip";
-		Obituary "$OB_MACHINEGUN";
+		Obituary "%o kindly offered to hang onto %k's excess ammo. What a nice guy.";
 		Tag "$TAG_MACHINEGUN";
-		Inventory.PickupMessage "$GOTMACHINEGUN";
+		Inventory.PickupMessage "Picked up an M-16.";
 	}
 	States
 	{

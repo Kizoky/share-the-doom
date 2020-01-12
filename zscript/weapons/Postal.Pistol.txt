@@ -11,10 +11,10 @@ class PostPistol : PostalWeapon replaces Pistol
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 20;
 		Weapon.AmmoType "Clip";
-		Obituary "$OB_MPPISTOL";
+		Obituary "%o ate a bullet from %k's pistol.";
 		//+WEAPON.WIMPY_WEAPON;
 		Tag "$TAG_PISTOL";
-		Inventory.PickupMessage "$GOTPISTOL";
+		Inventory.PickupMessage "Picked up a Pistol.";
 	}
 	States
 	{

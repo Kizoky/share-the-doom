@@ -80,7 +80,7 @@ class PostMachete : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "%o was hacked to death by %k's machete.";
 		Tag "$TAG_SHOTGUN";
 		Inventory.PickupMessage "You got the machete. Slice some meat";
 		+Weapon.NoAlert;

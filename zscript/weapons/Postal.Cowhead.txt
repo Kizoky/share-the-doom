@@ -7,9 +7,9 @@ class PostCowhead : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "%o inhaled that sweet aroma from %k's severed cowhead.";
 		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupMessage "Picked up a severed Cowhead.";
 		+Weapon.NoAlert;
 	}
 	States

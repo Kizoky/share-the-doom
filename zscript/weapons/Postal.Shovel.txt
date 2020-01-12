@@ -82,9 +82,9 @@ class PostShovel : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "%o was pathetically bludgeoned to death like a total wuss by %k's shovel.";
 		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupMessage "Picked up a Shovel.";
 		+Weapon.NoAlert;
 	}
 	States

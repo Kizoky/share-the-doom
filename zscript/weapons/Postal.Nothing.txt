@@ -5,6 +5,7 @@ class PostHands : PostalWeapon
 	Weapon.Kickback 100;
 	Weapon.SelectionOrder 9999;
 	Obituary "The developers of this mod were fucking high";
+	Inventory.PickupMessage "Let's shake hands";
 	+Weapon.NoAlert;
 	}
 	States

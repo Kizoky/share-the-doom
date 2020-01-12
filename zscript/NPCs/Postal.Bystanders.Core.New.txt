@@ -65,7 +65,7 @@ class NPCCore : PostalActor
 		ScissorObituary = "%o was running into a Bystander's scissor.";
 		MacheteObituary = "%o was hacked to death by a Bystander's machete.";
 		ScytheObituary = "%o was sliced to death by a Bystander's Scythe.";
-		SledgeObituary = "%o was smashed to death by a Bystander's Sledge.";
+		SledgeObituary = "%o was smashed to death by a Bystander's Sledgehammer.";
 		RifleObituary = "%o just contributed to a Bystander's sniper training. Nice job.";
 		FireObituary = "%o just enjoyed a Tibetan Monk experience thanks to a Bystander's Fire.";
 		NapalmObituary = "%o was charbroiled with seven secret herbs and spices by a Bystander's napalm.";

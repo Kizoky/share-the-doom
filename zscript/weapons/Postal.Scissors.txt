@@ -41,9 +41,9 @@ class PostScissors : PostalWeapon
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 1;
 		Weapon.AmmoType "Clip";
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "%o was running into %k's scissor.";
 		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupMessage "Picked up a Scissor.";
 		+Weapon.NoAlert;
 		+ROLLSPRITE;
 		+ABSMASKPITCH;

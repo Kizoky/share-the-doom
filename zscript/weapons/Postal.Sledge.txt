@@ -77,7 +77,7 @@ class PostSledge : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "%o's head was smashed by %k's Sledgehammer.";
 		Inventory.PickupMessage "Picked up a sledgehammer.";
 		+Weapon.NoAlert;
 	}

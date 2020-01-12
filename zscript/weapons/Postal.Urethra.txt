@@ -26,9 +26,9 @@ class PostUrethra : PostalWeapon
     Weapon.SelectionOrder 1300;
 	Weapon.AmmoUse 1;
 	Weapon.AmmoType "Piss";
-	Obituary "$OB_MPSHOTGUN";
+	Obituary "%o gulped down %k's stream.";
     Tag "$TAG_SHOTGUN";
-	Inventory.PickupMessage "$GOTSHOTGUN";
+	Inventory.PickupMessage "...Picked up your PEE PEE";
 	+Weapon.NoAlert;
 	}
 	States

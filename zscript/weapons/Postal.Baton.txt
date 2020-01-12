@@ -21,9 +21,9 @@ class PostBaton : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "%o did his Rodney King impersonation for %k's Baton.";
 		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupMessage "Picked up a Baton.";
 		+Weapon.NoAlert;
 	}
 	States

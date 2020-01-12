@@ -11,9 +11,9 @@ class PostRLauncher : PostalWeapon
 		Weapon.AmmoGive 8;
 		Weapon.AmmoType "Clip";
 		+WEAPON.NOAUTOFIRE;
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "Nobody told %o that %k's rocket is lethal. Ouch!";
 		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupMessage "Picked up a Missile Launcher.";
 	}
 	States
 	{

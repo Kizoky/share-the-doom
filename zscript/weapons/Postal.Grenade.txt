@@ -7,9 +7,9 @@ class PostGrenade : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "$OB_MPSHOTGUN";
+		Obituary "%o got splashed into pieces by %k's grenade.";
 		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupMessage "Picked up a Grenade.";
 		+Weapon.NoAlert;
 	}
 	States

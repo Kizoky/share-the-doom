@@ -7,6 +7,7 @@ class PostKick : CustomInventory
       inventory.maxamount 9999;
       +INVENTORY.ALWAYSPICKUP;
       +INVENTORY.AUTOACTIVATE;
+	  Obituary "%o was actually KICKED to death by %k. No, I'm not kidding.";
    }
    
    states 
