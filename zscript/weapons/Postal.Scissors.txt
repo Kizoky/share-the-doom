@@ -80,8 +80,9 @@ class PostScissors : PostalWeapon
 				
 				let SS = PostalScissor(ScissorShoot);
 				ss.Owner = invoker.owner;
-			}
 				
+				self.A_TakeInventory("Clip",1);
+			}
 		
 		}
 		SCIF EFGHIJKL 2;
@@ -102,6 +103,8 @@ class PostScissors : PostalWeapon
 				SS.isBouncing = true;
 				SS.OwnerPitch = invoker.owner.pitch;
 				ss.Owner = invoker.owner;
+				
+				self.A_TakeInventory("Clip",1);
 			}
 		
 		}
@@ -131,6 +134,8 @@ class PostalScissor : Actor
 			bBOUNCEONWALLS = true;
 			bBOUNCEONFLOORS = true;
 			bBOUNCEONCEILINGS = true;
+			BounceFactor = 1;
+			WallBounceFactor = 1;
 			Speed = 60;
 		}
 	}
@@ -138,37 +143,45 @@ class PostalScissor : Actor
 	override void Tick()
 	{
 		Super.Tick();
+		
+		if (hitActor == true)
+		{
+			if (isBouncing)
+			{
+				SetStateLabel("Crash");
+				return;
+			}
+			return;
+		}
+		
+		/*
 		if (isBouncing)
 		{
 			if (CountingBounces > BounceCount) //assuming it bounced off from something
-			{
-				if (hitActor == true)
-				{
-					SetStateLabel("Crash");
-					return;
-				}
-				
+			{	
 				CountingBounces = BounceCount;
-			
 			}
 		}
+		*/
 		
-		if (hitActor == true) return;
-		
-		double i = -90;
-		while (i < 90)
+		if (InStateSequence(self.CurState, self.ResolveState("Spawn")))
 		{
-			FLineTraceData lineData;
-			LineTrace(angle+i,45, i, data: LineData);
-			//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,0), LineData.HitLocation, 2.0, "FF0000", 2);
-			
-			if (LineData.HitType == TRACE_HitActor && lineData.HitActor != Owner && lineData.HitActor.Health > 1)
+			double i = -90;
+			while (i < 90)
 			{
-				//Console.Printf("Detected actor");
-				hitActor = true;
-				return;
+				FLineTraceData lineData;
+				LineTrace(angle+i,65, i, data: LineData);
+				//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,0), LineData.HitLocation, 2.0, "FF0000", 2);
+				
+				if (LineData.HitType == TRACE_HitActor && lineData.HitActor != Owner && lineData.HitActor.Health > 1 && hitActor != true)
+				{
+					//Console.Printf("Detected actor");
+					hitActor = true;
+					return;
+					break;
+				}
+				i++;
 			}
-			i++;
 		}
 	}
 	
@@ -193,24 +206,28 @@ class PostalScissor : Actor
 		PICK A 1;
 		Loop;
 	Death:
-		TNT1 A 0
+		TNT1 A 1
 		{
-			if (hitActor) {  A_PlaySound("scissors/bodystick", CHAN_AUTO); return; }
+			if (hitActor) { SetStateLabel("Crash"); return; }
 			
-			class<actor> Scissor = "PostScissors";
-			Actor DroppedScissor = Spawn(Scissor, pos, NO_REPLACE);
-			let DS = PostScissors(DroppedScissor);
-			
-			DS.onWall = true;
-			DS.angle = self.angle;
-			DS.pitch = self.pitch;
-			
-			A_PlaySound("scissors/wallstick", CHAN_AUTO);
-		
+			if (hitActor != true)
+			{
+				class<actor> Scissor = "PostScissors";
+				Actor DroppedScissor = Spawn(Scissor, pos, NO_REPLACE);
+				let DS = PostScissors(DroppedScissor);
+				
+				if (DS)
+				{
+					DS.onWall = true;
+					DS.angle = self.angle;
+					DS.pitch = self.pitch;
+					A_PlaySound("scissors/wallstick", CHAN_AUTO);
+				}
+			}
 		}
 		Stop;
 	Crash:
-		TNT1 A 0 { A_PlaySound("scissors/bodystick", CHAN_AUTO); }
+		TNT1 A 1 { A_PlaySound("scissors/bodystick", CHAN_AUTO); }
 		Stop;
 	}
 }
