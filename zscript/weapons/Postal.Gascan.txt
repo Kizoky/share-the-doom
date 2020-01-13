@@ -27,9 +27,9 @@ class PostGascan : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "%o just enjoyed a Tibetan Monk experience thanks to %k's Fire.";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "Picked up a Gascan.";
+		Obituary "$PSTL_OB_GASCAN";
+		Tag "$PSTL_WP_GASCAN";
+		Inventory.PickupMessage "$PSTL_PP_GASCAN";
 		+Weapon.NoAlert;
 	}
 	States

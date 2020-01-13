@@ -7,9 +7,9 @@ class PostWMD : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "%o got invited to a plague season by %k's W.M.D.";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "Picked up a W.M.D.";
+		Obituary "$PSTL_OB_WMD";
+		Tag "$PSTL_WP_WMD";
+		Inventory.PickupMessage "$PSTL_PP_WMD";
 		+Weapon.NoAlert;
 	}
 	States

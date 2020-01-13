@@ -59,24 +59,24 @@ class NPCCore : PostalActor
 	//For custom obituaries set for NPCs
 	virtual void NPC_Obituaries()
 	{
-		PistolObituary = "%o ate a bullet from a Bystander's pistol.";
-		ShotgunObituary = "%o enjoyed a facefull of a Bystander's shotgun streaming load.";
-		RocketLObituary = "Nobody told %o that a Bystander's rocket is lethal. Ouch!";
-		ScissorObituary = "%o was running into a Bystander's scissor.";
-		MacheteObituary = "%o was hacked to death by a Bystander's machete.";
-		ScytheObituary = "%o was sliced to death by a Bystander's Scythe.";
-		SledgeObituary = "%o was smashed to death by a Bystander's Sledgehammer.";
-		RifleObituary = "%o just contributed to a Bystander's sniper training. Nice job.";
-		FireObituary = "%o just enjoyed a Tibetan Monk experience thanks to a Bystander's Fire.";
-		NapalmObituary = "%o was charbroiled with seven secret herbs and spices by a Bystander's napalm.";
-		MachineObituary = "%o kindly offered to hang onto a Bystander's excess ammo. What a nice guy.";
-		KickObituary = "%o was actually KICKED to death by a Bystander. No, I'm not kidding.";
-		TazerObituary = "%o was electrocuted by a Bystander's tazer.";
-		BatonObituary = "%o did his Rodney King impersonation for a Bystander's baton.";
-		ShovelObituary = "%o was pathetically bludgeoned to death like a total wuss by a Bystander's shovel.";
-		CowHeadObituary = "%o inhaled that sweet aroma from a Bystander's severed cowhead.";
-		GrenadeObituary = "%o got splashed into pieces by a Bystander's grenade.";
-		PlagueObituary = "%o got invited to a plague season by a Bystander's WMD.";
+		PistolObituary = "$PSTL_NPC_PISTOL";
+		ShotgunObituary = "$PSTL_NPC_SHOTGUN";
+		RocketLObituary = "$PSTL_NPC_ROCKET";
+		ScissorObituary = "$PSTL_NPC_SCISSORS";
+		MacheteObituary = "$PSTL_NPC_MACHETE";
+		ScytheObituary = "$PSTL_NPC_SCYTHE";
+		SledgeObituary = "$PSTL_NPC_SLEDGEHAMMER";
+		RifleObituary = "$PSTL_NPC_RIFLE";
+		FireObituary = "$PSTL_NPC_FIRE";
+		NapalmObituary = "$PSTL_NPC_NAPALM";
+		MachineObituary = "$PSTL_NPC_M16";
+		KickObituary = "$PSTL_NPC_KICK";
+		TazerObituary = "$PSTL_NPC_TAZER";
+		BatonObituary = "$PSTL_NPC_BATON";
+		ShovelObituary = "$PSTL_NPC_SHOVEL";
+		CowHeadObituary = "$PSTL_NPC_COWHEAD";
+		GrenadeObituary = "$PSTL_NPC_GRENADE";
+		PlagueObituary = "$PSTL_NPC_WMD";
 	}
 	
 	virtual void NPC_Settings()

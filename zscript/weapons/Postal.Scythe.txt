@@ -77,9 +77,9 @@ class PostScythe : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "%o was sliced to death by %k's Scythe.";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "Picked up a Scythe";
+		Obituary "$PSTL_OB_SCYTHE";
+		Tag "$PSTL_WP_SCYTHE";
+		Inventory.PickupMessage "$PSTL_PP_SCYTHE";
 		+Weapon.NoAlert;
 	}
 	States

@@ -11,9 +11,9 @@ class PostRifle : PostalWeapon
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 8;
 		Weapon.AmmoType "Clip";
-		Obituary "%o just contributed to %k's sniper training. Nice job.";
-		Tag "$TAG_SNIPER";
-		Inventory.PickupMessage "Picked up a Sniper Rifle.";
+		Obituary "$PSTL_OB_RIFLE";
+		Tag "$PSTL_WP_RIFLE";
+		Inventory.PickupMessage "$PSTL_PP_RIFLE";
 	}
 	States
 	{	

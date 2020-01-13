@@ -7,9 +7,9 @@ class PostNapalmLauncher : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "%o was charbroiled with seven secret herbs and spices by %k's napalm.";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "Picked up a Napalm Launcher.";
+		Obituary "$PSTL_OB_NAPALM";
+		Tag "$PSTL_WP_NAPALM";
+		Inventory.PickupMessage "$PSTL_PP_NAPALM";
 		+Weapon.NoAlert;
 	}
 	States

@@ -8,10 +8,10 @@ class PostMolotov : PostalWeapon
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
 		Obituary "$OB_MPSHOTGUN";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "Picked up a molotov.";
+		Tag "$PSTL_WP_MOLOTOV";
+		Inventory.PickupMessage "$PSTL_PP_MOLOTOV";
 		+Weapon.NoAlert;
-		Obituary "%o just enjoyed a Tibetan Monk experience thanks to %k's Molotov.";
+		Obituary "$PSTL_OB_MOLOTOV";
 	}
 	States
 	{

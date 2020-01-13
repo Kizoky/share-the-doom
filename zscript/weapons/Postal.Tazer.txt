@@ -115,9 +115,9 @@ class PostTazer : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "%o was electrocuted by %k's tazer.";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "Picked up a Tazer.";
+		Obituary "$PSTL_OB_TAZER";
+		Tag "$PSTL_WP_TAZER";
+		Inventory.PickupMessage "$PSTL_PP_TAZER";
 		+Weapon.NoAlert;
 	}
 	States

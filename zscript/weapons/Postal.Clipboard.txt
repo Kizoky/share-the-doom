@@ -8,11 +8,11 @@ class PostClipboard : PostalWeapon
 	//Weapon.AmmoUse 1;
 	//Weapon.AmmoGive 20;
 	//Weapon.AmmoType "Clip";
-	Obituary "%o's surviving members have to sign %k's Petition.";
+	Obituary "$PSTL_OB_CLIPBOARD";
 	//+WEAPON.WIMPY_WEAPON;
 	+Weapon.NoAlert;
-	Tag "$TAG_PISTOL";
-	Inventory.PickupMessage "Picked up a Clipboard. Wait what?????";
+	Tag "$PSTL_WP_CLIPBOARD";
+	Inventory.PickupMessage "$PSTL_PP_CLIPBOARD";
 	}
 	States
 	{

@@ -10,9 +10,9 @@ class PostShotgun : PostalWeapon replaces Shotgun
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 8;
 		Weapon.AmmoType "Shell";
-		Obituary "%o enjoyed a facefull of %k's shotgun streaming load.";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "Picked up a Shotgun.";
+		Obituary "$PSTL_OB_SHOTGUN";
+		Tag "$PSTL_WP_SHOTGUN";
+		Inventory.PickupMessage "$PSTL_PP_SHOTGUN";
 	}
 	States
 	{

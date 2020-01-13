@@ -5,10 +5,10 @@ class PostMatchbox : PostalWeapon
     Weapon.Kickback 100;
     Weapon.SelectionOrder 1300;
 	Obituary "$OB_MPSHOTGUN";
-    Tag "$TAG_SHOTGUN";
-	Inventory.PickupMessage "Picked up a matchbox. Wait, that's illegal";
+    Tag "$PSTL_WP_MATCHBOX";
+	Inventory.PickupMessage "$PSTL_PP_MATCHBOX";
 	+Weapon.NoAlert;
-	Obituary "%o accidentally swallowed %k's match.";
+	Obituary "$PSTL_OB_MATCHBOX";
 	}
 	States
 	{

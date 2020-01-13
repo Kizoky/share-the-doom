@@ -80,9 +80,9 @@ class PostMachete : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
-		Obituary "%o was hacked to death by %k's machete.";
-		Tag "$TAG_SHOTGUN";
-		Inventory.PickupMessage "You got the machete. Slice some meat";
+		Obituary "$PSTL_OB_MACHETE";
+		Tag "$PSTL_WP_MACHETE";
+		Inventory.PickupMessage "$PSTL_PP_MACHETE";
 		+Weapon.NoAlert;
 	}
 	States
