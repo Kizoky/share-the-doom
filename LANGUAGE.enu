@@ -106,6 +106,7 @@ PSTL_WP_DUSTERS = "Dusters";
 
 
 // ======================  Vanilla Postal 2 + Apocalypse Weekend [Player obituaries]
+// ======================  These are ripped from Postal 2's multiplayer. Note: Scissor, Matchbox, Rocket, etc.. are STD original
 PSTL_OB_BATON = "%o did his Rodney King impersonation for %k's Baton.";
 PSTL_OB_CLIPBOARD = "%o's surviving members have to sign %k's Petition.";
 PSTL_OB_COWHEAD = "%o inhaled that sweet aroma from %k's severed cowhead.";
@@ -148,6 +149,7 @@ PSTL_OB_DUSTERS = "";
 
 
 // ======================  Vanilla Postal 2 + Apocalypse Weekend [Pickup messages]
+// ======================  They are identical to Postal 2's pickup messages, except a few of them..
 PSTL_PP_BATON = "You Picked up a Police Baton.";
 PSTL_PP_CLIPBOARD = "You Picked up a Petition Clipboard. That's illegal man!!!";
 PSTL_PP_COWHEAD = "You Picked up a diseased Cow Head.";
@@ -188,7 +190,7 @@ PSTL_PP_DUSTERS = "";
 
 
 //  ======================  NPC Obituaries
-
+//  ======================  These are Share the Doom's self-made obituaries, they aren't found in Postal 2
 PSTL_NPC_BATON = "%o did his Rodney King impersonation for a Bystander's baton.";
 PSTL_NPC_CLIPBOARD = "N/A";
 PSTL_NPC_COWHEAD = "%o inhaled that sweet aroma from a Bystander's severed cowhead.";
