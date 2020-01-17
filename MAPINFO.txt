@@ -94,7 +94,6 @@ map DEVMAP2 "Maisth loves corruption"
 }
 
 
-
 map WORLD1 "Phoenix Outskirts - Day"
 {
 	levelnum = 67
@@ -116,6 +115,15 @@ map WORLD3 "Downtown - Day"
 {
 	levelnum = 3
 	music=Amb_03
+	sky1=F_SKY1
+	cluster=1
+}
+
+
+map WORLD4 "Bitch - Day"
+{
+	levelnum = 4
+	music=Amb_04
 	sky1=F_SKY1
 	cluster=1
 }
