@@ -656,3 +656,22 @@ class storeshelf_three : Actor
 		Loop;
 	}
 }
+
+class WJIDude : Actor
+{
+	Default
+	{
+		//$Category Other
+		//$Title "Postal 3 Dude"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

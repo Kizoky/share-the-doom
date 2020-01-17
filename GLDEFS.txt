@@ -2,3 +2,14 @@
 #include "GLDEF-Textures.gl"
 #include "GLDEF-Props.gl"
 
+PointLight Light_FloatingTestLight
+{
+	Color 1.0 0.5 0.2
+	Size 350
+	Attenuate 1
+}
+
+object FloatingTestLight
+{
+    frame BAL1 { light Light_FloatingTestLight }
+}

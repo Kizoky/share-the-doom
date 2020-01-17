@@ -78,4 +78,5 @@ DoomEdNums
   32697 = storeshelf_two
   32696 = storeshelf_three
   
+  32695 = WJIDude
 }

@@ -931,3 +931,24 @@ Model "storeshelf_three"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "WJIDude"
+{
+	Path "models\misc\WJI"
+	Model 0 "P3Dude.md3"
+	SurfaceSkin 0 0 "Postal_Dude_body.png"
+	SurfaceSkin 0 1 "Postal_Dude_hair.tga"
+	SurfaceSkin 0 2 "Postal_Dude_head.tga"
+	SurfaceSkin 0 3 "Jaw.tga"
+	SurfaceSkin 0 4 "eyeball_r.tga"
+	SurfaceSkin 0 5 "eyeball_l.tga"
+	SurfaceSkin 0 6 "Postal_Dude_hair.tga"
+	SurfaceSkin 0 7 "Postal_Dude_hair.tga"
+	AngleOffset 180
+	USEACTORPITCH
+	Scale -1.15 -1.15 1.15
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}

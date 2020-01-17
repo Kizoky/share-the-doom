@@ -1,5 +1,59 @@
 version "4.2"
 
+class FloatingTestLight : Actor
+{
+	int TimeStart, TimeReset;
+	bool Reset;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		TimeStart = level.time + (35 * 3);
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (Reset)
+		{
+			if (TimeReset > level.time)
+				SetOrigin(pos-(1,0,0), TRUE);
+			else
+			{
+				Reset = false;
+				TimeStart = level.time + (35 * 3);
+			}
+				
+			return;
+		}
+		
+		if (TimeStart > level.time)
+			SetOrigin(pos+(1,0,0), TRUE);
+		else
+		{
+			Reset = true;
+			TimeReset = level.time + (35 * 3);
+		}
+			
+	
+	}
+	
+	Default
+	{
+		Gravity 0;
+		RenderStyle "Add";
+		+FORCEXYBILLBOARD
+	}
+
+	States
+	{
+	Spawn:
+		BAL1 A -1 BRIGHT;
+		Stop;
+	}
+}
+
 //------------ Postal stuff
 #include "zscript/Postal.Actor.txt"
 #include "zscript/Postal.Door.txt"

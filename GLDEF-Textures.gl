@@ -24,3 +24,25 @@ material texture "textures/other/wood-fence-nasty-dark-solid-sw.png"
 	Glossiness 15.0
 	SpecularLevel 1.0
 }
+
+
+material texture "models/misc/WJI/Postal_Dude_body.png"
+{
+	normal "models/misc/WJI/Postal_Dude_body_normal.png"
+	Glossiness 15.0
+	SpecularLevel 15.5
+}
+
+material texture "models/misc/WJI/Postal_Dude_hair.tga"
+{
+	normal "models/misc/WJI/Postal_Dude_body_hair.tga"
+	Glossiness 15.0
+	SpecularLevel 2.5
+}
+
+material texture "models/misc/WJI/Postal_Dude_head.tga"
+{
+	normal "models/misc/WJI/Postal_Dude_body_head.tga"
+	Glossiness 15.0
+	SpecularLevel 2.5
+}
