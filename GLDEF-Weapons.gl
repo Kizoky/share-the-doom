@@ -1,7 +1,7 @@
 material texture "textures/weapons/dude_hands.png"
 {
 	normal "materials/normalmaps/dude_hands_d.png"
-	specular "materials/specular/dude_hands_s.png"
+	//specular "materials/specular/dude_hands_s.png"
 	Glossiness 15.0
 	SpecularLevel 0.5
 }
