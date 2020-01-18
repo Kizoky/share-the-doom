@@ -1,9 +1,10 @@
 material texture "textures/weapons/dude_hands.png"
 {
-	normal "materials/normalmaps/dude_hands_d.png"
-	//specular "materials/specular/dude_hands_s.png"
-	Glossiness 15.0
-	SpecularLevel 0.5
+	normal "materials/normalmaps/NormalMap.png"
+	specular "materials/specular/dude_hands_s.png"
+	ao "materials/ao/dude_hands_OCC.png"
+	Glossiness 100
+	SpecularLevel 0.3
 }
 
 material texture "textures/weapons/shotgun/shotgun_timb.png"
@@ -25,7 +26,7 @@ material texture "textures/weapons/pistol/pistol_timb.png"
 material texture "textures/weapons/machinegun/m-16_timb.png"
 {
 	normal "materials/normalmaps/m-16_timb_d.png"
-	specular "materials/specular/m-16_timb_s.png"
+	specular "materials/specular/m16_timb_s.png"
 	Glossiness 15.0
 	SpecularLevel 0.5
 }
@@ -36,4 +37,44 @@ material texture "textures/weapons/rocketlauncher/launcher_timb2.png"
 	specular "materials/specular/launcher_timb2_s.png"
 	Glossiness 15.0
 	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/machete/machete_1.png"
+{
+	normal "materials/normalmaps/machete_1_NRM.png"
+	specular "materials/specular/machete_1_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/tazer/taser_timb.png"
+{
+	normal "materials/normalmaps/taser_timb_NRM.png"
+	specular "materials/specular/taser_timb_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/sledge/sledge_1.png"
+{
+	normal "materials/normalmaps/sledge_1_NRM.png"
+	specular "materials/specular/sledge_1_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/sledge/sledge_wood.png"
+{
+	normal "materials/normalmaps/sledge_wood_NRM.png"
+	specular "materials/specular/sledge_wood_SPEC.png"
+	Glossiness 15.0
+	SpecularLevel 0.5
+}
+
+material texture "textures/weapons/molotov/molotov_glass2.png"
+{
+	normal "materials/normalmaps/molotov_glass2_NRM.png"
+	specular "materials/specular/molotov_glass2_SPEC.png"
+	Glossiness 100.0
+	SpecularLevel 10.0
 }

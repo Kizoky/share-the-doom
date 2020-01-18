@@ -32,17 +32,3 @@ material texture "models/misc/WJI/Postal_Dude_body.png"
 	Glossiness 15.0
 	SpecularLevel 15.5
 }
-
-material texture "models/misc/WJI/Postal_Dude_hair.tga"
-{
-	normal "models/misc/WJI/Postal_Dude_body_hair.tga"
-	Glossiness 15.0
-	SpecularLevel 2.5
-}
-
-material texture "models/misc/WJI/Postal_Dude_head.tga"
-{
-	normal "models/misc/WJI/Postal_Dude_body_head.tga"
-	Glossiness 15.0
-	SpecularLevel 2.5
-}
