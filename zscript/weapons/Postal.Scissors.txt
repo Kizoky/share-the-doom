@@ -192,7 +192,6 @@ class PostalScissor : Actor
 					//Console.Printf("Detected actor");
 					hitActor = true;
 					return;
-					break;
 				}
 				i++;
 			}
