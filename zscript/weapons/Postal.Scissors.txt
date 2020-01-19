@@ -23,6 +23,7 @@ class PostScissors : PostalWeapon
 		
 		if (owner == null)
 		{
+			//Save the onspawn Position to later on force the pos to this value
 			if (onWall)
 			{
 				savedPOS = pos;
@@ -127,6 +128,8 @@ class PostalScissor : Actor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
+		//Only needed for the alt attack, bouncing Scissors
+		//We don't need to create a new actor for that!
 		if (isBouncing)
 		{
 			BounceCount = 7;
@@ -144,6 +147,8 @@ class PostalScissor : Actor
 	{
 		Super.Tick();
 		
+		//If via LineTraces an actor has been detected, go to Crash
+		
 		if (hitActor == true)
 		{
 			if (isBouncing)
@@ -154,6 +159,8 @@ class PostalScissor : Actor
 			return;
 		}
 		
+		
+		//This is no longer needed as LineTraces instantly detect an actor
 		/*
 		if (isBouncing)
 		{
@@ -163,6 +170,13 @@ class PostalScissor : Actor
 			}
 		}
 		*/
+		
+		//This will be probably the weirdest "hack" I have done in STD
+		//Because of the way Crash and Death state works, I had to do this via LineTraces
+		//Crash only works if the Actor has +NOBLOOD flag, but we don't want that
+		//So with this the linetraces are looking -90 to 90 angle, also up and down to check for a potential Actor,
+		//since by default the Scissors on death are spawning a Scissor which would stay onto a wall.
+		//This doesn't affect performance
 		
 		if (InStateSequence(self.CurState, self.ResolveState("Spawn")))
 		{
