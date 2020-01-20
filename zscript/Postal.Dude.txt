@@ -345,28 +345,21 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		// For Delta Touch this can be disabled if you move at a snail's speed
 		UserCmd cmd = player.cmd;
 		
-		if (DeltaTouchTweak != true)
-		{
-		
-			if (!(player.cmd.buttons & BT_FORWARD) && !(player.cmd.buttons & BT_BACK) && !(player.cmd.buttons & BT_MOVELEFT) && !(player.cmd.buttons & BT_MOVERIGHT) && !(player.cmd.buttons & BT_JUMP) && player.onground)
-			{	
-				if (level.time > PlayerData.RunningStopCooldown)
-				{
-					vel.xy = (0,0);
-					PlayerData.RunningStop = false;
-				}
-				
-			}
-			else
+		if (!(GetPlayerInput(INPUT_FORWARDMOVE)) && !(GetPlayerInput(INPUT_SIDEMOVE)) && !(player.cmd.buttons & BT_JUMP) && player.onground)
+		{	
+			if (level.time > PlayerData.RunningStopCooldown)
 			{
-				if (PlayerData.RunningStop != true)
-				{
-					PlayerData.RunningStopCooldown = level.time + 8;
-					PlayerData.RunningStop = true;
-				}
-			
+				vel.xy = (0,0);
+				PlayerData.RunningStop = false;
 			}
-		
+		}
+		else
+		{
+			if (PlayerData.RunningStop != true)
+			{
+				PlayerData.RunningStopCooldown = level.time + 8;
+				PlayerData.RunningStop = true;
+			}
 		}
 		//let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
 		
