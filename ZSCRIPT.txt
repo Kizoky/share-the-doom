@@ -64,6 +64,7 @@ class FloatingTestLight : Actor
 #include "zscript/Postal.Test.txt"
 //#include "zscript/Postal.GlobalVariables.txt"
 #include "zscript/Postal.EventHandlers.txt"
+#include "zscript/Postal.ExplosionSFX.txt"
 
 //------------ Postal weapons
 

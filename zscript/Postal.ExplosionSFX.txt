@@ -1,0 +1,85 @@
+// The very smoke that spawns when a grenade or rocket lands.
+
+Class PostalExplosionSmoke : PostalActor
+{
+    bool rrotate;
+	int TimeBeforeDestruct, Delayyy;
+	bool Counted, Evaporating;
+	
+	double rX, rY, rZ;
+	
+	Default 
+	{
+		+NOINTERACTION
+		+FORCEXYBILLBOARD
+		+ROLLSPRITE
+		Renderstyle "Translucent";
+		alpha 1.0;
+		scale 0.25;
+    }
+	
+	override void PostBeginPlay() 
+	{
+		super.PostBeginPlay();
+		//scale *= frandom(0.8,1.2);
+		bSPRITEFLIP = random(0,1);
+		rrotate = random(0,1);
+		
+		rX = frandom(-0.2, 0.2);
+		rY = frandom(-0.2, 0.2);
+		rZ = frandom(-0.2, 0.5);
+		
+		int randomtime = random(0,8);
+		Delayyy = level.time + randomtime;
+		
+    }
+	
+	override void Tick()
+    {
+        Super.Tick();
+		
+		if (Delayyy > level.time) return;
+		
+		if (!(Scale ~== (1.95, 1.95)))
+			Scale += (0.10, 0.10);
+		else
+		{	
+			SetOrigin(pos+(rX,rY,rZ), TRUE);
+			if (Counted != true)
+			{
+				TimeBeforeDestruct = level.time + (35 * 1);
+				Counted = true;
+			}
+			
+			if (level.time > TimeBeforeDestruct)
+			{
+				
+				if (Evaporating != true)
+				{
+					SetStateLabel("Evaporate");
+					Evaporating = true;
+				}
+				
+				Alpha -= 0.05;
+				if (Alpha < 0.01)
+					Destroy();
+			}
+			else
+				Alpha -= 0.02;
+			
+			if (rrotate)
+				roll += 0.30;
+			else
+				roll -= 0.30;
+		}
+    }
+	states
+    {
+    Spawn:
+        PXPL AAA 5;
+        loop;
+	Evaporate:
+		PXPL BBBBBBCCCCCC 5;
+		Loop;
+    }
+}
