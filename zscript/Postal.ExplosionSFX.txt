@@ -60,8 +60,8 @@ Class PostalExplosionSmoke : PostalActor
 					Evaporating = true;
 				}
 				
-				Alpha -= 0.05;
-				if (Alpha < 0.01)
+				Alpha -= 0.01;
+				if (Alpha <= 0)
 					Destroy();
 			}
 			else

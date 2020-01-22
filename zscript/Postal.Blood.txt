@@ -47,7 +47,7 @@ class Postal_Skullchunk : PostalActor
 		Super.Tick();
 		
 		Alpha -= 0.011;
-		if (Alpha < 0)
+		if (Alpha <= 0)
 			Destroy();
 			
 		roll += 17;
@@ -114,7 +114,7 @@ class Postal_HeadExplode : PostalActor
 		Super.Tick();
 		SetOrigin(spawnpos+(0,0,0), TRUE);
 		Alpha -= 0.025;
-		if (Alpha < 0)
+		if (Alpha <= 0)
 			Destroy();
 	}
 	
@@ -158,7 +158,7 @@ class Postal_Brainchunk : PostalActor
 		Super.Tick();
 		
 		Alpha -= 0.009;
-		if (Alpha < 0)
+		if (Alpha <= 0)
 			Destroy();
 			
 		roll += 13;
