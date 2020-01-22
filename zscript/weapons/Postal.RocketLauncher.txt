@@ -91,7 +91,10 @@ class PostRLauncher : PostalWeapon
 				invoker.DistanceFire = 0;
 			}
 			else
+			{
+				invoker.DistanceFire = 0;
 				A_FireProjectile("SeekerRocket");
+			}
 		
 		}
 		RLFA ABCDEFGHIJKLMN 3;
