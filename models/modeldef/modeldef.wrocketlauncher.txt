@@ -17,143 +17,132 @@ Model "PostRLauncher"
 	//Todo: There are several animations, which I don't know what their purpose is
 
 	// Select 1 to 21
-	FrameIndex RLSE A 0 1
-	FrameIndex RLSE B 0 2
-	FrameIndex RLSE C 0 3
-	FrameIndex RLSE D 0 4
-	FrameIndex RLSE E 0 5
-	FrameIndex RLSE F 0 6
-	FrameIndex RLSE G 0 7
-	FrameIndex RLSE H 0 8
-	FrameIndex RLSE I 0 9
-	FrameIndex RLSE J 0 10
-	FrameIndex RLSE K 0 11
-	FrameIndex RLSE L 0 12
-	FrameIndex RLSE M 0 13
-	FrameIndex RLSE N 0 14
-	FrameIndex RLSE O 0 15
-	FrameIndex RLSE P 0 16
-	FrameIndex RLSE Q 0 17
-	FrameIndex RLSE R 0 18
-	FrameIndex RLSE S 0 19
-	FrameIndex RLSE T 0 20
-	FrameIndex RLSE U 0 21
+	FrameIndex RLSE A 0 0
+	FrameIndex RLSE B 0 1 
+	FrameIndex RLSE C 0 2 
+	FrameIndex RLSE D 0 3 
+	FrameIndex RLSE E 0 4 
+	FrameIndex RLSE F 0 5 
+	FrameIndex RLSE G 0 6 
+	FrameIndex RLSE H 0 7 
+	FrameIndex RLSE I 0 8 
+	FrameIndex RLSE J 0 9 
+	FrameIndex RLSE K 0 10
+	FrameIndex RLSE L 0 11
+	FrameIndex RLSE M 0 12
+	FrameIndex RLSE N 0 13
+	FrameIndex RLSE O 0 14
+	FrameIndex RLSE P 0 15
+	FrameIndex RLSE Q 0 16
+	FrameIndex RLSE R 0 17
+	FrameIndex RLSE S 0 18
+	FrameIndex RLSE T 0 19
+	FrameIndex RLSE U 0 20
 	
 	// Deselect 22 to 30
-	FrameIndex RLDE A 0 22
-	FrameIndex RLDE B 0 23
-	FrameIndex RLDE C 0 24
-	FrameIndex RLDE D 0 25
-	FrameIndex RLDE E 0 26
-	FrameIndex RLDE F 0 27
-	FrameIndex RLDE G 0 28
-	FrameIndex RLDE H 0 29
-	FrameIndex RLDE I 0 30
+	FrameIndex RLDE A 0 21
+	FrameIndex RLDE B 0 22
+	FrameIndex RLDE C 0 23
+	FrameIndex RLDE D 0 24
+	FrameIndex RLDE E 0 25
+	FrameIndex RLDE F 0 26
+	FrameIndex RLDE G 0 27
+	FrameIndex RLDE H 0 28
+	FrameIndex RLDE I 0 29
+	FrameIndex RLDE J 0 30
 	
 	// Idling 31 to 60
 	
 	FrameIndex RLID A 0 31
-	FrameIndex RLID B 0 32
-	FrameIndex RLID C 0 33
-	FrameIndex RLID D 0 34
-	FrameIndex RLID E 0 35
-	FrameIndex RLID F 0 36
-	FrameIndex RLID G 0 37
-	FrameIndex RLID H 0 38
-	FrameIndex RLID I 0 39
-	FrameIndex RLID J 0 40
-	FrameIndex RLID K 0 41
-	FrameIndex RLID L 0 42
-	FrameIndex RLID M 0 43
-	FrameIndex RLID N 0 44
-	FrameIndex RLID O 0 45
-	FrameIndex RLID P 0 46
-	FrameIndex RLID Q 0 47
-	FrameIndex RLID R 0 48
-	FrameIndex RLID S 0 49
-	FrameIndex RLID T 0 50
-	FrameIndex RLID U 0 51
-	FrameIndex RLID V 0 52
-	FrameIndex RLID W 0 53
-	FrameIndex RLID X 0 54
-	FrameIndex RLID Y 0 55
-	FrameIndex RLID Z 0 56
-	//Usually this is why we skip 1 frames always
-	//Because it doesn't fit into the English alphabet
+	FrameIndex RLID B 0 33
+	FrameIndex RLID C 0 35
+	FrameIndex RLID D 0 37
+	FrameIndex RLID E 0 39
+	FrameIndex RLID F 0 41
+	FrameIndex RLID G 0 43
+	FrameIndex RLID H 0 45
+	FrameIndex RLID I 0 47
+	FrameIndex RLID J 0 49
+	FrameIndex RLID K 0 51
+	FrameIndex RLID L 0 53
+	FrameIndex RLID M 0 55
+	FrameIndex RLID N 0 57
+	FrameIndex RLID O 0 59
+	FrameIndex RLID P 0 61
 	
 	// Hold attack 86 to 159
 	// Seperated into 13-13-13 frames
 	
-	FrameIndex RLHA A 0 86
-	FrameIndex RLHA B 0 88
-	FrameIndex RLHA C 0 90
-	FrameIndex RLHA D 0 92
-	FrameIndex RLHA E 0 94
-	FrameIndex RLHA F 0 96
-	FrameIndex RLHA G 0 98
-	FrameIndex RLHA H 0 100
-	FrameIndex RLHA I 0 102
-	FrameIndex RLHA J 0 104
-	FrameIndex RLHA K 0 106
-	FrameIndex RLHA L 0 108
-	FrameIndex RLHA M 0 110
+	FrameIndex RLHA A 0 88 
+	FrameIndex RLHA B 0 90 
+	FrameIndex RLHA C 0 92 
+	FrameIndex RLHA D 0 94 
+	FrameIndex RLHA E 0 96 
+	FrameIndex RLHA F 0 98 
+	FrameIndex RLHA G 0 100
+	FrameIndex RLHA H 0 102
+	FrameIndex RLHA I 0 104
+	FrameIndex RLHA J 0 106
+	FrameIndex RLHA K 0 108
+	FrameIndex RLHA L 0 110
+	FrameIndex RLHA M 0 112
+	FrameIndex RLHA N 0 114
+	FrameIndex RLHA O 0 116
+	FrameIndex RLHA P 0 118
+	FrameIndex RLHA Q 0 120
+	FrameIndex RLHA R 0 122
+	FrameIndex RLHA S 0 124
+	FrameIndex RLHA T 0 126
+	FrameIndex RLHA U 0 128
+	FrameIndex RLHA V 0 130
+	FrameIndex RLHA W 0 132
+	FrameIndex RLHA X 0 134
+	FrameIndex RLHA Y 0 136
+	FrameIndex RLHA Z 0 138
 	
-	FrameIndex RLH2 A 0 112
-	FrameIndex RLH2 B 0 114
-	FrameIndex RLH2 C 0 116
-	FrameIndex RLH2 D 0 118
-	FrameIndex RLH2 E 0 120
-	FrameIndex RLH2 F 0 122
-	FrameIndex RLH2 G 0 124
-	FrameIndex RLH2 H 0 126
-	FrameIndex RLH2 I 0 128
-	FrameIndex RLH2 J 0 130
-	FrameIndex RLH2 K 0 132
-	FrameIndex RLH2 L 0 134
-	FrameIndex RLH2 M 0 136
-	
-	FrameIndex RLH3 A 0 138
-	FrameIndex RLH3 B 0 140
-	FrameIndex RLH3 C 0 142
-	FrameIndex RLH3 D 0 144
-	FrameIndex RLH3 E 0 146
-	FrameIndex RLH3 F 0 148
-	FrameIndex RLH3 G 0 150
-	FrameIndex RLH3 H 0 152
-	FrameIndex RLH3 I 0 154
-	FrameIndex RLH3 J 0 156
-	FrameIndex RLH3 K 0 157
-	FrameIndex RLH3 L 0 158
-	FrameIndex RLH3 M 0 159
+	FrameIndex RLH2 A 0 140
+	FrameIndex RLH2 B 0 142
+	FrameIndex RLH2 C 0 144
+	FrameIndex RLH2 D 0 146
+	FrameIndex RLH2 E 0 148
+	FrameIndex RLH2 F 0 150
+	FrameIndex RLH2 G 0 152
+	FrameIndex RLH2 H 0 154
+	FrameIndex RLH2 I 0 156
+	FrameIndex RLH2 J 0 158
 	
 	// Fire attack Frames 160 to 180 
 	
-	FrameIndex RLFA A 0 160
+	FrameIndex RLFA A 0 159
 	FrameIndex RLFA B 0 161
-	FrameIndex RLFA C 0 162
-	FrameIndex RLFA D 0 163
-	FrameIndex RLFA E 0 164
-	FrameIndex RLFA F 0 165
-	FrameIndex RLFA G 0 166
-	FrameIndex RLFA H 0 167
-	FrameIndex RLFA I 0 168
-	FrameIndex RLFA J 0 169
-	FrameIndex RLFA K 0 170
-	FrameIndex RLFA L 0 171
-	FrameIndex RLFA M 0 172
-	FrameIndex RLFA N 0 173
-	FrameIndex RLFA O 0 174
-	FrameIndex RLFA P 0 175
-	FrameIndex RLFA Q 0 176
-	FrameIndex RLFA R 0 177
-	FrameIndex RLFA S 0 178
-	FrameIndex RLFA T 0 179
-	FrameIndex RLFA U 0 180
-	//FrameIndex RLFA V 0 97
-	//FrameIndex RLFA W 0 98
-	//FrameIndex RLFA X 0 99
-	//FrameIndex RLFA Y 0 100
-	//FrameIndex RLFA Z 0 101
+	FrameIndex RLFA C 0 163
+	FrameIndex RLFA D 0 165
+	FrameIndex RLFA E 0 167
+	FrameIndex RLFA F 0 169
+	FrameIndex RLFA G 0 171
+	FrameIndex RLFA H 0 173
+	FrameIndex RLFA I 0 175
+	FrameIndex RLFA J 0 177
+	FrameIndex RLFA K 0 179
+	FrameIndex RLFA L 0 181
+	FrameIndex RLFA M 0 183
+	FrameIndex RLFA N 0 184
+	
+	// Primary Fire idling ? Frames 211 to 236
+	
+	FrameIndex RLFI A 0 211
+	FrameIndex RLFI B 0 213
+	FrameIndex RLFI C 0 215
+	FrameIndex RLFI D 0 217
+	FrameIndex RLFI E 0 219
+	FrameIndex RLFI F 0 221
+	FrameIndex RLFI G 0 223
+	FrameIndex RLFI H 0 225
+	FrameIndex RLFI I 0 227
+	FrameIndex RLFI J 0 229
+	FrameIndex RLFI K 0 231
+	FrameIndex RLFI L 0 233
+	FrameIndex RLFI M 0 235
 	
 }
 
