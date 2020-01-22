@@ -2,6 +2,7 @@ class PostRLauncher : PostalWeapon
 {
 	bool SeekingMissile;
 	int DistanceFire;
+	const DistanceValue = 1.5; //since we will rely on level.time...
 	
 	Default
 	{
@@ -43,7 +44,7 @@ class PostRLauncher : PostalWeapon
 				return ResolveState ("FireEnd");
 			}
 			else
-				invoker.DistanceFire += 2;
+				invoker.DistanceFire += DistanceValue;
 			
 			return ResolveState (null);
 		}
@@ -55,7 +56,7 @@ class PostRLauncher : PostalWeapon
 				return ResolveState ("FireEnd");
 			}
 			else
-				invoker.DistanceFire += 2;
+				invoker.DistanceFire += DistanceValue;
 			
 			return ResolveState (null);
 		}
@@ -77,7 +78,16 @@ class PostRLauncher : PostalWeapon
 		{
 			if (invoker.SeekingMissile == false)
 			{
-				A_FireProjectile("PostalRocket");
+				class<actor> Rocket = "PostalRocket";
+				Actor PRocket = SpawnPlayerMissile(Rocket);
+				
+				if (PRocket == null) { invoker.DistanceFire = 0; return; }
+				
+				let PPRocket = PostalRocket(PRocket);
+				if (PPRocket == null) { invoker.DistanceFire = 0; return; }
+				
+				PPRocket.AddedTime = invoker.DistanceFire;
+				
 				invoker.DistanceFire = 0;
 			}
 			else
@@ -112,6 +122,30 @@ extend class PostRLauncher
 
 class PostalRocket : Actor
 {
+	int SpawnTime, AddedTime;
+	double ShipDown;
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		SpawnTime = level.time + AddedTime;
+		ShipDown = 3.5;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		Console.Printf("%f > %f | Velocity: %f", level.time, SpawnTime, vel);
+		if (level.time > SpawnTime)
+		{
+			SetOrigin(pos-(0,0,ShipDown), TRUE);
+			Speed -= 3.5;
+			ShipDown += 0.3;
+			vel.z -= 0.5;
+		}
+	
+	}
+	
 	Default
 	{
 		Radius 11;
