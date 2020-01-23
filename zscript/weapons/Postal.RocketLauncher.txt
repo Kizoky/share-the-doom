@@ -76,6 +76,8 @@ class PostRLauncher : PostalWeapon
 	FireEnd:
 		RLFA A 0
 		{
+			A_Quake(6,8,0,5);
+			
 			if (invoker.SeekingMissile == false)
 			{
 				class<actor> Rocket = "PostalRocket";
@@ -87,6 +89,7 @@ class PostRLauncher : PostalWeapon
 				if (PPRocket == null) { invoker.DistanceFire = 0; return; }
 				
 				PPRocket.AddedTime = invoker.DistanceFire;
+				PPRocket.Pitch = invoker.owner.pitch;
 				
 				invoker.DistanceFire = 0;
 			}
@@ -127,11 +130,13 @@ class PostalRocket : Actor
 {
 	int SpawnTime, AddedTime;
 	double ShipDown;
+	int PitchDown;
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
 		SpawnTime = level.time + AddedTime;
 		ShipDown = 3.5;
+		PitchDown = 0;
 	}
 	
 	override void Tick()
@@ -141,6 +146,16 @@ class PostalRocket : Actor
 		Console.Printf("%f > %f | Velocity: %f", level.time, SpawnTime, vel);
 		if (level.time > SpawnTime)
 		{
+			if (pitch <= 90)
+			{
+				if (PitchDown != 10)
+					PitchDown += 1;
+				
+				Pitch += PitchDown;
+			}
+			if (Pitch > 90)
+				Pitch = 90;
+			
 			SetOrigin(pos-(0,0,ShipDown), TRUE);
 			Speed -= 3.5;
 			ShipDown += 0.3;
@@ -159,6 +174,8 @@ class PostalRocket : Actor
 		+RANDOMIZE
 		+DEHEXPLOSION
 		+ROCKETTRAIL
+		+ROLLSPRITE;
+		+ABSMASKPITCH;
 		+ZDOOMTRANS
 		SeeSound "weapons/rocklf";
 		DeathSound "weapons/rocklx";
@@ -167,12 +184,12 @@ class PostalRocket : Actor
 	States
 	{
 	Spawn:
-		MISL A 1 Bright;
+		RRRR A 1 Bright;
 		Loop;
 	Death:
 		TNT1 A 0
 		{
-			A_Quake(5,15,0,400);
+			A_Quake(5,15,0,800);
 			
 			int i = 0;
 			while (i < 10) {
@@ -181,9 +198,9 @@ class PostalRocket : Actor
 			}
 		
 		}
-		MISL B 8 Bright A_Explode;
-		MISL C 6 Bright;
-		MISL D 4 Bright;
+		TNT1 A 8 Bright A_Explode;
+		TNT1 A 6 Bright;
+		TNT1 A 4 Bright;
 		Stop;
 	}
 }

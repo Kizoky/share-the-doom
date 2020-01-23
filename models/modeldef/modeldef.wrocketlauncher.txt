@@ -146,6 +146,23 @@ Model "PostRLauncher"
 	
 }
 
+Model "PostalRocket"
+{
+	Path "models\weapons\rocketlauncher"
+	Model 0 "LauncherRocket.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "rocket_timb.png"
+	AngleOffset 180 //40
+	Scale -1 0.75 1
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	
+	FrameIndex RRRR A 0 0
+	
+}
+
 Model "PostRLauncher"
 {
 	Path "models\weapons\rocketlauncher"
