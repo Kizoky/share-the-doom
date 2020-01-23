@@ -344,7 +344,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		// There's a slight delay before completely stopping the Player, just like in Postal 2
 		// For Delta Touch this can be disabled if you move at a snail's speed
 		UserCmd cmd = player.cmd;
-		
 		if (!(GetPlayerInput(INPUT_FORWARDMOVE)) && !(GetPlayerInput(INPUT_SIDEMOVE)) && !(player.cmd.buttons & BT_JUMP) && player.onground)
 		{	
 			if (level.time > PlayerData.RunningStopCooldown)
@@ -362,7 +361,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			}
 		}
 		//let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
-		
 		//Check if we are dead, and we aren't suiciding
 		
 		if (self.Health < 1 && PlayerData.Suicide != true)
