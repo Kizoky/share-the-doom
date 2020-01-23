@@ -158,7 +158,7 @@ class PostalRocket : Actor
 			
 			SetOrigin(pos-(0,0,ShipDown), TRUE);
 			Speed -= 3.5;
-			ShipDown += 0.3;
+			ShipDown += 0.05;
 			vel.z -= 0.5;
 		}
 	
