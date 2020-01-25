@@ -73,41 +73,54 @@ Model "PostRLauncher"
 	// Hold attack 86 to 159
 	// Seperated into 13-13-13 frames
 	
-	FrameIndex RLHA A 0 88 
-	FrameIndex RLHA B 0 90 
-	FrameIndex RLHA C 0 92 
-	FrameIndex RLHA D 0 94 
-	FrameIndex RLHA E 0 96 
-	FrameIndex RLHA F 0 98 
+	FrameIndex RLHA A 0 88
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_1.png"
+	FrameIndex RLHA B 0 90
+	FrameIndex RLHA C 0 92
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_2.png"
+	FrameIndex RLHA D 0 94
+	FrameIndex RLHA E 0 96
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_3.png"
+	FrameIndex RLHA F 0 98
 	FrameIndex RLHA G 0 100
 	FrameIndex RLHA H 0 102
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_4.png"
 	FrameIndex RLHA I 0 104
 	FrameIndex RLHA J 0 106
 	FrameIndex RLHA K 0 108
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_5.png"
 	FrameIndex RLHA L 0 110
 	FrameIndex RLHA M 0 112
 	FrameIndex RLHA N 0 114
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_6.png"
 	FrameIndex RLHA O 0 116
 	FrameIndex RLHA P 0 118
 	FrameIndex RLHA Q 0 120
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_7.png"
 	FrameIndex RLHA R 0 122
 	FrameIndex RLHA S 0 124
 	FrameIndex RLHA T 0 126
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_8.png"
 	FrameIndex RLHA U 0 128
 	FrameIndex RLHA V 0 130
 	FrameIndex RLHA W 0 132
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_9.png"
 	FrameIndex RLHA X 0 134
 	FrameIndex RLHA Y 0 136
 	FrameIndex RLHA Z 0 138
 	
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_10.png"
 	FrameIndex RLH2 A 0 140
 	FrameIndex RLH2 B 0 142
 	FrameIndex RLH2 C 0 144
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_11.png"
 	FrameIndex RLH2 D 0 146
 	FrameIndex RLH2 E 0 148
 	FrameIndex RLH2 F 0 150
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_12.png"
 	FrameIndex RLH2 G 0 152
 	FrameIndex RLH2 H 0 154
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_13.png"
 	FrameIndex RLH2 I 0 156
 	FrameIndex RLH2 J 0 158
 	
@@ -130,19 +143,24 @@ Model "PostRLauncher"
 	
 	// Primary Fire idling ? Frames 211 to 236
 	
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_full.png"
 	FrameIndex RLFI A 0 211
 	FrameIndex RLFI B 0 213
 	FrameIndex RLFI C 0 215
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_13.png"
 	FrameIndex RLFI D 0 217
 	FrameIndex RLFI E 0 219
 	FrameIndex RLFI F 0 221
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_full.png"
 	FrameIndex RLFI G 0 223
 	FrameIndex RLFI H 0 225
 	FrameIndex RLFI I 0 227
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_13.png"
 	FrameIndex RLFI J 0 229
 	FrameIndex RLFI K 0 231
 	FrameIndex RLFI L 0 233
-	FrameIndex RLFI M 0 235
+	
+	//FrameIndex RLFI M 0 235
 	
 }
 

@@ -11,7 +11,7 @@ class PostRLauncher : PostalWeapon
 		
 		if (!owner) return;
 		
-		Console.Printf("Angle: %f", owner.angle % 180);
+		//Console.Printf("Angle: %f", owner.angle % 180);
 	
 	}
 	
@@ -74,7 +74,7 @@ class PostRLauncher : PostalWeapon
 		RLFI A 0 A_PlaySound("weapons/seeker", 7 | 4096);
 		Goto FireLoop;
 	FireLoop:
-		RLFI ABCDEFGHIJKLM 3
+		RLFI ABCDEFGHIJKL 3
 		{
 			if (!(player.cmd.buttons & BT_ATTACK))
 			{
@@ -154,7 +154,7 @@ class PostalRocket : Actor
 	{
 		Super.Tick();
 		
-		Console.Printf("%f > %f | Velocity: %f", level.time, SpawnTime, vel);
+		//Console.Printf("%f > %f | Velocity: %f", level.time, SpawnTime, vel);
 		if (level.time > SpawnTime)
 		{
 			if (pitch <= 90)
