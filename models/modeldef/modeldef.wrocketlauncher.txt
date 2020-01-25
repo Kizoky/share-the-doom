@@ -124,23 +124,6 @@ Model "PostRLauncher"
 	FrameIndex RLH2 I 0 156
 	FrameIndex RLH2 J 0 158
 	
-	// Fire attack Frames 160 to 180 
-	
-	FrameIndex RLFA A 0 159
-	FrameIndex RLFA B 0 161
-	FrameIndex RLFA C 0 163
-	FrameIndex RLFA D 0 165
-	FrameIndex RLFA E 0 167
-	FrameIndex RLFA F 0 169
-	FrameIndex RLFA G 0 171
-	FrameIndex RLFA H 0 173
-	FrameIndex RLFA I 0 175
-	FrameIndex RLFA J 0 177
-	FrameIndex RLFA K 0 179
-	FrameIndex RLFA L 0 181
-	FrameIndex RLFA M 0 183
-	FrameIndex RLFA N 0 184
-	
 	// Primary Fire idling ? Frames 211 to 236
 	
 	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_full.png"
@@ -161,6 +144,23 @@ Model "PostRLauncher"
 	FrameIndex RLFI L 0 233
 	
 	//FrameIndex RLFI M 0 235
+	
+	// Fire attack Frames 160 to 180 
+	SurfaceSkin 0 2 "rocketlauncher/fuel_gauge_NEW.png"
+	FrameIndex RLFA A 0 159
+	FrameIndex RLFA B 0 161
+	FrameIndex RLFA C 0 163
+	FrameIndex RLFA D 0 165
+	FrameIndex RLFA E 0 167
+	FrameIndex RLFA F 0 169
+	FrameIndex RLFA G 0 171
+	FrameIndex RLFA H 0 173
+	FrameIndex RLFA I 0 175
+	FrameIndex RLFA J 0 177
+	FrameIndex RLFA K 0 179
+	FrameIndex RLFA L 0 181
+	FrameIndex RLFA M 0 183
+	FrameIndex RLFA N 0 184
 	
 }
 
