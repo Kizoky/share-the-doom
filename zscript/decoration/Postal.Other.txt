@@ -675,3 +675,174 @@ class WJIDude : Actor
 		Loop;
 	}
 }
+
+class PalmTree1 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Palm Tree 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class PalmTree2 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Palm Tree 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class UmbrellaPlant : Actor
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Umbrella Plant"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardCustom2 : Actor
+{
+	Default
+	{
+		//$Category Billboards
+		//$Title "Billboard Propaganda"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardCustom3 : Actor
+{
+	Default
+	{
+		//$Category Billboards
+		//$Title "Billboard Lena"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardCustom4 : Actor
+{
+	Default
+	{
+		//$Category Billboards
+		//$Title "Billboard Flesco"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardCustom5 : Actor
+{
+	Default
+	{
+		//$Category Billboards
+		//$Title "Billboard C.R.A.P."
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardCustom6 : Actor
+{
+	Default
+	{
+		//$Category Billboards
+		//$Title "Billboard Circum"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class BillboardCustom7 : Actor
+{
+	Default
+	{
+		//$Category Billboards
+		//$Title "Billboard BDN"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

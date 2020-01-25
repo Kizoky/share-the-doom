@@ -952,3 +952,138 @@ Model "WJIDude"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "PalmTree1"
+{
+	Path "models\props"
+	Model 0 "palm_tree_timb.md3"
+	AngleOffset 270
+	USEACTORPITCH
+	Scale -0.75 -0.75 0.75
+	Offset 40 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "PalmTree2"
+{
+	Path "models\props"
+	Model 0 "palm_tree_fan_timb.md3"
+	AngleOffset 270
+	USEACTORPITCH
+	Scale -0.75 -0.75 0.75
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "UmbrellaPlant"
+{
+	Path "models\props"
+	Model 0 "zo_umbrella_plant.md3"
+	AngleOffset 270
+	USEACTORPITCH
+	Scale -0.75 -0.75 0.75
+	Offset -10 -10 35 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BillboardCustom2"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "billboard-propaganda.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BillboardCustom3"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "billboard-lena.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BillboardCustom4"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "billboard-flesco.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BillboardCustom5"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "billboard-crap.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BillboardCustom6"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "billboard-circum.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BillboardCustom7"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "billboard-bdn.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}

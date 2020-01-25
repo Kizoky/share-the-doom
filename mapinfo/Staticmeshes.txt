@@ -79,4 +79,13 @@ DoomEdNums
   32696 = storeshelf_three
   
   32695 = WJIDude
+  32694 = PalmTree1
+  32693 = PalmTree2
+  32692 = UmbrellaPlant
+  32691 = BillboardCustom2
+  32690 = BillboardCustom3
+  32689 = BillboardCustom4
+  32688 = BillboardCustom5
+  32687 = BillboardCustom6
+  32686 = BillboardCustom7
 }
