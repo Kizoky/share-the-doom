@@ -141,6 +141,7 @@ class PostalRocket : Actor
 	int SpawnTime, AddedTime;
 	double ShipDown;
 	double PitchDown;
+	bool Falling;
 	
 	override void PostBeginPlay()
 	{
@@ -157,6 +158,19 @@ class PostalRocket : Actor
 		//Console.Printf("%f > %f | Velocity: %f", level.time, SpawnTime, vel);
 		if (level.time > SpawnTime)
 		{
+			// From Postal 2's SRC
+			if (Falling != true)
+			{
+				vel.x = vel.x / 2;
+				vel.y = vel.y / 2;
+				
+				if (vel.z > 0)
+					vel.z = vel.z / 2;
+					
+				Falling = true;
+			
+			}
+			
 			if (pitch <= 90)
 			{
 				if (PitchDown != 10)
@@ -168,9 +182,7 @@ class PostalRocket : Actor
 				Pitch = 90;
 			
 			SetOrigin(pos-(0,0,ShipDown), TRUE);
-			Speed -= 3.5;
-			ShipDown += 0.02;
-			vel.z -= 0.5;
+			ShipDown += 0.38;
 		}
 	
 	}
@@ -179,7 +191,7 @@ class PostalRocket : Actor
 	{
 		Radius 11;
 		Height 8;
-		Speed 15;
+		Speed 20;
 		Damage 20;
 		Projectile;
 		+RANDOMIZE
