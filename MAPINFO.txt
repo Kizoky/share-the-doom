@@ -79,7 +79,7 @@ map TITLEMAP "11011010101"
 
 map DEVMAP "Whoever designed this was on serious crack"
 {
-	levelnum = 1
+	levelnum = 0
 	//music=D_FFL1
 	sky1=F_SKY1
 	cluster=1
@@ -87,7 +87,7 @@ map DEVMAP "Whoever designed this was on serious crack"
 
 map DEVMAP2 "Maisth loves corruption"
 {
-	levelnum = 2
+	levelnum = 0
 	//music=D_FFL1
 	sky1=F_SKY1
 	cluster=1
@@ -124,6 +124,14 @@ map WORLD4 "Bitch - Day"
 {
 	levelnum = 4
 	music=Amb_04
+	sky1=F_SKY1
+	cluster=1
+}
+
+map WORLD5 "Haldea - Day"  ///Kizoky's fun place
+{
+	levelnum = 5
+	music=Amb_05
 	sky1=F_SKY1
 	cluster=1
 }

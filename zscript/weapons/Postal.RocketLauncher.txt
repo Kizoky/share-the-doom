@@ -196,10 +196,8 @@ class PostalRocket : Actor
 		Projectile;
 		+RANDOMIZE
 		+DEHEXPLOSION
-		//+ROCKETTRAIL
 		+ROLLSPRITE;
 		+ABSMASKPITCH;
-		//+ZDOOMTRANS
 		SeeSound "weapons/rocklf";
 		DeathSound "weapons/rocklx";
 		Obituary "$OB_MPROCKET";
