@@ -46,7 +46,7 @@ class PostRLauncher : PostalWeapon
 		RLSE ABCDEFGHIJKLMNOPQRST 2 A_WeaponReady;
 		Loop;
 	Fire:
-		RLHA A 0 A_PlaySound("weapons/fueling", 7 | 4096);
+		RLHA A 0 A_StartSound("weapons/fueling", CHAN_WEAPON, CHAN_NOSTOP);
 		RLHA ABCDEFGHIJKLMNOPQRSTUVWXYZ 3
 		{
 			if (!(player.cmd.buttons & BT_ATTACK))
@@ -87,6 +87,8 @@ class PostRLauncher : PostalWeapon
 	FireEnd:
 		RLFA A 0
 		{
+			A_StartSound("other/mute", CHAN_WEAPON);
+			
 			A_Quake(6,8,0,5);
 			
 			if (invoker.SeekingMissile == false)
@@ -144,10 +146,12 @@ class PostRLauncher : PostalWeapon
 
 class PostalRocket : Actor
 {
-	int SpawnTime, AddedTime, SeekingTime;
+	int SpawnTime, AddedTime, SeekingTime, BounceCooldown;
 	double PitchDown;
 	bool Falling, Seeking;
 	Actor SeekingTarget, Owner;
+	
+	int BleepTime;
 	
 	action void A_SeekerThink()
 	{
@@ -163,10 +167,10 @@ class PostalRocket : Actor
 			
 				if (!CheckSight (next, SF_SeePastShootableLines)) continue;
 				
-				if (next != invoker.Owner && next.Health > 1 && !next.bFRIENDLY && next != self && next.bIsMONSTER && !next.bKILLED)
+				if (next != invoker.Owner && next.Health > 1 && !next.bFRIENDLY && next != self && next.bSHOOTABLE && !next.bKILLED)
 					invoker.SeekingTarget = next;
 				
-		}
+			}
 	}
 	
 	override void PostBeginPlay()
@@ -187,6 +191,7 @@ class PostalRocket : Actor
 			bUSEBOUNCESTATE = true;
 			
 			SeekingTime = level.time + (35 * 17); // Seeking missiles lasts for 17 seconds if not destroyed
+			BleepTime = level.time + (35 * 3);
 		}
 		PitchDown = 0;
 	}
@@ -194,6 +199,12 @@ class PostalRocket : Actor
 	override void Tick()
 	{
 		Super.Tick();
+		
+		if (level.time > BleepTime && SeekingTarget)
+		{
+			SeekingTarget.A_StartSound("weapons/rocket_bleep", CHAN_BODY, CHANF_LOCAL);
+			BleepTime = level.time + (35 * 3);
+		}
 		
 		if (level.time > SeekingTime && Seeking && !SeekingTarget)
 		{
@@ -214,6 +225,20 @@ class PostalRocket : Actor
 				if (vel.z > 0)
 					vel.z = vel.z / 2;
 					
+				int i = 0;
+				while (i < 3) {
+					vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-8,8));
+					let Smoke = Spawn("PostalSmokeTrail", pos+poss);
+					if (Smoke)
+					{	
+						Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+						
+						let pp = PostalSmokeTrail(Smoke);
+						pp.bouncesmoke = true;
+						Smoke.Scale = (8.0,8.0);
+					}
+					i++;
+				}
 				Falling = true;
 			}
 			
@@ -246,9 +271,9 @@ class PostalRocket : Actor
 		+DEHEXPLOSION
 		+ROLLSPRITE;
 		+ABSMASKPITCH;
-		SeeSound "weapons/rocklf";
-		DeathSound "weapons/rocklx";
-		BounceSound "weapons/bounce";
+		SeeSound "weapons/rocket_fire";
+		DeathSound "weapons/rocket_explode";
+		BounceSound "weapons/rocket_bounce";
 		Obituary "$OB_MPROCKET";
 	}
 	States
@@ -258,15 +283,23 @@ class PostalRocket : Actor
 		{
 			A_SpawnItemEx("PostalSmokeTrail", FRandom(-3, 3), FRandom(-3, 3), FRandom(-3, 3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
 			
+			if (Seeking || !Falling)
+				A_StartSound("weapons/rocket_active", CHAN_BODY, CHANF_LOOPING | CHANF_NOSTOP);
+			else
+				A_StartSound("other/mute", CHAN_BODY);
+			
 			if (SeekingTarget)
 			{
 				if (tracer != SeekingTarget && SeekingTarget != null) tracer = SeekingTarget;
 				
 				if (tracer)
 				{
-					Vel.Z = (tracer.pos.Z + tracer.Height/2 - pos.Z) / DistanceBySpeed(tracer, 10);
-					A_Tracer2(45);
-					A_FaceTracer(45,180);
+					if (level.time > BounceCooldown)
+					{
+						Vel.Z = (tracer.pos.Z + tracer.Height/2 - pos.Z) / DistanceBySpeed(tracer, 10);
+						A_Tracer2(22.5);
+						A_FaceTracer(45,180);
+					}
 				}
 			}
 			else
@@ -276,6 +309,7 @@ class PostalRocket : Actor
 	Bounce:
 		RRRR A 0
 		{
+			BounceCooldown = level.time + 9;
 			int i = 0;
 			while (i < 3) {
 				vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-8,8));

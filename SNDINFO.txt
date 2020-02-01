@@ -146,12 +146,15 @@ dogattack2 sounds/dog_biting3.wav
 $random doghit { doghit1 doghit2 }
 $random dogattack { dogattack1 dogattack2 }
 
-weapons/rocklf	sounds/launcher_fire.wav
-weapons/rocklx	sounds/rocket_explode.wav
+weapons/rocket_fire	sounds/launcher_fire.wav
+weapons/rocket_explode sounds/rocket_explode.wav
 
 weapons/fueling sounds/launcher_fueling.wav
 weapons/seeker sounds/launcher_seeker.wav
-weapons/bounce sounds/rocket_bounce.wav
+weapons/rocket_bounce sounds/rocket_bounce.wav
+weapons/rocket_active sounds/rocket_flying.wav
+
+weapons/rocket_bleep sounds/Bleep.wav
 
 $limit dudehurt 1
 $limit dudehurt1 1
@@ -280,10 +283,10 @@ weaponselect9 sounds/weapon_select.wav
 //Weapons
 $volume weapons/shotgf 0.7
 $volume weapons/shotgr 0.7
-weapons/pistol sounds/pistol_fire.wav
-weapons/shotgf sounds/shotgun_fire.wav
-weapons/shotgr sounds/shotgun_ejectshell.wav
-weapons/chngun sounds/Machinegun_fire.wav
+weapons/pistol sounds/pistol_fire.wav // fixme
+weapons/shotgf sounds/shotgun_fire.wav // fixme
+weapons/shotgr sounds/shotgun_ejectshell.wav // fixme
+weapons/chngun sounds/Machinegun_fire.wav // fixme
 
 piss/loop sounds/Piss_Loop.wav
 piss/zipperup sounds/piss_ZipperUp.wav
@@ -513,3 +516,5 @@ scissors/altfire sounds/scissors_fire2.wav
 scissors/wallstick sounds/scissors_wallstick.wav
 scissors/bodystick sounds/scissors_bodystick.wav
 scissors/bounce sounds/scissors_bounce.wav
+
+other/mute sounds/muted.wav
