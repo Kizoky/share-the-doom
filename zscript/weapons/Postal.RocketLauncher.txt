@@ -105,8 +105,31 @@ class PostRLauncher : PostalWeapon
 			}
 			else
 			{
+				class<actor> Rocket = "PostalRocket";
+				Actor PRocket = A_FireProjectile(Rocket,0,1,25,11);
+				
+				if (PRocket == null) { invoker.DistanceFire = 0; return; }
+				
+				let PPRocket = PostalRocket(PRocket);
+				if (PPRocket == null) { invoker.DistanceFire = 0; return; }
+				
+				PPRocket.Pitch = invoker.owner.pitch;
+				PPRocket.Seeking = true;
+				
+				//In Postal 2 you can aim for a target, if it's on your crosshair the rocket will target that NPC
+				//Otherwise it will search for a new potential target..
+				FLineTraceData lineData;
+				LineTrace(invoker.owner.angle,8096,invoker.owner.pitch, offsetz: invoker.owner.height, data: LineData);
+				
+				if (LineData.HitType == TRACE_HitActor && lineData.HitActor != invoker.Owner && lineData.HitActor.Health > 1)
+				{
+					Console.Printf("Got a target for seeking");
+					PPRocket.SeekingTarget = LineData.HitActor;
+				}
+				
+				PPRocket.Owner = invoker.owner;
+				
 				invoker.DistanceFire = 0;
-				A_FireProjectile("SeekerRocket");
 			}
 		
 		}
@@ -119,35 +142,50 @@ class PostRLauncher : PostalWeapon
 	}
 }
 
-//Unused
-extend class PostRLauncher
-{
-	action void A_SeekerMode()
-	{
-		if (target == null) return;
-		AddZ(16);
-		Actor missile = SpawnMissile(target, "SeekerRocket");
-		AddZ(-16);
-		if (missile != null)
-		{
-			missile.SetOrigin(missile.Vec3Offset(missile.Vel.X, missile.Vel.Y, 0.), false);
-			missile.tracer = target;
-		}
-	}
-}
-
 class PostalRocket : Actor
 {
-	int SpawnTime, AddedTime;
-	double ShipDown;
+	int SpawnTime, AddedTime, SeekingTime;
 	double PitchDown;
-	bool Falling;
+	bool Falling, Seeking;
+	Actor SeekingTarget, Owner;
+	
+	action void A_SeekerThink()
+	{
+		if (invoker.SeekingTarget != null) return;
+		
+		double fov = 90; // this should be an argument, variable or constant instead, this is just here as an example
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 1000); // The number here is (possibly roughly) the maximum distance they can see
+		
+			while (it.Next () && it.Thing != null) {
+				let next = it.Thing;
+				
+				if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) continue;
+			
+				if (!CheckSight (next, SF_SeePastShootableLines)) continue;
+				
+				if (next != invoker.Owner && next.Health > 1 && !next.bFRIENDLY && next != self && next.bIsMONSTER && !next.bKILLED)
+					invoker.SeekingTarget = next;
+				
+		}
+	}
 	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		SpawnTime = level.time + AddedTime;
-		ShipDown = 0;
+		if (Seeking != true)
+			SpawnTime = level.time + AddedTime;
+		else
+		{
+			Speed = 15;
+			bBOUNCEONWALLS = true;
+			bBOUNCEONFLOORS = true;
+			bBOUNCEONCEILINGS = true;
+			BounceFactor = 1;
+			WallBounceFactor = 1;
+			bSEEKERMISSILE = true;
+			
+			SeekingTime = level.time + (35 * 17); // Seeking missiles lasts for 17 seconds if not destroyed
+		}
 		PitchDown = 0;
 	}
 	
@@ -155,7 +193,10 @@ class PostalRocket : Actor
 	{
 		Super.Tick();
 		
-		//Console.Printf("%f > %f | Velocity: %f", level.time, SpawnTime, vel);
+		
+		
+		if (Seeking) return;
+		
 		if (level.time > SpawnTime)
 		{
 			// From Postal 2's SRC
@@ -168,8 +209,8 @@ class PostalRocket : Actor
 					vel.z = vel.z / 2;
 					
 				Falling = true;
-			
 			}
+			
 			
 			if (pitch <= 90)
 			{
@@ -178,11 +219,12 @@ class PostalRocket : Actor
 				
 				Pitch += PitchDown;
 			}
+			
+			
 			if (Pitch > 90)
 				Pitch = 90;
 			
-			SetOrigin(pos-(0,0,ShipDown), TRUE);
-			ShipDown += 0.38;
+			vel.z -= 0.55;
 		}
 	
 	}
@@ -191,7 +233,7 @@ class PostalRocket : Actor
 	{
 		Radius 11;
 		Height 8;
-		Speed 20;
+		Speed 25;
 		Damage 20;
 		Projectile;
 		+RANDOMIZE
@@ -200,12 +242,30 @@ class PostalRocket : Actor
 		+ABSMASKPITCH;
 		SeeSound "weapons/rocklf";
 		DeathSound "weapons/rocklx";
+		BounceSound "weapons/bounce";
 		Obituary "$OB_MPROCKET";
 	}
 	States
 	{
 	Spawn:
-		RRRR A 1 Bright;
+		RRRR A 1 Bright
+		{
+			A_SpawnItemEx("PostalSmokeTrail", FRandom(-3, 3), FRandom(-3, 3), FRandom(-3, 3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			
+			if (SeekingTarget)
+			{
+				if (tracer != SeekingTarget && SeekingTarget != null) tracer = SeekingTarget;
+				
+				if (tracer)
+				{
+					Vel.Z = (tracer.pos.Z + tracer.Height/2 - pos.Z) / DistanceBySpeed(tracer, 10);
+					A_Tracer2(45);
+					A_FaceTracer(45,180);
+				}
+			}
+			else
+				A_SeekerThink();
+		}
 		Loop;
 	Death:
 		TNT1 A 0
@@ -259,4 +319,68 @@ class SeekerRocket : Actor
 		MISL D 4 Bright;
 		Stop;
 	}
+}
+
+// Smoke trail that comes from the Rocket
+
+Class PostalSmokeTrail : PostalActor
+{
+    bool rrotate;
+	vector2 randomScale;
+	
+	Default 
+	{
+		+NOINTERACTION
+		+FORCEXYBILLBOARD
+		+ROLLSPRITE
+		+RANDOMIZE
+		Renderstyle "Translucent";
+		alpha 1.0;
+		scale 1.70;
+    }
+	
+	override void PostBeginPlay() 
+	{
+		super.PostBeginPlay();
+		bSPRITEFLIP = random(0,1);
+		rrotate = random(0,1);
+		randomScale.x = frandom(1.70, 2.10);
+		randomScale.y = randomScale.x;
+		
+		Scale = (randomScale.x, randomScale.y);
+		
+		int spawn = random(0,2);
+		if (spawn == 1)
+			SetStateLabel("Variant2");
+		if (spawn == 2)
+			SetStateLabel("Variant3");
+    }
+	
+	override void Tick()
+    {
+        Super.Tick();
+		
+		Scale += (0.05, 0.05);
+				
+		Alpha -= 0.01;
+		if (Alpha <= 0)
+			Destroy();
+			
+		if (rrotate)
+			roll += 2;
+		else
+			roll -= 2;
+    }
+	states
+    {
+    Spawn:
+        SKKK AAA 5;
+        loop;
+	Variant2:
+		SKKK BBB 5;
+		loop;
+	Variant3:
+		SKKK CCC 5;
+		Loop;
+    }
 }
