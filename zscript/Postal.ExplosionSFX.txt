@@ -57,16 +57,20 @@ Class PostalExplosionSmoke : PostalActor
 				
 				if (Evaporating != true)
 				{
-					SetStateLabel("Evaporate");
+					bool y = random(0,1);
+					if (y)
+						SetStateLabel("Evaporate");
+					else
+						SetStateLabel("Evaporate2");
 					Evaporating = true;
 				}
 				
-				Alpha -= 0.02;
+				Alpha -= 0.01;
 				if (Alpha <= 0)
 					Destroy();
 			}
 			else
-				Alpha -= 0.02;
+				Alpha -= 0.025;
 			
 			if (rrotate)
 				roll += 0.30;
@@ -80,7 +84,10 @@ Class PostalExplosionSmoke : PostalActor
         PXPL AAA 5;
         loop;
 	Evaporate:
-		PXPL BBBBBBCCCCCC 5;
+		PXPL BBBBBB 5;
+		Loop;
+	Evaporate2:
+		PXPL CCCCCC 5;
 		Loop;
     }
 }
