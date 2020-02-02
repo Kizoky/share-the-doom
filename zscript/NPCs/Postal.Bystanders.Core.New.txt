@@ -113,6 +113,7 @@ class NPCCore : PostalActor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
+		Shader.SetUniform3f( players[consoleplayer], "ColorTint", "tintColor", (1.0,0.0,0.0) );
 		UniqueID = random(1,999999);
 		isAfterTarget = false;
 		
