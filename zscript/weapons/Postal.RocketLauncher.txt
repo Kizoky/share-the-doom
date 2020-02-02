@@ -132,6 +132,8 @@ class PostRLauncher : PostalWeapon
 				PPRocket.Owner = invoker.owner;
 				
 				invoker.DistanceFire = 0;
+				
+				invoker.SeekingMissile = false;
 			}
 		
 		}
