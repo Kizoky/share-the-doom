@@ -259,6 +259,8 @@ class PostalRocket : Actor
 			
 			vel.z -= 0.55;
 		}
+		else
+			SetOrigin(pos-(0,0,1.5), TRUE);
 	
 	}
 	
