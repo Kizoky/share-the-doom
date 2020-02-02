@@ -1,7 +1,7 @@
 const float pi = 3.14159265359;
 vec4 Process(vec4 color)
 {
-	vec3 lightDir = vec3(0.75,-1.0,0.5);
+	vec3 lightDir = vec3(-1,-4, 1);
 
 	vec2 texCoord = gl_TexCoord[0].st;
 	vec3 l = lightDir;
