@@ -248,7 +248,7 @@ class PostalRocket : Actor
 			if (pitch <= 90)
 			{
 				if (PitchDown != 10)
-					PitchDown += 0.09;
+					PitchDown += 0.05;
 				
 				Pitch += PitchDown;
 			}
@@ -257,7 +257,7 @@ class PostalRocket : Actor
 			if (Pitch > 90)
 				Pitch = 90;
 			
-			vel.z -= 0.55;
+			vel.z -= 0.35;
 		}
 		else
 			SetOrigin(pos-(0,0,1.5), TRUE);
@@ -268,7 +268,7 @@ class PostalRocket : Actor
 	{
 		Radius 11;
 		Height 8;
-		Speed 25;
+		Speed 28;
 		Damage 20;
 		Projectile;
 		+RANDOMIZE
