@@ -288,7 +288,24 @@ class PostalRocket : Actor
 			A_SpawnItemEx("PostalSmokeTrail", FRandom(-3, 3), FRandom(-3, 3), FRandom(-3, 3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
 			
 			if (Seeking || !Falling)
+			{
 				A_StartSound("weapons/rocket_active", CHAN_BODY, CHANF_LOOPING | CHANF_NOSTOP);
+				
+				int i = 0;
+				while (i < 15) {
+					vector3 poss = (frandom(-5,5),frandom(-5,5),frandom(-5,5));
+					let Fire = Spawn("PostalFireTrail", pos+poss);
+					if (Fire)
+					{	
+						Fire.vel = (frandom(-0.5,0.5),frandom(-0.3,0.3),frandom(-0.5,0.5));
+						
+						//let pp = RandomPostalFire(Fire);
+						//pp.bouncesmoke = true;
+						//Fire.Scale = (0.1,0.1);
+					}
+					i++;
+				}
+			}
 			else
 				A_StartSound("other/mute", CHAN_BODY);
 			
@@ -410,5 +427,59 @@ Class PostalSmokeTrail : PostalActor
 	Variant3:
 		SKKK CCC 5;
 		Loop;
+    }
+}
+
+// Fire trail that comes out from the Rocket when not out of fuel
+
+Class PostalFireTrail : PostalActor
+{
+    bool rrotate;
+	vector2 randomScale;
+	
+	Default 
+	{
+		+NOINTERACTION
+		+FORCEXYBILLBOARD
+		+ROLLSPRITE
+		+RANDOMIZE
+		+BRIGHT
+		RenderStyle "Add";
+		alpha 0.90;
+		scale 1.70;
+    }
+	
+	override void PostBeginPlay() 
+	{
+		super.PostBeginPlay();
+		bSPRITEFLIP = random(0,1);
+		rrotate = random(0,1);
+		randomScale.x = frandom(0.020, 0.080);
+		randomScale.y = randomScale.x;
+		roll = frandom(-180,180);
+		
+		Scale = (randomScale.x,randomScale.y);
+    }
+	
+	override void Tick()
+    {
+        Super.Tick();
+		
+		Scale += (0.05, 0.05);
+				
+		Alpha -= 0.19;
+		if (Alpha <= 0)
+			Destroy();
+			
+		if (rrotate)
+			roll += 5;
+		else
+			roll -= 5;
+    }
+	states
+    {
+    Spawn:
+        FFFF DDD 5;
+        loop;
     }
 }
