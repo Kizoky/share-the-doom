@@ -136,6 +136,15 @@ map WORLD5 "Haldea - Day"  ///Kizoky's fun place
 	cluster=1
 }
 
+map WORLD6 "Richwood - Day" //Very subtle, I know
+{
+	levelnum = 6
+	music=Amb_06
+	sky1=F_SKY1
+	cluster=1
+}
+
+
 map TESTPOST lookup "Cinematic experience"
 {
 	//music=D_FFL1

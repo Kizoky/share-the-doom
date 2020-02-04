@@ -206,6 +206,9 @@ $ambient 3 AmbientSound3 point continuous 1.0
 $alias AmbientSound4 SpinMe
 $ambient 4 AmbientSound4 point continuous 1.0
 
+$alias AmbientSound5 clubsong
+$ambient 5 AmbientSound5 point continuous 1.0
+
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
