@@ -2,7 +2,7 @@ class PostRLauncher : PostalWeapon
 {
 	bool SeekingMissile;
 	int DistanceFire;
-	const DistanceValue = 1.5; //since we will rely on level.time...
+	const DistanceValue = 1.85; //since we will rely on level.time...
 	double nangle;
 	
 	override void Tick()
