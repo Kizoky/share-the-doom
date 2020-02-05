@@ -359,6 +359,23 @@ class PostalRocket : Actor
 			}
 		}
 		TNT1 A 8 Bright A_Explode;
+		TNT1 A 0
+		{
+			int i = 0;
+			while (i < 3) {
+				vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-8,8));
+				let Smoke = Spawn("PostalSmokeTrail", pos+poss);
+				if (Smoke)
+				{	
+					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					
+					let pp = PostalSmokeTrail(Smoke);
+					pp.bouncesmoke = true;
+					Smoke.Scale = (8.0,8.0);
+				}
+				i++;
+			}
+		}
 		TNT1 A 6 Bright;
 		TNT1 A 4 Bright;
 		Stop;
