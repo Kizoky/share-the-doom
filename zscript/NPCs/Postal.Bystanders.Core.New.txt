@@ -218,6 +218,13 @@ class NPCCore : PostalActor
 				//Console.Printf("null");
 			}
 		}
+		
+		if (InStateSequence(CurState, ResolveState("StaringWeapon")) ||
+			InStateSequence(CurState, ResolveState("StaringNPC")) ||
+			InStateSequence(CurState, ResolveState("StaringCorpse")) ||
+			InStateSequence(CurState, ResolveState("Bumping")))
+		A_FacePostalTarget();
+			
 	}
 	
 	virtual void A_PostalTarget()
@@ -362,7 +369,7 @@ class NPCCore : PostalActor
 	
 	virtual void A_FacePostalTarget()
 	{
-		float RotationSpeed = 16;
+		float RotationSpeed = 4.5;
 		
 		if (target)
 		{
