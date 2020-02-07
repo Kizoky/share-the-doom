@@ -34,8 +34,11 @@ class NPCHead : PostalActor
 		if (source == Owner)
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		
-		p.MyTarget = source;
-		p.target = source;
+		if (source != Owner)
+		{
+			p.MyTarget = source;
+			p.target = source;
+		}
 		
 		if (self is 'NPCFollower')
 		{
