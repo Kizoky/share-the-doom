@@ -557,6 +557,46 @@ Model "NPCCore"
 	
 }
 
+Model "NPCCore"
+{
+	Path "models\misc\dude"
+	Model 0 "Dudewithrocketlauncherout.md3"
+	SurfaceSkin 0 0 "Dude.tga"
+	SurfaceSkin 0 1 "DudeHead.tga"
+	Path "textures\weapons\rocketlauncher"
+	SurfaceSkin 0 2 "launcher_timb2.png"
+	SurfaceSkin 0 3 "launcher_NEW.png"
+	SurfaceSkin 0 4 "launcher_NEW.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+
+	// Idling 1 to 63
+	
+	FrameIndex ROCK A 0 183
+	FrameIndex ROCK B 0 184
+	FrameIndex ROCK C 0 185
+	FrameIndex ROCK D 0 186
+	FrameIndex ROCK E 0 187
+	FrameIndex ROCK F 0 188
+	FrameIndex ROCK G 0 189
+	FrameIndex ROCK H 0 190
+	FrameIndex ROCK I 0 191
+	FrameIndex ROCK J 0 192
+	FrameIndex ROCK K 0 193
+	FrameIndex ROCK L 0 194
+	FrameIndex ROCK M 0 195
+	FrameIndex ROCK N 0 196
+	FrameIndex ROCK O 0 197
+	FrameIndex ROCK P 0 198
+	FrameIndex ROCK Q 0 199
+	FrameIndex ROCK R 0 200
+	FrameIndex ROCK S 0 201
+	
+	FrameIndex ROCF A 0 150
+	
+}
+
 Model "DummyDude"
 {
 	Path "models\misc\dude"
