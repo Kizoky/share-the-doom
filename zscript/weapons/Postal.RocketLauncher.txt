@@ -271,10 +271,14 @@ class PostalRocket : Actor
 		Speed 28;
 		Damage 20;
 		Projectile;
+		Health 15;
 		+RANDOMIZE
 		+DEHEXPLOSION
-		+ROLLSPRITE;
-		+ABSMASKPITCH;
+		+ROLLSPRITE
+		-NOBLOCKMAP
+		+NOTARGETSWITCH
+		+ABSMASKPITCH
+		+SHOOTABLE
 		SeeSound "weapons/rocket_fire";
 		DeathSound "weapons/rocket_explode";
 		BounceSound "weapons/rocket_bounce";
@@ -298,10 +302,6 @@ class PostalRocket : Actor
 					if (Fire)
 					{	
 						Fire.vel = (frandom(-0.5,0.5),frandom(-0.3,0.3),frandom(-0.5,0.5));
-						
-						//let pp = RandomPostalFire(Fire);
-						//pp.bouncesmoke = true;
-						//Fire.Scale = (0.1,0.1);
 					}
 					i++;
 				}
@@ -496,7 +496,7 @@ Class PostalFireTrail : PostalActor
 	states
     {
     Spawn:
-        FFFF DDD 5;
+        FFFF DDD 5 Bright;
         loop;
     }
 }
