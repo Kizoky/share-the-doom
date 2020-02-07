@@ -141,8 +141,8 @@ class NPCCore : PostalActor
 		{
 			static const string WeaponList[] =
 			{
-				//"Pistol",
-				//"Shotgun",
+				"Pistol",
+				"Shotgun",
 				"RocketLauncher"
 				/*
 				"Scissor",
