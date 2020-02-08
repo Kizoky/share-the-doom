@@ -65,7 +65,6 @@ class PostRifle : PostalWeapon
 				return ResolveState("FireZoomed");
 			
 			A_PlaySound("weapons/snifire");;
-			A_WeaponOffset(frandom(-0.3,0.3),2,WOF_ADD);
 			
 			return ResolveState(null);
 		}	
@@ -82,7 +81,6 @@ class PostRifle : PostalWeapon
 			
 			self.A_TakeInventory("Clip",1);
 			
-			A_WeaponOffset(0.0,34.0,WOF_INTERPOLATE);
 			let plr = PlayerPawn(self);
 			plr.AttackZOffset = 13;
 			
