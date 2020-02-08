@@ -1,6 +1,6 @@
 class PostRLauncher : PostalWeapon
 {
-	bool SeekingMissile;
+	bool SeekingMissile, SecondaryFire;
 	int DistanceFire;
 	const DistanceValue = 1.85; //since we will rely on level.time...
 	double nangle;
@@ -76,10 +76,21 @@ class PostRLauncher : PostalWeapon
 	FireLoop:
 		RLFI ABCDEFGHIJKL 3
 		{
-			if (!(player.cmd.buttons & BT_ATTACK))
+			if (invoker.SecondaryFire)
 			{
-				invoker.SeekingMissile = true;
-				return ResolveState ("FireEnd");
+				if (!(player.cmd.buttons & BT_ALTATTACK))
+					return ResolveState ("FireEnd");
+			}
+			
+			if (!invoker.SecondaryFire)
+			{
+				if (!(player.cmd.buttons & BT_ATTACK))
+				{
+					if (invoker.SecondaryFire != true)
+						invoker.SeekingMissile = true;
+				
+					return ResolveState ("FireEnd");
+				}
 			}
 			return ResolveState (null);
 		}
@@ -91,7 +102,7 @@ class PostRLauncher : PostalWeapon
 			
 			A_Quake(6,8,0,5);
 			
-			if (invoker.SeekingMissile == false)
+			if (invoker.SeekingMissile == false || invoker.SecondaryFire == true)
 			{
 				class<actor> Rocket = "PostalRocket";
 				Actor PRocket = A_FireProjectile(Rocket,0,1,25,11);
@@ -104,6 +115,7 @@ class PostRLauncher : PostalWeapon
 				PPRocket.Pitch = invoker.owner.pitch;
 				
 				invoker.DistanceFire = 0;
+				invoker.SecondaryFire = false;
 			}
 			else
 			{
@@ -139,6 +151,37 @@ class PostRLauncher : PostalWeapon
 		}
 		RLFA ABCDEFGHIJKLMN 3;
 		Goto Ready;
+	AltFire:
+		RLHA A 0 A_StartSound("weapons/fueling", CHAN_WEAPON, CHAN_NOSTOP);
+		RLAF ABCDEFGHIJKLMNOPQRSTUVWXYZ 3
+		{
+			invoker.SecondaryFire = true;
+			
+			if (!(player.cmd.buttons & BT_ALTATTACK))
+			{
+				invoker.SeekingMissile = false;
+				return ResolveState ("FireEnd");
+			}
+			else
+				invoker.DistanceFire += DistanceValue;
+			
+			return ResolveState (null);
+		}
+		RLA2 ABCDEFGHIJ 3
+		{
+			invoker.SecondaryFire = true;
+			
+			if (!(player.cmd.buttons & BT_ALTATTACK))
+			{
+				invoker.SeekingMissile = false;
+				return ResolveState ("FireEnd");
+			}
+			else
+				invoker.DistanceFire += DistanceValue;
+			
+			return ResolveState (null);
+		}
+		Goto FireLoop;
 	Spawn:
 		TNT1 A 0;
 		PICK A -1;
