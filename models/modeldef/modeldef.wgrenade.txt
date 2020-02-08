@@ -105,7 +105,7 @@ Model "PostGrenade"
 	FrameIndex GREF S 0 121
 	
 	// Throw Primary 122-136
-	/*FrameIndex GRTP A 0 122
+	FrameIndex GRTP A 0 122
 	FrameIndex GRTP B 0 123
 	FrameIndex GRTP C 0 124
 	FrameIndex GRTP D 0 125
@@ -119,7 +119,7 @@ Model "PostGrenade"
 	FrameIndex GRTP L 0 133
 	FrameIndex GRTP M 0 134
 	FrameIndex GRTP N 0 135
-	FrameIndex GRTP O 0 136*/
+	FrameIndex GRTP O 0 136
 	
 	// Throw Secondary 195-210
 	FrameIndex GRTS A 0 195
@@ -140,38 +140,38 @@ Model "PostGrenade"
 	FrameIndex GRTS P 0 210
 	
 	// Hold 137-194
-	/*FrameIndex #### A 0 137
-	FrameIndex #### B 0 139
-	FrameIndex #### C 0 141
-	FrameIndex #### D 0 143
-	FrameIndex #### E 0 145
-	FrameIndex #### F 0 147
-	FrameIndex #### G 0 149
-	FrameIndex #### H 0 151
-	FrameIndex #### I 0 153
-	FrameIndex #### J 0 155
-	FrameIndex #### K 0 157
-	FrameIndex #### L 0 159
-	FrameIndex #### M 0 161
-	FrameIndex #### N 0 163
-	FrameIndex #### O 0 165
-	FrameIndex #### P 0 167
-	FrameIndex #### Q 0 169
-	FrameIndex #### R 0 171
-	FrameIndex #### S 0 173
-	FrameIndex #### T 0 175
-	FrameIndex #### U 0 177
-	FrameIndex #### V 0 179
-	FrameIndex #### W 0 181
-	FrameIndex #### X 0 183
-	FrameIndex #### Y 0 185
-	FrameIndex #### Z 0 187
+	FrameIndex HOLD A 0 137
+	FrameIndex HOLD B 0 139
+	FrameIndex HOLD C 0 141
+	FrameIndex HOLD D 0 143
+	FrameIndex HOLD E 0 145
+	FrameIndex HOLD F 0 147
+	FrameIndex HOLD G 0 149
+	FrameIndex HOLD H 0 151
+	FrameIndex HOLD I 0 153
+	FrameIndex HOLD J 0 155
+	FrameIndex HOLD K 0 157
+	FrameIndex HOLD L 0 159
+	FrameIndex HOLD M 0 161
+	FrameIndex HOLD N 0 163
+	FrameIndex HOLD O 0 165
+	FrameIndex HOLD P 0 167
+	FrameIndex HOLD Q 0 169
+	FrameIndex HOLD R 0 171
+	FrameIndex HOLD S 0 173
+	FrameIndex HOLD T 0 175
+	FrameIndex HOLD U 0 177
+	FrameIndex HOLD V 0 179
+	FrameIndex HOLD W 0 181
+	FrameIndex HOLD X 0 183
+	FrameIndex HOLD Y 0 185
+	FrameIndex HOLD Z 0 187
 	
-	FrameIndex HOLD A 0 189
-	FrameIndex HOLD B 0 191
-	FrameIndex HOLD C 0 192
-	FrameIndex HOLD D 0 193
-	FrameIndex HOLD E 0 194*/
+	FrameIndex HOL2 A 0 189
+	FrameIndex HOL2 B 0 191
+	FrameIndex HOL2 C 0 192
+	FrameIndex HOL2 D 0 193
+	FrameIndex HOL2 E 0 194
 
 }
 
@@ -191,6 +191,26 @@ Model "PostGrenade"
 	Offset 0 0 2 //X Y Z
 	
 	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostalGrenade"
+{
+	Path "models\weapons\grenade"
+	Model 0 "GrenadePickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "grenade/grenade3_timb.tga"
+	Path "models\misc\dude" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 1 "invis.png"
+	
+	AngleOffset 90 //40
+	RollOffset 0
+	Scale -1 1 1
+	Offset 0 0 2 //X Y Z
+	
+	FrameIndex GREN A 0 0
 	
 }
 
