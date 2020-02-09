@@ -44,7 +44,7 @@ class PostScissors : PostalWeapon
 		Weapon.AmmoType "Clip";
 		Obituary "$PSTL_OB_SCISSORS";
 		Tag "$PSTL_WP_SCISSORS";
-		Inventory.PickupMessage "PSTL_PP_SCISSORS";
+		Inventory.PickupMessage "$PSTL_PP_SCISSORS";
 		+Weapon.NoAlert;
 		+ROLLSPRITE;
 		+ABSMASKPITCH;
