@@ -189,3 +189,7 @@ class FloatingTestLight : Actor
 #include "zscript/mk_math/mk_matrix.zsc"
 #include "zscript/mk_math/mk_quaternion.zsc"
 
+//------------- Pathfinding
+#include "zscript/pathfinding/navmesh.zc"
+#include "zscript/pathfinding/pathfinder.zc"
+

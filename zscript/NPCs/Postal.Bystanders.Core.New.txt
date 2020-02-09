@@ -291,13 +291,13 @@ class NPCCore : PostalActor
 				A_PostalTarget();
 				A_ConcentratedTarget();
 				A_Recoil(-0.55);
-				A_Chase(flags: CHF_STOPIFBLOCKED);
+				A_Chase2();
 				break;
 			case 2:
 				A_PostalTarget();
 				A_ConcentratedTarget();
 				A_Recoil(-0.55);
-				A_Chase();
+				A_Chase2();
 				break;
 		}
 	}
@@ -574,23 +574,16 @@ class NPCCore : PostalActor
 				
 			}
 		}
-	FireChase:
-		FIRE A 0
+	See.Plan:
+		DUDE A 10
 		{
-			// temp fix: spawn dozen of NPCs, kill them instantly, all NPCs will enter this state if they saw them
+			Console.Printf("Entered Star planning");
+			A_Star();
 			
-			PainChance = 0;
-			
-			if (AnnoyingFire == null)
-			{
-				if (isBusy == true && isAfterTarget == true)
-					SetStateLabel("See");
-				else
-					SetStateLabel("Spawn");
-			
-			}
-		
 		}
+		Loop;
+	FireChase:
+
 		FIRE ABCDEFGHIJ 3
 		{
 			PainChance = 0;
@@ -709,6 +702,7 @@ class NPCCore : PostalActor
 		{
 			A_ConcentratedTarget();
 			Pitch = 0;
+			A_FaceTarget();
 			
 			if (Hostility == "Hostile" && isAfterTarget == true)
 			{
@@ -871,27 +865,25 @@ class NPCCore : PostalActor
 					
 					if (pp.Hostility == "Hostile")
 					{
-							let pp = NPCCore(target);
-							//Console.Printf("NPCCore is my target");
-							//Console.Printf("HE'S GOT A GUN!!!");
-							if (Hostility == "Hostile")
-							{
-								target = pp;
-								isBusy = false;
-								A_PlaySound(NPC_Taunt,0);
-								isAfterTarget = true;
-								SetStateLabel("See");
-								return;
-							}
-							
-							if (Hostility == "Pussy")
-							{
-								target = pp;
-								isBusy = false;
-								isAfterTarget = true;
-								SetStateLabel("See");
-								return;
-							}
+						let pp = NPCCore(target);
+						if (Hostility == "Hostile")
+						{
+							target = pp;
+							isBusy = false;
+							A_PlaySound(NPC_Taunt,0);
+							isAfterTarget = true;
+							SetStateLabel("See");
+							return;
+						}
+						
+						if (Hostility == "Pussy")
+						{
+							target = pp;
+							isBusy = false;
+							isAfterTarget = true;
+							SetStateLabel("See");
+							return;
+						}
 					}
 				}
 				

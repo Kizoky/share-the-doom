@@ -14,16 +14,21 @@ gameinfo
 	menufontcolor_highlight = "RED"
 	menufontcolor_selection = "GREEN"
 	
-	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler"
+	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit"
 	statusbarclass = "PostalStatusBar"
 }
 
 clearepisodes
 
-//episode MAP01
-//{
-//	name="Postal 2"
-//}
+episode MAP01
+{
+	name="Messed Up Dimension Gate (Doom2,Hexen,Strife)"
+}
+
+episode E1M1
+{
+	name="Postal Paradox (Doom1, Heretic, ..)"
+}
 
 episode DEVMAP
 {

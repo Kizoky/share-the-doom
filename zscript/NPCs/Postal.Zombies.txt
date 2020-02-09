@@ -135,6 +135,14 @@ class NPCZombie : PostalActor
 		}
 	}
 	
+	void A_PlanRoute()
+	{
+		if(Distance2D(target) > 500)
+		{
+			A_Chase2(null,null);
+		}
+	}
+	
 	Default
 	{
 		//$Category NPCs
@@ -225,13 +233,16 @@ class NPCZombie : PostalActor
 			if (WalkingStyle == 1) SetStateLabel("WalkOne");
 				else SetStateLabel("WalkTwo");
 		}
+	See.Plan:
+		IDLE A 1 A_Star;
+		Loop;
 	WalkOne:
-		WALK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); }
-		WAL2 ABCD 3 { A_Recoil(-0.35); }
+		WALK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); A_PlanRoute(); }
+		WAL2 ABCD 3 { A_Recoil(-0.35); A_PlanRoute(); }
 		Goto See;
 	WalkTwo:
-		W2LK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); }
-		W2L2 ABCD 3 { A_Recoil(-0.35); }
+		W2LK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); A_PlanRoute(); }
+		W2L2 ABCD 3 { A_Recoil(-0.35); A_PlanRoute(); }
 		Goto See;
 	Charge:
 		CHAR ABCDEFGHIJKLMNOPQRSTUVWXYZ 2

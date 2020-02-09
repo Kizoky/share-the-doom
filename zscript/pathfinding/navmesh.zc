@@ -1,0 +1,193 @@
+class NavLink : Object
+{
+    Line mapLine;
+    NavSector to;
+
+    Vector2 midpoint;   // Midpoint of line that link corresponds to
+    double distance;    // Center-to-center distance from one sector to the other
+    double deltaZ;      // Height of step (positive) or drop-off (negative)
+    double height;      // Height of ceiling above floor at link
+    bool blockMonsters;
+
+    bool door;
+}
+
+class NavSector : Object
+{
+    Sector mapSector;
+    array<NavLink> links;
+
+    Vector2 center;
+    bool closed;            // Used by actors when searching
+}
+
+class NavMesh : Thinker
+{
+    const ML_BLOCKING = 0x1;
+    const ML_BLOCKMONSTERS = 0x2;
+    const ML_TWOSIDED = 0x4;
+    const ML_MONSTERSCANACTIVATE = 0x2000;
+    const ML_BLOCKEVERYTHING = 0x8000;
+
+    const DOOR_OPEN = 11;
+    const DOOR_RAISE = 12;
+
+    const SECTOR_SET3DFLOOR = 160;
+
+    array<NavSector> navSectors;
+
+    override void PostBeginPlay()
+    {
+        //console.Printf("(ZScript:NavMesh) Initializing...");  // DEBUG
+
+        for (int i = 0; i < level.sectors.Size(); ++i)
+        {
+            Sector s = level.sectors[i];
+
+            NavSector ns = New('NavSector');
+            ns.mapSector = s;
+
+            ns.center = s.centerSpot;
+            ns.closed = false;
+
+            navSectors.Push(ns);
+        }
+
+        for (int i = 0; i < level.lines.Size(); ++i)
+        {
+            Line l = level.lines[i];
+
+            if ((l.flags & ML_TWOSIDED) && !(l.flags & (ML_BLOCKING | ML_BLOCKEVERYTHING)))
+            {
+                NavSector front = navSectors[l.frontSector.Index()];
+                NavSector back = navSectors[l.backSector.Index()];
+
+                // ML_TWOSIDED guarantees valid front & back sectors, so front & back are valid
+
+                Vector2 midpoint = 0.5*l.delta + l.v1.p;
+
+                // Doesn't seem to be a built-in point-to-point distance function
+                double distance = (back.center - front.center).Length();
+
+                // Height difference going from back to front
+                double deltaZ = front.mapSector.floorPlane.d - back.mapSector.floorPlane.d;
+
+                double height;
+                {
+                    double lowCeiling = Min(front.mapSector.ceilingPlane.ZAtPoint(midPoint),
+                                            back.mapSector.ceilingPlane.ZAtPoint(midPoint));
+                    double highFloor = Max(front.mapSector.floorPlane.ZAtPoint(midPoint),
+                                           back.mapSector.floorPlane.ZAtPoint(midPoint));
+
+                    height = lowCeiling - highFloor;
+                }
+
+                bool door = (l.special == DOOR_OPEN || l.special == DOOR_RAISE)
+                          && (l.flags & ML_MONSTERSCANACTIVATE)
+                          && (l.args[0] == 0);
+
+                NavLink toBack = New('NavLink');
+                toBack.mapLine = l;
+                toBack.to = back;
+                toBack.midpoint = midpoint;
+                toBack.distance = distance;
+                toBack.deltaZ = -deltaZ;
+                toBack.height = height;
+                toBack.blockMonsters = (l.flags & ML_BLOCKMONSTERS);
+                toBack.door = door;
+
+                // Line portals
+                if (l.IsLinePortal() && l.args[2] > 0)
+                {
+                    Sector destSector = l.GetPortalDestination().frontSector;
+
+                    int anchor = l.args[3];
+                    if (anchor > 2)
+                        console.Printf("\c[Red](ZScript:NavMesh) Error: Portal line %d has invalid "
+                                       "anchor!", l.Index());
+
+                    // Delta-z
+                    if (anchor == 0)
+                    {
+                        toBack.deltaZ = front.mapSector.floorPlane.d - destSector.floorPlane.d;
+                    }
+                    else if (anchor == 1)
+                    {
+                        toBack.deltaZ = 0;
+                    }
+                    else if (anchor == 2)
+                    {
+                        double destSectorHeight = destSector.ceilingPlane.d
+                                                - destSector.floorPlane.d;
+                        double frontSectorHeight = front.mapSector.ceilingPlane.d
+                                                 - front.mapSector.floorPlane.d;
+
+                        toBack.deltaZ = destSectorHeight - frontSectorHeight;
+                    }
+
+                    if (anchor == 0)
+                    {
+                        double highFloor = Max(front.mapSector.floorPlane.d,
+                                               destSector.floorPlane.d);
+                        double lowCeiling = Min(front.mapSector.ceilingPlane.d,
+                                                destSector.ceilingPlane.d);
+
+                        toBack.height = lowCeiling - highFloor;
+                    }
+                    else if (anchor == 1 || anchor == 2)
+                    {
+                        toBack.height = Min(front.mapSector.ceilingPlane.d,
+                                            destSector.ceilingPlane.d)
+                                      - front.mapSector.floorPlane.d;
+                    }
+
+
+                    // to
+                    toBack.to = navSectors[destSector.Index()];
+                }
+
+                front.links.Push(toBack);
+
+                NavLink toFront = New('NavLink');
+                toFront.mapLine = l;
+                toFront.to = front;
+                toFront.midPoint = midpoint;
+                toFront.distance = distance;
+                toFront.deltaZ = deltaZ;
+                toFront.height = height;
+                toFront.blockMonsters = (l.flags & ML_BLOCKMONSTERS);
+                toFront.door = door;
+                back.links.Push(toFront);
+            }
+        }
+
+        // DEBUG
+        /*
+        console.Printf("(ZScript:NavMesh) %d NavSectors created", navSectors.Size());
+
+        for (int i = 0; i < navSectors.Size(); ++i)
+        {
+            NavSector ns = navSectors[i];
+
+            console.Printf("NavSector %d:", ns.mapSector.Index());
+
+            for (int j = 0; j < ns.links.Size(); ++j)
+            {
+                NavLink nl = ns.links[j];
+
+                console.Printf("\tLink to NavSector %d:", nl.to.mapSector.Index());
+                console.Printf("\t\tDeltaZ: %.0f", nl.deltaZ);
+                console.Printf("\t\tHeight: %.0f", nl.height);
+            }
+        }
+        */
+    }
+}
+
+class NavMeshInit : EventHandler
+{
+    override void WorldLoaded(WorldEvent e)
+    {
+        New('NavMesh');
+    }
+}
