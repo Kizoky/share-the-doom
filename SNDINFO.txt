@@ -194,6 +194,8 @@ BirdAmbient sounds/BirdScary.wav
 GrassAmbient sounds/GrassHoppers.wav
 Homestuck sounds/Homestuck.wav
 SpinMe sounds/SpinMe.wav
+clubsong sounds/clubsong.ogg
+
 $alias AmbientSound1 BirdAmbient
 $ambient 1 AmbientSound1 point periodic 7.0 1.0
 
