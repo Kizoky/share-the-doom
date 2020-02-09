@@ -214,7 +214,7 @@ class PostalDoor_Extender : Actor
 		if (level.time > TimeBeforeWarning && !door && !WarningSent)
 		{
 			Console.Printf("Warning: Extender has no attached Door at (warp %d %d %d)!!!", pos.x, pos.y, pos.z);
-			Console.Printf("Is the Extender facing it's Door correctly?");
+			Console.Printf("Is the Extender facing it's Door correctly? & has same Z position as the Door?");
 			Console.Printf("");
 			WarningSent = true;
 		}
