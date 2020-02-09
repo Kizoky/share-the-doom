@@ -6,6 +6,9 @@ class PostalDoor_Extender : Actor
 	Actor AttachedToDoor, AttachedToDoor2;
 	int AngleBefore;
 	
+	int TimeBeforeWarning;
+	bool WarningSent;
+	
 	bool user_middle, SearchFinished;
 	
 	action void A_SearchForDoor()
@@ -189,6 +192,8 @@ class PostalDoor_Extender : Actor
 	{
 		Super.PostBeginPlay();
 		OriginalPos = pos;
+		
+		TimeBeforeWarning = level.time + 35 * 3;
 	}
 	
 	override void Tick()
@@ -205,6 +210,15 @@ class PostalDoor_Extender : Actor
 				bSHOOTABLE = false;
 			} else { bNOCLIP = false; bSHOOTABLE = true; }
 		}
+		
+		if (level.time > TimeBeforeWarning && !door && !WarningSent)
+		{
+			Console.Printf("Warning: Extender has no attached Door at (warp %f %f %f)!!!", pos.x, pos.y, pos.z);
+			Console.Printf("Is the Extender facing it's Door correctly?");
+			Console.Printf("");
+			WarningSent = true;
+		}
+		
 	}
 	
 	Default
