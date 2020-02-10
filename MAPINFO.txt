@@ -20,15 +20,10 @@ gameinfo
 
 clearepisodes
 
-episode MAP01
-{
-	name="Messed Up Dimension Gate (Doom2,Hexen,Strife)"
-}
-
-episode E1M1
-{
-	name="Postal Paradox (Doom1, Heretic, ..)"
-}
+//episode MAP01
+//{
+//	name="Postal 2"
+//}
 
 episode DEVMAP
 {
@@ -85,7 +80,7 @@ map TITLEMAP "11011010101"
 map DEVMAP "Whoever designed this was on serious crack"
 {
 	levelnum = 0
-	//music=D_FFL1
+	music=Amb_00
 	sky1=F_SKY1
 	cluster=1
 }
@@ -141,6 +136,15 @@ map WORLD5 "Haldea - Day"  ///Kizoky's fun place
 	cluster=1
 }
 
+
+map TERROR "Downtown - Day"  ///Kizoky's fun place
+{
+	levelnum = 15
+	music=Amb_05
+	sky1=F_SKY1
+	cluster=1
+}
+
 map WORLD6 "Richwood - Day" //Very subtle, I know
 {
 	levelnum = 6
@@ -148,6 +152,15 @@ map WORLD6 "Richwood - Day" //Very subtle, I know
 	sky1=F_SKY1
 	cluster=1
 }
+
+map WORLD7 "Badlands - Day" //Very subtle, I know
+{
+	levelnum = 7
+	music=Amb_07
+	sky1=F_SKY1
+	cluster=1
+}
+
 
 
 map TESTPOST lookup "Cinematic experience"
