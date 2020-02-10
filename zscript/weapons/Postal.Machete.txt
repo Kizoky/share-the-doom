@@ -270,7 +270,8 @@ class ThrownMachete : Actor
 				let weapon = plr.player.ReadyWeapon;
 				let ff = PostMachete(weapon);
 				
-				ff.BladeCatch = true;
+				if (ff)
+					ff.BladeCatch = true;
 				
 				Destroy();
 			}
