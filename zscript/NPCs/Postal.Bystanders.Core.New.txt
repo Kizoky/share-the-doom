@@ -225,6 +225,11 @@ class NPCCore : PostalActor
 			InStateSequence(CurState, ResolveState("StaringCorpse")) ||
 			InStateSequence(CurState, ResolveState("Bumping")))
 		A_FacePostalTarget();
+		
+		if (InStateSequence(CurState, ResolveState("Missile.Pistol")) ||
+			(InStateSequence(CurState, ResolveState("Missile.Shotgun")) ||
+			(InStateSequence(CurState, ResolveState("Missile.RocketLauncher")))))
+		A_FaceTarget();
 			
 	}
 	
@@ -575,11 +580,9 @@ class NPCCore : PostalActor
 			}
 		}
 	See.Plan:
-		DUDE A 10
+		DUDE A 2
 		{
-			Console.Printf("Entered Star planning");
 			A_Star();
-			
 		}
 		Loop;
 	FireChase:
@@ -718,7 +721,7 @@ class NPCCore : PostalActor
 		XXXF A 0 { vel.xy = (0,0); A_CheckObstacleTarget(); }
 		XXXF A 10 A_FaceTarget();
 		XXXF A 0 A_PostalTarget();
-		XXXF A 6 A_NPCPistolAttack();
+		XXXF A 6 { A_NPCPistolAttack(); A_FaceTarget(); }
 		XXXF A 8;
 		XXXF A 0 A_ConcentratedTarget();
 		Goto HostileChase.Pistol;
@@ -726,7 +729,7 @@ class NPCCore : PostalActor
 		SHOF A 0 { vel.xy = (0,0); A_CheckObstacleTarget(); }
 		SHOF A 10 A_FaceTarget();
 		SHOF A 0 A_PostalTarget();
-		SHOF A 6 A_NPCShotgunAttack();
+		SHOF A 6 { A_NPCShotgunAttack(); A_FaceTarget(); }
 		SHOF A 4;
 		SHOF A 0 A_PlaySound("weapons/shotgr", CHAN_WEAPON);
 		SHOF A 6;
@@ -738,6 +741,8 @@ class NPCCore : PostalActor
 		ROCF A 0 A_PostalTarget();
 		ROCF A 6
 		{
+			A_FaceTarget();
+			
 			class<actor> Rocket = "PostalRocket";
 			Actor pp = SpawnMissileXYZ (pos+(0,0,45), target, Rocket, self);
 			

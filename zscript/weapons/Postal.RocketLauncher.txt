@@ -361,8 +361,8 @@ class PostalRocket : Actor
 					if (level.time > BounceCooldown)
 					{
 						Vel.Z = (tracer.pos.Z + tracer.Height/2 - pos.Z) / DistanceBySpeed(tracer, 10);
-						A_Tracer2(22.5);
-						A_FaceTracer(45,180);
+						A_Tracer2(6.5);
+						A_FaceTracer(6,180);
 					}
 				}
 			}
