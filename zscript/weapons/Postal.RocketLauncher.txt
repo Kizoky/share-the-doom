@@ -212,6 +212,8 @@ class PostalRocket : Actor
 			
 				if (!CheckSight (next, SF_SeePastShootableLines)) continue;
 				
+				if (next is 'PostalDoor' || next is 'PostalDoor_Extender' || next is 'PostalFire' || next is 'PostalLiquidGas' || next is 'RandomPostalFire') return;
+				
 				if (next != invoker.Owner && next.Health > 1 && !next.bFRIENDLY && next != self && next.bSHOOTABLE && !next.bKILLED)
 					invoker.SeekingTarget = next;
 				
