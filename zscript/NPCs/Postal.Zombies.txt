@@ -110,7 +110,11 @@ class NPCZombie : PostalActor
 			
 			if (!(next is 'NPCZombie') && next != self && next.Health > 1)
 			{
-				if (next is 'PostalDoor' || next is 'PostalDoor_Extender' || next is 'PostalFire' || next is 'PostalLiquidGas' || next is 'RandomPostalFire') return;
+				for (int i = 0; i < invoker.AI_NeverTarget.Size()-1; i++)
+				{
+					if (next is invoker.AI_NeverTarget[i]) return;
+				}
+				
 				if (next is 'CowMike') return;
 				
 				let PlayerDude = PostalDude(next);

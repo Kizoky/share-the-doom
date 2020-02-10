@@ -3,6 +3,19 @@ class PostalInventory : Inventory { }
 
 extend class PostalActor
 {
+	//Avoid targeting the following actors
+	//Note: it's probably my broken checking (BlockThingsIterator) that's the issue here and not these actors below
+	static const string AI_NeverTarget[] =
+	{
+		"PostalDoor",
+		"PostalDoor_Extender",
+		"PostalFire",
+		"PostalLiquidGas",
+		"RandomPostalFire",
+		"PostalRocket",
+		"PostalGrenade"
+	};
+	
 	NavMesh mesh;
     array<NavSector> path;
     Sector targetSector;

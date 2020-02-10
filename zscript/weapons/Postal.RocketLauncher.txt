@@ -189,7 +189,7 @@ class PostRLauncher : PostalWeapon
 	}
 }
 
-class PostalRocket : Actor
+class PostalRocket : PostalActor
 {
 	int SpawnTime, AddedTime, SeekingTime, BounceCooldown;
 	double PitchDown;
@@ -212,7 +212,10 @@ class PostalRocket : Actor
 			
 				if (!CheckSight (next, SF_SeePastShootableLines)) continue;
 				
-				if (next is 'PostalDoor' || next is 'PostalDoor_Extender' || next is 'PostalFire' || next is 'PostalLiquidGas' || next is 'RandomPostalFire') return;
+				for (int i = 0; i < invoker.AI_NeverTarget.Size()-1; i++)
+				{
+					if (next is invoker.AI_NeverTarget[i]) return;
+				}
 				
 				if (next != invoker.Owner && next.Health > 1 && !next.bFRIENDLY && next != self && next.bSHOOTABLE && !next.bKILLED)
 					invoker.SeekingTarget = next;
