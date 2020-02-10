@@ -187,8 +187,11 @@ class PostMachete : PostalWeapon
 			{
 				let pp = ThrownMachete(BoomerangShoot);
 				
-				pp.Owner = self;
-				invoker.Blade = pp;
+				if (pp)
+				{
+					pp.Owner = self;
+					invoker.Blade = pp;
+				}
 			
 			}
 		
@@ -228,11 +231,15 @@ class PostMachete : PostalWeapon
 		TNT1 A 0
 		{
 			let p = PostalDude(self);
-			p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
-			p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+			if (p)
+			{
+				p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
+				p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+			}
 			
 			let d = Weapon(FindInventory("PostMachete"));
-			RemoveInventory(d);
+			if (d)
+				RemoveInventory(d);
 			
 			return;
 		}
@@ -267,12 +274,15 @@ class ThrownMachete : Actor
 			{
 				let plr = PostalDude(Owner);
 				
-				let weapon = plr.player.ReadyWeapon;
-				let ff = PostMachete(weapon);
-				
-				if (ff)
-					ff.BladeCatch = true;
-				
+				if (plr)
+				{
+					let weapon = plr.player.ReadyWeapon;
+					let ff = PostMachete(weapon);
+					
+					if (ff)
+						ff.BladeCatch = true;
+					
+				}
 				Destroy();
 			}
 			
