@@ -1,0 +1,212 @@
+Model "PostChainSickle"
+{
+	Path "models\weapons\chainsickle"
+	Model 0 "chainsickleout.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "dude_hands.png"
+	SurfaceSkin 0 1 "machete/machete_1.png"
+	AngleOffset 90 //40
+	Scale -1 0.75 1
+	Offset -12 -10 -12 //X Y Z
+
+	// Select 0->8
+	FrameIndex PGNS A 0 0 
+	FrameIndex PGNS B 0 2 
+	FrameIndex PGNS C 0 4 
+	FrameIndex PGNS D 0 6 
+	FrameIndex PGNS E 0 8
+	
+	// Holster 8->14
+	
+	FrameIndex MAHO A 0 8 
+	FrameIndex MAHO B 0 10
+	FrameIndex MAHO C 0 12
+	FrameIndex MAHO D 0 14
+	
+	// Idle 15->44
+	
+	FrameIndex MAID A 0 15
+	FrameIndex MAID B 0 17
+	FrameIndex MAID C 0 19
+	FrameIndex MAID D 0 21
+	FrameIndex MAID E 0 23
+	FrameIndex MAID F 0 25
+	FrameIndex MAID G 0 27
+	FrameIndex MAID H 0 29
+	FrameIndex MAID I 0 31
+	FrameIndex MAID J 0 33
+	FrameIndex MAID K 0 35
+	FrameIndex MAID L 0 37
+	FrameIndex MAID M 0 39
+	FrameIndex MAID N 0 41
+	FrameIndex MAID O 0 43
+	FrameIndex MAID P 0 44
+	
+	// Shoot1Down1 45 -> 54
+	
+	FrameIndex SWI1 A 0 45
+	FrameIndex SWI1 B 0 47
+	FrameIndex SWI1 C 0 49
+	FrameIndex SWI1 D 0 51
+	FrameIndex SWI1 E 0 53
+	FrameIndex SWI1 F 0 54
+	
+	// Shoot1Down2 55 -> 63
+	
+	FrameIndex SWI2 A 0 55 
+	FrameIndex SWI2 B 0 57 
+	FrameIndex SWI2 C 0 59 
+	FrameIndex SWI2 D 0 61 
+	FrameIndex SWI2 E 0 63
+	
+	// Shoot1Left 64 -> 78
+	
+	FrameIndex SWI3 A 0 64 
+	FrameIndex SWI3 B 0 66 
+	FrameIndex SWI3 C 0 68 
+	FrameIndex SWI3 D 0 70 
+	FrameIndex SWI3 E 0 72 
+	FrameIndex SWI3 F 0 74 
+	FrameIndex SWI3 G 0 76 
+	FrameIndex SWI3 H 0 78
+	
+	// Shoot1Right 79 -> 95
+	
+	FrameIndex SWI4 A 0 79 
+	FrameIndex SWI4 B 0 81 
+	FrameIndex SWI4 C 0 83 
+	FrameIndex SWI4 D 0 85 
+	FrameIndex SWI4 E 0 87 
+	FrameIndex SWI4 F 0 89 
+	FrameIndex SWI4 G 0 91 
+	FrameIndex SWI4 H 0 93 
+	FrameIndex SWI4 I 0 95
+	
+	// Shoot2 96 -> 111
+	
+	FrameIndex MASF A 0 96 
+	FrameIndex MASF B 0 98 
+	FrameIndex MASF C 0 100
+	FrameIndex MASF D 0 102
+	FrameIndex MASF E 0 104
+	FrameIndex MASF F 0 106
+	FrameIndex MASF G 0 108
+	FrameIndex MASF H 0 110
+	FrameIndex MASF I 0 111
+	
+	// bladewait 112 -> 151
+	
+	FrameIndex BLWA A 0 112
+	FrameIndex BLWA B 0 114
+	FrameIndex BLWA C 0 116
+	FrameIndex BLWA D 0 118
+	FrameIndex BLWA E 0 120
+	FrameIndex BLWA F 0 122
+	FrameIndex BLWA G 0 124
+	FrameIndex BLWA H 0 126
+	FrameIndex BLWA I 0 128
+	FrameIndex BLWA J 0 130
+	FrameIndex BLWA K 0 132
+	FrameIndex BLWA L 0 134
+	FrameIndex BLWA M 0 136
+	FrameIndex BLWA N 0 138
+	FrameIndex BLWA O 0 140
+	FrameIndex BLWA P 0 142
+	FrameIndex BLWA Q 0 144
+	FrameIndex BLWA R 0 146
+	FrameIndex BLWA S 0 148
+	FrameIndex BLWA T 0 150
+	FrameIndex BLWA U 0 151
+	
+	// bladecatch 152 -> 163
+	
+	FrameIndex BLCA A 0 152
+	FrameIndex BLCA B 0 154
+	FrameIndex BLCA C 0 156
+	FrameIndex BLCA D 0 158
+	FrameIndex BLCA E 0 160
+	FrameIndex BLCA F 0 162
+	FrameIndex BLCA G 0 163
+	
+	// HolsterEmpty 164 -> 173
+	
+	FrameIndex EMPT A 0 164
+	FrameIndex EMPT B 0 166
+	FrameIndex EMPT C 0 168
+	FrameIndex EMPT D 0 170
+	FrameIndex EMPT E 0 172
+	FrameIndex EMPT F 0 173
+	
+}
+
+Model "ThrownMachete"
+{
+	Path "models\weapons\machete"
+	Model 0 "Machete_throw.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "machete/machete_1.png"
+	SurfaceSkin 0 1 "machete/machete_2.png"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 0 0 11 //X Y Z
+	INTERPOLATEDOUBLEDFRAMES
+	ROTATING
+	Rotation-Vector 0 5.0 0
+	Rotation-Speed -25.0
+
+	FrameIndex THRO A 0 0
+	
+}
+
+Model "PostMachete"
+{
+	Path "models\weapons\machete"
+	Model 0 "MachetePickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "machete/machete_1.png"
+	SurfaceSkin 0 1 "machete/machete_2.png"
+	AngleOffset 0 //40
+	Scale -1 0.75 1
+	Offset 0 0 0 //X Y Z
+
+	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostMachete"
+{
+	Path "models\weapons\kick"
+	Model 1 "PostKick.md3"
+	SurfaceSkin 1 0 "Dude.png"
+	
+	AngleOffset 5 //40
+	Scale -1 0.75 1
+	Offset -3 0 -12 //X Y Z
+
+	FrameIndex KICK A 1 3
+	FrameIndex KICK B 1 4
+	FrameIndex KICK C 1 5
+	FrameIndex KICK D 1 6
+	FrameIndex KICK E 1 7
+	FrameIndex KICK F 1 8
+	FrameIndex KICK G 1 9
+	FrameIndex KICK H 1 10
+	FrameIndex KICK I 1 11
+	FrameIndex KICK J 1 12
+	FrameIndex KICK K 1 13
+	FrameIndex KICK L 1 14
+	FrameIndex KICK M 1 15
+	FrameIndex KICK N 1 16
+	FrameIndex KICK O 1 17
+	FrameIndex KICK P 1 18
+	FrameIndex KICK Q 1 19
+	FrameIndex KICK R 1 20
+	FrameIndex KICK S 1 21
+	FrameIndex KICK T 1 22
+}

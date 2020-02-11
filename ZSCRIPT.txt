@@ -72,6 +72,7 @@ class FloatingTestLight : Actor
 
 #include "zscript/weapons/Postal.Baton.txt"
 #include "zscript/weapons/Postal.Clipboard.txt"
+#include "zscript/weapons/Postal.ChainSickle.txt"
 #include "zscript/weapons/Postal.Cowhead.txt"
 #include "zscript/weapons/Postal.Gascan.txt"
 #include "zscript/weapons/Postal.Grenade.txt"

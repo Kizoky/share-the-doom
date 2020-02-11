@@ -14,6 +14,7 @@
 #include "models/modeldef/modeldef.nanimals.txt"
 #include "models/modeldef/modeldef.sprops.txt"
 #include "models/modeldef/modeldef.wclipboard.txt"
+#include "models/modeldef/modeldef.wchainsickle.txt"
 #include "models/modeldef/modeldef.wmachete.txt"
 #include "models/modeldef/modeldef.wpistol.txt"
 #include "models/modeldef/modeldef.wpm16.txt"
