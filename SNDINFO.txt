@@ -522,4 +522,11 @@ scissors/wallstick sounds/scissors_wallstick.wav
 scissors/bodystick sounds/scissors_bodystick.wav
 scissors/bounce sounds/scissors_bounce.wav
 
+// Extremely helpful when you want to stop a sound in an Actor's body channel
 other/mute sounds/muted.wav
+
+grenade/fire sounds/grenade_fire.wav
+grenade/pullpin sounds/grenade_pullpin.wav
+grenade/bounce sounds/grenade_bounce.wav
+grenade/explode sounds/grenade_explodeground.wav
+
