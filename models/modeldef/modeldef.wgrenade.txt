@@ -121,24 +121,6 @@ Model "PostGrenade"
 	FrameIndex GRTP N 0 135
 	FrameIndex GRTP O 0 136
 	
-	// Throw Secondary 195-210
-	FrameIndex GRTS A 0 195
-	FrameIndex GRTS B 0 196
-	FrameIndex GRTS C 0 197
-	FrameIndex GRTS D 0 198
-	FrameIndex GRTS E 0 199
-	FrameIndex GRTS F 0 200
-	FrameIndex GRTS G 0 201
-	FrameIndex GRTS H 0 202
-	FrameIndex GRTS I 0 203
-	FrameIndex GRTS J 0 204
-	FrameIndex GRTS K 0 205
-	FrameIndex GRTS L 0 206
-	FrameIndex GRTS M 0 207
-	FrameIndex GRTS N 0 208
-	FrameIndex GRTS O 0 209
-	FrameIndex GRTS P 0 210
-	
 	// Hold 137-194
 	FrameIndex HOLD A 0 137
 	FrameIndex HOLD B 0 139
@@ -172,6 +154,24 @@ Model "PostGrenade"
 	FrameIndex HOL2 C 0 192
 	FrameIndex HOL2 D 0 193
 	FrameIndex HOL2 E 0 194
+	
+	// Throw Secondary 195-210
+	FrameIndex GRTS A 0 195
+	FrameIndex GRTS B 0 196
+	FrameIndex GRTS C 0 197
+	FrameIndex GRTS D 0 198
+	FrameIndex GRTS E 0 199
+	FrameIndex GRTS F 0 200
+	FrameIndex GRTS G 0 201
+	FrameIndex GRTS H 0 202
+	FrameIndex GRTS I 0 203
+	FrameIndex GRTS J 0 204
+	FrameIndex GRTS K 0 205
+	FrameIndex GRTS L 0 206
+	FrameIndex GRTS M 0 207
+	FrameIndex GRTS N 0 208
+	FrameIndex GRTS O 0 209
+	FrameIndex GRTS P 0 210
 
 }
 

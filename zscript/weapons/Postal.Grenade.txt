@@ -18,6 +18,10 @@ class PostGrenade : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 8;
+		Weapon.AmmoType "Clip";
+		+WEAPON.NOAUTOFIRE;
 		Obituary "$PSTL_OB_GRENADE";
 		Tag "$PSTL_WP_GRENADE";
 		Inventory.PickupMessage "$PSTL_PP_GRENADE";
@@ -75,7 +79,7 @@ class PostGrenade : PostalWeapon
 		Loop;
 	FireEnd:
 		GRTP A 0 A_StartSound("grenade/fire", CHAN_WEAPON, CHAN_NOSTOP);
-		GRTP ABCD 2;
+		GRTP ABCD 1;
 		GRTP E 0
 		{
 			class<actor> Grenade = "PostalGrenade";
@@ -102,8 +106,19 @@ class PostGrenade : PostalWeapon
 		GRTP EFGHIJKLM 2;
 		Goto Ready;
 	AltFire:
-		GRTS ABCDEFGHIJKLMNOP 4;
-		TNT1 A 0 A_FireShotgun;
+		GRTS ABCDEFGHI 2;
+		GRTS J 0
+		{
+			class<actor> Grenade = "PostalGrenade";
+			Actor GGrenade = A_FireProjectile(Grenade,0,1,15,-18);
+				
+			let GGGrenade = PostalGrenade(GGrenade);
+			GGGrenade.Minesweeper = true;
+			GGGrenade.bTHRUSPECIES = true;
+			GGGrenade.Owner = invoker.owner;
+		
+		}
+		GRTS JKLMN 2;
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
@@ -114,7 +129,7 @@ class PostGrenade : PostalWeapon
 
 class PostalGrenade : Actor
 {
-	Actor SavedBouncePos;
+	Actor SavedBouncePos, Owner;
 	bool Armed, Minesweeper, SoundPlayed;
 	int TimeBeforeDestruction;
 	
@@ -130,17 +145,34 @@ class PostalGrenade : Actor
 	override void Tick()
 	{
 		Super.Tick();
-		if (level.time > TimeBeforeDestruction && Armed)
+		if (level.time > TimeBeforeDestruction && Armed && !Minesweeper)
 		{
 			bBOUNCEONWALLS = false;
 			bBOUNCEONFLOORS = false;
 			bBOUNCEONCEILINGS = false;
 		}
+		
+		if (Armed && Minesweeper)
+			bSPECIAL = true;
+		
 		if (!Armed) vel.z -= 0.1;
+	}
+	
+	override void Touch(Actor toucher)
+	{
+		if (Armed && Minesweeper && toucher)
+		{
+			if (toucher == Owner)
+			{
+				spawn("PostGrenade", self.pos);
+				Destroy();
+			}
+		}
 	}
 	
 	Default
 	{
+		Species "Minesweeper";
 		Radius 11;
 		Height 8;
 		Speed 5;
@@ -175,6 +207,7 @@ class PostalGrenade : Actor
 		GREN A 1
 		{
 			if (Armed) return;
+			if (pos.z ~== floorz) return;
 			
 			int i = 0;
 			while (i < 10) {
@@ -207,7 +240,9 @@ class PostalGrenade : Actor
 				//Console.Printf("Slowed down.");
 				vel.xy = (0,0);
 				Armed = true;
-				TimeBeforeDestruction = level.time + (35 * 3);
+				
+				if (!Minesweeper)
+					TimeBeforeDestruction = level.time + (35 * 3);
 			}
 			
 			SavedBouncePos.Destroy();
