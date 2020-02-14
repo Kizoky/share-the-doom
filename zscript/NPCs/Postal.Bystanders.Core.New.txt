@@ -820,15 +820,17 @@ class NPCCore : PostalActor
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		//Be hostile, or flee from the frightening Player
 		DUDE A 0 { isAfterTarget = true; A_PlaySound(NPC_Taunt,0); }
+		DUDE A 0
+		{
+			if (Hostility == "Pussy")
+				angle = -angle;
+		}
 		Goto See;
 	StaringNPC:
 		DUDE A 0 { vel.xy = (0,0); }
 		
 		DUDE A 0 
 		{
-			
-			
-			
 			let pp = NPCCore(MyTarget);
 			
 			//If the Unique ID attached to the corpse is the same in our deadpeople array, then forget about it
@@ -841,6 +843,7 @@ class NPCCore : PostalActor
 				if (deadpeople[pp.UniqueID] == pp.UniqueID && Hostility == "Hostile")
 				{
 					SetStateLabel("Spawn");
+					isBusy = false;
 					return;
 				}
 				else
@@ -887,6 +890,7 @@ class NPCCore : PostalActor
 							isBusy = false;
 							isAfterTarget = true;
 							SetStateLabel("See");
+							angle = -angle;
 							return;
 						}
 					}
@@ -899,7 +903,9 @@ class NPCCore : PostalActor
 					isBusy = false;
 					isAfterTarget = true;
 					SetStateLabel("See");
+					angle = -angle;
 				}
+				
 			}
 			
 		}
