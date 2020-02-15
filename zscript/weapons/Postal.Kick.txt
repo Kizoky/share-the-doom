@@ -1,6 +1,12 @@
 class PostKick : CustomInventory
 {
+	action void A_Kick()
+	{
+		int damage = random[Punch](5, 7) << 1;
 
+		LineAttack (angle, 115, pitch, damage, 'Melee', "PostalKickPuff");
+	}
+	
    default
    {
       Inventory.Amount 1;
@@ -100,22 +106,6 @@ class PostKick : CustomInventory
          Stop;
    }
 
-}
-
-extend class PostKick
-{
-	//This is basically Doom's Fist
-	action void A_Kick()
-	{
-		FTranslatedLineTarget t;
-
-		int damage = random[Punch](5, 7) << 1;
-
-		double ang = angle;
-		//double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
-
-		LineAttack (ang, 110, pitch, damage, 'Melee', "PostalKickPuff", LAF_ISMELEEATTACK, t);
-	}
 }
 
 class PostalKickPuff : BulletPuff

@@ -7,6 +7,7 @@ class PostGrenade : PostalWeapon
 	{
 		Super.Tick();
 		if (!owner) return;
+		Console.Printf("pitch: %d", owner.pitch);
 	
 	}
 	
@@ -86,13 +87,19 @@ class PostGrenade : PostalWeapon
 			class<actor> Grenade = "PostalGrenade";
 			Actor GGrenade;
 			
+			// Did the player not hold down Fire?
+			// This just helps the Player if they want to just kick the grenade
+			// by default this is 0 so unaffected
+			double ang = 0;
+			if (invoker.VelocityMultiply < 1)
+				ang = 15;
 			
 			// Check if the Player is intentionally trying to toss the Grenade
 			// at the ground
 			if (invoker.owner.Pitch >= 27)
-				GGrenade = A_FireProjectile(Grenade,0,1,15,-18);
+				GGrenade = A_FireProjectile(Grenade,ang,1,15,-18);
 			else
-				GGrenade = A_FireProjectile(Grenade,0,1,15,7);
+				GGrenade = A_FireProjectile(Grenade,ang,1,15,7);
 			
 			//Console.Printf("%d",invoker.owner.pitch);
 			
@@ -110,13 +117,13 @@ class PostGrenade : PostalWeapon
 			if (invoker.owner.Pitch >= 27)
 			{
 				GGrenade.vel.z -= invoker.VelocityMultiply/2.5;
-				if (invoker.VelocityMultiply >= 5)
+				if (invoker.VelocityMultiply >= 1)
 					GGrenade.vel.z -= invoker.owner.Pitch/5;
 			}
 			else
 			{
 				GGrenade.vel.z += invoker.VelocityMultiply/2.5;
-				if (invoker.VelocityMultiply >= 5)
+				if (invoker.VelocityMultiply >= 1)
 					GGrenade.vel.z -= invoker.owner.Pitch/5;
 			}
 			
@@ -125,11 +132,11 @@ class PostGrenade : PostalWeapon
 		GRTP EFGHIJKLM 2;
 		Goto Ready;
 	AltFire:
-		GRTS ABCDEFGHI 2;
-		GRTS J 0
+		GRTS ABCDEFGH 2;
+		GRTS H 0
 		{
 			class<actor> Grenade = "PostalGrenade";
-			Actor GGrenade = A_FireProjectile(Grenade,0,1,15,-18);
+			Actor GGrenade = A_FireProjectile(Grenade,0,1,4,-7);
 			
 			if (!GGrenade) return;
 			
@@ -141,7 +148,7 @@ class PostGrenade : PostalWeapon
 			GGGrenade.Owner = invoker.owner;
 		
 		}
-		GRTS JKLMN 2;
+		GRTS IJKLMN 2;
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
@@ -212,7 +219,7 @@ class PostalGrenade : Actor
 				// Also thrust it and set it's velocity z simulating a kick
 				angle = player.angle;
 				A_Recoil(-0.25);
-				vel.z = 5;
+				vel.z = 7;
 				// in Postal 2 the Grenade will continue to emit that weird smoke trail if you kick it and it's been armed
 				Armed = false;
 				
