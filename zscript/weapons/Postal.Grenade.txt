@@ -7,7 +7,6 @@ class PostGrenade : PostalWeapon
 	{
 		Super.Tick();
 		if (!owner) return;
-		Console.Printf("%d",VelocityMultiply);
 	
 	}
 	
@@ -87,6 +86,9 @@ class PostGrenade : PostalWeapon
 			class<actor> Grenade = "PostalGrenade";
 			Actor GGrenade;
 			
+			
+			// Check if the Player is intentionally trying to toss the Grenade
+			// at the ground
 			if (invoker.owner.Pitch >= 27)
 				GGrenade = A_FireProjectile(Grenade,0,1,15,-18);
 			else
@@ -94,17 +96,30 @@ class PostGrenade : PostalWeapon
 			
 			//Console.Printf("%d",invoker.owner.pitch);
 			
-			//0 -> -90 up
-			// 1 -> 90 down
+			//0 -> -90 looking up
+			// 1 -> 90 looking down
 			
 			if (!GGrenade) return;
 			
+			// Modify the Grenade's velocity to match with the Player's pitch (where it is looking)
+			// unfortunately this is kinda broken, so it will not always work
+			// Also a check whether the Player just smashing Fire and letting the Grenade to go without
+			// holding down the weapon
+			
 			GGrenade.A_Recoil(-invoker.VelocityMultiply);
 			if (invoker.owner.Pitch >= 27)
-				GGrenade.vel.z -= invoker.VelocityMultiply/2.5 - invoker.owner.Pitch/5;
+			{
+				GGrenade.vel.z -= invoker.VelocityMultiply/2.5;
+				if (invoker.VelocityMultiply >= 5)
+					GGrenade.vel.z -= invoker.owner.Pitch/5;
+			}
 			else
-				GGrenade.vel.z += invoker.VelocityMultiply/2.5 - invoker.owner.Pitch/5;
-				
+			{
+				GGrenade.vel.z += invoker.VelocityMultiply/2.5;
+				if (invoker.VelocityMultiply >= 5)
+					GGrenade.vel.z -= invoker.owner.Pitch/5;
+			}
+			
 			invoker.VelocityMultiply = 0;
 		}
 		GRTP EFGHIJKLM 2;
@@ -145,6 +160,7 @@ class PostalGrenade : Actor
 	{
 		Super.PostBeginPlay();
 		
+		// Spawn initially a last bounce spot, obviously just to stop the Grenade to arm immediately
 		SavedBouncePos = spawn("PostalGrenadeHelper", pos);
 		
 		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
@@ -155,14 +171,17 @@ class PostalGrenade : Actor
 		Super.Tick();
 		if (level.time > TimeBeforeDestruction && Armed && !Minesweeper)
 		{
+			// Setting these flags to false will force the Grenade to explode on any impact
 			bBOUNCEONWALLS = false;
 			bBOUNCEONFLOORS = false;
 			bBOUNCEONCEILINGS = false;
 		}
 		
+		// For Minesweeping grenades, see Touch below
 		if (Armed && Minesweeper)
 			bSPECIAL = true;
 		
+		// Continously decrease Z velocity
 		if (!Armed) vel.z -= 0.1;
 	}
 	
@@ -172,17 +191,44 @@ class PostalGrenade : Actor
 		{
 			if (toucher == Owner && Owner != null)
 			{
-				spawn("PostGrenade", self.pos);
+				// Destroys and spawns a Grenade weapon
+				Actor NewGrenade = spawn("PostGrenade", self.pos);
+				NewGrenade.angle = angle;
 				Destroy();
 			}
 		}
 	}
 	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (source is 'PostalDude')
+		{
+			let player = PostalDude(source);
+			
+			// Let's check if the damage is from the Player's kick
+			if (player && player.FindInventory("PostKick"))
+			{
+				// Make the angle match to the Player's so the Grenade will not move towards the Player
+				// Also thrust it and set it's velocity z simulating a kick
+				angle = player.angle;
+				A_Recoil(-0.25);
+				vel.z = 5;
+				// in Postal 2 the Grenade will continue to emit that weird smoke trail if you kick it and it's been armed
+				Armed = false;
+				
+				health += damage;
+			}
+			
+		}
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
 	Default
 	{
 		Species "Minesweeper";
-		Radius 11;
-		Height 8;
+		Radius 13;
+		Height 15;
 		Speed 5;
 		Damage 20;
 		Projectile;
@@ -215,6 +261,7 @@ class PostalGrenade : Actor
 		GREN A 1
 		{
 			if (Armed) return;
+			// If it's on the ground stop making smoke trail
 			if (pos.z ~== floorz) return;
 			
 			int i = 0;
@@ -235,7 +282,8 @@ class PostalGrenade : Actor
 		{
 			if (Armed) return;
 			
-			//Console.Printf("%f", Distance2D(SavedBouncePos));
+			// If the Distance is far-far from the previous bounce
+			// todo: Maybe Distance3D instead?
 			if (Distance2D(SavedBouncePos) >= 2.0)
 				A_StartSound("grenade/bounce");
 			
@@ -245,14 +293,18 @@ class PostalGrenade : Actor
 			}
 			else
 			{
-				//Console.Printf("Slowed down.");
+				// Distance is too close to previous bounce, Arm the grenade so it will stop making bouncing sounds
+				// Also stop the Grenade completely
 				vel.xy = (0,0);
 				Armed = true;
 				
+				// Arm the Grenade, except minesweeping ones
 				if (!Minesweeper)
 					TimeBeforeDestruction = level.time + (35 * 3);
 			}
 			
+			// Destroys and creates a new actor when it bounced
+			// I don't know if there's any other way to do this, but I found this to be the easiest
 			SavedBouncePos.Destroy();
 			SavedBouncePos = spawn("PostalGrenadeHelper", pos);
 		}
@@ -262,6 +314,8 @@ class PostalGrenade : Actor
 		{
 			A_Quake(5,15,0,800);
 			
+			// If it's in the air, the grenade will play the Rocket's explode sound. Yes, like in Postal 2.
+			// otherwise play the Ground explosion sound.
 			if (pos.z > floorz)
 				A_StartSound("weapons/rocket_explode", CHAN_WEAPON, CHAN_NOSTOP);
 			else // Ground
@@ -308,6 +362,7 @@ Class PostalGrenadeTrail : PostalActor
 		+FORCEXYBILLBOARD
 		+ROLLSPRITE
 		+RANDOMIZE
+		+NOBLOCKMAP
 		Renderstyle "Translucent";
 		alpha 0.90;
 		scale 0.40;
@@ -356,6 +411,7 @@ class PostalGrenadeHelper : Actor
 		Speed 0;
 		+NOGRAVITY
 		+NOINTERACTION
+		+NOBLOCKMAP
 		-SHOOTABLE
 	}
 	States

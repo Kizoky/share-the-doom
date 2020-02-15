@@ -54,7 +54,7 @@ class PostKick : CustomInventory
 				if (bKILLED) return;
 				
 				FLineTraceData lineData;
-				LineTrace(angle,64,pitch,offsetz: height-12, data: LineData);
+				LineTrace(angle,115,pitch,offsetz: height-3, data: LineData);
 				if (LineData.HitType == TRACE_HitWall && LineData.HitType != TRACE_HitActor)
 				{
 					LineData.HitLine.Activate(self,0,SPAC_Use);
@@ -112,10 +112,34 @@ extend class PostKick
 		int damage = random[Punch](5, 7) << 1;
 
 		double ang = angle;
-		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
+		//double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
 
-		LineAttack (ang, DEFMELEERANGE, pitch, damage, 'Melee', "BulletPuff", LAF_ISMELEEATTACK, t);
+		LineAttack (ang, 110, pitch, damage, 'Melee', "PostalKickPuff", LAF_ISMELEEATTACK, t);
+	}
+}
 
-		
+class PostalKickPuff : BulletPuff
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ALLOWPARTICLES
+		+RANDOMIZE
+		+DONTSPLASH
+		+ZDOOMTRANS
+		RenderStyle "Translucent";
+		Alpha 0.5;
+		VSpeed 1;
+		Mass 5;
+		SeeSound "";
+		AttackSound "";
+		ActiveSound "";
+	}
+	States
+	{
+	Spawn:
+		TNT1 AAA 4;
+		Stop;
 	}
 }

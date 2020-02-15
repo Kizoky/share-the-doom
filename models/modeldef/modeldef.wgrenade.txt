@@ -208,7 +208,7 @@ Model "PostalGrenade"
 	AngleOffset 90 //40
 	RollOffset 0
 	Scale -1 1 1
-	Offset 0 0 2 //X Y Z
+	Offset -5 -7 2 //X Y Z
 	
 	FrameIndex GREN A 0 0
 	
