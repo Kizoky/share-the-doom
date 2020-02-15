@@ -7,7 +7,7 @@ class PostGrenade : PostalWeapon
 	{
 		Super.Tick();
 		if (!owner) return;
-		//Console.Printf("%d",owner.pitch);
+		Console.Printf("%d",VelocityMultiply);
 	
 	}
 	
@@ -60,7 +60,8 @@ class PostGrenade : PostalWeapon
 	HoldFire:
 		HOLD LMNOPQRSTUVWXYZ 3
 		{
-			invoker.VelocityMultiply += VelocityMultiplier;
+			if (invoker.VelocityMultiply <= 29)
+				invoker.VelocityMultiply += VelocityMultiplier;
 			if (!(player.cmd.buttons & BT_ATTACK))
 			{
 				return ResolveState ("FireEnd");
@@ -69,7 +70,8 @@ class PostGrenade : PostalWeapon
 		}
 		HOL2 ABCD 3
 		{
-			invoker.VelocityMultiply += VelocityMultiplier;
+			if (invoker.VelocityMultiply <= 29)
+				invoker.VelocityMultiply += VelocityMultiplier;
 			if (!(player.cmd.buttons & BT_ATTACK))
 			{
 				return ResolveState ("FireEnd");
@@ -95,11 +97,13 @@ class PostGrenade : PostalWeapon
 			//0 -> -90 up
 			// 1 -> 90 down
 			
+			if (!GGrenade) return;
+			
 			GGrenade.A_Recoil(-invoker.VelocityMultiply);
 			if (invoker.owner.Pitch >= 27)
-				GGrenade.vel.z -= invoker.VelocityMultiply/1.3;
+				GGrenade.vel.z -= invoker.VelocityMultiply/2.5 - invoker.owner.Pitch/5;
 			else
-				GGrenade.vel.z += invoker.VelocityMultiply/1.3;
+				GGrenade.vel.z += invoker.VelocityMultiply/2.5 - invoker.owner.Pitch/5;
 				
 			invoker.VelocityMultiply = 0;
 		}
@@ -111,8 +115,12 @@ class PostGrenade : PostalWeapon
 		{
 			class<actor> Grenade = "PostalGrenade";
 			Actor GGrenade = A_FireProjectile(Grenade,0,1,15,-18);
-				
+			
+			if (!GGrenade) return;
+			
 			let GGGrenade = PostalGrenade(GGrenade);
+			if (!GGGrenade) return;
+			
 			GGGrenade.Minesweeper = true;
 			GGGrenade.bTHRUSPECIES = true;
 			GGGrenade.Owner = invoker.owner;
@@ -162,7 +170,7 @@ class PostalGrenade : Actor
 	{
 		if (Armed && Minesweeper && toucher)
 		{
-			if (toucher == Owner)
+			if (toucher == Owner && Owner != null)
 			{
 				spawn("PostGrenade", self.pos);
 				Destroy();
