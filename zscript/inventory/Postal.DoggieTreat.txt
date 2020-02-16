@@ -29,6 +29,8 @@ extend class PostalDoggieTreat
 	action void A_StupidPlayerEatsIt()
 	{
 		let player = PostalDude(self);
+		if (!player) return;
+		
 		let item = invoker.GetClassName();
 		Inventory CurrentAmount = FindInventory(item);
 		

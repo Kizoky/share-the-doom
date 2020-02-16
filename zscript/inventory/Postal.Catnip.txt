@@ -40,6 +40,7 @@ extend class PostalCatnip
 	{
 		//let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
 		let player = PostalDude(self);
+		if (!player) return;
 		
 		if (player.PlayerData.CatnipInProgress != true)
 		{

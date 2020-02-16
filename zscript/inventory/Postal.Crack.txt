@@ -34,6 +34,7 @@ extend class PostalCrackPipe
 	action void A_Crack()
 	{
 		let player = PostalDude(self);
+		if (!player) return;
 		
 		let item = invoker.GetClassName();
 		Inventory CurrentAmount = FindInventory(item);
@@ -52,6 +53,9 @@ extend class PostalCrackPipe
 		//Give back the player the consumed Crack Pipe (because Doom always takes one inventory item)
 		//It will be taken in Postal.Dude
 		A_GiveInventory(item,1);
+		
+		if (!player.PlayerData) return;
+		
 		player.PlayerData.PipeSmoked = true;
 		
 		//Check if the Player has finished inhaling the Health Pipe

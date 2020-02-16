@@ -3,7 +3,7 @@ class PostalCash : CustomInventory
 	Default
 	{
 		+COUNTITEM
-		Inventory.MaxAmount 99999999;
+		Inventory.MaxAmount 1000000;
 		Inventory.PickupFlash "PickupFlash";
 		+INVENTORY.INVBAR 
 		+INVENTORY.FANCYPICKUPSOUND

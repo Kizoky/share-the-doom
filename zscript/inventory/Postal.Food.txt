@@ -91,6 +91,8 @@ extend class PostalFoodCore
 	action void A_Food(int giveHealth)
 	{
 		let player = PostalDude(self);
+		if (!player) return;
+		
 		let item = invoker.GetClassName();
 		Inventory CurrentAmount = FindInventory(item);
 		
