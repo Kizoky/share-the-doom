@@ -5,107 +5,107 @@ $random dudepain { dudehurt dudelonghurt }
 $volume dudepain 0.7
 $volume dudehurt 0.7
 $volume dudelonghurt 0.7
-dudehurt1 sounds/dude_ak.wav
-dudehurt2 sounds/dude_augh.wav
-dudehurt3 sounds/dude_augh2.wav
-dudehurt4 sounds/dude_augh3.wav
-dudehurt5 sounds/dude_augh4.wav
-dudehurt6 sounds/dude_fuck.wav
-dudehurt7 sounds/dude_heynowicantfeel.wav
-dudehurt8 sounds/dude_ohmynads.wav
-dudehurt9 sounds/dude_ohrightinthestuff.wav
-dudehurt10 sounds/dude_ohthatcanthave.wav
-dudehurt11 sounds/dude_oof.wav
-dudehurt12 sounds/dude_ow.wav
-dudehurt13 sounds/dude_owmyclavichord.wav
-dudehurt14 sounds/dude_owoohthatcantbe.wav
-dudehurt15 sounds/dude_owsothatswhatthat.wav
-dudehurt16 sounds/dude_shit.wav
-dudehurt17 sounds/dude_ughnowmyspleens.wav
-dudehurt18 sounds/dude_whuff.wav
-dudehurt19 sounds/oww.wav
-dudehurt20 sounds/oww2.wav
+dudehurt1 sounds/DudeDialog/dude_ak.wav
+dudehurt2 sounds/DudeDialog/dude_augh.wav
+dudehurt3 sounds/DudeDialog/dude_augh2.wav
+dudehurt4 sounds/DudeDialog/dude_augh3.wav
+dudehurt5 sounds/DudeDialog/dude_augh4.wav
+dudehurt6 sounds/DudeDialog/dude_fuck.wav
+dudehurt7 sounds/DudeDialog/dude_heynowicantfeel.wav
+dudehurt8 sounds/DudeDialog/dude_ohmynads.wav
+dudehurt9 sounds/DudeDialog/dude_ohrightinthestuff.wav
+dudehurt10 sounds/DudeDialog/dude_ohthatcanthave.wav
+dudehurt11 sounds/DudeDialog/dude_oof.wav
+dudehurt12 sounds/DudeDialog/dude_ow.wav
+dudehurt13 sounds/DudeDialog/dude_owmyclavichord.wav
+dudehurt14 sounds/DudeDialog/dude_owoohthatcantbe.wav
+dudehurt15 sounds/DudeDialog/dude_owsothatswhatthat.wav
+dudehurt16 sounds/DudeDialog/dude_shit.wav
+dudehurt17 sounds/DudeDialog/dude_ughnowmyspleens.wav
+dudehurt18 sounds/DudeDialog/dude_whuff.wav
+dudehurt19 sounds/DudeDialog/oww.wav
+dudehurt20 sounds/DudeDialog/oww2.wav
 
 $random dudekill { dudeline1 dudeline2 dudeline8 dudeline9 dudeline12 dudeline17 dudeline25 dudeline27 dudeline28 dudeline29 dudeline36 dudeline37 dudeline42 dudeline45 dudeline46 dudeline54 dudeline55 dudeline56 dudeline57 dudeline59 dudeline60 dudeline61 }
 $random dudecatnip { dudeline26 dudeline53 }
 
-dudeline1 sounds/dude_alliwantedwas.wav
-dudeline2 sounds/dude_andonetogrowon.wav
-dudeline3 sounds/dude_buttsauce.wav
-dudeline4 sounds/dude_fascinating.wav
-dudeline5 sounds/dude_fuckyou.wav
-dudeline6 sounds/dude_getthefuckdown.wav
-dudeline7 sounds/dude_gottastopsmoking.wav // Health Pipe; warning
-dudeline8 sounds/dude_gunsdontkill.wav
-dudeline9 sounds/dude_haveaniceday.wav
-dudeline10 sounds/dude_healthcantbegood.wav // Health Pipe; initate
-dudeline11 sounds/dude_healthpipemy.wav // Health Pipe; hurt
-dudeline12 sounds/dude_hehhehheh.wav
-dudeline13 sounds/dude_herecatch.wav
-dudeline14 sounds/dude_heressomeleadfor.wav
-dudeline15 sounds/dude_heyitsnotmyfault.wav
-dudeline16 sounds/dude_howconvenient.wav
-dudeline17 sounds/dude_howwouldyoulike.wav
-dudeline18 sounds/dude_idefinitelyneed.wav // food
-dudeline19 sounds/dude_idontfeelsogood.wav
-dudeline20 sounds/dude_ifeelbetter.wav // food
-dudeline21 sounds/dude_ifeellikeshit.wav // Health Pipe; warning
-dudeline22 sounds/dude_igottafindmore.wav // food
-dudeline23 sounds/dude_iknewishouldnt.wav
-dudeline24 sounds/dude_imsorry.wav
-dudeline25 sounds/dude_imsoryapparently.wav
-dudeline26 sounds/dude_innagadda.wav
-dudeline27 sounds/dude_iregretnothing.wav
-dudeline28 sounds/dude_isupposeitwould.wav
-dudeline29 sounds/dude_justkiddin.wav
-dudeline30 sounds/dude_nicecatch2.wav
-dudeline31 sounds/dude_nope.wav
-dudeline32 sounds/dude_no.wav
-dudeline33 sounds/dude_nothingtoseehere.wav
-dudeline34 sounds/dude_nowmydayis.wav
-dudeline35 sounds/dude_nowtheflowers.wav
-dudeline36 sounds/dude_onlymyweapon.wav
-dudeline37 sounds/dude_oohmedicareaint.wav
+dudeline1 sounds/DudeDialog/dude_alliwantedwas.wav
+dudeline2 sounds/DudeDialog/dude_andonetogrowon.wav
+dudeline3 sounds/DudeDialog/dude_buttsauce.wav
+dudeline4 sounds/DudeDialog/dude_fascinating.wav
+dudeline5 sounds/DudeDialog/dude_fuckyou.wav
+dudeline6 sounds/DudeDialog/dude_getthefuckdown.wav
+dudeline7 sounds/DudeDialog/dude_gottastopsmoking.wav // Health Pipe; warning
+dudeline8 sounds/DudeDialog/dude_gunsdontkill.wav
+dudeline9 sounds/DudeDialog/dude_haveaniceday.wav
+dudeline10 sounds/DudeDialog/dude_healthcantbegood.wav // Health Pipe; initate
+dudeline11 sounds/DudeDialog/dude_healthpipemy.wav // Health Pipe; hurt
+dudeline12 sounds/DudeDialog/dude_hehhehheh.wav
+dudeline13 sounds/DudeDialog/dude_herecatch.wav
+dudeline14 sounds/DudeDialog/dude_heressomeleadfor.wav
+dudeline15 sounds/DudeDialog/dude_heyitsnotmyfault.wav
+dudeline16 sounds/DudeDialog/dude_howconvenient.wav
+dudeline17 sounds/DudeDialog/dude_howwouldyoulike.wav
+dudeline18 sounds/DudeDialog/dude_idefinitelyneed.wav // food
+dudeline19 sounds/DudeDialog/dude_idontfeelsogood.wav
+dudeline20 sounds/DudeDialog/dude_ifeelbetter.wav // food
+dudeline21 sounds/DudeDialog/dude_ifeellikeshit.wav // Health Pipe; warning
+dudeline22 sounds/DudeDialog/dude_igottafindmore.wav // food
+dudeline23 sounds/DudeDialog/dude_iknewishouldnt.wav
+dudeline24 sounds/DudeDialog/dude_imsorry.wav
+dudeline25 sounds/DudeDialog/dude_imsoryapparently.wav
+dudeline26 sounds/DudeDialog/dude_innagadda.wav
+dudeline27 sounds/DudeDialog/dude_iregretnothing.wav
+dudeline28 sounds/DudeDialog/dude_isupposeitwould.wav
+dudeline29 sounds/DudeDialog/dude_justkiddin.wav
+dudeline30 sounds/DudeDialog/dude_nicecatch2.wav
+dudeline31 sounds/DudeDialog/dude_nope.wav
+dudeline32 sounds/DudeDialog/dude_no.wav
+dudeline33 sounds/DudeDialog/dude_nothingtoseehere.wav
+dudeline34 sounds/DudeDialog/dude_nowmydayis.wav
+dudeline35 sounds/DudeDialog/dude_nowtheflowers.wav
+dudeline36 sounds/DudeDialog/dude_onlymyweapon.wav
+dudeline37 sounds/DudeDialog/dude_oohmedicareaint.wav
 //fire only
-dudeline38 sounds/dude_saythatactually.wav
+dudeline38 sounds/DudeDialog/dude_saythatactually.wav
 //cop only
-dudeline39 sounds/dude_someonestolemy.wav
+dudeline39 sounds/DudeDialog/dude_someonestolemy.wav
 //unknown
-dudeline40 sounds/dude_sothatswhatthat.wav
-dudeline41 sounds/dude_stuffwasntgood.wav // Health pipe; warning
-dudeline42 sounds/dude_thatsgoingto.wav
-dudeline43 sounds/dude_thatstheticket.wav
-dudeline44 sounds/dude_thatstuffreally.wav // food
-dudeline45 sounds/dude_thatwasbadofme.wav
-dudeline46 sounds/dude_videogamesdont.wav
-dudeline47 sounds/dude_vote_whatmoron.wav
-dudeline48 sounds/dude_wellwhodathought.wav
-dudeline49 sounds/dude_wherethehellami.wav
-dudeline50 sounds/dude_whoeverdesigned.wav
-dudeline51 sounds/dude_whydoesthisnot.wav
-dudeline52 sounds/dude_withdrawalisa.wav
-dudeline53 sounds/dude_yeahbabyiam.wav
-dudeline54 sounds/dude_yeahthatswhat.wav
-dudeline55 sounds/dude_yougogirl.wav
-dudeline56 sounds/dude_youprobablythink.wav
-dudeline57 sounds/dude_youthoughtyou.wav
-dudeline58 sounds/dude_youvegottabe.wav
-dudeline59 sounds/imprettygoodatthis.wav
-dudeline60 sounds/Laughing.wav
-dudeline61 sounds/mybad.wav
-dudeline62 sounds/dude_iknewishouldnt.wav // Health Pipe; hurt
-dudeline63 sounds/dude_imsowrong.wav
+dudeline40 sounds/DudeDialog/dude_sothatswhatthat.wav
+dudeline41 sounds/DudeDialog/dude_stuffwasntgood.wav // Health pipe; warning
+dudeline42 sounds/DudeDialog/dude_thatsgoingto.wav
+dudeline43 sounds/DudeDialog/dude_thatstheticket.wav
+dudeline44 sounds/DudeDialog/dude_thatstuffreally.wav // food
+dudeline45 sounds/DudeDialog/dude_thatwasbadofme.wav
+dudeline46 sounds/DudeDialog/dude_videogamesdont.wav
+dudeline47 sounds/DudeDialog/dude_vote_whatmoron.wav
+dudeline48 sounds/DudeDialog/dude_wellwhodathought.wav
+dudeline49 sounds/DudeDialog/dude_wherethehellami.wav
+dudeline50 sounds/DudeDialog/dude_whoeverdesigned.wav
+dudeline51 sounds/DudeDialog/dude_whydoesthisnot.wav
+dudeline52 sounds/DudeDialog/dude_withdrawalisa.wav
+dudeline53 sounds/DudeDialog/dude_yeahbabyiam.wav
+dudeline54 sounds/DudeDialog/dude_yeahthatswhat.wav
+dudeline55 sounds/DudeDialog/dude_yougogirl.wav
+dudeline56 sounds/DudeDialog/dude_youprobablythink.wav
+dudeline57 sounds/DudeDialog/dude_youthoughtyou.wav
+dudeline58 sounds/DudeDialog/dude_youvegottabe.wav
+dudeline59 sounds/DudeDialog/imprettygoodatthis.wav
+dudeline60 sounds/DudeDialog/Laughing.wav
+dudeline61 sounds/DudeDialog/mybad.wav
+dudeline62 sounds/DudeDialog/dude_iknewishouldnt.wav // Health Pipe; hurt
+dudeline63 sounds/DudeDialog/dude_imsowrong.wav
 
-dude/sissy sounds/dude_sissy.wav
+dude/sissy sounds/DudeDialog/dude_sissy.wav
 
 $random cheater { dudeline58 dudeline55 dudeline3 }
 
-dudepetition1a sounds/dude_petition1a.wav
-dudepetition1b sounds/dude_petition1b.wav
-dudepetition2a sounds/dude_petition2a.wav
-dudepetition2b sounds/dude_petition2b.wav
-dudepetition3a sounds/dude_petition3a.wav
-dudepetition3b sounds/dude_petition3b.wav
+dudepetition1a sounds/DudeDialog/dude_petition1a.wav
+dudepetition1b sounds/DudeDialog/dude_petition1b.wav
+dudepetition2a sounds/DudeDialog/dude_petition2a.wav
+dudepetition2b sounds/DudeDialog/dude_petition2b.wav
+dudepetition3a sounds/DudeDialog/dude_petition3a.wav
+dudepetition3b sounds/DudeDialog/dude_petition3b.wav
 
 dude_save1 sounds/DudeDialog/dude_areyousaving.wav
 dude_save2 sounds/DudeDialog/dude_didntyoujustsave.wav
@@ -115,11 +115,11 @@ dude_save3 sounds/DudeDialog/dude_mygrandmothercould.wav
 misc/chat sounds/Talk.wav
 
 $random dudeusefail { dudehurt6 dudefuck2 dudefuck3 dudefuck4 dudeuhuh dudeoops }
-dudefuck2 sounds/dude_fuck2.wav
-dudefuck3 sounds/dude_fuck3.wav
-dudefuck4 sounds/dude_fuck4.wav
-dudeuhuh  sounds/dude_uhuh.wav
-dudeoops  sounds/dude_oops.wav
+dudefuck2 sounds/DudeDialog/dude_fuck2.wav
+dudefuck3 sounds/DudeDialog/dude_fuck3.wav
+dudefuck4 sounds/DudeDialog/dude_fuck4.wav
+dudeuhuh  sounds/DudeDialog/dude_uhuh.wav
+dudeoops  sounds/DudeDialog/dude_oops.wav
 
 hitflesh1 sounds/bullet_hitflesh1.wav
 hitflesh2 sounds/bullet_hitflesh2.wav
@@ -189,7 +189,7 @@ $singular dudehurt17
 //This was an attempt to limit pain sounds playing just once, and not triggering while
 //an another is still playing
 
-ddeathtemp sounds/yougottabefuckingkidding.wav
+ddeathtemp sounds/DudeDialog/yougottabefuckingkidding.wav
 BirdAmbient sounds/BirdScary.wav
 GrassAmbient sounds/GrassHoppers.wav
 Homestuck sounds/Homestuck.wav
