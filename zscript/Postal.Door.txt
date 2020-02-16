@@ -20,6 +20,7 @@ class PostalDoor_Extender : Actor
 		
 		while (it.Next ()) {
 			let next = it.Thing;
+			if (!next) return;
 			
 			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
 			{
