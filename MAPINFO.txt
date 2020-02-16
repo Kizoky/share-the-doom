@@ -30,6 +30,16 @@ episode WORLD1
 	name="Share the Doom"
 }
 
+episode MAP01
+{
+	name="Fallen into Void (mapXX)"
+}
+
+episode E1M1
+{
+	name="Shattered Worldline (E1M1->E4M9)"
+}
+
 defaultmap
 {
 	sky1=F_SKY1
