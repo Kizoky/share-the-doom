@@ -1,59 +1,5 @@
 version "4.2"
 
-class FloatingTestLight : Actor
-{
-	int TimeStart, TimeReset;
-	bool Reset;
-	
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		TimeStart = level.time + (35 * 3);
-	}
-	
-	override void Tick()
-	{
-		Super.Tick();
-		
-		if (Reset)
-		{
-			if (TimeReset > level.time)
-				SetOrigin(pos-(1,0,0), TRUE);
-			else
-			{
-				Reset = false;
-				TimeStart = level.time + (35 * 3);
-			}
-				
-			return;
-		}
-		
-		if (TimeStart > level.time)
-			SetOrigin(pos+(1,0,0), TRUE);
-		else
-		{
-			Reset = true;
-			TimeReset = level.time + (35 * 3);
-		}
-			
-	
-	}
-	
-	Default
-	{
-		Gravity 0;
-		RenderStyle "Add";
-		+FORCEXYBILLBOARD
-	}
-
-	States
-	{
-	Spawn:
-		BAL1 A -1 BRIGHT;
-		Stop;
-	}
-}
-
 //------------ Postal stuff
 #include "zscript/Postal.Actor.txt"
 #include "zscript/Postal.Door.txt"
@@ -160,24 +106,6 @@ class FloatingTestLight : Actor
 
 #include "zscript/train/Postal.Train.txt"
 
-//------------ doom monsters
-
-//#include "zscript/doommonsta/arachnotron.txt"
-//#include "zscript/doommonsta/archvile.txt"
-//#include "zscript/doommonsta/bruiser.txt"
-//#include "zscript/doommonsta/cacodemon.txt"
-//#include "zscript/doommonsta/customboss.txt"
-//#include "zscript/doommonsta/cyberdemon.txt"
-//#include "zscript/doommonsta/demon.txt"
-//#include "zscript/doommonsta/doomimp.txt"
-//#include "zscript/doommonsta/fatso.txt"
-//#include "zscript/doommonsta/lostsoul.txt"
-//#include "zscript/doommonsta/painelemental.txt"
-//#include "zscript/doommonsta/possessed.txt"
-//#include "zscript/doommonsta/revenant.txt"
-//#include "zscript/doommonsta/spidermaster.txt"
-//#include "zscript/doommonsta/stealthmonsters.txt"
-
 //------------- Debug stuff
 #include "zscript/RadiusDebug/RadiusDebug.zc" //made by Nash
 #include "zscript/RadiusDebug/kodi.zc" //LineTrace debugger made by kodi
@@ -194,3 +122,58 @@ class FloatingTestLight : Actor
 #include "zscript/pathfinding/navmesh.zc"
 #include "zscript/pathfinding/pathfinder.zc"
 
+
+
+class FloatingTestLight : Actor
+{
+	int TimeStart, TimeReset;
+	bool Reset;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		TimeStart = level.time + (35 * 3);
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (Reset)
+		{
+			if (TimeReset > level.time)
+				SetOrigin(pos-(1,0,0), TRUE);
+			else
+			{
+				Reset = false;
+				TimeStart = level.time + (35 * 3);
+			}
+				
+			return;
+		}
+		
+		if (TimeStart > level.time)
+			SetOrigin(pos+(1,0,0), TRUE);
+		else
+		{
+			Reset = true;
+			TimeReset = level.time + (35 * 3);
+		}
+			
+	
+	}
+	
+	Default
+	{
+		Gravity 0;
+		RenderStyle "Add";
+		+FORCEXYBILLBOARD
+	}
+
+	States
+	{
+	Spawn:
+		BAL1 A -1 BRIGHT;
+		Stop;
+	}
+}
