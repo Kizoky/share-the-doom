@@ -29,6 +29,8 @@ class PostShovel : PostalWeapon
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
+			if (lineData.hitActor == null) return;
+			
 			if (lineData.HitActor is 'NPCHead')
 			{
 				if (SecondaryOrPrimary ~== "primary")

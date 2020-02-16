@@ -82,11 +82,14 @@ class PostRifle : PostalWeapon
 			self.A_TakeInventory("Clip",1);
 			
 			let plr = PlayerPawn(self);
-			plr.AttackZOffset = 13;
+			if (plr)
+				plr.AttackZOffset = 13;
 			
 			A_PlaySound("weapons/snifire", 1 );
 			A_SetPitch(pitch - 0.3,SPF_INTERPOLATE);
-			plr.AttackZOffset = 8;
+			
+			if (plr)
+				plr.AttackZOffset = 8;
 			
 			return resolveState(null);
 		}

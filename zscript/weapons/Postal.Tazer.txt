@@ -44,9 +44,11 @@ class TazerStun : Powerup
 		if (TimeBeforeEnd < level.time)
 		{
 			let p = Actor(Owner);
-			Owner.Speed = p.Default.Speed;
-			
-			Owner.bAVOIDMELEE = false;
+			if (p)
+			{
+				Owner.Speed = p.Default.Speed;
+				Owner.bAVOIDMELEE = false;
+			}
 			
 			self.EffectTics = 0;
 			
@@ -86,6 +88,8 @@ class PostTazer : PostalWeapon
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
+			if (lineData.hitActor == null) return;
+			
 			if (LineData.HitActor is 'postaldoor' || LineData.HitActor is 'postaldoor_extender') return;
 			
 			A_PlaySound("weapons/tazer_hit", CHAN_WEAPON | 4096);
@@ -96,7 +100,8 @@ class PostTazer : PostalWeapon
 				let p = LineData.HitActor.FindInventory("TazerStun");
 				let pp = TazerStun(p);
 				
-				pp.TimeBeforeEnd = level.time + 35 * 3;
+				if (pp)
+					pp.TimeBeforeEnd = level.time + 35 * 3;
 				
 				LineData.HitActor.A_DamageSelf(1);
 				

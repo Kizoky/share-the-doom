@@ -13,6 +13,8 @@ class PostSledge : PostalWeapon
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
+			if (lineData.hitActor == null) return;
+			
 			if (LineData.HitActor is 'NPCHead')
 			{
 				A_PlaySound("weapons/hammer_bodyhit", CHAN_WEAPON);
@@ -157,11 +159,15 @@ class PostSledge : PostalWeapon
 		TNT1 A 0
 		{
 			let p = PostalDude(self);
-			p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
-			p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+			if (p)
+			{
+				p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
+				p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+			}
 			
 			let d = Weapon(FindInventory("PostSledge"));
-			RemoveInventory(d);
+			if (d)
+				RemoveInventory(d);
 			
 			return;
 		}

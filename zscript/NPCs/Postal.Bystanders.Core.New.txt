@@ -104,7 +104,8 @@ class NPCCore : PostalActor
 			{
 				MyHead.Angle = self.Angle;
 				let p = NPCHead(MyHead);
-				p.Owner = self;
+				if (p)
+					p.Owner = self;
 			}
 		}
 		
@@ -1020,7 +1021,7 @@ extend class NPCCore
 				let PlayerDude = PostalDude(toucher);
 				
 				// Let's check if there's Fire attached on the Player...
-				if (PlayerDude.MyAnnoyingFire != null)
+				if (PlayerDude.MyAnnoyingFire != null && PlayerDude)
 				{
 					class<actor> Fire = "PostalFire";
 					actor AttachedFire = spawn(Fire, toucher.pos, ALLOW_REPLACE);
@@ -1030,16 +1031,20 @@ extend class NPCCore
 					if (AttachedFire)
 					{
 						let dd = PostalFire(AttachedFire);
-						dd.Owner = self;
-						dd.ThisOneHurts = true;
-						dd.Counter = 0;
+						if (dd)
+						{
+							dd.Owner = self;
+							dd.ThisOneHurts = true;
+							dd.Counter = 0;
+						}
 						
 						if (AnnoyingFire != null)
 						{
 							//There's not enough time for the newly spawned Fire to cause damage
 							AttachedFire.Destroy();
 							
-							dd.TimeBeforeDisappearing = level.time + (35 * 12);
+							if (dd)
+								dd.TimeBeforeDisappearing = level.time + (35 * 12);
 						}
 						else
 							AnnoyingFire = AttachedFire;
@@ -1047,11 +1052,11 @@ extend class NPCCore
 				}
 				
 				
-				if (PlayerDude.MyAnnoyingFire == null && AnnoyingFire != null)
+				if (PlayerDude.MyAnnoyingFire == null && AnnoyingFire != null && PlayerDude)
 				{
 					//woah dude you don't have a fire on you? Let me help you!
 					
-					if (PlayerDude.PlayerData.P_GodMode != true)
+					if (PlayerDude.PlayerData.P_GodMode != true && PlayerDude.PlayerData)
 					{
 					
 						Console.Printf("Dude doesn't have fire");
@@ -1064,16 +1069,20 @@ extend class NPCCore
 						if (AttachedFire)
 						{
 							let dd = PostalFire(AttachedFire);
-							dd.Owner = PlayerDude;
-							dd.ThisOneHurts = true;
-							dd.Counter = 0;
+							if (dd)
+							{
+								dd.Owner = PlayerDude;
+								dd.ThisOneHurts = true;
+								dd.Counter = 0;
+							}
 							
 							if (PlayerDude.MyAnnoyingFire != null)
 							{
 								//There's not enough time for the newly spawned Fire to cause damage
 								AttachedFire.Destroy();
 								
-								dd.TimeBeforeDisappearing = level.time + (35 * 12);
+								if (dd)
+									dd.TimeBeforeDisappearing = level.time + (35 * 12);
 							}
 							else
 								PlayerDude.MyAnnoyingFire = AttachedFire;
@@ -1091,7 +1100,7 @@ extend class NPCCore
 						let asd = PostalActor(toucher);
 						
 						
-						if (asd.AnnoyingFire != null)
+						if (asd.AnnoyingFire != null && asd)
 						{
 							class<actor> Fire = "PostalFire";
 							actor AttachedFire = spawn(Fire, toucher.pos, ALLOW_REPLACE);
@@ -1101,16 +1110,20 @@ extend class NPCCore
 							if (AttachedFire)
 							{
 								let dd = PostalFire(AttachedFire);
-								dd.Owner = self;
-								dd.ThisOneHurts = true;
-								dd.Counter = 0;
+								if (dd)
+								{
+									dd.Owner = self;
+									dd.ThisOneHurts = true;
+									dd.Counter = 0;
+								}
 								
 								if (AnnoyingFire != null)
 								{
 									//There's not enough time for the newly spawned Fire to cause damage
 									AttachedFire.Destroy();
 									
-									dd.TimeBeforeDisappearing = level.time + (35 * 12);
+									if (dd)
+										dd.TimeBeforeDisappearing = level.time + (35 * 12);
 								}
 								else
 									AnnoyingFire = AttachedFire;
@@ -1131,16 +1144,20 @@ extend class NPCCore
 							if (AttachedFire)
 							{
 								let dd = PostalFire(AttachedFire);
-								dd.Owner = asd;
-								dd.ThisOneHurts = true;
-								dd.Counter = 0;
+								if (dd)
+								{
+									dd.Owner = asd;
+									dd.ThisOneHurts = true;
+									dd.Counter = 0;
+								}
 								
 								if (AnnoyingFire != null)
 								{
 									//There's not enough time for the newly spawned Fire to cause damage
 									AttachedFire.Destroy();
 									
-									dd.TimeBeforeDisappearing = level.time + (35 * 12);
+									if (dd)
+										dd.TimeBeforeDisappearing = level.time + (35 * 12);
 								}
 								else
 									asd.AnnoyingFire = AttachedFire;
@@ -1164,6 +1181,7 @@ extend class NPCCore
 					bool dangerousWeapon;
 					
 					if (PlayerDude != PlayerDude.Player.mo) return;
+					if (PlayerDude == null) return;
 					
 					if (isAfterTarget == false)
 					{
@@ -1207,6 +1225,8 @@ extend class NPCCore
 					let pp = NPCCore(toucher);
 					//If we aren't Hostile or Fleeing, do:
 					//Calm, normal wandering/walking
+					
+					if (pp == null) return;
 					
 					if (pp.isAfterTarget == false)
 					{
@@ -1361,7 +1381,7 @@ extend class NPCCore
 					if (next is 'NPCCore' && next != self)
 					{
 						let pp = NPCCore(next);
-						if (pp.bCORPSE)
+						if (pp.bCORPSE && pp)
 						{
 							if (!(invoker.deadpeople[pp.UniqueID] == pp.UniqueID))
 							{
@@ -1376,7 +1396,7 @@ extend class NPCCore
 						}
 						
 						
-						if (pp.Hostility == "Hostile" && pp.isAfterTarget == true && !pp.bKILLED)
+						if (pp.Hostility == "Hostile" && pp.isAfterTarget == true && !pp.bKILLED && pp)
 						{
 							//Console.Printf("I see NPCCore");
 							//invoker.staringAt = next;
@@ -1505,7 +1525,7 @@ extend class NPCCore
 				
 				if (invoker.ActiveNode == null)
 				{
-					if (next is 'Postal_Node')
+					if (next is 'Postal_Node' && next)
 					{
 						//double diff = deltaangle(angle, AngleTo(next));
 						//double delta = abs(diff);

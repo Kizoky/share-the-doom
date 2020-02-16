@@ -15,6 +15,9 @@ class PostGascan : PostalWeapon
 			let dd = PostalLiquidGas(LiquidGas);
 			
 			let PlayerDude = PostalDude(invoker.Owner);
+			
+			if (PlayerDude == null) return;
+			
 			PlayerDude.AmountofLiquid.push(dd);
 		}
 		
@@ -129,6 +132,9 @@ class FireSpawnerAid : Powerup
 		if (AttachedFire)
 		{
 			let dd = PostalFire(AttachedFire);
+			
+			if (dd == null) return;
+			
 			dd.Owner = Owner;
 			dd.ThisOneHurts = true;
 			dd.Counter = 0;
@@ -221,6 +227,9 @@ class PostalFire : PostalActor
 		if (Owner is 'PostalDude')
 		{
 			let PlayerDude = PostalDude(Owner);
+			
+			if (PlayerDude == null) return;
+			
 			if (TimeBeforeDisappearing < level.time)
 			{
 				//PlayerDude.isonFire = false;
@@ -246,6 +255,8 @@ class PostalFire : PostalActor
 		if (Owner is 'PostalActor')
 		{
 			let ppostal = PostalActor(Owner);
+			
+			if (ppostal == null) return;
 			
 			if (TimeBeforeDisappearing < level.time && EnterFireEndState == false)
 			{

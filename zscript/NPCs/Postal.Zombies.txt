@@ -83,7 +83,7 @@ class NPCZombie : PostalActor
 			if (!(toucher is 'NPCZombie'))
 			{
 				let PlayerDude = PostalDude(toucher);
-				if (toucher == PlayerDude && PlayerDude.PlayerData.P_NoTarget) return;
+				if (toucher == PlayerDude && PlayerDude.PlayerData.P_NoTarget && PlayerDude && PlayerDude.PlayerData) return;
 				
 				if (toucher is 'PostalDoor' || toucher is 'PostalDoor_Extender' || toucher is 'PostalFire' || toucher is 'PostalLiquidGas' || toucher is 'RandomPostalFire') return;
 				if (toucher is 'CowMike') return;
@@ -118,7 +118,7 @@ class NPCZombie : PostalActor
 				if (next is 'CowMike') return;
 				
 				let PlayerDude = PostalDude(next);
-				if (next == PlayerDude && PlayerDude.PlayerData.P_NoTarget) return;
+				if (next == PlayerDude && PlayerDude.PlayerData.P_NoTarget && PlayerDude && PlayerDude.PlayerData) return;
 				
 				target = next;
 				SetStateLabel("See");
@@ -141,6 +141,8 @@ class NPCZombie : PostalActor
 	
 	void A_PlanRoute()
 	{
+		if (target == null) return;
+		
 		if(Distance2D(target) > 500)
 		{
 			A_Chase2(null,null);

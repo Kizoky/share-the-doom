@@ -107,6 +107,8 @@ extend class PostClipboard
 				
 					if (LineData.HitType == TRACE_HitActor)
 					{
+						if (lineData.hitActor == null) return;
+						
 						if (lineData.HitActor is 'NPCCore')
 						{
 							Console.Printf("target is NPCCore");
@@ -123,6 +125,8 @@ extend class PostClipboard
 						if (lineData.HitActor is 'PostalActor')
 						{
 							let aactor = PostalActor(lineData.HitActor);
+							
+							if (aactor == null) return;
 							
 							if (aactor.target != invoker.owner && !(aactor.bKILLED))
 							{

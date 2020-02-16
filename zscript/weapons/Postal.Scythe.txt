@@ -13,6 +13,8 @@ class PostScythe : PostalWeapon
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
+			if (lineData.hitActor == null) return;
+			
 			if (LineData.HitActor is 'NPCHead')
 			{
 				A_PlaySound("weapons/scythe_slice", CHAN_WEAPON);
@@ -156,11 +158,15 @@ class PostScythe : PostalWeapon
 		TNT1 A 0
 		{
 			let p = PostalDude(self);
-			p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
-			p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+			if (p)
+			{
+				p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
+				p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+			}
 			
 			let d = Weapon(FindInventory("PostScythe"));
-			RemoveInventory(d);
+			if (d)
+				RemoveInventory(d);
 			
 			return;
 		}
@@ -223,9 +229,12 @@ class ThrownScythe : Actor
 		if (Woosh)
 		{
 			let pp = Postal_Woosh(Woosh);
-			pp.Entity = self;
-			pp.ScaleX = 2.5;
-			pp.ScaleY = 2.5;
+			if (pp)
+			{
+				pp.Entity = self;
+				pp.ScaleX = 2.5;
+				pp.ScaleY = 2.5;
+			}
 			
 		}
 	}

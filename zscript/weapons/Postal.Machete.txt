@@ -16,6 +16,8 @@ class PostMachete : PostalWeapon
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
+			if (lineData.hitActor == null) return;
+			
 			if (LineData.HitActor is 'NPCHead')
 			{
 				A_PlaySound("weapons/machete_slice", CHAN_WEAPON);

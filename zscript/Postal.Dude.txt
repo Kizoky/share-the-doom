@@ -391,8 +391,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					DummyCorpse.angle = SuicideAngle;
 					
 					let dd = DummyDude(DummyCorpse);
-					dd.MyDude = self;
-					dd.CorpseOnly = true;
+					if (dd)
+					{
+						dd.MyDude = self;
+						dd.CorpseOnly = true;
+					}
 					if (Suicided == true) dd.SetStateLabel("Corpse");
 					else dd.SetStateLabel("Corpse.Head");
 					
@@ -430,7 +433,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		//Console.Printf("Level time: %d", level.time);
 		
 		//Check if we were naughty, note that the cooldown stuff is in ResetPunishment() found in PostalDude
-		if (level.time > PlayerData.CooldownTime && ResetDoneByCop == true)
+		if (level.time > PlayerData.CooldownTime && ResetDoneByCop == true && PlayerData)
 		{
 			PunishPoints -= 0.01;
 			
@@ -444,7 +447,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		
 		//Health pipe
 		
-			if (PlayerData.PipeSmoked == true && PlayerData.Suicide != true)
+			if (PlayerData.PipeSmoked == true && PlayerData.Suicide != true && PlayerData)
 			{
 				//Count to 3 seconds
 				if (PlayerData.SmokeInhale != true)
@@ -539,7 +542,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		
 		// Catnip
 		
-		if (PlayerData.CatnipInProgress == true)
+		if (PlayerData.CatnipInProgress == true && PlayerData)
 		{
 				if (PlayerData.CatnipInhale != true)
 				{
@@ -611,15 +614,17 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		//Disable bobbing when walking
 		//Note: this variable is also used by the Cat's AI to check the Player if it's walking or running
 		
-		PlayerData.MoveSpeed = vel.xy.Length();
-		if (PlayerData.MoveSpeed < 3)
+		if (PlayerData)
+			PlayerData.MoveSpeed = vel.xy.Length();
+			
+		if (PlayerData.MoveSpeed < 3 && PlayerData)
 			ViewBob = 0;
 		else
 			ViewBob = default.ViewBob; //might come in handy in the future: GetDefaultsByType (<class>)
 			
 		//Suicide
 		
-		if (PlayerData.Suicide == True)
+		if (PlayerData.Suicide == True && PlayerData)
 		{
 			if (PlayerData.SpawnedOnce == false)
 			{
@@ -647,7 +652,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		// Idling
 		
 		
-		if (level.time > PlayerData.IdlingTime)
+		if (level.time > PlayerData.IdlingTime && PlayerData)
 		{
 			PlayerData.IdlingTime = level.time + 2100;
 				
@@ -677,7 +682,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		//Footstep code from Marisa's Doom Tournament
 		// edited a little bit to only make footsteps when running
 		
-			if (PlayerData.MoveSpeed > 3)
+			if (PlayerData.MoveSpeed > 3 && PlayerData)
 			{
 				bool forcefootstep = false;
 				//TICRATE
@@ -992,7 +997,8 @@ class DummyDude : Actor
 		DUDD A 0
 		{
 			let p = PostalDude(MyDude);
-			p.Suicided = true;
+			if (p)
+				p.Suicided = true;
 			
 			A_playSound("weapons/rocklx",6);
 			A_Explode(200, 256, XF_NOTMISSILE);
@@ -1026,7 +1032,8 @@ class DummyDude : Actor
 	Corpse.Head:
 		TNT1 A 0
 		{
-			angle = MyDude.angle;
+			if (MyDude)
+				angle = MyDude.angle;
 		}
 		HEAD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		HEA2 ABCDEFGHIJKLMNOP 2;
@@ -1059,7 +1066,7 @@ extend class PostalDude
 		Actor DummyDude;
 		// Spawn the corpse with as the variable above, 
 		// the second argument will spawn it with the actor's position + replacing it
-		if (invoker.PlayerData.Suicide == true)
+		if (invoker.PlayerData.Suicide == true && invoker.PlayerData)
 			DummyDude = spawn(dummy, self.pos, ALLOW_REPLACE);
 		
 		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
@@ -1068,7 +1075,8 @@ extend class PostalDude
 		{
 			DummyDude.angle = self.angle;
 			let dd = DummyDude(DummyDude);
-			dd.MyDude = self;
+			if (dd)
+				dd.MyDude = self;
 		}
 		
 	}
@@ -1112,7 +1120,7 @@ extend class PostalDude
 					{
 						//Console.Printf("Within fov!");
 						let p = NPCCore(next);
-						if (p.isBusy != true && p.isAfterTarget == false)
+						if (p.isBusy != true && p.isAfterTarget == false && p)
 						{
 							p.isBusy = true;
 							p.MyTarget = self;
@@ -1126,7 +1134,7 @@ extend class PostalDude
 					if (isMeleeAttack != true)
 					{
 						let p = NPCCore(next);
-						if (p.isBusy != true && p.isAfterTarget == false)
+						if (p.isBusy != true && p.isAfterTarget == false && p)
 						{
 							p.isBusy = true;
 							p.MyTarget = self;
@@ -1146,7 +1154,7 @@ extend class PostalDude
 		while (it.Next ()) {
 				let next = it.Thing;
 				
-				if (next is 'NPCCore')
+				if (next is 'NPCCore' && next)
 					invoker.IdlingTarget = next;
 			}
     }

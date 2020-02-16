@@ -80,7 +80,8 @@ class PostScissors : PostalWeapon
 				ScissorShoot.pitch = invoker.owner.pitch;
 				
 				let SS = PostalScissor(ScissorShoot);
-				ss.Owner = invoker.owner;
+				if (SS)
+					ss.Owner = invoker.owner;
 				
 				self.A_TakeInventory("Clip",1);
 			}
@@ -101,9 +102,13 @@ class PostScissors : PostalWeapon
 				ScissorShoot.pitch = invoker.owner.pitch;
 				
 				let SS = PostalScissor(ScissorShoot);
-				SS.isBouncing = true;
-				SS.OwnerPitch = invoker.owner.pitch;
-				ss.Owner = invoker.owner;
+				
+				if (SS)
+				{
+					SS.isBouncing = true;
+					SS.OwnerPitch = invoker.owner.pitch;
+					ss.Owner = invoker.owner;
+				}
 				
 				self.A_TakeInventory("Clip",1);
 			}

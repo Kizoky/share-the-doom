@@ -73,6 +73,9 @@ class PostKick : CustomInventory
 					if (LineData.HitType == TRACE_HitActor)
 					{
 						let pp = Actor(lineData.HitActor);
+						
+						if (pp == null) return;
+						
 						pp.PainChance = 256;
 						//Console.Printf("Scumbag kicked");
 						A_QuakeEx(0, 3, 3, 7, 0, 60 );
@@ -95,6 +98,8 @@ class PostKick : CustomInventory
 	  {
 			A_TakeInventory("PostKick",100);
 			let PlayerDude = PostalDude(self);
+			
+			if (PlayerDude == null) return;
 			
 			PlayerDude.Kick = false;
 	  }

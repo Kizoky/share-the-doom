@@ -94,8 +94,11 @@ class Champ : PostalActor
 			{
 				let p = PostalCatInv(target);
 				
-				p.target = self;
-				p.DogSee = true;
+				if (p)
+				{
+					p.target = self;
+					p.DogSee = true;
+				}
 			}
 			
 		}
@@ -273,7 +276,7 @@ extend class Champ
 			// It sounds stupid, the cat hears the Player by seeing it
 			// And it makes ton of unhealthy puns.
 			
-							if (next is 'PostalCatInv')
+							if (next is 'PostalCatInv' && next)
 							{
 								target = next;
 								invoker.staringAt = target;

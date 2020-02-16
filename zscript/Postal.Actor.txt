@@ -427,7 +427,6 @@ extend class PostalInventory
 	{
 		if (toucher is 'PostalDude')
 		{
-		
 			let player = toucher.player;
 
 			// If a voodoo doll touches something, pretend the real player touched it instead.

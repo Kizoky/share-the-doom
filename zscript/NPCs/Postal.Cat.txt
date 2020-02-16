@@ -156,7 +156,7 @@ extend class PostalCatInv
 								{
 									//Postal Dude has a variable that saves the currently moving speed.
 									//If it's higher than 4, meaning the Player is most likely running, then the cat will go shriek
-									if (PlayerDude.PlayerData.MoveSpeed > 3)
+									if (PlayerDude.PlayerData.MoveSpeed > 3 && PlayerDude.PlayerData)
 									{
 										target = next;
 										bFRIGHTENED = TRUE;

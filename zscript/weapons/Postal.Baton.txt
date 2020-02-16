@@ -70,6 +70,8 @@ class PostBaton : PostalWeapon
 				
 				if (LineData.HitType == TRACE_HitActor)
 				{
+					if (lineData.hitActor == null) return;
+					
 					if (lineData.HitActor is 'NPCHead')
 					{
 						A_PlaySound("weapons/baton_hit", 7 | 4096);
@@ -113,6 +115,8 @@ class PostBaton : PostalWeapon
 				
 				if (LineData.HitType == TRACE_HitActor)
 				{
+					if (lineData.hitActor == null) return;
+					
 					if (lineData.HitActor is 'NPCHead')
 					{
 						A_PlaySound("weapons/baton_hit", 7 | 4096);
