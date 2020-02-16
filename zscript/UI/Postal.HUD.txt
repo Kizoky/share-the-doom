@@ -60,6 +60,8 @@ class PostalStatusBar : BaseStatusBar
 		
 		PostalDude PPlayer = PostalDude(CPlayer.mo);
 		
+		if (PPlayer == null) return;
+		
 		//console.printf("%d %d", extraX, extraY);
 		
 		double PlayerHealth = CPlayer.mo.Health;
@@ -244,6 +246,8 @@ class PostalStatusBar : BaseStatusBar
 	protected void DrawMainBar (double TicFrac)
 	{
 		PostalDude PPlayer = PostalDude(CPlayer.mo);
+		
+		if (PPlayer == null) return;
 		
 		fullscreenOffsets = true;
 		
