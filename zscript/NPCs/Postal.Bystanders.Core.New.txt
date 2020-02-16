@@ -583,7 +583,10 @@ class NPCCore : PostalActor
 	See.Plan:
 		DUDE A 2
 		{
-			A_Star();
+			if (target)
+				A_Star();
+			else
+				SetStateLabel("Spawn");
 		}
 		Loop;
 	FireChase:
