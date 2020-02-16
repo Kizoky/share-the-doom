@@ -1,3 +1,5 @@
+// This was Share the Doom's old HUD before completely going over to ZScript
+
 height 0;
 //Resolution 150,150;
 
