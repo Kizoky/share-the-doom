@@ -25,34 +25,9 @@ clearepisodes
 //	name="Postal 2"
 //}
 
-episode DEVMAP
-{
-	name="Development level"
-}
-
-episode testdoor
-{
-	name="Door and Window test"
-}
-
-episode TESTPOST
-{
-	name="Cutscene test"
-}
-
-episode DEVMAP2
-{
-	name="Hexen hub test"
-}
-
-episode NODETEST
-{
-	name="Doom Builder flag test"
-}
-
 episode WORLD1
 {
-	name="Actual map(s) that will be used in the final version"
+	name="Share the Doom"
 }
 
 defaultmap
@@ -74,7 +49,6 @@ cluster 1
 map TITLEMAP "11011010101"
 {
 	sky1 = "zo_dusk1", 0.035
-
 }
 
 map DEVMAP "Whoever designed this was on serious crack"
