@@ -7,8 +7,6 @@ class PostGrenade : PostalWeapon
 	{
 		Super.Tick();
 		if (!owner) return;
-		Console.Printf("pitch: %d", owner.pitch);
-	
 	}
 	
 	Default

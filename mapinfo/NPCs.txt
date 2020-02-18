@@ -10,4 +10,6 @@ DoomEdNums
   29993 = Postal_Node
   29992 = Postal_TrainNode
   29991 = NPCZombie
+  29990 = PostalCar
+  29989 = Postal_CarNode
 }
