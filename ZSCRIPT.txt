@@ -104,7 +104,8 @@ version "4.2"
 
 //------------ Postal Train(s)
 
-#include "zscript/train/Postal.Train.txt"
+#include "zscript/Traffic/Postal.Train.txt"
+#include "zscript/Traffic/Postal.CarAI.txt"
 
 //------------- Debug stuff
 #include "zscript/RadiusDebug/RadiusDebug.zc" //made by Nash
