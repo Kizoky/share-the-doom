@@ -2,11 +2,11 @@
 
 IWad
 {
-	Name = "Postal 2: Share the Doom"
+	Name = "Postal: Share the Doom"
 	Autoname = "Postal"
 	Game = "Doom"
-	Config = "Postal"
-	Mapinfo = "mapinfo/doom2.txt"
 	MustContain = "PSTD"
 	BannerColors = "00 00 00", "aa 00 00"
+	StartupSong = "LOADING.ogg"
+	StartupType = "Hexen"
 }

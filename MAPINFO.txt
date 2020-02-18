@@ -13,17 +13,16 @@ gameinfo
 	menufontcolor_header = "RED"
 	menufontcolor_highlight = "RED"
 	menufontcolor_selection = "GREEN"
+	titlepage = "TITLEPIC"
+	creditpage = "CREDIT"
+	titlemusic = "$MUSIC_DM2TTL"
+	infopage = "HELP", "CREDIT"
 	
 	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit"
 	statusbarclass = "PostalStatusBar"
 }
 
 clearepisodes
-
-//episode MAP01
-//{
-//	name="Postal 2"
-//}
 
 episode WORLD1
 {
@@ -32,12 +31,12 @@ episode WORLD1
 
 episode MAP01
 {
-	name="Fallen into Void (mapXX)"
+	name="Fallen into Void"
 }
 
 episode E1M1
 {
-	name="Shattered Worldline (E1M1->E4M9)"
+	name="Shattered Worldline"
 }
 
 defaultmap
