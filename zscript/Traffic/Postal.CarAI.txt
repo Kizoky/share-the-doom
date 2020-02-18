@@ -54,7 +54,7 @@ class PostalCar : PostalActor
 			
 			A_Recoil(-0.45);
 			A_PlaySound("hl2train",0 | CHAN_NOSTOP);
-			for (double i = 0; i < 17; i += 0.05)
+			for (double i = 75; i < 100; i += 1)
 			{
 				if ((Distance2D(ActiveNode) <= i || Distance2D(ActiveNode) ~== i) && ActiveNode != null)
 				{
