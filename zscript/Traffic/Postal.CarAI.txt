@@ -41,16 +41,19 @@ class PostalCar : PostalActor
 		
 		if (ActiveNode != null)
 		{
-			if (abs (deltaangle (angle, AngleTo (ActiveNode))) < 7)
+			if (Distance2D(ActiveNode) >= 155)
 			{
-				angle = AngleTo (ActiveNode);
+				if (abs (deltaangle (angle, AngleTo (ActiveNode))) < 7)
+				{
+					angle = AngleTo (ActiveNode);
+				}
+				
+				if (((AngleTo (ActiveNode)) - angle + 360) % 360 < 180)
+				{	
+					A_SetAngle(angle+4, SPF_INTERPOLATE);
+				}
+				else A_SetAngle(angle-4, SPF_INTERPOLATE);
 			}
-			
-			if (((AngleTo (ActiveNode)) - angle + 360) % 360 < 180)
-			{	
-				A_SetAngle(angle+4, SPF_INTERPOLATE);
-			}
-			else A_SetAngle(angle-4, SPF_INTERPOLATE);
 			
 			A_Recoil(-0.45);
 			A_PlaySound("hl2train",0 | CHAN_NOSTOP);
