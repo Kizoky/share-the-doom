@@ -4,7 +4,7 @@ class PostalCar : PostalActor
 	{
 		//many thanks to phantombeta!!
 		double fov = 160; // this should be an argument, variable or constant instead, this is just here as an example
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 512); // The number here is (possibly roughly) the maximum distance they can see
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 756); // The number here is (possibly roughly) the maximum distance they can see
 		
 		while (it.Next ()) {
 				let next = it.Thing;
@@ -12,13 +12,7 @@ class PostalCar : PostalActor
 				
 				
 				if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
-				{
 					continue;
-				}
-				
-				
-				//if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
-				//	continue;
 				
 				if (invoker.ActiveNode == null)
 				{
@@ -33,7 +27,6 @@ class PostalCar : PostalActor
     }
 	
 	Actor ActiveNode;
-	int collisionAmount;
 	
 	override void Tick()
 	{
@@ -41,6 +34,19 @@ class PostalCar : PostalActor
 		
 		if (ActiveNode != null)
 		{
+			double i = -20;
+			while (i <= 20)
+			{
+				FLineTraceData lineData;
+				LineTrace(angle+i,250, 0, data: LineData);
+				
+				if (LineData.HitType == TRACE_HitActor)
+				{
+					return;
+				}
+				i++;
+			}
+			
 			if (Distance2D(ActiveNode) >= 155)
 			{
 				if (abs (deltaangle (angle, AngleTo (ActiveNode))) < 7)
@@ -57,9 +63,9 @@ class PostalCar : PostalActor
 			
 			A_Recoil(-0.45);
 			A_PlaySound("hl2train",0 | CHAN_NOSTOP);
-			for (double i = 75; i < 100; i += 1)
+			for (double j = 75; j < 100; j += 1)
 			{
-				if ((Distance2D(ActiveNode) <= i || Distance2D(ActiveNode) ~== i) && ActiveNode != null)
+				if ((Distance2D(ActiveNode) <= j || Distance2D(ActiveNode) ~== j) && ActiveNode != null)
 				{
 					double SavedAngle = angle;
 					
