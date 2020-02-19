@@ -530,3 +530,6 @@ grenade/pullpin sounds/grenade_pullpin.wav
 grenade/bounce sounds/grenade_bounce.wav
 grenade/explode sounds/grenade_explodeground.wav
 
+// traffic
+car/honk sounds/carhonk.wav
+car/engine sounds/carengine.wav

@@ -42,6 +42,7 @@ class PostalCar : PostalActor
 				
 				if (LineData.HitType == TRACE_HitActor)
 				{
+					A_StartSound("car/honk", 0 | CHAN_NOSTOP);
 					return;
 				}
 				i++;
@@ -62,7 +63,7 @@ class PostalCar : PostalActor
 			}
 			
 			A_Recoil(-0.45);
-			A_PlaySound("hl2train",0 | CHAN_NOSTOP);
+			A_StartSound("car/engine", 0 | CHAN_NOSTOP);
 			for (double j = 75; j < 100; j += 1)
 			{
 				if ((Distance2D(ActiveNode) <= j || Distance2D(ActiveNode) ~== j) && ActiveNode != null)
