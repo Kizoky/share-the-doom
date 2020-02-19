@@ -136,6 +136,9 @@ $random hitwall { hitwall1 hitwall2 }
 missp1 sounds/bullet_ricochet1.wav
 missp2 sounds/bullet_ricochet2.wav
 
+carengine sounds/carengine.ogg
+carhorn sounds/carhorn.wav
+
 $random missp { missp1 missp2 }
 
 doghit1 sounds/dog_hit1.wav
@@ -530,6 +533,3 @@ grenade/pullpin sounds/grenade_pullpin.wav
 grenade/bounce sounds/grenade_bounce.wav
 grenade/explode sounds/grenade_explodeground.wav
 
-// traffic
-car/honk sounds/carhonk.wav
-car/engine sounds/carengine.wav
