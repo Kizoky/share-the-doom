@@ -22,6 +22,9 @@ class Postal_Node : PostalActor
 	{
 		Super.Tick();
 		
+		if (SpawnedMark == true)
+			Destroy();
+		
 		if (NextNode == null)
 		{
 			DynamicIncrease += 25;
@@ -75,6 +78,8 @@ class Postal_Node : PostalActor
 	//It is sensitive to angle, so If you are placing them on a map make sure they are facing a node
 	action void A_SetNextNode()
 	{
+		if (invoker.SpawnedMark == true) return;
+		
 		//many thanks to phantombeta!!
 		double fov = 40; // this should be an argument, variable or constant instead, this is just here as an example
 		BlockThingsIterator it = BlockThingsIterator.Create (self, invoker.DynamicIncrease); // 1024
