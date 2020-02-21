@@ -292,6 +292,9 @@ class PostalDoor : Actor
 		A_PlaySound("door/kick", 0);
 		
 		// A simple check to detect if Door was hit in front or back
+		
+		if (source == null) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
 		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
 		{
 			FrontBack = false;
