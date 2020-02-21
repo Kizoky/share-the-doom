@@ -1,2 +1,2 @@
 @echo off
-for /r %%i in ("C:\Users\Administrator\Desktop\share-the-doom\models\props\textures") do (mogrify -flip %%i)
+for /r %%i in (*) do (mogrify -flip -format png %%i)
