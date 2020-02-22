@@ -1,3 +1,5 @@
+// The HUD can be removed just by taking this inventory from the Player.
+// This is only done this way because of ACS
 class HUDViewable : Inventory
 {
 	Default
@@ -6,112 +8,6 @@ class HUDViewable : Inventory
 		+Inventory.UNDROPPABLE;
 		-Inventory.INVBAR;
 	}
-}
-
-class PostalDude_Preload : PostalActor
-{	
-	Actor Owner;
-	
-	Actor One, Two, Three, Four;
-	
-	override void Tick()
-	{
-		Super.Tick();
-		
-		let p = PostalDude(Owner);
-		if (Owner)
-			SetOrigin(Owner.pos+(99999,99999,99999), TRUE);
-	
-	}
-	
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		let p = PostalDude(Owner);
-		
-		if (p.PreloadingDone != true)
-		{
-		/*
-			//Spawn the Dummy Dude
-			class<actor> PreloadOne = "DummyDude";
-			Actor Preload1 = spawn(PreloadOne, self.pos, ALLOW_REPLACE);
-			One = Preload1;
-			
-			//Spawn the Player itself
-			//class<actor> PreloadTwo = "PostalDude";
-			//Actor Preload2 = spawn(PreloadTwo, self.pos, ALLOW_REPLACE);
-			
-			//Spawn NPCCore
-			class<actor> PreloadThree = "NPCCore";
-			Actor Preload3 = spawn(PreloadThree, self.pos, ALLOW_REPLACE);
-			Preload3.SetStateLabel("Hostile.Pistol");
-			Preload3.SetStateLabel("Hostile.Shotgun");
-			Two = Preload3;
-			
-			//Spawn Krotchy
-			class<actor> PreloadFour = "NPCKrotchy";
-			Actor Preload4 = spawn(PreloadFour, self.pos, ALLOW_REPLACE);
-			Preload4.SetStateLabel("Hostile.Shotgun");
-			Four = Preload4;
-			
-			//Preload1.A_Remove(AAPTR_DEFAULT);
-			//Preload2.A_Remove(AAPTR_DEFAULT);
-			//Preload3.A_Remove(AAPTR_DEFAULT);
-			//Preload4.A_Remove(AAPTR_DEFAULT);
-			
-			SetStateLabel("Preload");
-			*/
-		
-		}
-		else
-			SetStateLabel("Death");
-		
-	}
-	
-	Default
-	{
-		Health 666;
-		Radius 15;
-		Height 10;
-		Speed 0;
-		PainChance 256;
-		//Monster;
-		-SOLID
-		-SHOOTABLE
-		DropItem "None";
-	}
-	States
-	{
-		Spawn:
-			TNT1 A 1;
-			Loop;
-		Preload:
-			TNT1 A 5;
-			TNT1 A 0
-			{
-			    Two.A_Remove(AAPTR_DEFAULT);
-				//Three.A_Remove(AAPTR_DEFAULT);
-				Four.A_Remove(AAPTR_DEFAULT);
-				One.SetStateLabel("Disappear");
-				
-				let p = PostalDude(Owner);
-				p.PreloadingDone = true;
-			}
-			 			 
-			Stop;
-		See:
-			TNT1 A 1 A_Look;
-			Goto Spawn;
-		Pain:
-			TNT1 A 1 A_Pain;
-			Goto Spawn;
-		Death:
-			Stop;
-		Melee:
-			Stop;
-		Missile:
-			Stop;
- }
 }
 
 class PostalDude_Data : Inventory
@@ -148,7 +44,7 @@ class PostalDude_Data : Inventory
 	bool P_GodMode, P_NoClip, P_NoTarget, P_Frightening;
 	
 	bool DudeLineTriggered;
-	int TimeBeforeDudeLine;
+	int TimeBeforeDudeLine, DudeLineCooldown;
 	
 	int IdlingTime;
 	vector3 IdlingPos;
@@ -255,6 +151,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	void A_TriggerDudeLine()
 	{
+		if (level.time < PlayerData.DudeLineCooldown)
+			return;
+		
+		int Chance = random(0,100);
+		
 		if (InitLine == true)
 		{
 			PlayerData.TimeBeforeDudeLine = level.time + 40;
@@ -263,11 +164,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 		
 		if (PlayerData.DudeLineTriggered == true && level.time > PlayerData.TimeBeforeDudeLine)
-		{
-			int Chance = random(0,100);
+		{		
 			if (Chance > 50)
 			{
-				A_PlaySound("dudekill", CHAN_VOICE | CHAN_UI, 1.0, false, ATTN_NONE);
+				A_StartSound("dudekill", CHAN_VOICE, CHANF_NOSTOP);
+				PlayerData.DudeLineCooldown = level.time + 35 * 5;
 			}
 			PlayerData.DudeLineTriggered = false;
 		}
@@ -288,15 +189,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	{
 		Super.PostBeginPlay();
 		DataInit();
-		
-		class<actor> PreloadActor = "PostalDude_Preload";
-		Actor Preload = spawn(PreloadActor, self.pos, ALLOW_REPLACE);
-		if (Preload)
-		{
-			//Preload.Angle = self.Angle;
-			let p = PostalDude_Preload(Preload);
-			p.Owner = self;
-		}
 		
 		Tip1 = "Tip: Want to die less? Just die less.";
 		Tip2 = "Tip: No tips for a loser who keeps dying.";
@@ -1048,15 +940,29 @@ class DummyDude : Actor
 
 extend class PostalDude
 {
+	int TimeBeforeNextPainLine;
+	
 	action void A_DudePain()
 	{
 		int LongChance = random(0,100);
 		
-			A_PlaySound("dudehurt",4 | 4096);
-			if (LongChance > 85)
-			{
-				A_PlaySound("dudelonghurt",5 | 4096);
-			}
+		if (level.time > invoker.TimeBeforeNextPainLine)
+		{
+			if (LongChance < 85)
+				invoker.TimeBeforeNextPainLine = level.time + 32;
+			else
+				invoker.TimeBeforeNextPainLine = level.time + 35 * 3;
+		}
+		else
+			return;
+		
+		if (LongChance > 85)
+		{
+			A_StartSound("dudelonghurt", CHAN_VOICE, CHANF_NOSTOP);
+			return;
+		}
+		
+		A_StartSound("dudehurt", CHAN_VOICE, CHANF_NOSTOP);
 			
 		//A_PlaySound("hitflesh",6);
 	}
