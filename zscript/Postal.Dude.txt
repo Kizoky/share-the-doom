@@ -543,8 +543,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		
 		// Idling
 		
-		
-		if (level.time > PlayerData.IdlingTime && PlayerData)
+		if (level.time > PlayerData.IdlingTime && PlayerData && level.mapname != "titlemap")
 		{
 			PlayerData.IdlingTime = level.time + 2100;
 				
@@ -569,7 +568,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				
 			PlayerData.IdlingPos = pos;
 		}
-		
 		
 		//Footstep code from Marisa's Doom Tournament
 		// edited a little bit to only make footsteps when running
@@ -654,34 +652,34 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	Default
 	{
-		//Species "Marines";
 		Player.DisplayName "Postal Dude";
-		Player.StartItem "PostHands";
-		//Player.StartItem "PostShovel";
 		Player.StartItem "PostUrethra";
-		Player.StartItem "PostClipboard";
+		Player.StartItem "PostHands";
+		
+		//Player.StartItem "PostShovel";
+		//Player.StartItem "PostClipboard";
 		//Player.StartItem "PostMachete";
 		//Player.StartItem "PostSledge";
-		Player.StartItem "PostPistol";
-		Player.StartItem "PostShotgun";
-		Player.StartItem "PostM16";
-		Player.StartItem "PostRLauncher";
+		//Player.StartItem "PostPistol";
+		//Player.StartItem "PostShotgun";
+		//Player.StartItem "PostM16";
+		//Player.StartItem "PostRLauncher";
 		//Player.StartItem "PostRifle";
 		//Player.StartItem "PostScythe";
-		Player.StartItem "PostGascan";
+		//Player.StartItem "PostGascan";
 		//Player.StartItem "PostBaton";
-		//Player.StartItem "PostCowhead";
+		Player.StartItem "PostCowhead";
 		//Player.StartItem "PostGrenade";
 		Player.StartItem "PostMatchbox";
-		//Player.StartItem "PostMolotov";
-		//Player.StartItem "PostNapalmLauncher";
+		Player.StartItem "PostMolotov";
+		Player.StartItem "PostNapalmLauncher";
 		//Player.StartItem "PostScissors";
 		//Player.StartItem "PostTazer";
-		//Player.StartItem "PostWMD";
-		Player.StartItem "PostDebug";
+		Player.StartItem "PostWMD";
+		//Player.StartItem "PostDebug";
 		Player.StartItem "Clip", 75;
 		Player.StartItem "HUDViewable", 1;
-		Player.StartItem "PostalCash", 113;
+		Player.StartItem "PostalCash", 26;
 		Player.StartItem "Piss", 20;
 		Player.Soundclass "PostalDude";
 		Player.WeaponSlot 0, "PostClipboard", "PostDebug";
