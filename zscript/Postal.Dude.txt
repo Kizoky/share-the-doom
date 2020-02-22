@@ -653,8 +653,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	Default
 	{
 		Player.DisplayName "Postal Dude";
-		Player.StartItem "PostUrethra";
+		//Note: These 3 weapons are essential, in a new game Postal Dude will always have these
+		//Removing these weapons (in a level or anything) might crash the game 
 		Player.StartItem "PostHands";
+		Player.StartItem "PostUrethra";
+		Player.StartItem "PostMatchbox";
 		
 		//Player.StartItem "PostShovel";
 		//Player.StartItem "PostClipboard";
@@ -670,7 +673,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		//Player.StartItem "PostBaton";
 		Player.StartItem "PostCowhead";
 		//Player.StartItem "PostGrenade";
-		Player.StartItem "PostMatchbox";
 		Player.StartItem "PostMolotov";
 		Player.StartItem "PostNapalmLauncher";
 		//Player.StartItem "PostScissors";

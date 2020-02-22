@@ -8,7 +8,7 @@ material texture "textures/weapons/dude_hands.png"
 
 // Baton
 
-material texture "textures/weapons/baton/baton_timb.tga" 
+material texture "textures/weapons/baton/baton_timb.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -22,36 +22,36 @@ material texture "textures/weapons/clipboard/clipboard_timb.png"
 
 // Cowhead
 
-material texture "textures/weapons/cowhead/CowHead_new.tga" 
+material texture "textures/weapons/cowhead/CowHead_new.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
 // Gascan
 
-material texture "textures/weapons/gascan/gas_can_label.tga" 
+material texture "textures/weapons/gascan/gas_can_label.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/gascan/gas_can_metal.tga" 
+material texture "textures/weapons/gascan/gas_can_metal.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/gascan/Matchbox.tga" 
+material texture "textures/weapons/gascan/Matchbox.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
 // Grenade
 
-material texture "textures/weapons/grenade/grenade3_timb.tga" 
+material texture "textures/weapons/grenade/grenade3_timb.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/grenade/jailbars.tga" 
+material texture "textures/weapons/grenade/jailbars.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -70,7 +70,7 @@ material texture "textures/weapons/machete/machete_2.png"
 
 // Machinegun
 
-material texture "textures/weapons/machinegun/brass-01_3.tga" 
+material texture "textures/weapons/machinegun/brass-01_3.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -82,7 +82,7 @@ material texture "textures/weapons/machinegun/m-16_timb.png"
 
 // Matchbox
 
-material texture "textures/weapons/matchbox/Matchbox_2.tga" 
+material texture "textures/weapons/matchbox/Matchbox_2.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -94,19 +94,19 @@ material texture "textures/weapons/molotov/molotov_glass2.png"
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/molotov/molotov_label3.tga" 
+material texture "textures/weapons/molotov/molotov_label3.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
 // Napalm Launcher
 
-material texture "textures/weapons/napalmlauncher/napalmCanister.tga" 
+material texture "textures/weapons/napalmlauncher/napalmCanister.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/napalmlauncher/napalmGun_JL.tga" 
+material texture "textures/weapons/napalmlauncher/napalmGun_JL.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -137,24 +137,24 @@ material texture "textures/weapons/rocketlauncher/launcher_timb2.png"
 
 // Scissors
 
-material texture "textures/weapons/scissors/scissors_timb.tga" 
+material texture "textures/weapons/scissors/scissors_timb.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
 // Scythe
 
-material texture "textures/weapons/scythe/ScytheBlade.tga" 
+material texture "textures/weapons/scythe/ScytheBlade.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/scythe/ScytheMetal.tga" 
+material texture "textures/weapons/scythe/ScytheMetal.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/scythe/Scythewood.tga" 
+material texture "textures/weapons/scythe/Scythewood.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -168,7 +168,7 @@ material texture "textures/weapons/shotgun/shotgun_timb.png"
 
 // Shovel
 
-material texture "textures/weapons/shovel/shovel_texture.tga" 
+material texture "textures/weapons/shovel/shovel_texture.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -187,12 +187,12 @@ material texture "textures/weapons/sledge/sledge_wood.png"
 
 // Hunting Rifle
 
-material texture "textures/weapons/sniper/brass-01_2.tga" 
+material texture "textures/weapons/sniper/brass-01_2.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
 
-material texture "textures/weapons/sniper/sniper_timb_2.tga" 
+material texture "textures/weapons/sniper/sniper_timb_2.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -206,7 +206,7 @@ material texture "textures/weapons/tazer/taser_timb.png"
 
 // WMD
 
-material texture "textures/weapons/WMD/WMD.tga" 
+material texture "textures/weapons/WMD/WMD.png" 
 {
     shader "shaders/simsun_wep.fp"
 }
@@ -227,7 +227,7 @@ material texture "models/misc/dude/DudeHead.png"
 
 // Cat and Dog
 
-material texture "models/animals/textures/Cat_Orange.tga" 
+material texture "models/animals/textures/Cat_Orange.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
@@ -251,17 +251,17 @@ material texture "models/Zombies/zombiehead.png"
 
 // Props
 
-material texture "models/props/textures/APC_timb.tga" 
+material texture "models/props/textures/APC_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/ATF_tank_timb.tga" 
+material texture "models/props/textures/ATF_tank_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/boombox.tga" 
+material texture "models/props/textures/boombox.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
@@ -271,37 +271,37 @@ material texture "models/props/textures/bush_bark_timb.png"
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/car_cop_cruiser2.tga" 
+material texture "models/props/textures/car_cop_cruiser2.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/car_copcar_new.tga" 
+material texture "models/props/textures/car_copcar_new.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/car_copcar_new_burnt.tga" 
+material texture "models/props/textures/car_copcar_new_burnt.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/car_copcar_security_vandalized_burnt.tga" 
+material texture "models/props/textures/car_copcar_security_vandalized_burnt.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/car_minivan_new_timb.tga" 
+material texture "models/props/textures/car_minivan_new_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/car_schoolbus_timb.tga" 
+material texture "models/props/textures/car_schoolbus_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/car_underbelly.tga" 
+material texture "models/props/textures/car_underbelly.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
@@ -311,7 +311,7 @@ material texture "models/props/textures/car_smocklar.png"
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/FeeOfA_ATM_new.tga" 
+material texture "models/props/textures/FeeOfA_ATM_new.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
@@ -321,117 +321,117 @@ material texture "models/props/textures/leaves3.png"
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/leaves666.tga" 
+material texture "models/props/textures/leaves666.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_blue.tga" 
+material texture "models/props/textures/minivan_blue.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_blue_burnt.tga" 
+material texture "models/props/textures/minivan_blue_burnt.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_brown.tga" 
+material texture "models/props/textures/minivan_brown.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_brown_burnt.tga" 
+material texture "models/props/textures/minivan_brown_burnt.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_gold.tga" 
+material texture "models/props/textures/minivan_gold.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_gold_burnt.tga" 
+material texture "models/props/textures/minivan_gold_burnt.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_green.tga" 
+material texture "models/props/textures/minivan_green.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_green_burnt.tga" 
+material texture "models/props/textures/minivan_green_burnt.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/minivan_white_burnt.tga" 
+material texture "models/props/textures/minivan_white_burnt.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/palm_bark_timb.tga" 
+material texture "models/props/textures/palm_bark_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/palm_branch_new.tga" 
+material texture "models/props/textures/palm_branch_new.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/palm_brush_timb.tga" 
+material texture "models/props/textures/palm_brush_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/palm_stick_timb.tga" 
+material texture "models/props/textures/palm_stick_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/palmfranz_timb.tga" 
+material texture "models/props/textures/palmfranz_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/palmtree_timb.tga" 
+material texture "models/props/textures/palmtree_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/pine_bark.tga" 
+material texture "models/props/textures/pine_bark.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/pine_timb.tga" 
+material texture "models/props/textures/pine_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/smocklar_blue.tga" 
+material texture "models/props/textures/smocklar_blue.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/smocklar_burnt_blue.tga" 
+material texture "models/props/textures/smocklar_burnt_blue.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/smocklar_burnt_cream.tga" 
+material texture "models/props/textures/smocklar_burnt_cream.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/smocklar_burnt_red.tga" 
+material texture "models/props/textures/smocklar_burnt_red.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/smocklar_burnt_silver.tga" 
+material texture "models/props/textures/smocklar_burnt_silver.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
@@ -446,12 +446,12 @@ material texture "models/props/textures/smocklar_engine.png"
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/smocklar_new_timb.tga" 
+material texture "models/props/textures/smocklar_new_timb.png" 
 {
     shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/textures/smocklar_red.tga" 
+material texture "models/props/textures/smocklar_red.png" 
 {
     shader "shaders/simsun_prop.fp"
 }

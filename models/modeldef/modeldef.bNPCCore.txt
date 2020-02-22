@@ -2,7 +2,7 @@ Model "TestDude"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithkrotchyanim.md3"
-	SurfaceSkin 0 0 "Dude.tga"
+	SurfaceSkin 0 0 "Dude.png"
 	SurfaceSkin 0 1 "DudeHead.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
@@ -143,8 +143,8 @@ Model "NPCCore"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithheadout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
-	SurfaceSkin 0 1 "DudeHead.tga"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -430,7 +430,7 @@ Model "NPCCore"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithheadout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
+	SurfaceSkin 0 0 "Dude.png"
 	SurfaceSkin 0 1 "invis.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
@@ -486,9 +486,9 @@ Model "NPCCore"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithpistolout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
-	SurfaceSkin 0 1 "DudeHead.tga"
-	SurfaceSkin 0 2 "desertEagle_256.tga"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
+	SurfaceSkin 0 2 "desertEagle_256.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -521,8 +521,8 @@ Model "NPCCore"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithshotgunout.md3"
-	SurfaceSkin 0 0 "DudeHead.tga"
-	SurfaceSkin 0 1 "Dude.tga"
+	SurfaceSkin 0 0 "DudeHead.png"
+	SurfaceSkin 0 1 "Dude.png"
 	Path "textures\weapons\shotgun"
 	SurfaceSkin 0 2 "shotgun_timb.png"
 	AngleOffset 270
@@ -561,8 +561,8 @@ Model "NPCCore"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithrocketlauncherout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
-	SurfaceSkin 0 1 "DudeHead.tga"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
 	Path "textures\weapons\rocketlauncher"
 	SurfaceSkin 0 2 "launcher_timb2.png"
 	SurfaceSkin 0 3 "launcher_NEW.png"
@@ -601,7 +601,7 @@ Model "DummyDude"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithheadout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
+	SurfaceSkin 0 0 "Dude.png"
 	SurfaceSkin 0 1 "DudeHead.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
@@ -736,10 +736,10 @@ Model "DummyDude"
 {
 	Path "models\misc\dude"
 	Model 0 "DudeSuicideInitout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
+	SurfaceSkin 0 0 "Dude.png"
 	SurfaceSkin 0 1 "DudeHead.png"
 	Path "textures\weapons\grenade"
-	SurfaceSkin 0 2 "grenade3_timb.tga"
+	SurfaceSkin 0 2 "grenade3_timb.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -796,10 +796,10 @@ Model "DummyDude"
 {
 	Path "models\misc\dude"
 	Model 0 "DudeSuicideMouthout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
+	SurfaceSkin 0 0 "Dude.png"
 	SurfaceSkin 0 1 "DudeHead.png"
 	Path "textures\weapons\grenade"
-	SurfaceSkin 0 2 "grenade3_timb.tga"
+	SurfaceSkin 0 2 "grenade3_timb.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -859,8 +859,8 @@ Model "NPCShop"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithheadout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
-	SurfaceSkin 0 1 "DudeHead.tga"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -1010,8 +1010,8 @@ Model "NPCPussy"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithheadout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
-	SurfaceSkin 0 1 "DudeHead.tga"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -1159,7 +1159,7 @@ Model "NPCPussy"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithheadout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
+	SurfaceSkin 0 0 "Dude.png"
 	SurfaceSkin 0 1 "invis.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
@@ -1215,9 +1215,9 @@ Model "NPCPussy"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithpistolout.md3"
-	SurfaceSkin 0 0 "Dude.tga"
-	SurfaceSkin 0 1 "DudeHead.tga"
-	SurfaceSkin 0 2 "desertEagle_256.tga"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
+	SurfaceSkin 0 2 "desertEagle_256.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -1250,8 +1250,8 @@ Model "NPCPussy"
 {
 	Path "models\misc\dude"
 	Model 0 "Dudewithshotgunout.md3"
-	SurfaceSkin 0 0 "DudeHead.tga"
-	SurfaceSkin 0 1 "Dude.tga"
+	SurfaceSkin 0 0 "DudeHead.png"
+	SurfaceSkin 0 1 "Dude.png"
 	Path "textures\weapons\shotgun"
 	SurfaceSkin 0 2 "shotgun_timb.png"
 	AngleOffset 270
