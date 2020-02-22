@@ -23,21 +23,9 @@ gameinfo
 	statusbarclass = "PostalStatusBar"
 }
 
-clearepisodes
-
 episode WORLD1
 {
 	name="Share the Doom"
-}
-
-episode MAP01
-{
-	name="Fallen into Void"
-}
-
-episode E1M1
-{
-	name="Shattered Worldline"
 }
 
 defaultmap
