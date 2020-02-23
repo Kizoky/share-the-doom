@@ -36,7 +36,7 @@ class NPCCore : PostalActor
 	
 	// GZDoom Builder stuff here
 	
-	bool user_isCamping;
+	bool user_StandingInOnePlace;
 	bool user_attacksplayeronsight;
 	string user_weapon;
 	
@@ -109,6 +109,8 @@ class NPCCore : PostalActor
 			
 			//Spawn Left and Right Arm
 			
+			/*
+			
 			int i = 1;
 			while (i <= 2)
 			{
@@ -148,6 +150,7 @@ class NPCCore : PostalActor
 				}
 				j++;
 			}
+			*/
 			
 		}
 		
@@ -215,6 +218,9 @@ class NPCCore : PostalActor
 		
 		NPC_Settings();
 		NPC_Obituaries();
+		
+		if (user_StandingInOnePlace)
+			SetStateLabel("Standing");
 		
 	}
 	
@@ -833,7 +839,11 @@ class NPCCore : PostalActor
 		Goto Spawn;
 	Standing:
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
-		Goto Spawn;
+		DUDE A 0
+		{
+			A_BystanderNode();
+		}
+		Loop;
 	DickOut:
 		DUDE A 0 A_PlaySound(NPC_Dickout,0 , 1.0, false, 1, false, MyVoice);
 		DUDE A 0 { vel.xy = (0,0); }

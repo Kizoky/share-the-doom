@@ -182,7 +182,7 @@ class NPCHead : PostalActor
  }
 }
 
-class NPCArm : NPCHead
+class NPCArm : PostalActor
 {
 	bool L;
 	
@@ -209,10 +209,51 @@ class NPCArm : NPCHead
 			Destroy();
 	}
 	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		let p = NPCCore(master);
+		
+		if (source == master)
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		if (source != master)
+		{
+			p.MyTarget = source;
+			p.target = source;
+		}
+		
+		Console.Printf("NPCCore health: %d", p.Health);
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
 	Default
 	{
 		Radius 13;
 		Height 22;
+		Health 25;
+		-SOLID
+		+SHOOTABLE
+	
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 1;
+			Loop;
+		Death:
+			TNT1 A 1
+			{
+				let p = NPCCore(master);
+				
+				if (!p) return;
+				
+				p.Hostility = "Pussy";
+				p.isAfterTarget = true;
+				p.SetStateLabel("PussyChase");
+			
+			}
+			Stop;
 	
 	}
 }
