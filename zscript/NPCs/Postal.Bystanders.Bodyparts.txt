@@ -127,17 +127,6 @@ class NPCHead : PostalActor
 			Health += damage;
 		}
 		
-		//Console.Printf("%d", damage);
-		
-		/*if (source is 'train01')
-		{
-			Thrust(20);
-			p.A_DamageSelf(p.Health);
-			//p.SetStateLabel("Headless.Death");
-			//SetStateLabel("Headless.Death");
-			
-		}*/
-		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
 	
@@ -191,4 +180,74 @@ class NPCHead : PostalActor
 		Missile:
 			Stop;
  }
+}
+
+class NPCArm : NPCHead
+{
+	bool L;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		let p = NPCCore(master);
+		if (master)
+		{
+			if (L)
+				A_Warp(AAPTR_MASTER,0,13,33,0, WARPF_NOCHECKPOSITION);
+			else
+				A_Warp(AAPTR_MASTER,0,-13,33,0, WARPF_NOCHECKPOSITION);
+			
+			if (p.bKILLED)
+				Destroy();
+				
+			target = null;
+			
+		}
+		
+		if (p is 'NPCKrotchy')
+			Destroy();
+	}
+	
+	Default
+	{
+		Radius 13;
+		Height 22;
+	
+	}
+}
+
+class NPCLeg : NPCHead
+{
+	bool L;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		let p = NPCCore(master);
+		if (master)
+		{
+			if (L)
+				A_Warp(AAPTR_MASTER,0,13,0,0, WARPF_NOCHECKPOSITION);
+			else
+				A_Warp(AAPTR_MASTER,0,-13,0,0, WARPF_NOCHECKPOSITION);
+			
+			if (p.bKILLED)
+				Destroy();
+				
+			target = null;
+			
+		}
+		
+		if (p is 'NPCKrotchy')
+			Destroy();
+	}
+	
+	Default
+	{
+		Radius 13;
+		Height 15;
+	
+	}
 }

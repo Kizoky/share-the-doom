@@ -94,10 +94,9 @@ class NPCCore : PostalActor
 		if (!(self is 'NPCKrotchy'))
 			MyVoice = frandom(0.7,1.2);
 		
-		//Spawn head hitbox
-		
 		if (!(self is 'NPCKrotchy'))
 		{
+			//Spawn head hitbox
 			class<actor> Head = "NPCHead";
 			Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
 			if (MyHead)
@@ -107,6 +106,49 @@ class NPCCore : PostalActor
 				if (p)
 					p.Owner = self;
 			}
+			
+			//Spawn Left and Right Arm
+			
+			int i = 1;
+			while (i <= 2)
+			{
+				class<actor> Arm = "NPCArm";
+				Actor MyArm = spawn(Arm, self.pos, ALLOW_REPLACE);
+				if (MyArm)
+				{
+					MyArm.Angle = self.Angle;
+					let p = NPCArm(MyArm);
+					if (p)
+					{
+						p.master = self;
+						if (i == 2)
+							p.L = true;
+					}
+				}
+				i++;
+			}
+			
+			//Spawn Left and Right Leg
+			
+			int j = 1;
+			while (j <= 2)
+			{
+				class<actor> Leg = "NPCLeg";
+				Actor MyLeg = spawn(Leg, self.pos, ALLOW_REPLACE);
+				if (MyLeg)
+				{
+					MyLeg.Angle = self.Angle;
+					let p = NPCLeg(MyLeg);
+					if (p)
+					{
+						p.master = self;
+						if (j == 2)
+							p.L = true;
+					}
+				}
+				j++;
+			}
+			
 		}
 		
 	}
@@ -437,7 +479,7 @@ class NPCCore : PostalActor
 		//$Sprite DUDEA0
 		//$Color 9
 		Health 150;
-		Radius 13;
+		Radius 12;
 		Height 65;
 		Speed 0;
 		PainChance 256;
