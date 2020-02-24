@@ -1100,3 +1100,16 @@ Model "PostalCar"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "taxicar"
+{
+	Path "models\props"
+	Model 0 "copcar2.md3"
+	SurfaceSkin 0 0 "textures/car_taxist_new.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}

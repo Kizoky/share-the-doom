@@ -422,3 +422,20 @@ class copcar_vandalized : Actor
 		Loop;
 	}
 }
+
+class taxicar : Actor
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Taxi Car"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

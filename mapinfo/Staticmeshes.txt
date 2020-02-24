@@ -88,4 +88,5 @@ DoomEdNums
   32688 = BillboardCustom5
   32687 = BillboardCustom6
   32686 = BillboardCustom7
+  32685 = taxicar
 }
