@@ -89,4 +89,7 @@ DoomEdNums
   32687 = BillboardCustom6
   32686 = BillboardCustom7
   32685 = taxicar
+  32684 = TreeLeafless1
+  32683 = TreeLeafless2
+  32682 = TreeLeafless3
 }

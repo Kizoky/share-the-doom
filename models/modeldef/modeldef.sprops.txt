@@ -1113,3 +1113,43 @@ Model "taxicar"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "TreeLeafless1"
+{
+	Path "models\props"
+	Model 0 "Tree1.md3"
+	SurfaceSkin 0 0 "textures/invis.png"
+	SurfaceSkin 0 1 "textures/tree_bark.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 -60 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+Model "TreeLeafless2"
+{
+	Path "models\props"
+	Model 0 "Tree2.md3"
+	SurfaceSkin 0 0 "textures/tree_bark.png"
+	SurfaceSkin 0 1 "textures/invis.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 -10 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+Model "TreeLeafless3"
+{
+	Path "models\props"
+	Model 0 "Tree3.md3"
+	SurfaceSkin 0 0 "textures/invis.png"
+	SurfaceSkin 0 1 "textures/tree_bark.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}

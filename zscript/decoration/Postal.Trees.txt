@@ -51,3 +51,57 @@ class Tree3 : Actor
 		Loop;
 	}
 }
+
+class TreeLeafless1 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 1 (Leafless)"
+		Radius 40;
+		Height 300;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class TreeLeafless2 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 2 (Leafless)"
+		Radius 15;
+		Height 150;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class TreeLeafless3 : Actor
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 3 (Leafless)"
+		Radius 40;
+		Height 325;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
