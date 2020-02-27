@@ -33,8 +33,19 @@ class PostalCar : PostalActor
 	{
 		Super.Tick();
 		
+		AlignToPlane(self, 0);
+		
+		// Here's a little lesson in trickery...
+		Vector3 norm = CurSector.floorPlane.normal;
+		if (!(norm ~== (0,0,1)))
+		{
+			bFLOORHUGGER = true;
+		}
+			else bFLOORHUGGER = false;
+		
 		if (ActiveNode != null)
 		{
+			target = ActiveNode;
 			double i = -20;
 			while (i <= 20)
 			{
@@ -73,7 +84,9 @@ class PostalCar : PostalActor
 			
 			for (double j = 75; j < 100; j += 1)
 			{
-				if ((Distance2D(ActiveNode) <= j || Distance2D(ActiveNode) ~== j) && ActiveNode != null)
+				if (ActiveNode == null) break;
+				
+				if ((Distance2D(ActiveNode) <= j || Distance2D(ActiveNode) ~== j))
 				{
 					double SavedAngle = angle;
 					
@@ -106,6 +119,11 @@ class PostalCar : PostalActor
 		Obituary "Next time %k should stop hugging cars";
 		+SOLID
 		+SPECTRAL
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+DROPOFF
+		+CANPASS
+		+SLIDESONWALLS
 		-NOBLOCKMAP
 	}
 	States

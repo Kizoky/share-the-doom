@@ -16,6 +16,89 @@ extend class PostalActor
 		"PostalGrenade"
 	};
 	
+	//===========================================================================
+   //
+   // AlignToPlane
+   // Original code written by ZZYZX
+   //
+   //===========================================================================
+ 
+    static void AlignToPlane(Actor a = null, double pitchAdjust = 0, bool ceiling = false, double adjustSpeed = 1.0)
+    {
+        if (!a) return;
+        double ceilingAdjust = 0;
+        Vector3 fnormal;
+        if (!ceiling)
+        {
+         fnormal = a.CurSector.FloorPlane.Normal;
+        }
+        else
+        {
+         fnormal = a.CurSector.CeilingPlane.Normal;
+         ceilingAdjust = 180.0;
+        }
+        Vector2 fnormalp1 = (fnormal.x != 0 || fnormal.y != 0) ? (fnormal.x, fnormal.y).Unit() : (0, 0);
+        Vector2 fnormalp2 = ((fnormal.x, fnormal.y).Length(), fnormal.z);
+        double dang = a.Angle;
+        double fang = atan2(fnormalp1.y, fnormalp1.x);
+        double fpitch = atan2(fnormalp2.x, fnormalp2.y);
+        double ddiff1 = sin(fang - (dang - pitchAdjust));
+        double ddiff2 = cos(fang - dang);
+ 
+        double pitchTarget = (fpitch * ddiff2 - pitchAdjust) + ceilingAdjust;
+        double rollTarget = -fpitch * ddiff1 + ceilingAdjust;
+        double angleTarget = dang + ceilingAdjust;
+ 
+        if(a.Pitch < pitchTarget)
+        {
+            a.Pitch += adjustSpeed;
+            if(a.Pitch > pitchTarget)
+            {
+                a.Pitch = pitchTarget;
+            }
+        }
+        else if(a.Pitch > pitchTarget)
+        {
+            a.Pitch -= adjustSpeed;
+            if(a.Pitch < pitchTarget)
+            {
+                a.Pitch = pitchTarget;
+            }
+        }
+        if(a.Roll < rollTarget)
+        {
+            a.Roll += adjustSpeed;
+            if(a.Roll > rollTarget)
+            {
+                a.Roll = rollTarget;
+            }
+        }
+        else if(a.Roll > rollTarget)
+        {
+            a.Roll -= adjustSpeed;
+            if(a.Roll < rollTarget)
+            {
+                a.Roll = rollTarget;
+            }
+        }
+        if(a.Angle < angleTarget)
+        {
+            a.Angle += adjustSpeed;
+            if(a.Angle > angleTarget)
+            {
+                a.Angle = angleTarget;
+            }
+        }
+        else if(a.Angle > angleTarget)
+        {
+            a.Angle -= adjustSpeed;
+            if(a.Angle < angleTarget)
+            {
+                a.Angle = angleTarget;
+            }
+        }
+    }
+	
 	NavMesh mesh;
     array<NavSector> path;
     Sector targetSector;
