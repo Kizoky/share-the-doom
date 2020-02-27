@@ -1097,6 +1097,7 @@ Model "PostalCar"
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
 	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
