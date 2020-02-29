@@ -38,6 +38,7 @@ class NPCCore : PostalActor
 	
 	bool user_StandingInOnePlace;
 	bool user_attacksplayeronsight;
+	bool user_corpse;
 	string user_weapon;
 	
 	//This changes obituary depending on what weapon the Bystander is carrying
@@ -221,6 +222,9 @@ class NPCCore : PostalActor
 		
 		if (user_StandingInOnePlace)
 			SetStateLabel("Standing");
+			
+		if (user_corpse)
+			A_DamageSelf(Health);
 		
 	}
 	
