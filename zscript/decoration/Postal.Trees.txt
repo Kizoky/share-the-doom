@@ -1,4 +1,4 @@
-class Tree1 : Actor
+class Tree1 : PostalDecoration
 {
 	Default
 	{
@@ -16,7 +16,7 @@ class Tree1 : Actor
 	}
 }
 
-class Tree2 : Actor
+class Tree2 : PostalDecoration
 {
 	Default
 	{
@@ -34,7 +34,7 @@ class Tree2 : Actor
 	}
 }
 
-class Tree3 : Actor
+class Tree3 : PostalDecoration
 {
 	Default
 	{
@@ -52,7 +52,7 @@ class Tree3 : Actor
 	}
 }
 
-class TreeLeafless1 : Actor
+class TreeLeafless1 : PostalDecoration
 {
 	Default
 	{
@@ -70,7 +70,7 @@ class TreeLeafless1 : Actor
 	}
 }
 
-class TreeLeafless2 : Actor
+class TreeLeafless2 : PostalDecoration
 {
 	Default
 	{
@@ -88,7 +88,7 @@ class TreeLeafless2 : Actor
 	}
 }
 
-class TreeLeafless3 : Actor
+class TreeLeafless3 : PostalDecoration
 {
 	Default
 	{

@@ -1,4 +1,4 @@
-class Doghouse : Actor
+class Doghouse : PostalDecoration
 {
 	Default
 	{
@@ -15,7 +15,7 @@ class Doghouse : Actor
 	}
 }
 
-class Workbench : Actor
+class Workbench : PostalDecoration
 {
 	Default
 	{
@@ -32,7 +32,7 @@ class Workbench : Actor
 	}
 }
 
-class TelephonePoleMD3 : Actor
+class TelephonePoleMD3 : PostalDecoration
 {
 	Default
 	{
@@ -49,7 +49,7 @@ class TelephonePoleMD3 : Actor
 	}
 }
 
-class Phonepole : Actor
+class Phonepole : PostalDecoration
 {
 	Default
 	{
@@ -67,7 +67,7 @@ class Phonepole : Actor
 	}
 }
 
-class PhonepoleOBJ : Actor
+class PhonepoleOBJ : PostalDecoration
 {
 	Default
 	{
@@ -82,7 +82,7 @@ class PhonepoleOBJ : Actor
 	}
 }
 
-class Billboard : Actor
+class Billboard : PostalDecoration
 {
 	Default
 	{
@@ -99,7 +99,7 @@ class Billboard : Actor
 	}
 }
 
-class Billboard2 : Actor
+class Billboard2 : PostalDecoration
 {
 	Default
 	{
@@ -116,7 +116,7 @@ class Billboard2 : Actor
 	}
 }
 
-class BillboardCustom : Actor
+class BillboardCustom : PostalDecoration
 {
 	Default
 	{
@@ -133,7 +133,7 @@ class BillboardCustom : Actor
 	}
 }
 
-class BillboardOBJ : Actor
+class BillboardOBJ : PostalDecoration
 {
 	Default
 	{
@@ -148,7 +148,7 @@ class BillboardOBJ : Actor
 	}
 }
 
-class fortyoz : Actor
+class fortyoz : PostalDecoration
 {
 	Default
 	{
@@ -163,7 +163,7 @@ class fortyoz : Actor
 	}
 }
 
-class sixtyninefine : Actor
+class sixtyninefine : PostalDecoration
 {
 	Default
 	{
@@ -178,7 +178,7 @@ class sixtyninefine : Actor
 	}
 }
 
-class ACunit : Actor
+class ACunit : PostalDecoration
 {
 	Default
 	{
@@ -193,7 +193,7 @@ class ACunit : Actor
 	}
 }
 
-class AngelDawn : Actor
+class AngelDawn : PostalDecoration
 {
 	Default
 	{
@@ -208,7 +208,7 @@ class AngelDawn : Actor
 	}
 }
 
-class APC : Actor
+class APC : PostalDecoration
 {
 	Default
 	{
@@ -225,7 +225,7 @@ class APC : Actor
 	}
 }
 
-class Tank : Actor
+class Tank : PostalDecoration
 {
 	Default
 	{
@@ -242,7 +242,7 @@ class Tank : Actor
 	}
 }
 
-class ATM : Actor
+class ATM : PostalDecoration
 {
 	Default
 	{
@@ -257,7 +257,7 @@ class ATM : Actor
 	}
 }
 
-class barrelcactus : Actor
+class barrelcactus : PostalDecoration
 {
 	Default
 	{
@@ -272,7 +272,7 @@ class barrelcactus : Actor
 	}
 }
 
-class barchair : Actor
+class barchair : PostalDecoration
 {
 	Default
 	{
@@ -287,7 +287,7 @@ class barchair : Actor
 	}
 }
 
-class basketballhoop : Actor
+class basketballhoop : PostalDecoration
 {
 	Default
 	{
@@ -302,7 +302,7 @@ class basketballhoop : Actor
 	}
 }
 
-class bathtubone : Actor
+class bathtubone : PostalDecoration
 {
 	Default
 	{
@@ -317,7 +317,7 @@ class bathtubone : Actor
 	}
 }
 
-class bathtubtwo : Actor
+class bathtubtwo : PostalDecoration
 {
 	Default
 	{
@@ -332,7 +332,7 @@ class bathtubtwo : Actor
 	}
 }
 
-class bedone : Actor
+class bedone : PostalDecoration
 {
 	Default
 	{
@@ -347,7 +347,7 @@ class bedone : Actor
 	}
 }
 
-class bedtwo : Actor
+class bedtwo : PostalDecoration
 {
 	Default
 	{
@@ -362,24 +362,7 @@ class bedtwo : Actor
 	}
 }
 
-class bewareofdog : Actor
-{
-	Default
-	{
-		Radius 5;
-		Height 56;
-		+FLOAT;
-		+NOGRAVITY;
-	}
-	States
-	{
-	Spawn:
-		PROP A 10;
-		Loop;
-	}
-}
-
-class bewareofdogtwo : Actor
+class bewareofdog : PostalDecoration
 {
 	Default
 	{
@@ -396,7 +379,24 @@ class bewareofdogtwo : Actor
 	}
 }
 
-class bondagechair : Actor
+class bewareofdogtwo : PostalDecoration
+{
+	Default
+	{
+		Radius 5;
+		Height 56;
+		+FLOAT;
+		+NOGRAVITY;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class bondagechair : PostalDecoration
 {
 	Default
 	{
@@ -411,7 +411,7 @@ class bondagechair : Actor
 	}
 }
 
-class bookcase : Actor
+class bookcase : PostalDecoration
 {
 	Default
 	{
@@ -426,7 +426,7 @@ class bookcase : Actor
 	}
 }
 
-class bookcasetwo : Actor
+class bookcasetwo : PostalDecoration
 {
 	Default
 	{
@@ -441,7 +441,7 @@ class bookcasetwo : Actor
 	}
 }
 
-class bookcaselibrary : Actor
+class bookcaselibrary : PostalDecoration
 {
 	Default
 	{
@@ -456,7 +456,7 @@ class bookcaselibrary : Actor
 	}
 }
 
-class boombox : Actor
+class boombox : PostalDecoration
 {
 	Default
 	{
@@ -471,7 +471,7 @@ class boombox : Actor
 	}
 }
 
-class bosschair : Actor
+class bosschair : PostalDecoration
 {
 	Default
 	{
@@ -486,7 +486,7 @@ class bosschair : Actor
 	}
 }
 
-class bulldozer : Actor
+class bulldozer : PostalDecoration
 {
 	Default
 	{
@@ -503,7 +503,7 @@ class bulldozer : Actor
 	}
 }
 
-class bureau : Actor
+class bureau : PostalDecoration
 {
 	Default
 	{
@@ -518,7 +518,7 @@ class bureau : Actor
 	}
 }
 
-class bush666 : Actor
+class bush666 : PostalDecoration
 {
 	Default
 	{
@@ -535,7 +535,7 @@ class bush666 : Actor
 	}
 }
 
-class nastyfence : Actor
+class nastyfence : PostalDecoration
 {
 	Default
 	{
@@ -554,7 +554,7 @@ class nastyfence : Actor
 	}
 }
 
-class roof_two : Actor
+class roof_two : PostalDecoration
 {
 	Default
 	{
@@ -577,7 +577,7 @@ class roof_two : Actor
 	}
 }
 
-class roof_tri : Actor
+class roof_tri : PostalDecoration
 {
 	Default
 	{
@@ -600,7 +600,7 @@ class roof_tri : Actor
 	}
 }
 
-class storeshelf_one : Actor
+class storeshelf_one : PostalDecoration
 {
 	Default
 	{
@@ -619,7 +619,7 @@ class storeshelf_one : Actor
 	}
 }
 
-class storeshelf_two : Actor
+class storeshelf_two : PostalDecoration
 {
 	Default
 	{
@@ -638,7 +638,7 @@ class storeshelf_two : Actor
 	}
 }
 
-class storeshelf_three : Actor
+class storeshelf_three : PostalDecoration
 {
 	Default
 	{
@@ -657,7 +657,7 @@ class storeshelf_three : Actor
 	}
 }
 
-class WJIDude : Actor
+class WJIDude : PostalDecoration
 {
 	Default
 	{
@@ -676,7 +676,7 @@ class WJIDude : Actor
 	}
 }
 
-class PalmTree1 : Actor
+class PalmTree1 : PostalDecoration
 {
 	Default
 	{
@@ -695,7 +695,7 @@ class PalmTree1 : Actor
 	}
 }
 
-class PalmTree2 : Actor
+class PalmTree2 : PostalDecoration
 {
 	Default
 	{
@@ -714,7 +714,7 @@ class PalmTree2 : Actor
 	}
 }
 
-class UmbrellaPlant : Actor
+class UmbrellaPlant : PostalDecoration
 {
 	Default
 	{
@@ -733,7 +733,7 @@ class UmbrellaPlant : Actor
 	}
 }
 
-class BillboardCustom2 : Actor
+class BillboardCustom2 : PostalDecoration
 {
 	Default
 	{
@@ -752,7 +752,7 @@ class BillboardCustom2 : Actor
 	}
 }
 
-class BillboardCustom3 : Actor
+class BillboardCustom3 : PostalDecoration
 {
 	Default
 	{
@@ -771,7 +771,7 @@ class BillboardCustom3 : Actor
 	}
 }
 
-class BillboardCustom4 : Actor
+class BillboardCustom4 : PostalDecoration
 {
 	Default
 	{
@@ -790,7 +790,7 @@ class BillboardCustom4 : Actor
 	}
 }
 
-class BillboardCustom5 : Actor
+class BillboardCustom5 : PostalDecoration
 {
 	Default
 	{
@@ -809,7 +809,7 @@ class BillboardCustom5 : Actor
 	}
 }
 
-class BillboardCustom6 : Actor
+class BillboardCustom6 : PostalDecoration
 {
 	Default
 	{
@@ -828,7 +828,7 @@ class BillboardCustom6 : Actor
 	}
 }
 
-class BillboardCustom7 : Actor
+class BillboardCustom7 : PostalDecoration
 {
 	Default
 	{

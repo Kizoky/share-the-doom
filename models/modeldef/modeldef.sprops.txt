@@ -7,6 +7,8 @@ Model "DudeCar"
 	AngleOffset -270
 	Scale -0.50 -0.50 0.50
 	Offset 0.0 6.5 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -20,6 +22,8 @@ Model "DudeTrailer"
 	AngleOffset 180
 	Scale -0.70 -0.50 0.50
 	Offset 0.0 6.5 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -34,6 +38,8 @@ Model "Workbench"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0.0 6.5 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -48,6 +54,8 @@ Model "Tree1"
 	AngleOffset 90
 	Scale -1.50 -1.50 1.50
 	Offset 0.0 6.5 -60 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -61,6 +69,8 @@ Model "Tree2"
 	AngleOffset 90
 	Scale -1.50 -1.50 1.50
 	Offset 0.0 6.5 -10 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -74,6 +84,8 @@ Model "Tree3"
 	AngleOffset 90
 	Scale -1.50 -1.50 1.50
 	Offset 0.0 6.5 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -87,6 +99,8 @@ Model "Doghouse"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0.0 6.5 27 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -102,6 +116,8 @@ Model "TelephonePoleMD3"
 	AngleOffset 90
 	Scale -1.00 -1.00 1.00
 	Offset 0.0 6.5 -3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -118,6 +134,8 @@ Model "Phonepole"
 	AngleOffset 0
 	Scale -1.50 -1.50 1.50
 	Offset 0.0 6.5 -3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -134,6 +152,8 @@ Model "Billboard"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -150,6 +170,8 @@ Model "Billboard2"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -166,6 +188,8 @@ Model "BillboardCustom"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -184,6 +208,8 @@ Model "fortyoz"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 9 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -199,6 +225,8 @@ Model "sixtyninefine"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 35 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -212,6 +240,8 @@ Model "ACunit"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 9 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -225,6 +255,8 @@ Model "AngelDawn"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -238,6 +270,8 @@ Model "APC"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -251,6 +285,8 @@ Model "Tank"
 	AngleOffset 180
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -264,6 +300,8 @@ Model "ATM"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset -5 0 -1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -278,6 +316,8 @@ Model "barrelcactus"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset -5 0 -1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -291,6 +331,8 @@ Model "barchair"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset -5 0 -1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -305,6 +347,8 @@ Model "basketballhoop"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset -5 0 48 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -321,6 +365,8 @@ Model "bathtubone"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 7 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -337,6 +383,8 @@ Model "bathtubtwo"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 20 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -354,6 +402,8 @@ Model "bedone"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 -3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -370,6 +420,8 @@ Model "bedtwo"
 	AngleOffset 180
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 -3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -383,6 +435,8 @@ Model "bewareofdog"
 	AngleOffset 180
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -396,6 +450,8 @@ Model "bewareofdogtwo"
 	AngleOffset 180
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -411,6 +467,8 @@ Model "bondagechair"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 40 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -424,6 +482,8 @@ Model "bookcase"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 33 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -438,6 +498,8 @@ Model "bookcasetwo"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 33 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -451,6 +513,8 @@ Model "bookcaselibrary"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 -3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -464,6 +528,8 @@ Model "boombox"
 	AngleOffset 0
 	Scale -0.25 -0.25 0.25
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -478,6 +544,8 @@ Model "bosschair"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 15 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -491,6 +559,8 @@ Model "bulldozer"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 15 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -509,6 +579,8 @@ Model "bureau"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 37 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -522,6 +594,8 @@ Model "bush666"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 -2 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -535,6 +609,8 @@ Model "minivan_BLUE"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -548,6 +624,8 @@ Model "minivan_GOLD"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -561,6 +639,8 @@ Model "minivan_GREEN"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -574,6 +654,8 @@ Model "minivanBurnt_BLUE"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -587,6 +669,8 @@ Model "minivanBurnt_GOLD"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -600,6 +684,8 @@ Model "minivanBurnt_GREEN"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -613,6 +699,8 @@ Model "minivanBurnt_WHITE"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -626,6 +714,8 @@ Model "minivanBurnt_BROWN"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -639,6 +729,8 @@ Model "minivan_WHITE"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -652,6 +744,8 @@ Model "minivan_BROWN"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -666,6 +760,8 @@ Model "schoolbus"
 	AngleOffset 0
 	Scale -1.00 -1.00 1.00
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -680,6 +776,8 @@ Model "train01"
 	AngleOffset 90
 	Scale -1.00 -1.00 1.00
 	Offset 0 0 93 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -693,6 +791,8 @@ Model "smocklar_Cream"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -706,6 +806,8 @@ Model "smocklar_Silver"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -719,6 +821,8 @@ Model "smocklar_Blue"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -732,6 +836,8 @@ Model "smocklar_Red"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -745,6 +851,8 @@ Model "smocklar_Cream_Wrecked"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -758,6 +866,8 @@ Model "smocklar_Silver_Wrecked"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -771,6 +881,8 @@ Model "smocklar_Blue_Wrecked"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -784,6 +896,8 @@ Model "smocklar_Red_Wrecked"
 	AngleOffset 90
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -797,6 +911,8 @@ Model "copcar_cruiser"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -810,6 +926,8 @@ Model "copcar"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -823,6 +941,8 @@ Model "copcar_burnt"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -836,6 +956,8 @@ Model "copcar_vandalized"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -850,6 +972,8 @@ Model "nastyfence"
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
 	Offset 40 0 -3 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -866,6 +990,8 @@ Model "roof_two"
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
 	Offset 0 0 -75 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -880,6 +1006,8 @@ Model "roof_tri"
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
 	Offset 0 0 -75 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -896,6 +1024,8 @@ Model "storeshelf_one"
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -911,6 +1041,8 @@ Model "storeshelf_two"
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -927,6 +1059,8 @@ Model "storeshelf_three"
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -948,6 +1082,8 @@ Model "WJIDude"
 	USEACTORPITCH
 	Scale -1.15 -1.15 1.15
 	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -961,6 +1097,8 @@ Model "PalmTree1"
 	USEACTORPITCH
 	Scale -0.75 -0.75 0.75
 	Offset 40 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -974,6 +1112,8 @@ Model "PalmTree2"
 	USEACTORPITCH
 	Scale -0.75 -0.75 0.75
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -987,6 +1127,8 @@ Model "UmbrellaPlant"
 	USEACTORPITCH
 	Scale -0.75 -0.75 0.75
 	Offset -10 -10 35 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1003,6 +1145,8 @@ Model "BillboardCustom2"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1019,6 +1163,8 @@ Model "BillboardCustom3"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1035,6 +1181,8 @@ Model "BillboardCustom4"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1051,6 +1199,8 @@ Model "BillboardCustom5"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1067,6 +1217,8 @@ Model "BillboardCustom6"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1083,6 +1235,8 @@ Model "BillboardCustom7"
 	AngleOffset -180
 	Scale -0.90 -0.90 0.90
 	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1111,6 +1265,8 @@ Model "taxicar"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1125,6 +1281,8 @@ Model "TreeLeafless1"
 	AngleOffset 90
 	Scale -1.50 -1.50 1.50
 	Offset 0.0 6.5 -60 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1138,6 +1296,8 @@ Model "TreeLeafless2"
 	AngleOffset 90
 	Scale -1.50 -1.50 1.50
 	Offset 0.0 6.5 -10 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	
@@ -1151,6 +1311,8 @@ Model "TreeLeafless3"
 	AngleOffset 90
 	Scale -1.50 -1.50 1.50
 	Offset 0.0 6.5 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
 	
 	FrameIndex PROP A 0 0
 	

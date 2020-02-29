@@ -1,4 +1,4 @@
-class DudeCar : Actor
+class DudeCar : PostalDecoration
 {
 	Default
 	{
@@ -15,7 +15,7 @@ class DudeCar : Actor
 	}
 }
 
-class DudeTrailer : Actor
+class DudeTrailer : PostalDecoration
 {
 	Default
 	{
@@ -32,7 +32,7 @@ class DudeTrailer : Actor
 	}
 }
 
-class minivan_BLUE : Actor
+class minivan_BLUE : PostalDecoration
 {
 	Default
 	{
@@ -49,7 +49,7 @@ class minivan_BLUE : Actor
 	}
 }
 
-class minivan_GOLD : Actor
+class minivan_GOLD : PostalDecoration
 {
 	Default
 	{
@@ -66,7 +66,7 @@ class minivan_GOLD : Actor
 	}
 }
 
-class minivan_GREEN : Actor
+class minivan_GREEN : PostalDecoration
 {
 	Default
 	{
@@ -83,7 +83,7 @@ class minivan_GREEN : Actor
 	}
 }
 
-class minivan_BROWN : Actor
+class minivan_BROWN : PostalDecoration
 {
 	Default
 	{
@@ -100,7 +100,7 @@ class minivan_BROWN : Actor
 	}
 }
 
-class minivan_WHITE : Actor
+class minivan_WHITE : PostalDecoration
 {
 	Default
 	{
@@ -117,7 +117,7 @@ class minivan_WHITE : Actor
 	}
 }
 
-class minivanBurnt_BLUE : Actor
+class minivanBurnt_BLUE : PostalDecoration
 {
 	Default
 	{
@@ -134,7 +134,7 @@ class minivanBurnt_BLUE : Actor
 	}
 }
 
-class minivanBurnt_GOLD : Actor
+class minivanBurnt_GOLD : PostalDecoration
 {
 	Default
 	{
@@ -151,7 +151,7 @@ class minivanBurnt_GOLD : Actor
 	}
 }
 
-class minivanBurnt_GREEN : Actor
+class minivanBurnt_GREEN : PostalDecoration
 {
 	Default
 	{
@@ -168,7 +168,7 @@ class minivanBurnt_GREEN : Actor
 	}
 }
 
-class minivanBurnt_WHITE : Actor
+class minivanBurnt_WHITE : PostalDecoration
 {
 	Default
 	{
@@ -185,7 +185,7 @@ class minivanBurnt_WHITE : Actor
 	}
 }
 
-class minivanBurnt_BROWN : Actor
+class minivanBurnt_BROWN : PostalDecoration
 {
 	Default
 	{
@@ -202,7 +202,7 @@ class minivanBurnt_BROWN : Actor
 	}
 }
 
-class schoolbus : Actor
+class schoolbus : PostalDecoration
 {
 	Default
 	{
@@ -219,7 +219,7 @@ class schoolbus : Actor
 	}
 }
 
-class smocklar_Blue_Wrecked : Actor
+class smocklar_Blue_Wrecked : PostalDecoration
 {
 	Default
 	{
@@ -236,7 +236,7 @@ class smocklar_Blue_Wrecked : Actor
 	}
 }
 
-class smocklar_Blue : Actor
+class smocklar_Blue : PostalDecoration
 {
 	Default
 	{
@@ -253,7 +253,7 @@ class smocklar_Blue : Actor
 	}
 }
 
-class smocklar_Red : Actor
+class smocklar_Red : PostalDecoration
 {
 	Default
 	{
@@ -270,7 +270,7 @@ class smocklar_Red : Actor
 	}
 }
 
-class smocklar_Red_Wrecked : Actor
+class smocklar_Red_Wrecked : PostalDecoration
 {
 	Default
 	{
@@ -287,7 +287,7 @@ class smocklar_Red_Wrecked : Actor
 	}
 }
 
-class smocklar_Silver : Actor
+class smocklar_Silver : PostalDecoration
 {
 	Default
 	{
@@ -304,7 +304,7 @@ class smocklar_Silver : Actor
 	}
 }
 
-class smocklar_Silver_Wrecked : Actor
+class smocklar_Silver_Wrecked : PostalDecoration
 {
 	Default
 	{
@@ -321,7 +321,7 @@ class smocklar_Silver_Wrecked : Actor
 	}
 }
 
-class smocklar_Cream : Actor
+class smocklar_Cream : PostalDecoration
 {
 	Default
 	{
@@ -338,7 +338,7 @@ class smocklar_Cream : Actor
 	}
 }
 
-class smocklar_Cream_Wrecked : Actor
+class smocklar_Cream_Wrecked : PostalDecoration
 {
 	Default
 	{
@@ -355,7 +355,7 @@ class smocklar_Cream_Wrecked : Actor
 	}
 }
 
-class copcar : Actor
+class copcar : PostalDecoration
 {
 	Default
 	{
@@ -372,7 +372,7 @@ class copcar : Actor
 	}
 }
 
-class copcar_cruiser : Actor
+class copcar_cruiser : PostalDecoration
 {
 	Default
 	{
@@ -389,7 +389,7 @@ class copcar_cruiser : Actor
 	}
 }
 
-class copcar_burnt : Actor
+class copcar_burnt : PostalDecoration
 {
 	Default
 	{
@@ -406,7 +406,7 @@ class copcar_burnt : Actor
 	}
 }
 
-class copcar_vandalized : Actor
+class copcar_vandalized : PostalDecoration
 {
 	Default
 	{
@@ -423,7 +423,7 @@ class copcar_vandalized : Actor
 	}
 }
 
-class taxicar : Actor
+class taxicar : PostalDecoration
 {
 	Default
 	{
