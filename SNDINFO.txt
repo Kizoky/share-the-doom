@@ -338,6 +338,12 @@ male1/hurt1 sounds/wm_aahimhit.wav
 male1/hurt2 sounds/wm_aghk.wav
 male1/hurt3 sounds/wm_argh.wav
 
+
+male1/death1 sounds/wm_cop_aah.wav
+male1/death2 sounds/wm_cop_argh.wav
+
+$random male1/death { male1/death1 male1/death2 }
+
 $random male1/hurt { male1/hurt1 male1/hurt2 male1/hurt3 }
 
 male1/scream1 sounds/wm_scream1.wav
