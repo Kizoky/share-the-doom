@@ -492,8 +492,8 @@ class NPCCore : PostalActor
 		Monster;
 		SeeSound "";
 		AttackSound "weapons/pistol";
-		PainSound "dudehurt";
-		DeathSound "dudehurt16";
+		PainSound "male1/hurt";
+		DeathSound "male1/death";
 		ActiveSound "";
 		Obituary "%o was somehow got killed by a Bystander. What, how is that possible??";
 		DropItem "None";
