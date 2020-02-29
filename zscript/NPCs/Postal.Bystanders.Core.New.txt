@@ -345,13 +345,13 @@ class NPCCore : PostalActor
 				A_PostalTarget();
 				A_ConcentratedTarget();
 				A_Recoil(-0.55);
-				A_Chase2();
+				A_Chase();
 				break;
 			case 2:
 				A_PostalTarget();
 				A_ConcentratedTarget();
 				A_Recoil(-0.55);
-				A_Chase2();
+				A_Chase();
 				break;
 		}
 	}

@@ -515,9 +515,9 @@ extend class PostalActor
         }
 
         // Possibly attack target
-        if (target.bShootable && isHostile(target))
+        if (target)
         {
-            A_Chase(meleeState, rangedState, CHF_DONTMOVE);
+            A_Chase(null, "Missile", CHF_DONTMOVE);
         }
     }
 	
