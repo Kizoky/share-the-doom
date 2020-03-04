@@ -98,6 +98,7 @@ class NPCHead : PostalActor
 				let t = PostalDude(source);
 				if (t)
 				{
+					t.InitLine = true;
 					if ((t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) || t.Player.ReadyWeapon == Weapon(t.FindInventory("PostSledge"))) && Distance2D(source) < 85)
 					{
 						A_PlaySound("misc/gibbed",0);
