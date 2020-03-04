@@ -1480,6 +1480,11 @@ extend class NPCCore
 						}
 					}
 					
+					if (next is 'PostalActor')
+					{
+						let pa = PostalActor(next);
+						if (pa.STD_NeverTarget == true && pa) return;
+					}
 					
 					if (next.bIsMonster && !(next.bKILLED) && !(next is 'NPCCore') && !(next is 'Champ') && !(next is 'PostalCatInv') && !(next is 'PostalLiquidGas') && !(next is 'PostalFire') && !(next is 'PouringGas') 
 					&& !(next is 'RandomPostalFire') && !(next is 'FireParticleBottom') && !(next is 'FireSmokeUp') && !(next is 'PostalDoor') && !(next is 'PostalDoor_Extender'))

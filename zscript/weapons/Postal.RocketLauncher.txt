@@ -244,6 +244,9 @@ class PostalRocket : PostalActor
 			BleepTime = level.time + (35 * 3);
 		}
 		PitchDown = 0;
+		
+		STD_NoKillLine = true;
+		STD_NeverTarget = true;
 	}
 	
 	override void Tick()
@@ -464,6 +467,9 @@ Class PostalSmokeTrail : PostalActor
 			SetStateLabel("Variant2");
 		if (spawn == 2)
 			SetStateLabel("Variant3");
+			
+		STD_NeverTarget = true;
+		STD_NoKillLine = true;
     }
 	
 	override void Tick()
@@ -524,6 +530,9 @@ Class PostalFireTrail : PostalActor
 		roll = frandom(-180,180);
 		
 		Scale = (randomScale.x,randomScale.y);
+		
+		STD_NeverTarget = true;
+		STD_NoKillLine = true;
     }
 	
 	override void Tick()

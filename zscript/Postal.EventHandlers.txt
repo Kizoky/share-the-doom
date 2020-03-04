@@ -205,7 +205,12 @@ class DudeCoreHandler : EventHandler
 				if (e.Thing.target == p)
 				{
 					if (p != null && !(p.bKILLED))
+					{
+						let pa = PostalActor(e.Thing);
+						if (pa && pa.STD_NoKillLine) return;
+						
 						p.InitLine = true;
+					}
 				}
 			}
 			//else if (e.Thing == PostalDude(e.Inflictor))

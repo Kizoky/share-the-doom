@@ -155,7 +155,7 @@ class PostGrenade : PostalWeapon
 	}
 }
 
-class PostalGrenade : Actor
+class PostalGrenade : PostalActor
 {
 	Actor SavedBouncePos, Owner;
 	bool Armed, Minesweeper, SoundPlayed;
@@ -167,6 +167,9 @@ class PostalGrenade : Actor
 		
 		// Spawn initially a last bounce spot, obviously just to stop the Grenade to arm immediately
 		SavedBouncePos = spawn("PostalGrenadeHelper", pos);
+		
+		STD_NeverTarget = true;
+		STD_NoKillLine = true;
 		
 		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
 	}
@@ -382,6 +385,9 @@ Class PostalGrenadeTrail : PostalActor
 		randomScale.y = randomScale.x;
 		
 		Scale = (randomScale.x, randomScale.y);
+		
+		STD_NeverTarget = true;
+		STD_NoKillLine = true;
     }
 	
 	override void Tick()

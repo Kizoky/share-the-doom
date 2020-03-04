@@ -1,4 +1,7 @@
-class PostalActor : Actor { }
+class PostalActor : Actor 
+{
+	bool STD_NeverTarget, STD_NoKillLine;
+}
 class PostalDecoration : Actor { }
 class PostalInventory : Inventory { }
 

@@ -106,6 +106,15 @@ class PostalCar : PostalActor
 	
 	}
 	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		STD_NeverTarget = true;
+		STD_NoKillLine = true;
+	
+	}
+	
 	Default
 	{
 		//$Category Traffic
