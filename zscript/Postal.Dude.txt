@@ -205,12 +205,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		A_TriggerDudeLine();
 		CheckForNonPostalWeapons();
 		
-		//Console.Printf("%d", AmountofLiquid.Size());
-		
 		// Disables Doom's falling bob
 		player.deltaviewheight = ViewHeight;
-		
-		//if(instatesequence(curstate, findstate("Pain") ) ) {isinPain = true;}else{isinPain = false;}
 		
 		// Removes Doom physics from the Player
 		// As in physics, think of that "sliding" when you no longer press movement keys
@@ -233,9 +229,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				PlayerData.RunningStop = true;
 			}
 		}
-		//let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
-		//Check if we are dead, and we aren't suiciding
 		
+		// Check if we are dead, and we aren't suiciding
 		if (self.Health < 1 && PlayerData.Suicide != true)
 		{
 			if (DummyCorpseSpawned != true)
@@ -244,7 +239,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					return;
 					
 				DummyCorpseSpawned = true;
-					
 					
 				//Take the inventory just once
 				
@@ -277,35 +271,16 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				JumpZ = 0;
 				GenerateTip();
 			}
+			
 			A_Print(ChosenTip);
 		}
-			//If the Player resurrected themselves, take away the Camera
-			//Give him back the HUD, and destroy the Corpse
-			
-			/*
-			if (self.Health > 1)
-			{
-				let p = FindInventory("CameraRunner");
-					if (p && DummyCorpse != null)
-					{
-						A_TakeInventory("CameraRunner", 1);
-						A_GiveInventory("HUDViewable", 1);
-						DummyCorpse.Destroy();
-						DummyCorpseSpawned = false;
-						JumpZ = Default.JumpZ;
-						A_Print("Cheater");
-					}
-			}
-			*/
-		//8 is the maximum number which will fill the Badge, going over 8 will draw a nice long red line you don't want
 		
+		// 8 is the maximum number which will fill the Badge, going over 8 will draw a nice long red line you don't want
 		if (PunishPoints > 8)
 			PunishPoints = 8;
 		
-		//Console.Printf("CooldownTime: %d", PlayerData.CooldownTime);
-		//Console.Printf("Level time: %d", level.time);
-		
-		//Check if we were naughty, note that the cooldown stuff is in ResetPunishment() found in PostalDude
+		// Check if we were naughty, note that the cooldown stuff is in ResetPunishment() found in PostalDude
+		// Continously decreases wanted meter after a period of time if no Cop saw the Player
 		if (level.time > PlayerData.CooldownTime && ResetDoneByCop == true && PlayerData)
 		{
 			PunishPoints -= 0.01;
@@ -318,103 +293,99 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			}
 		}
 		
-		//Health pipe
-		
-			if (PlayerData.PipeSmoked == true && PlayerData.Suicide != true && PlayerData)
+		// Health pipe
+		// Too many if elses?
+		if (PlayerData.PipeSmoked == true && PlayerData.Suicide != true && PlayerData)
+		{
+			//Count to 3 seconds
+			if (PlayerData.SmokeInhale != true)
 			{
-				//Count to 3 seconds
-				if (PlayerData.SmokeInhale != true)
-				{
-					A_PlaySound("smoke/exhale", CHAN_WEAPON | CHAN_UI, 2.0, false, ATTN_NONE);
-					PlayerData.InHaleCount = level.time + (35 * 3);
-					PlayerData.SmokeInhale = true;
-				}
-				
-				//Start the whole counting, if level's time is more than InHaleCount, set Health
-				//and start the counting
-				if (level.time > PlayerData.InHaleCount && PlayerData.SmokeFinished != true)
-				{
-					A_PlaySound("dudeline10", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
-					A_SetHealth(125);
-					A_TakeInventory("PostalCrackPipe", 1);
-					PlayerData.SmokeFinished = true;
-				}
-				
-				if (PlayerData.SmokeFinished == true)
-				{
-					//Store the current time of the level we are in
-					//This won't change if the player decides to go into an another level
-					if (PlayerData.InitPipeTimeCheck != true)
-					{
-						PlayerData.InitPipeTime = level.time;
-						PlayerData.InitPipeTimeCheck = true;
-					}
-					
-					// Set the PipeDuration's time to the level we are currently in
-					// Again, this will never trigger anymore unless the Pipe Duration exceeds 14k ticks
-					if (PlayerData.InitPipeValue != true)
-					{
-						PlayerData.PipeDuration = level.time - 1;
-						PlayerData.InitPipeValue = true;
-					}
-					
-					// Add 14k ticks to InitPipeTime and add it to the PipeTimeStatic variable
-					// And just like again what has been said above
-					if (PlayerData.SavedLevelTimePipe != true)
-					{
-						PlayerData.PipeTimeStatic = (PlayerData.InitPipeTime + (35 * 400)); //in Postal 2 the addiction kicks after 400 seconds (that's 14000 ticks)
-						PlayerData.SavedLevelTimePipe = true;
-					}
-					
-					
-					
-					// If PipeDuration exceeds more than +14000 ticks, do this
-					if (PlayerData.PipeDuration > PlayerData.PipeTimeStatic && PlayerData.FirstWarning != true)
-					{
-						A_PlaySound("player/healthpipewarning", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
-						PlayerData.FirstWarning = true;
-					}
-					
-					//Let's assume the second warning kicks after 60 seconds
-					if (PlayerData.PipeDuration > (PlayerData.PipeTimeStatic + (35 * 60)) && PlayerData.SecondWarning != true)
-					{
-						A_PlaySound("player/healthpipewarning", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
-						PlayerData.SecondWarning = true;
-					}
-					
-					//And finally the hurt
-					if (PlayerData.PipeDuration > (PlayerData.PipeTimeStatic + (35 * 120)))
-					{
-						PlayerData.SmokePain = true;
-						Console.Printf("You are starting to feel worse... Take some Health pipe!");
-						A_PlaySound("player/healthpipehurt", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
-						PlayerData.PipeSmoked = false;
-						PlayerData.SavedLevelTimePipe = false;
-						PlayerData.InitPipeValue = false;
-						PlayerData.InitPipeTimeCheck = false;
-						PlayerData.SmokeInhale = false;
-						PlayerData.SmokeFinished = false;
-						PlayerData.PipeDuration = 0;
-						PlayerData.FirstWarning = false;
-						PlayerData.SecondWarning = false;
-						//25% of Health always
-						A_DamageSelf((Player.Health / 100) * 25);
-					}
-					//Send help. Too many bool checks.
-					
-					// Add 1 every ticks (35 ticks == 1 second)
-					PlayerData.PipeDuration += 1;
-					
-					//Console.Printf("Health Pipe Duration: %d", PipeDuration);
-					//Console.Printf("Required time for First warning: %d (400 seconds)",PipeTimeStatic);
-					//Console.Printf("Second warning: %d (60 seconds)",PipeTimeStatic + (35 * 10));
-					//Console.Printf("Health pipe my ass: %d (60 seconds)",PipeTimeStatic + (35 * 20));
-				}
-			
+				A_PlaySound("smoke/exhale", CHAN_WEAPON | CHAN_UI, 2.0, false, ATTN_NONE);
+				PlayerData.InHaleCount = level.time + (35 * 3);
+				PlayerData.SmokeInhale = true;
 			}
+			
+			//Start the whole counting, if level's time is more than InHaleCount, set Health
+			//and start the counting
+			if (level.time > PlayerData.InHaleCount && PlayerData.SmokeFinished != true)
+			{
+				A_PlaySound("dudeline10", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+				A_SetHealth(125);
+				A_TakeInventory("PostalCrackPipe", 1);
+				PlayerData.SmokeFinished = true;
+			}
+			
+			if (PlayerData.SmokeFinished == true)
+			{
+				//Store the current time of the level we are in
+				//This won't change if the player decides to go into an another level
+				if (PlayerData.InitPipeTimeCheck != true)
+				{
+					PlayerData.InitPipeTime = level.time;
+					PlayerData.InitPipeTimeCheck = true;
+				}
+				
+				// Set the PipeDuration's time to the level we are currently in
+				// Again, this will never trigger anymore unless the Pipe Duration exceeds 14k ticks
+				if (PlayerData.InitPipeValue != true)
+				{
+					PlayerData.PipeDuration = level.time - 1;
+					PlayerData.InitPipeValue = true;
+				}
+				
+				// Add 14k ticks to InitPipeTime and add it to the PipeTimeStatic variable
+				// And just like again what has been said above
+				if (PlayerData.SavedLevelTimePipe != true)
+				{
+					PlayerData.PipeTimeStatic = (PlayerData.InitPipeTime + (35 * 400)); //in Postal 2 the addiction kicks after 400 seconds (that's 14000 ticks)
+					PlayerData.SavedLevelTimePipe = true;
+				}
+				
+				// If PipeDuration exceeds more than +14000 ticks, do this
+				if (PlayerData.PipeDuration > PlayerData.PipeTimeStatic && PlayerData.FirstWarning != true)
+				{
+					A_PlaySound("player/healthpipewarning", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+					PlayerData.FirstWarning = true;
+				}
+				
+				//Let's assume the second warning kicks after 60 seconds
+				if (PlayerData.PipeDuration > (PlayerData.PipeTimeStatic + (35 * 60)) && PlayerData.SecondWarning != true)
+				{
+					A_PlaySound("player/healthpipewarning", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+					PlayerData.SecondWarning = true;
+				}
+				
+				//And finally the hurt
+				if (PlayerData.PipeDuration > (PlayerData.PipeTimeStatic + (35 * 120)))
+				{
+					PlayerData.SmokePain = true;
+					Console.Printf("You are starting to feel worse... Take some Health pipe!");
+					A_PlaySound("player/healthpipehurt", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+					PlayerData.PipeSmoked = false;
+					PlayerData.SavedLevelTimePipe = false;
+					PlayerData.InitPipeValue = false;
+					PlayerData.InitPipeTimeCheck = false;
+					PlayerData.SmokeInhale = false;
+					PlayerData.SmokeFinished = false;
+					PlayerData.PipeDuration = 0;
+					PlayerData.FirstWarning = false;
+					PlayerData.SecondWarning = false;
+					//25% of Health always
+					A_DamageSelf((Player.Health / 100) * 25);
+				}
+				
+				// Add 1 every ticks (35 ticks == 1 second)
+				PlayerData.PipeDuration += 1;
+				
+				//Console.Printf("Health Pipe Duration: %d", PipeDuration);
+				//Console.Printf("Required time for First warning: %d (400 seconds)",PipeTimeStatic);
+				//Console.Printf("Second warning: %d (60 seconds)",PipeTimeStatic + (35 * 10));
+				//Console.Printf("Health pipe my ass: %d (60 seconds)",PipeTimeStatic + (35 * 20));
+			}
+		}
 		
 		// Catnip
-		
+		// I guess I don't have to say this is ugly as hell.
 		if (PlayerData.CatnipInProgress == true && PlayerData)
 		{
 				if (PlayerData.CatnipInhale != true)
@@ -486,7 +457,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		
 		//Disable bobbing when walking
 		//Note: this variable is also used by the Cat's AI to check the Player if it's walking or running
-		
 		if (PlayerData)
 			PlayerData.MoveSpeed = vel.xy.Length();
 			
@@ -495,8 +465,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		else
 			ViewBob = default.ViewBob; //might come in handy in the future: GetDefaultsByType (<class>)
 			
-		//Suicide
-		
+		// Suicide
 		if (PlayerData.Suicide == True && PlayerData)
 		{
 			if (PlayerData.SpawnedOnce == false)
@@ -508,7 +477,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				A_SuicideDude();
 					
 				SetStateLabel("Invis");
-				Console.MidPrint ("INDEXFONT_DOOM","Press fire to end it all.");
 				A_TakeInventory("HUDViewable",1);
 				bDONTTHRUST = true;
 				A_Print("Press fire to end your pitiful life.");
@@ -518,7 +486,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 		
 		// Kicking
-		
 		if (Kick == true)
 			A_GiveInventory("PostKick", 1);
 		
@@ -550,35 +517,40 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			PlayerData.IdlingPos = pos;
 		}
 		
-		//Footstep code from Marisa's Doom Tournament
+		//	Footstep code from Marisa's Doom Tournament
 		// edited a little bit to only make footsteps when running
 		
 			if (PlayerData.MoveSpeed > 3 && PlayerData)
 			{
 				bool forcefootstep = false;
-				//TICRATE
 				double ang = level.time/(20*8.4/35.)*360.;
 				
 				if (player.health != 0)
 				{
-				if ( player.onground && !bNoGravity && !PlayerData.lastground && (waterlevel < 3))
-				{
-					player.jumptics = 0;
-					if ( PlayerData.lastvelz < -20 )
+					if ( player.onground && !bNoGravity && !PlayerData.lastground && (waterlevel < 3))
 					{
-						double vol = clamp((-PlayerData.lastvelz-8)*0.05,0.01,1.0);
-						if ( ((waterlevel > 0) || GetFloorTerrain().IsLiquid) && !bOnMobj ) A_PlaySound("",CHAN_AUTO,vol);
-						else A_PlaySound("footstep",CHAN_AUTO,vol);
+						player.jumptics = 0;
+						if ( PlayerData.lastvelz < -20 )
+						{
+							double vol = clamp((-PlayerData.lastvelz-8)*0.05,0.01,1.0);
+							if ( ((waterlevel > 0) || GetFloorTerrain().IsLiquid) && !bOnMobj )
+								A_PlaySound("",CHAN_AUTO,vol);
+							else
+								A_PlaySound("footstep",CHAN_AUTO,vol);
+						}
+						else forcefootstep = true;
 					}
-					else forcefootstep = true;
-				}
-				if ( forcefootstep || ((abs(sin(ang)) >= 1.0) && player.onground && PlayerData.lastground && (player.jumptics == 0) && (player.cmd.forwardmove || player.cmd.sidemove) && (waterlevel < 3)) )
-				{
-					double vol = abs(vel.xy.length())*0.20;
-					if ( forcefootstep ) vol = clamp(-PlayerData.lastvelz*0.10,0.01,1.0);
-					if ( (waterlevel > 0) || GetFloorTerrain().IsLiquid && !bOnMobj ) A_PlaySound("",CHAN_6,vol);
-					else A_PlaySound("footstep",CHAN_6,vol);
-				}
+					
+					if ( forcefootstep || ((abs(sin(ang)) >= 1.0) && player.onground && PlayerData.lastground &&
+					(player.jumptics == 0) && (player.cmd.forwardmove || player.cmd.sidemove) && (waterlevel < 3)) )
+					{
+						double vol = abs(vel.xy.length())*0.20;
+						if ( forcefootstep ) 
+							vol = clamp(-PlayerData.lastvelz*0.10,0.01,1.0);
+						if ( (waterlevel > 0) || GetFloorTerrain().IsLiquid && !bOnMobj ) 
+							A_PlaySound("",CHAN_6,vol);
+						else A_PlaySound("footstep",CHAN_6,vol);
+					}
 				}
 				
 				PlayerData.lastground = player.onground;
@@ -586,7 +558,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				PlayerData.prevvelz = vel.z;
 			}
 			
-		//Zombie's Autoaim disabler
+		// Zombie's Autoaim disabler
 		
 			if(player.readyWeapon && !player.readyWeapon.default.bNOAUTOAIM)
 			{
