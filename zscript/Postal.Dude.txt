@@ -74,14 +74,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	PostalDude_Data PlayerData;
 	bool Kick, Map;
 	bool isinPain;
-	bool PreloadingDone;
 	bool isDead, DummyCorpseSpawned;
 	bool scndSuicide;
 	bool isonFire;
 	bool MissileOnce;
 	Actor MyAnnoyingFire;
-	
-	bool DeltaTouchTweak;
 	
 	Actor DummyCorpse;
 	
@@ -93,47 +90,14 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	double PunishPoints;
 	bool ResetDoneByCop;
 	
-	string Tip1, Tip2, Tip3, Tip4, Tip5, Tip6, Tip7, Tip8, Tip9, Tip10;
 	string ChosenTip;
-	
-	int bobtest;
-	
-	Array<Actor> AmountofLiquid;
 	
 	bool InitLine;
 	
 	bool Suicided;
 	
-	virtual void CheckEpisode()
-	{
-		string CurrentEpisode = level.mapname.Left(2);
-	}
-	
-	virtual void PD_Pain()
-	{
-		if (PlayerData.isinPainCooldown < level.time)
-		{
-			isinPain = false;
-		}
-		else
-			PlayerData.isinPainAlpha += 0.01;
-			
-	}
-	
-	virtual void ResetPunishment()
-	{
-		PlayerData.CooldownTime = level.time + (35 * 15);
-		ResetDoneByCop = true;
-	}
-	
-	void A_SuicideHelper()
-	{
-		if (PlayerData.Suicide == true)
-		{
-			PlayerData.Suicide = false;
-		}
-	}
-	
+	//Initial function for giving the Data inventory to the player.
+	//According to phantombeta if these are stored in the PlayerPawn the information will get lost eventually.
 	void DataInit()
 	{
 		if (!player || player.mo != self)
@@ -149,6 +113,38 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 	}
 	
+	//These strings are printed onto the screen if the Player died.
+	static const string TipList[] =
+	{
+		"Tip: Want to die less? Just die less.",
+		"Tip: No tips for a loser who keeps dying.",
+		"Tip: Imagine dodging bullets! Yeah, just dodge them you fool!",
+		"Tip: Catharsis feels so far away yet so reborn.",
+		"Tip: Piss off your foes more often. Not just literally."
+	};
+	
+	//I needed a function to access it within ZScript HUD, probably not needed so I will investigate later
+	virtual void PD_Pain()
+	{
+		if (PlayerData.isinPainCooldown < level.time)
+		{
+			isinPain = false;
+		}
+		else
+			PlayerData.isinPainAlpha += 0.01;
+			
+	}
+	
+	//This function is called by NPCCop when hurt by the player.
+	//It makes the Wanted meter wider
+	virtual void ResetPunishment()
+	{
+		PlayerData.CooldownTime = level.time + (35 * 15);
+		ResetDoneByCop = true;
+	}
+	
+	//This function triggers killing spree lines.
+	//Called by an EventHandler
 	void A_TriggerDudeLine()
 	{
 		if (level.time < PlayerData.DudeLineCooldown)
@@ -172,35 +168,20 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			}
 			PlayerData.DudeLineTriggered = false;
 		}
-	
 	}
 	
-	virtual void ResetTip()
+	//On Death a random tip message will display.
+	//todo: add more tips + try reading the situation via blockthingsiterator
+	void GenerateTip()
 	{
-		int RandomizedTip = random(1,5);
-		if (RandomizedTip == 1) ChosenTip = Tip1;
-		if (RandomizedTip == 2) ChosenTip = Tip2;
-		if (RandomizedTip == 3) ChosenTip = Tip3;
-		if (RandomizedTip == 4) ChosenTip = Tip4;
-		if (RandomizedTip == 5) ChosenTip = Tip5;
+		int i = random(0,TipList.Size()-1);
+		ChosenTip = TipList[i];
 	}
 	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
 		DataInit();
-		
-		Tip1 = "Tip: Want to die less? Just die less.";
-		Tip2 = "Tip: No tips for a loser who keeps dying.";
-		Tip3 = "Tip: Imagine dodging bullets! Yeah, just dodge them you fool!";
-		Tip4 = "Tip: Catharsis feels so far away yet so reborn.";
-		Tip5 = "Tip: Piss off your foes more often. Not just literally.";
-		
-		cvar deltatouchcvar = cvar.findcvar('postal_deltatouch');
-		bool deltatouch = (deltatouchcvar != null && deltatouchcvar.GetBool ());
-			
-		if (deltatouch)
-			DeltaTouchTweak = true;
 			
 		cvar developercvar = cvar.findcvar('postal_developer');
 		bool developer = (developercvar != null && developercvar.GetBool ());
@@ -294,9 +275,9 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				}
 				
 				JumpZ = 0;
-				ResetTip();
+				GenerateTip();
 			}
-			//A_Print(ChosenTip);
+			A_Print(ChosenTip);
 		}
 			//If the Player resurrected themselves, take away the Camera
 			//Give him back the HUD, and destroy the Corpse

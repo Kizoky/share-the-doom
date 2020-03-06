@@ -1,28 +1,5 @@
 class PostGascan : PostalWeapon
 {
-	action void A_SpawnLiquid(class<actor> Liquid = "PostalLiquidGas")
-	{
-		
-		Actor LiquidGas;
-		// Spawn the corpse with as the variable above, 
-		// the second argument will spawn it with the actor's position + replacing it
-		LiquidGas = spawn(Liquid, self.pos, ALLOW_REPLACE);
-		
-		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
-		// but make sure to check it's not null or else GZDoom will crash
-		if (LiquidGas)
-		{
-			let dd = PostalLiquidGas(LiquidGas);
-			
-			let PlayerDude = PostalDude(invoker.Owner);
-			
-			if (PlayerDude == null) return;
-			
-			PlayerDude.AmountofLiquid.push(dd);
-		}
-		
-	}
-	
 	Default
 	{
 		//$Category STD Weapons

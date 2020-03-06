@@ -292,7 +292,9 @@ extend class PostalDude
 			
 			A_GiveInventory("CameraRunner", 1);
 			A_TakeInventory("HUDViewable",1);
-			A_SuicideHelper();
+			
+			if (PlayerDude.PlayerData && PlayerDude.PlayerData.Suicide)
+				PlayerDude.PlayerData.Suicide = false;
 			
 			if ((player.cmd.buttons & BT_USE ||
 			((deathmatch || alwaysapplydmflags) && sv_forcerespawn)) && !sv_norespawn)
