@@ -550,12 +550,12 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	{
 		int LongChance = random(0,100);
 		
-		if (level.time > invoker.TimeBeforeNextPainLine)
+		if (level.time > TimeBeforeNextPainLine)
 		{
 			if (LongChance < 85)
-				invoker.TimeBeforeNextPainLine = level.time + 32;
+				TimeBeforeNextPainLine = level.time + 32;
 			else
-				invoker.TimeBeforeNextPainLine = level.time + 35 * 3;
+				TimeBeforeNextPainLine = level.time + 35 * 3;
 		}
 		else
 			return;
@@ -577,7 +577,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		Actor DummyDude;
 		// Spawn the corpse with as the variable above, 
 		// the second argument will spawn it with the actor's position + replacing it
-		if (invoker.PlayerData.Suicide == true && invoker.PlayerData)
+		if (PlayerData.Suicide == true && PlayerData)
 			DummyDude = spawn(dummy, self.pos, ALLOW_REPLACE);
 		
 		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
@@ -662,7 +662,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				let next = it.Thing;
 				
 				if (next is 'NPCCore' && next)
-					invoker.IdlingTarget = next;
+					IdlingTarget = next;
 			}
     }
 	
