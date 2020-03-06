@@ -96,6 +96,9 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	bool Suicided;
 	
+	// This variable shouldn't really matter much being here
+	int TimeBeforeNextPainLine;
+	
 	//Initial function for giving the Data inventory to the player.
 	//According to phantombeta if these are stored in the PlayerPawn the information will get lost eventually.
 	void DataInit()
@@ -178,40 +181,14 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		ChosenTip = TipList[i];
 	}
 	
-	override void PostBeginPlay()
+	// Removes (or atleast tries to) Doom bobbing
+	// This includes falling bob
+	void DoomDeletus()
 	{
-		Super.PostBeginPlay();
-		DataInit();
-			
-		cvar developercvar = cvar.findcvar('postal_developer');
-		bool developer = (developercvar != null && developercvar.GetBool ());
-		
-		if (developer && !multiplayer)
-		{
-			Speed = 12;
-			Health = 666;
-			JumpZ = 20;
-		}
-		
-	}
-	
-	override void Tick()
-	{
-		Super.Tick();
-		if ( !player || (player.mo != self) ) return;
-		
-		CheatDetector();
-		PD_Pain();
-		A_TriggerDudeLine();
-		CheckForNonPostalWeapons();
-		
 		// Disables Doom's falling bob
 		player.deltaviewheight = ViewHeight;
 		
-		// Removes Doom physics from the Player
-		// As in physics, think of that "sliding" when you no longer press movement keys
 		// There's a slight delay before completely stopping the Player, just like in Postal 2
-		// For Delta Touch this can be disabled if you move at a snail's speed
 		UserCmd cmd = player.cmd;
 		if (!(GetPlayerInput(INPUT_FORWARDMOVE)) && !(GetPlayerInput(INPUT_SIDEMOVE)) && !(player.cmd.buttons & BT_JUMP) && player.onground)
 		{	
@@ -230,7 +207,21 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			}
 		}
 		
-		// Check if we are dead, and we aren't suiciding
+		// Disable bobbing when walking
+		// Note: this variable is also used by the Cat's AI to check the Player if it's walking or running
+		if (PlayerData)
+			PlayerData.MoveSpeed = vel.xy.Length();
+			
+		if (PlayerData.MoveSpeed < 3 && PlayerData)
+			ViewBob = 0;
+		else
+			ViewBob = default.ViewBob; //might come in handy in the future: GetDefaultsByType (<class>)
+	}
+	
+	// Checks every tick if Player is dead and spawns a dummy version of the Player (also prints a tip)
+	// Only reason is because Chasecam2 sets it's angle to match with the Player's angle
+	void DeathCheck()
+	{
 		if (self.Health < 1 && PlayerData.Suicide != true)
 		{
 			if (DummyCorpseSpawned != true)
@@ -240,14 +231,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					
 				DummyCorpseSpawned = true;
 					
-				//Take the inventory just once
+				if (DummyCorpse != null)
+					return;
 				
 				// Spawn the corpse with as the variable above, 
 				// the second argument will spawn it with the actor's position + replacing it
-				
-				if (DummyCorpse != null)
-					return;
-					
 				class<actor> dummy = "DummyDude";
 				DummyCorpse = spawn(dummy, self.pos);
 				
@@ -274,12 +262,16 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			
 			A_Print(ChosenTip);
 		}
-		
+	}
+	
+	// Wanted-related checks
+	void WantedSystem()
+	{
 		// 8 is the maximum number which will fill the Badge, going over 8 will draw a nice long red line you don't want
 		if (PunishPoints > 8)
 			PunishPoints = 8;
-		
-		// Check if we were naughty, note that the cooldown stuff is in ResetPunishment() found in PostalDude
+			
+		// Check if we were naughty, note that the cooldown stuff is in ResetPunishment()
 		// Continously decreases wanted meter after a period of time if no Cop saw the Player
 		if (level.time > PlayerData.CooldownTime && ResetDoneByCop == true && PlayerData)
 		{
@@ -292,8 +284,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				PunishPoints = 0;
 			}
 		}
-		
-		// Health pipe
+	}
+	
+	// Health Pipe
+	void HealthPipeTick()
+	{
 		// Too many if elses?
 		if (PlayerData.PipeSmoked == true && PlayerData.Suicide != true && PlayerData)
 		{
@@ -383,18 +378,21 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				//Console.Printf("Health pipe my ass: %d (60 seconds)",PipeTimeStatic + (35 * 20));
 			}
 		}
-		
-		// Catnip
+	}
+	
+	// Catnip
+	void CatnipTick()
+	{
 		// I guess I don't have to say this is ugly as hell.
 		if (PlayerData.CatnipInProgress == true && PlayerData)
 		{
-				if (PlayerData.CatnipInhale != true)
-				{
-					A_PlaySound("smoke/exhale", CHAN_WEAPON | CHAN_UI, 2.0, false, ATTN_NONE);
-					PlayerData.CatnipCountdown = level.time + (35 * 3);
-					//CatnipTimeContinousSecond = -5;
-					PlayerData.CatnipInhale = true;		
-				}
+			if (PlayerData.CatnipInhale != true)
+			{
+				A_PlaySound("smoke/exhale", CHAN_WEAPON | CHAN_UI, 2.0, false, ATTN_NONE);
+				PlayerData.CatnipCountdown = level.time + (35 * 3);
+				//CatnipTimeContinousSecond = -5;
+				PlayerData.CatnipInhale = true;		
+			}
 			
 			if (level.time > PlayerData.CatnipCountdown && PlayerData.CatnipTimeSaved != true)
 			{
@@ -431,7 +429,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				{
 					PlayerData.SavedCatnipTime = (level.time + (35 * 45));
 					PlayerData.CatnipDurationSaved = true;
-				
 				}
 				
 				if (PlayerData.CatnipTimeContinous > PlayerData.SavedCatnipTime)
@@ -445,8 +442,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					PlayerData.CatnipInhaleFinished = false;
 					PlayerData.CatnipInhale = false;
 				}
-				
-				
 			}
 			
 				//Console.Printf("CatnipTime: %d", PlayerData.CatnipTime);
@@ -454,18 +449,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				//Console.Printf("CatnipTimeSecond: %d", PlayerData.CatnipTimeSecond);
 				//Console.Printf("CatnipTimeContinousSecond: %d", PlayerData.CatnipTimeContinousSecond);
 		}
-		
-		//Disable bobbing when walking
-		//Note: this variable is also used by the Cat's AI to check the Player if it's walking or running
-		if (PlayerData)
-			PlayerData.MoveSpeed = vel.xy.Length();
-			
-		if (PlayerData.MoveSpeed < 3 && PlayerData)
-			ViewBob = 0;
-		else
-			ViewBob = default.ViewBob; //might come in handy in the future: GetDefaultsByType (<class>)
-			
-		// Suicide
+	}
+	
+	// Suicide
+	void SuicideTick()
+	{
 		if (PlayerData.Suicide == True && PlayerData)
 		{
 			if (PlayerData.SpawnedOnce == false)
@@ -484,13 +472,12 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			}
 			Player.ReadyWeapon = PlayerData.HolsterWeapon;
 		}
-		
-		// Kicking
-		if (Kick == true)
-			A_GiveInventory("PostKick", 1);
-		
-		// Idling
-		
+	}
+	
+	// Idling
+	// This is currently broken
+	void IdlingTick()
+	{
 		if (level.time > PlayerData.IdlingTime && PlayerData && level.mapname != "TITLEMAP")
 		{
 			PlayerData.IdlingTime = level.time + 2100;
@@ -508,70 +495,230 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					case 1:
 						SetStateLabel("Idling.Seeing");
 						break;
-				
-				}
-					
+				}		
 				return;
-			}
-				
+			}		
 			PlayerData.IdlingPos = pos;
 		}
-		
-		//	Footstep code from Marisa's Doom Tournament
+	}
+	
+	void FootstepTick()
+	{
+		// Footstep code from Marisa's Doom Tournament
 		// edited a little bit to only make footsteps when running
-		
-			if (PlayerData.MoveSpeed > 3 && PlayerData)
+		if (PlayerData.MoveSpeed > 3 && PlayerData)
+		{
+			bool forcefootstep = false;
+			double ang = level.time/(20*8.4/35.)*360.;
+			
+			if (player.health != 0)
 			{
-				bool forcefootstep = false;
-				double ang = level.time/(20*8.4/35.)*360.;
-				
-				if (player.health != 0)
+				if ( player.onground && !bNoGravity && !PlayerData.lastground && (waterlevel < 3))
 				{
-					if ( player.onground && !bNoGravity && !PlayerData.lastground && (waterlevel < 3))
+					player.jumptics = 0;
+					if ( PlayerData.lastvelz < -20 )
 					{
-						player.jumptics = 0;
-						if ( PlayerData.lastvelz < -20 )
-						{
-							double vol = clamp((-PlayerData.lastvelz-8)*0.05,0.01,1.0);
-							if ( ((waterlevel > 0) || GetFloorTerrain().IsLiquid) && !bOnMobj )
-								A_PlaySound("",CHAN_AUTO,vol);
-							else
-								A_PlaySound("footstep",CHAN_AUTO,vol);
-						}
-						else forcefootstep = true;
+						double vol = clamp((-PlayerData.lastvelz-8)*0.05,0.01,1.0);
+						if ( ((waterlevel > 0) || GetFloorTerrain().IsLiquid) && !bOnMobj )
+							A_PlaySound("",CHAN_AUTO,vol);
+						else
+							A_PlaySound("footstep",CHAN_AUTO,vol);
 					}
-					
-					if ( forcefootstep || ((abs(sin(ang)) >= 1.0) && player.onground && PlayerData.lastground &&
-					(player.jumptics == 0) && (player.cmd.forwardmove || player.cmd.sidemove) && (waterlevel < 3)) )
-					{
-						double vol = abs(vel.xy.length())*0.20;
-						if ( forcefootstep ) 
-							vol = clamp(-PlayerData.lastvelz*0.10,0.01,1.0);
-						if ( (waterlevel > 0) || GetFloorTerrain().IsLiquid && !bOnMobj ) 
-							A_PlaySound("",CHAN_6,vol);
-						else A_PlaySound("footstep",CHAN_6,vol);
-					}
+					else forcefootstep = true;
 				}
 				
-				PlayerData.lastground = player.onground;
-				PlayerData.lastvelz = PlayerData.prevvelz;
-				PlayerData.prevvelz = vel.z;
+				if ( forcefootstep || ((abs(sin(ang)) >= 1.0) && player.onground && PlayerData.lastground &&
+				(player.jumptics == 0) && (player.cmd.forwardmove || player.cmd.sidemove) && (waterlevel < 3)) )
+				{
+					double vol = abs(vel.xy.length())*0.20;
+					if ( forcefootstep ) 
+						vol = clamp(-PlayerData.lastvelz*0.10,0.01,1.0);
+					if ( (waterlevel > 0) || GetFloorTerrain().IsLiquid && !bOnMobj ) 
+						A_PlaySound("",CHAN_6,vol);
+					else A_PlaySound("footstep",CHAN_6,vol);
+				}
 			}
+			
+			PlayerData.lastground = player.onground;
+			PlayerData.lastvelz = PlayerData.prevvelz;
+			PlayerData.prevvelz = vel.z;
+		}
+	}
+	
+	// Handles pain lines when hurt
+	void A_DudePain()
+	{
+		int LongChance = random(0,100);
+		
+		if (level.time > invoker.TimeBeforeNextPainLine)
+		{
+			if (LongChance < 85)
+				invoker.TimeBeforeNextPainLine = level.time + 32;
+			else
+				invoker.TimeBeforeNextPainLine = level.time + 35 * 3;
+		}
+		else
+			return;
+		
+		if (LongChance > 85)
+		{
+			A_StartSound("dudelonghurt", CHAN_VOICE, CHANF_NOSTOP);
+			return;
+		}
+		
+		A_StartSound("dudehurt", CHAN_VOICE, CHANF_NOSTOP);
+			
+		//A_PlaySound("hitflesh",6);
+	}
+	
+	// Spawns a Dummy for suiciding
+	void A_SuicideDude(class<actor> dummy = "DummyDude")
+	{
+		Actor DummyDude;
+		// Spawn the corpse with as the variable above, 
+		// the second argument will spawn it with the actor's position + replacing it
+		if (invoker.PlayerData.Suicide == true && invoker.PlayerData)
+			DummyDude = spawn(dummy, self.pos, ALLOW_REPLACE);
+		
+		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
+		// but make sure to check it's not null or else GZDoom will crash
+		if (DummyDude)
+		{
+			DummyDude.angle = self.angle;
+			let dd = DummyDude(DummyDude);
+			if (dd)
+				dd.MyDude = self;
+		}	
+	}
+	
+	// Note: This needs a rework because it's ugly and broken
+	// "Alerts" nearby NPCs if the Player is firing with a melee weapon or a Firearm
+	// This obviously has some flaws that needs some fixes
+	void A_ShriekNearbyNPCs()
+	{
+		if (Player.ReadyWeapon == Weapon(FindInventory("PostHands")) || Player.ReadyWeapon == Weapon(FindInventory("PostUrethra")) || Player.ReadyWeapon == Weapon(FindInventory("PostClipboard")))
+			return;
+		
+		BlockThingsIterator it;
+		double fov = 90;
+		bool isMeleeAttack;
+		
+		//melee weapons should have a shorter distance?
+		
+		if (Player.ReadyWeapon == Weapon(FindInventory("PostBaton")) ||
+			Player.ReadyWeapon == Weapon(FindInventory("PostMachete")) ||
+			Player.ReadyWeapon == Weapon(FindInventory("PostScythe")) ||
+			Player.ReadyWeapon == Weapon(FindInventory("PostShovel")) ||
+			Player.ReadyWeapon == Weapon(FindInventory("PostSledge")) ||
+			Player.ReadyWeapon == Weapon(FindInventory("PostTazer")))
+			{
+				it = BlockThingsIterator.Create (self, 350);
+				isMeleeAttack = true;
+			}
+			else
+				it = BlockThingsIterator.Create (self, 600); // The number here is (possibly roughly) the maximum distance they can see
+				
+		while (it.Next ()) {
+			let next = it.Thing;
+			
+			if (next is 'NPCCore' && !(next.bKILLED))
+			{
+				if (isMeleeAttack == true && (AbsAngle (AngleTo (next), next.angle) > (fov / 2.)))
+				{
+					//Console.Printf("Within fov!");
+					let p = NPCCore(next);
+					if (p.isBusy != true && p.isAfterTarget == false && p)
+					{
+						p.isBusy = true;
+						p.MyTarget = self;
+						p.vel.xy = (0,0);
+						//todo: Give them the sliding to left or right anim state (probs it's the same with weapons just from very far away)
+						p.SetStateLabel("StaringWeapon");
+					}
+					break;
+				}
+				
+				if (isMeleeAttack != true)
+				{
+					let p = NPCCore(next);
+					if (p.isBusy != true && p.isAfterTarget == false && p)
+					{
+						p.isBusy = true;
+						p.MyTarget = self;
+						p.vel.xy = (0,0);
+						p.SetStateLabel("StaringWeapon");
+					}
+				}
+			}
+		}
+    }
+	
+	// Grabs a random target to stare at when AFK for a long time.
+	void A_FindIdleTargeting()
+	{
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 2000); // The number here is (possibly roughly) the maximum distance they can see
+		
+		while (it.Next ()) {
+				let next = it.Thing;
+				
+				if (next is 'NPCCore' && next)
+					invoker.IdlingTarget = next;
+			}
+    }
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		DataInit();
+			
+		cvar developercvar = cvar.findcvar('postal_developer');
+		bool developer = (developercvar != null && developercvar.GetBool ());
+		
+		if (developer && !multiplayer)
+		{
+			Speed = 12;
+			Health = 666;
+			JumpZ = 20;
+		}
+		
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if ( !player || (player.mo != self) ) return;
+		
+		CheatDetector();
+		PD_Pain();
+		A_TriggerDudeLine();
+		CheckForNonPostalWeapons();
+		DoomDeletus();
+		DeathCheck();
+		WantedSystem();
+		HealthPipeTick();
+		CatnipTick();
+		SuicideTick();
+		IdlingTick();
+		FootstepTick();
+		
+		// Kicking
+		if (Kick == true)
+			A_GiveInventory("PostKick", 1);
 			
 		// Zombie's Autoaim disabler
 		
-			if(player.readyWeapon && !player.readyWeapon.default.bNOAUTOAIM)
-			{
-				// Disable auto-aim when the player is looking at an enemy.
-				// This enables the player to pull off headshots even when
-				// auto-aim is enabled.
-				FLineTraceData data;
+		if (player.readyWeapon && !player.readyWeapon.default.bNOAUTOAIM)
+		{
+			// Disable auto-aim when the player is looking at an enemy.
+			// This enables the player to pull off headshots even when
+			// auto-aim is enabled.
+			FLineTraceData data;
 
-				if(LineTrace(angle, 0x7FFFFFFF, pitch, data: data))
-					player.readyWeapon.bNOAUTOAIM = data.hitActor != null;
-				else
-					player.readyWeapon.bNOAUTOAIM = false;
-			}
+			if(LineTrace(angle, 0x7FFFFFFF, pitch, data: data))
+				player.readyWeapon.bNOAUTOAIM = data.hitActor != null;
+			else
+				player.readyWeapon.bNOAUTOAIM = false;
+		}
 	}
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
@@ -669,8 +816,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			if (PlayerData.MoveSpeed == 0)
 				SetStateLabel("Spawn");
 			else
-			if (PlayerData.MoveSpeed < 1.16)
-				SetStateLabel("Walking");
+				if (PlayerData.MoveSpeed < 1.16)
+					SetStateLabel("Walking");
 		}
 		XXXX A 0; //<--- This frame is needed for fixing that weird twitching, remove it yourself to test it
 		Loop;
@@ -887,135 +1034,5 @@ class DummyDude : Actor
 	Disappear:
 		TNT1 A 0;
 		Stop;
-}
-
-}
-
-extend class PostalDude
-{
-	int TimeBeforeNextPainLine;
-	
-	action void A_DudePain()
-	{
-		int LongChance = random(0,100);
-		
-		if (level.time > invoker.TimeBeforeNextPainLine)
-		{
-			if (LongChance < 85)
-				invoker.TimeBeforeNextPainLine = level.time + 32;
-			else
-				invoker.TimeBeforeNextPainLine = level.time + 35 * 3;
-		}
-		else
-			return;
-		
-		if (LongChance > 85)
-		{
-			A_StartSound("dudelonghurt", CHAN_VOICE, CHANF_NOSTOP);
-			return;
-		}
-		
-		A_StartSound("dudehurt", CHAN_VOICE, CHANF_NOSTOP);
-			
-		//A_PlaySound("hitflesh",6);
 	}
-	
-	action void A_SuicideDude(class<actor> dummy = "DummyDude")
-	{
-		Actor DummyDude;
-		// Spawn the corpse with as the variable above, 
-		// the second argument will spawn it with the actor's position + replacing it
-		if (invoker.PlayerData.Suicide == true && invoker.PlayerData)
-			DummyDude = spawn(dummy, self.pos, ALLOW_REPLACE);
-		
-		// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
-		// but make sure to check it's not null or else GZDoom will crash
-		if (DummyDude)
-		{
-			DummyDude.angle = self.angle;
-			let dd = DummyDude(DummyDude);
-			if (dd)
-				dd.MyDude = self;
-		}
-		
-	}
-	
-	// I like to use BlockThingsIterator this much?
-	
-	action void A_ShriekNearbyNPCs()
-	{
-		//many thanks to phantombeta!!
-		
-		if (Player.ReadyWeapon == Weapon(FindInventory("PostHands")) || Player.ReadyWeapon == Weapon(FindInventory("PostUrethra")) || Player.ReadyWeapon == Weapon(FindInventory("PostClipboard")))
-			return;
-		
-		BlockThingsIterator it;
-		double fov = 90;
-		bool isMeleeAttack;
-		
-		//melee weapons should have a shorter distance?
-		
-		if (Player.ReadyWeapon == Weapon(FindInventory("PostBaton")) ||
-			Player.ReadyWeapon == Weapon(FindInventory("PostMachete")) ||
-			Player.ReadyWeapon == Weapon(FindInventory("PostScythe")) ||
-			Player.ReadyWeapon == Weapon(FindInventory("PostShovel")) ||
-			Player.ReadyWeapon == Weapon(FindInventory("PostSledge")) ||
-			Player.ReadyWeapon == Weapon(FindInventory("PostTazer")))
-			{
-				it = BlockThingsIterator.Create (self, 350);
-				isMeleeAttack = true;
-			}
-			else
-				it = BlockThingsIterator.Create (self, 600); // The number here is (possibly roughly) the maximum distance they can see
-				
-		
-		
-		while (it.Next ()) {
-				let next = it.Thing;
-				
-				if (next is 'NPCCore' && !(next.bKILLED))
-				{
-					if (isMeleeAttack == true && (AbsAngle (AngleTo (next), next.angle) > (fov / 2.)))
-					{
-						//Console.Printf("Within fov!");
-						let p = NPCCore(next);
-						if (p.isBusy != true && p.isAfterTarget == false && p)
-						{
-							p.isBusy = true;
-							p.MyTarget = self;
-							p.vel.xy = (0,0);
-							//todo: Give them the sliding to left or right anim state (probs it's the same with weapons just from very far away)
-							p.SetStateLabel("StaringWeapon");
-						}
-						break;
-					}
-					
-					if (isMeleeAttack != true)
-					{
-						let p = NPCCore(next);
-						if (p.isBusy != true && p.isAfterTarget == false && p)
-						{
-							p.isBusy = true;
-							p.MyTarget = self;
-							p.vel.xy = (0,0);
-							p.SetStateLabel("StaringWeapon");
-						}
-					}
-				}
-			}
-    }
-	
-	action void A_FindIdleTargeting()
-	{
-		//many thanks to phantombeta!!
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 2000); // The number here is (possibly roughly) the maximum distance they can see
-		
-		while (it.Next ()) {
-				let next = it.Thing;
-				
-				if (next is 'NPCCore' && next)
-					invoker.IdlingTarget = next;
-			}
-    }
-	
 }
