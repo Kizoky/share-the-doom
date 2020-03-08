@@ -35,16 +35,16 @@ class PostalCar : PostalActor
 		
 		AlignToPlane(self, 0);
 		
-		// Here's a little lesson in trickery...
-		Vector3 norm = CurSector.floorPlane.normal;
-		if (!(norm ~== (0,0,1)))
-		{
-			bFLOORHUGGER = true;
-		}
-			else bFLOORHUGGER = false;
-		
 		if (ActiveNode != null)
 		{
+			// Here's a little lesson in trickery...
+			Vector3 norm = CurSector.floorPlane.normal;
+			if (!(norm ~== (0,0,1)))
+			{
+				bFLOORHUGGER = true;
+			}
+			else bFLOORHUGGER = false;
+			
 			target = ActiveNode;
 			double i = -20;
 			while (i <= 20)
@@ -66,6 +66,8 @@ class PostalCar : PostalActor
 			
 			A_StartSound("carengine", CHAN_BODY, CHANF_NOSTOP);
 			
+			if (!ActiveNode) return;
+			
 			if (Distance2D(ActiveNode) >= 155)
 			{
 				if (abs (deltaangle (angle, AngleTo (ActiveNode))) < 7)
@@ -83,15 +85,13 @@ class PostalCar : PostalActor
 			A_Recoil(-0.45);
 			
 			for (double j = 75; j < 100; j += 1)
-			{
-				if (ActiveNode == null) break;
-				
-				if ((Distance2D(ActiveNode) <= j || Distance2D(ActiveNode) ~== j))
+			{	
+				if ((Distance2D(ActiveNode) <= j || Distance2D(ActiveNode) ~== j) && ActiveNode != null)
 				{
 					double SavedAngle = angle;
 					
 					let node = Postal_CarNode(ActiveNode);
-					if (node.NextNode != null)
+					if (node.NextNode != null && node)
 					{
 						ActiveNode = node.NextNode;
 						break;
