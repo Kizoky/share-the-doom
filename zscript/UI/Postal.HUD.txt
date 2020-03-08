@@ -20,6 +20,8 @@ class PostalStatusBar : BaseStatusBar
 	double extraX;
 	double extraY;
 	
+	float PumpingSpeed;
+	
 	override void Init()
 	{
 		Super.Init();
@@ -62,7 +64,11 @@ class PostalStatusBar : BaseStatusBar
 		
 		if (PPlayer == null) return;
 		
-		float PumpingSpeed = (-(PPlayer.Health - PPlayer.default.Health) / 5500.);
+		// Special check if Player smoked a Health Pipe
+		if (PPlayer.Health < 101)
+			PumpingSpeed = (-(PPlayer.Health - PPlayer.default.Health) / 5500.);
+		else
+			PumpingSpeed = 0;
 		
 		//Every Tics we'll add these values for the Pumping heart "animation"
 		ticsX = ticsX + 0.0010*4.3+PumpingSpeed + abs(-0.000750);
