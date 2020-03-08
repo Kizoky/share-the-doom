@@ -24,3 +24,6 @@ DefaultBind "F" "ToggleDudeMap"
 
 Alias "ToggleDudeSuicide" "netevent \"Suicide\""
 DefaultBind "K" "ToggleDudeSuicide"
+
+Alias "ToggleDevDamage" "netevent \"DamageSelf\""
+DefaultBind "V" "ToggleDevDamage"

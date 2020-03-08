@@ -129,6 +129,16 @@ class DudeCoreHandler : EventHandler
 			}
 	  }
 	  
+	  if (e.Name ~== "DamageSelf")
+	  {
+			PostalDude p = PostalDude(players[e.Player].mo);
+			PlayerInfo player = players [e.Player];
+		
+		if (p)
+			p.A_DamageSelf(5);
+		
+	  }
+	  
    }
    
    override void PlayerEntered (PlayerEvent e)

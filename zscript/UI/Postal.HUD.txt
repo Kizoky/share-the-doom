@@ -17,8 +17,8 @@ class PostalStatusBar : BaseStatusBar
 	
 	double SliderX;
 	
-	int extraX;
-	int extraY;
+	double extraX;
+	double extraY;
 	
 	override void Init()
 	{
@@ -62,27 +62,11 @@ class PostalStatusBar : BaseStatusBar
 		
 		if (PPlayer == null) return;
 		
-		//console.printf("%d %d", extraX, extraY);
-		
-		double PlayerHealth = CPlayer.mo.Health;
-		
-		double PumpingSpeed = (PlayerHealth / 100000);
+		float PumpingSpeed = (-(PPlayer.Health - PPlayer.default.Health) / 5500.);
 		
 		//Every Tics we'll add these values for the Pumping heart "animation"
-		
-		//Mind you, this is extremely broken when Player has atleast 200 or more health
-		if (CPlayer.mo.Health < 101)
-		{
-			ticsX = ticsX + 0.0010*4.3 + abs((-0.000750 + PumpingSpeed));
-			ticsY = ticsY - 0.0009*4.3 + ((-0.000325 + (PumpingSpeed - 0.000500)) * 4);
-		}
-		else
-		{
-			ticsX = ticsX + 0.0010*4.3 + abs((-0.000750 + (105.0 / 100000)));
-		    ticsY = ticsY - 0.0009*4.3 + ((-0.000325 + ((105.0 / 100000) - 0.000500)) * 4);
-		}
-		
-		//Convert the Player's health to double, otherwise it won't work
+		ticsX = ticsX + 0.0010*4.3+PumpingSpeed + abs(-0.000750);
+		ticsY = ticsY - 0.0009*4.3-PumpingSpeed + ((-0.000325 + (0.000500)) * 4);
 		
 		if (PPlayer)
 		{
@@ -128,14 +112,14 @@ class PostalStatusBar : BaseStatusBar
 		//The trick behind the Reddish heart is just a complete red version of the Heart
 		//We'll draw the Red heart, and assign Alpha to it according to how much health the
 		//Player has.
-		if (20 > PlayerHealth)
+		if (20 > PPlayer.Health)
 			HealthtoAlpha = 0.75;
 		else
-			HealthtoAlpha = 1.0 - (PlayerHealth / 100);
+			HealthtoAlpha = 1.0 - (PPlayer.Health / 100.);
 		
 		if (CPlayer.mo.Health > 0)
 		{
-			if (-0.12 > ticsY)
+			if (0.15+PumpingSpeed*2 < ticsX)
 			{
 				ticsX = 0;
 				ticsY = 0;
