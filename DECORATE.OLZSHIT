@@ -1,0 +1,72 @@
+actor basdoiuyygghbaiphdsjjffoo 20201
+{
+height 10
+radius 55
+  +FLOORCLIP
+  states
+  {
+  spawn:
+    SHIT A 1 
+    loop
+  }
+}
+
+
+
+actor hfgdaskijlkiyjygguiyosasgf 20202
+{
+height 10
+radius 55
+  +FLOORCLIP
+  states
+  {
+  spawn:
+    SHIT b 1 
+    loop
+  }
+}
+
+
+actor bnmkcxljnsjbgjfkdshgkd 20203
+{
+height 10
+radius 55
+  +FLOORCLIP
+  states
+  {
+  spawn:
+    SHIT c 1 
+    loop
+  }
+}
+
+
+
+actor iujmytsgyhuitfmhn 20204
+{
+height 10
+radius 55
+  +FLOORCLIP
+  states
+  {
+  spawn:
+    SHIT d 1 
+    loop
+  }
+}
+
+
+
+
+actor opiukgjhfvc 20201
+{
+height 10
+radius 55
+  +FLOORCLIP
+  states
+  {
+  spawn:
+    SHIT e 1 
+    loop
+  }
+}
