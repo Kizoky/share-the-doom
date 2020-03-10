@@ -1,6 +1,5 @@
 class PostalWeapon : Weapon
 {
-	
 	override void Tick()
 	{
 		Super.Tick();
@@ -89,6 +88,60 @@ class PostalWeapon : Weapon
 			if (players[i].Bot != NULL && self == players[i].Bot.dest)
 				players[i].Bot.dest = NULL;
 		}
+	}
+	
+	action void A_PostalRaise(int setready)
+	{
+		if (!player)
+			return;
+		
+		if (player.PendingWeapon != WP_NOCHANGE)
+		{
+			player.mo.DropWeapon();
+			return;
+		}
+		
+		if (!player.ReadyWeapon)
+			return;
+		
+		let psp = player.GetPSprite(PSP_WEAPON);
+		
+		if (setready == 0)
+			psp.y = WEAPONTOP;
+		
+		if (setready == 1)
+			psp.SetState(player.ReadyWeapon.GetReadyState());
+	}
+	
+	action void A_PostalLower()
+	{
+		if (!player)
+			return;
+		
+		if (!player.ReadyWeapon)
+		{
+			player.mo.BringUpWeapon();
+			return;
+		}
+		
+		let psp = player.GetPSprite(PSP_WEAPON);
+		if (player.morphTics || (player.cheats & CF_INSTANTWEAPSWITCH))
+			psp.y = WEAPONBOTTOM;
+		else
+			psp.y = WEAPONBOTTOM;
+		
+		if (psp.y < WEAPONBOTTOM)
+			return;
+		
+		if (player.playerstate == PST_DEAD)
+		{
+			player.SetPsprite(PSP_FLASH, null);
+			psp.SetState(player.ReadyWeapon.FindState('DeadLowered'));
+			return;
+		}
+		
+		player.SetPsprite(PSP_FLASH, null);
+		player.mo.BringUpWeapon();
 	}
 	
 	Default

@@ -19,33 +19,17 @@ class PostPistol : PostalWeapon replaces Pistol
 	States
 	{
 	Ready:
-		TNT1 A 1
-		{
-			cvar idlinganimcvar = cvar.findcvar('postal_idleanim');
-			bool idlinganim = (idlingAnimCVar != null && idlingAnimCVar.GetBool ());
-			
-			if (idlinganim)
-				return ResolveState ("Ready.IdleAnim");
-			else
-				return ResolveState ("Ready.NoIdleAnim");
-			
-			return ResolveState (null);
-		}
-	Ready.IdleAnim:
 		POXX ABCDEFGHIJKLMNOPQRSTUVWXYZ 7 A_WeaponReady;
-		Goto Ready;
-	Ready.NoIdleAnim:
-		POXX A 1 A_WeaponReady;
-		Goto Ready;
+		Loop;
 	Deselect:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
-		PXXX ABCDEFGHIJKLMNOPQRSTUVWXX 1;
+		PXXX ABCDEFGHIJKLMNOPQRSTUVW 1;
+		TNT1 A 0 A_PostalLower();
 		Loop;
 	Select:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
-		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
-		TNT1 A 0 A_PlaySound("weaponselect3", 7 | 4096);
+		POPS A 0 A_PostalRaise(0);
+		POPS A 0 A_PlaySound("weaponselect3", 7 | 4096);
 		POPS ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 A_WeaponReady;
+		POXX A 0 A_PostalRaise(1);
 		Loop;
 	Fire:
 		POXA AB 1;

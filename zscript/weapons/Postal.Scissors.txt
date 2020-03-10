@@ -57,14 +57,14 @@ class PostScissors : PostalWeapon
 		SCII ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_WeaponReady;
 		Loop;
 	Deselect:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
-		SCID ABCDEFGHIJKLMNO 2;
+		SCID ABCDEFGHIJKLMN 2;
+		SCID N 0 A_PostalLower();
 		Loop;
 	Select:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
-		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
-		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
+		SCIS A 0 A_PostalRaise(0);
+		SCIS A 0 A_PlaySound("weaponselect1", 7 | 4096);
 		SCIS ABCDEFGHIJKLMNOPQRS 2 A_WeaponReady;
+		SCII A 0 A_PostalRaise(1);
 		Loop;
 	Fire:
 		SCIF ABCD 2;

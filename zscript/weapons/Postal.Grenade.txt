@@ -31,14 +31,14 @@ class PostGrenade : PostalWeapon
 		GREI ABCDEFGHIJKLMNOPQRSTU 9 A_WeaponReady;
 		Loop;
 	Deselect:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
 		GRED ABCDEFGHIJKLMNOP 2;
+		TNT1 A 0 A_PostalLower();
 		Loop;
 	Select:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
-		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
-		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
+		GRES A 0 A_PostalRaise(0);
+		GRES A 0 A_PlaySound("weaponselect1", 7 | 4096);
 		GRES ABCDEFGHIJKLMNOPQRST 2 A_WeaponReady;
+		GREI A 0 A_PostalRaise(1);
 		Loop;
 	Fire:
 		GREF A 0 A_StartSound("grenade/pullpin", CHAN_WEAPON, CHAN_NOSTOP);

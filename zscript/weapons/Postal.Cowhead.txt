@@ -15,36 +15,16 @@ class PostCowhead : PostalWeapon
 	States
 	{
 	Ready:
-		TNT1 A 1
-		{
-			cvar idlinganimcvar = cvar.findcvar('postal_idleanim');
-			bool idlinganim = (idlingAnimCVar != null && idlingAnimCVar.GetBool ());
-			
-			if (idlinganim)
-				return ResolveState ("Ready.IdleAnim");
-			else
-				return ResolveState ("Ready.NoIdleAnim");
-			
-			return ResolveState (null);
-		}
-		Loop;
-	Ready.IdleAnim:
 		COWI ABCDEFGHIJKLMNOPQRSTUVWXYZ 5 A_WeaponReady;
-		Goto Ready;
-	Ready.NoIdleAnim:
-		COWI A 1 A_WeaponReady;
-		Goto Ready;
+		Loop;
 	Deselect:
 		COWD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_Lower;
 		Loop;
 	Select:
-		TNT1 A 0 A_PlaySound("weaponselect1", 7 | 4096);
-		COWS ABCDEFGHIJKLMNOPQRSTUV 2
-		{
-			A_Raise();
-			A_WeaponReady();
-		
-		}
+		COWS A 0 A_PostalRaise(0);
+		COWS A 0 A_PlaySound("weaponselect1", 7 | 4096);
+		COWS ABCDEFGHIJKLMNOPQRSTUV 2 A_WeaponReady;
+		COWI A 0 A_PostalRaise(1);
 		Loop;
 	Fire:
 		COWF ABCDEFGHIJKLMNOPQRSTUVWXY 3 A_FireShotgun;

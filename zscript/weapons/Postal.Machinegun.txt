@@ -18,34 +18,16 @@ class PostM16 : PostalWeapon replaces Chaingun
 	States
 	{
 	Ready:
-		TNT1 A 1
-		{
-			cvar idlinganimcvar = cvar.findcvar('postal_idleanim');
-			bool idlinganim = (idlingAnimCVar != null && idlingAnimCVar.GetBool ());
-			
-			if (idlinganim)
-				return ResolveState ("Ready.IdleAnim");
-			else
-				return ResolveState ("Ready.NoIdleAnim");
-			
-			return ResolveState (null);
-		}
-		Loop;
-	Ready.IdleAnim:
 		MGID ABCDEFGHIJKLMNOPQRSTU 7 A_WeaponReady;
-		Goto Ready;
-	Ready.NoIdleAnim:
-		MGID A 1 A_WeaponReady;
-		Goto Ready;
+		Loop;
 	Deselect:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Lower;
-		MGDT AA 1;
+		MGDT ABCCCCCCCCCCCCCCC 1 A_Lower;
 		Loop;
 	Select:
-		TNT1 AAAAAAAAAAAAAAA 0 A_Raise;
-		TNT1 A 0 A_WeaponOffset(0,32); // Fix "bump" when weapon is selected
-		TNT1 A 0 A_PlaySound("weaponselect2", 7 | 4096);
+		MGST A 0 A_PostalRaise(0);
+		MGST A 0 A_PlaySound("weaponselect2", 7 | 4096);
 		MGST ABCDEFGHIJKLMNOPQQ 2 A_WeaponReady;
+		MGID A 0 A_PostalRaise(1);
 		Loop;
 	Fire:
 		MGFE A 0 A_SetPitch(pitch-0.50);
