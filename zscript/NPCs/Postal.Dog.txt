@@ -1,7 +1,7 @@
 class Champ : PostalActor
 {
 	Actor staringAt;
-	bool isFriendly, Stare, HitOnce, TargetDead, Busy;
+	bool Stare, HitOnce, TargetDead, Busy;
 	
 	override void PostBeginPlay()
 	{
@@ -10,9 +10,38 @@ class Champ : PostalActor
 		Busy = false;
 	}
 	
+	virtual void A_FacePostalTarget()
+	{
+		float RotationSpeed = 6.5;
+		
+		if (target)
+		{
+			if (abs (deltaangle (angle, AngleTo (target))) < 10)
+			{
+				angle = AngleTo (target);
+				return;
+			}
+			
+			if (((AngleTo (target)) - angle + 360) % 360 < 180)
+			{	
+				A_SetAngle(angle+RotationSpeed, SPF_INTERPOLATE);
+			}
+			else A_SetAngle(angle-RotationSpeed, SPF_INTERPOLATE);
+			
+			//Console.Printf("Angle To Target: %f", AngleTo (target));
+			//Console.Printf("Angle: %f", angle);
+			
+		}
+		
+	}
+	
 	override void Tick()
 	{
 		Super.Tick();
+		
+		if (InStateSequence(CurState, ResolveState("StaringCat")) ||
+			InStateSequence(CurState, ResolveState("Staring")))
+		A_FacePostalTarget();
 		
 		if (target && target.bKILLED)
 		{
@@ -28,7 +57,7 @@ class Champ : PostalActor
 		//$Sprite DOGIA0
 		Health 150;
 		PainChance 256;
-		Speed 3.5;
+		Speed 1;
 		Radius 30;
 		Height 56;
 		Mass 400;
@@ -59,7 +88,7 @@ class Champ : PostalActor
 	States
 	{
 	Spawn:
-		TNT1 A 0
+		DOGW A 0
 		{
 			A_ClearTarget();
 			bFRIENDLY = FALSE;
@@ -68,11 +97,11 @@ class Champ : PostalActor
 			bSOLID = True; // We don't want ghost Champs
 			//A_DogThink();
 		}
-		DOGW ABCDEFGHIJKLMN 1 A_Wander(flags: CHF_STOPIFBLOCKED);
-		TNT1 A 0 A_DogThink();
+		DOGW ABCDEFGHIJKLMN 3 { A_Recoil(-0.35); A_Wander(flags: CHF_STOPIFBLOCKED); }
+		DOGW A 0 A_DogThink();
 		Loop;
 	StaringCat:
-		TNT1 A 0
+		DOGI A 0
 		{
 			Busy = true;
 			
@@ -85,8 +114,8 @@ class Champ : PostalActor
 				A_PlaySound("dogsight",0);
 			}
 		}
-		DOGI AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ 1 A_FaceTarget();
-		TNT1 A 0
+		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DOGB A 0
 		{
 			A_PlaySound("dogattack2",0);
 			
@@ -102,11 +131,11 @@ class Champ : PostalActor
 			}
 			
 		}
-		DOGB AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQ 1;
+		DOGB ABCDEFGHIJKLMNOP 1;
 		//Champ/Dogs in Postal 2 looks straight ahead, while their idling anim is looping
 		Goto See;
 	Staring:
-		TNT1 A 0
+		DOGI A 0
 		{
 			Busy = true;
 			
@@ -119,9 +148,9 @@ class Champ : PostalActor
 				A_PlaySound("dogsight",0);
 			}
 		}
-		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 A_FaceTarget();
+		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		//Champ/Dogs in Postal 2 looks straight ahead, while their idling anim is looping
-		DOGI AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ 1;
+		DOGI ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		TNT1 A 0
 		{
 			//Clear our target, so we won't be going after it
@@ -135,9 +164,9 @@ class Champ : PostalActor
 		}
 		Goto Spawn;
 	See:
-		TNT1 A 0 { bSOLID = True; if (target != null) {target = staringAt;} Busy = True;} //We don't want ghost Champs
-		DOGR AABBCCDDEEFFGGHHIIJJKKLLMM 1 Fast A_Chase();
-		TNT1 A 0
+		DOGR A 0 { bSOLID = True; if (target != null) {target = staringAt;} Busy = True;} //We don't want ghost Champs
+		DOGR ABCDEFG 3 { A_Recoil(-0.85); A_Chase("Melee", null); }
+		DOGR A 0
 		{
 			//If our target got killed, do the following
 			
@@ -165,20 +194,23 @@ class Champ : PostalActor
 				SetStateLabel("Spawn");
 			}
 			
+			if (target)
+				A_FaceTarget();
+			
 			//return ResolveState(null);
 		}
 		Loop;
 	Melee:
-		TNT1 A 0
+		DOGA A 0
 		{
 			bSOLID = False;
 			A_FaceTarget();
 			Thrust(10);
 		}
-		DOGA ABC 2 Fast A_FaceTarget;
-		TNT1 A 0 A_ChampAttack();
-		DOGA DEFGHIJKLMNOPQR 2 Fast;
-		TNT1 A 0 { bSOLID = True; }
+		DOGA ABC 2 A_FaceTarget;
+		DOGA D 0 A_ChampAttack();
+		DOGA DEFGHIJKLMNOPQR 2;
+		DOGR A 0 { bSOLID = True;  vel.xy = (0,0); }
 		Goto See;
 	Pain:
 		//Needed for void Touch, because it can clear Target
@@ -216,7 +248,6 @@ extend class Champ
 					{
 						Console.Printf("Got touched by damn cat");
 						target = toucher;
-						A_FaceTarget();
 						TargetDead = False;
 						staringAt = target;
 						Speed = 11;
@@ -230,7 +261,6 @@ extend class Champ
 					{
 						target = toucher;
 						staringAt = target;
-						A_FaceTarget();
 						Stare = true;
 						SetStateLabel("Staring");
 					}

@@ -63,7 +63,7 @@ Model "Champ"
 	FrameIndex DOGW L 0 258
 	FrameIndex DOGW M 0 260
 	FrameIndex DOGW N 0 262
-	FrameIndex DOGW O 0 264
+	FrameIndex DOGW O 0 263
 	FrameIndex DOGW P 0 266
 	FrameIndex DOGW Q 0 268
 	
