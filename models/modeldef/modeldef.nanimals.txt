@@ -31,22 +31,21 @@ Model "Champ"
 	FrameIndex DOGA R 0 207
 	FrameIndex DOGA S 0 209
 	FrameIndex DOGA T 0 211
-	FrameIndex DOGA U 0 212
 	
 	// Noodle Dog 213 to 235
 	
-	FrameIndex DOGD A 0 213
-	FrameIndex DOGD B 0 215
-	FrameIndex DOGD C 0 217
-	FrameIndex DOGD D 0 219
-	FrameIndex DOGD E 0 221
-	FrameIndex DOGD F 0 223
-	FrameIndex DOGD G 0 225
-	FrameIndex DOGD H 0 227
-	FrameIndex DOGD I 0 229
-	FrameIndex DOGD J 0 231
-	FrameIndex DOGD K 0 233
-	FrameIndex DOGD L 0 235
+	FrameIndex DOGD A 0 212
+	FrameIndex DOGD B 0 214
+	FrameIndex DOGD C 0 216
+	FrameIndex DOGD D 0 218
+	FrameIndex DOGD E 0 220
+	FrameIndex DOGD F 0 222
+	FrameIndex DOGD G 0 224
+	FrameIndex DOGD H 0 226
+	FrameIndex DOGD I 0 228
+	FrameIndex DOGD J 0 230
+	FrameIndex DOGD K 0 232
+	FrameIndex DOGD L 0 234
 	
 	// Wandering Champ 236 to 268
 	
@@ -71,25 +70,16 @@ Model "Champ"
 	// Running doge 269 to 288
 	
 	FrameIndex DOGR A 0 269
-	FrameIndex DOGR B 0 270
-	FrameIndex DOGR C 0 271
-	FrameIndex DOGR D 0 272
-	FrameIndex DOGR E 0 273
-	FrameIndex DOGR F 0 274
-	FrameIndex DOGR G 0 275
-	FrameIndex DOGR H 0 276
-	FrameIndex DOGR I 0 277
-	FrameIndex DOGR J 0 278
-	FrameIndex DOGR K 0 279
-	FrameIndex DOGR L 0 280
-	FrameIndex DOGR M 0 281
-	FrameIndex DOGR N 0 282
-	FrameIndex DOGR O 0 283
-	FrameIndex DOGR P 0 284
-	FrameIndex DOGR Q 0 285
-	FrameIndex DOGR R 0 286
-	FrameIndex DOGR S 0 287
-	FrameIndex DOGR T 0 288
+	FrameIndex DOGR B 0 271
+	FrameIndex DOGR C 0 273
+	FrameIndex DOGR D 0 275
+	FrameIndex DOGR E 0 277
+	FrameIndex DOGR F 0 279
+	FrameIndex DOGR G 0 281
+	FrameIndex DOGR H 0 283
+	FrameIndex DOGR I 0 285
+	FrameIndex DOGR J 0 287
+	FrameIndex DOGR K 0 288
 	
 	// Watchful boy 289 to 431
 	
@@ -141,7 +131,6 @@ Model "Champ"
 	FrameIndex DOGB N 0 458
 	FrameIndex DOGB O 0 460
 	FrameIndex DOGB P 0 462
-	FrameIndex DOGB Q 0 463
 	
 }
 
