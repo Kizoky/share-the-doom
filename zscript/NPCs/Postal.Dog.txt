@@ -68,7 +68,7 @@ class Champ : PostalActor
 			bSOLID = True; // We don't want ghost Champs
 			//A_DogThink();
 		}
-		DOGW AABBCCDDEEFFGGHHIIJJKKLLMMNN 1 A_Wander(flags: CHF_STOPIFBLOCKED);
+		DOGW ABCDEFGHIJKLMN 1 A_Wander(flags: CHF_STOPIFBLOCKED);
 		TNT1 A 0 A_DogThink();
 		Loop;
 	StaringCat:

@@ -12,4 +12,5 @@ DoomEdNums
   29991 = NPCZombie
   29990 = PostalCar
   29989 = Postal_CarNode
+  29988 = DummyDude
 }
