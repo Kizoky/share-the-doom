@@ -134,10 +134,19 @@ map WORLD7 "Badlands - Day"
 	cluster=1
 }
 
-map WORLD8 "Russian Diaspora - Day" //Very subtle, I know
+map WORLD8 "Russian Diaspora - Day" 
 {
 	levelnum = 8
 	music=Amb_08
+	sky1=F_SKY1
+	cluster=1
+}
+
+
+map WORLD9 "Jihad - Day" 
+{
+	levelnum = 9
+	music=Amb_09
 	sky1=F_SKY1
 	cluster=1
 }
@@ -148,7 +157,7 @@ map TESTPOST lookup "Cinematic experience"
 	sky1 = "zo_dusk1", 0.035
 }
 
-map SCREENT  "Postalla"
+map SCREENT  "Cinematic experience"
 {
 	music=title
 	sky1 = "magichour"
@@ -270,8 +279,8 @@ skill impossible
 {
    SpawnFilter = Nightmare
    FastMonsters
-   DamageFactor = 1.5
-   Aggressiveness = 0.75
+   DamageFactor = 2.5
+   Aggressiveness = 5.75
    Name = "Impossible"
    MustConfirm = "Warning, everyone will try to kill you at sight!"
    Key = "9"
