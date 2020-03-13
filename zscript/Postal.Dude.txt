@@ -992,8 +992,7 @@ class DummyDude : Actor
 			if (p)
 			{
 				p.Suicided = true;
-				if (p.PlayerData.P_GodMode)
-					p.A_Die();
+				p.A_Die();
 			}
 			
 			A_playSound("weapons/rocklx",6);
