@@ -990,7 +990,11 @@ class DummyDude : Actor
 		{
 			let p = PostalDude(MyDude);
 			if (p)
+			{
 				p.Suicided = true;
+				if (p.PlayerData.P_GodMode)
+					p.A_Die();
+			}
 			
 			A_playSound("weapons/rocklx",6);
 			A_Explode(200, 256, XF_NOTMISSILE);
