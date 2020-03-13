@@ -44,6 +44,11 @@ cluster 1
 	hub
 }
 
+cluster 2
+{
+	hub
+}
+
 map TITLEMAP "11011010101"
 {
 	sky1 = "zo_dusk1", 0.035
@@ -69,7 +74,7 @@ map DEVMAP2 "Maisth loves corruption"
 
 map WORLD1 "Phoenix Outskirts - Day"
 {
-	levelnum = 67
+	levelnum = 1
 	music=Amb_01
 	sky1=F_SKY1
 	cluster=1
@@ -78,10 +83,10 @@ map WORLD1 "Phoenix Outskirts - Day"
 
 map WORLD2 "Factory - Day"
 {
-	levelnum = 17
+	levelnum = 2
 	music=Amb_02
 	sky1=F_SKY1
-	cluster=1
+	cluster=2
 }
 
 map WORLD3 "Downtown - Day"
@@ -110,7 +115,7 @@ map WORLD5 "Haldea - Day"  ///Kizoky's fun place
 }
 
 
-map TERROR "Downtown - Day"  ///Kizoky's fun place
+map TERROR "Downtown - Day"  
 {
 	levelnum = 15
 	music=Amb_05

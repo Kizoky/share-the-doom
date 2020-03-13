@@ -198,21 +198,26 @@ GrassAmbient sounds/GrassHoppers.wav
 Homestuck sounds/Homestuck.wav
 SpinMe sounds/SpinMe.wav
 clubsong sounds/clubsong.ogg
+wflow sounds/wflow.ogg
 
-$alias AmbientSound1 BirdAmbient
-$ambient 1 AmbientSound1 point periodic 7.0 1.0
 
-$alias AmbientSound2 GrassAmbient
-$ambient 2 AmbientSound2 point periodic 3.0 0.3
+$alias BeirdSkairy BirdAmbient
+$ambient 1 BeirdSkairy point periodic 7.0 1.0
 
-$alias AmbientSound3 Homestuck
-$ambient 3 AmbientSound3 point continuous 1.0
+$alias Grasshoppers GrassAmbient
+$ambient 2 Grasshoppers point periodic 3.0 0.3
 
-$alias AmbientSound4 SpinMe
-$ambient 4 AmbientSound4 point continuous 1.0
+$alias GayMuzak Homestuck
+$ambient 3 GayMuzak point continuous 1.0
 
-$alias AmbientSound5 clubsong
-$ambient 5 AmbientSound5 point continuous 1.0
+$alias MemeMuzak SpinMe
+$ambient 4 MemeMuzak point continuous 1.0
+
+$alias ClubMuzak clubsong
+$ambient 5 ClubMuzak point continuous 1.0
+
+$alias Waterflow wflow
+$ambient 6 Waterflow point continuous 1.0
 
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
