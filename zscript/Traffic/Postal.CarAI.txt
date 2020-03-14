@@ -85,7 +85,9 @@ class PostalCar : PostalActor
 			A_Recoil(-0.45);
 			
 			for (double j = 75; j < 100; j += 1)
-			{	
+			{
+				if (ActiveNode == null) break;
+				
 				if ((Distance2D(ActiveNode) <= j || Distance2D(ActiveNode) ~== j) && ActiveNode != null)
 				{
 					double SavedAngle = angle;

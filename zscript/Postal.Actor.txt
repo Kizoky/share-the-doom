@@ -17,6 +17,7 @@ extend class PostalDecoration
 		bABSMASKPITCH = true;
 		bABSMASKANGLE = true;
 		bNOGRAVITY = true;
+		bNOINTERACTION = true;
 	}
 	
 	override void Tick()
