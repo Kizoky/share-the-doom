@@ -115,7 +115,7 @@ map WORLD5 "Haldea - Day"  ///Kizoky's fun place
 }
 
 
-map TERROR "Downtown - Day"  
+map WORLD10 "Downtown - Day"  
 {
 	levelnum = 15
 	music=Amb_10
