@@ -199,6 +199,7 @@ Homestuck sounds/Homestuck.wav
 SpinMe sounds/SpinMe.wav
 clubsong sounds/clubsong.ogg
 wflow sounds/wflow.ogg
+rusbar sounds/rusbar.ogg
 
 
 $alias BeirdSkairy BirdAmbient
@@ -219,6 +220,8 @@ $ambient 5 ClubMuzak point continuous 1.0
 $alias Waterflow wflow
 $ambient 6 Waterflow point continuous 1.0
 
+$alias RuskiBarMuzak rusbar
+$ambient 7 RuskiBarMuzak point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure

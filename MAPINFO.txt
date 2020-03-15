@@ -118,7 +118,7 @@ map WORLD5 "Haldea - Day"  ///Kizoky's fun place
 map TERROR "Downtown - Day"  
 {
 	levelnum = 15
-	music=Amb_05
+	music=Amb_10
 	sky1=F_SKY1
 	cluster=1
 }
