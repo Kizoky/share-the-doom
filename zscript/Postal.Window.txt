@@ -1,0 +1,54 @@
+// Doom-ified/ZScriptifed version of Postal 2's Window
+// Reinvented wheel? Probably not :)
+
+class PostalWindow : Actor
+{
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		Destroy();
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+	}
+	
+	override void Touch (actor toucher)
+	{
+		if (toucher)
+			Destroy();
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Window"
+		//$Color 5
+		Radius 5;
+		Height 85;
+		Speed 0;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+SOLID
+		+SPECIAL
+		BloodType "null";
+		Renderstyle "Translucent";
+		Alpha 0.68;
+		PainChance 0;
+		Health 666;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
