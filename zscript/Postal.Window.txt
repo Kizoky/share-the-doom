@@ -17,12 +17,22 @@ class PostalWindow : Actor
 	override void Tick()
 	{
 		Super.Tick();
+		if (level.time > TimeBeforeDestroy && TouchedOnce == true)
+			Destroy();
 	}
 	
+	int TimeBeforeDestroy;
+	bool TouchedOnce;
 	override void Touch (actor toucher)
 	{
 		if (toucher)
-			Destroy();
+		{
+			if (TouchedOnce) return;
+			
+			// There's a slight "bump" in Postal 2 when you touch the Window
+			TimeBeforeDestroy = level.time + 1;
+			TouchedOnce = true;
+		}
 	}
 	
 	Default
