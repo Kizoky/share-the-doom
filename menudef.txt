@@ -65,6 +65,8 @@ OptionMenu "PostalOptionMenu"
 	StaticText "Enables or Disables Postal Lights from a map. Server-sided", "White"
 	Option "Shadows in maps", "postal_lights", "YesNo"
 	StaticText ""
+	StaticText "Note: OpenGL runs poorly with this mod, make sure you have Vulkan renderer enabled!", "White"
+	StaticText ""
 	
 	StaticText "HUD Settings", "Gold"
 	StaticText ""
