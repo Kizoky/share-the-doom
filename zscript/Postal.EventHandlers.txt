@@ -168,6 +168,16 @@ class DudeCoreHandler : EventHandler
 			e.thing.bSPECIAL = true;
 			e.thing.bPICKUP = true;
 		}
+		
+		CVar lightscvar = CVar.FindCVar('postal_lights');
+		bool lights = (lightscvar != null && lightscvar.GetBool ());
+		
+		if (!lights)
+		{
+			if (e.thing is 'PointLight')
+				e.thing.Destroy();
+		}
+		
    }
 	override void WorldTick()
 	{
