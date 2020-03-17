@@ -63,7 +63,7 @@ OptionMenu "PostalOptionMenu"
 	StaticText "Performance Options", "Gold"
 	StaticText ""
 	StaticText "Enables or Disables Postal Lights from a map. Server-sided", "White"
-	Option "Simulated Postal Lights", "postal_lights", "YesNo"
+	Option "Shadows in maps", "postal_lights", "YesNo"
 	StaticText ""
 	
 	StaticText "HUD Settings", "Gold"
