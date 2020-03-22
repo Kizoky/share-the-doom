@@ -240,6 +240,7 @@ class PostalDoor_Extender : Actor
 		+NOBLOOD
 		+SPECIAL
 		PainChance 0;
+		BloodType "null";
 		Health 99999999;
 	}
 	States
