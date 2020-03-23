@@ -257,6 +257,7 @@ class PostalGrenade : PostalActor
 		+NOBLOOD
 		Gravity 0.27;
 		BounceFactor 0.66;
+		BloodType "null";
 		WallBounceFactor 0.66;
 		//SeeSound "";
 		DeathSound "other/mute";

@@ -149,6 +149,7 @@ class PouringGas : PostalActor
 		-CAUSEPAIN;
 		+THRUSPECIES;
 		+MTHRUSPECIES;
+		BloodType "null";
 		Scale 1.0;
 	}
 	States
@@ -357,6 +358,7 @@ class PostalFire : PostalActor
 		-COUNTKILL
 		-NOBLOCKMAP
 		+FORCEXYBILLBOARD
+		BloodType "null";
 		RenderStyle "Translucent";
 		Alpha 0.3;
 		Scale 0.6;
@@ -659,6 +661,7 @@ class PostalLiquidGas : PostalActor
 		-ISMONSTER
 		-COUNTKILL
 		RenderStyle "Translucent";
+		BloodType "null";
 		Alpha 0.3;
 		Scale 0.5;
 	}

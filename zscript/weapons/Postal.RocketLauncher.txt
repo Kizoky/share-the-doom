@@ -334,6 +334,7 @@ class PostalRocket : PostalActor
 		DeathSound "weapons/rocket_explode";
 		BounceSound "weapons/rocket_bounce";
 		Obituary "$OB_MPROCKET";
+		BloodType "null";
 	}
 	States
 	{
