@@ -360,7 +360,6 @@ class fakeTrainCollision : PostalActor
 		+SHOOTABLE
 		+ISMONSTER
 		DropItem "None";
-		+DONTHURTSPECIES
 	}
 	States
 	{

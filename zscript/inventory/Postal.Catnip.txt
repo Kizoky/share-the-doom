@@ -162,7 +162,7 @@ class SMPowerTimeFreezerSound : PowerTimeFreezer
 		// Make sure the effect starts and ends on an even tic.
 		if ((level.time & 1) == 0)
 		{
-			level.frozen = true;;
+			level.setfrozen(true);
 		}
 		else
 		{
@@ -197,7 +197,7 @@ class SMPowerTimeFreezerSound : PowerTimeFreezer
 		}
 
 		// No, so allow other actors to move about freely once again.
-		level.frozen = false;
+		level.setfrozen(false);
 
 		// Also, turn the music back on.
 		S_ResumeSound(true);

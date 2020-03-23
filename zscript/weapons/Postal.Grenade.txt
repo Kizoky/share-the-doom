@@ -332,7 +332,12 @@ class PostalGrenade : PostalActor
 			
 			int i = 0;
 			while (i < 10) {
-				A_SpawnItemEx("PostalExplosionSmoke", FRandom(-52.5, 52.5), FRandom(-52.5, 52.5), FRandom(10, 52.5), FRandom(-12.5, 12.5) * RandomPick(0.0, 0.1), FRandom(0.1, 0.1) * RandomPick(-1, 1), FRandom(0.0, 0.1), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+				vector3 poss = (frandom(-52.5, 52.5), frandom(-52.5, 52.5),frandom(10, 52.5));
+				let Smoke = Spawn("PostalExplosionSmoke", pos+poss);
+				if (Smoke)
+				{
+					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+				}
 				i++;
 			}
 		}

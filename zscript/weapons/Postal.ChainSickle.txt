@@ -144,7 +144,7 @@ class PostChainSickle : PostalWeapon
 			A_PlaySound("weapons/machete_throw", CHAN_WEAPON);
 		}
 		MASF DEFG 2;
-		BLWA G 0 A_FireCustomMissile("LoreShot");
+		BLWA G 0 A_FireProjectile("LoreShot");
 		Goto Blade.Wait;
 	Blade.Wait:
 		BLWA GGGGGGGGGGGGG 3

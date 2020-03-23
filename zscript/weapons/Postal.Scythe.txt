@@ -218,8 +218,8 @@ class ThrownScythe : Actor
 			if (pp)
 			{
 				pp.Entity = self;
-				pp.ScaleX = 2.5;
-				pp.ScaleY = 2.5;
+				pp.Scale.X = 2.5;
+				pp.Scale.Y = 2.5;
 			}
 			
 		}
