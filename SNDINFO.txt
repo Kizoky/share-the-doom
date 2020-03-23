@@ -197,9 +197,10 @@ BirdAmbient sounds/BirdScary.wav
 GrassAmbient sounds/GrassHoppers.wav
 Homestuck sounds/Homestuck.wav
 SpinMe sounds/SpinMe.wav
-clubsong sounds/clubsong.ogg
+clubsong sounds/amb_mus/clubsong.ogg
 wflow sounds/wflow.ogg
-rusbar sounds/rusbar.ogg
+rusbar sounds/amb_mus/rusbar.ogg
+themepark sounds/amb_mus/themepark.ogg
 
 
 $alias BeirdSkairy BirdAmbient
@@ -222,6 +223,9 @@ $ambient 6 Waterflow point continuous 1.0
 
 $alias RuskiBarMuzak rusbar
 $ambient 7 RuskiBarMuzak point continuous 1.0
+
+$alias ThemeParkSong themepark
+$ambient 8 ThemeParkSong point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
