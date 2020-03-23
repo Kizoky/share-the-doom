@@ -17,6 +17,7 @@ Model "PostalWindow"
 	Path "models\misc\window"
 	Model 0 "window.md3"
 	SurfaceSkin 0 0 "window-shiny.png"
+	SurfaceSkin 0 1 "window-shiny.png"
 	AngleOffset 0
 	USEACTORPITCH
 	Scale -0.50 -0.50 0.50
