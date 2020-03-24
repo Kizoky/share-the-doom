@@ -30,8 +30,12 @@ class PostalWindow : Actor
 			if (TouchedOnce) return;
 			
 			// There's a slight "bump" in Postal 2 when you touch the Window
-			TimeBeforeDestroy = level.time + 1;
-			TouchedOnce = true;
+			// Let's assume the toucher is falling
+			if (toucher.pos.z > floorz)
+			{
+				TimeBeforeDestroy = level.time + 1;
+				TouchedOnce = true;
+			}
 		}
 	}
 	
