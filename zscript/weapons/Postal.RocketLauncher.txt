@@ -24,7 +24,9 @@ class PostRLauncher : PostalWeapon
 		Weapon.SelectionOrder 1300;
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 8;
-		Weapon.AmmoType "Clip";
+		Weapon.AmmoType "RocketAmmo";
+		Weapon.BobRangeX 0.4;
+		Weapon.BobRangeY 0.5;
 		+WEAPON.NOAUTOFIRE;
 		Obituary "$PSTL_OB_ROCKET";
 		Tag "$PSTL_WP_ROCKET";

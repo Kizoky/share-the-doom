@@ -11,6 +11,8 @@ class PostPistol : PostalWeapon replaces Pistol
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 20;
 		Weapon.AmmoType "Clip";
+		Weapon.BobRangeX 0.4;
+		Weapon.BobRangeY 0.6;
 		Obituary "$PSTL_OB_PISTOL";
 		//+WEAPON.WIMPY_WEAPON;
 		Tag "$PSTL_WP_PISTOL";

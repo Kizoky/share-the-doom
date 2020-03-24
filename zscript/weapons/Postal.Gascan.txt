@@ -7,6 +7,8 @@ class PostGascan : PostalWeapon
 		//$Sprite PICKA0
 		Weapon.Kickback 100;
 		Weapon.SelectionOrder 1300;
+		Weapon.BobRangeX 0.4;
+		Weapon.BobRangeY 0.5;
 		Obituary "$PSTL_OB_GASCAN";
 		Tag "$PSTL_WP_GASCAN";
 		Inventory.PickupMessage "$PSTL_PP_GASCAN";

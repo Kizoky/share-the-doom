@@ -1,22 +1,5 @@
 class PostalWeapon : Weapon
 {
-	override void Tick()
-	{
-		Super.Tick();
-		if (owner != null && owner is 'PostalDude')
-		{
-			//Always do bobbing
-			Owner.player.WeaponState |= WF_WEAPONBOBBING;
-			
-			//Disable auto aiming no matter what
-			bNOAUTOAIM = true;
-			
-			//Disable knockback on all weapons
-			Kickback = 0;
-			
-		}
-	}
-	
 	override void Touch (Actor toucher)
 	{
 		if (!(toucher is 'PostalDude')) return;
@@ -144,28 +127,33 @@ class PostalWeapon : Weapon
 		player.mo.BringUpWeapon();
 	}
 	
+	override void Tick()
+	{
+		Super.Tick();
+		if (owner != null && owner is 'PostalDude')
+		{
+			//Always do bobbing
+			Owner.player.WeaponState |= WF_WEAPONBOBBING;
+			
+			//Disable auto aiming no matter what
+			bNOAUTOAIM = true;
+			
+			//Disable knockback on all weapons
+			Kickback = 0;
+			
+		}
+	}
+	
 	Default
 	{
-		//Tim's original adjustments
-		//Weapon.BobRangeX 0.05; //  was 0.1
-		//Weapon.BobRangeY -0.2; // was -0.1
-		//Weapon.BobSpeed 2.5; // was 1.7 
-		//Weapon.BobStyle "Alpha";
-		
 		Weapon.BobStyle "Normal";
-		Weapon.BobSpeed 2.4;
-		Weapon.BobRangeX 0.2;
-		Weapon.BobRangeY -0.25;
+		Weapon.BobSpeed 1.7;
+		Weapon.BobRangeX 1.0;
+		Weapon.BobRangeY 1.05;
 		Weapon.YAdjust 0;
 		Inventory.PickupFlash "";
 		Inventory.PickupMessage "Picked up a Postal weapon.";
 		+INVENTORY.NOSCREENFLASH
-		//Weapon.BobStyle "Normal";
-		//Weapon.BobSpeed 0.35;
-		//Weapon.BobRangeX 0.5;
-		//Weapon.BobRangeY 0.5;
-		//Weapon.YAdjust 0;
-		
 	}
 }
 

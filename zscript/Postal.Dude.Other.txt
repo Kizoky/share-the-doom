@@ -247,14 +247,19 @@ extend class PostalDude
 	////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////
 	// PlayerThink, edited to make the player be able to see around
-	// while being dead.
+	// while being dead. Also added Postal bobbing style (Unreal)
 	////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////
+	
+	float BobTime;
 	
 	override void PlayerThink()
 	{
 		let player = self.player;
 		UserCmd cmd = player.cmd;
+		
+		// Needed for Bob_Postal
+		BobTime += Vel.XY.Length() / 5;
 		
 		CheckFOV();
 
@@ -640,6 +645,127 @@ extend class PostalDude
 		{
 			Player.PendingWeapon = Weapon(FindInventory("PostHands"));
 		}
+	}
+	
+	override Vector2 BobWeapon (double ticfrac)
+	{
+		Vector2 p1, p2, r;
+		Vector2 result;
+
+		float bobtarget;
+
+		let player = self.player;
+		if (!player) return (0, 0);
+		let weapon = player.ReadyWeapon;
+
+		if (weapon == null || weapon.bDontBob)
+		{
+			return (0, 0);
+		}
+
+		// [XA] Get the current weapon's bob properties.
+		int bobstyle = weapon.BobStyle;
+		double BobSpeed = (weapon.BobSpeed * 128);
+		double Rangex = weapon.BobRangeX;
+		double Rangey = weapon.BobRangeY;
+
+		for (int i = 0; i < 2; i++)
+		{
+			// Bob the weapon based on movement speed. ([SP] And user's bob speed setting)
+			double angle = (BobSpeed * player.GetWBobSpeed() * 35 /	TICRATE*(Level.maptime - 1 + i)) * (360. / 8192.);
+			
+			// [RH] Smooth transitions between bobbing and not-bobbing frames.
+			// This also fixes the bug where you can "stick" a weapon off-center by
+			// shooting it when it's at the peak of its swing.
+			bobtarget = double((player.WeaponState & WF_WEAPONBOBBING) ? player.bob : 0.);
+			if (curbob != bobtarget)
+			{
+				if (abs(bobtarget - curbob) <= 1)
+				{
+					curbob = bobtarget;
+				}
+				else
+				{
+					double zoom = MAX(1., abs(curbob - bobtarget) / 40);
+					if (curbob > bobtarget)
+					{
+						curbob -= zoom;
+					}
+					else
+					{
+						curbob += zoom;
+					}
+				}
+			}
+			
+			//[SP] Added in decorate player.viewbob checks
+			double bobx = (player.bob * Rangex * ViewBob);
+			double boby = (player.bob * Rangey * ViewBob);
+			
+			if (curbob != 0)
+			{
+				// Needed for Bob_Postal
+				Double BobSpeed = weapon.BobSpeed * 128;
+				Double BobAngle = (BobSpeed * player.GetWBobSpeed() * (BobTime - 1 + i)) * (360. / 8192.);
+				
+				switch (bobstyle)
+				{
+				case Bob_Normal:
+					r.X = 1.5 * BobX * cos(BobAngle);	
+					r.Y = BobY * sin(2.f * BobAngle);
+					break;
+					
+				/* Original
+				case Bob_Normal:
+					r.X = bobx * cos(angle);
+					r.Y = boby * abs(sin(angle));
+					break;
+				*/
+				
+				case Bob_Inverse:
+					r.X = bobx*cos(angle);
+					r.Y = boby * (1. - abs(sin(angle)));
+					break;
+
+				case Bob_Alpha:
+					r.X = bobx * sin(angle);
+					r.Y = boby * abs(sin(angle));
+					break;
+
+				case Bob_InverseAlpha:
+					r.X = bobx * sin(angle);
+					r.Y = boby * (1. - abs(sin(angle)));
+					break;
+
+				case Bob_Smooth:
+					r.X = bobx*cos(angle);
+					r.Y = 0.5f * (boby * (1. - (cos(angle * 2))));
+					break;
+
+				case Bob_InverseSmooth:
+					r.X = bobx*cos(angle);
+					r.Y = 0.5f * (boby * (1. + (cos(angle * 2))));
+				
+				/*
+				case Bob_Postal:
+					r.X = 1.5 * BobX * cos(BobAngle);	
+					r.Y = BobY * sin(2.f * BobAngle);
+					break;
+				*/
+				}
+				
+			}
+			else
+			{
+				//r = (BobX, BobY);
+			}
+			
+			
+			if (i == 0) p1 = r; else p2 = r;
+			
+			
+		}
+		return p1 * (1. - ticfrac) + p2 * ticfrac;
 	}
 	
 }

@@ -1,4 +1,4 @@
-version "4.2"
+version "4.3"
 
 //------------ Postal stuff
 #include "zscript/Postal.Actor.txt"
@@ -124,7 +124,16 @@ version "4.2"
 #include "zscript/pathfinding/navmesh.zc"
 #include "zscript/pathfinding/pathfinder.zc"
 
-
+enum Bobbing
+{
+	Bob_Normal,
+	Bob_Inverse,
+	Bob_Alpha,
+	Bob_InverseAlpha,
+	Bob_Smooth,
+	Bob_InverseSmooth,
+	Bob_Postal
+};
 
 class FloatingTestLight : Actor
 {
