@@ -7,7 +7,7 @@ class PostalWindow : Actor
 	{
 		if (DamageActor)
 		{
-			int dd = DamageActor.DamageMobj(self, self, 5, "Melee");
+			int dd = DamageActor.DamageMobj(self, self, 3, "Melee");
 		}
 		A_StartSound("glass/break", CHAN_BODY);
 		
@@ -79,6 +79,7 @@ class PostalWindow : Actor
 		+MOVEWITHSECTOR
 		+SOLID
 		+SPECIAL
+		+NOBLOOD
 		BloodType "null";
 		Renderstyle "Translucent";
 		Alpha 0.68;
@@ -188,6 +189,7 @@ class PostalWindow_Extender : Actor
 		+SOLID
 		+NOGRAVITY
 		+SPECIAL
+		+NOBLOOD
 		BloodType "null";
 		Renderstyle "Translucent";
 		Alpha 0.68;
