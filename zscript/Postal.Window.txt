@@ -3,8 +3,29 @@
 
 class PostalWindow : Actor
 {
+	void SpawnShards()
+	{
+		if (DamageActor)
+		{
+			int dd = DamageActor.DamageMobj(self, self, 5, "Melee");
+		}
+		A_StartSound("glass/break", CHAN_BODY);
+		
+		int i = 0;
+		while (i <= 35) {
+			vector3 poss = (frandom(-25,50),frandom(-25,50),frandom(-5,50));
+			let Shard = Spawn("Postal_GlassShard", pos+poss);
+			if (Shard)
+			{	
+				Shard.vel = (frandom(-2.5,2.5),frandom(-2.5,2.5),frandom(-2.5,2.5));
+			}
+			i++;
+		}
+	}
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		SpawnShards();
 		Destroy();
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
@@ -18,11 +39,15 @@ class PostalWindow : Actor
 	{
 		Super.Tick();
 		if (level.time > TimeBeforeDestroy && TouchedOnce == true)
+		{
+			SpawnShards();
 			Destroy();
+		}
 	}
 	
 	int TimeBeforeDestroy;
 	bool TouchedOnce;
+	Actor DamageActor;
 	override void Touch (actor toucher)
 	{
 		if (toucher)
@@ -34,6 +59,7 @@ class PostalWindow : Actor
 			if (toucher.pos.z > floorz)
 			{
 				TimeBeforeDestroy = level.time + 1;
+				DamageActor = toucher;
 				TouchedOnce = true;
 			}
 		}
@@ -64,5 +90,293 @@ class PostalWindow : Actor
 	Spawn:
 		PROP A 10;
 		Loop;
+	}
+}
+
+class PostalWindow_Extender : Actor
+{
+	Actor AttachedWindow;
+	bool GotActor;
+	
+	void A_SearchForWindow()
+	{
+		if (AttachedWindow) return;
+		
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 50);
+		double fov = 20;
+		
+		while (it.Next ()) {
+			let next = it.Thing;
+			if (!next) return;
+			
+			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			{
+				continue;
+			}
+			
+			if (!AttachedWindow)
+			{
+				if (next is 'PostalWindow' && next.pos.z == self.pos.z)
+				{
+					AttachedWindow = next;
+					GotActor = true;
+				}
+			}
+		}
+    }
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		let pp = PostalWindow(AttachedWindow);
+		if (pp)
+		{
+			int dd = pp.DamageMobj(inflictor,source,damage,mod);
+		}
+		Destroy();
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	int TimeBeforeWarning;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		TimeBeforeWarning = level.time + 35 * 2;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (!AttachedWindow)
+			A_SearchForWindow();
+		
+		if (level.time > TimeBeforeWarning && !AttachedWindow && !GotActor)
+		{
+			Console.Printf("Window not found!");
+			Destroy();
+		}
+		
+		if (!AttachedWindow && GotActor)
+			Destroy();
+	}
+	
+	override void Touch (actor toucher)
+	{
+		if (toucher)
+		{
+			if (toucher.pos.z > floorz)
+			{
+				AttachedWindow.Touch(toucher);
+				Destroy();
+			}
+		}
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Window Extender"
+		//$Color 6
+		Radius 5;
+		Height 85;
+		Speed 0;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+SOLID
+		+NOGRAVITY
+		+SPECIAL
+		BloodType "null";
+		Renderstyle "Translucent";
+		Alpha 0.68;
+		PainChance 0;
+		Health 666;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 10;
+		Loop;
+	}
+}
+
+class Postal_GlassShard : Actor
+{
+	int Type;
+	bool minus;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		Type = random(1,4);
+		minus = random(0,1);
+		
+		switch(Type)
+		{
+			default:
+				SetStateLabel("One");
+				break;
+			case 1:
+				SetStateLabel("One");
+				break;
+			case 2:
+				SetStateLabel("Two");
+				break;
+			case 3:
+				SetStateLabel("Three");
+				break;
+			case 4:
+				SetStateLabel("Four");
+				break;
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		vel.z -= 0.6;
+		if (minus)
+			roll -= 12;
+		else
+			roll += 12;
+	}
+	
+	Default
+	{
+		Mass 5;
+		Radius 5;
+		Height 5;
+		+NOBLOCKMAP;
+		+NOTELEPORT;
+		+ALLOWPARTICLES;
+		Projectile;
+		//Gravity 0.95;
+		ActiveSound "";
+		SeeSound "";
+		AttackSound "";
+		RenderStyle "Translucent";
+		Alpha 0.75;
+		Scale 0.32;
+		BounceFactor 1;
+		BounceCount 2;
+		+BOUNCEONFLOORS
+		+BOUNCEONCEILINGS
+		+BOUNCEONWALLS
+		+USEBOUNCESTATE
+		+ROLLSPRITE;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 5;
+		Loop;
+	Bounce.Floor:
+		TNT1 A 0
+		{
+			let Shard = Spawn("Postal_GlassShard3D", pos);
+			if (Shard)
+			{
+				let pp = Postal_GlassShard3D(Shard);
+				if (pp)
+				{
+					pp.Type = Type;
+					pp.Angle = random(-360,360);
+				}		
+			}
+			Destroy();
+		}
+		Goto Spawn;
+	One:
+		UVEG A 5;
+		Loop;
+	Two:
+		UVEG B 5;
+		Loop;
+	Three:
+		UVEG C 5;
+		Loop;
+	Four:
+		UVEG D 5;
+		Loop;
+		
+	}
+}
+
+class Postal_GlassShard3D : Actor
+{
+	int Type;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		switch(Type)
+		{
+			default:
+				SetStateLabel("One");
+				break;
+			case 1:
+				SetStateLabel("One");
+				break;
+			case 2:
+				SetStateLabel("Two");
+				break;
+			case 3:
+				SetStateLabel("Three");
+				break;
+			case 4:
+				SetStateLabel("Four");
+				break;
+		}
+		
+		DestructionTime = level.time + (35 * 3);
+	}
+	
+	int DestructionTime;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (level.time > DestructionTime)
+			Destroy();
+	}
+	
+	Default
+	{
+		Mass 5;
+		Radius 5;
+		Height 5;
+		+NOBLOCKMAP;
+		+NOTELEPORT;
+		+ALLOWPARTICLES;
+		+NOINTERACTION
+		ActiveSound "";
+		SeeSound "";
+		AttackSound "";
+		RenderStyle "Translucent";
+		Alpha 0.75;
+		Scale 0.32;
+		+ROLLSPRITE
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 5;
+		Loop;
+	One:
+		UVEG A 5;
+		Loop;
+	Two:
+		UVEG B 5;
+		Loop;
+	Three:
+		UVEG C 5;
+		Loop;
+	Four:
+		UVEG D 5;
+		Loop;
+		
 	}
 }

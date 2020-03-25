@@ -26,3 +26,27 @@ Model "PostalWindow"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "Postal_GlassShard3D"
+{
+	Path "models\misc\glassshards"
+	Model 0 "glassshard.md3"
+	Path "sprites\glassshards"
+	ZOffset 0.0001
+	UseActorPitch
+	UseActorRoll
+	Scale 20 20 20
+	Offset 0 0 1
+	
+	Skin 0 "UVEGA0.png"
+	FrameIndex UVEG A 0 0
+	
+	Skin 0 "UVEGB0.png"
+	FrameIndex UVEG B 0 0
+	
+	Skin 0 "UVEGC0.png"
+	FrameIndex UVEG C 0 0
+	
+	Skin 0 "UVEGD0.png"
+	FrameIndex UVEG D 0 0
+}

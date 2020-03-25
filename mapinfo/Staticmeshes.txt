@@ -94,4 +94,5 @@ DoomEdNums
   32682 = TreeLeafless3
   
   32681 = postalwindow
+  32680 = postalwindow_extender
 }

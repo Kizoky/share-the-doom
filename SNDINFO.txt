@@ -201,6 +201,7 @@ clubsong sounds/amb_mus/clubsong.ogg
 wflow sounds/wflow.ogg
 rusbar sounds/amb_mus/rusbar.ogg
 themepark sounds/amb_mus/themepark.ogg
+rockmus sounds/amb_mus/rockmus.ogg
 
 
 $alias BeirdSkairy BirdAmbient
@@ -226,6 +227,9 @@ $ambient 7 RuskiBarMuzak point continuous 1.0
 
 $alias ThemeParkSong themepark
 $ambient 8 ThemeParkSong point continuous 1.0
+
+$alias RockMuzike rockmus
+$ambient 9 RockMuzike point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
@@ -551,3 +555,4 @@ grenade/pullpin sounds/grenade_pullpin.wav
 grenade/bounce sounds/grenade_bounce.wav
 grenade/explode sounds/grenade_explodeground.wav
 
+glass/break sounds/miscsounds/glassbreak.wav
