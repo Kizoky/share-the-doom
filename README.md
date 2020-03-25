@@ -20,6 +20,7 @@ For mapping check out these GZDB Flags: https://github.com/Kizoky/share-the-doom
 - Jekyll Grim Payne
 - the ZDoom discord
 - Nash
+- Project Brutality (UT bobbing)
 - ...
 
 # Regarding use of assets from this mod
