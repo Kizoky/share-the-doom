@@ -11,7 +11,7 @@ class PostM16 : PostalWeapon replaces Chaingun
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 8;
 		Weapon.AmmoType "Clip";
-		Weapon.BobRangeX 0.4;
+		Weapon.BobRangeX 0.7;
 		Weapon.BobRangeY 0.5;
 		Obituary "$PSTL_OB_M16";
 		Tag "$PSTL_WP_M16";

@@ -148,7 +148,7 @@ class PostalWeapon : Weapon
 	{
 		Weapon.BobStyle "Normal";
 		Weapon.BobSpeed 1.7;
-		Weapon.BobRangeX 1.0;
+		Weapon.BobRangeX 1.2;
 		Weapon.BobRangeY 1.05;
 		Weapon.YAdjust 0;
 		Inventory.PickupFlash "";
