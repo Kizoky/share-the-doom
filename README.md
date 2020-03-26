@@ -1,4 +1,4 @@
-# Postal 2: Share the Doom 25.03.2020
+# Postal 2: Share the Doom
 
 GZDoom 4.3+ is required to run this mod! Vulkan renderer is recommended!!
 
