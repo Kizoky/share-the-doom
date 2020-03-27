@@ -86,8 +86,8 @@ class Billboard : PostalDecoration
 {
 	Default
 	{
-		//$Category Props
-		//$Title "Billboard"
+		//$Category Billboards
+		//$Title "Billboard 1"
 		Radius 100;
 		Height 350;
 	}
@@ -103,7 +103,7 @@ class Billboard2 : PostalDecoration
 {
 	Default
 	{
-		//$Category Props
+		//$Category Billboards
 		//$Title "Billboard 2"
 		Radius 100;
 		Height 350;
@@ -120,7 +120,7 @@ class BillboardCustom : PostalDecoration
 {
 	Default
 	{
-		//$Category Props
+		//$Category Billboards
 		//$Title "Billboard Customized"
 		Radius 100;
 		Height 350;
@@ -152,6 +152,8 @@ class fortyoz : PostalDecoration
 {
 	Default
 	{
+		//$Category miscellaneous
+		//$Title "Piss beer bottle"
 		Radius 20;
 		Height 56;
 	}
@@ -167,6 +169,8 @@ class sixtyninefine : PostalDecoration
 {
 	Default
 	{
+		//$Category Storefront
+		//$Title "Fridge 1 (shop)"
 		Radius 20;
 		Height 56;
 	}
@@ -182,6 +186,8 @@ class ACunit : PostalDecoration
 {
 	Default
 	{
+		//$Category miscellaneous
+		//$Title "Microwave Box"
 		Radius 20;
 		Height 56;
 	}
@@ -197,6 +203,8 @@ class AngelDawn : PostalDecoration
 {
 	Default
 	{
+		//$Category miscellaneous
+		//$Title "Weeping Angel"
 		Radius 20;
 		Height 56;
 	}
@@ -246,6 +254,8 @@ class ATM : PostalDecoration
 {
 	Default
 	{
+		//$Category miscellaneous
+		//$Title "ATM Fee Of America"
 		Radius 5;
 		Height 56;
 	}
@@ -259,6 +269,8 @@ class ATM : PostalDecoration
 
 class barrelcactus : PostalDecoration
 {
+		//$Category Plants
+		//$Title "Cacti"
 	Default
 	{
 		Radius 5;
@@ -276,6 +288,8 @@ class barchair : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Stool"
 		Radius 5;
 		Height 56;
 	}
@@ -291,6 +305,8 @@ class basketballhoop : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Basketball Hoop"
 		Radius 5;
 		Height 56;
 	}
@@ -306,6 +322,8 @@ class bathtubone : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "BATHTUB 1"
 		Radius 5;
 		Height 56;
 	}
@@ -321,6 +339,8 @@ class bathtubtwo : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "BATHTUB 2 (duplicate)"
 		Radius 5;
 		Height 56;
 	}
@@ -336,6 +356,8 @@ class bedone : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Bed 1"
 		Radius 5;
 		Height 56;
 	}
@@ -351,6 +373,8 @@ class bedtwo : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Bed 2"
 		Radius 5;
 		Height 56;
 	}
@@ -366,6 +390,8 @@ class bewareofdog : PostalDecoration
 {
 	Default
 	{
+		//$Category miscellaneous
+		//$Title "Dog Sign 1"
 		Radius 5;
 		Height 56;
 		+FLOAT;
@@ -383,6 +409,8 @@ class bewareofdogtwo : PostalDecoration
 {
 	Default
 	{
+		//$Category miscellaneous
+		//$Title "Dog Sign 2"
 		Radius 5;
 		Height 56;
 		+FLOAT;
@@ -400,6 +428,8 @@ class bondagechair : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Metal Brass Chair"
 		Radius 5;
 		Height 56;
 	}
@@ -415,6 +445,8 @@ class bookcase : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Bookcase Empty"
 		Radius 5;
 		Height 56;
 	}
@@ -430,6 +462,8 @@ class bookcasetwo : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Bookcase filled"
 		Radius 5;
 		Height 56;
 	}
@@ -445,6 +479,8 @@ class bookcaselibrary : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Bookcase tall"
 		Radius 5;
 		Height 56;
 	}
@@ -460,6 +496,8 @@ class boombox : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Boombox Radio"
 		Radius 5;
 		Height 56;
 	}
@@ -475,6 +513,8 @@ class bosschair : PostalDecoration
 {
 	Default
 	{
+		//$Category miscellaneous
+		//$Title "Office Chair"
 		Radius 5;
 		Height 56;
 	}
@@ -507,6 +547,8 @@ class bureau : PostalDecoration
 {
 	Default
 	{
+		//$Category Props
+		//$Title "Wooden Closet"
 		Radius 5;
 		Height 56;
 	}
@@ -522,7 +564,7 @@ class bush666 : PostalDecoration
 {
 	Default
 	{
-		//$Category Trees
+		//$Category Plants
 		//$Title "Bush 666"
 		Radius 5;
 		Height 56;
@@ -604,7 +646,7 @@ class storeshelf_one : PostalDecoration
 {
 	Default
 	{
-		//$Category Store Shelves
+		//$Category Storefront
 		//$Title "Storeshelf 1"
 		Radius 10;
 		Height 85;
@@ -623,7 +665,7 @@ class storeshelf_two : PostalDecoration
 {
 	Default
 	{
-		//$Category Store Shelves
+		//$Category Storefront
 		//$Title "Storeshelf 2"
 		Radius 10;
 		Height 85;
@@ -642,7 +684,7 @@ class storeshelf_three : PostalDecoration
 {
 	Default
 	{
-		//$Category Store Shelves
+		//$Category Storefront
 		//$Title "Storeshelf 3"
 		Radius 10;
 		Height 85;
