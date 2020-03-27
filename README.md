@@ -1,6 +1,6 @@
-# Postal 2: Share the Doom 25.03.2020
+# Postal 2: Share the Doom
 
-#GZDoom 4.3+ is required to run this mod! Vulkan renderer is recommended!!
+GZDoom 4.3+ is required to run this mod! Vulkan renderer is recommended!!
 
 # Status: Unfinished
 [Please note this mod is extremely unfinished, may have features broken, unfinished, or non-existent]
@@ -15,9 +15,9 @@ For mapping check out these GZDB Flags: https://github.com/Kizoky/share-the-doom
 - Vanilla Postal 2 & AW weapons are in the mod
 
 [Developers]
-Kizoky - lead developer
-olzhas1one - co-lead developer
-IDDQD_1337 - custom asset management
+- Kizoky - lead developer
+- olzhas1one - co-lead developer
+- IDDQD_1337 - custom asset management
 
 [Credits]
 - Running With Scissors
