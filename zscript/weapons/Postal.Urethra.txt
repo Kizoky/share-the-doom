@@ -48,9 +48,27 @@ class PostUrethra : PostalWeapon
 		URET A 0
 		{
 			if (!invoker.Sigh) invoker.Sigh = true;
+			A_FireProjectile("Urine");
 		}
 		URET A 1 A_StartSound("piss/loop", CHAN_WEAPON);
-		Goto Ready;
+		Goto FireHold;
+	FireHold:
+		URET A 1
+		{	
+			int i = 0;
+			while (i < 17)
+			{
+				actor piss = A_FireProjectile("Urine",0,0,0,frandom(-14,-15));
+				i++;
+			}
+			
+			if (!(player.cmd.buttons & BT_ATTACK))
+			{
+				return ResolveState ("Ready");
+			}
+			return ResolveState (null);
+		}
+		Loop;
 	Spawn:
 		SHOT A -1;
 		Stop;
@@ -59,11 +77,23 @@ class PostUrethra : PostalWeapon
 
 class Urine : Actor
 {
+	bool d;
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
+		Scale.X = frandom(0.07,0.20);
+		Scale.Y = frandom(0.05,1);
+		bSPRITEFLIP = random(0,1);
 		
 		int r = random(1,2);
+		d = random(0,1);
+		
+		bool e = random(0,1);
+		if (e)
+			roll = 180;
+		else
+			roll = -180;
+		
 		switch(r)
 		{
 			case 1:
@@ -75,23 +105,43 @@ class Urine : Actor
 			default:
 				break;
 		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		
+		if (d)
+			roll += 0.5;
+		else
+			roll -= 0.5;
+		
+		
+		vel.z -= 0.3;
 	
 	}
 	
 	Default
 	{
+		Species "Swordfight";
 		Radius 5;
 		Height 5;
-		Speed 5;
+		Speed 12;
 		Damage 0;
 		Projectile;
-		+RANDOMIZE
+		+THRUSPECIES
 		-NOBLOCKMAP
 		-NOGRAVITY
 		+SHOOTABLE
 		+NOBLOOD
 		Gravity 0.27;
+		Scale 0.07;
 		BloodType "null";
+		RenderStyle "Translucent";
+		Alpha 0.14;
+		+ROLLSPRITE
+		+FORCEXYBILLBOARD
 		//SeeSound "";
 		DeathSound "";
 		//BounceSound "";

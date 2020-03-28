@@ -85,6 +85,7 @@ class PostalWindow : Actor
 		Alpha 0.68;
 		PainChance 0;
 		Health 666;
+		Obituary "%o ran into a Window.";
 	}
 	States
 	{
