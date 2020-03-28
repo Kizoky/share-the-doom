@@ -8,28 +8,28 @@ class Piss : Ammo
 	}
 }
 
-class KillTheFlames : Inventory
-{
-	Default
-	{
-		Inventory.MaxAmount 1;
-		+Inventory.IGNORESKILL;
-	}
-}
-
 class PostUrethra : PostalWeapon
 {
-	int lastpiss;
+	bool Sigh;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (!Owner) return;
+	
+	}
+	
 	Default
 	{
-    Weapon.Kickback 100;
-    Weapon.SelectionOrder 1300;
-	Weapon.AmmoUse 1;
-	Weapon.AmmoType "Piss";
-	Obituary "$PSTL_OB_URETHRA";
-    Tag "$PSTL_WP_URETHRA";
-	Inventory.PickupMessage "$PSTL_PP_URETHRA";
-	+Weapon.NoAlert;
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Weapon.AmmoUse 0;
+		Weapon.AmmoType "Piss";
+		Obituary "$PSTL_OB_URETHRA";
+		Tag "$PSTL_WP_URETHRA";
+		Inventory.PickupMessage "$PSTL_PP_URETHRA";
+		+Weapon.NoAlert;
 	}
 	States
 	{
@@ -37,196 +37,82 @@ class PostUrethra : PostalWeapon
 		URET A 1 A_WeaponReady;
 		Goto Ready;
 	Deselect:
-		URET A 0 A_PlaySound("piss/zipperup", 7 | 4096);
+		URET A 0 A_StartSound("piss/zipperup", CHAN_BODY);
 		URET A 1 A_Lower;
 		Loop;
 	Select:
-		URET A 0 A_PlaySound("piss/zipperdown", 7 | 4096);
+		URET A 0 A_StartSound("piss/zipperdown", CHAN_BODY);
 		URET A 1 A_Raise;
 		Loop;
 	Fire:
-		URET A 1 A_FireProjectile("Urine",Random(-1,0),0,Random(0,1),Random(-1,0),0,0);
-		URET A 0 A_PlaySound("piss/loop",7 | 4096);
+		URET A 0
+		{
+			if (!invoker.Sigh) invoker.Sigh = true;
+		}
+		URET A 1 A_StartSound("piss/loop", CHAN_WEAPON);
 		Goto Ready;
-	Hold:
-		URET A 1 A_FireProjectile("Urine",Random(-1,0),0,Random(0,1),Random(-1,0),0,0);
-		URET A 1 A_FireProjectile("Urine",Random(-1,0),0,Random(0,1),Random(-1,0),0,0);
-		URET A 1 A_FireProjectile("Urine",Random(-1,0),0,Random(0,1),Random(-1,0),0,0);	
-		URET A 1 A_FireProjectile("Urine",Random(-1,0),0,Random(0,1),Random(-1,0),0,0);
 	Spawn:
 		SHOT A -1;
 		Stop;
 	}
 }
 
-//credits: Nature's Call
-//Author: Pompous Seed from ZDoom forum
-
 class Urine : Actor
 {
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		int r = random(1,2);
+		switch(r)
+		{
+			case 1:
+				SetStateLabel("One");
+				break;
+			case 2:
+				SetStateLabel("Two");
+				break;
+			default:
+				break;
+		}
+	
+	}
+	
 	Default
 	{
-		Projectile;
-	    +MISSILE
-		+BLOODLESSIMPACT
-		+FORCEXYBILLBOARD
-		+MOVEWITHSECTOR
-		+NODAMAGETHRUST
-		-NOGRAVITY
-		+SPECTRAL
-		+SPECIAL
-		+FLOORCLIP
-		-SOLID
-		+SHOOTABLE
-		+DROPOFF
-		+PICKUP
-		+NOTDMATCH
-		-FRIENDLY
-		+SLIDESONWALLS
-		+CANPASS
-		+CANPUSHWALLS
-		+FLOORCLIP
-		+WINDTHRUST
-		+TELESTOMP
-		+NOBLOCKMONST
-		+SPECIAL
-		+FORCEPAIN
-		+AVOIDMELEE
-		+DOHARMSPECIES
-		+HARMFRIENDS
-		+QUICKTORETALIATE
-		+ALLOWPAIN
-		-COUNTKILL
-		Alpha 0.65;
-		DamageType "Urine";
-		Damage 2;
-		Decal "UrineStains";
-		Gravity 1;
-		Height 4;
-		Radius 3;
-		RenderStyle "Translucent";
-		Speed 15;
-		Scale 0.35;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 0;
-		TNT1 A 0 A_Jump(182,2);
-		TNT1 A 0 A_SetScale(0.2,0.2);
-		TNT1 A 0 A_Jump(182,2);
-		TNT1 A 0 A_SetScale(0.25,0.25);
-		TNT1 A 0 A_Jump(182,2);
-		TNT1 A 0 A_SetScale(0.3,0.3);
-	Main:
-		PUFF A 1 A_RadiusGive("KillTheFlames",25,RGF_MISSILES|RGF_MONSTERS,1);
-		Loop;
-	Death:
-		//TNT1 A 0 A_JumpIf(Z==FloorZ,5);
-		//TNT1 A 0 A_JumpIf(CeilingZ-Z<=2,"Drip");
-						//  drip
-		TNT1 A 0 A_SpawnItemEx("UrineParticle2",Random(0,1),Random(-1,0),0,Random(-2,0),Random(-2,2),Random(-4,-3),Random(0,1),SXF_NOCHECKPOSITION,92);
-						//  splatter
-		TNT1 A 0 A_SpawnItemEx("UrineParticle2",0,0,0,1.35,fRandom(0.7,0.1),Random(1,4),Random(0,270),SXF_NOCHECKPOSITION,92);
-		TNT1 A 5;
-		Stop;
-		//TNT1 A 0 A_JumpIf(CallACS("LiquidCheck",0,0,0)==1,"InWater");
-		TNT1 A 0 A_SpawnItemEx("UrineParticle2",0,0,0,1.55,0.7,Random(1,4),Random(0,360),SXF_NoCheckPosition,92);
-		TNT1 A 0 A_Jump(182,"NULL");
-		TNT1 A 0 A_SetScale(fRandom(0.8,0.9),0.3);
-	Evaporate:
-		//TNT1 A 0 A_JumpIf(ScaleY<=0,"NULL");
-		PUFF A 70;
-		TNT1 A 0 A_Jump(128,1);
-		Goto Evaporate+1;
-		//TNT1 A 0 A_SetScale(ScaleX-0.1,ScaleY-0.1);
-		Goto Evaporate;
-	Drip:
-		TNT1 A 0 A_SpawnItemEx("UrineParticle2",0,0,0,1.5,0.75,0,Random(0,360),SXF_NOCHECKPOSITION,92);
-		Stop;
-	NULL:
-		TNT1 A 5;
-		Stop;
-	}
-}
-
-class UrineSplash : Actor
-{
-	Default
-	{
-		+MOVEWITHSECTOR
-		Alpha 0.65;
-		RenderStyle "Translucent";
-		Scale 0.25;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 0;
-		TNT1 A 0 A_Jump(182,4);
-		USPL ABC 1;
-		Stop;
-		USPL DEF 1;
-		Stop;
-	}
-}
-
-class UrineParticle1 : Urine
-{
-	Default
-	{
-		+THRUACTORS
-		Decal "";
-		DamageType "";
+		Radius 5;
+		Height 5;
+		Speed 5;
 		Damage 0;
-		Speed 0;
-		Scale 0.33;
+		Projectile;
+		+RANDOMIZE
+		-NOBLOCKMAP
+		-NOGRAVITY
+		+SHOOTABLE
+		+NOBLOOD
+		Gravity 0.27;
+		BloodType "null";
+		//SeeSound "";
+		DeathSound "";
+		//BounceSound "";
+		Obituary "%o got pissed on by %k ... ???";
 	}
 	States
 	{
-	Death:
-		//TNT1 A 0 A_JumpIf(Z==FloorZ,2);
-		TNT1 A 5;
-		Stop;
-		TNT1 A 0 A_SpawnItemEx("UrineSplash",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION);
-		PUFF A 1 A_SetScale(0.5,0.35);
-	Evaporate:
-		//TNT1 A 0 A_JumpIf(ScaleX>=0.8,"NULL");
-		//PUFF A 1 A_SetScale(ScaleX+0.05,ScaleY-0.05);
-		TNT1 A 1;
-		Loop;
-	}
-}
-
-class UrineParticle2 : UrineParticle1
-{
-	Default
-	{
-	Scale 0.23;
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 0;
-		TNT1 A 0 A_Jump(128,2);
-		TNT1 A 0 A_SetScale(0.3,0.3);
-		TNT1 A 0 A_Jump(128,2);
-		TNT1 A 0 A_SetScale(0.4,0.4);
-		TNT1 A 0 A_Jump(128,2);
-		TNT1 A 0 A_SetScale(0.45,0.45);
-	Loopy:
-		URIN B 1;
-		Loop;
-	Death:
-		//TNT1 A 0 A_JumpIf(Z==FloorZ,2);
-		TNT1 A 5;
-		Stop;
-		TNT1 A 0 A_SpawnItemEx("UrineSplash",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION);
-		PUFF A 1 A_SetScale(0.35,0.18);
-	Evaporate:
-		//TNT1 A 0 A_JumpIf(ScaleY<=0.01,"NULL");
-		//PUFF A 1 A_SetScale(ScaleX+0.05,ScaleY-0.05);
-		TNT1 A 1;
-		Loop;
+		Spawn:
+			TNT1 A 0;
+			Loop;
+		One:
+			URIN A 3;
+			Loop;
+		Two:
+			URIN B 3;
+			Loop;
+		Death:
+			TNT1 A 0
+			{
+				Destroy();
+			}
+			Stop;
 	}
 }
