@@ -234,6 +234,27 @@ extend class PostalDude
 		{
 			if (Level.maptime >= player.respawn_time || ((player.cmd.buttons & BT_USE) && player.Bot == NULL))
 			{
+				let PlayerDude = PostalDude(self);
+				let a = DummyDude(PlayerDude.DummyCorpse);
+				
+				if (a) a.Multiplayer = true;
+				
+				if (PlayerDude)
+				{
+					PlayerDude.PlayerData.SpawnedOnce = false;
+					PlayerDude.PlayerData.Suicide = false;
+					PlayerDude.MissileOnce = false;
+					PlayerDude.isDead = false;
+					PlayerDude.Suicided = false;
+				}
+				Speed = Default.Speed;
+				JumpZ = Default.JumpZ;
+				A_TakeInventory("CameraRunner", 1);
+				A_GiveInventory("HUDViewable", 1);
+				
+				if (PlayerDude)
+					PlayerDude.DummyCorpseSpawned = false;
+				
 				player.cls = NULL;		// Force a new class if the player is using a random class
 				player.playerstate = (multiplayer || level.AllowRespawn || sv_singleplayerrespawn || G_SkillPropertyInt(SKILLP_PlayerRespawn)) ? PST_REBORN : PST_ENTER;
 				if (special1 > 2)
@@ -305,7 +326,27 @@ extend class PostalDude
 			((deathmatch || alwaysapplydmflags) && sv_forcerespawn)) && !sv_norespawn)
 			{
 				if (Level.maptime >= player.respawn_time || ((player.cmd.buttons & BT_USE) && player.Bot == NULL))
-				{
+				{	
+					let a = DummyDude(PlayerDude.DummyCorpse);
+				
+					if (a) a.Multiplayer = true;
+					
+					if (PlayerDude)
+					{
+						PlayerDude.PlayerData.SpawnedOnce = false;
+						PlayerDude.PlayerData.Suicide = false;
+						PlayerDude.MissileOnce = false;
+						PlayerDude.isDead = false;
+						PlayerDude.Suicided = false;
+					}
+					Speed = Default.Speed;
+					JumpZ = Default.JumpZ;
+					A_TakeInventory("CameraRunner", 1);
+					A_GiveInventory("HUDViewable", 1);
+					
+					if (PlayerDude)
+						PlayerDude.DummyCorpseSpawned = false;
+					
 					player.cls = NULL;		// Force a new class if the player is using a random class
 					player.playerstate = (multiplayer || level.AllowRespawn || sv_singleplayerrespawn || G_SkillPropertyInt(SKILLP_PlayerRespawn)) ? PST_REBORN : PST_ENTER;
 					if (special1 > 2)
@@ -313,29 +354,7 @@ extend class PostalDude
 						special1 = 0;
 					}
 				}
-				
-				let a = DummyDude(PlayerDude.DummyCorpse);
-				
-				if (a) a.Multiplayer = true;
-				
-				if (PlayerDude)
-				{
-					PlayerDude.PlayerData.SpawnedOnce = false;
-					PlayerDude.PlayerData.Suicide = false;
-					PlayerDude.MissileOnce = false;
-					PlayerDude.isDead = false;
-					PlayerDude.Suicided = false;
-				}
-				Speed = Default.Speed;
-				JumpZ = Default.JumpZ;
-				A_TakeInventory("CameraRunner", 1);
-				A_GiveInventory("HUDViewable", 1);
-				
-				if (PlayerDude)
-					PlayerDude.DummyCorpseSpawned = false;
-				
 			}
-			
 		}
 		else
 		{
