@@ -111,23 +111,22 @@ class Urine : Actor
 	{
 		Super.Tick();
 		
-		
 		if (d)
 			roll += 0.5;
 		else
 			roll -= 0.5;
 		
 		
-		vel.z -= 0.3;
+		vel.z -= 0.2;
 	
 	}
 	
 	Default
 	{
 		Species "Swordfight";
-		Radius 5;
-		Height 5;
-		Speed 12;
+		Radius 3;
+		Height 3;
+		Speed 10;
 		Damage 0;
 		Projectile;
 		+THRUSPECIES
