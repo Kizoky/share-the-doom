@@ -49,12 +49,15 @@ class CowMike : PostalActor
 						SetStateLabel("Spit");
 						MyHead.Angle = random(0,360);
 						let p = GaryHead(MyHead);
-						p.Owner = self;
-						p.RandomizedZ = random(20,40);
-						p.RandomizedPOS = random(-45,45);
+						if (p)
+						{
+							p.Owner = self;
+							p.RandomizedZ = random(20,40);
+							p.RandomizedPOS = random(-45,45);
+							
+							p.OriginalRadius = random(1,45);
+							p.OriginalY = p.OriginalRadius;
 						
-						p.OriginalRadius = random(1,45);
-						p.OriginalY = p.OriginalRadius;
 						
 						int UpAndDown = random(1,2);
 						if (UpAndDown == 1)
@@ -67,7 +70,9 @@ class CowMike : PostalActor
 							p.rightnleft = true;
 						else
 							p.rightnleft = false;
-							
+						
+						}
+						
 						HeadAmount++;
 						initHeadSpawnCounted = false;
 					}
@@ -80,7 +85,10 @@ class CowMike : PostalActor
 			let armor = FindInventory("BasicArmor");
 			if (DestroyedHeads == 6)
 			{	
-				armor.Amount = 0;
+				if (armor)
+				{
+					armor.Amount = 0;
+				}
 				Timer = true;
 				isArmorDestroyed = true;
 				DestroyedHeads++;
@@ -111,9 +119,10 @@ class CowMike : PostalActor
 				
 			//Console.Printf("Armor: %d", armor.Amount);
 			
+			if (!armor) return;
+			
 			if (SavedArmor != armor.Amount && LaughingCooldown < level.time && isShooting != true && AllHeadsSpawned == true)
 			{
-				
 				SavedArmor = armor.Amount;
 				SetStateLabel("Laugh");
 				Console.Printf("Took some damage");
@@ -134,7 +143,8 @@ class CowMike : PostalActor
 		bNoBlood = true;
 		
 		let armor = FindInventory("BasicArmor");
-		SavedArmor = armor.Amount;
+		if (armor)
+			SavedArmor = armor.Amount;
 	}
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
@@ -372,7 +382,8 @@ class GaryHead : PostalActor
 				if (MyFire)
 				{
 					let p = RedGaryHeadHomingFire(MyFire);
-					p.HeadFlame = self;
+					if (p)
+						p.HeadFlame = self;
 				}
 				
 				done = true;
@@ -434,8 +445,11 @@ class GaryHead : PostalActor
 				if (Owner != null)
 				{
 					let pp = CowMike(Owner);
-					pp.HeadAmount--;
-					pp.DestroyedHeads++;
+					if (pp)
+					{
+						pp.HeadAmount--;
+						pp.DestroyedHeads++;
+					}
 				}
 			}
 			Stop;
@@ -509,7 +523,8 @@ class GaryHeadProjectile : Actor
 			if (MyFire)
 			{
 				let p = GaryHeadHomingFire(MyFire);
-				p.HeadFlame = self;
+				if (p)
+					p.HeadFlame = self;
 			}
 			
 			/*class<actor> Dummy = "DummyShootableHead";
@@ -576,7 +591,9 @@ class GaryHeadHomingFire : Actor
 			else
 			{
 				let p = GaryHeadProjectile(HeadFlame);
-				p.done = false;
+				if (p)
+					p.done = false;
+
 				Destroy();
 			}
 		}
