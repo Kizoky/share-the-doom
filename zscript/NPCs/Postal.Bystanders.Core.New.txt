@@ -264,6 +264,7 @@ class NPCCore : PostalActor
 					(Distance2D(ActiveNode) < 10)) && ActiveNode != null)
 			{
 				let node = Postal_Node(ActiveNode);
+				if (!node) return;
 				if (node.NextNode != null)
 					ActiveNode = node.NextNode;
 				else
@@ -294,7 +295,6 @@ class NPCCore : PostalActor
 		
 		if (target)
 		{
-		
 			if (Hostility == "Pussy" && hasSeenCorpse != true && target != null)
 			{
 				if (target.bKILLED)
@@ -407,7 +407,7 @@ class NPCCore : PostalActor
 			//Console.Printf("Clip clip clip");
 			A_PlaySound("hitflesh",0 | 4096);
 			MyTarget = source;
-		target = source;
+			target = source;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
 		
@@ -456,7 +456,8 @@ class NPCCore : PostalActor
 		// which then the NPC will randomly strafe left or right, probably just like in Postal 2
 		
 		//Let's get the pitch from A_FaceTarget
-		A_FaceTarget(0,0);
+		if (target)
+			A_FaceTarget(0,0);
 		//Console.Printf("Pitch: %d",pitch);
 		//Let's check the Distance to the target
 		double DistanceTarget = Distance2D(target);
@@ -539,9 +540,9 @@ class NPCCore : PostalActor
 			A_FacePostalTarget();
 		}
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FacePostalTarget(); target = MyTarget; }
-		DUDE ABCDEFGHIJKLMNOP 3 { A_FacePostalTarget(); target = MyTarget; }
+		DUDE ABCDEFGHIJKLMNOP 3 { A_FacePostalTarget(); if (MyTarget) target = MyTarget; }
 		PINK A 0 A_PlaySound(NPC_PetitionDeny,0);
-		PINK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FacePostalTarget(); target = MyTarget; }
+		PINK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FacePostalTarget(); if (MyTarget) target = MyTarget; }
 		DUDW A 0
 		{
 			//Clear our target, so we won't be going after it
@@ -676,7 +677,7 @@ class NPCCore : PostalActor
 		SHO3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		SHO4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
 		SHO5 ABCDEFGHIJKLMNOPQ 3;
-		DUDW A 0 { AnnoyingFire.Destroy(); }
+		DUDW A 0 { if (AnnoyingFire) AnnoyingFire.Destroy(); }
 		DUDW A 0
 		{
 			PainChance = Default.PainChance;
@@ -717,7 +718,8 @@ class NPCCore : PostalActor
 				SetStateLabel("Spawn");
 			}
 			
-			A_PostalTarget();
+			if (target)
+				A_PostalTarget();
 			//A_ConcentratedTarget();
 			A_Recoil(-0.85);
 			A_Chase(null, null, flags: CHF_STOPIFBLOCKED);
@@ -726,8 +728,9 @@ class NPCCore : PostalActor
 		Loop;
 	HostileChase:
 		TNT1 A 0
-		{	
-			A_ConcentratedTarget();
+		{
+			if (target)
+				A_ConcentratedTarget();
 			Pitch = 0;
 			
 			if (NPCWeapon == "Pistol")
@@ -759,7 +762,8 @@ class NPCCore : PostalActor
 	Missile:
 		TNT1 A 0
 		{
-			A_ConcentratedTarget();
+			if (target)
+				A_ConcentratedTarget();
 			Pitch = 0;
 			A_FaceTarget();
 			
@@ -802,19 +806,20 @@ class NPCCore : PostalActor
 			class<actor> Rocket = "PostalRocket";
 			Actor pp = SpawnMissileXYZ (pos+(0,0,45), target, Rocket, self);
 			
-			if (!pp) return;
-			
-			let p2 = PostalRocket(pp);
-			if (p2)
+			if (pp)
 			{
-				p2.Speed = 10;
-				p2.AddedTime = 666;
-				P2.Tracer = target;
-				p2.SeekingTarget = target;
-				p2.Owner = self;
-				p2.Pitch = self.pitch;
-				p2.Angle = self.angle;
-				p2.Seeking = true;
+				let p2 = PostalRocket(pp);
+				if (p2)
+				{
+					p2.Speed = 10;
+					p2.AddedTime = 666;
+					P2.Tracer = target;
+					p2.SeekingTarget = target;
+					p2.Owner = self;
+					p2.Pitch = self.pitch;
+					p2.Angle = self.angle;
+					p2.Seeking = true;
+				}
 			}
 		}
 		ROCF A 4;
@@ -829,7 +834,7 @@ class NPCCore : PostalActor
 	Bumping:
 		DUDE A 0 A_PlaySound(NPC_Bump,0, 1.0, false, 1, false, MyVoice);
 		DUDE A 0 { vel.xy = (0,0); }
-		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); }
 		
 		DUDW A 0
 		{
@@ -859,17 +864,20 @@ class NPCCore : PostalActor
 			//our target is the Player always in this state
 			let PlayerDude = PostalDude(target);
 			
-			//Check if Player's onscreen weapon is Urethra, pretty self explanatory
-			if (PlayerDude.Player.ReadyWeapon == PlayerDude.PlayerData.UrethraWeapon)
+			if (PlayerDude)
 			{
-				isBusy = false;
-				A_ClearTarget();
-				SetStateLabel("Spawn");
-			}
-			else
-			{
-				isBusy = false;
-				A_ClearTarget();
+				//Check if Player's onscreen weapon is Urethra, pretty self explanatory
+				if (PlayerDude.Player.ReadyWeapon == PlayerDude.PlayerData.UrethraWeapon)
+				{
+					isBusy = false;
+					A_ClearTarget();
+					SetStateLabel("Spawn");
+				}
+				else
+				{
+					isBusy = false;
+					A_ClearTarget();
+				}
 			}
 			//Although this may never happen (or can if the Player suddenly zipped it's pants), we don't want to make nasty mistakes.
 			isBusy = false;
@@ -922,52 +930,57 @@ class NPCCore : PostalActor
 			let pp = NPCCore(target);
 			//Console.Printf("NPCCore let pp");
 			
-			//If the NPC's (not target's) Hostility is 0
-			if (isBusy == true)
+			if (pp)
 			{
-				if (target is 'NPCCore')
+				//If the NPC's (not target's) Hostility is 0
+				if (isBusy == true)
 				{
-					//Console.Printf("Hostility 0 yada yada");
-					//If target's Hostility is 2 (Hostile)
-					let pp = NPCCore(target);
-					
-					if (pp.Hostility == "Hostile")
+					if (target is 'NPCCore')
 					{
+						//Console.Printf("Hostility 0 yada yada");
+						//If target's Hostility is 2 (Hostile)
 						let pp = NPCCore(target);
-						if (Hostility == "Hostile")
-						{
-							target = pp;
-							isBusy = false;
-							A_PlaySound(NPC_Taunt,0);
-							isAfterTarget = true;
-							SetStateLabel("See");
-							return;
-						}
 						
-						if (Hostility == "Pussy")
+						if (pp)
 						{
-							target = pp;
-							isBusy = false;
-							isAfterTarget = true;
-							SetStateLabel("See");
-							angle = -angle;
-							return;
+							if (pp.Hostility == "Hostile")
+							{
+								let pp = NPCCore(target);
+								if (Hostility == "Hostile")
+								{
+									target = pp;
+									isBusy = false;
+									A_PlaySound(NPC_Taunt,0);
+									isAfterTarget = true;
+									SetStateLabel("See");
+									return;
+								}
+								
+								if (Hostility == "Pussy")
+								{
+									target = pp;
+									isBusy = false;
+									isAfterTarget = true;
+									SetStateLabel("See");
+									angle = -angle;
+									return;
+								}
+							}
 						}
 					}
+					
+					//todo: Add a StaringCorpse state
+					if (target is 'NPCCore' && Hostility == "Pussy" && target.bCORPSE)
+					{
+						target = pp;
+						isBusy = false;
+						isAfterTarget = true;
+						SetStateLabel("See");
+						angle = -angle;
+					}
+					
 				}
-				
-				//todo: Add a StaringCorpse state
-				if (target is 'NPCCore' && Hostility == "Pussy" && target.bCORPSE)
-				{
-					target = pp;
-					isBusy = false;
-					isAfterTarget = true;
-					SetStateLabel("See");
-					angle = -angle;
-				}
-				
 			}
-			
 		}
 		Goto See;
 	Death:
