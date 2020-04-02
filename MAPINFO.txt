@@ -156,6 +156,17 @@ map WORLD9 "Jihad - Day"
 	cluster=1
 }
 
+
+map OLZTEST "Nazi Testing Camp" 
+{
+	levelnum = 1488
+	music=kizoky
+	sky1=F_SKY1
+	cluster=1352
+}
+
+
+
 map TESTPOST lookup "Cinematic experience"
 {
 	//music=D_FFL1
