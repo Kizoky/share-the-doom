@@ -1317,3 +1317,19 @@ Model "TreeLeafless3"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "LibraryWindow"
+{
+	Path "models\misc\window"
+	Model 0 "lib-win-swout.md3"
+	SurfaceSkin 0 0 "library-window-sw.png"
+	SurfaceSkin 0 1 "library-window-sw.png"
+	AngleOffset 90
+	Scale -0.75 -0.75 0.75
+	Offset 0.0 6.5 55 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

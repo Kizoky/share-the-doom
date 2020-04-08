@@ -95,4 +95,6 @@ DoomEdNums
   
   32681 = postalwindow
   32680 = postalwindow_extender
+  
+  32679 = LibraryWindow
 }

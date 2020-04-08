@@ -888,3 +888,22 @@ class BillboardCustom7 : PostalDecoration
 		Loop;
 	}
 }
+
+class LibraryWindow : PostalDecoration
+{
+	Default
+	{
+		//$Category Windows
+		//$Title "Library Window"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
