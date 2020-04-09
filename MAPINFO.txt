@@ -157,6 +157,18 @@ map WORLD9 "Jihad - Day"
 }
 
 
+map BLISS "The Bliss"  ///Some story related stuff
+{
+	//levelnum = 5
+	music=god2
+	sky1=heaven
+	cluster=1
+}
+
+
+///Technical Stuff
+
+
 map OLZTEST "Nazi Testing Camp" 
 {
 	levelnum = 1488
@@ -179,6 +191,9 @@ map SCREENT  "Cinematic experience"
 	sky1 = "magichour"
 }
 
+
+
+//Skills
 
 clearskills
 
