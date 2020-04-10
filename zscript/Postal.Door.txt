@@ -226,7 +226,7 @@ class PostalDoor_Extender : Actor
 	{
 		//$Category Gameplay
 		//$Title "Door Extender"
-		//$Color 1
+		//$Sprite ZDORA0
 		Radius 7;
 		Height 85;
 		+SHOOTABLE

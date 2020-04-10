@@ -224,6 +224,7 @@ class Postal_TrainNode : PostalActor
 		}
 	}
 	
+	//$Sprite ZCARA0
 	Default
 	{
 		+NOGRAVITY;
@@ -232,7 +233,7 @@ class Postal_TrainNode : PostalActor
 	States
 	{
 	Spawn:
-		PLSS AB 5
+		TNT1 AB 5
 		{
 			//Check if the NextNode actor pointer is null
 			//Continously creating an iterator will degrade performance

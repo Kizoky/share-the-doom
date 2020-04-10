@@ -214,6 +214,7 @@ class Postal_CarNode : PostalActor
 	{
 		//$Category Traffic
 		//$Title "Car Pathnode"
+		//$Sprite ZCARA0
 		+NOGRAVITY;
 		-SOLID;
 		Radius 25;
@@ -222,7 +223,7 @@ class Postal_CarNode : PostalActor
 	States
 	{
 	Spawn:
-		PLSS AB 5
+		TNT1 A 5
 		{
 			//Check if the NextNode actor pointer is null
 			//Continously creating an iterator will degrade performance

@@ -37,12 +37,13 @@ class PostPistol : PostalWeapon replaces Pistol
 		POXA AB 1;
 		//TNT1 A 0 A_QuakeEx(1, 1, 1, 7, 0, 60 | QF_RELATIVE);
 		POXA C 0 A_SetPitch(pitch-0.50);
-		POXA C 2 A_FirePistol;
+		POXA C 1 A_FirePistol;
 		POXA D 0 A_SetPitch(pitch+0.50);
 		POXA DEFGHIJKLM 1;
+		POX2 A 0 A_ReFire;
 		POXA STUVWXYZ 1;
 		//POX2 ABCD 4 A_ReFire;
-		POX2 A 0 A_ReFire;
+		
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;

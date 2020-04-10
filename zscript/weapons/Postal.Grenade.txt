@@ -18,7 +18,7 @@ class PostGrenade : PostalWeapon
 		Weapon.SelectionOrder 1300;
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 8;
-		Weapon.AmmoType "Clip";
+		Weapon.AmmoType "Grenadium";
 		+WEAPON.NOAUTOFIRE;
 		Obituary "$PSTL_OB_GRENADE";
 		Tag "$PSTL_WP_GRENADE";
@@ -436,5 +436,26 @@ class PostalGrenadeHelper : Actor
 		Spawn:
 			TNT1 A 1;
 			Loop;
+	}
+}
+
+
+class Grenadium : Ammo
+{
+	Default
+	{
+		Inventory.PickupMessage "Devtest: Grenadirus";
+		Inventory.Amount 1;
+		Inventory.MaxAmount 200;
+		Ammo.BackpackAmount 10;
+		Ammo.BackpackMaxAmount 400;
+		Inventory.Icon "CLIPA0";
+		Tag "$AMMO_CLIP";
+	}
+	States
+	{
+	Spawn:
+		PICK A -1;
+		Stop;
 	}
 }

@@ -69,7 +69,7 @@ class PostalWindow : Actor
 	{
 		//$Category Gameplay
 		//$Title "Window"
-		//$Color 5
+		
 		Radius 5;
 		Height 85;
 		Speed 0;
@@ -179,7 +179,7 @@ class PostalWindow_Extender : Actor
 	{
 		//$Category Gameplay
 		//$Title "Window Extender"
-		//$Color 6
+		//$Sprite ZWINA0
 		Radius 5;
 		Height 85;
 		Speed 0;

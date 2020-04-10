@@ -41,7 +41,7 @@ class PostScissors : PostalWeapon
 		Weapon.SelectionOrder 1300;
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 1;
-		Weapon.AmmoType "Clip";
+		Weapon.AmmoType "ScissorsAmmo";
 		Obituary "$PSTL_OB_SCISSORS";
 		Tag "$PSTL_WP_SCISSORS";
 		Inventory.PickupMessage "$PSTL_PP_SCISSORS";
@@ -83,7 +83,7 @@ class PostScissors : PostalWeapon
 				if (SS)
 					ss.Owner = invoker.owner;
 				
-				self.A_TakeInventory("Clip",1);
+				self.A_TakeInventory("ScissorsAmmo",1);
 			}
 		
 		}
@@ -110,7 +110,7 @@ class PostScissors : PostalWeapon
 					ss.Owner = invoker.owner;
 				}
 				
-				self.A_TakeInventory("Clip",1);
+				self.A_TakeInventory("ScissorsAmmo",1);
 			}
 		
 		}
@@ -246,6 +246,30 @@ class PostalScissor : Actor
 		Stop;
 	Crash:
 		TNT1 A 1 { A_PlaySound("scissors/bodystick", CHAN_AUTO); }
+		Stop;
+	}
+}
+
+
+//ScissorsAmmo
+
+
+class ScissorsAmmo : Ammo
+{
+	Default
+	{
+		Inventory.PickupMessage "Devtest: Scissors ammo";
+		Inventory.Amount 1;
+		Inventory.MaxAmount 200;
+		Ammo.BackpackAmount 10;
+		Ammo.BackpackMaxAmount 400;
+		Inventory.Icon "CLIPA0";
+		Tag "$AMMO_CLIP";
+	}
+	States
+	{
+	Spawn:
+		PICK A -1;
 		Stop;
 	}
 }
