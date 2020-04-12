@@ -211,6 +211,9 @@ drill sounds/ambient_p2/drill.wav
 circuitBreakerLP sounds/ambient_p2/circuitBreakerLP.wav
 IndustAmb sounds/ambient_p2/IndustAmb.wav
 breweryPipeAmb1 sounds/ambient_p2/breweryPipeAmb1.wav
+CaveDrop sounds/ambient_p2/CaveDrop.wav
+horror1 sounds/ambient_p2/horror1.wav
+scape sounds/ambient_p2/scape.wav
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -265,6 +268,15 @@ $ambient 17 Industry point continuous 1.0
 
 $alias Pipe1 breweryPipeAmb1
 $ambient 18 Pipe1 point continuous 1.0
+
+$alias DropletBig CaveDrop
+$ambient 19 DropletBig point continuous 1.0
+
+$alias Scape_uasset scape
+$ambient 20 Scape_uasset point continuous 1.0
+
+$alias HorrorFX1 horror1
+$ambient 21 HorrorFX1 point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
