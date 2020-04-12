@@ -202,7 +202,15 @@ wflow sounds/wflow.ogg
 rusbar sounds/amb_mus/rusbar.ogg
 themepark sounds/amb_mus/themepark.ogg
 rockmus sounds/amb_mus/rockmus.ogg
-
+church_scary sounds/ambient_p2/metal_spookyMoan_LP.wav
+Birds2 sounds/ambient_p2/Birds2.wav
+crickets sounds/ambient_p2/crickets.wav
+crickets_2 sounds/ambient_p2/crickets2.wav
+buzz sounds/ambient_p2/LampBuzz.wav
+drill sounds/ambient_p2/drill.wav
+circuitBreakerLP sounds/ambient_p2/circuitBreakerLP.wav
+IndustAmb sounds/ambient_p2/IndustAmb.wav
+breweryPipeAmb1 sounds/ambient_p2/breweryPipeAmb1.wav
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -230,6 +238,33 @@ $ambient 8 ThemeParkSong point continuous 1.0
 
 $alias RockMuzike rockmus
 $ambient 9 RockMuzike point continuous 1.0
+
+$alias ChurchHorror church_scary
+$ambient 10 ChurchHorror point continuous 1.0
+
+$alias BirdChirp Birds2
+$ambient 11 BirdChirp point continuous 1.0
+
+$alias Crickets1 crickets
+$ambient 12 Crickets1 point continuous 1.0
+
+$alias Crickets2 crickets_2
+$ambient 13 Crickets2 point continuous 1.0
+
+$alias Buzzer buzz
+$ambient 14 Buzzer point continuous 1.0
+
+$alias Drilling drill
+$ambient 15 Drilling point periodic 7.0 1.0
+
+$alias Circuit circuitBreakerLP
+$ambient 16 Circuit point continuous 1.0
+
+$alias Industry IndustAmb
+$ambient 17 Industry point continuous 1.0
+
+$alias Pipe1 breweryPipeAmb1
+$ambient 18 Pipe1 point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
