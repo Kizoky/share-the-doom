@@ -202,6 +202,7 @@ wflow sounds/wflow.ogg
 rusbar sounds/amb_mus/rusbar.ogg
 themepark sounds/amb_mus/themepark.ogg
 rockmus sounds/amb_mus/rockmus.ogg
+onlyu sounds/amb_mus/onlyu.ogg
 church_scary sounds/ambient_p2/metal_spookyMoan_LP.wav
 Birds2 sounds/ambient_p2/Birds2.wav
 crickets sounds/ambient_p2/crickets.wav
@@ -214,6 +215,7 @@ breweryPipeAmb1 sounds/ambient_p2/breweryPipeAmb1.wav
 CaveDrop sounds/ambient_p2/CaveDrop.wav
 horror1 sounds/ambient_p2/horror1.wav
 scape sounds/ambient_p2/scape.wav
+bottleblow sounds/ambient_p2/bottleblow.wav
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -277,6 +279,12 @@ $ambient 20 Scape_uasset point continuous 1.0
 
 $alias HorrorFX1 horror1
 $ambient 21 HorrorFX1 point continuous 1.0
+
+$alias OnlyYou onlyu
+$ambient 22 OnlyYou point continuous 1.0
+
+$alias WindScary1 bottleblow
+$ambient 23 WindScary1 point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
