@@ -144,6 +144,9 @@ class DudeCoreHandler : EventHandler
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
 			
+			// Player drops currently selected inventory item
+			// todo: Special inventory drops, for ex.: Catnip, pissed donuts, etc...
+			
 			if (p && e.Name ~== "DropInventoryItem")
 			{
 				let item = p.invSel.GetClassName();
@@ -159,27 +162,37 @@ class DudeCoreHandler : EventHandler
 				}
 			}
 			
+			// Player drops currently equipped weapon
+			// Note: Player must absolutely not drop these 3 weapons
+			
 			if (p && e.Name ~== "DropWeaponItem")
 			{
 				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostHands")) ||
 					p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")) ||
 					p.player.ReadyWeapon == Weapon(p.FindInventory("PostMatchbox"))) return;
 				
-				//todo: a bool check for every STD weapon if it was dropped by the player stop giving extra ammo to the player
-				
+				// Get the weapon's name directly
 				let item = p.player.ReadyWeapon.GetClassName();
+				
+				// Force the player to holster
 				p.player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
+				
+				// Take away the weapon
 				p.A_TakeInventory(item);
 				
+				// Let's spawn a new weapon
 				let itemspawn = p.Spawn(item, p.pos+(0,0,55));
 				if (itemspawn)
 				{
-					//let a = PostalWeapon(itemspawn);
-					
-					itemspawn.angle = p.angle;
-					itemspawn.A_Recoil(-6);
-					itemspawn.vel.z += 0.5;
-					itemspawn.angle = random(0,360);
+					let a = PostalWeapon(itemspawn);
+					if (a)
+					{
+						a.angle = p.angle;
+						a.A_Recoil(-6);
+						a.vel.z += 0.5;
+						a.angle = random(0,360);
+						a.STD_Dropped = true;
+					}
 				}
 			
 			}
