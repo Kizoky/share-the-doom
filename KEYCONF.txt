@@ -27,3 +27,9 @@ DefaultBind "K" "ToggleDudeSuicide"
 
 Alias "ToggleDevDamage" "netevent \"DamageSelf\""
 DefaultBind "V" "ToggleDevDamage"
+
+Alias "ToggleDropItem" "netevent \"DropInventoryItem\""
+DefaultBind "X" "ToggleDropItem"
+
+Alias "ToggleDropWeapon" "netevent \"DropWeaponItem\""
+DefaultBind "," "ToggleDropWeapon"

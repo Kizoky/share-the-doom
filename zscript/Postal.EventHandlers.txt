@@ -139,6 +139,53 @@ class DudeCoreHandler : EventHandler
 		
 	  }
 	  
+	  if (e.Name ~== "DropInventoryItem" || e.Name ~== "DropWeaponItem")
+	  {
+			PostalDude p = PostalDude(players[e.Player].mo);
+			PlayerInfo player = players [e.Player];
+			
+			if (p && e.Name ~== "DropInventoryItem")
+			{
+				let item = p.invSel.GetClassName();
+				p.A_TakeInventory(item,1);
+				
+				let itemspawn = p.Spawn(item, p.pos+(0,0,45));
+				if (itemspawn)
+				{
+					itemspawn.angle = p.angle;
+					itemspawn.A_Recoil(-4);
+					itemspawn.vel.z += 0.5;
+					itemspawn.angle = random(0,360);
+				}
+			}
+			
+			if (p && e.Name ~== "DropWeaponItem")
+			{
+				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostHands")) ||
+					p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")) ||
+					p.player.ReadyWeapon == Weapon(p.FindInventory("PostMatchbox"))) return;
+				
+				//todo: a bool check for every STD weapon if it was dropped by the player stop giving extra ammo to the player
+				
+				let item = p.player.ReadyWeapon.GetClassName();
+				p.player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
+				p.A_TakeInventory(item);
+				
+				let itemspawn = p.Spawn(item, p.pos+(0,0,55));
+				if (itemspawn)
+				{
+					//let a = PostalWeapon(itemspawn);
+					
+					itemspawn.angle = p.angle;
+					itemspawn.A_Recoil(-6);
+					itemspawn.vel.z += 0.5;
+					itemspawn.angle = random(0,360);
+				}
+			
+			}
+			
+	  }
+	  
    }
    
    override void PlayerEntered (PlayerEvent e)
