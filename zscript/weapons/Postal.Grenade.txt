@@ -31,13 +31,13 @@ class PostGrenade : PostalWeapon
 		GREI ABCDEFGHIJKLMNOPQRSTU 9 A_WeaponReady;
 		Loop;
 	Deselect:
-		GRED ABCDEFGHIJKLMNOP 2;
+		GRED ABCDEFGHIJKLMNOP 1;
 		TNT1 A 0 A_PostalLower();
 		Loop;
 	Select:
 		GRES A 0 A_PostalRaise(0);
 		GRES A 0 A_PlaySound("weaponselect1", 7 | 4096);
-		GRES ABCDEFGHIJKLMNOPQRST 2 A_WeaponReady;
+		GRES ABCDEFGHIJKLMNOPQRST 1 A_WeaponReady;
 		GREI A 0 A_PostalRaise(1);
 		Loop;
 	Fire:

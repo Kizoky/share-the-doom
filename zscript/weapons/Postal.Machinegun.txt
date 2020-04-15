@@ -23,12 +23,12 @@ class PostM16 : PostalWeapon replaces Chaingun
 		MGID ABCDEFGHIJKLMNOPQRSTU 7 A_WeaponReady;
 		Loop;
 	Deselect:
-		MGDT ABCCCCCCCCCCCCCCC 1 A_Lower;
+		MGDT ABCCCCCCC 1 A_Lower;
 		Loop;
 	Select:
 		MGST A 0 A_PostalRaise(0);
 		MGST A 0 A_PlaySound("weaponselect2", 7 | 4096);
-		MGST ABCDEFGHIJKLMNOPQQ 2 A_WeaponReady;
+		MGST ABCDEFGHIJKLMNOPQQ 1 A_WeaponReady;
 		MGID A 0 A_PostalRaise(1);
 		Loop;
 	Fire:
