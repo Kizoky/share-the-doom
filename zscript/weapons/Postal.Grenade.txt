@@ -202,7 +202,9 @@ class PostalGrenade : PostalActor
 			{
 				// Destroys and spawns a Grenade weapon
 				Actor NewGrenade = spawn("PostGrenade", self.pos);
-				NewGrenade.angle = angle;
+				if (NewGrenade)
+					NewGrenade.angle = angle;
+				
 				Destroy();
 			}
 		}
@@ -303,6 +305,8 @@ class PostalGrenade : PostalActor
 			}
 			else
 			{
+				// Note: There's a non-intended effect adapting this weird solution, firing upwards will make the Grenade instantly be armed
+				
 				// Distance is too close to previous bounce, Arm the grenade so it will stop making bouncing sounds
 				// Also stop the Grenade completely
 				vel.xy = (0,0);
@@ -315,8 +319,11 @@ class PostalGrenade : PostalActor
 			
 			// Destroys and creates a new actor when it bounced
 			// I don't know if there's any other way to do this, but I found this to be the easiest
-			SavedBouncePos.Destroy();
-			SavedBouncePos = spawn("PostalGrenadeHelper", pos);
+			if (SavedBouncePos)
+			{
+				SavedBouncePos.Destroy();
+				SavedBouncePos = spawn("PostalGrenadeHelper", pos);
+			}
 		}
 		Goto Spawn;
 	Death:
@@ -354,7 +361,8 @@ class PostalGrenade : PostalActor
 					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
 					
 					let pp = PostalSmokeTrail(Smoke);
-					pp.bouncesmoke = true;
+					if (pp)
+						pp.bouncesmoke = true;
 					Smoke.Scale = (8.0,8.0);
 				}
 				i++;
