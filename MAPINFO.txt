@@ -157,6 +157,16 @@ map WORLD9 "Jihad - Day"
 }
 
 
+map SEW1 "Sewers 1" 
+{
+	levelnum = 11
+	music=sewer
+	sky1=F_SKY1
+	cluster=1
+	UsePlayerStartZ=496
+}
+
+
 map BLISS "The Bliss"  ///Some story related stuff
 {
 	//levelnum = 5

@@ -216,6 +216,15 @@ CaveDrop sounds/ambient_p2/CaveDrop.wav
 horror1 sounds/ambient_p2/horror1.wav
 scape sounds/ambient_p2/scape.wav
 bottleblow sounds/ambient_p2/bottleblow.wav
+horror2 sounds/ambient_p2/horror2.wav
+horror3 sounds/ambient_p2/horror3.wav
+horror4 sounds/ambient_p2/horror4.wav
+horror5 sounds/ambient_p2/horror5.wav
+horror6 sounds/ambient_p2/horror6.wav
+horror7 sounds/ambient_p2/horror7.wav
+horror8 sounds/ambient_p2/horror8.wav
+horror9 sounds/ambient_p2/horror9.wav
+horror10 sounds/ambient_p2/horror10.wav
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -285,6 +294,33 @@ $ambient 22 OnlyYou point continuous 1.0
 
 $alias WindScary1 bottleblow
 $ambient 23 WindScary1 point continuous 1.0
+
+$alias HorrorFX2 horror2
+$ambient 24 HorrorFX2 point continuous 1.0
+
+$alias HorrorFX3 horror3
+$ambient 25 HorrorFX3 point continuous 1.0
+
+$alias HorrorFX4 horror4
+$ambient 26 HorrorFX4 point continuous 1.0
+
+$alias HorrorFX5 horror5
+$ambient 27 HorrorFX5 point continuous 1.0
+
+$alias HorrorFX6 horror6
+$ambient 28 HorrorFX6 point continuous 1.0
+
+$alias HorrorFX7 horror7
+$ambient 29 HorrorFX7 point continuous 1.0
+
+$alias HorrorFX8 horror8
+$ambient 30 HorrorFX8 point continuous 1.0
+
+$alias HorrorFX9 horror9
+$ambient 31 HorrorFX9 point continuous 1.0
+
+$alias HorrorFX10 horror10
+$ambient 32 HorrorFX10 point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure

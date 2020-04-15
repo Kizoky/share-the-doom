@@ -156,7 +156,7 @@ class NPCZombie : PostalActor
 		
 		//$Color 4
 		//$Sprite TESTA0
-		Health 99999999;
+		Health 15;
 		Radius 13;
 		Height 65;
 		Speed 3;

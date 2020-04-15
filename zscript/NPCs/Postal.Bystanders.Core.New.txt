@@ -489,7 +489,7 @@ class NPCCore : PostalActor
 		//$Title "Debug Dude"
 		//$Sprite DUDEA0
 		//$Color 9
-		Health 150;
+		Health 50;
 		Radius 12;
 		Height 65;
 		Speed 0;
