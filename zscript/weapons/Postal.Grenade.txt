@@ -177,6 +177,7 @@ class PostalGrenade : PostalActor
 	override void Tick()
 	{
 		Super.Tick();
+		
 		if (level.time > TimeBeforeDestruction && Armed && !Minesweeper)
 		{
 			// Setting these flags to false will force the Grenade to explode on any impact
@@ -293,10 +294,10 @@ class PostalGrenade : PostalActor
 			
 			// If the Distance is far-far from the previous bounce
 			// todo: Maybe Distance3D instead?
-			if (Distance2D(SavedBouncePos) >= 2.0)
+			if (Distance3D(SavedBouncePos) >= 0.5)
 				A_StartSound("grenade/bounce");
 			
-			if (Distance2D(SavedBouncePos) >= 1.0)
+			if (Distance3D(SavedBouncePos) >= 0.5)
 			{
 				// stub
 			}
