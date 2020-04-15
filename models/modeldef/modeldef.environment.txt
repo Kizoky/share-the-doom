@@ -50,3 +50,65 @@ Model "Postal_GlassShard3D"
 	Skin 0 "UVEGD0.png"
 	FrameIndex UVEG D 0 0
 }
+
+
+Model "PostalWindow2"
+{
+	Path "models\misc\window"
+	Model 0 "window.md3"
+	SurfaceSkin 0 0 "window-house_no-x.png"
+	SurfaceSkin 0 1 "window-house_no-x.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 35 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "PostalDoor2"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "door-slatted-rt.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "PostalDoor3"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "door-hagendaas.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "PostalDoor4"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "door-nice1.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+//door-nice1.png

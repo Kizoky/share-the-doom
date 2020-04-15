@@ -989,7 +989,7 @@ Model "roof_two"
 	AngleOffset 0
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
-	Offset 0 0 -75 //X Y Z
+	Offset 0 0 0 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	
@@ -1005,7 +1005,7 @@ Model "roof_tri"
 	AngleOffset 0
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
-	Offset 0 0 -75 //X Y Z
+	Offset 0 0 0 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	

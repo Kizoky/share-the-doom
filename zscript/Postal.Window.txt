@@ -383,3 +383,100 @@ class Postal_GlassShard3D : Actor
 		
 	}
 }
+
+
+
+
+class PostalWindow2 : Actor
+{
+	void SpawnShards()
+	{
+		if (DamageActor)
+		{
+			int dd = DamageActor.DamageMobj(self, self, 3, "Melee");
+		}
+		A_StartSound("glass/break", CHAN_BODY);
+		
+		int i = 0;
+		while (i <= 35) {
+			vector3 poss = (frandom(-25,50),frandom(-25,50),frandom(-5,50));
+			let Shard = Spawn("Postal_GlassShard", pos+poss);
+			if (Shard)
+			{	
+				Shard.vel = (frandom(-2.5,2.5),frandom(-2.5,2.5),frandom(-2.5,2.5));
+			}
+			i++;
+		}
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		SpawnShards();
+		Destroy();
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (level.time > TimeBeforeDestroy && TouchedOnce == true)
+		{
+			SpawnShards();
+			Destroy();
+		}
+	}
+	
+	int TimeBeforeDestroy;
+	bool TouchedOnce;
+	Actor DamageActor;
+	override void Touch (actor toucher)
+	{
+		if (toucher)
+		{
+			if (TouchedOnce) return;
+			
+			// There's a slight "bump" in Postal 2 when you touch the Window
+			// Let's assume the toucher is falling
+			if (toucher.pos.z > floorz)
+			{
+				TimeBeforeDestroy = level.time + 1;
+				DamageActor = toucher;
+				TouchedOnce = true;
+			}
+		}
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Window 2"
+		
+		Radius 5;
+		Height 85;
+		Speed 0;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+SOLID
+		+SPECIAL
+		+NOBLOOD
+		BloodType "null";
+		Renderstyle "Translucent";
+		Alpha 0.68;
+		PainChance 0;
+		Health 666;
+		Obituary "%o ran into a Window.";
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

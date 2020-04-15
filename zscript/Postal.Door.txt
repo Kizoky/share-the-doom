@@ -430,3 +430,552 @@ class PostalDoor : Actor
 		Loop;
 	}
 }
+
+
+
+class PostalDoor2 : Actor
+{
+	int AngleBefore;
+	int DoorCloseTime;
+	bool DoorClosed;
+	bool HitOnce;
+	bool FrontBack;
+	
+	float RotationSpeed;
+	
+	
+	//GZDB Flags
+	
+	bool user_locked, user_destroyable;
+	bool user_openonce, user_onlyNPC;
+	bool user_onlyPlayer;
+	
+	int user_lockAfter, user_openAfter;
+	
+	bool user_noNPCdamage, user_ignoreDoomDamage;
+	
+	string user_key;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		/*
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			Console.Printf("Front: %d", source.angle);
+		} else Console.Printf("Back: %d", source.angle);
+		*/
+		
+		if (user_locked == true) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		//Check to prevent spamming that would break the door
+		if (DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		HitOnce = true;
+		DoorCloseTime = level.time + (35 * 5);
+		A_PlaySound("door/kick", 0);
+		
+		// A simple check to detect if Door was hit in front or back
+		
+		if (source == null) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			FrontBack = false;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		} 
+		else 
+		{
+			FrontBack = true;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		}
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	virtual void A_OpenDoor()
+	{
+		DoorClosed = false;
+		
+		// If hit from front
+		if (FrontBack == true)
+		{
+			//Console.Printf("Hitting front");
+			if (abs (deltaangle (angle, AngleBefore-90)) < 10)
+			{
+				angle = AngleBefore-90;
+				SetStateLabel("Spawn");
+				return;
+			}
+			
+			if (((AngleBefore-90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+		}
+		
+		// If hit from back
+		if (FrontBack == false)
+		{
+			//Console.Printf("Hitting back");
+			if (abs (deltaangle (angle, AngleBefore+90)) < 10)
+			{
+				angle = AngleBefore+90;
+				SetStateLabel("Spawn");
+				return;
+			}
+			
+			if (((AngleBefore+90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+		}
+		
+	}
+	
+	virtual void A_CloseDoor()
+	{
+		RotationSpeed = 16;
+		
+		if (abs (deltaangle (angle, AngleBefore)) < 10)
+		{
+			DoorClosed = true;
+			angle = AngleBefore;
+			A_PlaySound("door/close", 0);
+			SetStateLabel("Spawn");
+			return;
+		}
+		
+		if (((AngleBefore) - angle + 360) % 360 < 180)
+		{	
+			angle = angle+RotationSpeed;
+		}
+		else angle = angle-RotationSpeed;
+		
+	}
+	
+	vector3 OriginalPos;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		AngleBefore = self.angle;
+		DoorClosed = true;
+		OriginalPos = pos;
+		RotationSpeed = 16;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		SetOrigin(OriginalPos, TRUE);
+		
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Door Slatted"
+		//$Color 5
+		Radius 5;
+		Height 85;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+NOTARGET
+		MONSTER;
+		+FRIENDLY
+		+INTERPOLATEANGLES
+		+NOBLOOD
+		PainChance 0;
+		Health 99999999;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10
+		{
+			if (level.time > DoorCloseTime && DoorClosed == false && HitOnce == true)
+			{
+				SetStateLabel("Close");
+			}
+		}
+		Loop;
+	Open:
+		PROP A 2 A_OpenDoor();
+		Loop;
+	Close:
+		PROP A 2 A_CloseDoor();
+		Loop;
+	}
+}
+
+
+
+
+
+class PostalDoor3 : Actor
+{
+	int AngleBefore;
+	int DoorCloseTime;
+	bool DoorClosed;
+	bool HitOnce;
+	bool FrontBack;
+	
+	float RotationSpeed;
+	
+	
+	//GZDB Flags
+	
+	bool user_locked, user_destroyable;
+	bool user_openonce, user_onlyNPC;
+	bool user_onlyPlayer;
+	
+	int user_lockAfter, user_openAfter;
+	
+	bool user_noNPCdamage, user_ignoreDoomDamage;
+	
+	string user_key;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		/*
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			Console.Printf("Front: %d", source.angle);
+		} else Console.Printf("Back: %d", source.angle);
+		*/
+		
+		if (user_locked == true) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		//Check to prevent spamming that would break the door
+		if (DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		HitOnce = true;
+		DoorCloseTime = level.time + (35 * 5);
+		A_PlaySound("door/kick", 0);
+		
+		// A simple check to detect if Door was hit in front or back
+		
+		if (source == null) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			FrontBack = false;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		} 
+		else 
+		{
+			FrontBack = true;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		}
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	virtual void A_OpenDoor()
+	{
+		DoorClosed = false;
+		
+		// If hit from front
+		if (FrontBack == true)
+		{
+			//Console.Printf("Hitting front");
+			if (abs (deltaangle (angle, AngleBefore-90)) < 10)
+			{
+				angle = AngleBefore-90;
+				SetStateLabel("Spawn");
+				return;
+			}
+			
+			if (((AngleBefore-90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+		}
+		
+		// If hit from back
+		if (FrontBack == false)
+		{
+			//Console.Printf("Hitting back");
+			if (abs (deltaangle (angle, AngleBefore+90)) < 10)
+			{
+				angle = AngleBefore+90;
+				SetStateLabel("Spawn");
+				return;
+			}
+			
+			if (((AngleBefore+90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+		}
+		
+	}
+	
+	virtual void A_CloseDoor()
+	{
+		RotationSpeed = 16;
+		
+		if (abs (deltaangle (angle, AngleBefore)) < 10)
+		{
+			DoorClosed = true;
+			angle = AngleBefore;
+			A_PlaySound("door/close", 0);
+			SetStateLabel("Spawn");
+			return;
+		}
+		
+		if (((AngleBefore) - angle + 360) % 360 < 180)
+		{	
+			angle = angle+RotationSpeed;
+		}
+		else angle = angle-RotationSpeed;
+		
+	}
+	
+	vector3 OriginalPos;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		AngleBefore = self.angle;
+		DoorClosed = true;
+		OriginalPos = pos;
+		RotationSpeed = 16;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		SetOrigin(OriginalPos, TRUE);
+		
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Door Hagendaas"
+		//$Color 5
+		Radius 5;
+		Height 85;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+NOTARGET
+		MONSTER;
+		+FRIENDLY
+		+INTERPOLATEANGLES
+		+NOBLOOD
+		PainChance 0;
+		Health 99999999;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10
+		{
+			if (level.time > DoorCloseTime && DoorClosed == false && HitOnce == true)
+			{
+				SetStateLabel("Close");
+			}
+		}
+		Loop;
+	Open:
+		PROP A 2 A_OpenDoor();
+		Loop;
+	Close:
+		PROP A 2 A_CloseDoor();
+		Loop;
+	}
+}
+
+
+
+
+class PostalDoor4 : Actor
+{
+	int AngleBefore;
+	int DoorCloseTime;
+	bool DoorClosed;
+	bool HitOnce;
+	bool FrontBack;
+	
+	float RotationSpeed;
+	
+	
+	//GZDB Flags
+	
+	bool user_locked, user_destroyable;
+	bool user_openonce, user_onlyNPC;
+	bool user_onlyPlayer;
+	
+	int user_lockAfter, user_openAfter;
+	
+	bool user_noNPCdamage, user_ignoreDoomDamage;
+	
+	string user_key;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		/*
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			Console.Printf("Front: %d", source.angle);
+		} else Console.Printf("Back: %d", source.angle);
+		*/
+		
+		if (user_locked == true) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		//Check to prevent spamming that would break the door
+		if (DoorClosed == false) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		HitOnce = true;
+		DoorCloseTime = level.time + (35 * 5);
+		A_PlaySound("door/kick", 0);
+		
+		// A simple check to detect if Door was hit in front or back
+		
+		if (source == null) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		
+		if (abs (DeltaAngle (AngleBefore, source.angle)) >= 90)
+		{
+			FrontBack = false;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		} 
+		else 
+		{
+			FrontBack = true;
+			SetStateLabel("Open");
+			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		}
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	virtual void A_OpenDoor()
+	{
+		DoorClosed = false;
+		
+		// If hit from front
+		if (FrontBack == true)
+		{
+			//Console.Printf("Hitting front");
+			if (abs (deltaangle (angle, AngleBefore-90)) < 10)
+			{
+				angle = AngleBefore-90;
+				SetStateLabel("Spawn");
+				return;
+			}
+			
+			if (((AngleBefore-90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+		}
+		
+		// If hit from back
+		if (FrontBack == false)
+		{
+			//Console.Printf("Hitting back");
+			if (abs (deltaangle (angle, AngleBefore+90)) < 10)
+			{
+				angle = AngleBefore+90;
+				SetStateLabel("Spawn");
+				return;
+			}
+			
+			if (((AngleBefore+90) - angle + 360) % 360 < 180)
+			{	
+				angle = angle+RotationSpeed;
+			}
+			else angle = angle-RotationSpeed;
+		}
+		
+	}
+	
+	virtual void A_CloseDoor()
+	{
+		RotationSpeed = 16;
+		
+		if (abs (deltaangle (angle, AngleBefore)) < 10)
+		{
+			DoorClosed = true;
+			angle = AngleBefore;
+			A_PlaySound("door/close", 0);
+			SetStateLabel("Spawn");
+			return;
+		}
+		
+		if (((AngleBefore) - angle + 360) % 360 < 180)
+		{	
+			angle = angle+RotationSpeed;
+		}
+		else angle = angle-RotationSpeed;
+		
+	}
+	
+	vector3 OriginalPos;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		AngleBefore = self.angle;
+		DoorClosed = true;
+		OriginalPos = pos;
+		RotationSpeed = 16;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		SetOrigin(OriginalPos, TRUE);
+		
+	}
+	
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Door Nice (Blue Window)"
+		//$Color 5
+		Radius 5;
+		Height 85;
+		+SHOOTABLE
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+MOVEWITHSECTOR
+		+NOTARGET
+		MONSTER;
+		+FRIENDLY
+		+INTERPOLATEANGLES
+		+NOBLOOD
+		PainChance 0;
+		Health 99999999;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10
+		{
+			if (level.time > DoorCloseTime && DoorClosed == false && HitOnce == true)
+			{
+				SetStateLabel("Close");
+			}
+		}
+		Loop;
+	Open:
+		PROP A 2 A_OpenDoor();
+		Loop;
+	Close:
+		PROP A 2 A_CloseDoor();
+		Loop;
+	}
+}
