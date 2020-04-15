@@ -1,5 +1,7 @@
 class PostalWeapon : Weapon
 {
+	bool STD_Dropped;
+	
 	override void Touch (Actor toucher)
 	{
 		if (!(toucher is 'PostalDude')) return;
@@ -142,6 +144,11 @@ class PostalWeapon : Weapon
 			Kickback = 0;
 			
 		}
+		
+		// If weapon is dropped by the Player
+		if (owner == null && STD_Dropped)
+			AmmoGive1 = 0;
+		
 	}
 	
 	Default
