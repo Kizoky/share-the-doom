@@ -238,7 +238,33 @@ class DudeCoreHandler : EventHandler
 				e.thing.Destroy();
 		}
 		
+		// Replacing ZDoom patrolpoints on STD levels with Carnodes
+		bool STD_Levels =
+		(
+			Level.Mapname.Left(5) ~== "world" ||
+			Level.Mapname ~== "DOOMTEST"
+		);
+		
+		let SpawnedThing = e.Thing;
+		
+		if (SpawnedThing is "PatrolPoint" && STD_Levels)
+		{
+			actor nodee = SpawnedThing.Spawn("Postal_Carnode", SpawnedThing.pos);
+			let node = Postal_Carnode(nodee);
+			let ZDpatrolpoint = PatrolPoint(SpawnedThing);
+			
+			if (node && ZDpatrolpoint)
+			{
+				node.user_PatrolNextTag = ZDpatrolpoint.args[0];
+				node.user_PatrolTag = ZDpatrolpoint.tid;
+				node.angle = ZDpatrolpoint.angle;
+				ZDpatrolpoint.Destroy();
+			}
+		}
    }
+	
+	// Purely only used for mocking the player for cheating
+	// Totally harmless!
 	override void WorldTick()
 	{
 		if (gameaction == ga_savegame || gameaction == ga_autosave)
@@ -270,6 +296,8 @@ class DudeCoreHandler : EventHandler
 	
 	}
 	
+	// Used for initiating Dude's killing spree lines
+	// This is universal
 	override void WorldThingDied(WorldEvent e)
 	{	
 		if (e.Inflictor && e.Thing)

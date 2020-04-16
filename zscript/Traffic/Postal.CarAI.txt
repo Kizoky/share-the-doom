@@ -2,12 +2,9 @@ class PostalCar : PostalActor
 {
 	void A_CarNode()
 	{
-		//many thanks to phantombeta!!
-		
 		if (ActiveNode) return;
 		
-		double fov = 160; // this should be an argument, variable or constant instead, this is just here as an example
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 756); // The number here is (possibly roughly) the maximum distance they can see
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 1000); // The number here is (possibly roughly) the maximum distance they can see
 		
 		while (it.Next ()) {
 				let next = it.Thing;
@@ -15,8 +12,6 @@ class PostalCar : PostalActor
 				
 				if (!user_PatrolNextTag || PatrolSearchFailed)
 				{
-					if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
-						continue;
 					
 					if (ActiveNode == null)
 					{
@@ -151,7 +146,7 @@ class PostalCar : PostalActor
 		STD_NeverTarget = true;
 		STD_NoKillLine = true;
 		
-		WarningTime = level.time + 35 * 2;
+		WarningTime = level.time + 35 * 5;
 	
 	}
 	
@@ -215,7 +210,7 @@ class Postal_CarNode : PostalActor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		WarningTime = level.time + 35 * 3;
+		WarningTime = level.time + 35 * 5;
 		
 		if (!user_PatrolTag)
 		{
@@ -294,11 +289,11 @@ class Postal_CarNode : PostalActor
 	//It is sensitive to angle, so If you are placing them on a map make sure they are facing a node
 	void A_SetNextNode()
 	{
-		if (!user_PatrolTag || !user_PatrolNextTag || SpawnedMark) return;
+		if (!user_PatrolTag || !user_PatrolNextTag || SpawnedMark || NextNode) return;
 		
 		//many thanks to phantombeta!!
 		double fov = 50; // this should be an argument, variable or constant instead, this is just here as an example
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 1024); // 1024
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 10000); // 1024
 		
 		while (it.Next ()) {
 				let next = it.Thing;
