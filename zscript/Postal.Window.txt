@@ -127,12 +127,27 @@ class PostalWindow_Extender : Actor
 		}
     }
 	
+	void SpawnShardsExtender()
+	{
+		int i = 0;
+		while (i <= 35) {
+			vector3 poss = (frandom(-25,50),frandom(-25,50),frandom(-5,50));
+			let Shard = Spawn("Postal_GlassShard", pos+poss);
+			if (Shard)
+			{	
+				Shard.vel = (frandom(-2.5,2.5),frandom(-2.5,2.5),frandom(-2.5,2.5));
+			}
+			i++;
+		}
+	}
+	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		let pp = PostalWindow(AttachedWindow);
 		if (pp)
 		{
 			int dd = pp.DamageMobj(inflictor,source,damage,mod);
+			SpawnShardsExtender();
 		}
 		Destroy();
 		
