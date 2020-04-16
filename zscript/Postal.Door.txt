@@ -461,3 +461,25 @@ class PostalDoor4 : PostalDoor
 		//$Color 5
 	}
 }
+
+
+class PostalDoor5 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Cheap Red Door"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor6 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Elegant Wood Door"
+		//$Color 5
+	}
+}

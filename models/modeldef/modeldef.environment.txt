@@ -111,4 +111,33 @@ Model "PostalDoor4"
 	FrameIndex PROP A 0 0
 	
 }
-//door-nice1.png
+
+Model "PostalDoor5"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "cheap_red_door.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "PostalDoor6"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "elegant_wood_door.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+//cheap_red_door.png

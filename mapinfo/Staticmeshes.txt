@@ -102,4 +102,6 @@ DoomEdNums
   32676 = postaldoor2
   32675 = postaldoor3
   32674 = postaldoor4
+  32673 = postaldoor5
+  32672 = postaldoor6
 }
