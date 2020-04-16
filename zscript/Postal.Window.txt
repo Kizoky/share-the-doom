@@ -104,7 +104,7 @@ class PostalWindow_Extender : Actor
 	{
 		if (AttachedWindow) return;
 		
-		BlockThingsIterator it = BlockThingsIterator.Create (self, 50);
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 500);
 		double fov = 20;
 		
 		while (it.Next ()) {
@@ -155,7 +155,7 @@ class PostalWindow_Extender : Actor
 		
 		if (level.time > TimeBeforeWarning && !AttachedWindow && !GotActor)
 		{
-			Console.Printf("Window not found!");
+			Console.Printf("Window not found! warp: %d %d %d", pos.x,pos.y,pos.z);
 			Destroy();
 		}
 		
