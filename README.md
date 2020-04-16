@@ -1,3 +1,4 @@
+![Logo](https://media.moddb.com/images/mods/1/38/37937/STD.2.png)
 # Postal 2: Share the Doom
 
 GZDoom 4.3+ is required to run this mod! Vulkan renderer is recommended!!
