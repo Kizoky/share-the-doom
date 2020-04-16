@@ -5,6 +5,7 @@ class PostalCar : PostalActor
 		if (ActiveNode) return;
 		
 		BlockThingsIterator it = BlockThingsIterator.Create (self, 1000); // The number here is (possibly roughly) the maximum distance they can see
+		double fov = 160;
 		
 		while (it.Next ()) {
 				let next = it.Thing;
@@ -12,9 +13,11 @@ class PostalCar : PostalActor
 				
 				if (!user_PatrolNextTag || PatrolSearchFailed)
 				{
-					
 					if (ActiveNode == null)
 					{
+						if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+							continue;
+						
 						if (next is 'Postal_CarNode')
 						{
 							ActiveNode = next;
