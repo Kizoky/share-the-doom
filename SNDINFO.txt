@@ -216,6 +216,7 @@ CaveDrop sounds/ambient_p2/CaveDrop.wav
 horror1 sounds/ambient_p2/horror1.wav
 scape sounds/ambient_p2/scape.wav
 bottleblow sounds/ambient_p2/bottleblow.wav
+wildLife sounds/ambient_p2/wildLife.wav
 horror2 sounds/ambient_p2/horror2.wav
 horror3 sounds/ambient_p2/horror3.wav
 horror4 sounds/ambient_p2/horror4.wav
@@ -321,6 +322,11 @@ $ambient 31 HorrorFX9 point continuous 1.0
 
 $alias HorrorFX10 horror10
 $ambient 32 HorrorFX10 point continuous 1.0
+
+$alias Wilderness wildLife
+$ambient 33 Wilderness point continuous 1.0
+
+
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
