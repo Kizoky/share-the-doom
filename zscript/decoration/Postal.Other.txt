@@ -187,7 +187,7 @@ class ACunit : PostalDecoration
 	Default
 	{
 		//$Category miscellaneous
-		//$Title "Microwave Box"
+		//$Title "AC Unit"
 		Radius 20;
 		Height 56;
 	}
@@ -269,17 +269,19 @@ class ATM : PostalDecoration
 
 class barrelcactus : PostalDecoration
 {
-		//$Category Plants
-		//$Title "Cacti"
 	Default
 	{
-		Radius 5;
-		Height 56;
+		//$Category Plants
+		//$Title "Cacti"
+		Radius 20;
+		Height 52;
+		Damage 1;
+		+SOLID
 	}
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A 10 { A_CustomMeleeAttack(1); }
 		Loop;
 	}
 }
@@ -549,8 +551,8 @@ class bureau : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Wooden Closet"
-		Radius 5;
-		Height 56;
+		Radius 25;
+		Height 64;
 	}
 	States
 	{

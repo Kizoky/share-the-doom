@@ -224,7 +224,7 @@ Model "sixtyninefine"
 	SurfaceSkin 0 2 "textures/black_panel_timb.png"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
-	Offset 0 0 35 //X Y Z
+	Offset 7 2 35 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	
@@ -315,7 +315,7 @@ Model "barrelcactus"
 	SurfaceSkin 0 1 "textures/pear.png"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
-	Offset -5 0 -1 //X Y Z
+	Offset 0 0 -1 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	
