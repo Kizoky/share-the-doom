@@ -269,19 +269,29 @@ class ATM : PostalDecoration
 
 class barrelcactus : PostalDecoration
 {
+	override void Touch(actor toucher)
+	{
+		if (toucher)
+		{
+			int dd = toucher.DamageMobj(self, self, 1, "Melee");
+		}
+	
+	}
+	
 	Default
 	{
 		//$Category Plants
 		//$Title "Cacti"
 		Radius 20;
 		Height 52;
-		Damage 1;
+		+SPECIAL
 		+SOLID
+		Obituary "%o hugged a cactus to death.";
 	}
 	States
 	{
 	Spawn:
-		PROP A 10 { A_CustomMeleeAttack(1); }
+		PROP A 10;
 		Loop;
 	}
 }
