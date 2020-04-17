@@ -203,6 +203,7 @@ rusbar sounds/amb_mus/rusbar.ogg
 themepark sounds/amb_mus/themepark.ogg
 rockmus sounds/amb_mus/rockmus.ogg
 onlyu sounds/amb_mus/onlyu.ogg
+shopmuz sounds/amb_mus/shopmuz.ogg
 church_scary sounds/ambient_p2/metal_spookyMoan_LP.wav
 Birds2 sounds/ambient_p2/Birds2.wav
 crickets sounds/ambient_p2/crickets.wav
@@ -326,7 +327,8 @@ $ambient 32 HorrorFX10 point continuous 1.0
 $alias Wilderness wildLife
 $ambient 33 Wilderness point continuous 1.0
 
-
+$alias CossackMuzak shopmuz
+$ambient 34 CossackMuzak point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
