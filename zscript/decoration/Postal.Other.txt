@@ -177,7 +177,7 @@ class sixtyninefine : PostalDecoration
 	States
 	{
 	Spawn:
-	    PROP A 1 A_SpawnItemEx("sixtyninefine_BoxCollider");
+	    PROP A 1 Nodelay A_SpawnItemEx("sixtyninefine_BoxCollider");
 		PROP A -1;
 		Stop;
 	}
@@ -291,12 +291,32 @@ class barrelcactus : PostalDecoration
 		//$Title "Cacti"
 	Default
 	{
-		Radius 5;
-		Height 56;
+		Radius 20;
+		Height 52;
 	}
 	States
 	{
 	Spawn:
+	    PROP A 1 Nodelay A_SpawnItemEx("barrelcactus_BoxCollider");
+		PROP A -1;
+		Stop;
+	}
+}
+
+
+class barrelcactus_BoxCollider : Actor
+{
+	Default
+	{
+		Radius 20;
+		Height 52;
+		Damage 1;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+	    PROP A 1 A_CustomMeleeAttack(1);
 		PROP A 10;
 		Loop;
 	}
