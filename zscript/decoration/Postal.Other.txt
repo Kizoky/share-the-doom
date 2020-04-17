@@ -567,26 +567,8 @@ class bureau : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Wooden Closet"
-		Radius 25;
-		Height 64;
-	}
-	States
-	{
-	Spawn:
-	    PROP A 1 Nodelay A_SpawnItemEx("bureau_BoxCollider");
-		PROP A -1;
-		Stop;
-	}
-}
-
-
-class bureau_BoxCollider : Actor
-{
-	Default
-	{
-		Radius 25;
-		Height 64;
-		+Solid;
+		Radius 5;
+		Height 56;
 	}
 	States
 	{
