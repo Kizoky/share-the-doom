@@ -60,6 +60,23 @@ Model "Tree1"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "Tree1_Lite"
+{
+	Path "models\props"
+	Model 0 "Tree1.md3"
+	SurfaceSkin 0 0 "textures/leaves3.png"
+	SurfaceSkin 0 1 "textures/tree_bark.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 -60 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
 Model "Tree2"
 {
 	Path "models\props"
@@ -75,7 +92,25 @@ Model "Tree2"
 	FrameIndex PROP A 0 0
 	
 }
+
+
 Model "Tree3"
+{
+	Path "models\props"
+	Model 0 "Tree3.md3"
+	SurfaceSkin 0 0 "textures/leaves3.png"
+	SurfaceSkin 0 1 "textures/tree_bark.png"
+	AngleOffset 90
+	Scale -1.50 -1.50 1.50
+	Offset 0.0 6.5 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Tree3_Lite"
 {
 	Path "models\props"
 	Model 0 "Tree3.md3"
