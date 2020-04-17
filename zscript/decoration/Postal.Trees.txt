@@ -11,70 +11,12 @@ class Tree1 : PostalDecoration
 	States
 	{
 	Spawn:
-	    PROP A 1 Nodelay A_SpawnItemEx("Tree1_BoxCollider");
-		PROP A -1;
-		Stop;
-	}
-}
-
-
-class Tree1_BoxCollider : Actor
-{
-	Default
-	{
-		Radius 40;
-		Height 300;
-		+SOLID
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 10;
-		Loop;
-	}
-}
-
-
-
-class Tree1_Lite : PostalDecoration
-{
-	Default
-	{
-		//$Category Trees
-		//$Title "Tree 1 No Collision"
-		Radius 40;
-		Height 300;
-		+NOINTERACTION
-	}
-	States
-	{
-	Spawn:
 		PROP A 10;
 		Loop;
 	}
 }
 
 class Tree2 : PostalDecoration
-{
-	Default
-	{
-		//$Category Trees
-		//$Title "Tree 2"
-		Radius 15;
-		Height 150;
-		+SOLID
-	}
-	States
-	{
-	Spawn:
-	    PROP A 1 Nodelay A_SpawnItemEx("Tree2_BoxCollider");
-		PROP A -1;
-		Stop;
-	}
-}
-
-
-class Tree2_BoxCollider : Actor
 {
 	Default
 	{
@@ -98,43 +40,6 @@ class Tree3 : PostalDecoration
 	{
 		//$Category Trees
 		//$Title "Tree 3"
-		Radius 40;
-		Height 325;
-		+SOLID
-	}
-	States
-	{
-	Spawn:
-	    PROP A 1 Nodelay A_SpawnItemEx("Tree3_BoxCollider");
-		PROP A -1;
-		Stop;
-	}
-}
-
-
-class Tree3_Lite : PostalDecoration
-{
-	Default
-	{
-		//$Category Trees
-		//$Title "Tree 3 No Collision"
-		Radius 40;
-		Height 325;
-		+NOINTERACTION
-	}
-	States
-	{
-	Spawn:
-		PROP A 10;
-		Loop;
-	}
-}
-
-
-class Tree3_BoxCollider : Actor
-{
-	Default
-	{
 		Radius 40;
 		Height 325;
 		+SOLID
