@@ -171,8 +171,25 @@ class sixtyninefine : PostalDecoration
 	{
 		//$Category Storefront
 		//$Title "Fridge 1 (shop)"
-		Radius 20;
-		Height 56;
+		Radius 21;
+		Height 71;
+	}
+	States
+	{
+	Spawn:
+	    PROP A 1 A_SpawnItemEx("sixtyninefine_BoxCollider");
+		PROP A -1;
+		Stop;
+	}
+}
+
+class sixtyninefine_BoxCollider : Actor
+{
+	Default
+	{
+		Radius 21;
+		Height 71;
+		+SOLID
 	}
 	States
 	{
@@ -182,12 +199,13 @@ class sixtyninefine : PostalDecoration
 	}
 }
 
+
 class ACunit : PostalDecoration
 {
 	Default
 	{
 		//$Category miscellaneous
-		//$Title "Microwave Box"
+		//$Title "AC Unit"
 		Radius 20;
 		Height 56;
 	}
