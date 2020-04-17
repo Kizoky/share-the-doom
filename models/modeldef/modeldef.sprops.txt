@@ -350,7 +350,7 @@ Model "barrelcactus"
 	SurfaceSkin 0 1 "textures/pear.png"
 	AngleOffset 0
 	Scale -0.50 -0.50 0.50
-	Offset 0 0 -1 //X Y Z
+	Offset -5 0 -1 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	
