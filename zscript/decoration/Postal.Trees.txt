@@ -16,6 +16,17 @@ class Tree1 : PostalDecoration
 	}
 }
 
+class Tree1_Lite : Tree1
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 1 No Collisione"
+       +NOINTERACTION
+	   -SOLID
+	}
+}
+
 class Tree2 : PostalDecoration
 {
 	Default
@@ -49,6 +60,17 @@ class Tree3 : PostalDecoration
 	Spawn:
 		PROP A 10;
 		Loop;
+	}
+}
+
+class Tree3_Lite : Tree3
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Tree 3 No Collisione"
+       +NOINTERACTION
+	   -SOLID
 	}
 }
 

@@ -622,6 +622,7 @@ class roof_two : PostalDecoration
 		+NOBLOCKMAP
 		+NOCLIP
 		-CANPASS
+		+NOINTERACTION
 	}
 	States
 	{
@@ -645,6 +646,7 @@ class roof_tri : PostalDecoration
 		+NOBLOCKMAP
 		+NOCLIP
 		-CANPASS
+		+NOINTERACTION
 	}
 	States
 	{
