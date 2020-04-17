@@ -483,3 +483,57 @@ class PostalDoor6 : PostalDoor
 		//$Color 5
 	}
 }
+
+class PostalDoor7 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Ratty Door"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor8 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Grey Metal Door"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor9 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Green Door Woodie"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor10 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Generic Office Door"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor11 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Shitty Wood Door"
+		//$Color 5
+	}
+}
