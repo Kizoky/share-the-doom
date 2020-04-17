@@ -107,4 +107,10 @@ DoomEdNums
   
   32671 = tree1_lite
   32670 = tree3_lite
+  
+  32669 = postaldoor7
+  32668 = postaldoor8
+  32667 = postaldoor9
+  32666 = postaldoor10
+  32665 = postaldoor11
 }
