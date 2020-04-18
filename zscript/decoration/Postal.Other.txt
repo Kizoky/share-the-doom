@@ -608,6 +608,33 @@ class nastyfence : PostalDecoration
 	}
 }
 
+class roof_uno : roof_two
+{
+	Default
+	{
+		//$Category Roofs
+		//$Title "Roof 1"
+	}
+}
+
+class roof_three : roof_two
+{
+	Default
+	{
+		//$Category Roofs
+		//$Title "Roof 3"
+	}
+}
+
+class roof_four : roof_two
+{
+	Default
+	{
+		//$Category Roofs
+		//$Title "Roof Shit Wooden"
+	}
+}
+
 class roof_two : PostalDecoration
 {
 	Default
@@ -653,6 +680,15 @@ class roof_tri : PostalDecoration
 	Spawn:
 		PROP A 10;
 		Loop;
+	}
+}
+
+class roof_trite : roof_tri
+{
+	Default
+	{
+		//$Category Roofs
+		//$Title "Middel Tranigle Wooden"
 	}
 }
 

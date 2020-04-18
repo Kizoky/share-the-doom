@@ -979,6 +979,62 @@ Model "nastyfence"
 	
 }
 
+
+Model "roof_uno"
+{
+	Path "models\props"
+	Model 0 "roof_2.md3"
+	SurfaceSkin 0 0 "textures/ceramic-roof-tile-red-JL.png"
+	SurfaceSkin 0 1 "textures/ceramic-roof-tile-red-JL.png"
+	SurfaceSkin 0 2 "textures/stucco-dk-stained.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "roof_three"
+{
+	Path "models\props"
+	Model 0 "roof_2.md3"
+	SurfaceSkin 0 0 "textures/ceramic-roof-tile-blue-JL.png"
+	SurfaceSkin 0 1 "textures/ceramic-roof-tile-blue-JL.png"
+	SurfaceSkin 0 2 "textures/stucco-dk-stained.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "roof_four"
+{
+	Path "models\props"
+	Model 0 "roof_2.md3"
+	SurfaceSkin 0 0 "textures/zo_woodtiles.png"
+	SurfaceSkin 0 1 "textures/zo_woodtiles.png"
+	SurfaceSkin 0 2 "textures/stucco-dk-stained.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
 Model "roof_two"
 {
 	Path "models\props"
@@ -1002,6 +1058,22 @@ Model "roof_tri"
 	Path "models\props"
 	Model 0 "roof-tri.md3"
 	SurfaceSkin 0 0 "textures/stucco-dk-stained.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "roof_trite"
+{
+	Path "models\props"
+	Model 0 "roof-tri.md3"
+	SurfaceSkin 0 0 "textures/Ruf-wood-256.png"
 	AngleOffset 0
 	USEACTORPITCH
 	Scale -0.55 -0.55 0.55
