@@ -29,6 +29,8 @@ class ChaseCam2 : Actor
 }
 class CameraRunner : Inventory
 {
+	int zoomH, zoomW;
+	
 	static bool, Actor CheckForCamera(class<Actor> classname,int tidnum)
 	{
 		ActorIterator at = Level.CreateActorIterator(tidnum);
@@ -88,7 +90,7 @@ class CameraRunner : Inventory
 	Vector3, double, double ReturnCamPos(Actor a)
 	{
 		// Kizoky: Probably we can make a camera "zoomout" by modifying 90, and at the end 40 via event handler ?
-		Actor linepuff = a.LineAttack(a.angle - 180, 90 + (a.radius*2),-a.pitch,0,'None',"InvisiblePuffAlways",LAF_NOINTERACT|LAF_NORANDOMPUFFZ,null,-(a.height/2) + 40);
+		Actor linepuff = a.LineAttack(a.angle - 180, 90+zoomH + (a.radius*2),-a.pitch,0,'None',"InvisiblePuffAlways",LAF_NOINTERACT|LAF_NORANDOMPUFFZ,null,-(a.height/2) + 40+zoomW);
 		if (linepuff)
 		{
 			let p = PlayerPawn(owner);
@@ -163,6 +165,10 @@ class CameraRunner : Inventory
 	override void Tick()
 	{
 		Super.Tick();
+		let p = PostalDude(owner);
+		if (p && p.SuicideCamera != self)
+			p.SuicideCamera = self;
+		
 	}
 	
 }

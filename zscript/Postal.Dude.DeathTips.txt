@@ -1,0 +1,21 @@
+extend class PostalDude
+{
+	//These strings are printed onto the screen if the Player died.
+	//They are currently randomized and have no attachment to a situation.
+	static const string TipList[] =
+	{
+		"Tip: Want to die less? Just die less.",
+		"Tip: No tips for a loser who keeps dying.",
+		"Tip: Imagine dodging! Yeah, just dodge like a ballerina!",
+		"Tip: Ever considered moving to Catharsis? Probably this wouldn't have happen.",
+		"Tip: Piss off your foes more often. Not just literally.",
+		
+		//Actual useful tips
+		"Tip: Try provoking one Bystander to start a chain in-fighting, this might help with your job!",
+		"Tip: If you are ever on Fire, maybe try pissing yourself - just not your pants, aim upwards!",
+		"Tip: Catnip does wonders in a battle.",
+		"Tip: If you feel hopeless, try smoking some crack, might save your life!",
+		"Tip: Try walking towards the cats slowly to catch them, running will make them shriek! - they are also good silencers",
+		"Tip: If you ever wanted to kick something so bad, might be the right time to do it! Ever heard of Grenade soccer?"
+	};
+}

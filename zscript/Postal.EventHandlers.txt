@@ -194,10 +194,38 @@ class DudeCoreHandler : EventHandler
 						a.STD_Dropped = true;
 					}
 				}
-			
 			}
-			
 	  }
+	  
+			// Zoom in or out Suiciding
+			
+			if (e.Name ~== "ZoomSuicide")
+			{
+				PostalDude p = PostalDude(players[e.Player].mo);
+				PlayerInfo player = players [e.Player];
+				
+				if (p.SuicideCamera && p)
+				{
+					let a = CameraRunner(p.SuicideCamera);
+					
+					if (a)
+					{
+						if(e.Args[0] == 0x198)
+						{
+							if (a.zoomH + 2 >= 100) return;
+							
+							a.zoomH += 2;
+						}
+							
+						if (e.Args[0] == 0x199)
+						{
+							if (a.zoomH - 2 <= -80) return;
+							
+							a.zoomH -= 2;
+						}
+					}
+				}
+			}
 	  
    }
    
@@ -324,5 +352,13 @@ class DudeCoreHandler : EventHandler
 			//else if (e.Thing == PostalDude(e.Inflictor))
 			//	Console.Printf("Player suicided!");
 		}
+	}
+	
+	override bool InputProcess (InputEvent e)
+	{
+		if (e.KeyScan == e.Key_MWheelUp || e.KeyScan == e.Key_MWheelDown)
+			SendNetworkEvent("ZoomSuicide", e.KeyScan);
+			
+		return false;
 	}
 }
