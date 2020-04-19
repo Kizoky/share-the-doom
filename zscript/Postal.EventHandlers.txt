@@ -215,7 +215,6 @@ class DudeCoreHandler : EventHandler
 							if (a.zoomH + 2 >= 100) return;
 							
 							a.zoomH += 2;
-							Console.Printf("%d",a.zoomH);
 						}
 							
 						if (e.Args[0] == 0x199)
@@ -223,7 +222,6 @@ class DudeCoreHandler : EventHandler
 							if (a.zoomH - 2 <= -80) return;
 							
 							a.zoomH -= 2;
-							Console.Printf("%d",a.zoomH);
 						}
 					}
 				}
