@@ -580,6 +580,8 @@ class bush666 : PostalDecoration
 		//$Title "Bush 666"
 		Radius 5;
 		Height 56;
+		-SOLID;
+		+NOINTERACTION;
 	}
 	States
 	{
