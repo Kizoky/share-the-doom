@@ -227,6 +227,12 @@ horror7 sounds/ambient_p2/horror7.wav
 horror8 sounds/ambient_p2/horror8.wav
 horror9 sounds/ambient_p2/horror9.wav
 horror10 sounds/ambient_p2/horror10.wav
+AirVent sounds/ambient_p2/AirVent.wav
+fountain_big_LP sounds/ambient_p2/fountain_big_LP.wav
+SwampCooler sounds/ambient_p2/SwampCooler.wav
+NeonSign2 sounds/ambient_p2/NeonSign2.wav
+Freezer_humHi sounds/ambient_p2/Freezer_humHi.wav
+StormGrate sounds/ambient_p2/StormGrate.wav
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -329,6 +335,24 @@ $ambient 33 Wilderness point continuous 1.0
 
 $alias CossackMuzak shopmuz
 $ambient 34 CossackMuzak point continuous 1.0
+
+$alias Air-Vent AirVent
+$ambient 35 Air-Vent point continuous 1.0
+
+$alias BigFountain fountain_big_LP
+$ambient 36 BigFountain point continuous 1.0
+
+$alias SwampCoolage SwampCooler
+$ambient 37 SwampCoolage point continuous 1.0
+
+$alias SignNeon NeonSign2
+$ambient 38 SignNeon point continuous 1.0
+
+$alias FreezerCum_High Freezer_humHi
+$ambient 39 FreezerCum_High point continuous 1.0
+
+$alias StreetBoiling StormGrate
+$ambient 40 StreetBoiling point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
