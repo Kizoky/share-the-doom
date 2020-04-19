@@ -116,16 +116,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 	}
 	
-	//These strings are printed onto the screen if the Player died.
-	static const string TipList[] =
-	{
-		"Tip: Want to die less? Just die less.",
-		"Tip: No tips for a loser who keeps dying.",
-		"Tip: Imagine dodging bullets! Yeah, just dodge them you fool!",
-		"Tip: Catharsis feels so far away yet so reborn.",
-		"Tip: Piss off your foes more often. Not just literally."
-	};
-	
 	//I needed a function to access it within ZScript HUD, probably not needed so I will investigate later
 	virtual void PD_Pain()
 	{
