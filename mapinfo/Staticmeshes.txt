@@ -113,4 +113,10 @@ DoomEdNums
   32667 = postaldoor9
   32666 = postaldoor10
   32665 = postaldoor11
+  
+  32664 = roof_uno
+  32663 = roof_three
+  32662 = roof_four
+  
+  32661 = roof_trite
 }
