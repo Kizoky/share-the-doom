@@ -125,6 +125,10 @@ version "4.2"
 #include "zscript/pathfinding/navmesh.zc"
 #include "zscript/pathfinding/pathfinder.zc"
 
+//------------- Lewisk3's StatusBarScreen
+#include "zscript/StatusBarScreen/StatusScreen_base.zsc"
+#include "zscript/StatusBarScreen/StatusScreen_3D.zsc"
+
 enum Bobbing
 {
 	Bob_Normal,

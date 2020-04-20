@@ -164,7 +164,7 @@ class PostalStatusBar : BaseStatusBar
 		{
 			if (PPlayer.Health < 1)
 			{
-				DrawString(mBigFont,String.Format("%s",PPlayer.ChosenTip),(-420, 159),DI_ITEM_CENTER | DI_SCREEN_CENTER,FONT.CR_RED,1,-1,10);
+				StatusBarScreen.DrawString("smallfnt",PPlayer.ChosenTip,(485, 830),DI_ITEM_CENTER | DI_SCREEN_CENTER,FONT.CR_RED);
 			}
 			
 			if (PPlayer.SuicideCamera && PPlayer.PlayerData.Suicide && PPlayer.PlayerData)

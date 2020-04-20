@@ -42,6 +42,7 @@ LISTMENU "MainMenu"
 	IfGame(Doom, Strife, Chex, Hexen, Heretic)
 	{
 		TextItem "Going Postal", "n", "PlayerclassMenu"
+		TextItem "STD Options", "n", "PostalOptionMenu"
 		TextItem "Load Game", "l", "LoadGameMenu", 0
 		TextItem "Save Game", "s", "SaveGameMenu",0
 		TextItem "Options","o", "OptionsMenu", 0
@@ -52,7 +53,6 @@ LISTMENU "MainMenu"
 OptionMenu "PostalOptionMenu"
 {
 	Title "STD Options"
-
 	//StaticText "Weapon Options", "Gold"
 	//StaticText ""
 	//Option "Idling Animations", "postal_idleanim", "YesNo"
@@ -61,49 +61,50 @@ OptionMenu "PostalOptionMenu"
 	//StaticText ""
 	
 	StaticText "Performance Options", "Gold"
-	StaticText ""
-	StaticText "Enables or Disables Postal Lights from a map. Server-sided", "White"
-	Option "Shadows in maps", "postal_lights", "YesNo"
-	StaticText ""
 	StaticText "Note: OpenGL runs poorly with this mod, make sure you have Vulkan renderer enabled!", "White"
 	StaticText ""
 	
-	StaticText "HUD Settings", "Gold"
+	StaticText "Enables or Disables Postal Lights from an STD level. Server-sided", "White"
+	Option "Shadows in maps (needs level restart)", "postal_lights", "YesNo"
 	StaticText ""
-	StaticText "Sets the HUD's position (Default: 0 for both)", "White"
-	StaticText "This is only needed if you have problems with the HUD's pos", White
-	Slider "Width:", "postalUI_X", -300, 600, 1
-	Slider "Height:", "postalUI_Y", -300, 600, 1
-	StaticText ""
-	Slider "Width: 5x", "postalUI_X", -600, 600, 5
-	Slider "Height: 5x", "postalUI_Y", -600, 600, 5
-	StaticText ""
-	Option "Inventory tips:", "", ""
-	Option "Job/Mission reminder:", "", ""
+	
+	StaticText "Enables or Disables Postal Pathnodes from an STD level. Server-sided", "White"
+	StaticText "Note: This may break STD levels, use with caution!", "White"
+	Option "Pathnodes in STD levels (needs level restart)", "", "YesNo"
 	StaticText ""
 	
 	StaticText "Misc. Settings", "Gold"
-	StaticText ""
-	Option "Footstep sounds", "", ""
-	Option "Kill streak lines", "", ""
-	Option "Long hurt lines", "", ""
-	Option "Death tips", "", ""
-	Option "Wandering Dude (idling)", "", ""
-	//Option "Delta Touch fixes (requires level restart)", "postal_deltatouch", "OnOff"
-	Option "Developer mode (increased speed, jump)", "postal_developer", "OnOff"
+	Option "Help tips (HUD)", "", "OnOff"
 	StaticText ""
 	
-	StaticText "Debug Options", "Yellow"
-	StaticText ""
+	StaticText "Debug Settings", "Gold"
 	StaticText "Displays a box around actors", "White"
 	StaticText "based on Height and Weight, depending on the setting (in realtime)", "White"
 	Option "Radius Debug", "radiusDebug", "Debugoption"
+	StaticText ""
+	Option "Developer mode (increased speed, jump)", "postal_developer", "OnOff"
+	StaticText ""
 	
 
+}
+
+OptionMenu "XYOffsetMenu"
+{
+	StaticText "HUD element XY", "Gold"
+	StaticText ""
+	StaticText "Used for setting HUD elements on the screen", "White"
+	StaticText "Nothing will happen on the screen", White
+	Slider "Width:", "postalUI_X", -300, 600, 1
+	Slider "Height:", "postalUI_Y", -300, 600, 1
+	StaticText ""
+	Slider "Width: 5x", "postalUI_X", -1000, 1000, 5
+	Slider "Height: 5x", "postalUI_Y", -1000, 1000, 5
+	StaticText ""
 }
 
 AddOptionMenu "OptionsMenu"
 {
 	StaticText " "
 	Submenu "Share The Doom Options", "PostalOptionMenu"
+	Submenu "Offset Devmenu", "XYOffsetMenu"
 }
