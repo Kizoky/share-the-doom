@@ -70,14 +70,14 @@ OptionMenu "PostalOptionMenu"
 	
 	StaticText "HUD Settings", "Gold"
 	StaticText ""
-	//StaticText "Sets the HUD's position (Default: 0 for both)", "White"
-	//StaticText "This is only needed if you have problems with the HUD's pos", White
-	//Slider "Width:", "postalUI_X", -300, 600, 1
-	//Slider "Height:", "postalUI_Y", -300, 600, 1
-	//StaticText ""
-	//Slider "Width: 5x", "postalUI_X", -600, 600, 5
-	//Slider "Height: 5x", "postalUI_Y", -600, 600, 5
-	//StaticText ""
+	StaticText "Sets the HUD's position (Default: 0 for both)", "White"
+	StaticText "This is only needed if you have problems with the HUD's pos", White
+	Slider "Width:", "postalUI_X", -300, 600, 1
+	Slider "Height:", "postalUI_Y", -300, 600, 1
+	StaticText ""
+	Slider "Width: 5x", "postalUI_X", -600, 600, 5
+	Slider "Height: 5x", "postalUI_Y", -600, 600, 5
+	StaticText ""
 	Option "Inventory tips:", "", ""
 	Option "Job/Mission reminder:", "", ""
 	StaticText ""

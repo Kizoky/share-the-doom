@@ -252,7 +252,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				GenerateTip();
 			}
 			
-			A_Print(ChosenTip);
+			//A_Print(ChosenTip);
 		}
 	}
 	
@@ -450,7 +450,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		{
 			if (PlayerData.SpawnedOnce == false)
 			{
-				Console.MidPrint ("INDEXFONT_DOOM","Press fire to end it all.");
+				//Console.MidPrint ("INDEXFONT_DOOM","Press fire to end it all.");
 				A_GiveInventory("CameraRunner", 1);
 				Speed = 0;
 				JumpZ = 0;
@@ -459,7 +459,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				SetStateLabel("Invis");
 				A_TakeInventory("HUDViewable",1);
 				bDONTTHRUST = true;
-				A_Print("Press fire to end your pitiful life.");
+				//A_Print("Press fire to end your pitiful life.");
 				PlayerData.SpawnedOnce = true;
 			}
 			Player.ReadyWeapon = PlayerData.HolsterWeapon;

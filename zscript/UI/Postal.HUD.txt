@@ -3,6 +3,7 @@ class PostalStatusBar : BaseStatusBar
 	HUDFont mHUDFont;
 	HUDFont mAmountFont;
 	HUDFont mDarkerFont;
+	HUDFont mBigFont;
 	InventoryBarState diparms;
 	double ticsX;
 	double ticsY;
@@ -34,6 +35,7 @@ class PostalStatusBar : BaseStatusBar
 		
 		mAmountFont = HUDFont.Create("SMASHFONT");
 		mDarkerFont = HUDFont.Create("DARKERSMASH");
+		mBigFont = HUDFont.Create("smallfnt");
 		
 		fullscreenOffsets = true;
 		
@@ -151,18 +153,32 @@ class PostalStatusBar : BaseStatusBar
 		
 		fullscreenOffsets = true;
 		
-		if (!(CheckInventory("HUDViewable"))) return;
-		
-		//Note, this is in DrawMainBar just for "live preview"
-		
 		//Used for adjusting offsets in-game, super useful!!
-		/*
 		cvar extraXcvar = cvar.findcvar("postalUI_X");
 		int extraX2 = (extraXcvar.GetInt ());
 		
 		cvar extraYcvar = cvar.findcvar("postalUI_Y");
 		int extraY2 = (extraYcvar.GetInt ());
-		*/
+		
+		if (PPlayer)
+		{
+			if (PPlayer.Health < 1)
+			{
+				DrawString(mBigFont,String.Format("%s",PPlayer.ChosenTip),(-420, 159),DI_ITEM_CENTER | DI_SCREEN_CENTER,FONT.CR_RED,1,-1,10);
+			}
+			
+			if (PPlayer.SuicideCamera && PPlayer.PlayerData.Suicide && PPlayer.PlayerData)
+			{
+				if (PPlayer.MissileOnce) return;
+				
+				DrawString(mBigFont,"Press fire to end it all, or alt-fire to wuss out.",(-205, 146),DI_ITEM_CENTER | DI_SCREEN_CENTER,FONT.CR_RED);
+				DrawString(mBigFont,"Use the mouse wheel to zoom in or out.",(-170, 159),DI_ITEM_CENTER | DI_SCREEN_CENTER,FONT.CR_RED);
+			}
+		}
+		
+		if (!(CheckInventory("HUDViewable"))) return;
+		
+		//Note, this is in DrawMainBar just for "live preview"
 		
 		if (PPlayer)
 		{
