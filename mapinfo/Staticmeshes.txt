@@ -120,4 +120,17 @@ DoomEdNums
   
   32661 = roof_trite
   32660 = RoofAntenna
+  
+  32659 = SquareBox
+  32658 = KitchenDesk
+  32657 = Stove1
+  32656 = OldFridge
+  32655 = Toilet1
+  32654 = SinkFuckingShitty
+  32653 = IwanFuckingCunterShit
+  32652 = CouchBigA
+  32651 = DinnerChairSmocklar
+  32650 = DresserTimb
+  32649 = DresserPawn
+  32648 = FloorLampChewy
 }

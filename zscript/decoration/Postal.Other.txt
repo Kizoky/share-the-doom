@@ -964,8 +964,247 @@ class RoofAntenna : PostalDecoration
 {
 	Default
 	{
-		//$Category Other
+		//$Category Props
 		//$Title "Roof Antenna"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class SquareBox : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Cardboard Box Small Square"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class KitchenDesk : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Kitchen Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class Stove1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Home Stove"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class OldFridge : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Fridge Old"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class Toilet1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Toilet 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class SinkFuckingShitty : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Sink 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class IwanFuckingCunterShit : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Dining Table 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class CouchBigA : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Big Couch 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class DinnerChairSmocklar : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Wooden Chair"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class DresserTimb : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Dresser 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class DresserPawn : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Dresser 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class FloorLampChewy : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Floor Lamp"
 		Radius 10;
 		Height 85;
 		+ROLLSPRITE
