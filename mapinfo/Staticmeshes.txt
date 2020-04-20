@@ -119,4 +119,5 @@ DoomEdNums
   32662 = roof_four
   
   32661 = roof_trite
+  32660 = RoofAntenna
 }

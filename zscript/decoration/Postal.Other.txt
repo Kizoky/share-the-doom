@@ -959,3 +959,22 @@ class LibraryWindow : PostalDecoration
 		Loop;
 	}
 }
+
+class RoofAntenna : PostalDecoration
+{
+	Default
+	{
+		//$Category Other
+		//$Title "Roof Antenna"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

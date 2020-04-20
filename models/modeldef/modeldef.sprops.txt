@@ -1405,3 +1405,18 @@ Model "LibraryWindow"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "roofantenna"
+{
+	Path "models\props"
+	Model 0 "roof_antenna.md3"
+	SurfaceSkin 0 0 "metal_bar_timb.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 50 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
