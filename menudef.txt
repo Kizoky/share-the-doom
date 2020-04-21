@@ -100,6 +100,13 @@ OptionMenu "XYOffsetMenu"
 	Slider "Width: 5x", "postalUI_X", -1000, 1000, 5
 	Slider "Height: 5x", "postalUI_Y", -1000, 1000, 5
 	StaticText ""
+	StaticText ""
+	StaticText "Scaling", "White"
+	Slider "Scale X: 1x", "postalUI_scaleX", -300, 600, 1
+	Slider "Scale Y: 1x", "postalUI_scaleY", -300, 600, 1
+	StaticText ""
+	Slider "Scale X: 0.1x", "postalUI_scaleX", -300, 600, 0.1
+	Slider "Scale Y: 0.1x", "postalUI_scaleY", -300, 600, 0.1
 }
 
 AddOptionMenu "OptionsMenu"

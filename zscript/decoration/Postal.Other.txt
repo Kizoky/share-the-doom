@@ -274,6 +274,9 @@ class barrelcactus : PostalDecoration
 		if (toucher)
 		{
 			int dd = toucher.DamageMobj(self, self, 1, "Melee");
+			toucher.vel.xy = (0,0);
+			toucher.A_Recoil(10);
+			toucher.vel.z += 1;
 		}
 	
 	}
