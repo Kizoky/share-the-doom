@@ -160,6 +160,13 @@ class PostalStatusBar : BaseStatusBar
 		cvar extraYcvar = cvar.findcvar("postalUI_Y");
 		int extraY2 = (extraYcvar.GetInt ());
 		
+		cvar scaleXcvar = cvar.findcvar("postalUI_scaleX");
+		int scaleX2 = (scaleXcvar.GetInt());
+		
+		cvar scaleYcvar = cvar.findcvar("postalUI_scaleY");
+		int scaleY2 = (scaleYcvar.GetInt());
+		
+		
 		if (PPlayer)
 		{
 			if (PPlayer.Health < 1)
@@ -173,6 +180,25 @@ class PostalStatusBar : BaseStatusBar
 				
 				DrawString(mBigFont,"Press fire to end it all, or alt-fire to wuss out.",(-205, 146),DI_ITEM_CENTER | DI_SCREEN_CENTER,FONT.CR_RED);
 				DrawString(mBigFont,"Use the mouse wheel to zoom in or out.",(-170, 159),DI_ITEM_CENTER | DI_SCREEN_CENTER,FONT.CR_RED);
+			}
+		}
+		
+		//Check if the Player is in Pain state, if yes the Skull gets drawn
+		if (PPlayer && PPlayer.Health > 0)
+		{
+			if (PPlayer.isinPain == true)
+			{
+				DrawImage ("YourDead", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.65)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (HealthtoAlpha, HealthtoAlpha));
+				DrawImage ("YourRed", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.60)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (HealthtoAlpha, HealthtoAlpha));
+				
+				// Experimental hurt bars
+				
+				DrawImage("hurt", (438, -14), DI_ITEM_TOP | DI_SCREEN_TOP, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (22+HealthtoAlpha, 1+HealthtoAlpha));
+				DrawImage("hurt", (478, 15), DI_ITEM_BOTTOM | DI_SCREEN_BOTTOM, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (22+HealthtoAlpha, 1+HealthtoAlpha));
+				
+				DrawImage("hurt", (-17, 900), DI_ITEM_LEFT | DI_SCREEN_LEFT, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1+HealthtoAlpha, 21+HealthtoAlpha));
+				DrawImage("hurt", (12, 900), DI_ITEM_RIGHT | DI_SCREEN_RIGHT, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1+HealthtoAlpha, 21+HealthtoAlpha));
+				
 			}
 		}
 		
@@ -233,16 +259,6 @@ class PostalStatusBar : BaseStatusBar
 			DrawImage ("heart1", (-47, 260), DI_ITEM_CENTER, 1, (-1, -1), (0.75+ticsX+SmokeX, 0.75+ticsY+SmokeX));
 			DrawImage ("heart7", (-47, 260), DI_ITEM_CENTER, HealthtoAlpha, (-1, -1), (0.75+ticsX+SmokeX, 0.75+ticsY+SmokeY));
 			DrawImage ("heart8", (-47, 260), DI_ITEM_CENTER, CatnipAlpha, (-1, -1), (0.75+ticsX+SmokeX, 0.75+ticsY+SmokeY));
-			
-			//Check if the Player is in Pain state, if yes the Skull gets drawn
-			if (PPlayer)
-			{
-				if (PPlayer.isinPain == true)
-				{
-					DrawImage ("YourDead", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.65)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1, 1));
-					DrawImage ("YourRed", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.60)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1, 1));
-				}
-			}
 			
 			DrawString(mDarkerFont, FormatNumber(CPlayer.health, 3), (-13, 281), DI_TEXT_ALIGN_RIGHT | DI_ITEM_CENTER);
 			DrawString(mAmountFont, FormatNumber(CPlayer.health, 3), (-14, 280), DI_TEXT_ALIGN_RIGHT | DI_ITEM_CENTER);

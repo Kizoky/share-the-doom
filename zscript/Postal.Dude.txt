@@ -790,7 +790,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		Player.SideMove 0.30, 0.42; //(walk, run)
 		Player.JumpZ 9.2; // Default 8 Don't touch it, everytime Dude jumps it would trigger OOF for some reason
 		Player.GruntSpeed 1000;
-		Player.DamageScreenColor "red",150;
+		Player.DamageScreenColor "red",0;
 		Player.AttackZOffset 28;
 		+SPECIAL
 	}
