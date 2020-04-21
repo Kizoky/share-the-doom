@@ -158,15 +158,17 @@ class Urine : Actor
 			Loop;
 		Death:
 			TNT1 A 0
-			{	
+			{
+				if (d) return;
+				
 				int i = 0;
-				while (i < 3)
+				while (i < 1)
 				{
-					vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-3,3));
+					vector3 poss = (frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.1,0.3));
 					let Splash = Spawn("UrineSplash", pos+poss);
 					if (Splash)
 					{	
-						Splash.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+						Splash.vel = (frandom(-1.0,1.0),frandom(-1.5,1.5),frandom(-3.5,3.5));
 					}
 					i++;
 				}
@@ -178,21 +180,25 @@ class Urine : Actor
 class UrineSplash : Actor
 {
 	bool d;
+	int TimeDestruct;
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		Scale.X = frandom(0.07,0.35);
-		Scale.Y = Scale.X;
 		bSPRITEFLIP = random(0,1);
 		
 		int r = random(1,2);
 		d = random(0,1);
+		
+		Scale.Y = frandom(0.05,0.15);
+		Scale.X = frandom(0.25,0.45);
 		
 		bool e = random(0,1);
 		if (e)
 			roll = 180;
 		else
 			roll = -180;
+		
+		TimeDestruct = level.time + 8;
 		
 		switch(r)
 		{
@@ -205,6 +211,8 @@ class UrineSplash : Actor
 			default:
 				break;
 		}
+		
+		
 	}
 	
 	override void Tick()
@@ -216,8 +224,17 @@ class UrineSplash : Actor
 		else
 			roll -= 0.5;
 		
+		if (Scale.X <= 0.85)
+		{
+			Scale.X += 0.01;
+			Scale.Y += 0.01;
+		}
 		
-		vel.z -= 0.2;
+		
+		//vel.z += 0.3;
+		
+		if (TimeDestruct < level.time) Destroy();
+		
 	}
 	
 	Default
@@ -234,10 +251,10 @@ class UrineSplash : Actor
 		+SHOOTABLE
 		+NOBLOOD
 		Gravity 0.27;
-		Scale 0.07;
+		Scale 0.75;
 		BloodType "null";
 		RenderStyle "Translucent";
-		Alpha 0.25;
+		Alpha 0.50;
 		+ROLLSPRITE
 		+FORCEXYBILLBOARD
 		//SeeSound "";
