@@ -133,4 +133,25 @@ DoomEdNums
   32650 = DresserTimb
   32649 = DresserPawn
   32648 = FloorLampChewy
+  
+  32647 = BigTVBen
+  32646 = MailboxHome
+  32645 = Radiator
+  32644 = WASHINGTON
+  32643 = CovfefeTable
+  32642 = Couch
+  32641 = drycocksack
+  32640 = table2
+  32639 = Fridge2
+  32638 = LazyCouch
+  32637 = FancyTable
+  32636 = TV
+  32635 = DelhiCounter
+  32634 = MilchRack
+  32633 = cracko
+  32632 = cashie
+  32631 = smooshie
+  32630 = niggershit
+  32629 = cumballz
+  32628 = detail_fan1
 }

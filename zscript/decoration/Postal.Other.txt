@@ -1217,3 +1217,397 @@ class FloorLampChewy : PostalDecoration
 		Loop;
 	}
 }
+
+class BigTVBen : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Big Widescreen TV"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class MailboxHome : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Mailbox Small"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class Radiator : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Radiator"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class WASHINGTON : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Washing Machine"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class CovfefeTable : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Coffee Table"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class Couch : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Couch old"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class drycocksack : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Dryer Outclass"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class table2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Table 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class Fridge2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Fridge 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class LazyCouch : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Ragged Armchair"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class FancyTable : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Table Fancy"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class TV : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "TV Old"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOCLIP;
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class DelhiCounter : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Meat stand"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class MilchRack : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Milk Rack"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class cracko : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Fridge 2 (shop)"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class cashie : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Cash Register"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOCLIP;
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class smooshie : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Smooshie machine"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class niggershit : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Cigarette Kiosk"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class cumballz : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Gumball machine"
+		Radius 10;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class detail_fan1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Fan 1"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

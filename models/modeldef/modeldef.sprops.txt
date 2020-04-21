@@ -1615,3 +1615,324 @@ Model "FloorLampChewy"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "BigTVBen"
+{
+	Path "models\props"
+	Model 0 "bigScreenTV.md3"
+	SurfaceSkin 0 0 "bigScreenTV_ben.png"
+	SurfaceSkin 0 1 "staticFuzz01_ben.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 41 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "MailboxHome"
+{
+	Path "models\props"
+	Model 0 "mailbox_home.md3"
+	SurfaceSkin 0 0 "mailbox_home.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "Radiator"
+{
+	Path "models\props"
+	Model 0 "radiator.md3"
+	SurfaceSkin 0 0 "metal_bar_timb.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 17 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "WASHINGTON"
+{
+	Path "models\props"
+	Model 0 "washer.md3"
+	SurfaceSkin 0 0 "washer_timb.png" 
+	SurfaceSkin 0 1 "metal_bar_timb.png"
+	AngleOffset 180
+	Scale -0.30 -0.30 0.30
+	Offset 0 0 21 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "CovfefeTable"
+{
+	Path "models\props"
+	Model 0 "table_small.md3"
+	SurfaceSkin 0 0 "table_small.png" 
+	AngleOffset 180
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Couch"
+{
+	Path "models\props"
+	Model 0 "couch.md3"
+	SurfaceSkin 0 0 "plaid_timb.png" 
+	SurfaceSkin 0 1 "simwood.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 20 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "drycocksack"
+{
+	Path "models\props"
+	Model 0 "dryer_single.md3"
+	SurfaceSkin 0 0 "dryer_single_timb.png" 
+	SurfaceSkin 0 1 "metal_bar_timb.png"
+	AngleOffset 180
+	Scale -0.30 -0.30 0.30
+	Offset 0 0 18 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "table2"
+{
+	Path "models\props"
+	Model 0 "table2_timb.md3"
+	SurfaceSkin 0 0 "simwood.png"
+	AngleOffset 180
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 15 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Fridge2"
+{
+	Path "models\props"
+	Model 0 "fridge_NEW.md3"
+	SurfaceSkin 0 0 "refrigerator_NEW_timb.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "LazyCouch"
+{
+	Path "models\props"
+	Model 0 "la-z-boy_timb.md3"
+	SurfaceSkin 0 0 "plaid_timb.png" 
+	SurfaceSkin 0 1 "simwood.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 20 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "FancyTable"
+{
+	Path "models\props"
+	Model 0 "table_fancy.md3"
+	SurfaceSkin 0 0 "simwood.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 15 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "TV"
+{
+	Path "models\props"
+	Model 0 "tv.md3"
+	SurfaceSkin 0 0 "Television01.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 12 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "DelhiCounter"
+{
+	Path "models\props"
+	Model 0 "delicounter.md3"
+	SurfaceSkin 0 0 "reflection_timb.png"
+	SurfaceSkin 0 1 "deli.png"
+	SurfaceSkin 0 2 "deli_rim.png"
+	SurfaceSkin 0 3 "deli_door2.png"
+	SurfaceSkin 0 4 "deli_door.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "MilchRack"
+{
+	Path "models\props"
+	Model 0 "milk_rack.md3"
+	SurfaceSkin 0 0 "light_timb.png"
+	SurfaceSkin 0 1 "dairy_marquis_timb.png"
+	SurfaceSkin 0 2 "deli_door.png"
+	SurfaceSkin 0 3 "milk_cage_timb.png"
+	AngleOffset 180
+	Scale -0.30 -0.30 0.30
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cracko"
+{
+	Path "models\props"
+	Model 0 "crackola.md3"
+	SurfaceSkin 0 0 "Coke_Front01a_timb.png"
+	SurfaceSkin 0 1 "Coke_Side01a_timb.png"
+	SurfaceSkin 0 2 "textures/black_panel_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -8 35 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cashie"
+{
+	Path "models\props"
+	Model 0 "cashregister.md3"
+	SurfaceSkin 0 0 "cash-register-sw.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smooshie"
+{
+	Path "models\props"
+	Model 0 "smooshie.md3"
+	SurfaceSkin 0 0 "slushie.png"
+	SurfaceSkin 0 1 "slushie_handle_timb.png"
+	SurfaceSkin 0 2 "metal_bar_timb.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "niggershit"
+{
+	Path "models\props"
+	Model 0 "cigarette_kiosk.md3"
+	SurfaceSkin 0 0 "cigs_timb.png"
+	SurfaceSkin 0 1 "shelfside_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 25 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cumballz"
+{
+	Path "models\props"
+	Model 0 "gumball-machine.md3"
+	SurfaceSkin 0 0 "gumball-machine-4.png"
+	SurfaceSkin 0 1 "scuffed-chrome-sw.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "detail_fan1"
+{
+	Path "models\props"
+	Model 0 "zo_fan1.md3"
+	SurfaceSkin 0 0 "zo_fan.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
