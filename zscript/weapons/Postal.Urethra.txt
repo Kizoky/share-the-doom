@@ -123,8 +123,8 @@ class Urine : Actor
 	Default
 	{
 		Species "Swordfight";
-		Radius 3;
-		Height 3;
+		Radius 5;
+		Height 5;
 		Speed 10;
 		Damage 0;
 		Projectile;
@@ -159,6 +159,18 @@ class Urine : Actor
 		Death:
 			TNT1 A 0
 			{
+				if (CheckProximity("UrinePissPool", 1, 1, CPXF_SETMASTER | CPXF_CHECKSIGHT | CPXF_CLOSEST))
+				{
+					let a = UrinePissPool(master);
+					if (a)
+					{
+						a.Scale += (0.001,0.001);
+						a.A_SetSize(a.Scale.X*14/1);
+					}
+				}
+				else
+					Spawn("UrinePissPool", pos);
+				
 				if (d) return;
 				
 				int i = 0;
@@ -172,6 +184,7 @@ class Urine : Actor
 					}
 					i++;
 				}
+				
 			}
 			Stop;
 	}
@@ -284,5 +297,48 @@ class UrineSplash : Actor
 				Destroy();
 			}
 			Stop;
+	}
+}
+
+class UrinePissPool : Actor
+{
+	int DestructionTime, Threshold;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		DestructionTime = level.time + 35 * 10;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (level.time > DestructionTime)
+			Destroy();
+	}
+	
+	Default
+	{
+		Mass 5;
+		Radius 5;
+		Height 5;
+		-NOBLOCKMAP;
+		+NOTELEPORT;
+		+ALLOWPARTICLES;
+		-NOINTERACTION
+		ActiveSound "";
+		SeeSound "";
+		AttackSound "";
+		RenderStyle "Translucent";
+		Alpha 0.45;
+		Scale 0.32;
+		+ROLLSPRITE
+	}
+	States
+	{
+	Spawn:
+		URIN E 5;
+		Loop;
+		
 	}
 }

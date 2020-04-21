@@ -17,6 +17,21 @@ Model "PostUrethra"
 	
 }
 
+Model "UrinePissPool"
+{
+	Path "models\misc\glassshards"
+	Model 0 "glassshard.md3"
+	Path "sprites\urinepour"
+	ZOffset 0.0001
+	UseActorPitch
+	UseActorRoll
+	Scale 20 20 20
+	Offset 0 0 1
+	
+	Skin 0 "URINE0.png"
+	FrameIndex URIN E 0 0
+}
+
 Model "PostUrethra"
 {
 	Path "models\weapons\kick"
