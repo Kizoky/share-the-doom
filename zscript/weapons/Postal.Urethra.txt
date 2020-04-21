@@ -118,7 +118,6 @@ class Urine : Actor
 		
 		
 		vel.z -= 0.2;
-	
 	}
 	
 	Default
@@ -156,6 +155,105 @@ class Urine : Actor
 			Loop;
 		Two:
 			URIN B 3;
+			Loop;
+		Death:
+			TNT1 A 0
+			{	
+				int i = 0;
+				while (i < 3)
+				{
+					vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-3,3));
+					let Splash = Spawn("UrineSplash", pos+poss);
+					if (Splash)
+					{	
+						Splash.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					}
+					i++;
+				}
+			}
+			Stop;
+	}
+}
+
+class UrineSplash : Actor
+{
+	bool d;
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		Scale.X = frandom(0.07,0.35);
+		Scale.Y = Scale.X;
+		bSPRITEFLIP = random(0,1);
+		
+		int r = random(1,2);
+		d = random(0,1);
+		
+		bool e = random(0,1);
+		if (e)
+			roll = 180;
+		else
+			roll = -180;
+		
+		switch(r)
+		{
+			case 1:
+				SetStateLabel("One");
+				break;
+			case 2:
+				SetStateLabel("Two");
+				break;
+			default:
+				break;
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (d)
+			roll += 0.5;
+		else
+			roll -= 0.5;
+		
+		
+		vel.z -= 0.2;
+	}
+	
+	Default
+	{
+		Species "Swordfight";
+		Radius 3;
+		Height 3;
+		Speed 10;
+		Damage 0;
+		Projectile;
+		+THRUSPECIES
+		-NOBLOCKMAP
+		-NOGRAVITY
+		+SHOOTABLE
+		+NOBLOOD
+		Gravity 0.27;
+		Scale 0.07;
+		BloodType "null";
+		RenderStyle "Translucent";
+		Alpha 0.25;
+		+ROLLSPRITE
+		+FORCEXYBILLBOARD
+		//SeeSound "";
+		DeathSound "";
+		//BounceSound "";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0;
+			Loop;
+		One:
+			URIN C 3;
+			Loop;
+		Two:
+			URIN D 3;
 			Loop;
 		Death:
 			TNT1 A 0
