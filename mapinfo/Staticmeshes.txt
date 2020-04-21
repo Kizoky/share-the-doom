@@ -156,4 +156,14 @@ DoomEdNums
   32628 = detail_fan1
   32627 = JewShell
   32626 = rudydesk
+  32625 = slave_desk
+  32624 = filecabinet3
+  32623 = shrub
+  32622 = deskgray
+  32621 = table_round
+  32620 = bar_stool
+  32619 = vender1
+  32618 = vender2
+  32617 = vender3
+  32616 = vender4
 }

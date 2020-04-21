@@ -1970,3 +1970,157 @@ Model "rudydesk"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "slave_desk"
+{
+	Path "models\props"
+	Model 0 "rws_employeedesk.md3"
+	SurfaceSkin 0 0 "simwood.png"
+	SurfaceSkin 0 1 "grey-dark-128.png"
+	AngleOffset 0
+	Scale -0.57 -0.57 0.57
+	Offset 0 0 15 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "filecabinet3"
+{
+	Path "models\props"
+	Model 0 "zo_filecabinet_rack.md3"
+	SurfaceSkin 0 0 "zo_filecabinet_side.png"
+	SurfaceSkin 0 1 "zo_filecabinet_front.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "shrub"
+{
+	Path "models\props"
+	Model 0 "shrub_manicured_timb.md3"
+	SurfaceSkin 0 0 "bush_manicured_NEW.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "deskgray"
+{
+	Path "models\props"
+	Model 0 "zo_desk.md3"
+	SurfaceSkin 0 0 "zo_desk.png"
+	AngleOffset 0
+	Scale -0.75 -0.75 0.75
+	Offset 0 0 35 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "table_round"
+{
+	Path "models\props"
+	Model 0 "bar-table-RED-k.md3"
+	SurfaceSkin 0 0 "scuffed-chrome-sw.png"
+	SurfaceSkin 0 1 "carpet-red-berber-sw.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 5 -35 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bar_stool"
+{
+	Path "models\props"
+	Model 0 "Chair_Stool.md3"
+	SurfaceSkin 0 0 "Chair_Stool.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "vender1"
+{
+	Path "models\props"
+	Model 0 "crackola_vender.md3"
+	SurfaceSkin 0 0 "crackola_vender_timb.png"
+	SurfaceSkin 0 1 "crackola_vender_side_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 35 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "vender2"
+{
+	Path "models\props"
+	Model 0 "Vending_Auto.md3"
+	SurfaceSkin 0 0 "Vending_Auto.png"
+	AngleOffset 0
+	Scale -0.65 -0.65 0.65
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "vender3"
+{
+	Path "models\props"
+	Model 0 "Vending_Snack.md3"
+	SurfaceSkin 0 0 "Vending_Snack.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "vender4"
+{
+	Path "models\props"
+	Model 0 "Vending_Coffee.md3"
+	SurfaceSkin 0 0 "Vending_Coffee.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
