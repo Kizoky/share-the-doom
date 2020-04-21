@@ -233,7 +233,13 @@ class UrineSplash : Actor
 		
 		//vel.z += 0.3;
 		
-		if (TimeDestruct < level.time) Destroy();
+		if (TimeDestruct < level.time)
+		{
+			Alpha -= 0.1;
+			if (Alpha <= 0)
+				Destroy();
+		
+		}
 		
 	}
 	
