@@ -1611,3 +1611,45 @@ class detail_fan1 : PostalDecoration
 		Loop;
 	}
 }
+
+
+class JewShell : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Jewerly Stand"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class rudydesk : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Lobby Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOCLIP;
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

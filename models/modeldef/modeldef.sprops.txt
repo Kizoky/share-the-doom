@@ -1936,3 +1936,37 @@ Model "detail_fan1"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "JewShell"
+{
+	Path "models\props"
+	Model 0 "delicounter.md3"
+	SurfaceSkin 0 0 "reflection_timb.png"
+	SurfaceSkin 0 1 "jews1.png"
+	SurfaceSkin 0 2 "textures\bureau_side_timb.png"
+	SurfaceSkin 0 3 "textures\bureau_side_timb.png"
+	SurfaceSkin 0 4 "textures\bureau_side_timb.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "rudydesk"
+{
+	Path "models\props"
+	Model 0 "zo_rws_fixedrudydesk.md3"
+	SurfaceSkin 0 0 "zo_softwood.png"
+	AngleOffset 0
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

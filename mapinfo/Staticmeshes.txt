@@ -154,4 +154,6 @@ DoomEdNums
   32630 = niggershit
   32629 = cumballz
   32628 = detail_fan1
+  32627 = JewShell
+  32626 = rudydesk
 }
