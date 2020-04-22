@@ -1865,3 +1865,45 @@ class vender4 : PostalDecoration
 		Loop;
 	}
 }
+
+
+class mikej_stall : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Bathroom Stall"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class urinal_piss : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Urinal Pissy"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

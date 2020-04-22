@@ -2124,3 +2124,35 @@ Model "vender4"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "mikej_stall"
+{
+	Path "models\props"
+	Model 0 "rws_bathroomstall.md3"
+	SurfaceSkin 0 0 "bland3.png"
+	SurfaceSkin 0 1 "scuffed-chrome-sw.png"
+	AngleOffset 0
+	Scale 0.45 -0.45 0.45
+	Offset 0 0 60 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "urinal_piss"
+{
+	Path "models\props"
+	Model 0 "urinal.md3"
+	SurfaceSkin 0 0 "toilethole_pissy_timb.png"
+	SurfaceSkin 0 1 "porcelain_timb.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 25 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

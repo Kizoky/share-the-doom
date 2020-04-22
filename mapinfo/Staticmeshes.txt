@@ -166,4 +166,7 @@ DoomEdNums
   32618 = vender2
   32617 = vender3
   32616 = vender4
+  
+  32615 = mikej_stall
+  32614 = urinal_piss
 }
