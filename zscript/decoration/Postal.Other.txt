@@ -1656,3 +1656,254 @@ class rudydesk : PostalDecoration
 		Loop;
 	}
 }
+
+
+class slave_desk : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Whackjob Employee Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class filecabinet3 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "File Cabinet Triple"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class shrub : PostalDecoration
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Hedge Bush"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class deskgray : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Gray Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class table_round : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Round Table Red"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class bar_stool : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Bar Stool"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class vender1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Vending Machine 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class vender2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Vending Machine 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class vender3 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Vending Machine 3"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class vender4 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Vending Machine 4"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class mikej_stall : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Bathroom Stall"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class urinal_piss : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Urinal Pissy"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
