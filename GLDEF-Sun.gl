@@ -225,7 +225,7 @@ material texture "models/misc/dude/DudeHead.png"
     shader "shaders/simsun_prop.fp"
 }
 
-// Cat and Dog
+// --------------------------------- Cat and Dog
 
 material texture "models/animals/textures/Cat_Orange.png" 
 {
@@ -237,7 +237,7 @@ material texture "models/animals/textures/Dog.png"
     shader "shaders/simsun_prop.fp"
 }
 
-// Zombie
+// --------------------------------- Zombie
 
 material texture "models/Zombies/zombiebody.png" 
 {
@@ -249,7 +249,7 @@ material texture "models/Zombies/zombiehead.png"
     shader "shaders/simsun_prop.fp"
 }
 
-// Props
+// --------------------------------- Props ---------------------------------
 
 material texture "models/props/textures/APC_timb.png" 
 {
