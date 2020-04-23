@@ -169,4 +169,28 @@ DoomEdNums
   
   32615 = mikej_stall
   32614 = urinal_piss
+  
+  32613 = pine
+  32612 = postbox
+  32611 = payphone
+  32610 = gastank
+  32609 = metal_detect
+  32608 = big_doorframe
+  32607 = hydrant
+  32606 = saguaro2
+  32605 = grass2
+  32604 = weeds2
+  32603 = fern9
+  32602 = grass1
+  32601 = flowers1
+  32600 = multipurple
+  32599 = el_meter2
+  32598 = NEWSTAND
+  32597 = icemachine
+  32596 = phonebooth
+  32595 = lamppost
+  32594 = seattable4
+  32593 = clothesrack
+  32592 = storegrill
+  32591 = clerkdesk
 }

@@ -2156,3 +2156,368 @@ Model "urinal_piss"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "pine"
+{
+	Path "models\props"
+	Model 0 "pine.md3"
+	SurfaceSkin 0 0 "pine_timb.png"
+	SurfaceSkin 0 1 "pine_bark.png"
+	AngleOffset 0
+	Scale -10 -10 10
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "postbox"
+{
+	Path "models\props"
+	Model 0 "mailbox.md3"
+	SurfaceSkin 0 0 "mailbox_timb.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 21 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "payphone"
+{
+	Path "models\props"
+	Model 0 "payphone.md3"
+	SurfaceSkin 0 0 "payphone_side.png"
+	SurfaceSkin 0 1 "payphone_front.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 -8 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "gastank"
+{
+	Path "models\props"
+	Model 0 "gasTank_wNozel_ben.md3"
+	SurfaceSkin 0 0 "gasTank_ben.png"
+	AngleOffset 0
+	Scale -0.70 -0.70 0.70
+	Offset 0 0 34 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "metal_detect"
+{
+	Path "models\props"
+	Model 0 "metal_detector.md3"
+	SurfaceSkin 0 0 "metal_detector.png"
+	SurfaceSkin 0 1 "metal_detector_lights.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 45 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "big_doorframe"
+{
+	Path "models\props"
+	Model 0 "zo_glassdoorframe.md3"
+	SurfaceSkin 0 0 "zo_doorglass_opaque.png"
+	SurfaceSkin 0 1 "zo_glassdoor.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 43 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "hydrant"
+{
+	Path "models\props"
+	Model 0 "hydrant.md3"
+	SurfaceSkin 0 0 "hydrant_timb.png"
+	AngleOffset 0
+	Scale -0.60 -0.60 0.60
+	Offset 0 0 19 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "saguaro2"
+{
+	Path "models\props"
+	Model 0 "zo_saguaro2.md3"
+	SurfaceSkin 0 0 "barrel-cactus.png"
+	AngleOffset 0
+	Scale -0.70 -0.70 0.70
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "grass2"
+{
+	Path "models\props"
+	Model 0 "grass_2JL.md3"
+	SurfaceSkin 0 0 "grass2.png"
+	AngleOffset 0
+	Scale -0.70 -0.70 0.70
+	Offset 0 0 -1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "weeds2"
+{
+	Path "models\props"
+	Model 0 "zo_base_weeds2.md3"
+	SurfaceSkin 0 0 "zo_base_weed2.png"
+	AngleOffset 0
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 -1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "fern9"
+{
+	Path "models\props"
+	Model 0 "bush_JL.md3"
+	SurfaceSkin 0 0 "shrub_branches.png"
+	SurfaceSkin 0 1 "shrub.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "grass1"
+{
+	Path "models\props"
+	Model 0 "grass_JL.md3"
+	SurfaceSkin 0 0 "grass2.png"
+	AngleOffset 0
+	Scale -0.70 -0.70 0.70
+	Offset 0 0 -1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "flowers1"
+{
+	Path "models\props"
+	Model 0 "zo_town_ornamental.md3"
+	SurfaceSkin 0 0 "bush-chunk-A.png"
+	AngleOffset 0
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "multipurple"
+{
+	Path "models\props"
+	Model 0 "dryer_timb.md3"
+	SurfaceSkin 0 0 "dryer_timb.png"
+	SurfaceSkin 0 1 "metal_bar_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 35 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "el_meter2"
+{
+	Path "models\props"
+	Model 0 "ElectricMeter.md3"
+	SurfaceSkin 0 0 "i-beam_1-sw.png"
+	SurfaceSkin 0 1 "glas-dirty.png"
+	SurfaceSkin 0 2 "meter-face.png"
+	SurfaceSkin 0 3 "plywood-panel.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "NEWSTAND"
+{
+	Path "models\props"
+	Model 0 "newspapermachine-sw.md3"
+	SurfaceSkin 0 0 "newspaper-machine-top.png"
+	SurfaceSkin 0 1 "newspapermachine-blank.png"
+	SurfaceSkin 0 2 "newspaper-imac.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "icemachine"
+{
+	Path "models\props"
+	Model 0 "icemachine-sw.md3"
+	SurfaceSkin 0 0 "icebox-front-512-work.png"
+	SurfaceSkin 0 1 "icemachine-side.png"
+	SurfaceSkin 0 2 "icebox-top-front.png"
+	SurfaceSkin 0 3 "icebox-top-vent.png"
+	AngleOffset 0
+	Scale -0.35 -0.35 0.35
+	Offset 0 -10 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "phonebooth"
+{
+	Path "models\props"
+	Model 0 "phonebooth-sw.md3"
+	SurfaceSkin 0 0 "payphone-multi-sw.png"
+	SurfaceSkin 0 1 "fridgepaint-dk.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "lamppost"
+{
+	Path "models\props"
+	Model 0 "lightpost_timb.md3"
+	SurfaceSkin 0 0 "metal_bar_timb.png"
+	SurfaceSkin 0 1 "streetlight_timb.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "seattable4"
+{
+	Path "models\props"
+	Model 0 "table_mall_seats4.md3"
+	SurfaceSkin 0 0 "table_4_food_court.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "clothesrack"
+{
+	Path "models\props"
+	Model 0 "zo_mall_clothingrack.md3"
+	SurfaceSkin 0 0 "zo_clothes.png"
+	SurfaceSkin 0 1 "zo_merrymetal.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "storegrill"
+{
+	Path "models\props"
+	Model 0 "commercial_oven.md3"
+	SurfaceSkin 0 0 "commercial_oven_timb.png"
+	SurfaceSkin 0 1 "grill_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 20 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "clerkdesk"
+{
+	Path "models\props"
+	Model 0 "Counter.md3"
+	SurfaceSkin 0 0 "bland.png"
+	SurfaceSkin 0 1 "grey-warm-128.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

@@ -1907,3 +1907,477 @@ class urinal_piss : PostalDecoration
 		Loop;
 	}
 }
+
+
+class pine : PostalDecoration
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Pine Tree"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class postbox : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Mailbox Blue"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class payphone : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Payphone"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class gastank : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Gas Tank"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class metal_detect : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Metal Detector"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class big_doorframe : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Glass Door Frame"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class hydrant : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Hydrant"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class saguaro2 : barrelcactus
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Cactus Huge 2"
+	}
+}
+
+
+class grass2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Dead Grass 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class weeds2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Weeds 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class fern9 : PostalDecoration
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Fern 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class grass1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Dead Grass 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class flowers1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Flowers 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class multipurple : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Dryer Multiple"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class el_meter2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Electric Meter"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class NEWSTAND : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Newspaper Stand"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class icemachine : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Ice Machine SW"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class phonebooth : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Phonebooth"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class lamppost : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Street Light"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class seattable4 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Court Table"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class clothesrack : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Clothes rack"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class storegrill : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Commercial Oven"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class clerkdesk : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Clerk Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
