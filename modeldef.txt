@@ -37,3 +37,4 @@
 #include "models/modeldef/modeldef.wWMD.txt"
 #include "models/modeldef/modeldef.holster.txt"
 #include "models/modeldef/modeldef.wdebug.txt"
+#include "models/modeldef/modeldef.inv.txt"
