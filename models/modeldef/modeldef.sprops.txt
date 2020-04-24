@@ -1505,6 +1505,60 @@ Model "Toilet1"
 	
 }
 
+
+
+Model "Toilet1P"
+{
+	Path "models\props"
+	Model 0 "toilet_house2.md3"
+	SurfaceSkin 0 0 "toilethole_pissy_timb.png"
+	SurfaceSkin 0 1 "porcelain2_timb.png"
+	SurfaceSkin 0 2 "metal_bar_timb.png"
+	AngleOffset 180
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Toilet2"
+{
+	Path "models\props"
+	Model 0 "toilet_public1.md3"
+	SurfaceSkin 0 0 "toilethole_immaculate_timb.png"
+	SurfaceSkin 0 1 "porcelain_immaculate_timb.png"
+	SurfaceSkin 0 2 "metal_bar_timb.png"
+	AngleOffset 180
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Toilet2P"
+{
+	Path "models\props"
+	Model 0 "toilet_public1.md3"
+	SurfaceSkin 0 0 "toilethole_pissy_timb.png"
+	SurfaceSkin 0 1 "porcelain2_timb.png"
+	SurfaceSkin 0 2 "metal_bar_timb.png"
+	AngleOffset 180
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
 Model "SinkFuckingShitty"
 {
 	Path "models\props"
@@ -1521,6 +1575,7 @@ Model "SinkFuckingShitty"
 	FrameIndex PROP A 0 0
 	
 }
+
 
 
 Model "IwanFuckingCunterShit"
@@ -2529,6 +2584,99 @@ Model "tella"
 	SurfaceSkin 0 0 "teller_chlen.png"
 	AngleOffset 0
 	Scale 0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "DeskBlueBig"
+{
+	Path "models\props"
+	Model 0 "zo_base_desk1.md3"
+	SurfaceSkin 0 0 "zo_filecabinet2_side.png"
+	SurfaceSkin 0 1 "zo_filecabinet2_front.png"
+	SurfaceSkin 0 2 "bland.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 60 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pine2"
+{
+	Path "models\props"
+	Model 0 "pineTree1_solid_ben.md3"
+	SurfaceSkin 0 0 "pineTree1_ben.png"
+	AngleOffset 0
+	Scale 0.80 -0.80 0.80
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "rev_tower"
+{
+	Path "models\props"
+	Model 0 "elestolb01MOD.md3"
+	SurfaceSkin 0 0 "ElectricityTower01.png"
+	AngleOffset 0
+	Scale -3 -3 3
+	Offset 0 0 650 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "flourescent1"
+{
+	Path "models\props"
+	Model 0 "zo_generic_fluorescent.md3"
+	SurfaceSkin 0 0 "zo_flourescentlight_opaque.png"
+	SurfaceSkin 0 1 "zo_flourescentlight_opaque.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "TOOLCHEST1"
+{
+	Path "models\props"
+	Model 0 "zo_toolchest_top.md3"
+	SurfaceSkin 0 0 "zo_toolchest.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 -43 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "TOOLCHEST2"
+{
+	Path "models\props"
+	Model 0 "zo_toolchest_bottom.md3"
+	SurfaceSkin 0 0 "zo_toolchest.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
 	Offset 0 0 1 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL

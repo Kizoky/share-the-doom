@@ -195,4 +195,13 @@ DoomEdNums
   32591 = clerkdesk
   
   32590 = tella
+  32589 = Toilet1P
+  32588 = Toilet2
+  32587 = Toilet2P
+  32586 = DeskBlueBig
+  32585 = pine2
+  32584 = rev_tower
+  32583 = flourescent1
+  32582 = TOOLCHEST1
+  32581 = TOOLCHEST2
 }

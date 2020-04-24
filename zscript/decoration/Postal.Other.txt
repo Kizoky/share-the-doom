@@ -1082,6 +1082,63 @@ class Toilet1 : PostalDecoration
 	}
 }
 
+class Toilet1P : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Toilet 1 Pissy"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class Toilet2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Toilet 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class Toilet2P : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Toilet 2 Pissy"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
 
 class SinkFuckingShitty : PostalDecoration
 {
@@ -2394,6 +2451,148 @@ class tella : PostalDecoration
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class DeskBlueBig : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Big Blue Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class pine2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Trees
+		//$Title "Pine Tree 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class rev_tower : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Electricity Tower"
+		Radius 235;
+		Height 500;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class flourescent1 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Ceiling Lamp On"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class flourescent2 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Ceiling Lamp Off"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class TOOLCHEST1 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Toolchest small"
+		Radius 10;
+		Height 10;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class TOOLCHEST2 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Toolchest big"
+		Radius 10;
+		Height 10;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
