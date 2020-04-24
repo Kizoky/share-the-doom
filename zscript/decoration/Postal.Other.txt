@@ -303,7 +303,7 @@ class barchair : PostalDecoration
 {
 	Default
 	{
-		//$Category Props
+		//$Category miscellaneous
 		//$Title "Stool"
 		Radius 5;
 		Height 56;
@@ -443,7 +443,7 @@ class bondagechair : PostalDecoration
 {
 	Default
 	{
-		//$Category Props
+		//$Category miscellaneous
 		//$Title "Metal Brass Chair"
 		Radius 5;
 		Height 56;
@@ -1204,7 +1204,7 @@ class DinnerChairSmocklar : PostalDecoration
 {
 	Default
 	{
-		//$Category Props
+		//$Category miscellaneous
 		//$Title "Wooden Chair"
 		Radius 10;
 		Height 85;
@@ -2593,6 +2593,230 @@ class TOOLCHEST2 : PostalDecoration
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class waterheat : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Water Heater"
+		Radius 10;
+		Height 10;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class switchboard : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Switchboard"
+		Radius 10;
+		Height 10;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class speaker_blak : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Speaker Dynamic"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class patio : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Patio Table"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class chairfolder : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Folding Chair"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class kingleo : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Lion Statue"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class whiteboard_kizoky : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Whiteboard"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class penek : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Stump"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class fonutaine : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Fountain"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class feofa : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Fee Of America Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class bigpenis : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Brochure Holder"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
 	}
 	States
 	{

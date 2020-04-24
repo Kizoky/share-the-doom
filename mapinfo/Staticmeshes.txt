@@ -204,4 +204,15 @@ DoomEdNums
   32583 = flourescent1
   32582 = TOOLCHEST1
   32581 = TOOLCHEST2
+  32580 = waterheat
+  32579 = switchboard
+  32578 = speaker_blak
+  32577 = patio
+  32576 = chairfolder
+  32575 = kingleo
+  32574 = whiteboard_kizoky
+  32573 = penek
+  32572 = fonutaine
+  32571 = feofa
+  32570 = bigpenis
 }

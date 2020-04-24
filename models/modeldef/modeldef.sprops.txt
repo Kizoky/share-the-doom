@@ -2684,3 +2684,175 @@ Model "TOOLCHEST2"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "waterheat"
+{
+	Path "models\props"
+	Model 0 "water_heater.md3"
+	SurfaceSkin 0 0 "water_heater_timb.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 30 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "switchboard"
+{
+	Path "models\props"
+	Model 0 "zo_switchboard.md3"
+	SurfaceSkin 0 0 "zo_switchboard.png"
+	AngleOffset 0
+	Scale -0.47 -0.47 0.47
+	Offset 0 20 37 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "speaker_blak"
+{
+	Path "models\props"
+	Model 0 "speaker_ben.md3"
+	SurfaceSkin 0 0 "speaker_ben.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "patio"
+{
+	Path "models\props"
+	Model 0 "Table_Patio.md3"
+	SurfaceSkin 0 0 "Table_Patio.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "chairfolder"
+{
+	Path "models\props"
+	Model 0 "Chair_Folding.md3"
+	SurfaceSkin 0 0 "Chair_Folding.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 10 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "kingleo"
+{
+	Path "models\props"
+	Model 0 "statue_lion_ben.md3"
+	SurfaceSkin 0 0 "statue_lion_ben.png"
+	AngleOffset 0
+	Scale -0.70 -0.70 0.70
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "whiteboard_kizoky"
+{
+	Path "models\props"
+	Model 0 "zo_rws_whiteboard.md3"
+	SurfaceSkin 0 0 "zo_graymetal.png"
+	SurfaceSkin 0 1 "zo_whiteboard1.png"
+	AngleOffset 0
+	Scale -0.30 -0.30 0.30
+	Offset 0 10 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "penek"
+{
+	Path "models\props"
+	Model 0 "zo_natural_stump.md3"
+	SurfaceSkin 0 0 "zo_log_bark.png"
+	SurfaceSkin 0 1 "zo_log_end.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "fonutaine"
+{
+	Path "models\props"
+	Model 0 "sw_fountainin.md3"
+	SurfaceSkin 0 0 "ornamental-trim-1.png"
+	SurfaceSkin 0 1 "sw_cheapwater_alpha.png"
+	SurfaceSkin 0 2 "bland3.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -25 20 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "feofa"
+{
+	Path "models\props"
+	Model 0 "feeofa_cs_desk.md3"
+	SurfaceSkin 0 0 "feeofa_counter.png"
+	SurfaceSkin 0 1 "feeofa_csdesk2_timb.png"
+	SurfaceSkin 0 2 "feeofa_counter2.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 20 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "bigpenis"
+{
+	Path "models\props"
+	Model 0 "brochure_holder.md3"
+	SurfaceSkin 0 0 "brochure_timb.png"
+	AngleOffset 0
+	Scale -0.85 -0.85 0.85
+	Offset 0 0 20 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
