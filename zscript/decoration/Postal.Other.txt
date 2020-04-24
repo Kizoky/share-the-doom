@@ -2381,3 +2381,24 @@ class clerkdesk : PostalDecoration
 		Loop;
 	}
 }
+
+
+class tella : PostalDecoration
+{
+	Default
+	{
+		//$Category Storefront
+		//$Title "Bank Teller"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

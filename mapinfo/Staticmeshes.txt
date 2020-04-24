@@ -193,4 +193,6 @@ DoomEdNums
   32593 = clothesrack
   32592 = storegrill
   32591 = clerkdesk
+  
+  32590 = tella
 }

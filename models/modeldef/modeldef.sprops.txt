@@ -2521,3 +2521,18 @@ Model "clerkdesk"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "tella"
+{
+	Path "models\props"
+	Model 0 "zo_bankteller.md3"
+	SurfaceSkin 0 0 "teller_chlen.png"
+	AngleOffset 0
+	Scale 0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
