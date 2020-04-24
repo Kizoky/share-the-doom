@@ -21,7 +21,7 @@ class PostalCrackPipe : CustomInventory
 	States
 	{
 	Spawn:
-		POSS A -1;
+		PROP A -1;
 		stop;
 	Use:
 		TNT1 A 0 A_Crack();
