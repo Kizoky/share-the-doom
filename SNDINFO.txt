@@ -233,6 +233,7 @@ SwampCooler sounds/ambient_p2/SwampCooler.wav
 NeonSign2 sounds/ambient_p2/NeonSign2.wav
 Freezer_humHi sounds/ambient_p2/Freezer_humHi.wav
 StormGrate sounds/ambient_p2/StormGrate.wav
+washingMachine sounds/ambient_p2/washingMachine.wav
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -353,6 +354,9 @@ $ambient 39 FreezerCum_High point continuous 1.0
 
 $alias StreetBoiling StormGrate
 $ambient 40 StreetBoiling point continuous 1.0
+
+$alias washer_amb washingMachine
+$ambient 41 washer_amb point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
