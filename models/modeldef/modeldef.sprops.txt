@@ -3075,3 +3075,265 @@ Model "lg_crate"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "zok_crate"
+{
+	Path "models\props"
+	Model 0 "wooden_crate.md3"
+	SurfaceSkin 0 0 "wood_crate_timb.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 16 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "barrelstack"
+{
+	Path "models\props"
+	Model 0 "zo_barrels2.md3"
+	SurfaceSkin 0 0 "zo_toxic_barrel.png"
+	SurfaceSkin 0 1 "zo_barrel1.png"
+	SurfaceSkin 0 2 "zo_toxic_barrel2.png"
+	AngleOffset 0
+	Scale -0.35 -0.35 0.35
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "wshelve"
+{
+	Path "models\props"
+	Model 0 "zo_warehouse_shelf2.md3"
+	SurfaceSkin 0 0 "zo_graymetal1.png"
+	SurfaceSkin 0 1 "zo_plywood.png"
+	AngleOffset 0
+	Scale -0.20 -0.20 0.20
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "beerbarrel"
+{
+	Path "models\props"
+	Model 0 "zo_keg.md3"
+	SurfaceSkin 0 0 "zo_keg.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "saguaro1"
+{
+	Path "models\props"
+	Model 0 "saguaro1_dawn.md3"
+	SurfaceSkin 0 0 "saguaro.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "saguaro2_dildo"
+{
+	Path "models\props"
+	Model 0 "saguaro2_dawn.md3"
+	SurfaceSkin 0 0 "saguaro.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "saguaro3"
+{
+	Path "models\props"
+	Model 0 "saguaro3_dawn.md3"
+	SurfaceSkin 0 0 "saguaro.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "saguaro4"
+{
+	Path "models\props"
+	Model 0 "saguaro4_dawn.md3"
+	SurfaceSkin 0 0 "saguaro.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "saguaro5"
+{
+	Path "models\props"
+	Model 0 "saguaro5_dawn.md3"
+	SurfaceSkin 0 0 "saguaro.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "weeds1"
+{
+	Path "models\props"
+	Model 0 "zo_weed1.md3"
+	SurfaceSkin 0 0 "zo_weed_one.png"
+	AngleOffset 0
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "flatcactus"
+{
+	Path "models\props"
+	Model 0 "pricklypear_cactus_dawn.md3"
+	SurfaceSkin 0 0 "pricklypear.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "flambox"
+{
+	Path "models\props"
+	Model 0 "zo_flammablebox.md3"
+	SurfaceSkin 0 0 "zo_cabinet1.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "elbox"
+{
+	Path "models\props"
+	Model 0 "zo_electric_box.md3"
+	SurfaceSkin 0 0 "zo_electrical_box.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "panel"
+{
+	Path "models\props"
+	Model 0 "zo_genericpanel.md3"
+	SurfaceSkin 0 0 "zo_genericpanel1_side.png"
+	SurfaceSkin 0 1 "zo_genericpanel1_flat.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "vendacure"
+{
+	Path "models\props"
+	Model 0 "zo_vendacure.md3"
+	SurfaceSkin 0 0 "zo_vendacure.png"
+	SurfaceSkin 0 1 "zo_wirebundle.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 46 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "curtains_mh"
+{
+	Path "models\props"
+	Model 0 "zo_clinic_curtain.md3"
+	SurfaceSkin 0 0 "zo_graymetal.png"
+	SurfaceSkin 0 1 "zo_curtain.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 47 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "skydome"
+{
+	Path "models\props"
+	Model 0 "SkyCloudsSphere.md3"
+	SurfaceSkin 0 0 "DayCloudsALP.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+

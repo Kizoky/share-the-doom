@@ -3092,3 +3092,287 @@ class lg_crate : PostalDecoration
 		Loop;
 	}
 }
+
+
+class zok_crate : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Open Wooden Crate"
+		Radius 25;
+		Height 40;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class barrelstack : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Stacked Barrels"
+		Radius 25;
+		Height 40;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class wshelve : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Industrial Shelves 1"
+		Radius 25;
+		Height 40;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class beerbarrel : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Beer Barrel"
+		Radius 25;
+		Height 40;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class saguaro1 : barrelcactus
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Cactus Huge 1"
+	}
+}
+
+
+class saguaro2_dildo : barrelcactus
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Cactus Flat"
+	}
+}
+
+class saguaro3 : barrelcactus
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Cactus Huge 3"
+	}
+}
+
+class saguaro4 : barrelcactus
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Cactus Huge 4"
+	}
+}
+
+class saguaro5 : barrelcactus
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Cactus Huge 5"
+	}
+}
+
+class flatcactus : barrelcactus
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Pickly Pear Cactus"
+	}
+}
+
+class weeds1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Plants
+		//$Title "Weeds 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class flambox : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Fire Box"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class elbox : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Electricity Box"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class panel : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Green Panel"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class vendacure : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Vend-A-Cure"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class curtains_mh : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Clinic Curtains"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class skydome : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Sky Dome"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

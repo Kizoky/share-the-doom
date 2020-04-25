@@ -230,4 +230,21 @@ DoomEdNums
   32559 = redplasticecrate
   32558 = zo_crate1
   32557 = lg_crate
+  32556 = zok_crate
+  32555 = barrelstack
+  32554 = wshelve
+  32553 = beerbarrel
+  32552 = saguaro1
+  32551 = saguaro2_dildo
+  32550 = saguaro3
+  32549 = saguaro4
+  32548 = saguaro5
+  32547 = weeds1
+  32546 = flatcactus
+  32545 = flambox
+  32544 = elbox
+  32543 = panel
+  32542 = vendacure
+  32541 = curtains_mh
+  32540 = skydome
 }
