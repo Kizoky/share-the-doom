@@ -114,4 +114,61 @@ AddOptionMenu "OptionsMenu"
 	StaticText " "
 	Submenu "Share The Doom Options", "PostalOptionMenu"
 	Submenu "Offset Devmenu", "XYOffsetMenu"
+	Submenu "$SA_MENU_TITLE", sa_Options
+}
+
+// Option menus ////////////////////////////////////////////////////////////////
+
+OptionMenu sa_Options
+{
+  Title "$SA_MENU_TITLE"
+
+  StaticText "$SA_ACHIEVEMENTS", 1
+  Submenu "$SA_UNLOCKED", sa_UnlockedAchievements
+  Submenu "$SA_LOCKED"  , sa_LockedAchievements
+
+  StaticText ""
+  Option "$SA_HORIZONTAL", sa_horizontal_position, sa_HorizontalPositionValues
+  Option "$SA_VERTICAL"  , sa_vertical_position,   sa_VerticalPositionValues
+  Option "$SA_ANIMATION" , sa_animation_type,      sa_AnimationValues
+
+  StaticText ""
+  Command "$SA_TEST", sa_test
+
+  StaticText ""
+  SafeCommand "$SA_CLEAR", sa_clear_achievements
+}
+
+OptionMenu sa_LockedAchievements
+{
+  Class "sa_LockedAchievements"
+  Title "$SA_LOCKED_TITLE"
+}
+
+OptionMenu sa_UnlockedAchievements
+{
+  Class "sa_UnlockedAchievements"
+  Title "$SA_UNLOCKED_TITLE"
+}
+
+// Option values ///////////////////////////////////////////////////////////////
+
+OptionValue sa_HorizontalPositionValues
+{
+  0, "$SA_LEFT"
+  1, "$SA_RIGHT"
+}
+
+OptionValue sa_VerticalPositionValues
+{
+  0, "$SA_TOP"
+  1, "$SA_BOTTOM"
+}
+
+OptionValue sa_AnimationValues
+{
+  0, "$SA_SLIDE_VERTICAL"
+  1, "$SA_SLIDE_HORIZONTAL"
+  2, "$SA_FADE_IN_OUT"
+  3, "$SA_DISABLED"
 }

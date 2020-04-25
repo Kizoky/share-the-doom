@@ -234,3 +234,33 @@ PSTL_NPC_ELEPHANT = "%o was stomped to oblivion by an Elephant.";
 
 PSTL_NPC_MONKEY = "%o ate a Monkey's bullet.";
 
+// Default values //////////////////////////////////////////////////////////////
+
+SA_UNLOCKED    = "Achievement Unlocked!";
+SA_NAME        = "You did something.";
+SA_DESCRIPTION = "Explained something!";
+SA_PROGRESS    = "Achievement Progress: ";
+
+// Options menu ////////////////////////////////////////////////////////////////
+
+SA_MENU_TITLE = "Stupid Achievements Options";
+SA_HORIZONTAL = "Horizontal position";
+SA_VERTICAL   = "Vertical position";
+SA_ANIMATION  = "Animation type";
+SA_LEFT       = "Left";
+SA_RIGHT      = "Right";
+SA_TOP        = "Top";
+SA_BOTTOM     = "Bottom";
+SA_CLEAR      = "Clear achievements";
+SA_TEST       = "Show test achievement";
+
+SA_SLIDE_VERTICAL   = "Slide vertically";
+SA_SLIDE_HORIZONTAL = "Slide horizontally";
+SA_FADE_IN_OUT      = "Fade in/fade out";
+SA_DISABLED         = "Disabled";
+
+SA_ACHIEVEMENTS   = "Achievements";
+SA_LOCKED         = "Locked";
+SA_UNLOCKED       = "Unlocked";
+SA_LOCKED_TITLE   = "Locked Achievements";
+SA_UNLOCKED_TITLE = "Unlocked Achievements";

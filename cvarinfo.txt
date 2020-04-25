@@ -11,3 +11,11 @@ user int postalUI_Y = 0;
 
 user int postalUI_scaleX = 0;
 user int postalUI_scaleY = 0;
+
+// Stupid Achievements
+
+user int sa_vertical_position   = 1;
+user int sa_horizontal_position = 1;
+user int sa_animation_type      = 0;
+
+nosave string sa_achievements = "";

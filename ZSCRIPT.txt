@@ -129,6 +129,10 @@ version "4.2"
 #include "zscript/StatusBarScreen/StatusScreen_base.zsc"
 #include "zscript/StatusBarScreen/StatusScreen_3D.zsc"
 
+//------------- m8f's Stupid Achievements
+#include "zscript/StupidAchievements/ImpAchievements.zs"
+#include "zscript/StupidAchievements/StupidAchievements.zs"
+
 enum Bobbing
 {
 	Bob_Normal,
