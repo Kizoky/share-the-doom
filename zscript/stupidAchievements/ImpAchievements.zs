@@ -17,7 +17,8 @@
 
 class ia_EventHandler : EventHandler
 {
-
+	
+/*
   override
   void worldThingDied(WorldEvent event)
   {
@@ -37,9 +38,22 @@ class ia_EventHandler : EventHandler
     bool isBasedOnImp   = (a is "DoomImp");
     return (isReplacingImp || isBasedOnImp);
   }
+*/
+ 
+  override void WorldThingDamaged(WorldEvent e)
+  {
+	if ((e.Thing is 'PostalDoor' || e.Thing is 'PostalDoor_Extender') && e.Inflictor is 'PostalKickPuff')
+	{
+		sa_Achiever.achieve("Postala_doorkick1");
+		sa_Achiever.achieve("Postala_doorkick15");
+		sa_Achiever.achieve("Postala_doorkick30");
+	}
+  
+  }
 
 } // class ia_EventHandler
 
+/*
 class ia_OneKill : sa_Achievement
 {
   Default
@@ -85,4 +99,42 @@ class ia_666Kills : sa_Achievement
     sa_Achievement.borderColor 0xDD2222;
     sa_Achievement.boxColor    0x000000;
   }
+}
+*/
+
+class Postala_doorkick1 : sa_Achievement
+{
+	Default
+	{
+		sa_Achievement.name "Door Slammer";
+		sa_Achievement.description "Kicked opened a Door";
+		sa_Achievement.borderColor 0xDD2222;
+		sa_Achievement.boxColor    0x000000;
+	}
+}
+
+class Postala_doorkick15 : sa_Achievement
+{
+	Default
+	{
+		sa_Achievement.name "Door Shaper";
+		sa_Achievement.description "Kicked opened a Door 15 Times";
+		sa_Achievement.limit 15;
+		sa_Achievement.borderColor 0xDD2222;
+		sa_Achievement.boxColor    0x000000;
+	}
+
+}
+
+class Postala_doorkick30 : sa_Achievement
+{
+	Default
+	{
+		sa_Achievement.name "Using Hands Are For Weaklings";
+		sa_Achievement.description "Kicked opened a Door 30 Times";
+		sa_Achievement.limit 30;
+		sa_Achievement.borderColor 0xDD2222;
+		sa_Achievement.boxColor    0x000000;
+	}
+
 }
