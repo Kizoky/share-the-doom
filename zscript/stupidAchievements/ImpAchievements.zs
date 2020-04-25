@@ -130,7 +130,7 @@ class Postala_doorkick30 : sa_Achievement
 {
 	Default
 	{
-		sa_Achievement.name "Using Hands Are For Weaklings";
+		sa_Achievement.name "Using Hands Is For Weaklings";
 		sa_Achievement.description "Kicked opened a Door 30 Times";
 		sa_Achievement.limit 30;
 		sa_Achievement.borderColor 0xDD2222;
