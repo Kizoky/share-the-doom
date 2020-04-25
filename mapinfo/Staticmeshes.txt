@@ -224,4 +224,10 @@ DoomEdNums
   32564 = building2
   32563 = factorial
   32562 = building3
+  
+  32561 = guarddesk
+  32560 = pillarful
+  32559 = redplasticecrate
+  32558 = zo_crate1
+  32557 = lg_crate
 }
