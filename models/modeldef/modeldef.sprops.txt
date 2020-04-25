@@ -2995,3 +2995,83 @@ Model "building3"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "guarddesk"
+{
+	Path "models\props"
+	Model 0 "security_desk.md3"
+	SurfaceSkin 0 0 "security_desk.png"
+	AngleOffset 0
+	Scale -0.60 -0.60 0.60
+	Offset 0 0 17 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pillarful"
+{
+	Path "models\props"
+	Model 0 "zo_mall_pillarfull.md3"
+	SurfaceSkin 0 0 "zo_mall_wall2.png"
+	SurfaceSkin 0 1 "zo_mall_pillar.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -15 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "redplasticecrate"
+{
+	Path "models\props"
+	Model 0 "plastic_crate.md3"
+	SurfaceSkin 0 0 "crate_timb.png"
+	SurfaceSkin 0 1 "crate2_timb.png"
+	AngleOffset 0
+	Scale -0.20 -0.20 0.20
+	Offset 0 0 7 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "zo_crate1"
+{
+	Path "models\props"
+	Model 0 "zo_crate1.md3"
+	SurfaceSkin 0 0 "zo_crate1.png"
+	SurfaceSkin 0 1 "zo_crate1_top.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "lg_crate"
+{
+	Path "models\props"
+	Model 0 "BOX-LG-open-2-SW.md3"
+	SurfaceSkin 0 0 "cardboardbox-5-SMALL.png"
+	SurfaceSkin 0 1 "boxtop.png"
+	SurfaceSkin 0 2 "cardboard-1-small.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

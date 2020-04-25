@@ -2990,3 +2990,105 @@ class building3 : PostalDecoration
 		Loop;
 	}
 }
+
+
+class guarddesk : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Security Desk"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class pillarful : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Pillar Marble"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class redplasticecrate : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Red Plastic Crate"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class zo_crate1 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Wooden Crate Flaccid"
+		Radius 35;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class lg_crate : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Open Cardboard Box"
+		Radius 25;
+		Height 40;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
