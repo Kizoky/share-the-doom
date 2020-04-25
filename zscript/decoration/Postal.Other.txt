@@ -2825,3 +2825,168 @@ class bigpenis : PostalDecoration
 		Loop;
 	}
 }
+
+
+class files_small : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "File Cabinet Small (2)"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class desi_dildo : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Desiplex Tower"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class niggerist1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Couch Section C"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class niggerist2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Couch Section B"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class building1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Buildings
+		//$Title "Ragged Building 1"
+		Radius 300;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class building2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Buildings
+		//$Title "Ragged Building 2"
+		Radius 200;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class factorial : PostalDecoration
+{
+	Default
+	{
+		//$Category Buildings
+		//$Title "Warehouse"
+		Radius 500;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class building3 : PostalDecoration
+{
+	Default
+	{
+		//$Category Buildings
+		//$Title "Building 3"
+		Radius 600;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

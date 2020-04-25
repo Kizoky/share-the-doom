@@ -2856,3 +2856,142 @@ Model "bigpenis"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "files_small" //i fucking hate this model. i. fucking. HATE IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{
+	Path "models\props"
+	Model 0 "zo_desk_filecabinet.md3"
+	SurfaceSkin 0 0 "zo_filecabinet_side.png"
+	SurfaceSkin 0 1 "zo_filecabinet_front.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 40 15 30 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "desi_dildo"
+{
+	Path "models\props"
+	Model 0 "zo_town_desiplex_antenna.md3"
+	SurfaceSkin 0 0 "zo_graytruss1.png"
+	SurfaceSkin 0 1 "zo_graymetal.png"
+	SurfaceSkin 0 2 "Desiplex_Neon.png"
+	AngleOffset 0
+	Scale -10 -10 10
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "niggerist1"
+{
+	Path "models\props"
+	Model 0 "Couch_Section_C.md3"
+	SurfaceSkin 0 0 "Couch_Sectional.png"
+	AngleOffset 180
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "niggerist2"
+{
+	Path "models\props"
+	Model 0 "Couch_Section_B.md3"
+	SurfaceSkin 0 0 "Couch_Sectional.png"
+	AngleOffset 180
+	Scale -0.55 -0.55 0.55
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "building1"
+{
+	Path "models\props"
+	Model 0 "zo_red_building4.md3"
+	SurfaceSkin 0 0 "tile-bricks-red-irregular-512.png"
+	SurfaceSkin 0 1 "zo_plywoodwindow.png"
+	SurfaceSkin 0 2 "zo_facetedglass_opaque.png"
+	SurfaceSkin 0 3 "zo_red_closeddoor.png"
+	SurfaceSkin 0 4 "zo_whitewoodceiling.png"
+	AngleOffset 180
+	Scale -5 -5 5
+	Offset 150 200 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "building2"
+{
+	Path "models\props"
+	Model 0 "zo_red_building5.md3"
+	SurfaceSkin 0 0 "tile-bricks-red-irregular-512.png"
+	SurfaceSkin 0 1 "zo_red_closeddoor2.png"
+	SurfaceSkin 0 2 "zo_red_window1_flat.png"
+	SurfaceSkin 0 3 "zo_facetedglass_opaque.png"
+	SurfaceSkin 0 4 "zo_poolcement.png"
+	AngleOffset 180
+	Scale -5 -5 5
+	Offset 150 200 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "factorial"
+{
+	Path "models\props"
+	Model 0 "zo_town_hospital2.md3"
+	SurfaceSkin 0 0 "irregular-red-bricks-2--JL.png"
+	SurfaceSkin 0 1 "sloppy-cinder-blocks.png"
+	SurfaceSkin 0 2 "zo_garagedoor.png"
+	SurfaceSkin 0 3 "zo_roofpaper.png"
+	SurfaceSkin 0 4 "zo_facetedglass_green_opaque.png"
+	AngleOffset 180
+	Scale -5 -5 5
+	Offset 350 -250 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "building3"
+{
+	Path "models\props"
+	Model 0 "zo_town_building5.md3"
+	SurfaceSkin 0 0 "light-bricks-grooved-JL.png"
+	SurfaceSkin 0 1 "zo_roofpaper.png"
+	SurfaceSkin 0 2 "concrete-blocks-JL.png"
+	SurfaceSkin 0 3 "zo_skylight_panel.png"
+	AngleOffset 180
+	Scale -5 -5 5
+	Offset 0 -350 100 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
