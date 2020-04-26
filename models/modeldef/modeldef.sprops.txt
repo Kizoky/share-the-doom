@@ -3337,3 +3337,195 @@ Model "skydome"
 	
 }
 
+Model "godbed"
+{
+	Path "models\props"
+	Model 0 "hospital_bed.md3"
+	SurfaceSkin 0 0 "hospital_bed_timb.png"
+	AngleOffset 0
+	Scale -0.70 -0.70 0.70
+	Offset 0 0 25 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "gurney"
+{
+	Path "models\props"
+	Model 0 "gurney.md3"
+	SurfaceSkin 0 0 "gurney_timb.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 23 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_roof1"
+{
+	Path "models\props"
+	Model 0 "zo_cemetery_roof.md3"
+	SurfaceSkin 0 0 "zo_ceramicrooftile2.png"
+	SurfaceSkin 0 1 "nasty-cinderblocks-JL.png"
+	SurfaceSkin 0 2 "zo_darkcharwood1.png"
+	AngleOffset 0
+	Scale -0.70 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "c_entr1"
+{
+	Path "models\props"
+	Model 0 "zo_church_entryway2.md3"
+	SurfaceSkin 0 0 "zo_nasty-cinderblocks-smooth.png"
+	SurfaceSkin 0 1 "zo_ceramicrooftile2.png"
+	SurfaceSkin 0 2 "nasty-cinderblocks-JL.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_intr1"
+{
+	Path "models\props"
+	Model 0 "zo_church_largevault.md3"
+	SurfaceSkin 0 0 "zo_polishedstone.png"
+	SurfaceSkin 0 1 "zo_nasty-cinderblocks-smooth.png"
+	AngleOffset 0
+	Scale 2.9 5 2.5
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_tower1"
+{
+	Path "models\props"
+	Model 0 "zo_church_simpletower.md3"
+	SurfaceSkin 0 0 "roughcut-bricks-3-JL.png"
+	SurfaceSkin 0 1 "zo_ceramicrooftile2.png"
+	SurfaceSkin 0 2 "zo_darkcharwood1.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_win1"
+{
+	Path "models\props"
+	Model 0 "zo_church_circlewindow1.md3"
+	SurfaceSkin 0 0 "nasty-cinderblocks-JL.png"
+	SurfaceSkin 0 1 "zo_nasty-cinderblocks-smooth.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_tower2"
+{
+	Path "models\props"
+	Model 0 "zo_cemetery_tower.md3"
+	SurfaceSkin 0 0 "zo_whitebrick3.png"
+	SurfaceSkin 0 1 "zo_ceramicrooftile2.png"
+	SurfaceSkin 0 2 "zo_darkcharwood1.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_win2"
+{
+	Path "models\props"
+	Model 0 "zo_church_window1a.md3"
+	SurfaceSkin 0 0 "nasty-cinderblocks-JL.png"
+	SurfaceSkin 0 1 "worn-wood-JL.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_ceramic1"
+{
+	Path "models\props"
+	Model 0 "zo_church_circlewindow2.md3"
+	SurfaceSkin 0 0 "zo_glassmosaic.png"
+	SurfaceSkin 0 1 "zo_spinonit.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_ceramic2"
+{
+	Path "models\props"
+	Model 0 "zo_church_window1b.md3"
+	SurfaceSkin 0 0 "zo_church_window1.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "c_pillarium2"
+{
+	Path "models\props"
+	Model 0 "zo_church_pillar1.md3"
+	SurfaceSkin 0 0 "zo_church_pillar1.png"
+	AngleOffset 0
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 180 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

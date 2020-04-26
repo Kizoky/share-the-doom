@@ -247,4 +247,17 @@ DoomEdNums
   32542 = vendacure
   32541 = curtains_mh
   32540 = skydome
+  
+  32539 = godbed
+  32538 = gurney
+  32537 = c_roof1
+  32536 = c_entr1
+  32535 = c_intr1
+  32534 = c_tower1
+  32533 = c_win1
+  32532 = c_tower2
+  32531 = c_win2
+  32530 = c_ceramic1
+  32529 = c_ceramic2
+  32528 = c_pillarium2
 }

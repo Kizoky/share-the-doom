@@ -3346,7 +3346,6 @@ class curtains_mh : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
 	}
 	States
 	{
@@ -3356,6 +3355,24 @@ class curtains_mh : PostalDecoration
 	}
 }
 
+class godbed : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Hospital Bed"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
 
 class skydome : PostalDecoration
 {
@@ -3368,6 +3385,240 @@ class skydome : PostalDecoration
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class gurney : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Hospital Stroller"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class c_roof1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Roof"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class c_entr1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Entryway"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class c_intr1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Interior"
+		Radius 500;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class c_tower1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Tower Detailed"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class c_win1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Window 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+class c_tower2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Tower Simpel"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class c_win2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Window 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class c_ceramic1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Window Glass 1"
+		Radius 10;
+		Height 85;
+		RenderStyle "Translucent";
+		Alpha 0.75;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+class c_ceramic2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Window Glass 2"
+		Radius 10;
+		Height 85;
+		RenderStyle "Translucent";
+		Alpha 0.75;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
+
+
+
+class c_pillarium2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Church Pillar"
+		Radius 38;
+		Height 250;
+		+ROLLSPRITE
+		+ABSMASKPITCH
 	}
 	States
 	{
