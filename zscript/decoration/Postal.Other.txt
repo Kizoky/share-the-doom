@@ -3382,6 +3382,8 @@ class skydome : PostalDecoration
 		//$Title "Sky Dome"
 		Radius 10;
 		Height 85;
+		RenderStyle "Translucent";
+		Alpha 0.95;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION;
