@@ -9,12 +9,12 @@ class PostalDecoration : Actor
 	
 	Default
 	{
-		+ROLLSPRITE
-		+ABSMASKPITCH
-		+ABSMASKANGLE
-		+NOGRAVITY
-		+SOLID
-		+NOINTERACTION
+		//+ROLLSPRITE
+		//+ABSMASKPITCH
+		//+ABSMASKANGLE
+		//+NOGRAVITY
+		//+SOLID
+		//+NOINTERACTION
 	}
 }
 
