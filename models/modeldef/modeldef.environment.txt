@@ -212,4 +212,19 @@ Model "PostalDoor11"
 	FrameIndex PROP A 0 0
 	
 }
-//cheap_red_door.png
+
+
+Model "PostalDoorJesus"
+{
+	Path "models\misc\door"
+	Model 0 "zo_church_entrydoor.md3"
+	SurfaceSkin 0 0 "zo_churchdoor2.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.80 -0.80 0.80
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+//

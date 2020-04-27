@@ -262,4 +262,6 @@ DoomEdNums
   32528 = c_pillarium2
   
   32527 = dumpster
+  32526 = loadsign
+  32525 = PostalDoorJesus
 }

@@ -537,3 +537,13 @@ class PostalDoor11 : PostalDoor
 		//$Color 5
 	}
 }
+
+class PostalDoorJesus : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Church Door"
+		//$Color 5
+	}
+}

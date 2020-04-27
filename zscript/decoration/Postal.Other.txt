@@ -3666,3 +3666,24 @@ class dumpster : PostalDecoration
 		Loop;
 	}
 }
+
+
+class loadsign : PostalDecoration
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Load Zone Notifier"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}
