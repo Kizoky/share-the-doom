@@ -2136,6 +2136,7 @@ class saguaro2 : barrelcactus
 
 class grass2 : PostalDecoration
 {
+    override void Tick() {}
 	Default
 	{
 		//$Category Plants
@@ -2149,14 +2150,15 @@ class grass2 : PostalDecoration
 	States
 	{
 	Spawn:
-		GRAS C 10;
-		Loop;
+		GRAS C -1;
+		stop;
 	}
 }
 
 
 class weeds2 : PostalDecoration
 {
+    override void Tick() {}
 	Default
 	{
 		//$Category Plants
@@ -2170,8 +2172,8 @@ class weeds2 : PostalDecoration
 	States
 	{
 	Spawn:
-		GRAS B 10;
-		Loop;
+		GRAS B -1;
+		stop;
 	}
 }
 
@@ -2199,6 +2201,7 @@ class fern9 : PostalDecoration
 
 class grass1 : PostalDecoration
 {
+    override void Tick() {}
 	Default
 	{
 		//$Category Plants
@@ -2212,8 +2215,8 @@ class grass1 : PostalDecoration
 	States
 	{
 	Spawn:
-		GRAS C 10;
-		Loop;
+		GRAS C -1;
+		stop;
 	}
 }
 
@@ -3245,6 +3248,7 @@ class flatcactus : barrelcactus
 
 class weeds1 : PostalDecoration
 {
+   override void Tick() {}
 	Default
 	{
 		//$Category Plants
@@ -3258,8 +3262,8 @@ class weeds1 : PostalDecoration
 	States
 	{
 	Spawn:
-		GRAS A 10;
-		Loop;
+		GRAS A -1;
+		stop;
 	}
 }
 
