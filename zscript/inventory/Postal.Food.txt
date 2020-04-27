@@ -13,6 +13,7 @@ class PostalFoodCore : CustomInventory
 		Inventory.PickupFlash "PickupFlash";
 		+INVENTORY.INVBAR 
 		+INVENTORY.FANCYPICKUPSOUND
+		BounceSound "item/bounce";
 		//Inventory.Icon "pizzainv";
 		Inventory.PickupSound "misc/p_pkup";
 		//Inventory.PickupMessage "Picked up a slice of pizza.";

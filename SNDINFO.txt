@@ -137,6 +137,7 @@ missp1 sounds/bullet_ricochet1.wav
 missp2 sounds/bullet_ricochet2.wav
 
 error sounds/MiscSounds/error.wav
+$limit error 0
 
 carengine sounds/carengine.ogg
 carhorn sounds/carhorn.wav
@@ -685,3 +686,5 @@ grenade/bounce sounds/grenade_bounce.wav
 grenade/explode sounds/grenade_explodeground.wav
 
 glass/break sounds/miscsounds/glassbreak.wav
+
+item/bounce sounds/head_bounce.wav
