@@ -10,7 +10,7 @@ class DudeCar : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -27,7 +27,7 @@ class DudeTrailer : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -44,7 +44,7 @@ class minivan_BLUE : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -61,7 +61,7 @@ class minivan_GOLD : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -78,7 +78,7 @@ class minivan_GREEN : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -95,7 +95,7 @@ class minivan_BROWN : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -112,7 +112,7 @@ class minivan_WHITE : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -129,7 +129,7 @@ class minivanBurnt_BLUE : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -146,7 +146,7 @@ class minivanBurnt_GOLD : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -163,7 +163,7 @@ class minivanBurnt_GREEN : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -180,7 +180,7 @@ class minivanBurnt_WHITE : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -197,7 +197,7 @@ class minivanBurnt_BROWN : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -214,7 +214,7 @@ class schoolbus : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -231,7 +231,7 @@ class smocklar_Blue_Wrecked : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -248,7 +248,7 @@ class smocklar_Blue : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -265,7 +265,7 @@ class smocklar_Red : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -282,7 +282,7 @@ class smocklar_Red_Wrecked : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -299,7 +299,7 @@ class smocklar_Silver : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -316,7 +316,7 @@ class smocklar_Silver_Wrecked : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -333,7 +333,7 @@ class smocklar_Cream : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -350,7 +350,7 @@ class smocklar_Cream_Wrecked : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -367,7 +367,7 @@ class copcar : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -384,7 +384,7 @@ class copcar_cruiser : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -401,7 +401,7 @@ class copcar_burnt : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -418,7 +418,7 @@ class copcar_vandalized : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -435,7 +435,7 @@ class taxicar : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }

@@ -22,9 +22,10 @@ extend class PostalDecoration
 	
 	override void Tick()
 	{
-		Super.Tick();
+		/*Super.Tick();
 		if (user_adjustSlope)
 			AlignToPlane(self);
+		*/
 	}
 	
 	static void AlignToPlane(Actor a = null, double pitchAdjust = 0, bool ceiling = false, double adjustSpeed = 50.0)

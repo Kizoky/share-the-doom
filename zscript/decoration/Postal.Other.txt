@@ -10,7 +10,7 @@ class Doghouse : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -27,7 +27,7 @@ class Workbench : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -44,7 +44,7 @@ class TelephonePoleMD3 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -62,7 +62,7 @@ class Phonepole : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -77,7 +77,7 @@ class PhonepoleOBJ : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -94,7 +94,7 @@ class Billboard : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -111,7 +111,7 @@ class Billboard2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -128,7 +128,7 @@ class BillboardCustom : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -143,7 +143,7 @@ class BillboardOBJ : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -160,7 +160,7 @@ class fortyoz : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -177,7 +177,7 @@ class sixtyninefine : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -194,7 +194,7 @@ class ACunit : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -211,7 +211,7 @@ class AngelDawn : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -228,7 +228,7 @@ class APC : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -245,7 +245,7 @@ class Tank : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -262,7 +262,7 @@ class ATM : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -294,7 +294,7 @@ class barrelcactus : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -311,7 +311,7 @@ class barchair : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -328,7 +328,7 @@ class basketballhoop : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -346,7 +346,7 @@ class bathtubone : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -364,7 +364,7 @@ class bathtubtwo : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -382,7 +382,7 @@ class bedone : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -400,7 +400,7 @@ class bedtwo : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -419,7 +419,7 @@ class bewareofdog : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -438,7 +438,7 @@ class bewareofdogtwo : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -455,7 +455,7 @@ class bondagechair : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -472,7 +472,7 @@ class bookcase : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -489,7 +489,7 @@ class bookcasetwo : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -506,7 +506,7 @@ class bookcaselibrary : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -523,7 +523,7 @@ class boombox : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -540,7 +540,7 @@ class bosschair : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -557,7 +557,7 @@ class bulldozer : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -574,7 +574,7 @@ class bureau : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -593,7 +593,7 @@ class bush666 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -612,7 +612,7 @@ class nastyfence : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -663,7 +663,7 @@ class roof_two : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -687,7 +687,7 @@ class roof_tri : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -715,7 +715,7 @@ class storeshelf_one : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -734,7 +734,7 @@ class storeshelf_two : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -753,7 +753,7 @@ class storeshelf_three : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -772,7 +772,7 @@ class WJIDude : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -791,7 +791,7 @@ class PalmTree1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -810,7 +810,7 @@ class PalmTree2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -829,7 +829,7 @@ class UmbrellaPlant : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -848,7 +848,7 @@ class BillboardCustom2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -867,7 +867,7 @@ class BillboardCustom3 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -886,7 +886,7 @@ class BillboardCustom4 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -905,7 +905,7 @@ class BillboardCustom5 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -924,7 +924,7 @@ class BillboardCustom6 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -943,7 +943,7 @@ class BillboardCustom7 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -962,7 +962,7 @@ class LibraryWindow : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -981,7 +981,7 @@ class RoofAntenna : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1001,7 +1001,7 @@ class SquareBox : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1022,7 +1022,7 @@ class KitchenDesk : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1042,7 +1042,7 @@ class Stove1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1062,7 +1062,7 @@ class OldFridge : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1082,7 +1082,7 @@ class Toilet1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1101,7 +1101,7 @@ class Toilet1P : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1121,7 +1121,7 @@ class Toilet2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1140,7 +1140,7 @@ class Toilet2P : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1159,7 +1159,7 @@ class SinkFuckingShitty : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1180,7 +1180,7 @@ class IwanFuckingCunterShit : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1200,7 +1200,7 @@ class CouchBigA : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1220,7 +1220,7 @@ class DinnerChairSmocklar : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1240,7 +1240,7 @@ class DresserTimb : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1259,7 +1259,7 @@ class DresserPawn : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1279,7 +1279,7 @@ class FloorLampChewy : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1298,7 +1298,7 @@ class BigTVBen : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1317,7 +1317,7 @@ class MailboxHome : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1337,7 +1337,7 @@ class Radiator : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1357,7 +1357,7 @@ class WASHINGTON : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1376,7 +1376,7 @@ class CovfefeTable : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1397,7 +1397,7 @@ class Couch : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1417,7 +1417,7 @@ class drycocksack : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1437,7 +1437,7 @@ class table2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1457,7 +1457,7 @@ class Fridge2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1477,7 +1477,7 @@ class LazyCouch : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1498,7 +1498,7 @@ class FancyTable : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1520,7 +1520,7 @@ class TV : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1540,7 +1540,7 @@ class DelhiCounter : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1561,7 +1561,7 @@ class MilchRack : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1579,7 +1579,7 @@ class cracko : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1601,7 +1601,7 @@ class cashie : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1619,7 +1619,7 @@ class smooshie : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1639,7 +1639,7 @@ class niggershit : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1657,7 +1657,7 @@ class cumballz : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1677,7 +1677,7 @@ class detail_fan1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1698,7 +1698,7 @@ class JewShell : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1720,7 +1720,7 @@ class rudydesk : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1741,7 +1741,7 @@ class slave_desk : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1762,7 +1762,7 @@ class filecabinet3 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1783,7 +1783,7 @@ class shrub : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1804,7 +1804,7 @@ class deskgray : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1825,7 +1825,7 @@ class table_round : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1846,7 +1846,7 @@ class bar_stool : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1866,7 +1866,7 @@ class vender1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1887,7 +1887,7 @@ class vender2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1908,7 +1908,7 @@ class vender3 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1929,7 +1929,7 @@ class vender4 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1950,7 +1950,7 @@ class mikej_stall : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1971,7 +1971,7 @@ class urinal_piss : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -1992,7 +1992,7 @@ class pine : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2013,7 +2013,7 @@ class postbox : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2034,7 +2034,7 @@ class payphone : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2055,7 +2055,7 @@ class gastank : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2076,7 +2076,7 @@ class metal_detect : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2097,7 +2097,7 @@ class big_doorframe : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2118,7 +2118,7 @@ class hydrant : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2193,7 +2193,7 @@ class fern9 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2236,7 +2236,7 @@ class flowers1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2257,7 +2257,7 @@ class multipurple : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2278,7 +2278,7 @@ class el_meter2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2299,7 +2299,7 @@ class NEWSTAND : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2320,7 +2320,7 @@ class icemachine : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2341,7 +2341,7 @@ class phonebooth : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2363,7 +2363,7 @@ class lamppost : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2384,7 +2384,7 @@ class seattable4 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2406,7 +2406,7 @@ class clothesrack : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2427,7 +2427,7 @@ class storegrill : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2448,7 +2448,7 @@ class clerkdesk : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2469,7 +2469,7 @@ class tella : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2488,7 +2488,7 @@ class DeskBlueBig : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2508,7 +2508,7 @@ class pine2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2528,7 +2528,7 @@ class rev_tower : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2548,7 +2548,7 @@ class flourescent1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2569,7 +2569,7 @@ class flourescent2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2590,7 +2590,7 @@ class TOOLCHEST1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2611,7 +2611,7 @@ class TOOLCHEST2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2631,7 +2631,7 @@ class waterheat : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2652,7 +2652,7 @@ class switchboard : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2672,7 +2672,7 @@ class speaker_blak : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2692,7 +2692,7 @@ class patio : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2713,7 +2713,7 @@ class chairfolder : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2734,7 +2734,7 @@ class kingleo : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2755,7 +2755,7 @@ class whiteboard_kizoky : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2774,7 +2774,7 @@ class penek : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2795,7 +2795,7 @@ class fonutaine : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2815,7 +2815,7 @@ class feofa : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2835,7 +2835,7 @@ class bigpenis : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2855,7 +2855,7 @@ class files_small : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2876,7 +2876,7 @@ class desi_dildo : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2896,7 +2896,7 @@ class niggerist1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2916,7 +2916,7 @@ class niggerist2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2937,7 +2937,7 @@ class building1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2958,7 +2958,7 @@ class building2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -2979,7 +2979,7 @@ class factorial : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3000,7 +3000,7 @@ class building3 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3020,7 +3020,7 @@ class guarddesk : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3041,7 +3041,7 @@ class pillarful : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3062,7 +3062,7 @@ class redplasticecrate : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3082,7 +3082,7 @@ class zo_crate1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3102,7 +3102,7 @@ class lg_crate : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3122,7 +3122,7 @@ class zok_crate : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3142,7 +3142,7 @@ class barrelstack : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3163,7 +3163,7 @@ class wshelve : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3184,7 +3184,7 @@ class beerbarrel : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3284,7 +3284,7 @@ class flambox : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3305,7 +3305,7 @@ class elbox : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3325,7 +3325,7 @@ class panel : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3346,7 +3346,7 @@ class vendacure : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3365,7 +3365,7 @@ class curtains_mh : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3384,7 +3384,7 @@ class godbed : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3406,7 +3406,7 @@ class skydome : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3426,7 +3426,7 @@ class gurney : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3448,7 +3448,7 @@ class c_roof1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3469,7 +3469,7 @@ class c_entr1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3490,7 +3490,7 @@ class c_intr1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3511,7 +3511,7 @@ class c_tower1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3532,7 +3532,7 @@ class c_win1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3552,7 +3552,7 @@ class c_tower2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3573,7 +3573,7 @@ class c_win2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3596,7 +3596,7 @@ class c_ceramic1 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3619,7 +3619,7 @@ class c_ceramic2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3640,7 +3640,7 @@ class c_pillarium2 : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
@@ -3662,7 +3662,7 @@ class dumpster : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
 		Loop;
 	}
 }
