@@ -3529,3 +3529,20 @@ Model "c_pillarium2"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "dumpster"
+{
+	Path "models\props"
+	Model 0 "dumpstery_sw.md3"
+	SurfaceSkin 0 0 "dumpster-front.png"
+	SurfaceSkin 0 1 "dump-trim.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

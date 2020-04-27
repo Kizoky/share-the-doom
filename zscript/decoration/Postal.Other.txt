@@ -3644,3 +3644,25 @@ class c_pillarium2 : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class dumpster : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Dumpster"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A 10;
+		Loop;
+	}
+}

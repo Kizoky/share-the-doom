@@ -260,4 +260,6 @@ DoomEdNums
   32530 = c_ceramic1
   32529 = c_ceramic2
   32528 = c_pillarium2
+  
+  32527 = dumpster
 }
