@@ -2,30 +2,35 @@ class PostalActor : Actor
 {
 	bool STD_NeverTarget, STD_NoKillLine;
 }
-class PostalDecoration : Actor { }
+
+class PostalDecoration : Actor 
+{
+	override void Tick() { }
+	
+	Default
+	{
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+ABSMASKANGLE
+		+NOGRAVITY
+		+SOLID
+		+NOINTERACTION
+	}
+}
+
 class PostalInventory : Inventory { }
 
+/*
 extend class PostalDecoration
 {
 	// Model automatically adjusts pitch and roll based on slope
 	bool user_adjustSlope;
 	
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		bROLLSPRITE = true;
-		bABSMASKPITCH = true;
-		bABSMASKANGLE = true;
-		bNOGRAVITY = true;
-		bSOLID = true;
-	}
-	
 	override void Tick()
 	{
-		/*Super.Tick();
+		Super.Tick();
 		if (user_adjustSlope)
 			AlignToPlane(self);
-		*/
 	}
 	
 	static void AlignToPlane(Actor a = null, double pitchAdjust = 0, bool ceiling = false, double adjustSpeed = 50.0)
@@ -104,6 +109,7 @@ extend class PostalDecoration
     }
 
 }
+*/
 
 extend class PostalActor
 {
