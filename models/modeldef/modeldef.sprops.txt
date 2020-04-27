@@ -3546,3 +3546,36 @@ Model "dumpster"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "loadsign"
+{
+	Path "models\props"
+	Model 0 "Construction_sign.md3"
+	SurfaceSkin 0 0 "rc_hourglass.png"
+	SurfaceSkin 0 1 "metal_bar_timb.png"
+	SurfaceSkin 0 2 "rc_pole.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "grave1"
+{
+	Path "models\props"
+	Model 0 "zo_headstone8.md3"
+	SurfaceSkin 0 0 "zo_headstone_generic.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
