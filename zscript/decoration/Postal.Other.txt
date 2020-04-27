@@ -341,6 +341,7 @@ class bathtubone : PostalDecoration
 		//$Title "BATHTUB 1"
 		Radius 5;
 		Height 56;
+		+NOINTERACTION
 	}
 	States
 	{
@@ -358,6 +359,7 @@ class bathtubtwo : PostalDecoration
 		//$Title "BATHTUB 2 (duplicate)"
 		Radius 5;
 		Height 56;
+		+NOINTERACTION
 	}
 	States
 	{
@@ -375,6 +377,7 @@ class bedone : PostalDecoration
 		//$Title "Bed 1"
 		Radius 5;
 		Height 56;
+		+NOINTERACTION
 	}
 	States
 	{
@@ -392,6 +395,7 @@ class bedtwo : PostalDecoration
 		//$Title "Bed 2"
 		Radius 5;
 		Height 56;
+		+NOINTERACTION
 	}
 	States
 	{
@@ -1013,6 +1017,7 @@ class KitchenDesk : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
@@ -1170,6 +1175,7 @@ class IwanFuckingCunterShit : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
@@ -1386,6 +1392,7 @@ class Couch : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
@@ -1486,6 +1493,7 @@ class FancyTable : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
@@ -1527,6 +1535,7 @@ class DelhiCounter : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
@@ -1547,6 +1556,7 @@ class MilchRack : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
@@ -1683,6 +1693,7 @@ class JewShell : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{
