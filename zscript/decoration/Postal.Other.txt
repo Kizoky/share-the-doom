@@ -3683,7 +3683,28 @@ class loadsign : PostalDecoration
 	States
 	{
 	Spawn:
-		PROP A 10;
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class grave1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Grave 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
 		Loop;
 	}
 }

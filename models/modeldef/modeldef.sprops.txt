@@ -3563,3 +3563,19 @@ Model "loadsign"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "grave1"
+{
+	Path "models\props"
+	Model 0 "zo_headstone8.md3"
+	SurfaceSkin 0 0 "zo_headstone_generic.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
