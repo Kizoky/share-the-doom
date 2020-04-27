@@ -57,6 +57,7 @@ class Phonepole : PostalDecoration
 		//$Title "Phone Pole"
 		Radius 15;
 		Height 475;
+		-NOINTERACTION
 		+SOLID
 	}
 	States
@@ -289,6 +290,7 @@ class barrelcactus : PostalDecoration
 		Height 52;
 		+SPECIAL
 		+SOLID
+		-NOINTERACTION
 		Obituary "%o hugged a cactus to death.";
 	}
 	States
@@ -468,6 +470,7 @@ class bookcase : PostalDecoration
 		//$Title "Bookcase Empty"
 		Radius 5;
 		Height 56;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -485,6 +488,7 @@ class bookcasetwo : PostalDecoration
 		//$Title "Bookcase filled"
 		Radius 5;
 		Height 56;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -502,6 +506,7 @@ class bookcaselibrary : PostalDecoration
 		//$Title "Bookcase tall"
 		Radius 5;
 		Height 56;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -570,6 +575,7 @@ class bureau : PostalDecoration
 		//$Title "Wooden Closet"
 		Radius 25;
 		Height 64;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -730,6 +736,7 @@ class storeshelf_two : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -787,6 +794,7 @@ class PalmTree1 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -806,6 +814,7 @@ class PalmTree2 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -997,6 +1006,7 @@ class SquareBox : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1038,6 +1048,7 @@ class Stove1 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1058,6 +1069,7 @@ class OldFridge : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1078,6 +1090,7 @@ class Toilet1 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1097,6 +1110,7 @@ class Toilet1P : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1117,6 +1131,7 @@ class Toilet2 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1136,6 +1151,7 @@ class Toilet2P : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1155,6 +1171,7 @@ class SinkFuckingShitty : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1236,6 +1253,7 @@ class DresserTimb : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1255,6 +1273,7 @@ class DresserPawn : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1275,6 +1294,7 @@ class FloorLampChewy : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1313,6 +1333,7 @@ class MailboxHome : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1333,6 +1354,7 @@ class Radiator : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1353,6 +1375,7 @@ class WASHINGTON : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1372,6 +1395,7 @@ class CovfefeTable : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1413,6 +1437,7 @@ class drycocksack : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1453,6 +1478,7 @@ class Fridge2 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1575,6 +1601,7 @@ class cracko : PostalDecoration
 		//$Title "Fridge 2 (shop)"
 		Radius 20;
 		Height 56;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1615,6 +1642,7 @@ class smooshie : PostalDecoration
 		//$Title "Smooshie machine"
 		Radius 20;
 		Height 56;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1653,6 +1681,7 @@ class cumballz : PostalDecoration
 		//$Title "Gumball machine"
 		Radius 10;
 		Height 56;
+        -NOINTERACTION
 	}
 	States
 	{
@@ -1841,7 +1870,7 @@ class bar_stool : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1861,7 +1890,7 @@ class vender1 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1882,7 +1911,7 @@ class vender2 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1903,7 +1932,7 @@ class vender3 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1924,7 +1953,7 @@ class vender4 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -1987,7 +2016,7 @@ class pine : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2008,7 +2037,7 @@ class postbox : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2029,7 +2058,7 @@ class payphone : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2113,7 +2142,7 @@ class hydrant : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2252,7 +2281,7 @@ class multipurple : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2294,7 +2323,7 @@ class NEWSTAND : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2315,7 +2344,7 @@ class icemachine : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2336,7 +2365,7 @@ class phonebooth : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2358,7 +2387,7 @@ class lamppost : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2524,6 +2553,7 @@ class rev_tower : PostalDecoration
 		Height 500;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2606,7 +2636,7 @@ class TOOLCHEST2 : PostalDecoration
 		Height 10;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2627,6 +2657,7 @@ class waterheat : PostalDecoration
 		Height 10;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2648,6 +2679,7 @@ class switchboard : PostalDecoration
 		Height 10;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -2831,6 +2863,7 @@ class bigpenis : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3037,6 +3070,7 @@ class pillarful : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3078,6 +3112,7 @@ class zo_crate1 : PostalDecoration
 		Height 50;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3098,6 +3133,7 @@ class lg_crate : PostalDecoration
 		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3118,6 +3154,7 @@ class zok_crate : PostalDecoration
 		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3138,6 +3175,7 @@ class barrelstack : PostalDecoration
 		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3180,6 +3218,7 @@ class beerbarrel : PostalDecoration
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3361,6 +3400,7 @@ class curtains_mh : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3636,6 +3676,7 @@ class c_pillarium2 : PostalDecoration
 		Height 250;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3678,7 +3719,7 @@ class loadsign : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION
+		-NOINTERACTION
 	}
 	States
 	{
@@ -3699,7 +3740,7 @@ class grave1 : PostalDecoration
 		Height 85;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION
+		-NOINTERACTION
 	}
 	States
 	{
