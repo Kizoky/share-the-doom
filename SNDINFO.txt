@@ -136,6 +136,8 @@ $random hitwall { hitwall1 hitwall2 }
 missp1 sounds/bullet_ricochet1.wav
 missp2 sounds/bullet_ricochet2.wav
 
+error sounds/MiscSounds/error.wav
+
 carengine sounds/carengine.ogg
 carhorn sounds/carhorn.wav
 
