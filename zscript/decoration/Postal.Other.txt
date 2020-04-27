@@ -2131,14 +2131,14 @@ class grass2 : PostalDecoration
 		//$Title "Dead Grass 2"
 		Radius 10;
 		Height 85;
-		+ROLLSPRITE
-		+ABSMASKPITCH
-		+NOINTERACTION;
+		scale 0.2;
+		+NOINTERACTION
+		+NOBLOCKMAP
 	}
 	States
 	{
 	Spawn:
-		PROP A 10;
+		GRAS C 10;
 		Loop;
 	}
 }
@@ -2152,14 +2152,14 @@ class weeds2 : PostalDecoration
 		//$Title "Weeds 2"
 		Radius 10;
 		Height 85;
-		+ROLLSPRITE
-		+ABSMASKPITCH
-		+NOINTERACTION;
+		scale 0.1;
+		+NOINTERACTION
+		+NOBLOCKMAP
 	}
 	States
 	{
 	Spawn:
-		PROP A 10;
+		GRAS B 10;
 		Loop;
 	}
 }
@@ -2194,14 +2194,14 @@ class grass1 : PostalDecoration
 		//$Title "Dead Grass 1"
 		Radius 10;
 		Height 85;
-		+ROLLSPRITE
-		+ABSMASKPITCH
-		+NOINTERACTION;
+		scale 0.1;
+		+NOINTERACTION
+		+NOBLOCKMAP
 	}
 	States
 	{
 	Spawn:
-		PROP A 10;
+		GRAS C 10;
 		Loop;
 	}
 }
@@ -3240,14 +3240,14 @@ class weeds1 : PostalDecoration
 		//$Title "Weeds 1"
 		Radius 10;
 		Height 85;
-		+ROLLSPRITE
-		+ABSMASKPITCH
-		+NOINTERACTION;
+		scale 0.2;
+		+NOINTERACTION
+		+NOBLOCKMAP
 	}
 	States
 	{
 	Spawn:
-		PROP A 10;
+		GRAS A 10;
 		Loop;
 	}
 }
