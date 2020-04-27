@@ -271,7 +271,7 @@ class DudeCoreHandler : EventHandler
 		
 		if (!grass)
 		{
-			if (e.thing is 'grass1' || e.thing is 'grass2' || e.thing is 'weed1' || e.thing is 'weed2')
+			if (e.thing is 'grass1' || e.thing is 'grass2' || e.thing is 'weedS1' || e.thing is 'weedS2')
 				e.thing.Destroy();
 		}
 		
