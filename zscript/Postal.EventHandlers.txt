@@ -266,6 +266,15 @@ class DudeCoreHandler : EventHandler
 				e.thing.Destroy();
 		}
 		
+		CVar grasscvar = CVar.FindCVar('postal_grass');
+		bool grass = (grasscvar != null && grasscvar.GetBool ());
+		
+		if (!grass)
+		{
+			if (e.thing is 'grass1' || e.thing is 'grass2' || e.thing is 'weed1' || e.thing is 'weed2')
+				e.thing.Destroy();
+		}
+		
 		// Replacing ZDoom patrolpoints on STD levels with Carnodes
 		bool STD_Levels =
 		(

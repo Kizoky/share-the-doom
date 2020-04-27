@@ -3,6 +3,7 @@ user bool postal_idleanim = true;     //Disables or enables idling animations on
 user bool postal_deltatouch = false;		//Disables or enables Delta Touch tweaks
 user bool postal_developer = false;		//Disables or enables Developer mode
 server bool postal_lights = true;		//Disables or enables Postal 2-simulated lights
+server bool postal_grass = true;		//Disables or enables Postal 2 grass
 
 // These to be removed from final release of STD
 user String radiusDebug = "None";

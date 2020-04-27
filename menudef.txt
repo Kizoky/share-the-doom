@@ -62,10 +62,15 @@ OptionMenu "PostalOptionMenu"
 	
 	StaticText "Performance Options", "Gold"
 	StaticText "Note: OpenGL runs poorly with this mod, make sure you have Vulkan renderer enabled!", "White"
+	StaticText "If you are playing on STD levels it's recommended to use LZDoom", "White"
 	StaticText ""
 	
 	StaticText "Enables or Disables Postal Lights from an STD level. Server-sided", "White"
 	Option "Shadows in maps (needs level restart)", "postal_lights", "YesNo"
+	StaticText ""
+	
+	StaticText "Enables or Disables Postal grass from an STD level. Server-sided", "White"
+	Option "Grass in maps (needs level restart)", "postal_grass", "YesNo"
 	StaticText ""
 	
 	StaticText "Enables or Disables Postal Pathnodes from an STD level. Server-sided", "White"
