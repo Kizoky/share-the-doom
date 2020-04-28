@@ -557,5 +557,6 @@ class PostalDoor12 : PostalDoor
 		//$Category Gameplay
 		//$Title "Glass Door"
 		//$Color 5
+		Renderstyle "Translucent";
 	}
 }

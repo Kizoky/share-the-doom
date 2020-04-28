@@ -1557,6 +1557,7 @@ class DelhiCounter : PostalDecoration
 	{
 		//$Category Storefront
 		//$Title "Meat stand"
+		Renderstyle "Translucent";
 		Radius 10;
 		Height 85;
 		+ROLLSPRITE
@@ -1718,6 +1719,7 @@ class JewShell : PostalDecoration
 	{
 		//$Category Storefront
 		//$Title "Jewerly Stand"
+		Renderstyle "Translucent";
 		Radius 10;
 		Height 85;
 		+ROLLSPRITE
