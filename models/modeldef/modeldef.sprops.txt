@@ -3659,10 +3659,10 @@ Model "rockpile"
 Model "rockpile_big"
 {
 	Path "models\props"
-	Model 0 "zo_rockpile.md3"
-	SurfaceSkin 0 0 "zo_rockpile.png"
+	Model 0 "zo_rubblepile2.md3"
+	SurfaceSkin 0 0 "zo_redrubble.png"
 	AngleOffset 0
-	Scale -1.5 -1.5 1.5
+	Scale -2.5 -2.5 2.5
 	Offset 0 0 1 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
@@ -3779,6 +3779,37 @@ Model "building5"
 	AngleOffset 180
 	Scale -5 -5 5
 	Offset 200 200 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "corridor"
+{
+	Path "models\props"
+	Model 0 "MeadowCorridor.md3"
+	SurfaceSkin 0 0 "MeadowCorridor.png"
+	SurfaceSkin 0 1 "Light_Fixture_10_11.png"
+	AngleOffset 0
+	Scale 0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "rockpile2"
+{
+	Path "models\props"
+	Model 0 "zo_rubblepile1.md3"
+	SurfaceSkin 0 0 "zo_rubble.png"
+	AngleOffset 0
+	Scale -1.5 -1.5 1.5
+	Offset 0 0 1 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	

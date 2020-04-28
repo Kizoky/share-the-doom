@@ -548,3 +548,14 @@ class PostalDoorJesus : PostalDoor
 		//$Color 5
 	}
 }
+
+
+class PostalDoor12 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Glass Door"
+		//$Color 5
+	}
+}

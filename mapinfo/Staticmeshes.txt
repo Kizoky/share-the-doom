@@ -279,4 +279,7 @@ DoomEdNums
   32513 = wetsign
   32512 = building4
   32511 = building5
+  32510 = corridor
+  32509 = rockpile2
+  32508 = PostalDoor12
 }

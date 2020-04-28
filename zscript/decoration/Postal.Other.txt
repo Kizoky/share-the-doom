@@ -3906,7 +3906,7 @@ class rockpile_big : PostalDecoration
 	{
 		//$Category Details
 		//$Title "Pile Of Rocks Bigger"
-		Radius 380;
+		Radius 300;
 		Height 200;
 		+ROLLSPRITE
 		+ABSMASKPITCH
@@ -4012,6 +4012,48 @@ class wetsign : PostalDecoration
 		//$Title "Slippery Floor Sign"
 		Radius 5;
 		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class corridor : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Factory Entrance"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class rockpile2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Pile Of Rocks 2"
+		Radius 200;
+		Height 100;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
 	}
 	States
 	{
