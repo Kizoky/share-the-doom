@@ -3878,3 +3878,86 @@ class rockpile_big : PostalDecoration
 		Loop;
 	}
 }
+
+
+class pipe_stand : PostalDecoration
+{
+	Default
+	{
+		//$Category Sewers
+		//$Title "Pipe Standing Piece"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class pipe1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Sewers
+		//$Title "Pipe Straight"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class pipe2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Sewers
+		//$Title "Pipe Turnage"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class pipe3 : PostalDecoration
+{
+	Default
+	{
+		//$Category Sewers
+		//$Title "Pipe Turnage Mirrored"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

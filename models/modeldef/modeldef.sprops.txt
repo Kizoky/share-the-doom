@@ -3670,3 +3670,65 @@ Model "rockpile_big"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "pipe_stand"
+{
+	Path "models\props"
+	Model 0 "zo_pipewalkway1.md3"
+	SurfaceSkin 0 0 "zo_handrail.png"
+	SurfaceSkin 0 1 "zo_rustygrate.png"
+	SurfaceSkin 0 2 "zo_pipemetal.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pipe1"
+{
+	Path "models\props"
+	Model 0 "zo_tora_pipe1.md3"
+	SurfaceSkin 0 0 "zo_tora_pipe.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pipe2"
+{
+	Path "models\props"
+	Model 0 "zo_tora_pipe2.md3"
+	SurfaceSkin 0 0 "zo_tora_pipe.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pipe3"
+{
+	Path "models\props"
+	Model 0 "zo_tora_pipe2.md3"
+	SurfaceSkin 0 0 "zo_tora_pipe.png"
+	AngleOffset 0
+	Scale 0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

@@ -272,4 +272,8 @@ DoomEdNums
   32520 = grave5
   32519 = rockpile
   32518 = rockpile_big
+  32517 = pipe_stand
+  32516 = pipe1
+  32515 = pipe2
+  32514 = pipe3
 }
