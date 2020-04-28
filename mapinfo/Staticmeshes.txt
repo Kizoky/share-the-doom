@@ -276,4 +276,7 @@ DoomEdNums
   32516 = pipe1
   32515 = pipe2
   32514 = pipe3
+  32513 = wetsign
+  32512 = building4
+  32511 = building5
 }

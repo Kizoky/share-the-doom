@@ -3732,3 +3732,56 @@ Model "pipe3"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "wetsign"
+{
+	Path "models\props"
+	Model 0 "slippery_when_wet.md3"
+	SurfaceSkin 0 0 "slippery_when_wet.png"
+	AngleOffset 0
+	Scale -0.85 -0.85 0.85
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "building4"
+{
+	Path "models\props"
+	Model 0 "zo_red_building3.md3"
+	SurfaceSkin 0 0 "tile-bricks-red-irregular-512.png"
+	SurfaceSkin 0 1 "zo_red_window1_flat"
+	SurfaceSkin 0 2 "zo_red_closeddoor.png"
+	SurfaceSkin 0 3 "zo_millwindow2_opaque.png"
+	SurfaceSkin 0 4 "zo_whitewoodceiling.png"
+	AngleOffset 180
+	Scale -5 -5 5
+	Offset 150 200 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "building5"
+{
+	Path "models\props"
+	Model 0 "zo_red_building6.md3"
+	SurfaceSkin 0 0 "zo_red_wall1.png"
+	SurfaceSkin 0 1 "zo_millwindow2_opaque.png"
+	SurfaceSkin 0 2 "zo_red_closeddoor2.png"
+	SurfaceSkin 0 3 "zo_poolcement"
+	AngleOffset 180
+	Scale -5 -5 5
+	Offset 200 200 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

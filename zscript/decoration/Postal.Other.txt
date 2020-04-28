@@ -3038,6 +3038,47 @@ class building3 : PostalDecoration
 	}
 }
 
+class building4 : PostalDecoration
+{
+	Default
+	{
+		//$Category Buildings
+		//$Title "Building 4"
+		Radius 250;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class building5 : PostalDecoration
+{
+	Default
+	{
+		//$Category Buildings
+		//$Title "Building 5"
+		Radius 250;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
 
 class guarddesk : PostalDecoration
 {
@@ -3953,6 +3994,24 @@ class pipe3 : PostalDecoration
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class wetsign : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Slippery Floor Sign"
+		Radius 5;
+		Height 56;
 	}
 	States
 	{
