@@ -3749,3 +3749,132 @@ class grave1 : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class grave2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Grave 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+
+class grave3 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Grave 3 Monument"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class grave4 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Grave 4"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class grave5 : PostalDecoration
+{
+	Default
+	{
+		//$Category Church
+		//$Title "Grave 5"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class rockpile : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Pile Of Rocks"
+		Radius 200;
+		Height 100;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class rockpile_big : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Pile Of Rocks Bigger"
+		Radius 380;
+		Height 200;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
