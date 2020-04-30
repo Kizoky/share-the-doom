@@ -91,6 +91,7 @@ class PostTazer : PostalWeapon
 			if (lineData.hitActor == null) return;
 			
 			if (LineData.HitActor is 'postaldoor' || LineData.HitActor is 'postaldoor_extender') return;
+			if (LineData.HitActor is 'postalwindow' || LineData.HitActor is 'postalwindow_extender') return;
 			
 			A_PlaySound("weapons/tazer_hit", CHAN_WEAPON | 4096);
 			if (LineData.HitActor.CheckInventory("TazerStun",1))
