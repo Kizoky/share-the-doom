@@ -4064,3 +4064,25 @@ class rockpile2 : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class cubicle : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Cubicle"
+		Radius 85;
+		Height 30;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		//+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

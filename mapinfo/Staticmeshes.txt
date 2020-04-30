@@ -282,4 +282,5 @@ DoomEdNums
   32510 = corridor
   32509 = rockpile2
   32508 = PostalDoor12
+  32507 = cubicle
 }
