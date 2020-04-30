@@ -866,6 +866,13 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 		Loop;
 	Pain:
+		TNT1 A 0
+		{
+			if (PlayerData == null) return;
+			
+			if (PlayerData.Suicide == true)
+				SetStateLabel("Invis");
+		}
 		DUDE A 4;
 		DUDE A 4;
 		Goto Spawn;
@@ -951,6 +958,10 @@ class DummyDude : Actor
 						SetStateLabel("Suicide");
 						Done = true;
 					}
+					
+					if (MyDude.bKILLED && p.MissileOnce != true)
+						Destroy();
+					
 				}
 			}
 			
