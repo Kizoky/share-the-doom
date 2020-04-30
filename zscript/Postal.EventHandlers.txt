@@ -102,6 +102,8 @@ class DudeCoreHandler : EventHandler
 			//Console.Printf("K pressed (I regret nothing)");
 			if (p == null || p.PlayerData == null) return;
 			
+			if (!(p.pos.z ~== p.floorz)) return;
+			
 			p.PlayerData.Suicide = true;
 			p.SuicideAngle = p.Angle;
 			
