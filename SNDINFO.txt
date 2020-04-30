@@ -688,3 +688,6 @@ grenade/explode sounds/grenade_explodeground.wav
 glass/break sounds/miscsounds/glassbreak.wav
 
 item/bounce sounds/head_bounce.wav
+
+vengaboys/up sounds/up.wav
+vengaboys/down sounds/anddown.wav

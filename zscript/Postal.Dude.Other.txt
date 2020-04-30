@@ -59,6 +59,9 @@ class CheatingFlight : Powerup
 
 class YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound : Powerup
 {
+	int storedposZ, YouAreGoingIntoOrbit;
+	bool DownDown;
+	
 	Default
 	{
 		Powerup.Duration -99999;
@@ -68,15 +71,8 @@ class YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound : Pow
 	override void InitEffect ()
 	{
 		Super.InitEffect();
-		S_ChangeMusic("spinme");
-		class<actor> krotchytoy = "giantkrotchytoy";
-		for (int i = 0; i < 100; i++)
-		{
-			int randomm = random(-i,i);
-			Actor krr = spawn(krotchytoy, owner.pos+(randomm,randomm,randomm), NO_REPLACE);
-			krr.target = owner;
-			krr.SetStateLabel("See");
-		}
+		S_ChangeMusic("");
+		storedposZ = Owner.pos.z;
 	}
 
 	override void EndEffect ()
@@ -89,21 +85,36 @@ class YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound : Pow
 
 		if (!(Owner.bFlyCheat))
 		{
-			Owner.bFly = false;
-			Owner.bNoGravity = false;
+			Owner.bFly = true;
+			Owner.bNoGravity = true;
 		}
 	}
 	
 	override void Tick()
 	{
 		Super.Tick();
-		Owner.Angle += 15;
 		Owner.Speed = 0;
 		Owner.Pitch = 0;
+		Owner.bFly = true;
+		Owner.bNoGravity = true;
+		if (level.time > YouAreGoingIntoOrbit)
+		{
+			if (!DownDown)
+			{
+				Owner.A_StartSound("vengaboys/up", CHAN_BODY);
+				Owner.SetOrigin(owner.pos+(0,0,300), false);
+				DownDown = true;
+			}
+			else
+			{
+				Owner.A_StartSound("vengaboys/down", CHAN_BODY);
+				Owner.SetOrigin(owner.pos-(0,0,300),false);
+				DownDown = false;
+			}
+			
+			YouAreGoingIntoOrbit = level.time + 30;
+		}
 		Owner.A_Print("It's disco time!");
-		
-		if (Owner.bKILLED)
-			Owner.A_Print("Gee, the fun just have only begun!");
 	}
 }
 
