@@ -10,6 +10,7 @@ GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recom
 Note: Multiplayer MAY work, I ONLY tested it in LAN, I'm not sure if it would work via p2p
 
 For mapping check out these GZDB Flags: https://github.com/Kizoky/share-the-doom/blob/master/GZDBFlags.md
+Related to legal issues: https://github.com/Kizoky/share-the-doom/blob/master/LICENSE.md
 
 [Weapons]
 - All the weapons are currently unfinished or just partially working, but are functional.
@@ -32,7 +33,3 @@ For mapping check out these GZDB Flags: https://github.com/Kizoky/share-the-doom
 - Lewisk3 (StatusBarScreen)
 - m8f (Stupid Achievements)
 - ...
-
-# Regarding use of assets from this mod
-
-Do not use any assets you pull from this mod to use in your paid game, all the assets belong to Running With Scissors. For public projects that are/will be free is fine just make sure to credit Running With Scissors! For Doom mods please credit me, that's all I ask
