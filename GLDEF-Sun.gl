@@ -2853,10 +2853,10 @@ material texture "models/props/zo_plywoodwindow.png"
 	shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/zo_polishedstone.png"
-{
-	shader "shaders/simsun_prop.fp"
-}
+//material texture "models/props/zo_polishedstone.png"
+//{
+//	shader "shaders/simsun_prop.fp"
+//}
 
 material texture "models/props/zo_poolcement.png"
 {
