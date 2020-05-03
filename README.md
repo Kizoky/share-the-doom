@@ -29,6 +29,8 @@ For mapping check out these GZDB Flags: https://github.com/Kizoky/share-the-doom
 - the ZDoom discord
 - Nash
 - Project Brutality (UT bobbing)
+- Lewisk3 (StatusBarScreen)
+- m8f (Stupid Achievements)
 - ...
 
 # Regarding use of assets from this mod
