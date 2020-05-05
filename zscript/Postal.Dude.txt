@@ -145,7 +145,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		if (level.time < PlayerData.DudeLineCooldown)
 			return;
 		
-		int Chance = random(0,100);
+		int Chance = random[DudeLine](0,100);
 		
 		if (InitLine == true)
 		{
@@ -169,7 +169,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	//todo: add more tips + try reading the situation via blockthingsiterator
 	void GenerateTip()
 	{
-		int i = random(0,TipList.Size()-1);
+		int i = random[tip](0,TipList.Size()-1);
 		ChosenTip = TipList[i];
 	}
 	
@@ -476,7 +476,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				
 			if (PlayerData.IdlingPos == pos)
 			{
-				int randomm = random(1,1);
+				int randomm = random[idle](1,1);
 				
 				switch(randomm)
 				{
@@ -540,7 +540,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	// Handles pain lines when hurt
 	void A_DudePain()
 	{
-		int LongChance = random(0,100);
+		int LongChance = random[pain](0,100);
 		
 		if (level.time > TimeBeforeNextPainLine)
 		{
@@ -855,7 +855,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 		TNT1 A 0
 		{
-			int randomm = random(1,50);
+			int randomm = random[see](1,50);
 			
 			//if (randomm > 47)
 			//	A_PlaySound("dudeline49", 1);

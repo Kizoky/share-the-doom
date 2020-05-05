@@ -89,11 +89,11 @@ class NPCCore : PostalActor
 		NPC_Dickout = "mikej/dickout";
 		
 		//Walking styles are randomized, but you can set it manually if wanted
-		WalkingStyle = random(1,6);
+		WalkingStyle = random[mystyle](1,6);
 		
 		//The pitch of the NPC's voice is randomized, except Krotchy's
 		if (!(self is 'NPCKrotchy'))
-			MyVoice = frandom(0.7,1.2);
+			MyVoice = frandom[voicef](0.7,1.2);
 		
 		if (!(self is 'NPCKrotchy'))
 		{
@@ -161,14 +161,14 @@ class NPCCore : PostalActor
 	{
 		Super.PostBeginPlay();
 		//Shader.SetUniform3f( players[consoleplayer], "ColorTint", "tintColor", (1.0,0.0,0.0) );
-		UniqueID = random(1,999999);
+		UniqueID = random[unique](1,999999);
 		isAfterTarget = false;
 		
 		////// 1 = Pussy; will shriek in whatever occusion
 		////// 2 = Hostile; has a weapon, and will attack back if provoked
 		////// 3 = Ally; ignores the player, will attack back if a certain amount of HP was lost because of the Player
 		////// 4 = Companion; Same as like ally, with the exception that it will follow the Player on sight, and won't attack it no matter what
-		int RandomizedHostility = random(1,2);
+		int RandomizedHostility = random[myhostility](1,2);
 		
 		switch(RandomizedHostility)
 		{
@@ -209,7 +209,7 @@ class NPCCore : PostalActor
 				"Plague"
 				*/
 			};
-			int i = random(0,WeaponList.Size()-1);
+			int i = random[myweapon](0,WeaponList.Size()-1);
 			
 			NPCWeapon = WeaponList[i];
 		}
@@ -330,7 +330,7 @@ class NPCCore : PostalActor
 	
 	virtual void A_PussyScream()
 	{
-		int Prob = random(0,100);
+		int Prob = random[iscream](0,100);
 		if (Prob > 78)
 		{
 			A_PlaySound(NPC_Scream,0 , 1.0, false, 1, false, MyVoice);
@@ -470,7 +470,7 @@ class NPCCore : PostalActor
 		{
 			if (lineData.HitActor != target && !(lineData.HitActor is 'NPCHead'))
 			{
-				bool ff = random(0,1);
+				bool ff = random[gogo](0,1);
 				
 				//Console.Printf("Someone's in my way");
 				if (ff)
