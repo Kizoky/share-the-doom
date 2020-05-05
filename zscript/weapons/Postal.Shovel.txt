@@ -5,7 +5,7 @@ class PostShovel : PostalWeapon
 	{
 		FTranslatedLineTarget t;
 
-		int damage = random(9, 13);
+		int damage = random[shovel](9, 13);
 
 		double ang = angle;
 		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);

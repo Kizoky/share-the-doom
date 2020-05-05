@@ -51,7 +51,7 @@ class PostMachete : PostalWeapon
 	{
 		FTranslatedLineTarget t;
 
-		int damage = extradamage + random(14, 18);
+		int damage = extradamage + random[machetehit](14, 18);
 
 		double ang = angle;
 		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
@@ -105,7 +105,7 @@ class PostMachete : PostalWeapon
 	Fire:
 		TNT1 A 0
 		{
-			int randomfire = random(1,4);
+			int randomfire = random[firerandom](1,4);
 			
 			switch(randomfire)
 			{

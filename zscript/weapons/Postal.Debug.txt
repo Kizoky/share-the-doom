@@ -54,6 +54,9 @@ extend class PostDebug
 			{
 				Console.Printf("-------------------------------");
 				let pp = NPCCore(lineData.HitActor);
+				
+				if (!pp) return;
+				
 				Console.Printf("Hostility: %s",pp.Hostility);
 				
 				if (pp.isBusy == true)

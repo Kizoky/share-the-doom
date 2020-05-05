@@ -5,7 +5,7 @@ class PostBaton : PostalWeapon
 	{
 		FTranslatedLineTarget t;
 
-		int damage = random(4, 7);
+		int damage = random[batonhit](4, 7);
 
 		double ang = angle;
 		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);

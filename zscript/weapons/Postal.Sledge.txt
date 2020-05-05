@@ -48,7 +48,7 @@ class PostSledge : PostalWeapon
 	{
 		FTranslatedLineTarget t;
 
-		int damage = extradamage + random(14, 18);
+		int damage = extradamage + random[sledge](14, 18);
 
 		double ang = angle;
 		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);

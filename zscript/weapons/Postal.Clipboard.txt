@@ -41,7 +41,7 @@ class PostClipboard : PostalWeapon
 				{
 					if (!(lineData.HitActor is 'PostalActor'))
 						{
-							int randomm = random(1,2);
+							int randomm = random[petition](1,2);
 							
 							if (randomm == 1)
 								A_PlaySound("dudeline31", 7 | 4096);
