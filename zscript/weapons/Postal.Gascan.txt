@@ -451,7 +451,7 @@ class PostalLiquidGas : PostalActor
 				let PlayerDude = PostalDude(toucher);
 				//Console.Printf("OUCH IT'S HOT HOT HOT HOT HOT HOT HOT HOT HOT");
 				
-				if (PlayerDude.PlayerData.P_GodMode != true && PlayerDude)
+				if (PlayerDude.PlayerData.P_GodMode != true && PlayerDude && PlayerDude.PlayerData)
 				{
 					class<actor> Fire = "PostalFire";
 					
