@@ -2,7 +2,7 @@ class PostKick : CustomInventory
 {
 	action void A_Kick()
 	{
-		int damage = random[Punch](5, 7) << 1;
+		int damage = random[kick](5, 7) << 1;
 
 		LineAttack (angle, 115, pitch, damage, 'Melee', "PostalKickPuff");
 	}
@@ -74,21 +74,24 @@ class PostKick : CustomInventory
 					{
 						let pp = Actor(lineData.HitActor);
 						
-						if (pp == null) return;
-						
-						pp.PainChance = 256;
-						//Console.Printf("Scumbag kicked");
-						A_QuakeEx(0, 3, 3, 7, 0, 60 );
-						A_PlaySound("footLiving", 7 | 4096);
+						if (pp)
+						{
+							pp.PainChance = 256;
+							//Console.Printf("Scumbag kicked");
+							A_QuakeEx(0, 3, 3, 7, 0, 60 );
+							A_PlaySound("footLiving", 7 | 4096);
+						}
 						
 						let wep = Player.ReadyWeapon;
-						//int origKickBack = wep.KickBack;
 						
-						wep.Kickback = 1000;
-						pp.target = self;
-						A_Kick();
-						wep.Kickback = wep.Default.Kickback;
-						pp.PainChance = pp.Default.PainChance;
+						if (wep)
+						{
+							wep.Kickback = 1000;
+							pp.target = self;
+							A_Kick();
+							wep.Kickback = wep.Default.Kickback;
+							pp.PainChance = pp.Default.PainChance;
+						}
 					}
 				}
 	  }
@@ -99,9 +102,8 @@ class PostKick : CustomInventory
 			A_TakeInventory("PostKick",100);
 			let PlayerDude = PostalDude(self);
 			
-			if (PlayerDude == null) return;
-			
-			PlayerDude.Kick = false;
+			if (PlayerDude)
+				PlayerDude.Kick = false;
 	  }
 	  stop;
 	  

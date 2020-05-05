@@ -10,7 +10,7 @@ class NPCZombie : PostalActor
 			SetStateLabel("See");
 		}
 		
-		int Prob = random(0,100);
+		int Prob = random[rch](0,100);
 		if (Prob > 78)
 		{
 			A_PlaySound("zombie/pain", 0 , 1.0, false, 1, false);
@@ -199,7 +199,7 @@ class NPCZombie : PostalActor
 	Spawn:
 		IDLE A 0
 		{
-			int Prob = random(0,100);
+			int Prob = random[rch2](0,100);
 			if (Prob > 78)
 			{
 				A_PlaySound("zombie/moan", 0 , 1.0, false, 1, false);
@@ -215,20 +215,20 @@ class NPCZombie : PostalActor
 	See:
 		TNT1 A 0
 		{
-			int Prob = random(0,100);
+			int Prob = random[rch3](0,100);
 			if (Prob > 78)
 			{
 				A_PlaySound("zombie/curse", 0 , 1.0, false, 1, false);
 			}
 			
-			int prob2 = random(0,100);
+			int prob2 = random[rch4](0,100);
 			if (prob2 > 85)
 			{
 				SetStateLabel("Missile");
 				return;
 			}
 			
-			int Charge = random(1,100);
+			int Charge = random[rch5](1,100);
 			if (Charge > 85)
 			{
 				SetStateLabel("Charge");
@@ -269,7 +269,7 @@ class NPCZombie : PostalActor
 		{	
 			A_PlaySound("zombie/anger", 0 , 1.0, false, 1, false);
 			
-			bool randomm = random(0,1);
+			bool randomm = random[rb](0,1);
 			
 			if (randomm)
 				SetStateLabel("SwipeLeft");

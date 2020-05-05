@@ -52,20 +52,20 @@ class CowMike : PostalActor
 						if (p)
 						{
 							p.Owner = self;
-							p.RandomizedZ = random(20,40);
-							p.RandomizedPOS = random(-45,45);
+							p.RandomizedZ = random[randomz](20,40);
+							p.RandomizedPOS = random[randompos](-45,45);
 							
-							p.OriginalRadius = random(1,45);
+							p.OriginalRadius = random[randomradius](1,45);
 							p.OriginalY = p.OriginalRadius;
 						
 						
-						int UpAndDown = random(1,2);
+						int UpAndDown = random[randomud](1,2);
 						if (UpAndDown == 1)
 							p.upndown = true;
 						else
 							p.upndown = false;
 							
-						int RightLeft = random(1,2);
+						int RightLeft = random[randomrl](1,2);
 						if (RightLeft == 1)
 							p.rightnleft = true;
 						else
@@ -197,7 +197,7 @@ class CowMike : PostalActor
 		Pain:
 			TNT1 A 0
 			{
-				int asd = random(1,2);
+				int asd = random[rpain](1,2);
 				
 				if (asd == 1)
 					SetStateLabel("Pain.One");
@@ -226,7 +226,7 @@ class CowMike : PostalActor
 		Missile:
 			TNT1 A 0
 			{
-				int chance = random(1,3);
+				int chance = random[rchance](1,3);
 				if (chance == 1)
 					SetStateLabel("LeftThrow");
 				if (chance == 2)
@@ -273,7 +273,7 @@ extend class CowMike
 		
 		Actor shoot = SpawnMissile (target, "GaryHeadProjectile");
 		
-		if (shoot != null)
+		if (shoot)
 		{
 			shoot.Angle = Angle;
 			shoot.SetXYZ(shoot.pos + (0, RightLeft, 120));
@@ -304,7 +304,7 @@ class GaryHead : PostalActor
 		rightnleft = true;
 		//RandomizedPOS = 0;
 		
-		RandomizedAngle = random(-5,5);
+		RandomizedAngle = random[rang](-5,5);
 		if (RandomizedAngle == 1 || RandomizedAngle == 0)
 			RandomizedAngle = 2;
 		if (RandomizedAngle == -1)
@@ -417,7 +417,7 @@ class GaryHead : PostalActor
 		Spawn:
 			TNT1 A 0
 			{
-				int chance = random(0,100);
+				int chance = random[rch1](0,100);
 				if (chance > 50)
 					A_PlaySound("gary/laugh",CHAN_VOICE | CHAN_NOSTOP);
 			}
@@ -426,7 +426,7 @@ class GaryHead : PostalActor
 		GaryHead:
 			TNT1 A 0
 			{
-				int chance = random(0,100);
+				int chance = random[rch2](0,100);
 				if (chance > 50)
 					A_PlaySound("gary/laugh",CHAN_VOICE | CHAN_NOSTOP);
 			}
@@ -558,7 +558,7 @@ class GaryHeadProjectile : Actor
 		Spawn:
 			TNT1 A 0
 			{
-				int chance = random(0,100);
+				int chance = random[rch3](0,100);
 				if (chance > 50)
 					A_PlaySound("gary/laugh",CHAN_VOICE | CHAN_NOSTOP);
 					

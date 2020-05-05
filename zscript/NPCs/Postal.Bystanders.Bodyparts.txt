@@ -7,11 +7,11 @@ class NPCHead : PostalActor
 		Super.Tick();
 		
 		let p = NPCCore(Owner);
-		if (Owner)
+		if (p)
 		{
-			SetOrigin(Owner.pos+(0,0,56), TRUE);
-			A_SetAngle(Owner.angle, SPF_INTERPOLATE);
-			A_SetPitch(Owner.pitch,SPF_INTERPOLATE); 
+			SetOrigin(p.pos+(0,0,56), TRUE);
+			A_SetAngle(p.angle, SPF_INTERPOLATE);
+			A_SetPitch(p.pitch,SPF_INTERPOLATE); 
 			
 			if (p.bKILLED)
 				Destroy();
@@ -31,10 +31,10 @@ class NPCHead : PostalActor
 	{
 		let p = NPCCore(Owner);
 		
-		if (source == Owner)
+		if (source == p && p)
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		
-		if (source != Owner)
+		if (source != p && p)
 		{
 			p.MyTarget = source;
 			p.target = source;
@@ -44,8 +44,11 @@ class NPCHead : PostalActor
 		{
 			if (source is 'PostalDude' || source is 'NPCFollower')
 			{
-				p.target = null;
-				p.MyTarget = null;
+				if (p)
+				{
+					p.target = null;
+					p.MyTarget = null;
+				}
 				
 				health += damage;
 				
@@ -81,10 +84,13 @@ class NPCHead : PostalActor
 		
 		if (inflictor is 'ThrownMachete' || inflictor is 'ThrownScythe' || inflictor is 'ThrownHammer')
 		{
-			p.A_DamageSelf(p.Health);
-			A_PlaySound("misc/gibbed",0);
-			p.SetStateLabel("Headless.Death");
-			SetStateLabel("Headless.Death");
+			if (p)
+			{
+				p.A_DamageSelf(p.Health);
+				A_PlaySound("misc/gibbed",0);
+				p.SetStateLabel("Headless.Death");
+				SetStateLabel("Headless.Death");
+			}
 		}
 		
 		//If the damage the head will take will result in the health less than 1

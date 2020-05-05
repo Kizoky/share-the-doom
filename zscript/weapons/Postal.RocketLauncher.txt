@@ -293,7 +293,9 @@ class PostalRocket : PostalActor
 						Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
 						
 						let pp = PostalSmokeTrail(Smoke);
-						pp.bouncesmoke = true;
+						if (pp)
+							pp.bouncesmoke = true;
+						
 						Smoke.Scale = (8.0,8.0);
 					}
 					i++;

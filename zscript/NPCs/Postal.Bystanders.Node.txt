@@ -106,7 +106,7 @@ class Postal_Node : PostalActor
 				if (invoker.NextNode == null)
 				{
 					//Hopefully by the time the NPC approaches it's node it will already attach an actor pointer;
-					if (next is 'Postal_Node' && next != self)
+					if (next is 'Postal_Node' && next != self && next)
 					{
 							//double diff = deltaangle(angle, AngleTo(next));
 							//double delta = abs(diff);
@@ -114,7 +114,8 @@ class Postal_Node : PostalActor
 							invoker.NextNode = next;
 							
 							let node = Postal_Node(next);
-							node.PreviousNode = self;
+							if (node)
+								node.PreviousNode = self;
 							
 							//Angle += AngleTo(next);
 							//Console.Printf("I see a Postal_Node.");

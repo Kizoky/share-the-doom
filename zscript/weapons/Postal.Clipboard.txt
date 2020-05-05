@@ -97,13 +97,15 @@ extend class PostClipboard
 						{
 							Console.Printf("target is NPCCore");
 							let pp = NPCCore(lineData.HitActor);
-							pp.target = self;
-							pp.MyTarget = self;
-							pp.Petitioning = true;
-							
-							invoker.PetitionedNPC = pp;
-							invoker.TimeBeforeBoomBoom = level.time + 125;
-							
+							if (pp)
+							{
+								pp.target = self;
+								pp.MyTarget = self;
+								pp.Petitioning = true;
+								
+								invoker.PetitionedNPC = pp;
+								invoker.TimeBeforeBoomBoom = level.time + 125;
+							}
 						}
 						
 						if (lineData.HitActor is 'PostalActor')
@@ -152,7 +154,8 @@ extend class PostClipboard
 				Console.Printf("Entered?");
 				
 				let p = PostalActor(Monsta);
-				p.A_PlaySelfSound();
+				if (p)
+					p.A_PlaySelfSound();
 				
 				if (Monsta.bFRIENDLY)
 				{

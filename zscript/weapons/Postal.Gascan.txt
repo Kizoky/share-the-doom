@@ -95,14 +95,15 @@ class FireSpawnerAid : Powerup
 		{
 			let dd = PostalFire(AttachedFire);
 			
-			if (dd == null) return;
-			
-			dd.Owner = Owner;
-			dd.ThisOneHurts = true;
-			dd.Counter = 0;
-			
-			//There's not enough time for the newly spawned Fire to cause damage
-			dd.TimeBeforeDisappearing = level.time + (35 * 12);
+			if (dd);
+			{
+				dd.Owner = Owner;
+				dd.ThisOneHurts = true;
+				dd.Counter = 0;
+				
+				//There's not enough time for the newly spawned Fire to cause damage
+				dd.TimeBeforeDisappearing = level.time + (35 * 12);
+			}
 		}
 		
 		Owner.bPICKUP = false; //prevent monsters picking up items, oof!
@@ -450,7 +451,7 @@ class PostalLiquidGas : PostalActor
 				let PlayerDude = PostalDude(toucher);
 				//Console.Printf("OUCH IT'S HOT HOT HOT HOT HOT HOT HOT HOT HOT");
 				
-				if (PlayerDude.PlayerData.P_GodMode != true)
+				if (PlayerDude.PlayerData.P_GodMode != true && PlayerDude)
 				{
 					class<actor> Fire = "PostalFire";
 					
@@ -461,9 +462,12 @@ class PostalLiquidGas : PostalActor
 					if (AttachedFire)
 					{
 						let dd = PostalFire(AttachedFire);
-						dd.Owner = toucher;
-						dd.ThisOneHurts = true;
-						dd.Counter = 0;
+						if (dd)
+						{
+							dd.Owner = toucher;
+							dd.ThisOneHurts = true;
+							dd.Counter = 0;
+						}
 						
 						//PlayerDude.isonFire = true;
 						if (PlayerDude.MyAnnoyingFire != null)
@@ -472,7 +476,8 @@ class PostalLiquidGas : PostalActor
 							AttachedFire.Destroy();
 							
 							let pp = PostalFire(PlayerDude.MyAnnoyingFire);
-							pp.TimeBeforeDisappearing = level.time + (35 * 12);
+							if (pp)
+								pp.TimeBeforeDisappearing = level.time + (35 * 12);
 						}
 						else
 							PlayerDude.MyAnnoyingFire = AttachedFire;
@@ -492,12 +497,15 @@ class PostalLiquidGas : PostalActor
 					
 					// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
 					// but make sure to check it's not null or else GZDoom will crash
-					if (AttachedFire)
+					if (AttachedFire && ppostal)
 					{
 						let dd = PostalFire(AttachedFire);
-						dd.Owner = toucher;
-						dd.ThisOneHurts = true;
-						dd.Counter = 0;
+						if (dd)
+						{
+							dd.Owner = toucher;
+							dd.ThisOneHurts = true;
+							dd.Counter = 0;
+						}
 						
 						//PlayerDude.isonFire = true;
 						if (ppostal.AnnoyingFire != null)
@@ -506,14 +514,15 @@ class PostalLiquidGas : PostalActor
 							AttachedFire.Destroy();
 							
 							let pp = PostalFire(ppostal.AnnoyingFire);
-							pp.TimeBeforeDisappearing = level.time + (35 * 12);
+							if (pp)
+								pp.TimeBeforeDisappearing = level.time + (35 * 12);
 							
 							if (toucher is 'NPCCore')
 							{
 								let p2 = NPCCore(toucher);
 								
 								// Check if NPC is in said State
-								if (!(InStateSequence(p2.CurState, p2.ResolveState("FireChase"))))
+								if (!(InStateSequence(p2.CurState, p2.ResolveState("FireChase"))) && p2)
 								{
 									p2.SetStateLabel("FireChase");
 								}

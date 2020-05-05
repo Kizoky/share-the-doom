@@ -141,7 +141,7 @@ class PostSledge : PostalWeapon
 		TNT1 A 0
 		{
 			let p = PostalDude(self);
-			if (p)
+			if (p && p.PlayerData)
 			{
 				p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
 				p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
