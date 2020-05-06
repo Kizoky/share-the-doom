@@ -2078,10 +2078,6 @@ material texture "models/props/dairy_marquis_timb.png"
 	shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/DayCloudsALP.png"
-{
-	shader "shaders/simsun_prop.fp"
-}
 
 material texture "models/props/deli.png"
 {
@@ -2728,15 +2724,15 @@ material texture "models/props/zo_filecabinet_side.png"
 	shader "shaders/simsun_prop.fp"
 }
 
-material texture "models/props/zo_flourescentlight_opaque.png"
-{
-	shader "shaders/simsun_prop.fp"
-}
+//material texture "models/props/zo_flourescentlight_opaque.png"
+//{
+//	shader "shaders/simsun_prop.fp"
+//}
 
-material texture "models/props/zo_flourescentlight_opaque2.png"
-{
-	shader "shaders/simsun_prop.fp"
-}
+//material texture "models/props/zo_flourescentlight_opaque2.png"
+//{
+//	shader "shaders/simsun_prop.fp"
+//}
 
 material texture "models/props/zo_garagedoor.png"
 {
