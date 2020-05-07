@@ -28,6 +28,8 @@ class NPCCore : PostalActor
 	
 	double MyVoice;
 	
+	actor HeadHitbox;
+	
 	//Logic variables
 	
 	Actor MyTarget, ActiveNode;
@@ -105,7 +107,10 @@ class NPCCore : PostalActor
 				MyHead.Angle = self.Angle;
 				let p = NPCHead(MyHead);
 				if (p)
+				{
 					p.Owner = self;
+					HeadHitbox = p;
+				}
 			}
 			
 			//Spawn Left and Right Arm
@@ -231,6 +236,16 @@ class NPCCore : PostalActor
 	override void Tick()
 	{
 		Super.Tick();
+		
+		if (bKILLED) return;
+		
+		// If our head hitbox is missing, most likely we are immortal
+		
+		if (HeadHitBox == null && !(self is 'NPCKrotchy'))
+		{
+			if (!bKILLED)
+				A_Die();
+		}
 		
 		// Some absurd way of doing pathnodes, probably will be replaced by something greater
 		// or it will be even worse
