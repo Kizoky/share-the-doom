@@ -392,12 +392,14 @@ class NPCCore : PostalActor
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
 		
+		/* This isn't really correct
 		if (source.target is 'PostalDude')
 		{
 			MyTarget = source.target;
 			target = source.target;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
+		
 		
 		let pp = NPCCore(source);
 		
@@ -407,7 +409,9 @@ class NPCCore : PostalActor
 			target = pp.target;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
+		*/
 		
+		/*
 		if (source is 'PostalDude' && inflictor is 'Urine')
 		{
 			SetStateLabel("Debug");
@@ -416,11 +420,12 @@ class NPCCore : PostalActor
 			Health += damage;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
+		*/
 		
 		if (inflictor is 'Bulletpuff')
 		{
 			//Console.Printf("Clip clip clip");
-			A_PlaySound("hitflesh",0 | 4096);
+			A_StartSound("hitflesh", CHAN_BODY);
 			MyTarget = source;
 			target = source;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
