@@ -32,74 +32,32 @@ class NPCHead : PostalActor
 		let p = NPCCore(Owner);
 		
 		if (source == p && p)
+		{
+			// no friendly fire
+			health += damage;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
-		
-		if (source != p && p)
-		{
-			p.MyTarget = source;
-			p.target = source;
 		}
 		
-		if (self is 'NPCFollower')
+		if (source != p && p && p.Health > 1)
 		{
-			if (source is 'PostalDude' || source is 'NPCFollower')
+			//p.MyTarget = source;
+			//p.target = source;
+			
+			// Cop stuff
+			let cop = NPCCop(p);
+			if (cop && source is 'PostalDude')
 			{
-				if (p)
-				{
-					p.target = null;
-					p.MyTarget = null;
-				}
-				
-				health += damage;
-				
+				let PlayerDude = PostalDude(source);
+				if (PlayerDude)
+					PlayerDude.PunishPoints += 0.3;
 			}
-		}
-		
-		//Check if we have a host, and if we do remove their health with the damage we took
-		if (p != null && !(source is 'PostalDude' && inflictor is 'Urine'))
-		{
-			if (!(damage > p.Health))
-				p.Health -= damage;
-		}
-		
-		//For cop NPCs, check if the source damage is the Player
-		let cop = NPCCop(Owner);
-		if (cop && source is 'PostalDude')
-		{
-			let PlayerDude = PostalDude(source);
-			PlayerDude.PunishPoints += 0.3;
-		}
-		
-		//Let's enter the pain state if we take damage
-		if (p && p.Health > 1)
-		{
-			if (inflictor is 'Bulletpuff')
+			
+			//If the damage the head will take will result in the health less than 1
+			if ((Health - damage) < 1)
 			{
-				//Console.Printf("Clip clip clip");
-				A_PlaySound("hitflesh",0 | 4096);
-			}
+				bNoBlood = true;
 				
-			p.SetStateLabel("Pain");
-		}
-		
-		if (inflictor is 'ThrownMachete' || inflictor is 'ThrownScythe' || inflictor is 'ThrownHammer')
-		{
-			if (p)
-			{
-				p.A_DamageSelf(p.Health);
-				A_PlaySound("misc/gibbed",0);
-				p.SetStateLabel("Headless.Death");
-				SetStateLabel("Headless.Death");
-			}
-		}
-		
-		//If the damage the head will take will result in the health less than 1
-		if (((Health - damage) < 1) && !(inflictor is 'fakeTrainCollision') && !(self is 'NPCFollower'))
-		{
-			bNoBlood = true;
-			if (p)
-			{
-				p.A_DamageSelf(p.Health);
+				int dd = p.DamageMobj(inflictor, source, p.Health, mod);
 				
 				let t = PostalDude(source);
 				if (t)
@@ -107,12 +65,11 @@ class NPCHead : PostalActor
 					t.InitLine = true;
 					if ((t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) || t.Player.ReadyWeapon == Weapon(t.FindInventory("PostSledge"))) && Distance2D(source) < 125)
 					{
-						A_PlaySound("misc/gibbed",0);
+						A_StartSound("misc/gibbed", CHAN_BODY);
 						p.SetStateLabel("Headless.Death");
 						SetStateLabel("Headless.Death");
-						Console.Printf("Distance Headshot: %d",Distance2D(source));
+						//Console.Printf("Distance Headshot: %d",Distance2D(source));
 					}
-				
 				}
 				
 				let foe = NPCCore(source);
@@ -120,18 +77,34 @@ class NPCHead : PostalActor
 				{
 					if (foe.NPCWeapon ~== "Shotgun"  && Distance2D(source) < 125)
 					{
-						A_PlaySound("misc/gibbed",0);
+						A_StartSound("misc/gibbed", CHAN_BODY);
 						p.SetStateLabel("Headless.Death");
 						SetStateLabel("Headless.Death");
 					}
 				}
 			}
-			//Destroy();
-		}
-		
-		if (source is 'PostalDude' && inflictor is 'Urine')
-		{
-			Health += damage;
+			
+			if (inflictor is 'Bulletpuff')
+			{
+				int dd = p.DamageMobj(inflictor, source, damage, mod);
+				A_StartSound("hitflesh", CHAN_BODY);
+				
+				//Console.Printf("Head health: %d", health);
+				//Console.Printf("Body health: %d", p.health);
+				//Console.Printf("");
+				
+				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			}
+			
+			if (inflictor is 'ThrownMachete' || inflictor is 'ThrownScythe' || inflictor is 'ThrownHammer')
+			{
+				int dd = p.DamageMobj(inflictor, source, p.Health, mod);
+				A_StartSound("misc/gibbed", CHAN_BODY);
+				p.SetStateLabel("Headless.Death");
+				SetStateLabel("Headless.Death");
+				
+				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			}
 		}
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
