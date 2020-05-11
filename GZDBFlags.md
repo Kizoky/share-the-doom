@@ -1,7 +1,7 @@
 # GZDoom Builder flags for mappers
-# Note: not many of them are implemented yet.
+## Note: not many of them are implemented yet.
 
-# NPCCore (Bystanders, Cops, Shop Owners, Specials)
+### NPCCore (Bystanders, Cops, Shop Owners, Specials)
 
 - user_attacksplayeronsight: self-explanatory, Attacks player on sight, ignores other NPCs, but will retaliate back if damaged
 - user_weapon: sets the weapon for NPC, note that it is case-sensitive (for example, if you want a shotgun it should be "Shotgun" and not "shotgun"), and it only works for Hostile NPCs
@@ -30,7 +30,7 @@
 - user_shop_patiencetimes: Only works with user_shop_patient; Defines the amount of times before the shopkeeper gets enough with the Player's shit (default int: 4)
 - user_shop_ignoreplayertaunt: If set, it will ignore Player's "Fuck you" or "Get the fuck down" and instead laughs. The opposite will make the shopkeeper shriek or attack the Player. (default: false)
 
-# Doors
+### Doors
 
 - user_locked: Door is locked, and won't budge. (default: false)
 - user_destroyable: Door is destroyable with a Sledgehammer, or with rockets. (default: true)
@@ -45,7 +45,7 @@
 Possible keys with Skulls and Keycards: 'blueS';'blueK';'redS';'redK';'yellowS';'yellowK'
 STD will probably have Postalified Doom keys, those will work too.
 
-# Dogs
+### Dogs
 
 - user_friendly: If set, Dog will follow the Player and act like a guard. (default: false)
 - user_ignorecats: If set, Dog will ignore cats. (default: false)
@@ -54,14 +54,14 @@ STD will probably have Postalified Doom keys, those will work too.
 - user_ignoreDoom: If set, Dog will ignore non-Postal entities. (default: false)
 - user_ignorefetch: If set, Dog will ignore fetching. (default: false)
 
-# Cats
+### Cats
 
 - user_ignoreplayer: If set, Cat won't be disturbed by the Player's footsteps. (default: false)
 - user_ignoredog: If set, Cat will ignore Dogs. (default: false)
 - user_unpickable: If set, Cat can't be picked up. (default: false)
 - user_ignorecatnip: If set, Cat won't care about Catnips laying on the ground after the Player tossed/used it. (default: false)
 
-# Postal Zombies
+### Postal Zombies
 
 - user_ignoreplayer: If set, Zombie will ignore the Player. (default: false)
 - user_spit: If set, Zombie will have missile attacks if target is far away. (default: true)
@@ -74,7 +74,7 @@ STD will probably have Postalified Doom keys, those will work too.
 - user_backfromhell: If set, the Zombie will slowly resurrect and behave like a normal zombie again. (default: false)
 - user_canalert: If set, the Zombie can alert nearby zombies to attack the target. (default: false ?)
 
-# Pigeons
+### Pigeons
 
 - user_ignoreall: If set, pigeon will ignore anything in it's surroundings, kicking them will still make them fly off. (default: false)
 - user_flyonly: If set, Pigeon will roam around the map and will never land. (default: false)
