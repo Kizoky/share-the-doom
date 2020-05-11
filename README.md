@@ -11,6 +11,11 @@ GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recom
 | --- |
 | [Planned GZDB/UDB Flags](GZDBFlags.md) |
 | [Using content from this mod](LICENSE.md) |
+| [List of unfinished things (Postal Dude playerclass)](https://github.com/Kizoky/share-the-doom/milestone/1) |
+| List of unfinished features of NPCs |
+| How to create custom NPCs as an addon |
+| How to add Postal-styled weapon(s) |
+
 
 | Developers | Role |
 | --- | --- |
