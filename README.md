@@ -7,7 +7,7 @@ GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recom
 [Please note this mod is extremely unfinished, may have features broken, unfinished, or non-existent]
 [If you have found bugs please feel free to create a new issue, or contribute!]
 
-Note: Multiplayer MAY work, I ONLY tested it in LAN, I'm not sure if it would work via p2p
+Note: Multiplayer works, but it's recommended to only play on Doom levels
 
 For mapping check out these GZDB Flags: https://github.com/Kizoky/share-the-doom/blob/master/GZDBFlags.md
 Related to legal issues: https://github.com/Kizoky/share-the-doom/blob/master/LICENSE.md
