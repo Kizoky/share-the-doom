@@ -17,7 +17,7 @@ GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recom
 | How to add Postal-styled weapon(s) |
 
 
-| Developers | Role |
+| Developer | Role |
 | --- | --- |
 | Kizoky | lead developer |
 | olzhas1one | co-lead developer |
