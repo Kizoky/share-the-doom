@@ -673,6 +673,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 			JumpZ = 20;
 		}
 		
+		int cash = 11 + random[cash](10,25);
+		
+		A_GiveInventory("PostalCash", cash);
+		
+		
 	}
 	
 	override void Tick()
@@ -765,15 +770,14 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		//Player.StartItem "PostBaton";
 		Player.StartItem "PostCowhead";
 		//Player.StartItem "PostGrenade";
-		Player.StartItem "PostMolotov";
-		Player.StartItem "PostNapalmLauncher";
+		//Player.StartItem "PostMolotov";
+		//Player.StartItem "PostNapalmLauncher";
 		//Player.StartItem "PostScissors";
 		//Player.StartItem "PostTazer";
-		Player.StartItem "PostWMD";
+		//Player.StartItem "PostWMD";
 		//Player.StartItem "PostDebug";
 		Player.StartItem "Clip", 75;
 		Player.StartItem "HUDViewable", 1;
-		Player.StartItem "PostalCash", 26;
 		Player.StartItem "Piss", 20;
 		Player.Soundclass "PostalDude";
 		Player.WeaponSlot 0, "PostClipboard", "PostDebug";
