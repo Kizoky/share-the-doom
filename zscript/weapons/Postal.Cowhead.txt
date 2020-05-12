@@ -29,10 +29,10 @@ class PostCowhead : PostalWeapon
 	Fire:
 		COWF ABCDEFG 3;
 		COWF G 0 A_StartSound("cowhead/fire", CHAN_WEAPON);
-		COWF HIJKLMNOPQRSTUVWXY 3;
+		COWF HIJKLMNOPQRSTUVWX 3;
 		Goto Ready;
 	AltFire:
-		COSF ABCDEFGHIJKLMNOPQRS 3 A_FireShotgun;
+		COSF ABCDEFGHIJKLMNOPQRS 3;
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
