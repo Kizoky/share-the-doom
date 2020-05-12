@@ -11,9 +11,9 @@ Model "PostShotgun"
 	SurfaceSkin 0 3 "dude_hands.png"
 	SurfaceSkin 0 4 "dude_hands.png"
 	
-	AngleOffset -2 //40
+	AngleOffset 0 //40
 	Scale -1.25 0.70 1.25
-	Offset 1 -3 -12 //X Y Z
+	Offset -3.5 -3 -12 //X Y Z
 	ZOffset -16
 
 	// Select 33 to 65
