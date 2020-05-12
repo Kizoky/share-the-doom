@@ -7,9 +7,9 @@ Model "PostCowhead"
 	Path "textures\weapons" // after model is loaded, redirect to texture path
 	SurfaceSkin 0 0 "dude_hands.png"
 	SurfaceSkin 0 1 "cowhead/CowHead_new.tga"
-	AngleOffset 0 //40
+	AngleOffset 90 //40
 	Scale -1 0.75 1
-	Offset 2.0000 0.000 -10.0000 //X Y Z
+	Offset 0 0 -3 //X Y Z
 
 	// Select 69-100
 	FrameIndex COWS A 0 69
