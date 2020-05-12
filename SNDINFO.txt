@@ -691,3 +691,7 @@ item/bounce sounds/head_bounce.wav
 
 vengaboys/up sounds/up.wav
 vengaboys/down sounds/anddown.wav
+
+cowhead/bounce sounds/cowhead_bounce.wav
+cowhead/fire sounds/cowhead_fire.wav
+cowhead/idle sounds/cowhead_idle_loop.wav
