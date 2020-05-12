@@ -674,9 +674,10 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 		
 		int cash = 11 + random[cash](10,25);
-		
 		A_GiveInventory("PostalCash", cash);
 		
+		int ammo = 5 + random[clip](5,15);
+		A_GiveInventory("Clip", ammo);
 		
 	}
 	
@@ -776,7 +777,6 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		//Player.StartItem "PostTazer";
 		//Player.StartItem "PostWMD";
 		//Player.StartItem "PostDebug";
-		Player.StartItem "Clip", 75;
 		Player.StartItem "HUDViewable", 1;
 		Player.StartItem "Piss", 20;
 		Player.Soundclass "PostalDude";
