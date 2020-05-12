@@ -15,28 +15,165 @@ class PostCowhead : PostalWeapon
 	States
 	{
 	Ready:
-		COWI ABCDEFGHIJKLMNOPQRSTUVWXYZ 5 A_WeaponReady;
+		COWI A 0 A_StartSound("cowhead/idle", CHAN_6 | CHANF_LOCAL | CHANF_NOSTOP);
+		COWI ABCDEFGHIJKLMNOPQRSTUVWXYZ 5 
+		{
+			A_WeaponReady();
+		}
 		Loop;
 	Deselect:
+		COWD A 0 A_StartSound("other/mute", CHAN_6);
 		COWD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 A_Lower;
 		Loop;
 	Select:
 		COWS A 0 A_PostalRaise(0);
-		COWS A 0 A_PlaySound("weaponselect1", 7 | 4096);
+		COWS A 0 A_StartSound("weaponselect1", CHAN_7);
 		COWS ABCDEFGHIJKLMNOPQRSTUV 2 A_WeaponReady;
 		COWI A 0 A_PostalRaise(1);
 		Loop;
 	Fire:
-		COWF ABCDEFG 3;
-		COWF G 0 A_StartSound("cowhead/fire", CHAN_WEAPON);
-		COWF HIJKLMNOPQRSTUVWX 3;
+		COWF A 0 A_StartSound("other/mute", CHAN_6);
+		COWF ABCDE 2;
+		COWF F 0 A_StartSound("cowhead/fire", CHAN_WEAPON);
+		COWF FGHIJKLMNOP 2;
+		COWF Q 0
+		{	
+			A_SetPitch(pitch-3.50);
+			A_FireProjectile("PostalCowhead",0,1,0,4);
+		}
+		COWF Q 2;
+		COWF R 0
+		{
+			A_SetPitch(pitch+3.50);
+		}
+		COWF RSTUVWX 2;
 		Goto Ready;
 	AltFire:
+		COSF A 0 A_StartSound("other/mute", CHAN_6);
 		COSF ABCDEFGHIJKLMNOPQRS 3;
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
 		PICK A -1;
+		Stop;
+	}
+}
+
+class PostalCowhead : PostalActor
+{
+	Actor SavedBouncePos, Owner;
+	bool Armed, Minesweeper;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		// Spawn initially a last bounce spot, obviously just to stop the Grenade to arm immediately
+		SavedBouncePos = spawn("PostalGrenadeHelper", pos);
+		
+		STD_NeverTarget = true;
+		STD_NoKillLine = true;
+		
+		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
+		
+		vel.z = 2;
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		// Continously decrease Z velocity
+		if (!Armed) vel.z -= 0.1;
+	}
+	
+	override void Touch(Actor toucher)
+	{
+		// stub for now
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		// stub for now
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	Default
+	{
+		Species "Cowheadondaground";
+		Radius 13;
+		Height 15;
+		Speed 10;
+		Damage 20;
+		Projectile;
+		Health 5;
+		+RANDOMIZE
+		+DEHEXPLOSION
+		//+ROLLSPRITE
+		-NOBLOCKMAP
+		-NOGRAVITY
+		+NOTARGETSWITCH
+		//+ABSMASKPITCH
+		+SHOOTABLE
+		+BOUNCEONWALLS
+		+BOUNCEONFLOORS
+		+BOUNCEONCEILINGS
+		+DONTBOUNCEONSKY
+		+USEBOUNCESTATE
+		+NOBLOOD
+		Gravity 0.27;
+		BounceFactor 0.66;
+		BloodType "null";
+		WallBounceFactor 0.66;
+		//SeeSound "";
+		DeathSound "other/mute";
+		//BounceSound "";
+		Obituary "$OB_MPROCKET";
+	}
+	States
+	{
+	Spawn:
+		COWH A 1;
+		Loop;
+	Bounce:
+		COWH A 0
+		{
+			if (Armed) return;
+			
+			// If the Distance is far-far from the previous bounce
+			// todo: Maybe Distance3D instead?
+			if (Distance3D(SavedBouncePos) >= 0.5)
+				A_StartSound("cowhead/bounce");
+			
+			if (Distance3D(SavedBouncePos) >= 0.5)
+			{
+				// stub
+			}
+			else
+			{
+				// Note: There's a non-intended effect adapting this weird solution, firing upwards will make the Grenade instantly be armed
+				
+				// Distance is too close to previous bounce, Arm the grenade so it will stop making bouncing sounds
+				// Also stop the Grenade completely
+				vel.xy = (0,0);
+				Armed = true;
+			}
+			
+			// Destroys and creates a new actor when it bounced
+			// I don't know if there's any other way to do this, but I found this to be the easiest
+			if (SavedBouncePos)
+			{
+				SavedBouncePos.Destroy();
+				SavedBouncePos = spawn("PostalGrenadeHelper", pos);
+			}
+		}
+		Goto Spawn;
+	Death:
+		TNT1 A 0;
+		TNT1 A 8 Bright;
+		TNT1 A 6 Bright;
+		TNT1 A 4 Bright;
 		Stop;
 	}
 }

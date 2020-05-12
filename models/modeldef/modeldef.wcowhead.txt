@@ -9,7 +9,7 @@ Model "PostCowhead"
 	SurfaceSkin 0 1 "cowhead/CowHead_new.tga"
 	AngleOffset 90 //40
 	Scale -1 0.75 1
-	Offset 0 0 -3 //X Y Z
+	Offset 0 0 -5 //X Y Z
 
 	// Select 69-100
 	FrameIndex COWS A 0 69
@@ -154,6 +154,22 @@ Model "PostCowhead"
 	Offset 0 0 0 //X Y Z
 
 	FrameIndex PICK A 0 0
+	
+}
+
+Model "PostalCowhead"
+{
+	Path "models\weapons\cowhead"
+	Model 0 "CowHeadPickup.md3"
+
+	// You should be able to use another Path here and call models from it.
+	Path "textures\weapons" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "cowhead/CowHead_new.tga"
+	AngleOffset 90 //40
+	Scale -1 0.75 1
+	Offset 0 0 0 //X Y Z
+
+	FrameIndex COWH A 0 0
 	
 }
 
