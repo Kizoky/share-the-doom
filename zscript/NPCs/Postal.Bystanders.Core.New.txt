@@ -435,7 +435,7 @@ class NPCCore : PostalActor
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		if (source != self)
+		if (source != self && !(source is 'PostalDecoration'))
 		{
 			MyTarget = source;
 			target = source;
