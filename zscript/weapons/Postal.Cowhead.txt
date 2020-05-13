@@ -63,10 +63,18 @@ class PostalCowhead : PostalActor
 {
 	Actor SavedBouncePos, Owner;
 	bool Armed, Minesweeper;
+	double nangle;
+	
+	// Randomization on which side to turn or roll
+	bool tr, rr;
+	double turn, nroll;
 	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
+		
+		nangle = angle + frandom[randomizedangle](-50,50);
+		roll = frandom[randomizedroll](-15,15);
 		
 		// Spawn initially a last bounce spot, obviously just to stop the Grenade to arm immediately
 		SavedBouncePos = spawn("PostalGrenadeHelper", pos);
@@ -77,6 +85,13 @@ class PostalCowhead : PostalActor
 		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
 		
 		vel.z = 2;
+		
+		tr = random[turnrandom](0,1);
+		rr = random[rollrandom](0,1);
+		
+		turn = frandom[tturn](0.2,0.8);
+		nroll = frandom[rroll](0.3,0.10);
+		
 	}
 	
 	override void Tick()
@@ -84,7 +99,21 @@ class PostalCowhead : PostalActor
 		Super.Tick();
 		
 		// Continously decrease Z velocity
-		if (!Armed) vel.z -= 0.1;
+		if (!Armed) 
+		{
+			if (tr)
+				nangle += turn;
+			else
+				nangle -= turn;
+			
+			vel.z -= 0.1;
+			angle = nangle;
+			
+			if (rr)
+				roll += nroll;
+			else
+				roll -= nroll;
+		}
 	}
 	
 	override void Touch(Actor toucher)
@@ -104,23 +133,25 @@ class PostalCowhead : PostalActor
 		Species "Cowheadondaground";
 		Radius 13;
 		Height 15;
-		Speed 10;
+		Speed 15;
 		Damage 20;
 		Projectile;
 		Health 15;
 		+RANDOMIZE
 		+DEHEXPLOSION
-		//+ROLLSPRITE
+		+ROLLSPRITE
 		-NOBLOCKMAP
 		-NOGRAVITY
 		+NOTARGETSWITCH
-		//+ABSMASKPITCH
+		+ABSMASKPITCH
 		+SHOOTABLE
 		+BOUNCEONWALLS
 		+BOUNCEONFLOORS
 		+BOUNCEONCEILINGS
 		+DONTBOUNCEONSKY
 		+USEBOUNCESTATE
+		+BOUNCEONACTORS
+		+ALLOWBOUNCEONACTORS
 		+NOBLOOD
 		Gravity 0.27;
 		BounceFactor 0.66;
@@ -140,6 +171,8 @@ class PostalCowhead : PostalActor
 		COWH A 0
 		{
 			if (Armed) return;
+			
+			angle = nangle;
 			
 			// If the Distance is far-far from the previous bounce
 			// todo: Maybe Distance3D instead?
@@ -167,6 +200,18 @@ class PostalCowhead : PostalActor
 				SavedBouncePos.Destroy();
 				SavedBouncePos = spawn("PostalGrenadeHelper", pos);
 			}
+		}
+		Goto Spawn;
+	Bounce.Wall:
+		COWH A 0
+		{
+			if (rr == true) rr = false;
+				else rr = true;
+				
+			if (tr == true) tr = false;
+				else tr = true;
+			
+			SetStateLabel("Bounce");
 		}
 		Goto Spawn;
 	Death:
