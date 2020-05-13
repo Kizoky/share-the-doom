@@ -117,6 +117,12 @@ class PostSledge : PostalWeapon
 		SHOO CDEF 2;
 		Goto Ready;
 	AltFire:
+		SLES A 0
+		{
+			let player = PostalDude(self);
+			if (player)
+				player.isWeaponThrown = true;
+		}
 		SLES ABC 4;
 		Goto AltFireHold;
 	AltFireHold:
@@ -145,6 +151,7 @@ class PostSledge : PostalWeapon
 			{
 				p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
 				p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+				p.isWeaponThrown = false;
 			}
 			
 			let d = Weapon(FindInventory("PostSledge"));

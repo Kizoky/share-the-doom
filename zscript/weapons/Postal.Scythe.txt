@@ -119,6 +119,12 @@ class PostScythe : PostalWeapon
 		SHOO ABCDEF 4;
 		Goto Ready;
 	AltFire:
+		PEPT A 0
+		{
+			let player = PostalDude(self);
+			if (player)
+				player.isWeaponThrown = true;
+		}
 		PEPT ABC 3;
 		Goto AltPull;
 	AltPull:
@@ -148,6 +154,7 @@ class PostScythe : PostalWeapon
 			{
 				p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
 				p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+				p.isWeaponThrown = false;
 			}
 			
 			let d = Weapon(FindInventory("PostScythe"));

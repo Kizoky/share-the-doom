@@ -171,12 +171,12 @@ class DudeCoreHandler : EventHandler
 			}
 			
 			// Player drops currently equipped weapon
-			// Note: Player must absolutely not drop these 3 weapons
 			
 			if (p && e.Name ~== "DropWeaponItem")
 			{
-				if (p.SuicideCamera) return;
+				if (p.SuicideCamera || p.isWeaponThrown) return;
 				
+				// Note: Player must absolutely not drop these 3 weapons
 				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostHands")) ||
 					p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")) ||
 					p.player.ReadyWeapon == Weapon(p.FindInventory("PostMatchbox"))) return;

@@ -156,6 +156,12 @@ class PostMachete : PostalWeapon
 		MAID A 0 A_ReFire;
 		Goto Ready;
 	AltFire:
+		MASF A 0
+		{
+			let player = PostalDude(self);
+			if (player)
+				player.isWeaponThrown = true;
+		}
 		MASF ABC 2;
 		MASF D 0
 		{
@@ -207,7 +213,12 @@ class PostMachete : PostalWeapon
 	Blade.Catch:
 		BLCA A 0 A_PlaySound("weapons/machete_return", CHAN_WEAPON);
 		BLCA ABCDEF 3;
-		MAID A 0;
+		MAID A 0
+		{
+			let player = PostalDude(self);
+			if (player)
+				player.isWeaponThrown = false;
+		}
 		Goto Ready;
 	Blade.Fail:
 		EMPT ABCDEF 4;
@@ -218,6 +229,7 @@ class PostMachete : PostalWeapon
 			{
 				p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
 				p.Player.ReadyWeapon = p.PlayerData.HolsterWeapon;
+				p.isWeaponThrown = false;
 			}
 			
 			let d = Weapon(FindInventory("PostMachete"));

@@ -98,6 +98,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	Actor SuicideCamera;
 	
+	bool isWeaponThrown;
+	
 	// This variable shouldn't really matter much being here
 	int TimeBeforeNextPainLine;
 	
