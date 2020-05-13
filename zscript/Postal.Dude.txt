@@ -98,7 +98,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	
 	Actor SuicideCamera;
 	
-	bool isWeaponThrown;
+	bool isWeaponThrown, isInventoryUsed;
 	
 	// This variable shouldn't really matter much being here
 	int TimeBeforeNextPainLine;
@@ -301,6 +301,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				A_PlaySound("dudeline10", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
 				A_SetHealth(125);
 				A_TakeInventory("PostalCrackPipe", 1);
+				isInventoryUsed = false;
 				PlayerData.SmokeFinished = true;
 			}
 			
@@ -400,6 +401,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 				PlayerData.CatnipTimeContinous = level.time;
 				PlayerData.CatnipTimeContinousSecond = level.time;
 				A_TakeInventory("PostalCatnip", 1);
+				isInventoryUsed = false;
 			}
 			
 			if (PlayerData.CatnipInHaleFinished == true)

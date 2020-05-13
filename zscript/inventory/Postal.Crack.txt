@@ -36,6 +36,7 @@ extend class PostalCrackPipe
 	{
 		let player = PostalDude(self);
 		if (!player) return;
+		player.isInventoryUsed = true;
 		
 		let item = invoker.GetClassName();
 		Inventory CurrentAmount = FindInventory(item);

@@ -42,6 +42,8 @@ extend class PostalCatnip
 		let player = PostalDude(self);
 		if (!player) return;
 		
+		player.isInventoryUsed = true;
+		
 		if (player.PlayerData.CatnipInProgress != true)
 		{
 			Player.PlayerData.CatnipInProgress = true;

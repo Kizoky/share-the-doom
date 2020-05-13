@@ -155,7 +155,7 @@ class DudeCoreHandler : EventHandler
 			
 			if (p && e.Name ~== "DropInventoryItem")
 			{
-				if (p.SuicideCamera) return;
+				if (p.SuicideCamera || p.isInventoryUsed) return;
 				
 				let item = p.invSel.GetClassName();
 				p.A_TakeInventory(item,1);
@@ -181,8 +181,15 @@ class DudeCoreHandler : EventHandler
 					p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")) ||
 					p.player.ReadyWeapon == Weapon(p.FindInventory("PostMatchbox"))) return;
 				
+				// Check if weapon is in Ready state, if not do NOT drop the weapon
+				// Note: This makes isWeaponThrown check totally useless
+				let psp = p.player.getpsprite(1);
+				let wep = p.player.ReadyWeapon;
+				
+				if (psp && wep && !(p.InStateSequence(psp.curstate, wep.ResolveState("Ready")))) return;
+				
 				// Get the weapon's name directly
-				let item = p.player.ReadyWeapon.GetClassName();
+				let item = wep.GetClassName();
 				
 				// Force the player to holster
 				p.player.PendingWeapon = Weapon(p.FindInventory("PostHands"));

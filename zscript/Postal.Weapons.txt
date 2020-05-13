@@ -2,6 +2,15 @@ class PostalWeapon : Weapon
 {
 	bool STD_Dropped;
 	
+	// unused
+	bool isWeaponReady()
+	{
+		let w = Owner.player.getpsprite(1);
+		if (InStateSequence(w.curstate, ResolveState("Ready"))) return true;
+			
+		return false;
+	}
+	
 	override void Touch (Actor toucher)
 	{
 		if (!(toucher is 'PostalDude')) return;
