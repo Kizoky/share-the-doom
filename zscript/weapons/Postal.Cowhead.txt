@@ -107,7 +107,7 @@ class PostalCowhead : PostalActor
 		Speed 10;
 		Damage 20;
 		Projectile;
-		Health 5;
+		Health 15;
 		+RANDOMIZE
 		+DEHEXPLOSION
 		//+ROLLSPRITE
