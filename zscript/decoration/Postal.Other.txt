@@ -274,6 +274,8 @@ class barrelcactus : PostalDecoration
 	{
 		if (toucher)
 		{
+			if (toucher is 'PostalCowhead' || toucher is 'PostalGrenade') return;
+			
 			int dd = toucher.DamageMobj(self, self, 1, "Melee");
 			toucher.vel.xy = (0,0);
 			toucher.A_Recoil(10);
