@@ -1,0 +1,14 @@
+Model "PostalCrackPipe"
+{
+	Path "models\inv"
+	Model 0 "crack_pipe2_timb.md3"
+	SurfaceSkin 0 0 "crack_pipe_metal_timb.png"
+	AngleOffset 0
+	Scale 0.50 -0.50 0.50
+	Offset 0 0 5 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex CRAK A 0 0
+	
+}
