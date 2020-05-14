@@ -1,8 +1,6 @@
 // The core of all Bystanders
 // If spawned it will use Postal Dude's model
-
-class NPCPussy : NPCCore { override void NPC_InitVar() { db_b = 1; } }
-class NPCHostile : NPCCore { override void NPC_InitVar() { db_b = 2; db_w = "Pistol"; } }
+// in the future this actor will be marked as abstract and it will not be possible to spawn it without removing abstract
 
 class NPCCore : PostalActor
 {	
@@ -44,6 +42,58 @@ class NPCCore : PostalActor
 	bool user_corpse;
 	string user_weapon;
 	
+	// Used for debugging
+	enum DebugHostility
+	{
+		D_NONE,
+		D_PUSSY,
+		D_HOSTILE,
+	}
+	
+	int debug_hostility;
+	string debug_weapon;
+	
+	property debug_hostility : debug_hostility;
+	property debug_weapon : debug_weapon;
+	
+	// Planned properties for future updates
+	
+	int stdVoice, stdWalkStyle, stdRunStyle, stdSkin, stdGroup, stdType, stdWeapon, stdFollower, stdGoesPostal, stdInvincible, stdIgnorePlayer, stdName, stdObituary, stdRandomGoodies, stdAttackPlayer;
+	
+	virtual void NPC_Debug()
+	{
+		if (debug_hostility == 0) return;
+			
+		if (debug_hostility == D_PUSSY || debug_hostility == D_HOSTILE)
+		{
+			let NewNPC = spawn("NPCCore", self.pos);
+			if (NewNPC)
+			{
+				NewNPC.angle = angle;
+				
+				let SuperDuperNPC = NPCCore(NewNPC);
+				if (SuperDuperNPC)
+				{
+					if (debug_hostility == D_PUSSY)
+					{
+						SuperDuperNPC.BehaviorOverriden = true;
+						SuperDuperNPC.Hostility = "Pussy";
+						SuperDuperNPC.NPCWeapon = "none";
+						Destroy();
+						return;
+					}
+					else
+					{
+						SuperDuperNPC.BehaviorOverriden = true;
+						SuperDuperNPC.Hostility = "Hostile";
+						SuperDuperNPC.NPCWeapon = debug_weapon;
+						Destroy();
+					}
+				}
+			}
+		}
+	}
+	
 	//This changes obituary depending on what weapon the Bystander is carrying
 	//of course, the default obituary won't change if it doesn't have a randomized weapon.
 	override String GetObituary(Actor victim, Actor inflictor, Name mod, bool playerattack)
@@ -58,47 +108,6 @@ class NPCCore : PostalActor
 			return RocketLObituary;
 		
 		return Obituary;
-	}
-	
-	int db_b;
-	string db_w;
-	virtual void NPC_Debug()
-	{
-		if (db_b == 0) return;
-			
-		if (db_b == 1 || db_b == 2)
-		{
-			let NewNPC = spawn("NPCCore", self.pos);
-			if (NewNPC)
-			{
-				NewNPC.angle = angle;
-				
-				let SuperDuperNPC = NPCCore(NewNPC);
-				if (SuperDuperNPC)
-				{
-					if (db_b == 1)
-					{
-						SuperDuperNPC.BehaviorOverriden = true;
-						SuperDuperNPC.Hostility = "Pussy";
-						SuperDuperNPC.NPCWeapon = "none";
-						Destroy();
-						return;
-					}
-					else
-					{
-						SuperDuperNPC.BehaviorOverriden = true;
-						SuperDuperNPC.Hostility = "Hostile";
-						SuperDuperNPC.NPCWeapon = db_w;
-						Destroy();
-					}
-				}
-			}
-		}
-	}
-	
-	virtual void NPC_InitVar()
-	{
-		//empty on purpose
 	}
 	
 	//For custom obituaries set for NPCs
@@ -209,7 +218,6 @@ class NPCCore : PostalActor
 	{
 		Super.PostBeginPlay();
 		
-		NPC_InitVar();
 		NPC_Debug();
 		
 		//Shader.SetUniform3f( players[consoleplayer], "ColorTint", "tintColor", (1.0,0.0,0.0) );
@@ -596,6 +604,10 @@ class NPCCore : PostalActor
 		-COUNTKILL
 		+INTERPOLATEANGLES
 		CameraHeight 59;
+		
+		// Share the Doom
+		NPCCore.debug_hostility D_NONE;
+		NPCCore.debug_weapon "none";
 	}
 	States
 	{

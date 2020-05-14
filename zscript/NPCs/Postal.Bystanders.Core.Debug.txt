@@ -1,0 +1,47 @@
+class NPCPussy : NPCCore 
+{
+	Default
+	{
+		NPCCore.debug_hostility D_PUSSY;
+	}
+}
+
+class NPCHostile : NPCCore 
+{
+	Default
+	{
+		NPCCore.debug_hostility D_HOSTILE;
+		NPCCore.debug_weapon "Pistol";
+	}
+}
+
+class NPCPropertyTest : NPCCore
+{
+	Default
+	{
+	/*
+		NPCCore.stdVoice V_MIKEJ;
+		NPCCore.stdWalkStyle W_GAY;
+		NPCCore.stdRunStyle R_RANDOM;
+		NPCCore.stdSkin S_BYSTANDER_FEMALE_BLONDE;
+		NPCCore.stdGroup G_SKULLFACES;
+		NPCCore.stdType T_HOSTILE;
+		NPCCore.stdWeapon "Cowhead";
+		NPCCore.stdFollower false;
+		// Will the NPC attack anyone in sight
+		NPCCore.stdGoesPostal false;
+		NPCCore.stdInvincible false;
+		NPCCore.stdIgnorePlayer false;
+		NPCCore.stdName "Cowface Cultist";
+		//NPCCore.stdObituary "unused";
+		Obituary "%o's face fell off thanks to Cowface Cultist's Cowhead.";
+		
+		// Whether the NPC will drop random inventory items or not
+		// Can be customized what to drop and the amount
+		NPCCore.stdRandomGoodies true;
+		NPCCore.stdDropInventory "Cash";
+		NPCCore.stdDropInventoryAmount 24;
+		NPCCore.stdAttackPlayer true;
+	*/
+	}
+}
