@@ -62,7 +62,7 @@ class NPCCore : PostalActor
 	
 	virtual void NPC_Debug()
 	{
-		if (debug_hostility == 0) return;
+		if (debug_hostility == D_NONE) return;
 			
 		if (debug_hostility == D_PUSSY || debug_hostility == D_HOSTILE)
 		{
