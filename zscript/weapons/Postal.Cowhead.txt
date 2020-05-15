@@ -87,8 +87,6 @@ class PostalCowhead : PostalActor
 		
 		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
 		
-		vel.z = 2;
-		
 		tr = random[turnrandom](0,1);
 		rr = random[rollrandom](0,1);
 		
