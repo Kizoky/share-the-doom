@@ -2,7 +2,7 @@ class PostShotgun : PostalWeapon replaces Shotgun
 {
 	action int ShotgunDMG()
 	{
-		int damage = 5 * random[GunShot](1, 3);
+		int damage = 20 * random[GunShot](1, 3);
 		
 		return damage;
 	}
