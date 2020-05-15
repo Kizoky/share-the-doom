@@ -106,12 +106,12 @@ PSTL_WP_DUSTERS = "Dusters";
 
 
 // ======================  Vanilla Postal 2 + Apocalypse Weekend [Player obituaries]
-// ======================  These are ripped from Postal 2's multiplayer. Note: Scissor, Matchbox, Rocket, etc.. are STD original
+// ======================  These are ripped from Postal 2's multiplayer.
 PSTL_OB_BATON = "%o did his Rodney King impersonation for %k's Baton.";
 PSTL_OB_CLIPBOARD = "%o's surviving members have to sign %k's Petition.";
-PSTL_OB_COWHEAD = "%o inhaled that sweet aroma from %k's severed cowhead.";
-PSTL_OB_GASCAN = "%o just enjoyed a Tibetan Monk experience thanks to %k's Fire.";
-PSTL_OB_GRENADE = "%o got splashed into pieces by %k's grenade.";
+PSTL_OB_COWHEAD = "%o scarfed %k's plague infested headcheese and liked it.";
+PSTL_OB_GASCAN = "%o was slow roasted to a state of tender, juicy goodness by %k's Fire.";
+PSTL_OB_GRENADE = "%o was reduced to component molecules by %k's grenade.";
 PSTL_OB_KICK = "%o was actually KICKED to death by %k. No, I'm not kidding.";
 PSTL_OB_MACHETE = "%o was hacked to death by %k's machete.";
 PSTL_OB_M16 = "%o kindly offered to hang onto %k's excess ammo. What a nice guy.";
@@ -119,8 +119,8 @@ PSTL_OB_MATCHBOX = "%o accidentally swallowed %k's match.";
 PSTL_OB_MOLOTOV = "%o just enjoyed a Tibetan Monk experience thanks to %k's Molotov.";
 PSTL_OB_NAPALM = "%o was charbroiled with seven secret herbs and spices by %k's napalm.";
 PSTL_OB_HANDS = "%o was strangled to death by %k.";
-PSTL_OB_PISTOL = "%o ate a bullet from %k's pistol.";
-PSTL_OB_ROCKET = "%o swallowed %k's rocket then blew up.";
+PSTL_OB_PISTOL = "%o provided stimulating target practice for %k.";
+PSTL_OB_ROCKET = "%o was reduced to component molecules by %k's Rocket.";
 PSTL_OB_SCISSORS = "%o was running into %k's scissor.";
 PSTL_OB_SCYTHE = "%o was sliced to death by %k's Scythe.";
 PSTL_OB_SHOTGUN = "%o enjoyed a facefull of %k's shotgun streaming load.";
@@ -130,21 +130,23 @@ PSTL_OB_RIFLE = "%o just contributed to %k's sniper training. Nice job.";
 PSTL_OB_TAZER = "%o was electrocuted by %k's tazer.";
 PSTL_OB_URETHRA = "%o gulped down %k's stream...";
 PSTL_OB_WMD = "%o got invited to a plague season by %k's W.M.D.";
+
+PSTL_OB_HEALTHPIPE = "%o overdosed on health pipes.";
 // ======================  A Week in Paradise (Steam update) [Player obituaries]
 // todo: Find out somehow these weapons' multiplayer obituaries
-PSTL_OB_BASEBALLBAT = "";
-PSTL_OB_SAWNOFF = "";
-PSTL_OB_BETASHOTGUN = "";
+PSTL_OB_BASEBALLBAT = "%o was smashed to death by %k's Baseball Bat.";
+PSTL_OB_SAWNOFF = "%o's face has been removed by %k's Sawn-off.";
+PSTL_OB_BETASHOTGUN = "%o provided stimulating target practice for %k's Beta Shotgun.";
 PSTL_OB_GRENADELAUNCHER = PSTL_WP_GRENADE;
-PSTL_OB_DYNAMIT = "";
-PSTL_OB_CHAINSAW = "";
-PSTL_OB_FLAMETHROWER = "";
-PSTL_OB_MP5 = "";
-PSTL_OB_GLOCK = "";
-PSTL_OB_BALI = ""; //Butterfly knife
-PSTL_OB_AXE = "";
-PSTL_OB_SHEARS = "";
-PSTL_OB_DUSTERS = "";
+PSTL_OB_DYNAMIT = "%o was reduced to component molecules with a big kaboom by %k's Dynamit.";
+PSTL_OB_CHAINSAW = "%o was the latest victim in %k's chainsaw massacre";
+PSTL_OB_FLAMETHROWER = PSTL_OB_GASCAN;
+PSTL_OB_MP5 = "%o counted every bullet for %k's MP5.";
+PSTL_OB_GLOCK = "%o stood in one place for %k's Glock.";
+PSTL_OB_BALI = "%o was stabbed to death by %k's Bali."; //Butterfly knife
+PSTL_OB_AXE = "%o was hacked to death by %k's Axe.";
+PSTL_OB_SHEARS = "%o got it's face sheared off by %k's Shears.";
+PSTL_OB_DUSTERS = "%o did his Rodney King impersonation for %k.";
 
 
 
@@ -228,9 +230,9 @@ PSTL_NPC_PIGEON_POOP = "%o's clothes became white thanks to a Pigeon.";
 
 PSTL_NPC_DOG = "%o got mauled to death by a Dog.";
 
-PSTL_NPC_CAT = "%o was shredded to pieces by a Devilish Cat.";
+PSTL_NPC_CAT = "%o was cut to death by a Dervish Cat.";
 
-PSTL_NPC_ELEPHANT = "%o was stomped to oblivion by an Elephant.";
+PSTL_NPC_ELEPHANT = "%o was smashed to death by an Elephant.";
 
 PSTL_NPC_MONKEY = "%o ate a Monkey's bullet.";
 
