@@ -47,6 +47,9 @@ class PostCowhead : PostalWeapon
 			A_SetPitch(pitch+3.50);
 		}
 		COWF RSTUVWX 2;
+		Goto Reload;
+	Reload:
+		COWS ABCDEFGHIJKLMNOPQRSTUV 1;
 		Goto Ready;
 	AltFire:
 		COSF A 0 A_StartSound("other/mute", CHAN_6);
