@@ -1,12 +1,14 @@
 class PostGrenade : PostalWeapon
 {
-	const VelocityMultiplier = 1;
+	const VelocityMultiplier = 0.1;
 	double VelocityMultiply;
 	
 	override void Tick()
 	{
 		Super.Tick();
 		if (!owner) return;
+		
+		//Console.Printf("Planned velocity: %f",VelocityMultiply);
 	}
 	
 	Default
@@ -58,7 +60,7 @@ class PostGrenade : PostalWeapon
 	HoldFire:
 		HOLD LMNOPQRSTUVWXYZ 3
 		{
-			if (invoker.VelocityMultiply <= 29)
+			if (invoker.VelocityMultiply <= 4)
 				invoker.VelocityMultiply += VelocityMultiplier;
 			if (!(player.cmd.buttons & BT_ATTACK))
 			{
@@ -68,7 +70,7 @@ class PostGrenade : PostalWeapon
 		}
 		HOL2 ABCD 3
 		{
-			if (invoker.VelocityMultiply <= 29)
+			if (invoker.VelocityMultiply <= 4)
 				invoker.VelocityMultiply += VelocityMultiplier;
 			if (!(player.cmd.buttons & BT_ATTACK))
 			{
@@ -111,7 +113,11 @@ class PostGrenade : PostalWeapon
 			// Also a check whether the Player just smashing Fire and letting the Grenade to go without
 			// holding down the weapon
 			
-			GGrenade.A_Recoil(-invoker.VelocityMultiply);
+			let PGrenade = PostalGrenade(GGrenade);
+			
+			if (PGrenade && invoker.VelocityMultiply > 0.10)
+				PGrenade.A_ScaleVelocity(invoker.VelocityMultiply);
+			/*
 			if (invoker.owner.Pitch >= 27)
 			{
 				GGrenade.vel.z -= invoker.VelocityMultiply/2.5;
@@ -124,6 +130,7 @@ class PostGrenade : PostalWeapon
 				if (invoker.VelocityMultiply >= 1)
 					GGrenade.vel.z -= invoker.owner.Pitch/5;
 			}
+			*/
 			
 			invoker.VelocityMultiply = 0;
 		}
@@ -161,6 +168,8 @@ class PostalGrenade : PostalActor
 	bool Armed, Minesweeper, SoundPlayed;
 	int TimeBeforeDestruction;
 	
+	double FinalVelocity;
+	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -170,6 +179,7 @@ class PostalGrenade : PostalActor
 		
 		STD_NeverTarget = true;
 		STD_NoKillLine = true;
+		//Console.Printf("Speed: %f", speed);
 		
 		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
 	}
@@ -240,7 +250,7 @@ class PostalGrenade : PostalActor
 		Species "Minesweeper";
 		Radius 13;
 		Height 15;
-		Speed 5;
+		Speed 6;
 		Damage 20;
 		Projectile;
 		Health 5;
@@ -258,6 +268,7 @@ class PostalGrenade : PostalActor
 		+DONTBOUNCEONSKY
 		+USEBOUNCESTATE
 		+NOBLOOD
+		+SEEKERMISSILE
 		Gravity 0.27;
 		BounceFactor 0.66;
 		BloodType "null";
