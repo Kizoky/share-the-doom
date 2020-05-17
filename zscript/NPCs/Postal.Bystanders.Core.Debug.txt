@@ -25,6 +25,7 @@ class NPCPropertyTest : NPCCore
 		NPCCore.stdRunStyle R_RANDOM;
 		NPCCore.stdStandingStyle ST_RANDOM;
 		NPCCore.stdIsDancing false;
+		NPCCore.stdIsProtestor false;
 		NPCCore.stdSkin S_BYSTANDER_FEMALE_BLONDE;
 		NPCCore.stdGroup G_SKULLFACES;
 		NPCCore.stdType T_HOSTILE;
