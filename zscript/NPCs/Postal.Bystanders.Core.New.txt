@@ -831,13 +831,27 @@ class NPCCore : PostalActor
 				bFRIGHTENED = true;
 			}
 			
+			/* doesn't work, and probably never will
+			for(int i = 0; i < WeaponList.Size(); i++)
+			{
+				if (NPCWeapon ~== WeaponList[i])
+				{
+					string s = string.Format("HostileChase.%s",WeaponList[i]);
+					SetStateLabel(s);
+					return;
+				}
+			}
+			*/
+			
+			
 			if (NPCWeapon ~== "Pistol")
 				SetStateLabel("HostileChase.Pistol");
 			if (NPCWeapon ~== "Shotgun")
 				SetStateLabel("HostileChase.Shotgun");
 			if (NPCWeapon ~== "RocketLauncher")
 				SetStateLabel("HostileChase.RocketLauncher");
-		
+			
+			
 		}
 	HostileChase.Pistol:
 		XXXX A 0 { Pitch = 0; }
