@@ -277,6 +277,9 @@ class NPCCore : PostalActor
 			if (user_attacksplayeronsight == true)
 				Hostility = "Hostile";
 			
+			if (Hostility == "Pussy")
+				NPCWeapon = "none";
+			
 			if (Hostility == "Hostile")
 			{
 				int i = random[myweapon](0,WeaponList.Size()-1);
