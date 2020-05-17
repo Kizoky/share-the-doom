@@ -592,7 +592,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	// This obviously has some flaws that needs some fixes
 	void A_ShriekNearbyNPCs()
 	{
-		if (Player.ReadyWeapon == Weapon(FindInventory("PostHands")) || Player.ReadyWeapon == Weapon(FindInventory("PostUrethra")) || Player.ReadyWeapon == Weapon(FindInventory("PostClipboard")))
+		if (Player.ReadyWeapon == Weapon(FindInventory("PostHands")) || Player.ReadyWeapon == Weapon(FindInventory("PostUrethra")) || Player.ReadyWeapon == Weapon(FindInventory("PostClipboard")) || Player.ReadyWeapon == Weapon(FindInventory("PostDebug")))
 			return;
 		
 		BlockThingsIterator it;

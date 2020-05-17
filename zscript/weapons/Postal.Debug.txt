@@ -82,17 +82,31 @@ extend class PostDebug
 				Console.Printf("Obituary: %s", pp.obituary);
 				
 				
-				
 				if (pp.target == null)
 					Console.Printf("Target: null");
 				else
 					if (pp.target == self)
 						Console.Printf("Target: Player");
 						else
-							if (pp.target != null && pp.target is 'NPCCore')
+							if (pp.target != null)
 							{
-								let p2 = NPCCore(pp.target);
-								Console.Printf("Target: NPCCore.%d", p2.UniqueID);
+								if (pp.target is 'NPCCore')
+								{
+									let p2 = NPCCore(pp.target);
+									Console.Printf("Target: NPCCore.%d", p2.UniqueID);
+								}
+								else
+								{
+									string s = string.Format("%s",pp.target.GetClassName());
+									if (pp.target is 'PostalDecoration')
+									{
+										Console.Printf("Target(Decoration): %s",s);
+									}
+									else if (pp.target is 'PostalActor')
+											Console.Printf("Target(STD): %s",s);
+										else
+											Console.Printf("Target(non-STD): %s",s);
+								}
 							}
 				
 				A_PlaySound("dudeline5", 7 | 4096);

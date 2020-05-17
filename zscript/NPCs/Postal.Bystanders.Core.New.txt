@@ -1517,7 +1517,7 @@ extend class NPCCore
 		
 		if (invoker.isAfterTarget == true)
 		{
-			Console.Printf("Warning: NPC with target entered A_BystanderThink on Spawn state");
+			Console.Printf("Warning: NPC with target entered A_BystanderThink on Spawn state!! warp: %d, %d, %d", pos.x,pos.y,pos.z);
 			return;
 		}
 		
