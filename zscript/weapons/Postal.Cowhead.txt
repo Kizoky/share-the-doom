@@ -72,6 +72,20 @@ class PostalCowhead : PostalActor
 	bool tr, rr;
 	double turn, nroll;
 	
+	// 1 = passes thru actors
+	// 0 = explodes on actors
+	// -1 = default
+	override int SpecialMissileHit(Actor victim)
+	{
+		if ((victim is 'PostalWindow' || victim is 'PostalWindow_Extender') && victim)
+		{
+			int dd = victim.DamageMobj(self, self, 1, "Melee");
+			return 1;
+		}
+		
+		return -1;
+	}
+	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
