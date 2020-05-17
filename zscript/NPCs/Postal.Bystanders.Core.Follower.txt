@@ -6,13 +6,6 @@ class NPCFollower : NPCCore
 	Actor MyPlayer, SavedTarget;
 	
 	
-	//For custom obituaries set for NPCs
-	override void NPC_Obituaries()
-	{
-		PistolObituary = "%o was shot down by a Player's Follower's pistol.";
-		ShotgunObituary = "%o tasted a Player's Follower's shotgun. Yummy!";
-		RocketLObituary = "Nobody told %o that a Player's Follower's rocket is lethal. Ouch!";
-	}
 	
 	override void NPC_Settings()
 	{
@@ -75,7 +68,6 @@ class NPCFollower : NPCCore
 		}
 		
 		NPC_Settings();
-		NPC_Obituaries();
 		
 		NPCWeapon = "Shotgun";
 		

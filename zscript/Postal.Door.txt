@@ -71,6 +71,8 @@ class PostalDoor_Extender : Actor
 			} else Console.Printf("Back: %d", source.angle);
 			*/
 			
+			if (!(inflictor is "PostalKickPuff")) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			
 			if (door.user_locked == true)
 			{
 				A_PlaySound("door/kick", 0);
@@ -283,6 +285,8 @@ class PostalDoor : Actor
 			Console.Printf("Front: %d", source.angle);
 		} else Console.Printf("Back: %d", source.angle);
 		*/
+		
+		if (!(inflictor is "PostalKickPuff")) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		
 		if (user_locked == true) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		

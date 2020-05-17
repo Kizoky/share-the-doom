@@ -79,6 +79,8 @@ extend class PostDebug
 					
 				Console.Printf("Unique ID: %d",pp.UniqueID);
 				
+				Console.Printf("Obituary: %s", pp.obituary);
+				
 				
 				
 				if (pp.target == null)

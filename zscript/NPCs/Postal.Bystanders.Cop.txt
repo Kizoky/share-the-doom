@@ -6,12 +6,6 @@ class NPCCop : NPCCore
 
 	string Cop_WeaponDrop, Cop_Arrest, Cop_SuspectSight, Cop_NoMoreWarnings;
 	
-	//For custom obituaries set for NPCs
-	override void NPC_Obituaries()
-	{
-		PistolObituary = "%o was shot down by a Cop's pistol. Justice served.";
-		ShotgunObituary = "%o tasted a Cop's shotgun. Police brutality!";
-	}
 	
 	override void NPC_Settings()
 	{

@@ -58,7 +58,9 @@ class NPCCore : PostalActor
 	
 	// Planned properties for future updates
 	
-	int stdVoice, stdWalkStyle, stdRunStyle, stdSkin, stdGroup, stdType, stdWeapon, stdFollower, stdGoesPostal, stdInvincible, stdIgnorePlayer, stdName, stdObituary, stdRandomGoodies, stdAttackPlayer;
+	int stdVoice, stdWalkStyle, stdRunStyle, stdSkin, stdGroup, stdType, stdWeapon, stdFollower, stdGoesPostal, stdInvincible, stdIgnorePlayer, stdName, stdRandomGoodies, stdAttackPlayer;
+	string stdObituary;
+	property stdObituary : stdObituary;
 	
 	virtual void NPC_Debug()
 	{
@@ -94,43 +96,72 @@ class NPCCore : PostalActor
 		}
 	}
 	
+	static const string WeaponList[] =
+	{
+		"Pistol",
+		"Shotgun",
+		"RocketLauncher"
+		/*
+		"Scissor",
+		"Machete",
+		"Scythe",
+		"Sledge",
+		"Sniper",
+		"Molotov",
+		"Napalm",
+		"M16",
+		"Fists",
+		"Tazer",
+		"Baton",
+		"Shovel",
+		"Cowhead",
+		"Grenade",
+		"Plague"
+		*/
+	};
+	
+	//For custom obituaries set for NPCs
+	//Make sure the order is correct with WeaponList[]
+	static const string NPC_Obituaries[] =
+	{
+		"$PSTL_NPC_PISTOL",
+		"$PSTL_NPC_SHOTGUN",
+		"$PSTL_NPC_ROCKET"
+		/*
+		"$PSTL_NPC_SCISSORS",
+		"$PSTL_NPC_MACHETE",
+		"$PSTL_NPC_SCYTHE",
+		"$PSTL_NPC_SLEDGEHAMMER",
+		"$PSTL_NPC_RIFLE",
+		"$PSTL_NPC_FIRE",
+		"$PSTL_NPC_NAPALM",
+		"$PSTL_NPC_M16",
+		"$PSTL_NPC_KICK",
+		"$PSTL_NPC_TAZER",
+		"$PSTL_NPC_BATON",
+		"$PSTL_NPC_SHOVEL",
+		"$PSTL_NPC_COWHEAD",
+		"$PSTL_NPC_GRENADE",
+		"$PSTL_NPC_WMD"
+		*/
+	};
+	
 	//This changes obituary depending on what weapon the Bystander is carrying
 	//of course, the default obituary won't change if it doesn't have a randomized weapon.
 	override String GetObituary(Actor victim, Actor inflictor, Name mod, bool playerattack)
 	{
-		if (NPCWeapon ~== "Pistol")
-			return PistolObituary;
-			
-		if (NPCWeapon ~== "Shotgun")
-			return ShotgunObituary;
-			
-		if (NPCWeapon ~== "RocketLauncher")
-			return RocketLObituary;
+		if (!(stdObituary == "default"))
+			return stdObituary;
+		
+		for(int i = 0; i < WeaponList.Size(); i++)
+		{
+			if (NPCWeapon ~== WeaponList[i])
+			{
+				return NPC_Obituaries[i];
+			}
+		}
 		
 		return Obituary;
-	}
-	
-	//For custom obituaries set for NPCs
-	virtual void NPC_Obituaries()
-	{
-		PistolObituary = "$PSTL_NPC_PISTOL";
-		ShotgunObituary = "$PSTL_NPC_SHOTGUN";
-		RocketLObituary = "$PSTL_NPC_ROCKET";
-		ScissorObituary = "$PSTL_NPC_SCISSORS";
-		MacheteObituary = "$PSTL_NPC_MACHETE";
-		ScytheObituary = "$PSTL_NPC_SCYTHE";
-		SledgeObituary = "$PSTL_NPC_SLEDGEHAMMER";
-		RifleObituary = "$PSTL_NPC_RIFLE";
-		FireObituary = "$PSTL_NPC_FIRE";
-		NapalmObituary = "$PSTL_NPC_NAPALM";
-		MachineObituary = "$PSTL_NPC_M16";
-		KickObituary = "$PSTL_NPC_KICK";
-		TazerObituary = "$PSTL_NPC_TAZER";
-		BatonObituary = "$PSTL_NPC_BATON";
-		ShovelObituary = "$PSTL_NPC_SHOVEL";
-		CowHeadObituary = "$PSTL_NPC_COWHEAD";
-		GrenadeObituary = "$PSTL_NPC_GRENADE";
-		PlagueObituary = "$PSTL_NPC_WMD";
 	}
 	
 	virtual void NPC_Settings()
@@ -248,29 +279,6 @@ class NPCCore : PostalActor
 			
 			if (Hostility == "Hostile")
 			{
-				static const string WeaponList[] =
-				{
-					"Pistol",
-					"Shotgun",
-					"RocketLauncher"
-					/*
-					"Scissor",
-					"Machete",
-					"Scythe",
-					"Sledge",
-					"Sniper",
-					"Gascan",
-					"Napalm",
-					"M16",
-					"Fists",
-					"Tazer",
-					"Baton",
-					"Shovel",
-					"Cowhead",
-					"Grenade",
-					"Plague"
-					*/
-				};
 				int i = random[myweapon](0,WeaponList.Size()-1);
 				
 				NPCWeapon = WeaponList[i];
@@ -281,7 +289,7 @@ class NPCCore : PostalActor
 		}
 		
 		NPC_Settings();
-		NPC_Obituaries();
+		//NPC_Obituaries();
 		
 		if (user_StandingInOnePlace)
 			SetStateLabel("Standing");
@@ -608,6 +616,7 @@ class NPCCore : PostalActor
 		// Share the Doom
 		NPCCore.debug_hostility D_NONE;
 		NPCCore.debug_weapon "none";
+		NPCCore.stdObituary "default";
 	}
 	States
 	{

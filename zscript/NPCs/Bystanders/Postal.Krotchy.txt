@@ -1,13 +1,5 @@
 class NPCKrotchy : NPCCore
 {	
-	//For custom obituaries set for NPCs
-	override void NPC_Obituaries()
-	{
-		PistolObituary = "%o was shot down by Krotchy's pistol. Report this to the authors of STD";
-		ShotgunObituary = "%o couldn't take Krotchy with a Shotgun down.";
-		RocketLObituary = "Nobody told %o that Krotchy's rocket is lethal. Ouch!";
-	}
-	
 	override void NPC_Settings()
 	{
 		//Sounds are defined here for NPCs
