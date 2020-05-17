@@ -106,7 +106,6 @@ class PostScissors : PostalWeapon
 				if (SS)
 				{
 					SS.isBouncing = true;
-					SS.OwnerPitch = invoker.owner.pitch;
 					ss.Owner = invoker.owner;
 				}
 				
@@ -126,8 +125,6 @@ class PostScissors : PostalWeapon
 class PostalScissor : Actor
 {
 	bool isBouncing, hitActor;
-	double OwnerPitch;
-	int CountingBounces;
 	actor Owner;
 	
 	override void PostBeginPlay()
@@ -139,13 +136,13 @@ class PostalScissor : Actor
 		target = Owner;
 		if (isBouncing)
 		{
-			BounceCount = 7;
-			CountingBounces = BounceCount;
+			BounceCount = 10;
 			bBOUNCEONWALLS = true;
 			bBOUNCEONFLOORS = true;
 			bBOUNCEONCEILINGS = true;
 			BounceFactor = 1;
 			WallBounceFactor = 1;
+			A_ScaleVelocity(1.25);
 		}
 	}
 	
@@ -181,59 +178,8 @@ override int SpecialMissileHit(Actor victim)
 	{
 		Super.Tick();
 		
-		//If via LineTraces an actor has been detected, go to Crash
-		
 		if (hitActor == true)
-		{
-			Console.Printf("Hitactor yes!!");
-			if (isBouncing)
-			{
-				SetStateLabel("Crash");
-				return;
-			}
 			Destroy();
-			return;
-		}
-		
-		
-		//This is no longer needed as LineTraces instantly detect an actor
-		/*
-		if (isBouncing)
-		{
-			if (CountingBounces > BounceCount) //assuming it bounced off from something
-			{	
-				CountingBounces = BounceCount;
-			}
-		}
-		*/
-		
-		//This will be probably the weirdest "hack" I have done in STD
-		//Because of the way Crash and Death state works, I had to do this via LineTraces
-		//Crash only works if the Actor has +NOBLOOD flag, but we don't want that
-		//So with this the linetraces are looking -90 to 90 angle, also up and down to check for a potential Actor,
-		//since by default the Scissors on death are spawning a Scissor which would stay onto a wall.
-		//This doesn't affect performance
-		
-		/*
-		if (InStateSequence(self.CurState, self.ResolveState("Spawn")))
-		{
-			double i = -90;
-			while (i < 90)
-			{
-				FLineTraceData lineData;
-				LineTrace(angle+i,65, i, data: LineData);
-				//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,0), LineData.HitLocation, 2.0, "FF0000", 2);
-				
-				if (LineData.HitType == TRACE_HitActor && lineData.HitActor != Owner && lineData.HitActor.Health > 1 && hitActor != true)
-				{
-					//Console.Printf("Detected actor");
-					hitActor = true;
-					return;
-				}
-				i++;
-			}
-		}
-		*/
 	}
 	
 	Default
