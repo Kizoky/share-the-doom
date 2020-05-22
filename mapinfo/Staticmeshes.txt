@@ -283,4 +283,11 @@ DoomEdNums
   32509 = rockpile2
   32508 = PostalDoor12
   32507 = cubicle
+  
+  32506 = ACunit2
+  32505 = busstop
+  32504 = fuse1
+  32503 = fuse2
+  32502 = powst
+  32501 = petrolla
 }

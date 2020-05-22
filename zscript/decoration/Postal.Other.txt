@@ -4088,3 +4088,129 @@ class cubicle : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class ACunit2 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "AC Unit 2"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class busstop : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Bus Stop"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class fuse1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Fuse 1"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class fuse2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Fuse 2"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class powst : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Power Station"
+		Radius 55;
+		Height 40;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class petrolla : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Petrol Tank"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
