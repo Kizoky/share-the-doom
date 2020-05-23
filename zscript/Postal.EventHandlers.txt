@@ -322,7 +322,7 @@ class DudeCoreHandler : EventHandler
 		if (!STD_Levels && monsta)
 		{
 			int chance = random[cc](0,50);
-			if (chance >= 32)
+			if (chance >= 25)
 			{
 				if (SpawnedThing.bISMONSTER && SpawnedThing)
 				{
