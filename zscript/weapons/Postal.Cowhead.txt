@@ -39,7 +39,15 @@ class PostCowhead : PostalWeapon
 		COWF Q 0
 		{	
 			A_SetPitch(pitch-3.50);
-			A_FireProjectile("PostalCowhead",0,1,0,4);
+			actor cowhead = A_FireProjectile("PostalCowhead",0,1,0,4);
+			if (cowhead)
+			{
+				let cwh = PostalCowhead(cowhead);
+				if (cwh)
+				{
+					cwh.Owner = invoker.owner;
+				}
+			}
 		}
 		COWF Q 2;
 		COWF R 0
@@ -82,6 +90,9 @@ class PostalCowhead : PostalActor
 			int dd = victim.DamageMobj(self, target, 1, "Melee");
 			return 1;
 		}
+		
+		if (victim == target)
+			return 1;
 		
 		return -1;
 	}
