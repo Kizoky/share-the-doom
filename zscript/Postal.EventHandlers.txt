@@ -326,6 +326,29 @@ class DudeCoreHandler : EventHandler
 			{
 				if (SpawnedThing.bISMONSTER && SpawnedThing)
 				{
+					if (SpawnedThing is 'BossBrain' ||
+					SpawnedThing is 'BossEye' ||
+					SpawnedThing is 'BossTarget' ||
+					SpawnedThing is 'CommanderKeen' ||
+					SpawnedThing is 'Sorcerer1' ||
+					SpawnedThing is 'Sorcerer2' ||
+					SpawnedThing is 'Dragon' ||
+					SpawnedThing is 'ClericBoss' ||
+					SpawnedThing is 'MageBoss' ||
+					SpawnedThing is 'FighterBoss' ||
+					SpawnedThing is 'Heresiarch' ||
+					SpawnedThing is 'Korax' ||
+					SpawnedThing is 'StrifeHumanoid' ||
+					SpawnedThing is 'SpectralMonster' ||
+					SpawnedThing is 'EntityNest' ||
+					SpawnedThing is 'EntityPod' ||
+					SpawnedThing is 'Loremaster' ||
+					SpawnedThing is 'Oracle' ||
+					SpawnedThing is 'Programmer' ||
+					SpawnedThing is 'StrifeBishop' ||
+					SpawnedThing is 'KneelingGuy')
+						return;
+					
 					actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
 					if (NPC)
 					{
