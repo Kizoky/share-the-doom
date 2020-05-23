@@ -315,6 +315,27 @@ class DudeCoreHandler : EventHandler
 				ZDpatrolpoint.Destroy();
 			}
 		}
+		
+		CVar monstacvar = CVar.FindCVar('postal_monsterreplacee');
+		bool monsta = (monstacvar != null && monstacvar.GetBool ());
+		
+		if (!STD_Levels && monsta)
+		{
+			int chance = random[cc](0,50);
+			if (chance >= 32)
+			{
+				if (SpawnedThing.bISMONSTER && SpawnedThing)
+				{
+					actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
+					if (NPC)
+					{
+						NPC.angle = SpawnedThing.angle;
+						SpawnedThing.Destroy();
+					}
+				}
+			}
+		}
+		
    }
 	
 	// Purely only used for mocking the player for cheating

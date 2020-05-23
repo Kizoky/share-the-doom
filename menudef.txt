@@ -82,6 +82,11 @@ OptionMenu "PostalOptionMenu"
 	Option "Help tips (HUD)", "", "OnOff"
 	StaticText ""
 	
+	StaticText "Gameplay Settings", "Yellow"
+	StaticText "Spawns NPCs in non-STD levels, replaces monsters but not all of them", "White"
+	Option "Share the Doom", "postal_monsterreplacee", "OnOff"
+	StaticText ""
+	
 	StaticText "Debug Settings", "Gold"
 	StaticText "Displays a box around actors", "White"
 	StaticText "based on Height and Weight, depending on the setting (in realtime)", "White"
