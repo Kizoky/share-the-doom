@@ -4214,3 +4214,23 @@ class petrolla : PostalDecoration
 		Loop;
 	}
 }
+
+class bankpillar : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Bank Pillar"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

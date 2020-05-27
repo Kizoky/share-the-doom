@@ -290,4 +290,5 @@ DoomEdNums
   32503 = fuse2
   32502 = powst
   32501 = petrolla
+  32500 = bankpillar
 }
