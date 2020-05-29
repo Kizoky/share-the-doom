@@ -3939,3 +3939,19 @@ Model "bankpillar"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "fith_sign"
+{
+	Path "models\props"
+	Model 0 "fireinthehole_sign.md3"
+	SurfaceSkin 0 0 "fireinthehole.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
