@@ -1314,6 +1314,25 @@ Model "BillboardCustom7"
 	
 }
 
+Model "BillboardCustom8"
+{
+	Path "models\props"
+	Model 0 "Billboard.md3"
+	SurfaceSkin 0 0 "textures/zo_billboardback.png"
+	SurfaceSkin 0 1 "textures/zo_graywood.png"
+	SurfaceSkin 0 2 "textures/zo_telephonepole.png"
+	SurfaceSkin 0 3 "billboard-smash.png"
+	AngleOffset -180
+	Scale -0.90 -0.90 0.90
+	Offset 0 0 250 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
 Model "PostalCar"
 {
 	Path "models\props"

@@ -959,6 +959,26 @@ class BillboardCustom7 : PostalDecoration
 	}
 }
 
+
+class BillboardCustom8 : PostalDecoration
+{
+	Default
+	{
+		//$Category Billboards
+		//$Title "Billboard Racism"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
 class LibraryWindow : PostalDecoration
 {
 	Default
