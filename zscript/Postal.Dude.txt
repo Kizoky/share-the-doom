@@ -338,6 +338,22 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					PlayerData.SavedLevelTimePipe = true;
 				}
 				
+				// Did we got killed in the process?
+				// Also jesus christ, I want to shoot myself in the head
+				if (bKILLED)
+				{
+					PlayerData.PipeSmoked = false;
+					PlayerData.SavedLevelTimePipe = false;
+					PlayerData.InitPipeValue = false;
+					PlayerData.InitPipeTimeCheck = false;
+					PlayerData.SmokeInhale = false;
+					PlayerData.SmokeFinished = false;
+					PlayerData.PipeDuration = 0;
+					PlayerData.FirstWarning = false;
+					PlayerData.SecondWarning = false;
+					return;
+				}
+				
 				// If PipeDuration exceeds more than +14000 ticks, do this
 				if (PlayerData.PipeDuration > PlayerData.PipeTimeStatic && PlayerData.FirstWarning != true)
 				{
@@ -434,7 +450,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 					PlayerData.CatnipDurationSaved = true;
 				}
 				
-				if (PlayerData.CatnipTimeContinous > PlayerData.SavedCatnipTime)
+				if (PlayerData.CatnipTimeContinous > PlayerData.SavedCatnipTime || bKILLED)
 				{
 					A_TakeInventory("SMPowerTimeFreezerSound", 1);
 					A_TakeInventory("CatnipPower", 1);
@@ -551,6 +567,8 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 	// Handles pain lines when hurt
 	void A_DudePain()
 	{
+		if (self.bKILLED) return;
+		
 		int LongChance = random[pain](0,100);
 		
 		if (level.time > TimeBeforeNextPainLine)
