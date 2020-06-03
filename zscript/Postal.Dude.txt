@@ -157,7 +157,14 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		}
 		
 		if (PlayerData.DudeLineTriggered == true && level.time > PlayerData.TimeBeforeDudeLine)
-		{		
+		{
+			//Corpses doesn't talk
+			if (self.bKILLED)
+			{
+				PlayerData.DudeLineTriggered = false;
+				return;
+			}
+			
 			if (Chance > 50)
 			{
 				A_StartSound("dudekill", CHAN_VOICE, CHANF_NOSTOP);
