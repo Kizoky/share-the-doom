@@ -1,7 +1,7 @@
 // Doom-ified/ZScriptifed version of Postal 2's Window
 // Reinvented wheel? Probably not :)
 
-class PostalWindow : Actor
+class PostalWindow : PostalActor
 {
 	void SpawnShards()
 	{
@@ -86,6 +86,9 @@ class PostalWindow : Actor
 		PainChance 0;
 		Health 666;
 		Obituary "%o ran into a Window.";
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{
@@ -95,7 +98,7 @@ class PostalWindow : Actor
 	}
 }
 
-class PostalWindow_Extender : Actor
+class PostalWindow_Extender : PostalActor
 {
 	Actor AttachedWindow;
 	bool GotActor;
@@ -211,6 +214,9 @@ class PostalWindow_Extender : Actor
 		Alpha 0.68;
 		PainChance 0;
 		Health 666;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{
@@ -220,7 +226,7 @@ class PostalWindow_Extender : Actor
 	}
 }
 
-class Postal_GlassShard : Actor
+class Postal_GlassShard : PostalActor
 {
 	int Type;
 	bool minus;
@@ -284,6 +290,9 @@ class Postal_GlassShard : Actor
 		+BOUNCEONWALLS
 		+USEBOUNCESTATE
 		+ROLLSPRITE;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{
@@ -322,7 +331,7 @@ class Postal_GlassShard : Actor
 	}
 }
 
-class Postal_GlassShard3D : Actor
+class Postal_GlassShard3D : PostalActor
 {
 	int Type;
 	
@@ -377,6 +386,9 @@ class Postal_GlassShard3D : Actor
 		Alpha 0.75;
 		Scale 0.32;
 		+ROLLSPRITE
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{

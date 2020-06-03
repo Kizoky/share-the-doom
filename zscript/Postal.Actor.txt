@@ -1,6 +1,9 @@
 class PostalActor : Actor 
 {
 	bool STD_NeverTarget, STD_NoKillLine;
+	
+	property NeverTarget : STD_NeverTarget;
+	property NoKillLine : STD_NoKillLine;
 }
 
 class PostalDecoration : Actor 

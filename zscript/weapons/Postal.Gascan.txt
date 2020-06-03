@@ -154,6 +154,9 @@ class PouringGas : PostalActor
 		+MTHRUSPECIES;
 		BloodType "null";
 		Scale 1.0;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{
@@ -361,6 +364,9 @@ class PostalFire : PostalActor
 		RenderStyle "Translucent";
 		Alpha 0.3;
 		Scale 0.6;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{	
@@ -605,6 +611,9 @@ class PostalLiquidGas : PostalActor
 		BloodType "null";
 		Alpha 0.3;
 		Scale 0.5;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{	
@@ -694,6 +703,9 @@ class RandomPostalFire : PostalActor
 		Alpha 0.8;
 		+BRIGHT
 		Scale 0.6;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{	
@@ -723,6 +735,9 @@ Class FireParticleBottom : PostalActor
     alpha 0.8;
     scale 0.6;
 	+ROLLSPRITE
+	
+	PostalActor.NeverTarget true;
+	PostalActor.NoKillLine true;
     }
 	
 	override void PostBeginPlay() {
@@ -772,6 +787,9 @@ Class FireSmokeUp : PostalActor
     Renderstyle "Translucent";
     alpha 0.9;
     scale 3.5;
+	
+	PostalActor.NeverTarget true;
+	PostalActor.NoKillLine true;
     }
 	
 	override void PostBeginPlay() {

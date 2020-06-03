@@ -109,9 +109,6 @@ class PostalCowhead : PostalActor
 		// Spawn initially a last bounce spot, obviously just to stop the Grenade to arm immediately
 		SavedBouncePos = spawn("PostalGrenadeHelper", pos);
 		
-		STD_NeverTarget = true;
-		STD_NoKillLine = true;
-		
 		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
 		
 		tr = random[turnrandom](0,1);
@@ -189,6 +186,9 @@ class PostalCowhead : PostalActor
 		DeathSound "other/mute";
 		//BounceSound "";
 		Obituary "$OB_MPROCKET";
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{

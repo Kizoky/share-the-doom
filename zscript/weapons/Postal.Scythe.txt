@@ -179,7 +179,7 @@ class PostScythe : PostalWeapon
 	}
 }
 
-class ThrownScythe : Actor
+class ThrownScythe : PostalActor
 {	
 
 	override void Tick()
@@ -210,6 +210,9 @@ class ThrownScythe : Actor
 		+INTERPOLATEANGLES
 		+RIPPER
 		Scale 1.2;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
   States
   {

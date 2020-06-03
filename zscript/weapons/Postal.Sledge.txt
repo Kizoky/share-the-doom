@@ -168,7 +168,7 @@ class PostSledge : PostalWeapon
 	}
 }
 
-class ThrownHammer : Actor
+class ThrownHammer : PostalActor
 {	
 
 	override void Tick()
@@ -199,6 +199,9 @@ class ThrownHammer : Actor
 		+INTERPOLATEANGLES
 		Scale 1.2;
 		Damage 1;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
   States
   {

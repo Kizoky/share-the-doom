@@ -251,8 +251,6 @@ class PostalRocket : PostalActor
 		}
 		PitchDown = 0;
 		
-		STD_NoKillLine = true;
-		STD_NeverTarget = true;
 	}
 	
 	override void Tick()
@@ -343,6 +341,9 @@ class PostalRocket : PostalActor
 		BounceSound "weapons/rocket_bounce";
 		Obituary "$OB_MPROCKET";
 		BloodType "null";
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{
@@ -471,6 +472,9 @@ Class PostalSmokeTrail : PostalActor
 		Renderstyle "Translucent";
 		alpha 0.90;
 		scale 1.70;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
     }
 	
 	override void PostBeginPlay() 
@@ -490,8 +494,6 @@ Class PostalSmokeTrail : PostalActor
 		if (spawn == 2)
 			SetStateLabel("Variant3");
 			
-		STD_NeverTarget = true;
-		STD_NoKillLine = true;
     }
 	
 	override void Tick()
@@ -540,6 +542,9 @@ Class PostalFireTrail : PostalActor
 		RenderStyle "Add";
 		alpha 0.90;
 		scale 1.70;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
     }
 	
 	override void PostBeginPlay() 
@@ -553,8 +558,6 @@ Class PostalFireTrail : PostalActor
 		
 		Scale = (randomScale.x,randomScale.y);
 		
-		STD_NeverTarget = true;
-		STD_NoKillLine = true;
     }
 	
 	override void Tick()

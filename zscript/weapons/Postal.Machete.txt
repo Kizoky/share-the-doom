@@ -246,7 +246,7 @@ class PostMachete : PostalWeapon
 	}
 }
 
-class ThrownMachete : Actor
+class ThrownMachete : PostalActor
 {
 	int TimeBeforeGoingBackToOwner, TimeBeforeAbsoluteVelocity;
 	Actor Owner;
@@ -327,6 +327,9 @@ class ThrownMachete : Actor
 		+RIPPER
 		Damage 1;
 		Scale 1.2;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
   States
   {
@@ -403,6 +406,9 @@ class Postal_Woosh : PostalActor
 		+NOGRAVITY;
 		+ROLLSPRITE;
 		+FLATSPRITE;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{

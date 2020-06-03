@@ -1,7 +1,7 @@
 // The Doom engine is limited, and according to Graf changing the width of certain actors won't be possible like ever
 // This is some sort of "hack" to make the Player feel they are actually interacting with a door and can't pass through it
 
-class PostalDoor_Extender : Actor
+class PostalDoor_Extender : PostalActor
 {
 	Actor AttachedToDoor, AttachedToDoor2;
 	int AngleBefore;
@@ -245,6 +245,9 @@ class PostalDoor_Extender : Actor
 		PainChance 0;
 		BloodType "null";
 		Health 99999999;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{
@@ -254,7 +257,7 @@ class PostalDoor_Extender : Actor
 	}
 }
 
-class PostalDoor : Actor
+class PostalDoor : PostalActor
 {
 	int AngleBefore;
 	int DoorCloseTime;
@@ -415,6 +418,9 @@ class PostalDoor : Actor
 		+NOBLOOD
 		PainChance 0;
 		Health 99999999;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{

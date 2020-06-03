@@ -122,7 +122,7 @@ class PostScissors : PostalWeapon
 	}
 }
 
-class PostalScissor : Actor
+class PostalScissor : PostalActor
 {
 	bool isBouncing, hitActor;
 	actor Owner;
@@ -198,6 +198,9 @@ override int SpecialMissileHit(Actor victim)
 		DeathSound "";
 		BounceSound "scissors/bounce";
 		Obituary "$OB_MPROCKET";
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{

@@ -193,8 +193,6 @@ class PostalGrenade : PostalActor
 		// Spawn initially a last bounce spot, obviously just to stop the Grenade to arm immediately
 		SavedBouncePos = spawn("PostalGrenadeHelper", pos);
 		
-		STD_NeverTarget = true;
-		STD_NoKillLine = true;
 		//Console.Printf("Speed: %f", speed);
 		
 		//Console.Printf("X: %f | Y: %f | Z: %f", vel.x, vel.y, vel.z);
@@ -293,6 +291,9 @@ class PostalGrenade : PostalActor
 		DeathSound "other/mute";
 		//BounceSound "";
 		Obituary "$OB_MPROCKET";
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
 	}
 	States
 	{
@@ -416,6 +417,9 @@ Class PostalGrenadeTrail : PostalActor
 		Renderstyle "Translucent";
 		alpha 0.90;
 		scale 0.40;
+		
+		PostalActor.NeverTarget true;
+		PostalActor.NoKillLine true;
     }
 	
 	override void PostBeginPlay() 
@@ -428,8 +432,6 @@ Class PostalGrenadeTrail : PostalActor
 		
 		Scale = (randomScale.x, randomScale.y);
 		
-		STD_NeverTarget = true;
-		STD_NoKillLine = true;
     }
 	
 	override void Tick()
