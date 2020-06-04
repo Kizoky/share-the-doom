@@ -294,4 +294,5 @@ DoomEdNums
   32499 = fith_sign
   
   32498 = BillboardCustom8
+  32497 = cr1
 }

@@ -4275,3 +4275,24 @@ class fith_sign : PostalDecoration
 		Loop;
 	}
 }
+
+
+class cr1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Capitol Roof (Detail)"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

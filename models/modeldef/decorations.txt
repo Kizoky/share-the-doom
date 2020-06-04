@@ -3974,3 +3974,19 @@ Model "fith_sign"
 	
 }
 
+Model "cr1"
+{
+	Path "models\props"
+	Model 0 "capitolroof.md3"
+	SurfaceSkin 0 0 "Union4Tex.png"
+	SurfaceSkin 0 1 "Union2Tex.png"
+	SurfaceSkin 0 2 "Union4Tex.png"
+	AngleOffset 0
+	Scale 1 1 1
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
