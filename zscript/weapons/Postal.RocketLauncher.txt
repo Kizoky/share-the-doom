@@ -193,12 +193,42 @@ class PostRLauncher : PostalWeapon
 
 class PostalRocket : PostalActor
 {
-	int SpawnTime, AddedTime, SeekingTime, BounceCooldown;
+	int SpawnTime, AddedTime, SeekingTime, BounceCooldown, KickCooldown;
 	double PitchDown;
 	bool Falling, Seeking;
 	Actor SeekingTarget, Owner;
 	
 	int BleepTime;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (source is 'PostalDude')
+		{
+			let player = PostalDude(source);
+			
+			// Let's check if the damage is from the Player's kick
+			if (player && inflictor is "PostalKickPuff")
+			{
+				// If we are seeking, we don't seek anyone
+				Seeking = false;
+				KickCooldown = level.time + (35 * 2.5);
+				
+				// Turn left or right
+				bool lrr = random[lr](0,1);
+				double lr = lrr ? 120 : -120;
+				angle = angle+lr;
+				pitch = pitch+random[pp](-5,5);
+				vel.xy = (0,0);
+				A_Recoil(-0.15);
+				vel.z += frandom[zz](0.1,2.0);
+				
+				health += damage;
+			}
+			
+		}
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
 	
 	action void A_SeekerThink()
 	{
@@ -257,6 +287,12 @@ class PostalRocket : PostalActor
 	{
 		Super.Tick();
 		
+		if (KickCooldown < level.time && SeekingTarget)
+		{
+			Seeking = true;
+		}
+		else return;
+		
 		if (level.time > BleepTime && SeekingTarget)
 		{
 			SeekingTarget.A_StartSound("weapons/rocket_bleep", CHAN_BODY, CHANF_LOCAL);
@@ -267,6 +303,7 @@ class PostalRocket : PostalActor
 		{
 			BounceCount = 1;
 			Seeking = false;
+			tracer = null;
 		}
 		
 		if (Seeking) return;
@@ -301,20 +338,22 @@ class PostalRocket : PostalActor
 				Falling = true;
 			}
 			
-			
-			if (pitch <= 90)
+			if (!SeekingTarget)
 			{
-				if (PitchDown != 10)
-					PitchDown += 0.05;
+				if (pitch <= 90)
+				{
+					if (PitchDown != 10)
+						PitchDown += 0.05;
+					
+					Pitch += PitchDown;
+				}
 				
-				Pitch += PitchDown;
+				
+				if (Pitch > 90)
+					Pitch = 90;
+				
+				vel.z -= 0.35;
 			}
-			
-			
-			if (Pitch > 90)
-				Pitch = 90;
-			
-			vel.z -= 0.35;
 		}
 		else
 			SetOrigin(pos-(0,0,1.5), TRUE);
@@ -352,7 +391,7 @@ class PostalRocket : PostalActor
 		{
 			A_SpawnItemEx("PostalSmokeTrail", FRandom(-3, 3), FRandom(-3, 3), FRandom(-3, 3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
 			
-			if (Seeking || !Falling)
+			if ((Seeking || !Falling) && KickCooldown < level.time)
 			{
 				A_StartSound("weapons/rocket_active", CHAN_BODY, CHANF_LOOPING | CHANF_NOSTOP);
 				

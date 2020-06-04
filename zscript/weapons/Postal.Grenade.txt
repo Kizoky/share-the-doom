@@ -241,7 +241,7 @@ class PostalGrenade : PostalActor
 			let player = PostalDude(source);
 			
 			// Let's check if the damage is from the Player's kick
-			if (player && player.FindInventory("PostKick"))
+			if (player && inflictor is "PostalKickPuff")
 			{
 				// Make the angle match to the Player's so the Grenade will not move towards the Player
 				// Also thrust it and set it's velocity z simulating a kick
