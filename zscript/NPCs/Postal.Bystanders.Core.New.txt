@@ -461,7 +461,6 @@ class NPCCore : PostalActor
 		{	
 			if (source is 'PostalDecoration')
 			{
-				A_ClearTarget();
 				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 			}
 			
@@ -738,6 +737,7 @@ class NPCCore : PostalActor
 				A_ClearTarget();
 				SetStateLabel("Spawn");
 			}
+			else isAfterTarget = true;
 			
 			if (Hostility == "Pussy" && isAfterTarget == true)
 			{
@@ -975,7 +975,7 @@ class NPCCore : PostalActor
 		Goto HostileChase.RocketLauncher;
 	Pain:
 		DUDE A 0 { if (gotPissedOn == true) { isAfterTarget = false; SetStateLabel("Debug"); }}
-		DUDE A 0 { isBusy = false; isAfterTarget = true;}
+		DUDE A 0 { isBusy = false; }
 		DUDE A 3 A_Pain;
 		DUDE A 0 { return ResolveState("See"); }
 	Bumping:
