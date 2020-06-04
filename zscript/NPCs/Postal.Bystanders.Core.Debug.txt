@@ -11,7 +11,7 @@ class NPCHostile : NPCCore
 	Default
 	{
 		NPCCore.debug_hostility D_HOSTILE;
-		NPCCore.debug_weapon "Pistol";
+		NPCCore.debug_weapon "RocketLauncher";
 	}
 }
 

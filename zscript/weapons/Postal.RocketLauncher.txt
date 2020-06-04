@@ -196,9 +196,23 @@ class PostalRocket : PostalActor
 	int SpawnTime, AddedTime, SeekingTime, BounceCooldown, KickCooldown;
 	double PitchDown;
 	bool Falling, Seeking;
-	Actor SeekingTarget, Owner;
+	Actor SeekingTarget, Owner, OwnerHead;
 	
 	int BleepTime;
+	
+	// 1 = passes thru actors
+	// 0 = explodes on actors
+	// -1 = default
+	override int SpecialMissileHit(Actor victim)
+	{	
+		if ((victim is 'PostalWindow' || victim is 'PostalWindow_Extender' || victim == target && target is 'PostalDude') && victim)
+		{
+			int dd = victim.DamageMobj(self, target, 1, "Melee");
+			return 1;
+		}
+		
+		return -1;
+	}
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
@@ -220,7 +234,7 @@ class PostalRocket : PostalActor
 				pitch = pitch+random[pp](-5,5);
 				vel.xy = (0,0);
 				A_Recoil(-0.15);
-				vel.z += frandom[zz](0.1,2.0);
+				vel.z += frandom[zz](0.1,5.0);
 				
 				health += damage;
 			}
@@ -262,6 +276,12 @@ class PostalRocket : PostalActor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
+		
+		if (owner is 'PostalDude')
+		{
+			target = owner;
+		}
+		
 		if (Seeking != true)
 			SpawnTime = level.time + AddedTime;
 		else
@@ -275,12 +295,21 @@ class PostalRocket : PostalActor
 			bSEEKERMISSILE = true;
 			bDONTBOUNCEONSKY = true;
 			bUSEBOUNCESTATE = true;
+			BounceCount = 25;
 			
 			SeekingTime = level.time + (35 * 17); // Seeking missiles lasts for 17 seconds if not destroyed
 			BleepTime = level.time + (35 * 3);
 		}
 		PitchDown = 0;
 		
+	}
+	
+	override void Touch(actor toucher)
+	{
+		if (toucher)
+		{
+			A_Die();
+		}
 	}
 	
 	override void Tick()
@@ -375,6 +404,7 @@ class PostalRocket : PostalActor
 		+NOTARGETSWITCH
 		+ABSMASKPITCH
 		+SHOOTABLE
+		+SPECIAL
 		SeeSound "weapons/rocket_fire";
 		DeathSound "weapons/rocket_explode";
 		BounceSound "weapons/rocket_bounce";
@@ -389,7 +419,8 @@ class PostalRocket : PostalActor
 	Spawn:
 		RRRR A 1 Bright
 		{
-			A_SpawnItemEx("PostalSmokeTrail", FRandom(-3, 3), FRandom(-3, 3), FRandom(-3, 3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			if (KickCooldown < level.time)
+				A_SpawnItemEx("PostalSmokeTrail", FRandom(-3, 3), FRandom(-3, 3), FRandom(-3, 3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
 			
 			if ((Seeking || !Falling) && KickCooldown < level.time)
 			{
