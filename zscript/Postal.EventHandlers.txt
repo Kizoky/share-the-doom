@@ -321,54 +321,57 @@ class DudeCoreHandler : EventHandler
 		
 		if (!STD_Levels && monsta)
 		{
-			int chance = random[cc](0,50);
-			if (chance >= 25)
-			{
+			if (!SpawnedThing) return;
+			
+			if (SpawnedThing is 'BossBrain' ||
+				SpawnedThing is 'BossEye' ||
+				SpawnedThing is 'BossTarget' ||
+				SpawnedThing is 'CommanderKeen' ||
+				SpawnedThing is 'Sorcerer1' ||
+				SpawnedThing is 'Sorcerer2' ||
+				SpawnedThing is 'Dragon' ||
+				SpawnedThing is 'ClericBoss' ||
+				SpawnedThing is 'MageBoss' ||
+				SpawnedThing is 'FighterBoss' ||
+				SpawnedThing is 'Heresiarch' ||
+				SpawnedThing is 'Korax' ||
+				SpawnedThing is 'StrifeHumanoid' ||
+				SpawnedThing is 'SpectralMonster' ||
+				SpawnedThing is 'EntityNest' ||
+				SpawnedThing is 'EntityPod' ||
+				SpawnedThing is 'Loremaster' ||
+				SpawnedThing is 'Oracle' ||
+				SpawnedThing is 'Programmer' ||
+				SpawnedThing is 'StrifeBishop' ||
+				SpawnedThing is 'KneelingGuy')
+					return;
+			
 				if (SpawnedThing.bISMONSTER && SpawnedThing.Health > 0 && SpawnedThing)
 				{
-					if (SpawnedThing is 'BossBrain' ||
-					SpawnedThing is 'BossEye' ||
-					SpawnedThing is 'BossTarget' ||
-					SpawnedThing is 'CommanderKeen' ||
-					SpawnedThing is 'Sorcerer1' ||
-					SpawnedThing is 'Sorcerer2' ||
-					SpawnedThing is 'Dragon' ||
-					SpawnedThing is 'ClericBoss' ||
-					SpawnedThing is 'MageBoss' ||
-					SpawnedThing is 'FighterBoss' ||
-					SpawnedThing is 'Heresiarch' ||
-					SpawnedThing is 'Korax' ||
-					SpawnedThing is 'StrifeHumanoid' ||
-					SpawnedThing is 'SpectralMonster' ||
-					SpawnedThing is 'EntityNest' ||
-					SpawnedThing is 'EntityPod' ||
-					SpawnedThing is 'Loremaster' ||
-					SpawnedThing is 'Oracle' ||
-					SpawnedThing is 'Programmer' ||
-					SpawnedThing is 'StrifeBishop' ||
-					SpawnedThing is 'KneelingGuy')
-						return;
-					
-					// Do not replace monsters that have Tids attached to them
-					//if (SpawnedThing.tid != 0) return;
-					
-					actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
-					if (NPC)
+					int chance = random[cc](0,50);
+					if (chance >= 25 && SpawnedThing.Tid == 0)
 					{
-						NPC.angle = SpawnedThing.angle;
-						NPC.ChangeTid(SpawnedThing.tid);
-						
-						int j = 0;
-						while (j < 5)
+						actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
+						if (NPC)
 						{
-							NPC.args[j] = SpawnedThing.args[j];
-							j++;
+							NPC.angle = SpawnedThing.angle;
+							
+							/*
+							NPC.ChangeTid(SpawnedThing.tid);
+							
+							int j = 0;
+							while (j < 5)
+							{
+								NPC.args[j] = SpawnedThing.args[j];
+								j++;
+							}
+							*/
+							
+							SpawnedThing.Destroy();
 						}
-						
-						SpawnedThing.Destroy();
 					}
+					else SpawnedThing.A_GiveInventory("PostalNPCMonsterChecker");
 				}
-			}
 		}
 		
    }
