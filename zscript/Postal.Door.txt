@@ -570,3 +570,15 @@ class PostalDoor12 : PostalDoor
 		Renderstyle "Translucent";
 	}
 }
+
+
+class PostalDoor13 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Glass Door Black"
+		//$Color 5
+		Renderstyle "Translucent";
+	}
+}

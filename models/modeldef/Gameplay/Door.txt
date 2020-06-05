@@ -186,4 +186,20 @@ Model "PostalDoor12"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "PostalDoor13"
+{
+	Path "models\misc\door"
+	Model 0 "zo_glassdoor2.md3"
+	SurfaceSkin 0 0 "mex_windowglass_tinted.png"
+	SurfaceSkin 0 1 "zo_genericdarkgray.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
 //

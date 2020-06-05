@@ -4296,3 +4296,25 @@ class cr1 : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class CA_menu : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Pizza Parlor Menu"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

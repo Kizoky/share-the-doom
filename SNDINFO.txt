@@ -207,6 +207,7 @@ themepark sounds/amb_mus/themepark.ogg
 rockmus sounds/amb_mus/rockmus.ogg
 onlyu sounds/amb_mus/onlyu.ogg
 shopmuz sounds/amb_mus/shopmuz.ogg
+pizzas sounds/amb_mus/PizzaParlor.ogg
 church_scary sounds/ambient_p2/metal_spookyMoan_LP.wav
 Birds2 sounds/ambient_p2/Birds2.wav
 crickets sounds/ambient_p2/crickets.wav
@@ -360,6 +361,9 @@ $ambient 40 StreetBoiling point continuous 1.0
 
 $alias washer_amb washingMachine
 $ambient 41 washer_amb point continuous 1.0
+
+$alias Pizza_Parlor pizzas
+$ambient 42 Pizza_Parlor point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure

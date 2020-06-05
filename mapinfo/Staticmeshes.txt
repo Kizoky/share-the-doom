@@ -295,4 +295,6 @@ DoomEdNums
   
   32498 = BillboardCustom8
   32497 = cr1
+  32496 = CA_menu
+  32495 = PostalDoor13
 }

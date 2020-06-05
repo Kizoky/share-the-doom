@@ -3990,3 +3990,19 @@ Model "cr1"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "CA_menu"
+{
+	Path "models\props"
+	Model 0 "CA_Menu.md3"
+	SurfaceSkin 0 0 "frame.png"
+	SurfaceSkin 0 1 "foodmenu.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
