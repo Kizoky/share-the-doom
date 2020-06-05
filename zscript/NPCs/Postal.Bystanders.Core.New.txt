@@ -684,6 +684,12 @@ class NPCCore : PostalActor
 				string s = string.Format("%s",target.GetClassName());
 				Console.Printf("NPC Spawn Debug: I have a target called '%s' ",s);
 				
+				string selftarget = (target == self) ? "myself" : "another actor";
+				Console.Printf("NPC Spawn Debug: The target is '%s'", selftarget);
+				
+				string targetdead = (target.bKILLED) ? "dead" : "alive";
+				Console.Printf("NPC Spawn Debug: My target is '%s'", targetdead);
+				
 				string sIsBusy = IsBusy ? "true" : "false";
 				Console.Printf("NPC Spawn Debug: IsBusy is '%s'", sIsBusy);
 				
@@ -691,7 +697,13 @@ class NPCCore : PostalActor
 				Console.Printf("NPC Spawn Debug: isAfterTarget is '%s'", sATarget);
 				
 				Console.Printf("NPC Spawn Debug: Hostility is '%s'", Hostility);
+				
+				string wweapon = (Hostility == "Hostile") ? NPCWeapon : "I don't have a weapon";
+				Console.Printf("NPC Spawn Debug: Weapon is '%s'", wweapon);
+				
 				Console.Printf("NPC Spawn Debug: Health is '%d' (Default: %d)", health, Default.Health);
+				Console.Printf("NPC Spawn Debug: pos: %d %d %d",pos.x,pos.y,pos.z);
+				Console.Printf("");
 			}
 			
 			A_BystanderNode();

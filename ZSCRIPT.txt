@@ -2,6 +2,7 @@ version "4.2"
 
 //------------ Postal stuff
 #include "zscript/Postal.Actor.txt"
+#include "zscript/Postal.Compatibility.txt"
 #include "zscript/Postal.Door.txt"
 #include "zscript/Postal.Window.txt"
 #include "zscript/Postal.Blood.txt"

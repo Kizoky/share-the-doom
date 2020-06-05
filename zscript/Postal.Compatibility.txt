@@ -1,0 +1,70 @@
+// Attached to monsters, checking for NPCs for every 2 seconds.
+
+class PostalNPCMonsterChecker : Powerup
+{
+	int Cooldown;
+	
+	Default
+	{
+		Powerup.Duration -99999;
+		+INVENTORY.HUBPOWER
+	}
+
+	override void InitEffect ()
+	{
+		Super.InitEffect();
+		Cooldown = level.time + (35 * 1);
+	}
+
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if (Owner == NULL || Owner.player == NULL)
+		{
+			return;
+		}
+	}
+	
+	virtual void MonsterThink()
+	{
+		double fov = 90;
+		BlockThingsIterator it = BlockThingsIterator.Create (owner, 400);
+		
+		while (it.Next () && it.Thing != null) {
+				let next = it.Thing;
+				
+			if (owner.AbsAngle (owner.AngleTo (next), owner.angle) > (fov / 2.)) continue;
+			
+			//if (owner.CheckSight (next, SF_SeePastShootableLines)) continue;
+			
+			if (next is 'NPCCore' && !next.bKILLED && !owner.bFRIENDLY)
+			{
+				owner.target = next;
+				owner.SetStateLabel("See");
+			}
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (!Owner || Owner.bKILLED || owner is 'NPCCore' || owner is 'NPCHead')
+		{
+			return;
+		}
+		
+		angle = owner.angle;
+		
+		if (level.time > Cooldown)
+		{
+			if (owner.InStateSequence(owner.CurState, owner.ResolveState("See")))
+			{
+				return;
+			}
+			
+			MonsterThink();
+			Cooldown = level.time + (35 * 1);
+		}
+		
+	}
+}
