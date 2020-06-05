@@ -324,7 +324,7 @@ class DudeCoreHandler : EventHandler
 			int chance = random[cc](0,50);
 			if (chance >= 25)
 			{
-				if (SpawnedThing.bISMONSTER && SpawnedThing)
+				if (SpawnedThing.bISMONSTER && SpawnedThing.Health > 0 && SpawnedThing)
 				{
 					if (SpawnedThing is 'BossBrain' ||
 					SpawnedThing is 'BossEye' ||
