@@ -349,6 +349,9 @@ class DudeCoreHandler : EventHandler
 					SpawnedThing is 'KneelingGuy')
 						return;
 					
+					// Do not replace monsters that have Tids attached to them, we can't replace or add tids to monsters unfortunately
+					if (SpawnedThing.tid != 0) return;
+					
 					actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
 					if (NPC)
 					{
