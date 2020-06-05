@@ -297,4 +297,5 @@ DoomEdNums
   32497 = cr1
   32496 = CA_menu
   32495 = PostalDoor13
+  32494 = chemitank
 }

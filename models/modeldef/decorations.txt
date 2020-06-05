@@ -4006,3 +4006,19 @@ Model "CA_menu"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "chemitank"
+{
+	Path "models\props"
+	Model 0 "ChemTank.md3"
+	SurfaceSkin 0 0 "ChemTank.png"
+	AngleOffset 0
+	Scale -0.60 -0.60 0.60
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+

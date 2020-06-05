@@ -4318,3 +4318,25 @@ class CA_menu : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class chemitank : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Chemical Tank"
+		Radius 55;
+		Height 200;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
