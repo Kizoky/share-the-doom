@@ -4548,3 +4548,45 @@ class Ficus : PostalDecoration
 		Loop;
 	}
 }
+
+
+class barrier_clubos : PostalDecoration
+{
+	Default
+	{
+		//$Category Fences
+		//$Title "Fence metallica"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class light_fixture : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Light Fixture"
+		Radius 13;
+		Height 120;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

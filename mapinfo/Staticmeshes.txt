@@ -308,4 +308,6 @@ DoomEdNums
   32486 = noticeboard1
   32485 = piball1
   32484 = Ficus
+  32483 = barrier_clubos
+  32482 = light_fixture
 }

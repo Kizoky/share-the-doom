@@ -4180,3 +4180,33 @@ Model "Ficus"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "barrier_clubos"
+{
+	Path "models\props"
+	Model 0 "barrier_end128.md3"
+	SurfaceSkin 0 0 "concrete-nc-4.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "light_fixture"
+{
+	Path "models\props"
+	Model 0 "lightrig.md3"
+	SurfaceSkin 0 0 "MetalBase_M.png"
+	AngleOffset 0
+	Scale -0.58 -0.58 0.58
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
