@@ -447,6 +447,7 @@ class NPCCore : PostalActor
 		}
 	}
 	
+	// Prevents the Doom AI to automatically chase after the Player
 	virtual void A_ConcentratedTarget()
 	{
 		if (MyTarget)
@@ -758,7 +759,7 @@ class NPCCore : PostalActor
 				SetStateLabel("PussyChase");
 				bNOTARGETSWITCH = true;
 				
-				//A_ConcentratedTarget();
+				A_ConcentratedTarget();
 				
 			}
 				
