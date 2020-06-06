@@ -4022,3 +4022,144 @@ Model "chemitank"
 	
 }
 
+Model "diamondfence"
+{
+	Path "models\props"	
+	Model 0 "wall-diamondbrick-sw.md3"
+	SurfaceSkin 0 0 "bricks-diamond-256-dark.png"
+	SurfaceSkin 0 1 "brick-trim-256.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "curvedass"
+{
+	Path "models\props"
+	Model 0 "curvebar.md3"
+	SurfaceSkin 0 0 "bar_panel.png"
+	SurfaceSkin 0 1 "black_marble01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 -0.7 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "drinkage"
+{
+	Path "models\props"
+	Model 0 "drinkfridge.md3"
+	SurfaceSkin 0 0 "drinkfridge01.png"
+	SurfaceSkin 0 1 "MetalBase_M.png"
+	SurfaceSkin 0 2 "black_marble01.png"
+	SurfaceSkin 0 3 "bar_panel.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "speaker_extra"
+{
+	Path "models\props"
+	Model 0 "floor_monitor2.md3"
+	SurfaceSkin 0 0 "MrD_Speaker.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "LCD_Tv_nostand"
+{
+	Path "models\props"
+	Model 0 "lcdtv.md3"
+	SurfaceSkin 0 0 "tvfront.png"
+	SurfaceSkin 0 1 "tvback.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "sitroom_stand"
+{
+	Path "models\props"
+	Model 0 "Sitroom_table.md3"
+	SurfaceSkin 0 0 "Table.png"
+	SurfaceSkin 0 1 "Phone.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "air_hoki"
+{
+	Path "models\props"
+	Model 0 "AirHockyTable.md3"
+	SurfaceSkin 0 0 "Aero_hockey_01.png"
+	AngleOffset 0
+	Scale -1.10 -1.10 1.10
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "noticeboard1"
+{
+	Path "models\props"
+	Model 0 "Police_Noticeboard01.md3"
+	SurfaceSkin 0 0 "noteboard_police_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "piball1"
+{
+	Path "models\props"
+	Model 0 "pinball_01.md3"
+	SurfaceSkin 0 0 "Pinbal_00.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

@@ -4340,3 +4340,189 @@ class chemitank : PostalDecoration
 		Loop;
 	}
 }
+
+
+class diamondfence : PostalDecoration
+{
+	Default
+	{
+		//$Category Fences
+		//$Title "Diamonds Fence"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		//
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class curvedass : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Bar Curved"
+		Radius 55;
+		Height 200;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class drinkage : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Drinks Fridge Bar"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class speaker_extra : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Speaker Low"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class LCD_Tv_nostand : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "LCD TV No stand"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		-SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class sitroom_stand : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Conference room table"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class air_hoki : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Air Hockey"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class noticeboard1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Noticeboard 1"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		-NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class piball1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Pinball machine"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		-NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

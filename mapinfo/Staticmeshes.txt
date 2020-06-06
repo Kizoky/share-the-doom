@@ -298,4 +298,13 @@ DoomEdNums
   32496 = CA_menu
   32495 = PostalDoor13
   32494 = chemitank
+  32493 = diamondfence
+  32492 = curvedass
+  32491 = drinkage
+  32490 = speaker_extra
+  32489 = LCD_Tv_nostand
+  32488 = sitroom_stand
+  32487 = air_hoki
+  32486 = noticeboard1
+  32485 = piball1
 }
