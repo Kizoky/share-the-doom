@@ -4163,3 +4163,20 @@ Model "piball1"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "Ficus"
+{
+	Path "models\props"
+	Model 0 "Ficus.md3"
+	SurfaceSkin 0 0 "Branches0038_1_S.png"
+	SurfaceSkin 0 1 "WoodRough0050_3_S.png"
+	SurfaceSkin 0 2 "Claypot.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

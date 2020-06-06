@@ -4526,3 +4526,25 @@ class piball1 : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class Ficus : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Ficus"
+		Radius 25;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

@@ -307,4 +307,5 @@ DoomEdNums
   32487 = air_hoki
   32486 = noticeboard1
   32485 = piball1
+  32484 = Ficus
 }
