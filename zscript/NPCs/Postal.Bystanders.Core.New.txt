@@ -319,6 +319,46 @@ class NPCCore : PostalActor
 				A_Die();
 		}
 		
+		// I want to kill myself
+		if (InStateSequence(CurState, ResolveState("Spawn")))
+		{
+			// Doom AI tries to default it's target to Player ALWAYS if they have seen it beforehand
+			// This is getting annoying you know
+			if (target && target is 'PlayerPawn')
+			{
+				if (MyTarget == null)
+					A_ClearTarget();
+				else if (MyTarget != target)
+					target = MyTarget;
+			}
+			
+			// If both doesn't exist it's obvious they shouldn't be after targets or be busy
+			if (!target && !MyTarget)
+			{
+				isAfterTarget = false;
+				isBusy = false;
+			}
+			
+			if (target && MyTarget)
+			{
+				if (target == MyTarget && target.Health >= 1)
+				{
+					SetStateLabel("See");
+				}
+			}
+			
+			if (target == null && MyTarget != null)
+			{
+				if (MyTarget.Health >= 1)
+				{
+					target = MyTarget;
+					SetStateLabel("See");
+				}
+				else if (Hostility ~== "Pussy" && !hasSeenCorpse)
+					MyTarget = null;
+			}
+		}
+		
 		// Some absurd way of doing pathnodes, probably will be replaced by something greater
 		// or it will be even worse
 		
@@ -390,6 +430,8 @@ class NPCCore : PostalActor
 					isAfterTarget = false;
 					bFRIGHTENED = false;
 					Speed = Default.Speed;
+					if (MyTarget == target && MyTarget)
+						MyTarget = null;
 					A_ClearTarget();
 					ActiveNode = null;
 					isBusy = false;
@@ -405,6 +447,8 @@ class NPCCore : PostalActor
 					isAfterTarget = false;
 					bFRIGHTENED = false;
 					Speed = Default.Speed;
+					if (MyTarget == target && MyTarget)
+						MyTarget = null;
 					A_ClearTarget();
 					ActiveNode = null;
 					isBusy = false;
@@ -450,7 +494,7 @@ class NPCCore : PostalActor
 	// Prevents the Doom AI to automatically chase after the Player
 	virtual void A_ConcentratedTarget()
 	{
-		if (MyTarget)
+		if (MyTarget && !MyTarget.bKILLED)
 		{
 			target = MyTarget;
 		}
@@ -470,36 +514,6 @@ class NPCCore : PostalActor
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
 		
-		/* This isn't really correct
-		if (source.target is 'PostalDude')
-		{
-			MyTarget = source.target;
-			target = source.target;
-			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
-		}
-		
-		
-		let pp = NPCCore(source);
-		
-		if (pp && pp.MyTarget is 'PostalDude')
-		{
-			MyTarget = pp.target;
-			target = pp.target;
-			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
-		}
-		*/
-		
-		/*
-		if (source is 'PostalDude' && inflictor is 'Urine')
-		{
-			SetStateLabel("Debug");
-			gotPissedOn = true;
-			Console.Printf("Got em!");
-			Health += damage;
-			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
-		}
-		*/
-		
 		if (inflictor is 'Bulletpuff')
 		{
 			//Console.Printf("Clip clip clip");
@@ -507,15 +521,6 @@ class NPCCore : PostalActor
 			MyTarget = source;
 			target = source;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
-		}
-		
-		if (inflictor is 'fakeTrainCollision')
-		{
-			Thrust(20);
-			A_DamageSelf(Health);
-			//p.SetStateLabel("Headless.Death");
-			//SetStateLabel("Headless.Death");
-			
 		}
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
@@ -652,6 +657,7 @@ class NPCCore : PostalActor
 			isBusy = false;
 			Petitioning = false;
 			A_ClearTarget();
+			MyTarget = null;
 		}
 		//TNT1 A 0 ACS_Execute(1003,0);
 		Goto Spawn;
@@ -664,20 +670,36 @@ class NPCCore : PostalActor
 	Spawn:
 		DUDW A 0
 		{
-			if (target == null && Hostility == "Pussy" && Hostility == "Hostile")
+			if (!target && !MyTarget)
 			{
-				isAfterTarget = false;
-				isBusy = false;
+				//isAfterTarget = false;
+				//isBusy = false;
 			}
-			
-			if (target != null && Hostility == "Pussy")
+			else
 			{
-				A_PostalTarget();
-			}
-			
-			if (isAfterTarget && hasSeenCorpse && Hostility == "Pussy")
-			{
-				SetStateLabel("See");
+				string ttarget = target ? "not null" : "null";
+				Console.Printf("NPC Spawn Debug: target is %s", ttarget);
+				
+				string mmytarget = MyTarget ? "not null" : "null";
+				Console.Printf("NPC Spawn Debug: MyTarget is %s", mmytarget);
+				if (MyTarget)
+				{
+					Console.Printf("NPC Spawn Debug: MyTarget pointer is called '%s'", MyTarget.GetClassName());
+					
+					string mahtarget = MyTarget.bKILLED ? "dead" : "alive";
+					Console.Printf("NPC Spawn Debug: MyTarget is %s", mahtarget);
+				}
+				
+				string aftertarget = isAfterTarget ? "true" : "false";
+				Console.Printf("NPC Spawn Debug: isAfterTarget is %s", aftertarget);
+				
+				string busy = isBusy ? "true" : "false";
+				Console.Printf("NPC Spawn Debug: isBusy is %s", busy);
+				
+				string corpsee = hasSeenCorpse ? "true" : "false";
+				Console.Printf("NPC Spawn Debug: hasSeenCorpse is %s", corpsee);
+				Console.Printf("NPC Spawn Debug: Hostility is '%s'", Hostility);
+				Console.Printf("");
 			}
 			
 			if (target)
@@ -690,6 +712,14 @@ class NPCCore : PostalActor
 				
 				string targetdead = (target.bKILLED) ? "dead" : "alive";
 				Console.Printf("NPC Spawn Debug: My target is '%s'", targetdead);
+				
+				string targetismytarget = (target == MyTarget) ? "equal" : "not equal";
+				Console.Printf("NPC Spawn Debug: target and 'MyTarget' is '%s'", targetismytarget);
+				if (MyTarget)
+					Console.Printf("NPC Spawn Debug: MyTarget pointer is called '%s'", MyTarget.GetClassName());
+					
+				if (MyTarget == null)
+					Console.Printf("NPC Spawn Debug: MyTarget pointer is null");
 				
 				string sIsBusy = IsBusy ? "true" : "false";
 				Console.Printf("NPC Spawn Debug: IsBusy is '%s'", sIsBusy);
@@ -745,10 +775,14 @@ class NPCCore : PostalActor
 		{
 			if (target == null)
 			{
-				Console.Printf("NPC See Debug: I have no target");
-				isAfterTarget = false;
-				A_ClearTarget();
-				SetStateLabel("Spawn");
+				if (Hostility ~== "Hostile" || (Hostility ~== "Pussy" && !hasSeenCorpse))
+				{
+					Console.Printf("NPC See Debug: I have no target");
+					isAfterTarget = false;
+					A_ClearTarget();
+					MyTarget = null;
+					SetStateLabel("Spawn");
+				}
 			}
 			else isAfterTarget = true;
 			
@@ -847,18 +881,24 @@ class NPCCore : PostalActor
 	PussyChase:
 		FLEE ABCDEFGHIJ 3
 		{
-			if (target == null)
+			if (target && MyTarget && MyTarget != target)
 			{
-				//Console.Printf("Target killed");
+				Console.Printf("Done");
+				target = MyTarget;
+			}
+			
+			if (target == null)
+			{		
 				isAfterTarget = false;
 				bFRIGHTENED = false;
 				Speed = Default.Speed;
 				A_ClearTarget();
+				MyTarget = null;
 				SetStateLabel("Spawn");
 			}
 			
-			if (target)
-				A_PostalTarget();
+			//if (target)
+				//A_PostalTarget();
 			//A_ConcentratedTarget();
 			A_Recoil(-0.85);
 			A_Chase(null, null, flags: CHF_STOPIFBLOCKED);
@@ -1001,6 +1041,7 @@ class NPCCore : PostalActor
 			//Clear our target, so we won't be going after it
 			isBusy = false;
 			A_ClearTarget();
+			MyTarget = null;
 			
 			//Before eventually going back to Spawn, let's check our surroundings
 			A_BystanderThink();
@@ -1031,12 +1072,14 @@ class NPCCore : PostalActor
 				{
 					isBusy = false;
 					A_ClearTarget();
+					MyTarget = null;
 					SetStateLabel("Spawn");
 				}
 				else
 				{
 					isBusy = false;
 					A_ClearTarget();
+					MyTarget = null;
 				}
 			}
 			//Although this may never happen (or can if the Player suddenly zipped it's pants), we don't want to make nasty mistakes.
@@ -1109,6 +1152,7 @@ class NPCCore : PostalActor
 								if (Hostility == "Hostile")
 								{
 									target = pp;
+									MyTarget = pp;
 									isBusy = false;
 									A_PlaySound(NPC_Taunt,0);
 									isAfterTarget = true;
@@ -1119,6 +1163,7 @@ class NPCCore : PostalActor
 								if (Hostility == "Pussy")
 								{
 									target = pp;
+									MyTarget = pp;
 									isBusy = false;
 									isAfterTarget = true;
 									SetStateLabel("See");
@@ -1133,6 +1178,7 @@ class NPCCore : PostalActor
 					if (target is 'NPCCore' && Hostility == "Pussy" && target.bCORPSE)
 					{
 						target = pp;
+						MyTarget = pp;
 						isBusy = false;
 						isAfterTarget = true;
 						SetStateLabel("See");

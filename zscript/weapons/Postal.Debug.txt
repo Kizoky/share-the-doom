@@ -57,59 +57,41 @@ extend class PostDebug
 				
 				if (!pp) return;
 				
-				Console.Printf("Hostility: %s",pp.Hostility);
+				string s = pp.target ? string.Format("%s", pp.target.GetClassName()) : "null";
+				Console.Printf("NPC Spawn Debug: Target is '%s' ",s);
 				
-				if (pp.isBusy == true)
-					Console.Printf("isBusy: true");
-				else
-					Console.Printf("isBusy: false");
+				if (pp.target)
+				{
+					string selftarget = (pp.target == pp) ? "myself" : "another actor";
+					Console.Printf("NPC Spawn Debug: The target is '%s'", selftarget);
 					
-				if (pp.isAfterTarget == true)
-					Console.Printf("isAfterTarget: true");
-				else
-					Console.Printf("isAfterTarget: false");
+					string targetdead = (pp.target.bKILLED) ? "dead" : "alive";
+					Console.Printf("NPC Spawn Debug: My target is '%s'", targetdead);
 					
-				if (pp.hasSeenCorpse == true)
-					Console.Printf("hasSeenCorpse: true");
-				else
-					Console.Printf("hasSeenCorpse: false");
+					string targetismytarget = (pp.target == pp.MyTarget) ? "equal" : "not equal";
+					Console.Printf("NPC Spawn Debug: target and 'MyTarget' is '%s'", targetismytarget);
+				}
+				
+				if (pp.MyTarget)
+					Console.Printf("NPC Spawn Debug: MyTarget pointer is called '%s'", pp.MyTarget.GetClassName());
 					
-				if (pp.Hostility == "Hostile")
-					Console.Printf("Weapon: %s", pp.NPCWeapon);
-					
-				Console.Printf("Unique ID: %d",pp.UniqueID);
+				if (!pp.MyTarget)
+					Console.Printf("NPC Spawn Debug: MyTarget pointer is null");
 				
-				Console.Printf("Obituary: %s", pp.obituary);
+				string sIsBusy = pp.IsBusy ? "true" : "false";
+				Console.Printf("NPC Spawn Debug: IsBusy is '%s'", sIsBusy);
 				
+				string sATarget = pp.isAfterTarget ? "true" : "false";
+				Console.Printf("NPC Spawn Debug: isAfterTarget is '%s'", sATarget);
 				
-				if (pp.target == null)
-					Console.Printf("Target: null");
-				else
-					if (pp.target == self)
-						Console.Printf("Target: Player");
-						else
-							if (pp.target != null)
-							{
-								if (pp.target is 'NPCCore')
-								{
-									let p2 = NPCCore(pp.target);
-									Console.Printf("Target: NPCCore.%d", p2.UniqueID);
-								}
-								else
-								{
-									string s = string.Format("%s",pp.target.GetClassName());
-									if (pp.target is 'PostalDecoration')
-									{
-										Console.Printf("Target(Decoration): %s",s);
-									}
-									else if (pp.target is 'PostalActor')
-											Console.Printf("Target(STD): %s",s);
-										else
-											Console.Printf("Target(non-STD): %s",s);
-								}
-							}
+				Console.Printf("NPC Spawn Debug: Hostility is '%s'", pp.Hostility);
 				
-				A_PlaySound("dudeline5", 7 | 4096);
+				string wweapon = (pp.Hostility == "Hostile") ? pp.NPCWeapon : "no weapon";
+				Console.Printf("NPC Spawn Debug: Weapon is '%s'", wweapon);
+				
+				Console.Printf("NPC Spawn Debug: Health is '%d' (Default: %d)", pp.health, pp.Default.Health);
+				//Console.Printf("NPC Spawn Debug: pos: %d %d %d",pp.pos.x,pp.pos.y,pp.pos.z);
+				Console.Printf("");
 					
 			}
 			else

@@ -27,12 +27,15 @@ class PostalNPCMonsterChecker : Powerup
 	
 	virtual void MonsterThink()
 	{
+		if (!owner) return;
+		
 		double fov = 90;
 		BlockThingsIterator it = BlockThingsIterator.Create (owner, 400);
 		
 		while (it.Next () && it.Thing != null) {
 				let next = it.Thing;
-				
+			
+			
 			if (owner.AbsAngle (owner.AngleTo (next), owner.angle) > (fov / 2.)) continue;
 			
 			//if (owner.CheckSight (next, SF_SeePastShootableLines)) continue;
@@ -48,10 +51,12 @@ class PostalNPCMonsterChecker : Powerup
 	override void Tick()
 	{
 		Super.Tick();
-		if (!Owner || Owner.bKILLED || owner is 'NPCCore' || owner is 'NPCHead')
-		{
-			return;
-		}
+		
+		if (!owner) return;
+		
+		if (owner.bKILLED) return;
+		
+		if (owner is 'NPCCore' || owner is 'NPCHead') return;
 		
 		angle = owner.angle;
 		
