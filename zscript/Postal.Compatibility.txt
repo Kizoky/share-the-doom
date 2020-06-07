@@ -36,11 +36,11 @@ class PostalNPCMonsterChecker : Powerup
 				let next = it.Thing;
 			
 			
-			if (owner.AbsAngle (owner.AngleTo (next), owner.angle) > (fov / 2.)) continue;
+			if (owner.AbsAngle (owner.AngleTo (next), owner.angle) > (fov / 2.) && owner) continue;
 			
 			//if (owner.CheckSight (next, SF_SeePastShootableLines)) continue;
 			
-			if (next is 'NPCCore' && !next.bKILLED && !owner.bFRIENDLY)
+			if (next is 'NPCCore' && !next.bKILLED && !owner.bFRIENDLY && owner)
 			{
 				owner.target = next;
 				owner.SetStateLabel("See");
