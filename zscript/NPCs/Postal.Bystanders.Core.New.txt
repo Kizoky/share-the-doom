@@ -319,46 +319,6 @@ class NPCCore : PostalActor
 				A_Die();
 		}
 		
-		// I want to kill myself
-		if (InStateSequence(CurState, ResolveState("Spawn")))
-		{
-			// Doom AI tries to default it's target to Player ALWAYS if they have seen it beforehand
-			// This is getting annoying you know
-			if (target && target is 'PlayerPawn')
-			{
-				if (MyTarget == null)
-					A_ClearTarget();
-				else if (MyTarget != target)
-					target = MyTarget;
-			}
-			
-			// If both doesn't exist it's obvious they shouldn't be after targets or be busy
-			if (!target && !MyTarget)
-			{
-				isAfterTarget = false;
-				isBusy = false;
-			}
-			
-			if (target && MyTarget)
-			{
-				if (target == MyTarget && target.Health >= 1)
-				{
-					SetStateLabel("See");
-				}
-			}
-			
-			if (target == null && MyTarget != null)
-			{
-				if (MyTarget.Health >= 1)
-				{
-					target = MyTarget;
-					SetStateLabel("See");
-				}
-				else if (Hostility ~== "Pussy" && !hasSeenCorpse)
-					MyTarget = null;
-			}
-		}
-		
 		// Some absurd way of doing pathnodes, probably will be replaced by something greater
 		// or it will be even worse
 		
@@ -411,6 +371,55 @@ class NPCCore : PostalActor
 			(InStateSequence(CurState, ResolveState("Missile.Shotgun")) ||
 			(InStateSequence(CurState, ResolveState("Missile.RocketLauncher")))))
 		A_FaceTarget();
+		
+		// I want to kill myself
+		if (InStateSequence(CurState, ResolveState("Spawn")))
+		{	
+			// Doom AI tries to default it's target to Player ALWAYS if they have seen it beforehand
+			// This is getting annoying you know
+			if (target && target is 'PlayerPawn')
+			{
+				if (MyTarget == null)
+				{
+					A_ClearTarget();
+					Speed = Default.Speed;
+				}
+				else if (MyTarget != target)
+					target = MyTarget;
+			}
+			
+			// If both doesn't exist it's obvious they shouldn't be after targets or be busy
+			if (!target && !MyTarget)
+			{
+				isAfterTarget = false;
+				isBusy = false;
+				Speed = Default.Speed;
+			}
+			
+			if (target && MyTarget)
+			{
+				if (target == MyTarget && !target.bKILLED)
+				{
+					SetStateLabel("See");
+				}
+			}
+			
+			if (target == null && MyTarget != null)
+			{
+				if (!MyTarget.bKILLED)
+				{
+					target = MyTarget;
+					SetStateLabel("See");
+				}
+				else
+				{	
+					target = null;
+					MyTarget = null;
+					isAfterTarget = false;
+					Speed = Default.Speed;
+				}
+			}
+		}
 			
 	}
 	
@@ -422,7 +431,7 @@ class NPCCore : PostalActor
 		
 		if (target)
 		{
-			if (Hostility == "Pussy" && hasSeenCorpse != true)
+			if (Hostility == "Pussy" && !hasSeenCorpse)
 			{
 				if (target.bKILLED)
 				{
@@ -881,12 +890,15 @@ class NPCCore : PostalActor
 	PussyChase:
 		FLEE ABCDEFGHIJ 3
 		{
+			/*
 			if (target && MyTarget && MyTarget != target)
 			{
 				Console.Printf("Done");
 				target = MyTarget;
 			}
+			*/
 			
+			/*
 			if (target == null)
 			{		
 				isAfterTarget = false;
@@ -896,6 +908,7 @@ class NPCCore : PostalActor
 				MyTarget = null;
 				SetStateLabel("Spawn");
 			}
+			*/
 			
 			//if (target)
 				//A_PostalTarget();

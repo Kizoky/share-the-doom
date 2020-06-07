@@ -1,4 +1,4 @@
-//A Debug weapon that can set variables for NPCs
+//A Debug weapon for NPCs
 
 class PostDebug : PostalWeapon
 {
@@ -13,30 +13,99 @@ class PostDebug : PostalWeapon
 	Obituary "$OB_MPPISTOL";
 	//+WEAPON.WIMPY_WEAPON;
 	Tag "$TAG_PISTOL";
-	Inventory.PickupMessage "$GOTPISTOL";
+	Inventory.PickupMessage "Mister, stop cheating with the laws of the universe!";
 	}
 	States
 	{
 	Ready:
-		XXXX AAAA 1 A_WeaponReady;
+		XXXX A 1 A_WeaponReady;
 		Goto Ready;
 	Deselect:
-		XXXX AAAA 1 A_Lower;
+		XXXX A 1 A_Lower;
 		Loop;
 	Select:
-		TNT1 A 0 A_PlaySound("weaponselect3", 7 | 4096);
-		XXXX AAAA 1 A_Raise;
+		XXXX A 0 A_PlaySound("weaponselect3", 7 | 4096);
+		XXXX A 1 A_Raise;
 		Loop;
 	Fire:
-		TNT1 A 0 A_Debug1();
-		DEBU ABCDEFGHIJKLMNOPQRS 3;
+		DEBU A 0 A_Debug1();
+		DEBU ABCDEFGHIJKLMNOPQRS 1;
 		Goto Ready;
 	AltFire:
-		XXXX BCDEFGHIJ 3;
+		XXXX B 0
+		{	
+			BlockThingsIterator it = BlockThingsIterator.Create (self, 10000);
+			
+			A_Print("Marked alive NPCs with 'hasSeenCorpse' and Pussy");
+			
+			while (it.Next () && it.Thing != null) 
+			{
+				let next = it.Thing;
+				
+				if (next && next is 'NPCCore')
+				{
+					let NPC = NPCCore(next);
+					if (NPC && NPC.Hostility ~== "Pussy" && NPC.hasSeenCorpse && !NPC.bKILLED)
+					{
+						if (!NPC.FindInventory("PostalNPCDebugger"))
+							NPC.A_GiveInventory("PostalNPCDebugger",1);
+					}
+				}
+			}
+			
+		}
+		XXXX BCDEFGHIJ 1;
 		Goto Ready;
 	Spawn:
 		PIST A -1;
 		Stop;
+	}
+}
+
+class PostalNPCDebugger : Powerup
+{
+	bool oneinstance;
+	actor control;
+	
+	Default
+	{
+		Powerup.Duration -99999;
+		+INVENTORY.HUBPOWER
+	}
+
+	override void InitEffect ()
+	{
+		Super.InitEffect();
+		if (!oneinstance)
+		{
+			let head = spawn("Postal_FailedPathnode", owner.pos+(0,0,100), ALLOW_REPLACE);
+			oneinstance = true;
+			control = head;
+		}
+	}
+
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if (Owner == NULL || Owner.player == NULL)
+		{
+			return;
+		}
+		if (control)
+			control.Destroy();
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (owner)
+		{
+			if (!owner.bKILLED)
+				control.SetOrigin(owner.pos+(0,0,80), TRUE);
+			else
+				control.Destroy();
+		}
 	}
 }
 
@@ -73,7 +142,12 @@ extend class PostDebug
 				}
 				
 				if (pp.MyTarget)
+				{
 					Console.Printf("NPC Spawn Debug: MyTarget pointer is called '%s'", pp.MyTarget.GetClassName());
+					
+					string mahtarget = pp.MyTarget.bKILLED ? "dead" : "alive";
+					Console.Printf("NPC Spawn Debug: MyTarget is %s", mahtarget);
+				}
 					
 				if (!pp.MyTarget)
 					Console.Printf("NPC Spawn Debug: MyTarget pointer is null");
@@ -83,6 +157,9 @@ extend class PostDebug
 				
 				string sATarget = pp.isAfterTarget ? "true" : "false";
 				Console.Printf("NPC Spawn Debug: isAfterTarget is '%s'", sATarget);
+				
+				string ccorpse = pp.hasSeenCorpse ? "true" : "false";
+				Console.Printf("NPC Spawn Debug: hasSeenCorpse is '%s'", ccorpse);
 				
 				Console.Printf("NPC Spawn Debug: Hostility is '%s'", pp.Hostility);
 				
