@@ -4590,3 +4590,43 @@ class light_fixture : PostalDecoration
 		Loop;
 	}
 }
+
+
+class paradset_mall : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Mall Sign"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class sexbomb : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Inflatable Doll"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

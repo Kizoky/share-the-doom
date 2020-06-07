@@ -4210,3 +4210,34 @@ Model "light_fixture"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "paradset_mall"
+{
+	Path "models\props"
+	Model 0 "mall_3d_sign.md3"
+	SurfaceSkin 0 0 "metal_bar_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "sexbomb"
+{
+	Path "models\props"
+	Model 0 "Inflatable_Doll01.md3"
+	SurfaceSkin 0 0 "Inflatable_Doll_02.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
