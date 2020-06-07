@@ -890,13 +890,12 @@ class NPCCore : PostalActor
 	PussyChase:
 		FLEE ABCDEFGHIJ 3
 		{
-			/*
 			if (target && MyTarget && MyTarget != target)
 			{
 				Console.Printf("Done");
 				target = MyTarget;
+				goal = MyTarget;
 			}
-			*/
 			
 			/*
 			if (target == null)

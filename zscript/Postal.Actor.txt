@@ -73,10 +73,12 @@ class PostalActor : Actor
 			}
 		}
 		
+		/*
 		// [RH] If the target is dead or a friend (and not a goal), stop chasing it.
 		if (target && target != goal && (target.health <= 0 || isFriend (target)))
 			target = null;
-			
+		*/
+		
 		// [RH] Friendly monsters will consider chasing whoever hurts a player if they
 		// don't already have a target.
 		if (bFRIENDLY && target == null)
@@ -112,8 +114,11 @@ class PostalActor : Actor
 		}
 		
 		// Look for a new target
-		if (!target || !target.bSHOOTABLE)
+		if ((!target || !target.bSHOOTABLE))
 		{
+			let a = NPCCore(self);
+			if (a && a.Hostility ~== "Pussy" && a.hasSeenCorpse) return;
+			
 			if (target != null && target.bNONSHOOTABLE)
 			{
 				lastenemy = target;
