@@ -28,6 +28,12 @@ episode WORLD1
 	name="Share the Doom"
 }
 
+
+episode DEVMAP
+{
+	name="Developer Test Map"
+}
+
 defaultmap
 {
 	sky1=F_SKY1
