@@ -323,6 +323,8 @@ class DudeCoreHandler : EventHandler
 		{
 			if (!SpawnedThing) return;
 			
+			if (SpawnedThing is 'PostalDecoration' || SpawnedThing is 'PostalActor') return;
+			
 			if (SpawnedThing is 'BossBrain' ||
 				SpawnedThing is 'BossEye' ||
 				SpawnedThing is 'BossTarget' ||
