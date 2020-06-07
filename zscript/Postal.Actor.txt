@@ -374,6 +374,47 @@ class PostalActor : Actor
             (flags & CHF_NightmareFast), (flags & CHF_DontMove), flags
         );
     }
+	
+	void A_PostalWander (int flags = 0)
+	{
+		// [RH] Strife probably clears this flag somewhere, but I couldn't find where.
+		// This seems as good a place as any.
+		bINCOMBAT = false;
+		
+		if (bINCONVERSATION)
+			return;
+			
+		if (bSTANDSTILL)
+			return;
+			
+		if (reactiontime != 0)
+		{
+			reactiontime--;
+			return;
+		}
+		
+		// turn towards movement direction if not there yet
+		if (!(flags & CHF_NODIRECTIONTURN) && (movedir < DI_NODIR))
+		{
+			angle = floor(angle / 45) * 45.;
+			double delta = deltaangle(angle,(moveDir * 45));
+			if (delta < 0)
+			{
+				angle -= 45;
+			}
+			else if (delta > 0)
+			{
+				angle += 45;
+			}
+		}
+		
+		if ((--movecount < 0 && !(flags & CHF_NORANDOMTURN)) || (!MonsterMove() && !(flags & CHF_STOPIFBLOCKED)))
+		{
+			RandomChaseDir();
+			movecount += 5;
+		}
+		return;
+	}
 }
 
 class PostalDecoration : Actor 
