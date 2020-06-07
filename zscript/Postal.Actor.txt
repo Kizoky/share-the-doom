@@ -4,6 +4,371 @@ class PostalActor : Actor
 	
 	property NeverTarget : STD_NeverTarget;
 	property NoKillLine : STD_NoKillLine;
+	
+	// shitty port of A_DoChase to ZScript
+	
+	const CLASS_BOSS_STRAFE_RANGE = 64*10;
+	void A_PostalDoChase (bool fastchase, State meleestate, State missilestate, bool playActive, bool nightmareFast, bool dontMove, int flags)
+	{
+		if (bInConversation)
+			return;
+			
+		if (bInChase)
+			return;
+			
+		bInChase = true;
+		
+		bool isFast = bALWAYSFAST ? true : false;
+		
+		// [RH] Andy Baker's stealth monsters
+		if (bStealth)
+			visdir = -1;
+			
+		if (reactiontime)
+			reactiontime--;
+			
+		// [RH] Don't chase invisible targets
+		if (target != null &&
+			target.bINVISIBLE &&
+			target != goal)
+		{
+			target = null;
+		}
+		
+		// modify target threshold
+		if (target != null || target.Health <= 0)
+			threshold = 0;
+		else
+			threshold--;
+		
+		// Monsters move faster in nightmare mode
+		if (nightmareFast && G_SkillPropertyInt (SKILLP_FastMonsters))
+		{
+			if (tics > 3)
+			{
+				tics -= tics / 2;
+				if (tics < 3)
+				{
+					tics = 3;
+				}
+			}
+		}
+		
+		// turn towards movement direction if not there yet
+		if (strafecount)
+		{
+			A_FaceTarget();
+		}
+		else if (!(flags & CHF_NODIRECTIONTURN && moveDir < 8))
+		{
+			angle = floor(angle / 45) * 45.;
+			double delta = deltaangle(angle,(moveDir * 45));
+			if (delta < 0)
+			{
+				angle -= 45;
+			}
+			else if (delta > 0)
+			{
+				angle += 45;
+			}
+		}
+		
+		// [RH] If the target is dead or a friend (and not a goal), stop chasing it.
+		if (target && target != goal && (target.health <= 0 || isFriend (target)))
+			target = null;
+			
+		// [RH] Friendly monsters will consider chasing whoever hurts a player if they
+		// don't already have a target.
+		if (bFRIENDLY && target == null)
+		{
+			PlayerInfo player;
+			
+			if (FriendPlayer != 0)
+			{
+				player = Players[FriendPlayer - 1];
+			}
+			else
+			{
+				int i;
+				if (!multiplayer)
+				{
+					i = 0;
+				}
+				else for (i = random[newchasedirr](0,255) & (MAXPLAYERS-1); !PlayerInGame[i]; i = (i+1) & (MAXPLAYERS-1))
+				{
+				}
+				
+				player = Players[i];
+			}
+			if (player.attacker && player.attacker.health > 0 && player.attacker.bSHOOTABLE && random[newchasedirr](0,255) < 80)
+			{
+				if (!player.attacker.bFRIENDLY ||
+					deathmatch && FriendPlayer != 0 && player.attacker.FriendPlayer != 0 &&
+					FriendPlayer != player.attacker.FriendPlayer)
+				{
+					target = player.attacker;
+				}
+			}
+		}
+		
+		// Look for a new target
+		if (!target || !target.bSHOOTABLE)
+		{
+			if (target != null && target.bNONSHOOTABLE)
+			{
+				lastenemy = target;
+				threshold = 0;
+			}
+			
+			// got a new target
+			if (LookForPlayers (true, null) && target != goal)
+			{
+				bINCHASE = false;
+				return;
+			}
+			
+			if (target == null)
+			{
+				if (bFRIENDLY)
+				{
+					if (target == null)
+					{
+						if (!dontmove) A_Wander();
+						bINCHASE = false;
+						return;
+					}
+				}
+				else
+				{
+					SetIdle();
+					bINCHASE = false;
+					return;
+				}
+			}
+		}
+		
+		// do not attack twice in a row
+		if (bJUSTATTACKED)
+		{
+			bJUSTATTACKED = false;
+			if (!isFast && !dontmove && !(flags & CHF_NOPOSTATTACKTURN) && !(flags & CHF_STOPIFBLOCKED))
+			{
+				NewChaseDir();
+			}
+			//Because P_TryWalk would never be reached if the actor is stopped by a blocking object,
+			//need to make sure the movecount is reset, otherwise they will just keep attacking
+			//over and over again.
+			if (flags & CHF_STOPIFBLOCKED)
+				movecount = TryWalk() & 15;
+			bINCHASE = false;
+			return;
+		}
+		
+		// [RH] Don't attack if just moving toward goal
+		if (target == goal || bChaseGoal && goal != null)
+		{
+			actor savedtarget = target;
+			target = goal;
+			double dist = Distance2D(savedtarget);
+			bool result = (dist >= MeleeRange + radius + savedtarget.radius) ? true : false;
+			target = savedtarget;
+			
+			if (result)
+			{
+				// reached the goal
+				ActorIterator iterator = Level.CreateActorIterator(goal.args[0], "PatrolPoint");
+				ActorIterator specit = Level.CreateActorIterator(goal.tid, "PatrolSpecial");
+				Actor spec;
+				
+				// Execute the specials of any PatrolSpecials with the same TID
+				// as the goal.
+				while ( (spec = specit.Next()) )
+				{
+					level.ExecuteSpecial(
+						spec.special, self, null, false,
+						spec.args [0], spec.args [1], spec.args [2], spec.args [3], spec.args [4]
+					);
+				}
+			
+				double lastgoalang = goal.angle;
+				int delay;
+				actor newgoal = iterator.Next ();
+				if (newgoal != null && goal == target)
+				{
+					delay = newgoal.args[1];
+					reactiontime = delay * TICRATE + level.maptime;
+				}
+				else
+				{
+					delay = 0;
+					reactiontime = Default.reactiontime;
+					angle = lastgoalang;
+				}
+				if (target == goal) target = null;
+				bJUSTATTACKED = true;
+				if (newgoal != null && delay != 0)
+				{
+					bINCOMBAT = true;
+					SetIdle();
+				}
+				bINCHASE = false;
+				goal = newgoal;
+				return;
+			}
+		}
+		if (goal == target) A_PostalDoChaseEnd (fastChase, meleestate, missilestate, playActive, nightmareFast, dontMove, flags);
+		
+		// Strafe	(Hexen's class bosses)
+		// This was the sole reason for the separate A_FastChase function but
+		// it can be just as easily handled by a simple flag so the monsters
+		// can take advantage of all the other enhancements of A_Chase.
+		
+		if (fastchase && !dontmove)
+		{
+			if (FastChaseStrafeCount > 0)
+			{
+				FastChaseStrafeCount--;
+			}
+			else
+			{
+				FastChaseStrafeCount = 0;
+				Vel.X = Vel.Y = 0;
+				double dist = Distance2D(target);
+				if (dist < CLASS_BOSS_STRAFE_RANGE)
+				{
+					if (random[pr_chase](0,255) < 100)
+					{
+						double ang = AngleTo(target);
+						if (random[pr_chase](0,255) < 128) ang += 90.;
+						else ang -= 90.;
+						VelFromAngle(13., ang);
+						FastChaseStrafeCount = 3;	// strafe time
+					}
+				}
+			}
+		}
+		
+		// [RH] Scared monsters attack less frequently
+		if (target.player == null || 
+			!(target.player.cheats & CF_FRIGHTENING) || (target.bFRIGHTENING &&
+			bFRIGHTENED) ||
+			random[pr_scaredycat](0,255) < 43)
+		{
+			// check for melee attack
+			if (meleestate && CheckMeleeRange ())
+			{
+				if (AttackSound)
+					A_StartSound(AttackSound, CHAN_WEAPON);
+				
+				SetState (meleestate);
+				bINCHASE = false;
+				return;
+			}
+			
+			// check for missile attack
+			if (missilestate)
+			{
+				if(!isFast && movecount)
+				{
+					A_PostalDoChaseEnd (fastChase, meleestate, missilestate, playActive, nightmareFast, dontMove, flags);
+				}
+			
+				if (!CheckMissileRange())
+				{
+					A_PostalDoChaseEnd (fastChase, meleestate, missilestate, playActive, nightmareFast, dontMove, flags);
+				}
+				SetState (missilestate);
+				bJUSTATTACKED = true;
+				bINCOMBAT = true;
+				bINCHASE = false;
+				return;
+			}
+		}
+		
+		A_PostalDoChaseEnd (fastChase, meleestate, missilestate, playActive, nightmareFast, dontMove, flags);
+	}
+	
+	void A_PostalDoChaseEnd(bool fastchase, State meleestate, State missilestate, bool playActive, bool nightmareFast, bool dontMove, int flags)
+	{
+		if ((multiplayer || TIDtoHATE)
+			&& !threshold
+			&& !CheckSight(target,0) )
+		{
+			bool lookForBetter = false;
+			bool gotNew;
+			if (bNOSIGHTCHECK)
+			{
+				bNOSIGHTCHECK = false;
+				lookForBetter = true;
+			}
+			actor oldtarget = target;
+			gotNew = LookForPlayers(true,null);
+			if (lookForBetter)
+			{
+				bNOSIGHTCHECK = true;
+			}
+			if (gotNew && target != oldtarget)
+			{
+				bINCHASE = false;
+				return;
+			}
+		}
+		
+		//
+		// chase towards player
+		//
+		
+		if (strafecount)
+			strafecount--;
+			
+		// class bosses don't do this when strafing
+		if ((!fastchase || !FastChaseStrafeCount) && !dontmove)
+		{
+			// CANTLEAVEFLOORPIC handling was completely missing in the non-serpent functions.
+			vector2 old = pos.XY;
+			//int oldgroup = PrevPortalGroup
+			TextureID oldFloor = floorpic;
+			
+			// Chase towards player
+			if ((--movecount < 0 && !(flags & CHF_NORANDOMTURN)) || !MonsterMove() && !(flags & CHF_StopIfBlocked))
+			{
+				NewChaseDir();
+			}
+			// if the move was illegal, reset it 
+			// (copied from A_SerpentChase - it applies to everything with CANTLEAVEFLOORPIC!)
+			if (bCANTLEAVEFLOORPIC && floorpic != oldFloor)
+			{
+				if (TryMove(old, false))
+				{
+					if (nomonsterinterpolation)
+					{
+						Prev.X = old.X;
+						Prev.Y = old.Y;
+						//PrevPortalGroup = oldgroup;
+					}
+				}
+				if (!(flags & CHF_STOPIFBLOCKED))
+					NewChaseDir();
+			}
+		}
+		else if (dontmove && movecount > 0) movecount--;
+		
+		// make active sound
+		if (playactive && random[pr_chase](0,255) < 3)
+		{
+			PlayActiveSound();
+		}
+		
+		bINCHASE = false;
+		
+	}
+	
+	action void A_PostalChase (StateLabel melee = null, StateLabel missile = null, int flags = 0)
+	{
+        invoker.A_PostalDoChase ((flags & CHF_FastChase), ResolveState (melee), ResolveState (missile), !(flags & CHF_NoPlayActive),
+            (flags & CHF_NightmareFast), (flags & CHF_DontMove), flags
+        );
+    }
 }
 
 class PostalDecoration : Actor 
