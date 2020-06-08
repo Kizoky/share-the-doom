@@ -410,7 +410,9 @@ class PostalActor : Actor
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
-			if (lineData.HitActor is 'PostalDecoration')
+			if (lineData.HitActor is 'PostalDecoration' || 
+				lineData.HitActor is 'PostalWindow' || 
+				lineData.HitActor is 'PostalWindow_Extender')
 			{
 				if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
 				{	
