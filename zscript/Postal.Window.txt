@@ -183,7 +183,7 @@ class PostalWindow_Extender : PostalActor
 	
 	override void Touch (actor toucher)
 	{
-		if (toucher)
+		if (toucher && AttachedWindow)
 		{
 			if (toucher.pos.z > floorz)
 			{
