@@ -139,8 +139,10 @@ missp2 sounds/bullet_ricochet2.wav
 error sounds/MiscSounds/error.wav
 $limit error 0
 
-carengine sounds/carengine.ogg
+carengine sounds/carengine.wav
 carhorn sounds/carhorn.wav
+caridle sounds/caridle.wav
+carskid sounds/carskid.wav
 
 $random missp { missp1 missp2 }
 
