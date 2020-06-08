@@ -53,6 +53,8 @@ class PostalCar : PostalActor
 	
 	int WarningTime;
 	
+	bool isStanding, skidSoundPlayedOnce;
+	
 	override void Tick()
 	{
 		Super.Tick();
@@ -71,6 +73,18 @@ class PostalCar : PostalActor
 		
 		if (ActiveNode != null)
 		{
+			// Assuming the car is currently standing, because there's an idiot in front of it...
+			if (isStanding)
+			{
+				if (!skidSoundPlayedOnce)
+				{
+					A_StartSound("carskid", CHAN_BODY, CHANF_OVERLAP);
+					skidSoundPlayedOnce = true;
+				}
+				
+				A_StartSound("caridle", CHAN_ITEM, CHANF_NOSTOP);
+			}
+			
 			// Here's a little lesson in trickery...
 			Vector3 norm = CurSector.floorPlane.normal;
 			if (!(norm ~== (0,0,1)))
@@ -93,10 +107,14 @@ class PostalCar : PostalActor
 						A_StartSound("carhorn", CHAN_BODY, CHANF_OVERLAP);
 						HonkTime = level.time + 35 * frandom(0,3);
 					}
+					isStanding = true;
 					return;
 				}
 				i++;
 			}
+			
+			isStanding = false;
+			skidSoundPlayedOnce = false;
 			
 			A_StartSound("carengine", CHAN_BODY, CHANF_NOSTOP);
 			
