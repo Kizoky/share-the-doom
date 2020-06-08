@@ -375,6 +375,7 @@ class PostalActor : Actor
         );
     }
 	
+	int DirectionTurnCD;
 	void A_PostalWander (int flags = 0)
 	{
 		// [RH] Strife probably clears this flag somewhere, but I couldn't find where.
@@ -393,20 +394,71 @@ class PostalActor : Actor
 			return;
 		}
 		
-		// turn towards movement direction if not there yet
-		if (!(flags & CHF_NODIRECTIONTURN) && (movedir < DI_NODIR))
+		/*
+		if (LineData.HitType == TRACE_HitWall)
 		{
-			angle = floor(angle / 45) * 45.;
-			double delta = deltaangle(angle,(moveDir * 45));
-			if (delta < 0)
+			angle += 45;
+			Console.Printf("fff");
+			return;
+		}
+		*/
+		
+		// Let's check for these damn cactuses...
+		FLineTraceData lineData;
+		LineTrace(angle,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
+		VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FF0000", 2);
+		
+		if (LineData.HitType == TRACE_HitActor)
+		{
+			if (lineData.HitActor is 'PostalDecoration')
 			{
-				angle -= 45;
-			}
-			else if (delta > 0)
-			{
-				angle += 45;
+				if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
+				{	
+					A_SetAngle(angle-15, SPF_INTERPOLATE);
+				}
+				else A_SetAngle(angle+15, SPF_INTERPOLATE);
+				return;
 			}
 		}
+		
+		if (LineData.HitType == TRACE_HitWall)
+		{
+			int i = 0;
+			while (i < 5)
+			{
+				LineTrace(angle,175,0,offsetz: height-20, offsetforward: 25, data: LineData);
+				if (LineData.HitType == TRACE_HitWall)
+					angle += 35;
+				
+				i++;
+			}
+			
+			return;
+		}
+		
+		// turn towards movement direction if not there yet
+		if (!(flags & CHF_NODIRECTIONTURN))
+		{	
+			if (DirectionTurnCD < level.time)
+			{
+				bool hitintoright, hitintoleft;
+				LineTrace(angle+45,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
+				if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
+					hitintoright = true;
+				LineTrace(angle-45,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
+				if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
+					hitintoleft = true;
+				
+				if (!hitintoright && !hitintoleft)
+					angle += random[rangle](0,1) == 1 ? 45 : -45;
+				else
+					angle += (hitintoright && !hitintoleft) ? -45 : 45;
+				
+				DirectionTurnCD = level.time + 35 * frandom[DTC](4.5,12.5);
+			}
+		}
+		
+		A_Recoil(-0.35);
 		
 		if ((--movecount < 0 && !(flags & CHF_NORANDOMTURN)) || (!MonsterMove() && !(flags & CHF_STOPIFBLOCKED)))
 		{

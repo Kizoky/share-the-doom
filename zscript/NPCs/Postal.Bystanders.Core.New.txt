@@ -751,8 +751,7 @@ class NPCCore : PostalActor
 		}
 		DUDW ABCD 3
 		{
-			A_Recoil(-0.35);
-			A_Wander(flags: CHF_STOPIFBLOCKED);
+			A_PostalWander(flags: CHF_STOPIFBLOCKED);
 			if (Petitioning == true)
 				SetStateLabel("Petitioning");
 			A_BystanderNode();
@@ -760,22 +759,19 @@ class NPCCore : PostalActor
 		//TNT1 A 0 A_BystanderNode();
 		DUDW EFGH 3
 		{
-			A_Recoil(-0.35);
-			A_Wander(flags: CHF_STOPIFBLOCKED);
+			A_PostalWander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		DUDW I 0 A_BystanderThink();
 		DUDW IJKL 3
 		{
-			A_Recoil(-0.35);
-			A_Wander(flags: CHF_STOPIFBLOCKED);
+			A_PostalWander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		//TNT1 A 0 A_BystanderNode();
 		DUDW MNOPQR 3
 		{
-			A_Recoil(-0.35);
-			A_Wander(flags: CHF_STOPIFBLOCKED);
+			A_PostalWander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		Loop;
@@ -1712,10 +1708,12 @@ extend class NPCCore
 						}
 					}
 					
-					if (next is 'PostalActor')
+					if (next is 'PostalActor' || next is 'PostalDecoration')
 					{
+						if (next is "PostalDecoration") return;
+						
 						let pa = PostalActor(next);
-						if (pa.STD_NeverTarget == true && pa) return;
+						if (pa && pa.STD_NeverTarget == true) return;
 					}
 					
 					if (next.bIsMonster && !(next.bKILLED) && !(next is 'NPCCore') && !(next is 'Champ') && !(next is 'PostalCatInv') && !(next is 'PostalLiquidGas') && !(next is 'PostalFire') && !(next is 'PouringGas') 

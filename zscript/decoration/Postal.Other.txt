@@ -284,6 +284,11 @@ class barrelcactus : PostalDecoration
 	
 	}
 	
+	override void Tick()
+	{
+		Super.Tick();
+	}
+	
 	Default
 	{
 		//$Category Plants
@@ -292,6 +297,9 @@ class barrelcactus : PostalDecoration
 		Height 52;
 		+SPECIAL
 		+SOLID
+		-NOBLOCKMAP
+		-NOINTERACTION
+		+SHOOTABLE
 		
 		Obituary "%o hugged a cactus to death.";
 	}
