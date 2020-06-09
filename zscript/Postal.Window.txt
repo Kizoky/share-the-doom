@@ -102,6 +102,7 @@ class PostalWindow_Extender : PostalActor
 {
 	Actor AttachedWindow;
 	bool GotActor;
+	Array<actor> Windows;
 	
 	void A_SearchForWindow()
 	{
@@ -110,22 +111,32 @@ class PostalWindow_Extender : PostalActor
 		BlockThingsIterator it = BlockThingsIterator.Create (self, 150);
 		double fov = 20;
 		
-		while (it.Next ()) {
+		while (it.Next ()) 
+		{
 			let next = it.Thing;
 			if (!next) return;
 			
-			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) // Not within FOV
+			if (next is 'PostalWindow' && next.pos.z ~== pos.z)
 			{
-				continue;
+				Windows.Push(next);
+			}	
+		}
+		
+		double dist = 100000;
+		int smallestDiff;
+		for (int i = 0; i <= Windows.Size()-1; i++)
+		{
+			if (Distance3D(Windows[i]) < dist)
+			{
+				dist = Distance3D(Windows[i]);
+				smallestDiff = i;
 			}
-			
-			if (!AttachedWindow)
+				
+			if (i == Windows.Size()-1)
 			{
-				if (next is 'PostalWindow' && next.pos.z == self.pos.z)
-				{
-					AttachedWindow = next;
-					GotActor = true;
-				}
+				AttachedWindow = Windows[smallestDiff];
+				GotActor = true;
+				Windows.Clear();
 			}
 		}
     }

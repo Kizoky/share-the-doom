@@ -407,7 +407,7 @@ class PostalActor : Actor
 		{
 			FLineTraceData lineData;
 			LineTrace(angle,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
-			VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FF0000", 2);
+			//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FF0000", 2);
 			
 			// This always checks for actors, if it found it will try to move it's angle
 			if (LineData.HitType == TRACE_HitActor)
@@ -435,7 +435,7 @@ class PostalActor : Actor
 				// This LineTrace checks if at -25 pitch there's a wall or not
 				// This is useful if the NPC is walking on stairs and up
 				LineTrace(angle,105,-25, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-				VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FFFFFF", 2);
+				//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FFFFFF", 2);
 				
 				if (LineData.HitType == TRACE_HitWall)
 					maybestairs = false;
