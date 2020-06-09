@@ -73,11 +73,9 @@ class PostalActor : Actor
 			}
 		}
 		
-		/*
-		// [RH] If the target is dead or a friend (and not a goal), stop chasing it.
-		if (target && target != goal && (target.health <= 0 || isFriend (target)))
+		// [Kizoky] If the target is a PostalDecoration actor, stop targeting it
+		if (target && target is 'PostalDecoration')
 			target = null;
-		*/
 		
 		// [RH] Friendly monsters will consider chasing whoever hurts a player if they
 		// don't already have a target.
@@ -114,6 +112,7 @@ class PostalActor : Actor
 		}
 		
 		// Look for a new target
+		// [Kizoky] modified it heavily so they won't automatically target the player
 		if ((!target || !target.bSHOOTABLE))
 		{
 			let a = NPCCore(self);
@@ -126,11 +125,14 @@ class PostalActor : Actor
 			}
 			
 			// got a new target
+			// [Kizoky] commented this out
+			/*
 			if (LookForPlayers (true, null) && target != goal)
 			{
 				bINCHASE = false;
 				return;
 			}
+			*/
 			
 			if (target == null)
 			{
@@ -307,12 +309,12 @@ class PostalActor : Actor
 				lookForBetter = true;
 			}
 			actor oldtarget = target;
-			gotNew = LookForPlayers(true,null);
+			//gotNew = LookForPlayers(true,null);
 			if (lookForBetter)
 			{
 				bNOSIGHTCHECK = true;
 			}
-			if (gotNew && target != oldtarget)
+			if (target != oldtarget)
 			{
 				bINCHASE = false;
 				return;
