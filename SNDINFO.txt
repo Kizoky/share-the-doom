@@ -454,8 +454,8 @@ piss/zipperdown sounds/piss_ZipperDown.wav
 piss/start sounds/Piss_Start.wav
 piss/end sounds/Piss_End.wav
 
-smoke/inhale sounds/wm_inhale.wav
-smoke/exhale sounds/wm_exhale.wav
+smoke/inhale sounds/npc/whitemale/wm_inhale.wav
+smoke/exhale sounds/npc/whitemale/wm_exhale.wav
 
 mikej/scream1 sounds/Scream_1.wav
 mikej/scream2 sounds/Scream_2.wav
@@ -471,7 +471,7 @@ mikej/bump1 sounds/Got_Bumped_1.wav
 mikej/bump2 sounds/Got_Bumped_2.wav
 $random mikej/bump { mikej/bump1 mikej/bump2 }
 
-noway sounds/wm_dontsignpetition.wav
+noway sounds/npc/whitemale/wm_dontsignpetition.wav
 
 catpickup sounds/CatShreak.wav
 catscream sounds/CatScream.wav
@@ -486,49 +486,50 @@ $random player/healthpipehurt { dudeline11 dudeline62 }
 krotchy/bump sounds/wm_krotchy_getoffme.wav
 krotchy/taunt sounds/wm_krotchy_youthinkyou.wav
 
-male1/hurt1 sounds/wm_aahimhit.wav
-male1/hurt2 sounds/wm_aghk.wav
-male1/hurt3 sounds/wm_argh.wav
+male1/hurt1 sounds/npc/whitemale/wm_aahimhit.wav
+male1/hurt2 sounds/npc/whitemale/wm_aghk.wav
+male1/hurt3 sounds/npc/whitemale/wm_argh.wav
+male1/hurt4 sounds/npc/whitemale/wm_ow.wav
 
 
-male1/death1 sounds/wm_cop_aah.wav
-male1/death2 sounds/wm_cop_argh.wav
+male1/death1 sounds/npc/whitemale/wm_cop_aah.wav
+male1/death2 sounds/npc/whitemale/wm_cop_argh.wav
 
 $random male1/death { male1/death1 male1/death2 }
 
-$random male1/hurt { male1/hurt1 male1/hurt2 male1/hurt3 }
+$random male1/hurt { male1/hurt1 male1/hurt2 male1/hurt3 male1/hurt4 }
 
-male1/scream1 sounds/wm_scream1.wav
-male1/scream2 sounds/wm_scream2.wav
-male1/scream3 sounds/wm_scream3.wav
-male1/scream4 sounds/wm_scream4.wav
+male1/scream1 sounds/npc/whitemale/wm_scream1.wav
+male1/scream2 sounds/npc/whitemale/wm_scream2.wav
+male1/scream3 sounds/npc/whitemale/wm_scream3.wav
+male1/scream4 sounds/npc/whitemale/wm_scream4.wav
 
 $random male1/scream { male1/scream1 male1/scream2 male1/scream3 male1/scream4 }
 
-male1/bump1 sounds/wm_oofidiot.wav
-male1/bump2 sounds/wm_oneside.wav
-male1/bump3 sounds/wm_heywatchit.wav
+male1/bump1 sounds/npc/whitemale/wm_oofidiot.wav
+male1/bump2 sounds/npc/whitemale/wm_oneside.wav
+male1/bump3 sounds/npc/whitemale/wm_heywatchit.wav
 
 $random male1/bump { male1/bump1 male1/bump2 male1/bump3 }
 
-male1/dickout1 sounds/wm_geezstopdoingthat.wav
-male1/dickout2 sounds/wm_geezpullyourpants.wav
+male1/dickout1 sounds/npc/whitemale/wm_geezstopdoingthat.wav
+male1/dickout2 sounds/npc/whitemale/wm_geezpullyourpants.wav
 
 $random male1/dickout { male1/dickout1 male1/dickout2 }
 
-malecop1/suspect1 sounds/wm_cop_gotthescumbag.wav
-malecop1/suspect2 sounds/wm_cop_ivegottheperp.wav
+malecop1/suspect1 sounds/npc/whitemale/wm_cop_gotthescumbag.wav
+malecop1/suspect2 sounds/npc/whitemale/wm_cop_ivegottheperp.wav
 
 $random malecop1/suspect { malecop1/suspect1 malecop1/suspect2 }
 
-malecop1/arrest1 sounds/wm_cop_thatsityoure.wav
-malecop1/arrest2 sounds/wm_cop_okayyourecome.wav
+malecop1/arrest1 sounds/npc/whitemale/wm_cop_thatsityoure.wav
+malecop1/arrest2 sounds/npc/whitemale/wm_cop_okayyourecome.wav
 
 $random malecop1/arrest { malecop1/arrest1 malecop1/arrest2 }
 
-malecop1/drop1 sounds/wm_cop_dropitasshole.wav
-malecop1/drop2 sounds/wm_cop_dropyourweapon.wav
-malecop1/drop3 sounds/wm_cop_putyourweapon.wav
+malecop1/drop1 sounds/npc/whitemale/wm_cop_dropitasshole.wav
+malecop1/drop2 sounds/npc/whitemale/wm_cop_dropyourweapon.wav
+malecop1/drop3 sounds/npc/whitemale/wm_cop_putyourweapon.wav
 
 $random malecop1/drop { malecop1/drop1 malecop1/drop2 malecop1/drop3 }
 
