@@ -394,6 +394,11 @@ class PostalActor : Actor
 			return;
 		}
 		
+		if (DirectionTurnCD != 0 && level.time > DirectionTurnCD * 2)
+		{
+			Console.Printf("Warning: NPC is hugging a wall! warp %d %d %d", pos.x, pos.y, pos.z);
+		}
+		
 		let NPC = NPCCore(self);
 		
 		if (NPC && !NPC.ActiveNode)
@@ -504,7 +509,7 @@ class PostalActor : Actor
 					
 					double TimeMin, TimeMax;
 					
-					TimeMin = 5;
+					TimeMin = 6;
 					TimeMax = 15;
 					
 					if (!hitintoright && !hitintoleft)
@@ -516,13 +521,13 @@ class PostalActor : Actor
 					
 					if (!hitintoright && hitintoleft)
 					{
-						angle += 45;
+						angle += random[dturn](5,45);
 						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
 						return;
 					}
 					else if (hitintoright && !hitintoleft)
 					{
-						angle -= 45;
+						angle -= random[negturn](5,45);
 						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
 						return;
 					}
