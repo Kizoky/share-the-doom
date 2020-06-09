@@ -394,149 +394,154 @@ class PostalActor : Actor
 			return;
 		}
 		
-		FLineTraceData lineData;
-		LineTrace(angle,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
-		VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FF0000", 2);
+		let NPC = NPCCore(self);
 		
-		if (LineData.HitType == TRACE_HitActor)
+		if (NPC && !NPC.ActiveNode)
 		{
-			if (lineData.HitActor is 'PostalDecoration' || 
-				lineData.HitActor is 'PostalWindow' || 
-				lineData.HitActor is 'PostalWindow_Extender')
-			{
-				if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
-				{	
-					A_SetAngle(angle-15, SPF_INTERPOLATE);
-				}
-				else A_SetAngle(angle+15, SPF_INTERPOLATE);
-				vel.xy = (0,0);
-				return;
-			}
-		}
-		
-		LineTrace(angle,150,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-		
-		bool maybestairs;
-		if (LineData.HitType == TRACE_HitWall)
-		{
-			LineTrace(angle,105,-25, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-			VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FFFFFF", 2);
-			if (LineData.HitType == TRACE_HitWall)
-				maybestairs = false;
-			else
-				maybestairs = true;
+			FLineTraceData lineData;
+			LineTrace(angle,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
+			VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FF0000", 2);
 			
-			if (!maybestairs)
+			if (LineData.HitType == TRACE_HitActor)
 			{
-				bool hitintoright, hitintoleft;
-				
-				LineTrace(angle+45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-				if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
-					hitintoright = true;
-				LineTrace(angle-45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-				if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
-					hitintoleft = true;
-				
-				if (!hitintoright && !hitintoleft)
+				if (lineData.HitActor is 'PostalDecoration' || 
+					lineData.HitActor is 'PostalWindow' || 
+					lineData.HitActor is 'PostalWindow_Extender')
 				{
-					int i = 0;
-					while (i < 5)
-					{
-						LineTrace(angle,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-						if (LineData.HitType == TRACE_HitWall)
-						{
-							angle += random[rangle](0,1) == 1 ? -35 : 35;
-							vel.xy = (0,0);
-							return;
-						}
-						
-						i++;
-					}
-					return;
-				}
-				
-				angle += (hitintoright && !hitintoleft) ? random(-45,-35) : random(35,45);
-				
-			}
-		}
-		
-		// turn towards movement direction if not there yet
-		if (!(flags & CHF_NODIRECTIONTURN))
-		{
-			if (DirectionTurnCD < level.time)
-			{
-				bool hitintoright, hitintoleft, hitintoactor;
-				
-				LineTrace(angle+45,100,0, offsetz: height-20, offsetforward: 25, data: LineData);
-				if (LineData.HitType == TRACE_HitActor)
-				{
-					hitintoright = true; hitintoactor = true;
-					if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
-					{	
-						A_SetAngle(angle-25, SPF_INTERPOLATE);
-					}
-					else A_SetAngle(angle+25, SPF_INTERPOLATE);
-					vel.xy = (0,0);
-				}
-					
-				LineTrace(angle-45,100,0, offsetz: height-20, offsetforward: 25, data: LineData);
-				if (LineData.HitType == TRACE_HitActor)
-				{
-					hitintoleft = true; hitintoactor = true;
 					if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
 					{	
 						A_SetAngle(angle-15, SPF_INTERPOLATE);
 					}
 					else A_SetAngle(angle+15, SPF_INTERPOLATE);
 					vel.xy = (0,0);
+					return;
 				}
-				
-				LineTrace(angle+45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+			}
+			
+			LineTrace(angle,150,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+			
+			bool maybestairs;
+			if (LineData.HitType == TRACE_HitWall)
+			{
+				LineTrace(angle,105,-25, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+				VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FFFFFF", 2);
 				if (LineData.HitType == TRACE_HitWall)
-					hitintoright = true;
-				LineTrace(angle-45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-				if (LineData.HitType == TRACE_HitWall)
-					hitintoleft = true;
+					maybestairs = false;
+				else
+					maybestairs = true;
 				
-				double TimeMin, TimeMax;
-				
-				TimeMin = 5;
-				TimeMax = 15;
-				
-				if (!hitintoright && !hitintoleft)
+				if (!maybestairs)
 				{
-					angle += random[rangle](0,1) == 1 ? 45 : -45;
-					DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
-					return;
-				}	
-				
-				if (!hitintoright && hitintoleft)
-				{
-					angle += 45;
-					DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
-					return;
-				}
-				else if (hitintoright && !hitintoleft)
-				{
-					angle -= 45;
-					DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
-					return;
-				}
-				
-				/* this causes more problems than it should, checks if the back of the NPC isn't a wall
-				if (hitintoright && hitintoleft && !maybestairs)
-				{
-					LineTrace(angle,105,-25, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-					if (LineData.HitType == TRACE_HitWall)
+					bool hitintoright, hitintoleft;
+					
+					LineTrace(angle+45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+					if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
+						hitintoright = true;
+					LineTrace(angle-45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+					if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
+						hitintoleft = true;
+					
+					if (!hitintoright && !hitintoleft)
 					{
-						angle += 180;
+						int i = 0;
+						while (i < 5)
+						{
+							LineTrace(angle,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+							if (LineData.HitType == TRACE_HitWall)
+							{
+								angle += random[rangle](0,1) == 1 ? -35 : 35;
+								vel.xy = (0,0);
+								return;
+							}
+							
+							i++;
+						}
+						return;
+					}
+					
+					angle += (hitintoright && !hitintoleft) ? random(-45,-35) : random(35,45);
+					
+				}
+			}
+			
+			// turn towards movement direction if not there yet
+			if (!(flags & CHF_NODIRECTIONTURN))
+			{
+				if (DirectionTurnCD < level.time)
+				{
+					bool hitintoright, hitintoleft, hitintoactor;
+					
+					LineTrace(angle+45,100,0, offsetz: height-20, offsetforward: 25, data: LineData);
+					if (LineData.HitType == TRACE_HitActor)
+					{
+						hitintoright = true; hitintoactor = true;
+						if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
+						{	
+							A_SetAngle(angle-25, SPF_INTERPOLATE);
+						}
+						else A_SetAngle(angle+25, SPF_INTERPOLATE);
+						vel.xy = (0,0);
+					}
+						
+					LineTrace(angle-45,100,0, offsetz: height-20, offsetforward: 25, data: LineData);
+					if (LineData.HitType == TRACE_HitActor)
+					{
+						hitintoleft = true; hitintoactor = true;
+						if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
+						{	
+							A_SetAngle(angle-15, SPF_INTERPOLATE);
+						}
+						else A_SetAngle(angle+15, SPF_INTERPOLATE);
+						vel.xy = (0,0);
+					}
+					
+					LineTrace(angle+45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+					if (LineData.HitType == TRACE_HitWall)
+						hitintoright = true;
+					LineTrace(angle-45,100,0, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+					if (LineData.HitType == TRACE_HitWall)
+						hitintoleft = true;
+					
+					double TimeMin, TimeMax;
+					
+					TimeMin = 5;
+					TimeMax = 15;
+					
+					if (!hitintoright && !hitintoleft)
+					{
+						angle += random[rangle](0,1) == 1 ? 45 : -45;
+						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
+						return;
+					}	
+					
+					if (!hitintoright && hitintoleft)
+					{
+						angle += 45;
 						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
 						return;
 					}
+					else if (hitintoright && !hitintoleft)
+					{
+						angle -= 45;
+						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
+						return;
+					}
+					
+					/* this causes more problems than it should, checks if the back of the NPC isn't a wall
+					if (hitintoright && hitintoleft && !maybestairs)
+					{
+						LineTrace(angle,105,-25, TRF_THRUACTORS, offsetz: height-20, data: LineData);
+						if (LineData.HitType == TRACE_HitWall)
+						{
+							angle += 180;
+							DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
+							return;
+						}
+					}
+					*/
+					
+					DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
 				}
-				*/
-				
-				DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
 			}
 		}
 		
