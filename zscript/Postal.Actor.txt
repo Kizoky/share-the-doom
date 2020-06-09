@@ -398,7 +398,9 @@ class PostalActor : Actor
 		
 		if (DirectionTurnCD != 0 && level.time > DirectionTurnCD * 2)
 		{
-			Console.Printf("Warning: NPC is hugging a wall! warp %d %d %d", pos.x, pos.y, pos.z);
+			Console.Printf("Warning: NPC is hugging a wall! warp %d %d %d", pos.x, pos.y, pos.z+100);
+			SetStateLabel("Standing");
+			return;
 		}
 		
 		let NPC = NPCCore(self);
