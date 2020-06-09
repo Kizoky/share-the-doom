@@ -44,22 +44,19 @@ class PostalDoor_Extender : PostalActor
 		}
 		
 		double dist = 100000;
-		int smallestDiff;
-		for (int i = 0; i <= Doors.Size()-1; i++)
+		int i = 0;
+		while (i < Doors.Size())
 		{
-			if (Distance3D(Doors[i]) < dist)
+			if (Distance2D(Doors[i]) < dist)
 			{
-				dist = Distance3D(Doors[i]);
-				smallestDiff = i;
-			}
-				
-			if (i >= Doors.Size()-1)
-			{
-				AttachedToDoor = Doors[smallestDiff];
+				dist = Distance2D(Doors[i]);
+				AttachedToDoor = Doors[i];
 				SearchFinished = true;
-				Doors.Clear();
 			}
+			i++;
 		}
+		
+		Doors.Clear();
 		
 		/* reimplement this somehow
 		if (user_middle)

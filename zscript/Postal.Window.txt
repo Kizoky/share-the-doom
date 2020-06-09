@@ -104,41 +104,38 @@ class PostalWindow_Extender : PostalActor
 	bool GotActor;
 	Array<actor> Windows;
 	
+	int smallestDiff;
 	void A_SearchForWindow()
 	{
-		if (AttachedWindow) return;
+		if (AttachedWindow || GotActor) return;
 		
 		BlockThingsIterator it = BlockThingsIterator.Create (self, 150);
-		double fov = 20;
 		
 		while (it.Next ()) 
 		{
 			let next = it.Thing;
 			if (!next) return;
 			
-			if (next is 'PostalWindow' && next.pos.z ~== pos.z)
+			if (next is 'PostalWindow' && (next.pos.z ~== pos.z))
 			{
 				Windows.Push(next);
 			}	
 		}
 		
 		double dist = 100000;
-		int smallestDiff;
-		for (int i = 0; i <= Windows.Size()-1; i++)
+		int i = 0;
+		while (i < Windows.Size())
 		{
-			if (Distance3D(Windows[i]) < dist)
+			if (Distance2D(Windows[i]) < dist)
 			{
-				dist = Distance3D(Windows[i]);
-				smallestDiff = i;
-			}
-				
-			if (i >= Windows.Size()-1)
-			{
-				AttachedWindow = Windows[smallestDiff];
+				dist = Distance2D(Windows[i]);
+				AttachedWindow = Windows[i];
 				GotActor = true;
-				Windows.Clear();
 			}
+			i++;
 		}
+		
+		Windows.Clear();
     }
 	
 	void SpawnShardsExtender()
