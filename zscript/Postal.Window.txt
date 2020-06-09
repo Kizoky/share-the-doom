@@ -132,7 +132,7 @@ class PostalWindow_Extender : PostalActor
 				smallestDiff = i;
 			}
 				
-			if (i == Windows.Size()-1)
+			if (i >= Windows.Size()-1)
 			{
 				AttachedWindow = Windows[smallestDiff];
 				GotActor = true;
