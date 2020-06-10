@@ -430,3 +430,13 @@ class PostalWindow2 : PostalWindow
 		//$Title "Window 2"
 	}
 }
+
+
+class PostalWindowLong : PostalWindow
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Window Long"
+	}
+}

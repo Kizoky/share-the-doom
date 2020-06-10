@@ -52,3 +52,19 @@ Model "PostalWindow2"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "PostalWindowLong"
+{
+	Path "models\misc\window"
+	Model 0 "window-shiney-burban.md3"
+	SurfaceSkin 0 0 "window-shiny.png"
+	SurfaceSkin 0 1 "window-shiny.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 35 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}

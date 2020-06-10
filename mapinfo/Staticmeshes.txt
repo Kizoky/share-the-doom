@@ -312,4 +312,6 @@ DoomEdNums
   32482 = light_fixture
   32481 = paradset_mall
   32480 = sexbomb
+  
+  32479 = PostalWindowLong
 }
