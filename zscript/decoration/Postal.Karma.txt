@@ -1,0 +1,70 @@
+class trashcan1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Bin 1"
+		Radius 10;
+		Height 10;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class trashcan2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Bin 2"
+		Radius 10;
+		Height 10;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class lampshade1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Lamp 70s"
+		Radius 10;
+		Height 10;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class dirtbag : PostalDecoration
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Garbage Bag"
+		Radius 10;
+		Height 10;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

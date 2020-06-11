@@ -314,4 +314,6 @@ DoomEdNums
   32480 = sexbomb
   
   32479 = PostalWindowLong
+  32478 = trashcan1
+  32477 = lampshade1
 }

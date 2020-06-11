@@ -1,0 +1,60 @@
+Model "trashcan1"
+{
+	Path "models\physobj"
+	Model 0 "trash_pail_metal_timb.md3"
+	SurfaceSkin 0 0 "garbage_can_metal_timb.png"
+	AngleOffset 0
+	Scale -0.80 -0.80 0.80
+	Offset 0.0 0.0 8 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "trashcan2"
+{
+	Path "models\physobj"
+	Model 0 "fancy_trashcan.md3"
+	SurfaceSkin 0 0 "chair_dinner.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0.0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "lampshade1"
+{
+	Path "models\physobj"
+	Model 0 "lamp_70s_timb.md3"
+	SurfaceSkin 0 0 "lamp2_timb.png"
+	SurfaceSkin 0 1 "lampshade2_timb.png"
+	AngleOffset 0
+	Scale -0.35 -0.35 0.35
+	Offset 0 -5 13 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "dirtbag"
+{
+	Path "models\physobj"
+	Model 0 "garbage_bag_timb.md3"
+	SurfaceSkin 0 0 "garbagebag_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0.0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

@@ -101,6 +101,7 @@ version "4.2"
 #include "zscript/decoration/Postal.Cars.txt"
 #include "zscript/decoration/Postal.Other.txt"
 #include "zscript/decoration/Postal.Trees.txt"
+#include "zscript/decoration/Postal.Karma.txt"
 
 //------------ Postal UI stuff
 

@@ -2,6 +2,7 @@
 
 #include "models/modeldef/!Postal_Dude.txt"
 #include "models/modeldef/decorations.txt"
+#include "models/modeldef/physobj.txt"
 
 // Gameplay
 #include "models/modeldef/gameplay/Door.txt"
