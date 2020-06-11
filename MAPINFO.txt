@@ -20,6 +20,11 @@ gameinfo
 	infopage = "HELP", "CREDIT"
 	CursorPic = "strfcurs"
 	
+	PrecacheClasses = "PostalDude", "DummyDude"
+	
+	
+	NoMergePickupMsg = true
+	
 	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit", "ia_EventHandler", "sa_Achiever"
 	statusbarclass = "PostalStatusBar"
 }
