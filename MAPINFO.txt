@@ -18,6 +18,7 @@ gameinfo
 	creditpage = "CREDIT"
 	titlemusic = "$MUSIC_DM2TTL"
 	infopage = "HELP", "CREDIT"
+	CursorPic = "strfcurs"
 	
 	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit", "ia_EventHandler", "sa_Achiever"
 	statusbarclass = "PostalStatusBar"
