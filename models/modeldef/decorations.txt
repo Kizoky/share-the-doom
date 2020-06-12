@@ -4241,3 +4241,17 @@ Model "sexbomb"
 	
 }
 
+Model "beerbox"
+{
+	Path "models\props"
+	Model 0 "buttgeiser_timb.md3"
+	SurfaceSkin 0 0 "buttgeiser_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0.0 8 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

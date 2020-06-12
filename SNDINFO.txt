@@ -722,3 +722,13 @@ trashBag_drop02 sounds/phys/trashBag_drop02.wav
 trashBag_drop03 sounds/phys/trashBag_drop03.wav
 
 $random physics/trashbag { trashBag_drop01 trashBag_drop02 trashBag_drop03 }
+
+plastichitsground1 sounds/phys/plastichitsground1.wav
+plastichitsground2 sounds/phys/plastichitsground2.wav
+
+$random physics/plastice { plastichitsground1 plastichitsground2 }
+
+lampHit01 sounds/phys/lampHit01.wav
+lampHit02 sounds/phys/lampHit02.wav
+
+$random physics/lamp2 { lampHit01 lampHit02 }

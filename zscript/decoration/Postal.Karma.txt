@@ -174,7 +174,7 @@ class lampshade1 : PostalKarmaActor
 		//$Title "Lamp 70s"
 		Radius 10;
 		Height 32;
-		PostalKarmaActor.CustomBounceSound "physics/lamp";		
+		PostalKarmaActor.CustomBounceSound "physics/lamp2";		
 	}
 	States
 	{
@@ -194,6 +194,99 @@ class dirtbag : PostalKarmaActor
 		Radius 10;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/trashbag";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class trashcan_plasticed : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Plastic Trashcan"
+		Radius 10;
+		Height 17;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class banka_mayoneza : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Mayo Jar"
+		Radius 10;
+		Height 10;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class ogurchiki : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Pickle Jar"
+		Radius 10;
+		Height 10;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class lampshade2 : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Tacky 80s Lamp"
+		Radius 10;
+		Height 22;
+		PostalKarmaActor.CustomBounceSound "physics/lamp2";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class lavalampo : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Lava Lamp"
+		Radius 10;
+		Height 25;
+		PostalKarmaActor.CustomBounceSound "physics/lamp";
 	}
 	States
 	{

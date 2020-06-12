@@ -4639,3 +4639,19 @@ class sexbomb : PostalDecoration
 	}
 }
 
+class beerbox : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Buttgeiser Box"
+		Radius 20;
+		Height 56;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

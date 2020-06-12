@@ -318,4 +318,10 @@ DoomEdNums
   32477 = lampshade1
   32476 = trashcan2
   32475 = dirtbag
+  32474 = trashcan_plasticed
+  32473 = banka_mayoneza
+  32472 = ogurchiki
+  32471 = beerbox
+  32470 = lampshade2
+  32469 = lavalampo
 }
