@@ -1,4 +1,19 @@
-class trashcan1 : PostalDecoration
+class PostalKarmaActor : Actor 
+{
+	override void Tick() { }
+	
+	Default
+	{
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+ABSMASKANGLE
+		//+NOGRAVITY
+		//+SOLID
+		//+NOINTERACTION
+	}
+}
+
+class trashcan1 : PostalKarmaActor
 {
 	Default
 	{
@@ -15,7 +30,7 @@ class trashcan1 : PostalDecoration
 	}
 }
 
-class trashcan2 : PostalDecoration
+class trashcan2 : PostalKarmaActor
 {
 	Default
 	{
@@ -34,7 +49,7 @@ class trashcan2 : PostalDecoration
 
 
 
-class lampshade1 : PostalDecoration
+class lampshade1 : PostalKarmaActor
 {
 	Default
 	{
@@ -52,7 +67,7 @@ class lampshade1 : PostalDecoration
 }
 
 
-class dirtbag : PostalDecoration
+class dirtbag : PostalKarmaActor
 {
 	Default
 	{
