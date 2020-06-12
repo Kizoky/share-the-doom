@@ -316,4 +316,6 @@ DoomEdNums
   32479 = PostalWindowLong
   32478 = trashcan1
   32477 = lampshade1
+  32476 = trashcan2
+  32475 = dirtbag
 }
