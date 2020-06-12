@@ -200,7 +200,7 @@ $singular dudehurt17
 ddeathtemp sounds/DudeDialog/yougottabefuckingkidding.wav
 BirdAmbient sounds/BirdScary.wav
 GrassAmbient sounds/GrassHoppers.wav
-Homestuck sounds/Homestuck.wav
+Homestuck sounds/Homestuck.ogg
 SpinMe sounds/SpinMe.wav
 clubsong sounds/amb_mus/clubsong.ogg
 wflow sounds/wflow.ogg
