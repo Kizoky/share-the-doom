@@ -84,7 +84,7 @@ map DEVMAP2 "Maisth loves corruption"
 }
 
 
-map WORLD1 "Phoenix Outskirts - Day"
+map WORLD1 "Hampton"
 {
 	levelnum = 1
 	music=Amb_01
@@ -93,7 +93,7 @@ map WORLD1 "Phoenix Outskirts - Day"
 }
 
 
-map WORLD2 "Factory - Day"
+map WORLD2 "South Joint"
 {
 	levelnum = 2
 	music=Amb_02
@@ -101,7 +101,7 @@ map WORLD2 "Factory - Day"
 	cluster=2
 }
 
-map WORLD3 "Downtown - Day"
+map WORLD3 "Blumefold"
 {
 	levelnum = 3
 	music=Amb_03
@@ -118,7 +118,7 @@ map WORLD4 "Bitch - Day"
 	cluster=1
 }
 
-map WORLD5 "Haldea - Day"  ///Kizoky's fun place
+map WORLD5 "Haldea"  ///Kizoky's fun place
 {
 	levelnum = 5
 	music=Amb_05
