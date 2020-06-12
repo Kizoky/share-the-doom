@@ -710,3 +710,9 @@ trashCan_hit02 sounds/phys/trashCan_hit02.wav
 trashCan_hit03 sounds/phys/trashCan_hit03.wav
 
 $random physics/trashcan { trashCan_hit01 trashCan_hit02 trashCan_hit03 }
+
+karmaLamp sounds/phys/karmaLamp.wav
+karmaLamp01 sounds/phys/karmaLamp01.wav
+karmaLamp02 sounds/phys/karmaLamp02.wav
+
+$random physics/lamp { karmaLamp karmaLamp01 karmaLamp02 }
