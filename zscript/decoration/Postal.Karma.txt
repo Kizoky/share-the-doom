@@ -20,7 +20,7 @@ class trashcan1 : PostalKarmaActor
 		//$Category Physics Objects
 		//$Title "Bin 1"
 		Radius 10;
-		Height 10;
+		Height 17;
 	}
 	States
 	{
@@ -37,7 +37,7 @@ class trashcan2 : PostalKarmaActor
 		//$Category Physics Objects
 		//$Title "Bin 2"
 		Radius 10;
-		Height 10;
+		Height 15;
 	}
 	States
 	{
@@ -56,7 +56,7 @@ class lampshade1 : PostalKarmaActor
 		//$Category Physics Objects
 		//$Title "Lamp 70s"
 		Radius 10;
-		Height 10;
+		Height 32;
 	}
 	States
 	{
