@@ -1,5 +1,10 @@
 class PostalKarmaActor : Actor 
 {
+	string STD_CustomBounceSound, STD_CustomHitSound;
+	
+	property CustomBounceSound : STD_CustomBounceSound;
+	property CustomHitSound : STD_CustomHitSound;
+	
 	override void Tick() 
 	{
 		Super.Tick();
@@ -42,9 +47,12 @@ class PostalKarmaActor : Actor
 	Actor SavedBouncePos;
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
-	{
+	{	
 		if (source && inflictor)
 		{
+			//todo: check if explosion, but might be worthless to do anyway
+			A_StartSound(STD_CustomHitSound);
+			
 			self.angle = source.angle;
 			Bouncing = true;
 			nofirstbounceyet = true;
@@ -61,7 +69,7 @@ class PostalKarmaActor : Actor
 			A_Recoil(-10);
 			vel.z = 10;
 			
-			return Super.DamageMobj(inflictor,source,0,mod,flags,angle);
+			return Super.DamageMobj(null,null,0,mod,flags,angle);
 		}
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
@@ -93,6 +101,9 @@ class PostalKarmaActor : Actor
 		//+NOGRAVITY
 		-SOLID
 		//+NOINTERACTION
+		
+		PostalKarmaActor.CustomBounceSound "physics/trashcan";
+		PostalKarmaActor.CustomHitSound "none";
 	}
 	States
 	{
@@ -107,7 +118,7 @@ class PostalKarmaActor : Actor
 			roll += randomroll;
 			pitch -= randomroll;
 			
-			A_StartSound("physics/trashcan");
+			A_StartSound(STD_CustomBounceSound);
 			
 			return ResolveState("Spawn");
 		}
