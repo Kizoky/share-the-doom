@@ -15,6 +15,7 @@ class PostalKarmaActor : Actor
 		+USEBOUNCESTATE
 		+BOUNCEONACTORS
 		+ALLOWBOUNCEONACTORS
+		BounceFactor 0.95;
 		//+NOGRAVITY
 		-SOLID
 		//+NOINTERACTION
