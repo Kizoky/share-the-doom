@@ -191,6 +191,7 @@ class PostalCar : PostalActor
 		+CANPASS
 		+SLIDESONWALLS
 		-NOBLOCKMAP
+		-ISMONSTER
 	}
 	States
 	{
