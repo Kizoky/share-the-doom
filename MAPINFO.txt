@@ -19,6 +19,7 @@ gameinfo
 	titlemusic = "$MUSIC_DM2TTL"
 	infopage = "HELP", "CREDIT"
 	CursorPic = "strfcurs"
+	PauseSign = "M_DOOM"
 	
 	PrecacheClasses = "PostalDude", "DummyDude"
 	
