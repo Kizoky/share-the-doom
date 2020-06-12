@@ -193,6 +193,7 @@ class dirtbag : PostalKarmaActor
 		//$Title "Garbage Bag"
 		Radius 10;
 		Height 10;
+		PostalKarmaActor.CustomBounceSound "physics/trashbag";
 	}
 	States
 	{
