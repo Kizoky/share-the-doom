@@ -1,9 +1,72 @@
 class PostalKarmaActor : Actor 
 {
-	override void Tick() { }
+	override void Tick() 
+	{
+		Super.Tick();
+		
+		if (Bouncing)
+		{	
+			if (vel.xy.Length() <= 0.95)
+			{
+				let fake = spawn(GetClassName(), pos);
+				if (fake)
+				{
+					fake.angle = angle;
+					fake.pitch = pitch;
+					fake.roll = roll;
+					Destroy();
+					return;
+				}
+			}
+			
+			int turningvalue = 3;
+			
+			if (nofirstbounceyet)
+			{
+				if (leftorright)
+				{
+					roll += turningvalue;
+					pitch -= turningvalue;
+				}
+				else
+				{
+					roll -= turningvalue;
+					pitch += turningvalue;
+				
+				}
+			}
+		}
+	}
+	
+	bool Bouncing, nofirstbounceyet, leftorright;
+	Actor SavedBouncePos;
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		self.angle = source.angle;
+		Bouncing = true;
+		nofirstbounceyet = true;
+		leftorright = random[ll](0,1);
+		
+		if (source is 'PostalDude' && inflictor is "PostalKickPuff")
+		{
+			// Make the angle match to the Player's so the Grenade will not move towards the Player
+			// Also thrust it and set it's velocity z simulating a kick
+			A_Recoil(-10);
+			vel.z = 10;
+			
+			return Super.DamageMobj(inflictor,source,0,mod,flags,angle);
+		}
+		
+		A_Recoil(-5);
+		vel.z = 7;
+		
+		return Super.DamageMobj(inflictor,source,0,mod,flags,source.angle);
+	}
 	
 	Default
 	{
+		Projectile;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+ABSMASKANGLE
@@ -15,11 +78,42 @@ class PostalKarmaActor : Actor
 		+USEBOUNCESTATE
 		+BOUNCEONACTORS
 		+ALLOWBOUNCEONACTORS
-		BounceFactor 0.95;
+		+NOBLOOD
+		Speed 0;
+		Damage 0;
+		BloodType "null";
+		BounceFactor 0.55;
+		WallBounceFactor 0.55;
+		Health 1000;
+		-NOBLOCKMAP
+		-NOGRAVITY
 		//+NOGRAVITY
 		-SOLID
 		//+NOINTERACTION
 	}
+	States
+	{
+	Bounce:
+		PROP A 0
+		{
+			if (!Bouncing) return ResolveState("Spawn");
+			
+			double randomroll = random[r](0,1) == 1 ? -5 : 5;
+			nofirstbounceyet = false;
+			
+			roll += randomroll;
+			pitch -= randomroll;
+			
+			A_StartSound("cowhead/bounce");
+			
+			return ResolveState("Spawn");
+		}
+	Death:
+		TNT1 A 1;
+		Stop;
+	
+	}
+	
 }
 
 class trashcan1 : PostalKarmaActor
