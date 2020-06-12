@@ -1168,7 +1168,7 @@ Model "PalmTree1"
 	AngleOffset 270
 	USEACTORPITCH
 	Scale -0.75 -0.75 0.75
-	Offset 40 0 1 //X Y Z
+	Offset 65 -4 1 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	
