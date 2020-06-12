@@ -43,16 +43,16 @@ class PostalKarmaActor : Actor
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		if (source)
+		if (source && inflictor)
+		{
 			self.angle = source.angle;
-		else if (inflictor)
-			self.angle = inflictor.angle;
-		
-		Bouncing = true;
-		nofirstbounceyet = true;
-		leftorright = random[ll](0,1);
-		A_Recoil(-5);
-		vel.z = 7;
+			Bouncing = true;
+			nofirstbounceyet = true;
+			leftorright = random[ll](0,1);
+			A_Recoil(-5);
+			vel.z = 7;
+			return Super.DamageMobj(null,null,0,mod,flags,angle);
+		}
 		
 		if (source is 'PostalDude' && inflictor is "PostalKickPuff")
 		{
@@ -64,7 +64,7 @@ class PostalKarmaActor : Actor
 			return Super.DamageMobj(inflictor,source,0,mod,flags,angle);
 		}
 		
-		return Super.DamageMobj(inflictor,source,0,mod,flags,source.angle);
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 	}
 	
 	Default
@@ -79,8 +79,8 @@ class PostalKarmaActor : Actor
 		+BOUNCEONCEILINGS
 		+DONTBOUNCEONSKY
 		+USEBOUNCESTATE
-		+BOUNCEONACTORS
-		+ALLOWBOUNCEONACTORS
+		//+BOUNCEONACTORS
+		//+ALLOWBOUNCEONACTORS
 		+NOBLOOD
 		Speed 0;
 		Damage 0;
@@ -107,7 +107,7 @@ class PostalKarmaActor : Actor
 			roll += randomroll;
 			pitch -= randomroll;
 			
-			A_StartSound("cowhead/bounce");
+			A_StartSound("physics/trashcan");
 			
 			return ResolveState("Spawn");
 		}
