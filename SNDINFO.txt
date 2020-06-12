@@ -702,3 +702,11 @@ vengaboys/down sounds/anddown.wav
 cowhead/bounce sounds/cowhead_bounce.wav
 cowhead/fire sounds/cowhead_fire.wav
 cowhead/idle sounds/cowhead_idle_loop.wav
+
+///Physics
+ 
+trashCan_hit01 sounds/phys/trashCan_hit01.wav
+trashCan_hit02 sounds/phys/trashCan_hit02.wav
+trashCan_hit03 sounds/phys/trashCan_hit03.wav
+
+$random physics/trashcan { trashCan_hit01 trashCan_hit02 trashCan_hit03 }

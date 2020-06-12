@@ -107,7 +107,7 @@ class PostalKarmaActor : Actor
 			roll += randomroll;
 			pitch -= randomroll;
 			
-			A_StartSound("cowhead/bounce");
+			A_StartSound("physics/trashcan");
 			
 			return ResolveState("Spawn");
 		}
