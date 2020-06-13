@@ -328,4 +328,13 @@ DoomEdNums
   32467 = monitorus
   32466 = pctower
   32465 = deskpic
+  32464 = microwave
+  32463 = Tamxxx
+  32462 = lungdump
+  32461 = pot_timb
+  32460 = pan_timb
+  32459 = pot_timb2
+  32458 = cleaner1
+  32457 = cleaner2
+  32456 = airConditioner
 }

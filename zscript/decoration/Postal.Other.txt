@@ -4620,3 +4620,24 @@ class beerbox : PostalDecoration
 		Loop;
 	}
 }
+
+
+class airConditioner : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Air Conditioner"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

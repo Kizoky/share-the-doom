@@ -199,3 +199,124 @@ Model "deskpic"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "microwave"
+{
+	Path "models\physobj"
+	Model 0 "Microwave01.md3"
+	SurfaceSkin 0 0 "microwave_01.png"
+	AngleOffset 0
+	Scale -0.35 -0.35 0.35
+	Offset 0.0 0.0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "Tamxxx"
+{
+	Path "models\physobj"
+	Model 0 "tamxxx_timb.md3"
+	SurfaceSkin 0 0 "tamxxx_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 8 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "lungdump"
+{
+	Path "models\physobj"
+	Model 0 "lung_timb.md3"
+	SurfaceSkin 0 0 "lung_dumplings_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 5 12 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "pot_timb"
+{
+	Path "models\physobj"
+	Model 0 "pot1_timb.md3"
+	SurfaceSkin 0 0 "exec_desk_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -3 8 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pan_timb"
+{
+	Path "models\physobj"
+	Model 0 "pan1_timb.md3"
+	SurfaceSkin 0 0 "exec_desk_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -3 2 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pot_timb2"
+{
+	Path "models\physobj"
+	Model 0 "pot2_timb.md3"
+	SurfaceSkin 0 0 "exec_desk_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 10 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cleaner1"
+{
+	Path "models\physobj"
+	Model 0 "Cleaner01.md3"
+	SurfaceSkin 0 0 "Cleaner_Products_Tex.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cleaner2"
+{
+	Path "models\physobj"
+	Model 0 "Cleaner03.md3"
+	SurfaceSkin 0 0 "Cleaner_Products_Tex.png"
+	AngleOffset 0
+	Scale -0.80 -0.80 0.80
+	Offset 0 0 1 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

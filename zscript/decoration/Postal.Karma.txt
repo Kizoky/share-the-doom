@@ -408,3 +408,157 @@ class bosschair : PostalKarmaActor
 		Loop;
 	}
 }
+
+
+
+class microwave : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Microwave"
+		Radius 17;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/metal";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class Tamxxx : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Tam XXX"
+		Radius 10;
+		Height 14;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class lungdump : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Lung Dumplings"
+		Radius 10;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class pot_timb : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Kitchen Pot"
+		Radius 20;
+		Height 10;
+		PostalKarmaActor.CustomBounceSound "physics/lamp";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class pan_timb : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Kitchen Pan"
+		Radius 20;
+		Height 10;
+		PostalKarmaActor.CustomBounceSound "physics/lamp";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class pot_timb2 : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Kitchen Pot 2"
+		Radius 16;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/lamp";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class cleaner1 : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "''Magic Sparkle'' Box"
+		Radius 10;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class cleaner2 : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "''Magic Sparkle'' Plastic Bottle"
+		Radius 10;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
