@@ -93,8 +93,8 @@ class PostalKarmaActor : Actor
 		Speed 0;
 		Damage 0;
 		BloodType "null";
-		BounceFactor 0.55;
-		WallBounceFactor 0.55;
+		BounceFactor 0.35;
+		WallBounceFactor 0.35;
 		Health 1000;
 		-NOBLOCKMAP
 		-NOGRAVITY
