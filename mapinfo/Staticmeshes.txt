@@ -324,4 +324,8 @@ DoomEdNums
   32471 = beerbox
   32470 = lampshade2
   32469 = lavalampo
+  32468 = keyboard_sw
+  32467 = monitorus
+  32466 = pctower
+  32465 = deskpic
 }

@@ -543,22 +543,6 @@ class boombox : PostalDecoration
 	}
 }
 
-class bosschair : PostalDecoration
-{
-	Default
-	{
-		//$Category miscellaneous
-		//$Title "Office Chair"
-		Radius 5;
-		Height 56;
-	}
-	States
-	{
-	Spawn:
-		PROP A -1;
-		Loop;
-	}
-}
 
 class bulldozer : PostalDecoration
 {
@@ -1252,25 +1236,6 @@ class CouchBigA : PostalDecoration
 	}
 }
 
-
-class DinnerChairSmocklar : PostalDecoration
-{
-	Default
-	{
-		//$Category miscellaneous
-		//$Title "Wooden Chair"
-		Radius 10;
-		Height 85;
-		+ROLLSPRITE
-		+ABSMASKPITCH
-	}
-	States
-	{
-	Spawn:
-		PROP A -1;
-		Loop;
-	}
-}
 
 
 class DresserTimb : PostalDecoration

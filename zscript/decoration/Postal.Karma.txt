@@ -295,3 +295,116 @@ class lavalampo : PostalKarmaActor
 		Loop;
 	}
 }
+
+
+class keyboard_sw : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Keyboard"
+		Radius 10;
+		Height 10;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class monitorus : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Computer Monitor"
+		Radius 10;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/lamp";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class pctower : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Computer Tower"
+		Radius 10;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/lamp";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class deskpic : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Cat Picture"
+		Radius 10;
+		Height 10;
+		PostalKarmaActor.CustomBounceSound "physics/wood";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class DinnerChairSmocklar : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Wooden Chair"
+		Radius 15;
+		Height 25;
+		PostalKarmaActor.CustomBounceSound "physics/wood";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class bosschair : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Office Chair"
+		Radius 15;
+		Height 25;
+		PostalKarmaActor.CustomBounceSound "physics/wood";
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

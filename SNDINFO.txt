@@ -732,3 +732,8 @@ lampHit01 sounds/phys/lampHit01.wav
 lampHit02 sounds/phys/lampHit02.wav
 
 $random physics/lamp2 { lampHit01 lampHit02 }
+
+woodhitsground1 sounds/phys/woodhitsground1.wav
+woodhitsground2 sounds/phys/woodhitsground2.wav
+
+$random physics/wood { woodhitsground1 woodhitsground2 }
