@@ -1058,8 +1058,8 @@ class Stove1 : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Home Stove"
-		Radius 10;
-		Height 85;
+		Radius 27;
+		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -1079,8 +1079,8 @@ class OldFridge : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Fridge Old"
-		Radius 10;
-		Height 85;
+		Radius 26;
+		Height 75;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -1366,8 +1366,8 @@ class WASHINGTON : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Washing Machine"
-		Radius 10;
-		Height 85;
+		Radius 27;
+		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -1428,8 +1428,8 @@ class drycocksack : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Dryer Outclass"
-		Radius 10;
-		Height 85;
+		Radius 27;
+		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -1842,8 +1842,8 @@ class table_round : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Round Table Red"
-		Radius 10;
-		Height 85;
+		Radius 46;
+		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION;
@@ -1883,8 +1883,8 @@ class vender1 : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Vending Machine 1"
-		Radius 10;
-		Height 85;
+		Radius 25;
+		Height 70;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -1904,8 +1904,8 @@ class vender2 : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Vending Machine 2"
-		Radius 10;
-		Height 85;
+		Radius 25;
+		Height 70;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -1925,8 +1925,8 @@ class vender3 : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Vending Machine 3"
-		Radius 10;
-		Height 85;
+		Radius 20;
+		Height 70;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -1946,8 +1946,8 @@ class vender4 : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Vending Machine 4"
-		Radius 10;
-		Height 85;
+		Radius 20;
+		Height 70;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -2030,8 +2030,8 @@ class postbox : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Mailbox Blue"
-		Radius 10;
-		Height 85;
+		Radius 15;
+		Height 35;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -2135,8 +2135,8 @@ class hydrant : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Hydrant"
-		Radius 10;
-		Height 85;
+		Radius 15;
+		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -2274,8 +2274,8 @@ class multipurple : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Dryer Multiple"
-		Radius 10;
-		Height 85;
+		Radius 20;
+		Height 70;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -2316,8 +2316,8 @@ class NEWSTAND : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Newspaper Stand"
-		Radius 10;
-		Height 85;
+		Radius 13;
+		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -2337,8 +2337,8 @@ class icemachine : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Ice Machine SW"
-		Radius 10;
-		Height 85;
+		Radius 20;
+		Height 45;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
@@ -2380,8 +2380,8 @@ class lamppost : PostalDecoration
 	{
 		//$Category Props
 		//$Title "Street Light"
-		Radius 10;
-		Height 85;
+		Radius 16;
+		Height 105;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+SOLID
