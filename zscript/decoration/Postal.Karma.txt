@@ -144,6 +144,7 @@ class trashcan1 : PostalKarmaActor
 		//$Title "Bin 1"
 		Radius 10;
 		Height 17;
+		PostalKarmaActor.Heaviness -15;
 	}
 	States
 	{
@@ -161,6 +162,7 @@ class trashcan2 : PostalKarmaActor
 		//$Title "Bin 2"
 		Radius 10;
 		Height 15;
+		PostalKarmaActor.Heaviness -15;
 	}
 	States
 	{
@@ -180,7 +182,8 @@ class lampshade1 : PostalKarmaActor
 		//$Title "Lamp 70s"
 		Radius 10;
 		Height 32;
-		PostalKarmaActor.CustomBounceSound "physics/lamp2";		
+		PostalKarmaActor.CustomBounceSound "physics/lamp2";	
+		PostalKarmaActor.Heaviness -20;
 	}
 	States
 	{
@@ -200,6 +203,7 @@ class dirtbag : PostalKarmaActor
 		Radius 10;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/trashbag";
+		PostalKarmaActor.Heaviness -30;
 	}
 	States
 	{
@@ -219,6 +223,7 @@ class trashcan_plasticed : PostalKarmaActor
 		//$Title "Plastic Trashcan"
 		Radius 10;
 		Height 17;
+		PostalKarmaActor.Heaviness -8;
 	}
 	States
 	{
@@ -237,6 +242,7 @@ class banka_mayoneza : PostalKarmaActor
 		Radius 10;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -255,6 +261,7 @@ class ogurchiki : PostalKarmaActor
 		Radius 10;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -275,6 +282,7 @@ class lampshade2 : PostalKarmaActor
 		Radius 10;
 		Height 22;
 		PostalKarmaActor.CustomBounceSound "physics/lamp2";
+		PostalKarmaActor.Heaviness -20;
 	}
 	States
 	{
@@ -293,6 +301,7 @@ class lavalampo : PostalKarmaActor
 		Radius 10;
 		Height 25;
 		PostalKarmaActor.CustomBounceSound "physics/lamp";
+		PostalKarmaActor.Heaviness -30;
 	}
 	States
 	{
@@ -312,6 +321,7 @@ class keyboard_sw : PostalKarmaActor
 		Radius 10;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -30;
 	}
 	States
 	{
@@ -331,6 +341,7 @@ class monitorus : PostalKarmaActor
 		Radius 10;
 		Height 20;
 		PostalKarmaActor.CustomBounceSound "physics/lamp";
+		PostalKarmaActor.Heaviness -20;
 	}
 	States
 	{
@@ -351,6 +362,7 @@ class pctower : PostalKarmaActor
 		Radius 10;
 		Height 20;
 		PostalKarmaActor.CustomBounceSound "physics/lamp";
+		PostalKarmaActor.Heaviness -20;
 	}
 	States
 	{
@@ -370,6 +382,7 @@ class deskpic : PostalKarmaActor
 		Radius 10;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/wood";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -388,6 +401,7 @@ class DinnerChairSmocklar : PostalKarmaActor
 		Radius 15;
 		Height 25;
 		PostalKarmaActor.CustomBounceSound "physics/wood";
+		PostalKarmaActor.Heaviness -8;
 	}
 	States
 	{
@@ -406,6 +420,7 @@ class bosschair : PostalKarmaActor
 		Radius 15;
 		Height 25;
 		PostalKarmaActor.CustomBounceSound "physics/wood";
+		PostalKarmaActor.Heaviness -8;
 	}
 	States
 	{
@@ -426,6 +441,7 @@ class microwave : PostalKarmaActor
 		Radius 17;
 		Height 20;
 		PostalKarmaActor.CustomBounceSound "physics/metal";
+		PostalKarmaActor.Heaviness -15;
 	}
 	States
 	{
@@ -445,6 +461,7 @@ class Tamxxx : PostalKarmaActor
 		Radius 10;
 		Height 14;
 		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -464,6 +481,7 @@ class lungdump : PostalKarmaActor
 		Radius 10;
 		Height 20;
 		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -484,6 +502,7 @@ class pot_timb : PostalKarmaActor
 		Radius 20;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/lamp";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -502,6 +521,7 @@ class pan_timb : PostalKarmaActor
 		Radius 20;
 		Height 10;
 		PostalKarmaActor.CustomBounceSound "physics/lamp";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -521,6 +541,7 @@ class pot_timb2 : PostalKarmaActor
 		Radius 16;
 		Height 20;
 		PostalKarmaActor.CustomBounceSound "physics/lamp";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -541,6 +562,7 @@ class cleaner1 : PostalKarmaActor
 		Radius 10;
 		Height 20;
 		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
@@ -560,6 +582,7 @@ class cleaner2 : PostalKarmaActor
 		Radius 10;
 		Height 20;
 		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
 	}
 	States
 	{
