@@ -79,6 +79,7 @@ class PostalKarmaActor : Actor
 	
 	Default
 	{
+		Species "PostalKarma";
 		Projectile;
 		+ROLLSPRITE
 		+ABSMASKPITCH
@@ -89,6 +90,7 @@ class PostalKarmaActor : Actor
 		+BOUNCEONCEILINGS
 		+DONTBOUNCEONSKY
 		+USEBOUNCESTATE
+		+THRUSPECIES
 		//+BOUNCEONACTORS
 		//+ALLOWBOUNCEONACTORS
 		+NOBLOOD
