@@ -532,7 +532,7 @@ class PostalActor : Actor
 					}
 					else
 					{
-						angle += random(-35,35);
+						angle += random[tryrandomang](-35,35);
 					}
 					
 				}
