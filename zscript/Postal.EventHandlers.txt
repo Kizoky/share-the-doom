@@ -268,11 +268,13 @@ class DudeCoreHandler : EventHandler
    //Needed for fire and other things
    override void WorldThingSpawned (Worldevent e)
    {
-		if (!(e.thing is 'PostalActor') && e.thing.bISMONSTER) 
+		/*
+		if (!(e.thing is 'PostalActor') && e.thing.bISMONSTER && !(e.thing is 'PlayerPawn')) 
 		{
-			e.thing.bSPECIAL = true;
-			e.thing.bPICKUP = true;
+			//e.thing.bSPECIAL = true;
+			//e.thing.bPICKUP = true;
 		}
+		*/
 		
 		CVar lightscvar = CVar.FindCVar('postal_lights');
 		bool lights = (lightscvar != null && lightscvar.GetBool ());

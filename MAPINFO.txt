@@ -5,7 +5,7 @@ include "mapinfo/precache.txt"
 
 gameinfo
 {
-	playerclasses="PostalDude"
+	playerclasses="PostalDude", "DoomPlayer"
 	//dimcolor = "RED"
 	menufontcolor_title = "WHITE"
 	menufontcolor_label = "WHITE"

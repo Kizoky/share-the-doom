@@ -69,7 +69,7 @@ class PostalDude_Data : Inventory
 
 }
 
-class PostalDude : PlayerPawn replaces DoomPlayer
+class PostalDude : PlayerPawn
 {
 	PostalDude_Data PlayerData;
 	bool Kick, Map;
@@ -825,7 +825,11 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		Player.GruntSpeed 1000;
 		Player.DamageScreenColor "red",0.5;
 		Player.AttackZOffset 28;
-		+SPECIAL
+		Mass 100;
+		Radius 16;
+		Height 56;
+		//+SPECIAL
+		//+ACTLIKEBRIDGE
 	}
 	States
 	{
