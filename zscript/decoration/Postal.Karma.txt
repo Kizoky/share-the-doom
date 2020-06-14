@@ -59,7 +59,7 @@ class PostalKarmaActor : Actor
 			Bouncing = true;
 			nofirstbounceyet = true;
 			leftorright = random[ll](0,1);
-			A_Recoil(-5+STD_Weight);
+			A_Recoil(STD_Weight);
 			vel.z = 7;
 			return Super.DamageMobj(null,null,0,mod,flags,angle);
 		}
@@ -68,7 +68,7 @@ class PostalKarmaActor : Actor
 		{
 			// Make the angle match to the Player's so the Grenade will not move towards the Player
 			// Also thrust it and set it's velocity z simulating a kick
-			A_Recoil(-10+STD_Weight);
+			A_Recoil(STD_Weight*1.5);
 			vel.z = 10;
 			
 			return Super.DamageMobj(null,null,0,mod,flags,angle);
@@ -109,7 +109,7 @@ class PostalKarmaActor : Actor
 		
 		// Use negative value to increase lightness
 		// To make it heavier use positive value
-		PostalKarmaActor.Heaviness 0;
+		PostalKarmaActor.Heaviness -5;
 	}
 	States
 	{
