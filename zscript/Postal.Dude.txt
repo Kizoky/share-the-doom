@@ -725,7 +725,7 @@ class PostalDude : PlayerPawn replaces DoomPlayer
 		HealthPipeTick();
 		CatnipTick();
 		SuicideTick();
-		IdlingTick();
+		//IdlingTick();
 		FootstepTick();
 		
 		// Kicking
