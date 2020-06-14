@@ -5,7 +5,7 @@ class PostalKarmaActor : Actor
 	
 	property CustomBounceSound : STD_CustomBounceSound;
 	property CustomHitSound : STD_CustomHitSound;
-	property Lightness : STD_Weight;
+	property Heaviness : STD_Weight;
 	
 	override void Tick() 
 	{
@@ -109,7 +109,7 @@ class PostalKarmaActor : Actor
 		
 		// Use negative value to increase lightness
 		// To make it heavier use positive value
-		PostalKarmaActor.Lightness 0;
+		PostalKarmaActor.Heaviness 0;
 	}
 	States
 	{
