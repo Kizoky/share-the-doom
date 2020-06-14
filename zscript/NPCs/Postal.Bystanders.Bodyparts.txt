@@ -19,6 +19,8 @@ class NPCHead : PostalActor
 			target = null;
 			
 		}
+		else
+			Destroy();
 		
 		if (p is 'NPCKrotchy')
 			Destroy();
