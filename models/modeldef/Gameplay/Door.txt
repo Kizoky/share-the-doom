@@ -202,4 +202,72 @@ Model "PostalDoor13"
 	
 }
 
-//
+Model "PostalDoor14"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "zo_whitewooddoor.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "PostalDoor15"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "dingy_slatted_metal_door.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "PostalDoor16"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "mex_door_metalstain.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "PostalDoor17"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "zo_whiteanddarkblue.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "PostalDoor18"
+{
+	Path "models\misc\door"
+	Model 0 "door.md3"
+	SurfaceSkin 0 0 "mex_door_brownsteel.png"
+	AngleOffset 0
+	USEACTORPITCH
+	Scale -0.50 -0.50 0.50
+	Offset 0.0 0 0 //X Y Z
+	
+	FrameIndex PROP A 0 0
+	
+}

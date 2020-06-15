@@ -598,3 +598,57 @@ class PostalDoor13 : PostalDoor
 		Renderstyle "Translucent";
 	}
 }
+
+
+class PostalDoor14 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "White Wood Door"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor15 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Slatted Dingy Door"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor16 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Metal Stain Door"
+		//$Color 5
+	}
+}
+
+class PostalDoor17 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "White and Black XD Door"
+		//$Color 5
+	}
+}
+
+
+class PostalDoor18 : PostalDoor
+{
+	Default
+	{
+		//$Category Gameplay
+		//$Title "Red Steel Door"
+		//$Color 5
+	}
+}

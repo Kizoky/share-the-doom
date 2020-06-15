@@ -341,4 +341,9 @@ DoomEdNums
   32455 = FoodStoreSign
   32454 = FoodStoreNoPole
   32453 = trashcan3
+  32452 = PostalDoor14
+  32451 = PostalDoor15
+  32450 = PostalDoor16
+  32449 = PostalDoor17
+  32448 = PostalDoor18
 }
