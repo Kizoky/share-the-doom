@@ -409,7 +409,7 @@ class PostalActor : Actor
 				if (Distance3D(UnstuckHelper) < 1.5 || pos ~== UnstuckHelper.pos)
 				{
 					angle = random[unstuck](-360,360);
-					Console.Printf("NPC made unstuck");
+					//Console.Printf("NPC made unstuck");
 					
 					CheckStuckCD = level.time + 35 * 15;
 				}
