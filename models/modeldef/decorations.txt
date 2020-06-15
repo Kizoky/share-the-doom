@@ -1449,7 +1449,7 @@ Model "SquareBox"
 	SurfaceSkin 0 1 "boxtop.png"
 	AngleOffset 180
 	Scale -0.50 -0.50 0.50
-	Offset 0 0 8 //X Y Z
+	Offset -4 12 8 //X Y Z
 	USEACTORPITCH
 	USEACTORROLL
 	

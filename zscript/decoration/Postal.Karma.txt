@@ -613,3 +613,42 @@ class trashcan3 : PostalKarmaActor
 		Loop;
 	}
 }
+
+
+class SquareBox : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Small Cargo Box"
+		Radius 13;
+		Height 22;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class redplasticecrate : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Red Plastic Crate"
+		Radius 17;
+		Height 20;
+		PostalKarmaActor.CustomBounceSound "physics/plastice";
+		PostalKarmaActor.Heaviness -35;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

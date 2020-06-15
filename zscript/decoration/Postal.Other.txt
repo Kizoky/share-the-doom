@@ -1010,26 +1010,6 @@ class RoofAntenna : PostalDecoration
 }
 
 
-class SquareBox : PostalDecoration
-{
-	Default
-	{
-		//$Category Props
-		//$Title "Cardboard Box Small Square"
-		Radius 10;
-		Height 85;
-		+ROLLSPRITE
-		+ABSMASKPITCH
-		+SOLID
-	}
-	States
-	{
-	Spawn:
-		PROP A -1;
-		Loop;
-	}
-}
-
 
 class KitchenDesk : PostalDecoration
 {
@@ -3118,26 +3098,6 @@ class pillarful : PostalDecoration
 	}
 }
 
-
-
-class redplasticecrate : PostalDecoration
-{
-	Default
-	{
-		//$Category miscellaneous
-		//$Title "Red Plastic Crate"
-		Radius 10;
-		Height 85;
-		+ROLLSPRITE
-		+ABSMASKPITCH
-	}
-	States
-	{
-	Spawn:
-		PROP A -1;
-		Loop;
-	}
-}
 
 
 class zo_crate1 : PostalDecoration
