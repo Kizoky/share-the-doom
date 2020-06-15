@@ -212,6 +212,7 @@ map SCREENT  "Cinematic experience"
 {
 	music=title
 	sky1 = "magichour"
+	//lightning
 }
 
 
