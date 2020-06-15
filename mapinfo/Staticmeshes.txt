@@ -337,4 +337,7 @@ DoomEdNums
   32458 = cleaner1
   32457 = cleaner2
   32456 = airConditioner
+  
+  32455 = FoodStoreSign
+  32454 = FoodStoreNoPole
 }

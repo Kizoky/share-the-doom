@@ -4641,3 +4641,41 @@ class airConditioner : PostalDecoration
 		Loop;
 	}
 }
+
+
+class FoodStoreSign : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "7th Heaven Food Stores"
+		Radius 25;
+		Height 306;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class FoodStoreNoPole : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "7th Heaven Food Stores No Pole"
+		Radius 20;
+		Height 56;
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
