@@ -320,3 +320,18 @@ Model "cleaner2"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "trashcan3"
+{
+	Path "models\physobj"
+	Model 0 "garbage_can.md3"
+	SurfaceSkin 0 0 "garbage_can_ss_timb.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 15 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

@@ -340,4 +340,5 @@ DoomEdNums
   
   32455 = FoodStoreSign
   32454 = FoodStoreNoPole
+  32453 = trashcan3
 }

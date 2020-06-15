@@ -593,3 +593,23 @@ class cleaner2 : PostalKarmaActor
 		Loop;
 	}
 }
+
+
+
+class trashcan3 : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Trashcan"
+		Radius 15;
+		Height 30;
+		PostalKarmaActor.Heaviness -15;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
