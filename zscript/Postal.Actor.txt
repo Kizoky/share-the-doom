@@ -377,8 +377,11 @@ class PostalActor : Actor
         );
     }
 	
-	int DirectionTurnCD;
-	bool NewSearchFinished;
+	int DirectionTurnCD, CheckStuckCD;
+	bool NewSearchFinished, SpawnedUnstuck;
+	double newang;
+	
+	actor UnstuckHelper;
 	void A_PostalWander (int flags = 0)
 	{
 		// [RH] Strife probably clears this flag somewhere, but I couldn't find where.
@@ -397,17 +400,35 @@ class PostalActor : Actor
 			return;
 		}
 		
-		if (DirectionTurnCD != 0 && level.time > DirectionTurnCD * 2)
-		{
-			Console.Printf("Warning: NPC is hugging a wall! warp %d %d %d", pos.x, pos.y, pos.z+100);
-			SetStateLabel("Standing");
-			return;
-		}
-		
 		let NPC = NPCCore(self);
 		
 		if (NPC && !NPC.ActiveNode)
 		{
+			if (level.time > CheckStuckCD && UnstuckHelper && SpawnedUnstuck && CheckStuckCD != 0)
+			{
+				if (Distance3D(UnstuckHelper) < 1.5 || pos ~== UnstuckHelper.pos)
+				{
+					angle = random[unstuck](-360,360);
+					Console.Printf("NPC made unstuck");
+					
+					CheckStuckCD = level.time + 35 * 15;
+				}
+			}
+			
+			if (!UnstuckHelper && !SpawnedUnstuck)
+			{
+				UnstuckHelper = spawn("PostalGrenadeHelper", pos);
+				SpawnedUnstuck = true;
+				CheckStuckCD = level.time + 35 * 15;
+			}
+			else
+			{
+				UnstuckHelper.Destroy();
+				UnstuckHelper = spawn("PostalGrenadeHelper", pos);
+			}
+			
+			A_Recoil(-0.35);
+			
 			FLineTraceData lineData;
 			LineTrace(angle,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
 			//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FF0000", 2);
@@ -419,16 +440,36 @@ class PostalActor : Actor
 					lineData.HitActor is 'PostalWindow' || 
 					lineData.HitActor is 'PostalWindow_Extender')
 				{
-					if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
-					{	
-						A_SetAngle(angle-45, SPF_INTERPOLATE);
+					NewSearchFinished = false;
+					int i = 0;
+					
+					newang = angle;
+					while (i < 190)
+					{
+						i += 25;
+						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
+						{
+							NewSearchFinished = true;
+							newang -= i;
+							break;
+						}
+						
+						LineTrace(angle+i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
+						{
+							NewSearchFinished = true;
+							newang += i;
+							break;
+						}
 					}
-					return;
+					
+					angle = newang;
 				}
 			}
 			
 			// And now we check for any potential walls
-			LineTrace(angle,150,0, TRF_THRUACTORS | TRF_BLOCKSELF, offsetz: height-20, data: LineData);
+			LineTrace(angle,150,0, TRF_BLOCKSELF, offsetz: height-20, data: LineData);
 			
 			bool maybestairs;
 			if (LineData.HitType == TRACE_HitWall)
@@ -447,100 +488,76 @@ class PostalActor : Actor
 				{
 					NewSearchFinished = false;
 					int i = 0;
-					while (i < 190 && !NewSearchFinished)
+					
+					newang = angle;
+					
+					while (i < 190)
 					{
 						i += 25;
-						LineTrace(angle+i,100,0, TRF_THRUACTORS | TRF_BLOCKSELF , offsetz: 15, data: LineData);
-						if (LineData.HitType == TRACE_HitWall)
+							
+						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
 						{
-							// stub
-						}
-						else
-						{
-							if (!(LineData.HitType == TRACE_HitActor))
-							{	
-								NewSearchFinished = true;
-								angle += i;
-								break;
-							}
+							NewSearchFinished = true;
+							newang -= i;
+							break;
 						}
 						
-						LineTrace(angle-i,100,0, TRF_THRUACTORS | TRF_BLOCKSELF , offsetz: 15, data: LineData);
-						if (LineData.HitType == TRACE_HitWall)
+						LineTrace(angle+i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
 						{
-							// stub
-						}
-						else
-						{
-							if (!(LineData.HitType == TRACE_HitActor))
-							{
-								NewSearchFinished = true;
-								angle -= i;
-								break;
-							}
+							NewSearchFinished = true;
+							newang += i;
+							break;
 						}
 					}
+					
+					angle = newang;
 				}
 			}
 			else
 			{ 	// We aren't hitting any walls at all
 				// Are we bumping into a wall we can't "see"?
-				LineTrace(angle,10,0, TRF_THRUACTORS | TRF_BLOCKSELF , offsetz: 15, offsetforward: -2, data: LineData);
+				LineTrace(angle,10,0, TRF_BLOCKSELF , offsetz: 15, offsetforward: -2, data: LineData);
 				vector2 trydist = (LineData.HitLocation.x, LineData.HitLocation.y);
 				bool canmovetodist = CheckMove(trydist, 0);
 				
 				// We can't move onto the LineTrace's end, so we are checking if we can move around
 				if (!canmovetodist)
 				{
-					if (TryWalk())
+					NewSearchFinished = false;
+					int i = 0;
+					
+					newang = angle;
+					while (i < 190)
 					{
-						NewSearchFinished = false;
-						int i = 0;
-						while (i < 190 && !NewSearchFinished)
+						i += 25;
+						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
 						{
-							i += 25;
-							LineTrace(angle+i,100,0, TRF_THRUACTORS | TRF_BLOCKSELF , offsetz: 15, data: LineData);
-							if (LineData.HitType == TRACE_HitWall)
-							{
-								// stub
-							}
-							else
-							{
-								if (!(LineData.HitType == TRACE_HitActor))
-								{	
-									NewSearchFinished = true;
-									angle += i;
-									break;
-								}
-							}
-							
-							LineTrace(angle-i,100,0, TRF_THRUACTORS | TRF_BLOCKSELF , offsetz: 15, data: LineData);
-							if (LineData.HitType == TRACE_HitWall)
-							{
-								// stub
-							}
-							else
-							{
-								if (!(LineData.HitType == TRACE_HitActor))
-								{
-									NewSearchFinished = true;
-									angle -= i;
-									break;
-								}
-							}
+							NewSearchFinished = true;
+							newang -= i;
+							break;
+						}
+						
+						LineTrace(angle+i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
+						{
+							NewSearchFinished = true;
+							newang += i;
+							break;
 						}
 					}
-					else
-					{
-						angle += random[tryrandomang](-35,35);
-					}
+					
+					angle = newang;
 					
 				}
-			
 			}
+			
 			
 			// after a random amount of time has passed the NPCs will make a random turn
 			// before doing so it will make a bunch of checks to make sure it won't bump into anything
+			
 			if (!(flags & CHF_NODIRECTIONTURN))
 			{
 				if (DirectionTurnCD < level.time)
@@ -598,29 +615,17 @@ class PostalActor : Actor
 						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
 					}
 					
-					/* this causes more problems than it should, checks if the back of the NPC isn't a wall
-					if (hitintoright && hitintoleft && !maybestairs)
-					{
-						LineTrace(angle+180,105,-25, TRF_THRUACTORS, offsetz: height-20, data: LineData);
-						if (LineData.HitType == TRACE_HitWall)
-						{
-							angle += 180;
-							DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
-							return;
-						}
-					}
-					*/
 				}
 			}
 		}
 		
-		A_Recoil(-0.35);
-		
+		// I don't think this does anything anymore
 		if ((--movecount < 0 && !(flags & CHF_NORANDOMTURN)) || (!MonsterMove() && !(flags & CHF_STOPIFBLOCKED)))
 		{
 			RandomChaseDir();
 			movecount += 5;
 		}
+	
 		return;
 	}
 }
