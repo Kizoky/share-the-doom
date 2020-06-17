@@ -111,7 +111,7 @@ map WORLD3 "Blumefold"
 }
 
 
-map WORLD4 "Bitch - Day"
+map WORLD4 "Seriezza Heights"
 {
 	levelnum = 4
 	music=Amb_04
