@@ -1199,7 +1199,7 @@ class NPCCore : PostalActor
 		Goto See;
 	Death:
 		DUDD A 0 A_Scream;
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		DUD2 A 0
 		{
 			if (NPCWeapon == "Pistol")
