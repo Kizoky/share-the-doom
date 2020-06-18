@@ -1,0 +1,51 @@
+class NPCMulato2 : NPCCore
+{
+	override void NPC_Settings()
+	{
+	
+		NPC_Scream = "male3/scream";
+		NPC_Bump = "male3/bump";
+		NPC_PetitionDeny = "noway";
+		NPC_Dickout = "male3/dickout";
+		NPC_Taunt = "male3/taunt";
+		
+
+		WalkingStyle = random[mystyle](1,6);
+		
+
+		MyVoice = frandom[voicef](0.95,1.12);
+		
+
+		class<actor> Head = "NPCHead";
+		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
+		if (MyHead)
+		{
+			MyHead.Angle = self.Angle;
+			let p = NPCHead(MyHead);
+			if (p)
+			{
+				p.Owner = self;
+				HeadHitbox = p;
+			}
+		}
+		
+		Hostility = "Hostile";
+		NPCWeapon = "Pistol";
+		
+	}
+	
+	Default
+	{
+		Health 150;
+		Radius 12;
+		Height 65;
+		AttackSound "";
+		PainSound "male3/hurt";
+		DeathSound "male3/hurt";
+		Obituary "%o should replace this text of string.";
+		CameraHeight 59;
+		
+		// Set this to enable custom Hostility and Weapon
+		NPCCore.CustomBehavior true;
+	}
+}
