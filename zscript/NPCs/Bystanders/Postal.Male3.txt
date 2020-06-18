@@ -4,7 +4,7 @@ class NPCWhiteDude3 : NPCCore
 	{
 	
 		NPC_Scream = "male2/scream";
-		NPC_Bump = "male1/bump";
+		NPC_Bump = "male2/bump";
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male1/dickout";
 		NPC_Taunt = "male1/taunt";

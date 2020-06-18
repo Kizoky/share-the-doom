@@ -561,6 +561,20 @@ male2/scream4 sounds/npc/whitemale2/wm_scream4.wav
 
 $random male2/scream { male2/scream1 male2/scream2 male2/scream3 male2/scream4 }
 
+male2/bump1 sounds/npc/whitemale2/wm_bumped_cominthroughv1.wav
+male2/bump2 sounds/npc/whitemale2/wm_bumped_cominthroughv2.wav
+male2/bump3 sounds/npc/whitemale2/wm_bumped_cominthroughv3.wav
+male2/bump4 sounds/npc/whitemale2/wm_bumped_heywatchitv1.wav
+male2/bump5 sounds/npc/whitemale2/wm_bumped_heywatchitv2.wav
+male2/bump6 sounds/npc/whitemale2/wm_bumped_lookoutv1.wav
+male2/bump7 sounds/npc/whitemale2/wm_bumped_lookoutv2.wav
+male2/bump8 sounds/npc/whitemale2/wm_bumped_onesidev1.wav
+male2/bump9 sounds/npc/whitemale2/wm_bumped_onesidev2.wav
+male2/bump10 sounds/npc/whitemale2/wm_bumped_oofidiotv1.wav
+male2/bump11 sounds/npc/whitemale2/wm_bumped_oofidiotv2.wav
+
+$random male2/bump { male2/bump1 male2/bump2 male2/bump3 male2/bump4 male2/bump5 male2/bump6 male2/bump7 male2/bump8 male2/bump9 male2/bump10 male2/bump11 }
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 madcow/spit1 sounds/madcow/Mikej_OOah.wav
