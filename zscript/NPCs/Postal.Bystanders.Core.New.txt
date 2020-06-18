@@ -65,6 +65,8 @@ class NPCCore : PostalActor
 	string stdObituary;
 	property stdObituary : stdObituary;
 	
+	property CustomBehavior : BehaviorOverriden;
+	
 	virtual void NPC_Debug()
 	{
 		if (debug_hostility == D_NONE) return;

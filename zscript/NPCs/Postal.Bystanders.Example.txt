@@ -1,0 +1,63 @@
+// This is an example of how you can add custom NPCs
+// Note: You don't need to copy states from NPCCore because it will most likely break
+// Adding new functions would require also editing NPCCore which is over 2000+ lines
+
+// Make sure to inherit from NPCCore
+// Note: Use the same frames you found from NPCCore to use custom models for this actor
+// ./models/modeldef/Bystanders/example.txt
+class NPCExample : NPCCore
+{
+	override void NPC_Settings()
+	{
+		// Sounds are defined here for NPCs
+		NPC_Scream = "male1/scream";
+		NPC_Bump = "mikej/bump";
+		NPC_PetitionDeny = "noway";
+		NPC_Dickout = "mikej/dickout";
+		
+		// Played by Hostile NPCs immediately after they go after their target
+		NPC_Taunt = "krotchy/taunt";
+		
+		// Walking styles are randomized, but you can set it manually if wanted
+		// Note, currently (18 June) they aren't added into the mod yet
+		WalkingStyle = random[mystyle](1,6);
+		
+		// The pitch of the NPC's voice is randomized, except Krotchy's
+		MyVoice = frandom[voicef](0.7,1.2);
+		
+		// Spawn head hitbox
+		// Note: You MUST set a Headbox for the NPC, otherwise they will die instantly
+		// Currently this is hardcoded and there's no way you can't not add Hitbox to the NPC
+		class<actor> Head = "NPCHead";
+		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
+		if (MyHead)
+		{
+			MyHead.Angle = self.Angle;
+			let p = NPCHead(MyHead);
+			if (p)
+			{
+				p.Owner = self;
+				HeadHitbox = p;
+			}
+		}
+		
+		Hostility = "Hostile";
+		NPCWeapon = "Shotgun";
+		
+	}
+	
+	Default
+	{
+		Health 666;
+		Radius 12;
+		Height 65;
+		AttackSound "";
+		PainSound "male1/hurt";
+		DeathSound "male1/death";
+		Obituary "%o should replace this text of string.";
+		CameraHeight 59;
+		
+		// Set this to enable custom Hostility and Weapon
+		NPCCore.CustomBehavior true;
+	}
+}
