@@ -15,7 +15,7 @@ If you have downloaded the mod from here, run ***build.bat*** or ***build*** if 
 | [Using content from this mod](LICENSE.md) |
 | [List of unfinished things (Postal Dude playerclass)](https://github.com/Kizoky/share-the-doom/milestone/1) |
 | List of unfinished features of NPCs |
-| How to create custom NPCs as an addon |
+| [How to create custom NPCs as an addon](https://github.com/Kizoky/share-the-doom/blob/master/zscript/NPCs/Postal.Bystanders.Example.txt) |
 | How to add Postal-styled weapon(s) |
 | How to make NPCs/Traffic follow a route in a level |
 
