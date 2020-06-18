@@ -645,6 +645,28 @@ $random male3/taunt { male3/taunt1 male3/taunt2 male3/taunt3 }
 
 gary/laugh sounds/gary_bwahahaha.wav
 
+example/bump1 sounds/npc/example/example_bump1.wav
+example/bump2 sounds/npc/example/example_bump2.wav
+example/bump3 sounds/npc/example/example_bump3.wav
+example/bump4 sounds/npc/example/example_bump4.wav
+example/bump5 sounds/npc/example/example_bump5.wav
+example/bump6 sounds/npc/example/example_bump6.wav
+example/bump7 sounds/npc/example/example_bump7.wav
+example/bump8 sounds/npc/example/example_bump8.wav
+
+$random example/bump { example/bump1 example/bump2 example/bump3 example/bump4 example/bump5 example/bump6 example/bump7 example/bump8 }
+
+example/taunt1 sounds/npc/example/example_taunt1.wav
+example/taunt2 sounds/npc/example/example_taunt2.wav
+example/taunt3 sounds/npc/example/example_taunt3.wav
+example/taunt4 sounds/npc/example/example_taunt4.wav
+example/taunt5 sounds/npc/example/example_taunt5.wav
+example/taunt6 sounds/npc/example/example_taunt6.wav
+example/taunt7 sounds/npc/example/example_taunt7.wav
+example/taunt8 sounds/npc/example/example_taunt8.wav
+
+$random example/taunt { example/taunt1 example/taunt2 example/taunt3 example/taunt4 example/taunt5 example/taunt6 example/taunt7 example/taunt8 }
+
 madcow/spit1 sounds/madcow/Mikej_OOah.wav
 madcow/spit2 sounds/madcow/Mikej_WAH.wav
 

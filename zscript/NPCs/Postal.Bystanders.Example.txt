@@ -10,14 +10,14 @@ class NPCExample : NPCCore
 {
 	override void NPC_Settings()
 	{
-		// Sounds are defined here for NPCs
+		// Sounds are defined here for NPCs. NOTE FOR BEGINNGERS: Sounds MUST be defined in SNDINFO.txt before you can use them here!
 		NPC_Scream = "male1/scream";
-		NPC_Bump = "mikej/bump";
+		NPC_Bump = "example/bump";
 		NPC_PetitionDeny = "noway";
-		NPC_Dickout = "mikej/dickout";
+		NPC_Dickout = "example/taunt";
 		
 		// Played by Hostile NPCs immediately after they go after their target
-		NPC_Taunt = "dudeline6";
+		NPC_Taunt = "example/taunt";
 		
 		// Walking styles are randomized, but you can set it manually if wanted
 		// Note, currently (18 June) they aren't added into the mod yet
