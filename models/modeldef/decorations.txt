@@ -4302,3 +4302,18 @@ Model "FoodStoreNoPole"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "BurgerObject"
+{
+	Path "models\props"
+	Model 0 "burger.md3"
+	SurfaceSkin 0 0 "burger_Tex.png"
+	AngleOffset 0
+	Scale 1 1 1
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

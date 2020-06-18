@@ -4639,3 +4639,22 @@ class FoodStoreNoPole : PostalDecoration
 		Loop;
 	}
 }
+
+
+class BurgerObject : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Coronary Burger Top"
+		Radius 20;
+		Height 56;
+		+NOINTERACTION;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

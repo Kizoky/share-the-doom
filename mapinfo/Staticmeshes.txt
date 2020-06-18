@@ -346,4 +346,5 @@ DoomEdNums
   32450 = PostalDoor16
   32449 = PostalDoor17
   32448 = PostalDoor18
+  32447 = BurgerObject
 }
