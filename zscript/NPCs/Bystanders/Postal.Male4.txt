@@ -1,4 +1,4 @@
-class NPCWhiteDude3 : NPCCore
+class NPCWhiteDude4 : NPCCore
 {
 	override void NPC_Settings()
 	{
@@ -7,7 +7,7 @@ class NPCWhiteDude3 : NPCCore
 		NPC_Bump = "male2/bump";
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male2/dickout";
-		NPC_Taunt = "male2/taunt";
+		NPC_Taunt = "male1/taunt";
 		
 
 		WalkingStyle = random[mystyle](1,6);

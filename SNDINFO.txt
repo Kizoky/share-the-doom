@@ -575,6 +575,19 @@ male2/bump11 sounds/npc/whitemale2/wm_bumped_oofidiotv2.wav
 
 $random male2/bump { male2/bump1 male2/bump2 male2/bump3 male2/bump4 male2/bump5 male2/bump6 male2/bump7 male2/bump8 male2/bump9 male2/bump10 male2/bump11 }
 
+male2/dickout1 sounds/npc/whitemale2/wm_seewang_heybuddyyourbarnv1.wav
+male2/dickout2 sounds/npc/whitemale2/wm_seewang_heybuddyyourbarnv2.wav
+male2/dickout3 sounds/npc/whitemale2/wm_seewang_noonesimpressedv1.wav
+male2/dickout4 sounds/npc/whitemale2/wm_seewang_noonesimpressedv2.wav
+male2/dickout5 sounds/npc/whitemale2/wm_seewang_pullyourpantsupv1.wav
+male2/dickout6 sounds/npc/whitemale2/wm_seewang_pullyourpantsupv2.wav
+male2/dickout7 sounds/npc/whitemale2/wm_seewang_whyyourschwartzv1.wav
+male2/dickout8 sounds/npc/whitemale2/wm_seewang_whyyourschwartzv2.wav
+male2/dickout9 sounds/npc/whitemale2/wm_seewang_xyzv1.wav
+male2/dickout10 sounds/npc/whitemale2/wm_seewang_xyzv2.wav
+
+$random male2/dickout { male2/dickout1 male2/dickout2 male2/dickout3 male2/dickout4 male2/dickout5 male2/dickout6 male2/dickout7 male2/dickout8 male2/dickout9 male2/dickout10 }
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 madcow/spit1 sounds/madcow/Mikej_OOah.wav

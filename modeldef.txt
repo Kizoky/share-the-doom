@@ -24,6 +24,7 @@
 #include "models/modeldef/bystanders/MaleWhite/Male1.txt"
 #include "models/modeldef/bystanders/MaleWhite/Male2.txt"
 #include "models/modeldef/bystanders/MaleWhite/Male3.txt"
+#include "models/modeldef/bystanders/MaleWhite/Male4.txt"
 #include "models/modeldef/bystanders/example.txt"
 
 // Animals
