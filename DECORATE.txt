@@ -35,4 +35,5 @@ ACTOR RandomNPCSpawner : RandomSpawner 1111
     DropItem "NPCWhiteDude2"
 	DropItem "NPCWhiteDude3"
 	DropItem "NPCWhiteDude4"
+	DropItem "NPCWhiteDude5"
 }

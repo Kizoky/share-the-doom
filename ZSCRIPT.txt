@@ -99,6 +99,7 @@ version "4.2"
 #include "zscript/NPCs/Bystanders/Postal.Male2.txt"
 #include "zscript/NPCs/Bystanders/Postal.Male3.txt"
 #include "zscript/NPCs/Bystanders/Postal.Male4.txt"
+#include "zscript/NPCs/Bystanders/Postal.Male5.txt"
 
 //------------ Postal Decorations
 
