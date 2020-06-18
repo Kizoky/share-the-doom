@@ -588,6 +588,13 @@ male2/dickout10 sounds/npc/whitemale2/wm_seewang_xyzv2.wav
 
 $random male2/dickout { male2/dickout1 male2/dickout2 male2/dickout3 male2/dickout4 male2/dickout5 male2/dickout6 male2/dickout7 male2/dickout8 male2/dickout9 male2/dickout10 }
 
+male2/taunt1 sounds/npc/whitemale2/wm_postal_illusethisv2.wav
+male2/taunt2 sounds/npc/whitemale2/wm_tough_bringitv1.wav
+male2/taunt3 sounds/npc/whitemale2/wm_tough_tryandstopmev1.wav
+male2/taunt4 sounds/npc/whitemale2/wm_tough_youthinkimscaredv2.wav
+
+$random male2/taunt { male2/taunt1 male2/taunt2 male2/taunt3 male2/taunt4 }
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 madcow/spit1 sounds/madcow/Mikej_OOah.wav

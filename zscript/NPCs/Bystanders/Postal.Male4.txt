@@ -7,7 +7,7 @@ class NPCWhiteDude4 : NPCCore
 		NPC_Bump = "male2/bump";
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male2/dickout";
-		NPC_Taunt = "male1/taunt";
+		NPC_Taunt = "male2/taunt";
 		
 
 		WalkingStyle = random[mystyle](1,6);
@@ -29,7 +29,7 @@ class NPCWhiteDude4 : NPCCore
 			}
 		}
 		
-		Hostility = "Pussy";
+		Hostility = "Hostile";
 		NPCWeapon = "Pistol";
 		
 	}
