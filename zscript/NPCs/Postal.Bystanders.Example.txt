@@ -17,7 +17,7 @@ class NPCExample : NPCCore
 		NPC_Dickout = "mikej/dickout";
 		
 		// Played by Hostile NPCs immediately after they go after their target
-		NPC_Taunt = "krotchy/taunt";
+		NPC_Taunt = "dudeline6";
 		
 		// Walking styles are randomized, but you can set it manually if wanted
 		// Note, currently (18 June) they aren't added into the mod yet
