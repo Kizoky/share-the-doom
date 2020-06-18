@@ -27,3 +27,10 @@ ACTOR SlomoScreenGiver : PowerupGiver
 	+INVENTORY.ALWAYSPICKUP
 	+INVENTORY.NOSCREENBLINK
 }
+
+
+ACTOR RandomNPCSpawner : RandomSpawner 1111
+{
+    DropItem "NPCWhiteDude"
+    DropItem "NPCWhiteDude2"
+}
