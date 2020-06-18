@@ -8,6 +8,10 @@
 // ./models/modeldef/Bystanders/example.txt
 class NPCExample : NPCCore
 {
+	// This is the only function you can safely override/edit, the other ones are risky (unless there will be more but I don't think so atm)
+	// i.e. you should never touch PostBeginPlay(), NPC_Settings is in that
+	// Tick() needs to be made more friendly for adding new custom stuff, so that's not safe either
+	// Think of this function as an alternative PostBeginPlay(), editing damage, health, calculating, etc. works at spawn
 	override void NPC_Settings()
 	{
 		// Sounds are defined here for NPCs. NOTE FOR BEGINNGERS: Sounds MUST be defined in SNDINFO.txt before you can use them here!
@@ -23,7 +27,7 @@ class NPCExample : NPCCore
 		// Note, currently (18 June) they aren't added into the mod yet
 		WalkingStyle = random[mystyle](1,6);
 		
-		// The pitch of the NPC's voice is randomized, except Krotchy's
+		// The pitch of the NPC's voice is randomized
 		MyVoice = frandom[voicef](0.7,1.2);
 		
 		// Spawn head hitbox
@@ -42,6 +46,13 @@ class NPCExample : NPCCore
 			}
 		}
 		
+		// Set hostility and weapon
+		// For hostility use:
+		// 'Hostile' or 'Pussy', the latter is unarmed Bystander behavior
+		// Weapon can be anything you can find in Postal.Bystanders.Core.New.txt at WeaponList[]
+		// Note: If wrong data was given, their behavior will be random, unless NPCWeapon was invalid
+		// in that case that will be only randomized
+		// They aren't case-sensitive so you are free to name it as shotgun, ShotguN, PuSsY, and so on...
 		Hostility = "Hostile";
 		NPCWeapon = "Shotgun";
 		
