@@ -241,6 +241,7 @@ Freezer_humHi sounds/ambient_p2/Freezer_humHi.wav
 StormGrate sounds/ambient_p2/StormGrate.wav
 washingMachine sounds/ambient_p2/washingMachine.wav
 Air_conditioner_hum sounds/Air_conditioner_hum.ogg
+parrots_tree sounds/parrots_tree.ogg
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -370,6 +371,9 @@ $ambient 42 Pizza_Parlor point continuous 1.0
 
 $alias AirConditioner Air_conditioner_hum
 $ambient 43 AirConditioner point continuous 1.0
+
+$alias PalmParrots parrots_tree
+$ambient 44 PalmParrots point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
@@ -735,7 +739,7 @@ $random physics/plastice { plastichitsground1 plastichitsground2 }
 lampHit01 sounds/phys/lampHit01.wav
 lampHit02 sounds/phys/lampHit02.wav
 
-$random physics/lamp2 { lampHit01 lampHit02 }
+$random physics/lamp2 { lampHit01 lampHit02 karmaLamp karmaLamp01 karmaLamp02 }
 
 woodhitsground1 sounds/phys/woodhitsground1.wav
 woodhitsground2 sounds/phys/woodhitsground2.wav
