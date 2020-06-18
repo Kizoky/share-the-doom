@@ -21,6 +21,7 @@
 //#include "models/modeldef/bystanders/Protest_Core.txt"
 //#include "models/modeldef/bystanders/Shop_Core.txt"
 #include "models/modeldef/bystanders/Krotchy/Krotchy.txt"
+#include "models/modeldef/bystanders/MaleWhite/Male1.txt"
 
 // Animals
 #include "models/modeldef/animals/Cat.txt"

@@ -94,7 +94,7 @@ version "4.2"
 //#include "zscript/NPCs/Bystanders/Postal.Female.Band.txt"
 //#include "zscript/NPCs/Bystanders/Postal.Male.Pants.txt"
 #include "zscript/NPCs/Bystanders/Postal.Krotchy.txt"
-
+#include "zscript/NPCs/Bystanders/Postal.Male1.txt"
 
 //------------ Postal Decorations
 
