@@ -2,8 +2,8 @@ Model "NPCRedneck1"
 {
 	Path "models\misc\NPCs\MaleWhite"
 	Model 0 "Malewithheadout.md3"
-	SurfaceSkin 0 0 "body/MW__832__Avg_M_SS_Pants.png"
-	SurfaceSkin 0 1 "head/MWA__008__AvgMale.png"
+	SurfaceSkin 0 0 "body/MW__055__Avg_M_SS_Pants.png"
+	SurfaceSkin 0 1 "head/Head_Downerup.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -151,7 +151,7 @@ Model "NPCRedneck1"
 {
 	Path "models\misc\NPCs\MaleWhite"
 	Model 0 "Malewithheadout.md3"
-	SurfaceSkin 0 0 "body/MW__832__Avg_M_SS_Pants.png"
+	SurfaceSkin 0 0 "body/MW__055__Avg_M_SS_Pants.png"
 	SurfaceSkin 0 1 "invis.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
@@ -207,8 +207,8 @@ Model "NPCRedneck1"
 {
 	Path "models\misc\NPCs\MaleWhite"
 	Model 0 "MalewithPistolout.md3"
-	SurfaceSkin 0 0 "body/MW__832__Avg_M_SS_Pants.png"
-	SurfaceSkin 0 1 "head/MWA__008__AvgMale.png"
+	SurfaceSkin 0 0 "body/MW__055__Avg_M_SS_Pants.png"
+	SurfaceSkin 0 1 "head/Head_Downerup.png"
 	SurfaceSkin 0 2 "desertEagle_256.tga"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
