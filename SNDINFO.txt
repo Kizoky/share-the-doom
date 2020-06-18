@@ -595,6 +595,54 @@ male2/taunt4 sounds/npc/whitemale2/wm_tough_youthinkimscaredv2.wav
 
 $random male2/taunt { male2/taunt1 male2/taunt2 male2/taunt3 male2/taunt4 }
 
+male3/scream1 sounds/npc/mulato/mm_scream1.wav
+male3/scream2 sounds/npc/mulato/mm_scream2.wav
+male3/scream3 sounds/npc/mulato/mm_scream3.wav
+male3/scream4 sounds/npc/mulato/mm_scream4.wav
+
+$random male3/scream { male3/scream1 male3/scream2 male3/scream3 male3/scream4 }
+
+male3/bump1 sounds/npc/mulato/mm_bumped_cominthroughv1.wav
+male3/bump2 sounds/npc/mulato/mm_bumped_cominthroughv2.wav
+male3/bump3 sounds/npc/mulato/mm_bumped_heywatchitv1.wav
+male3/bump4 sounds/npc/mulato/mm_bumped_heywatchitv2.wav
+male3/bump5 sounds/npc/mulato/mm_bumped_lookoutv1.wav
+male3/bump6 sounds/npc/mulato/mm_bumped_lookoutv2.wav
+male3/bump7 sounds/npc/mulato/mm_bumped_lookoutv3.wav
+male3/bump8 sounds/npc/mulato/mm_bumped_onesidev1.wav
+male3/bump9 sounds/npc/mulato/mm_bumped_oofchapetev1.wav
+male3/bump10 sounds/npc/mulato/mm_bumped_oofchapetev2.wav
+
+$random male3/bump { male3/bump1 male3/bump2 male3/bump3 male3/bump4 male3/bump5 male3/bump6 male3/bump7 male3/bump8 male3/bump9 male3/bump10 }
+
+male3/hurt1 sounds/npc/mulato/mm_damage_aghkv1.wav
+male3/hurt2 sounds/npc/mulato/mm_damage_aiieev1.wav
+male3/hurt3 sounds/npc/mulato/mm_damage_aiieev2.wav
+male3/hurt4 sounds/npc/mulato/mm_damage_aiieev3.wav
+male3/hurt5 sounds/npc/mulato/mm_damage_akv1.wav
+male3/hurt6 sounds/npc/mulato/mm_damage_akv2.wav
+male3/hurt7 sounds/npc/mulato/mm_damage_arghv1.wav
+male3/hurt8 sounds/npc/mulato/mm_damage_arghv2.wav
+male3/hurt9 sounds/npc/mulato/mm_damage_aughv1.wav
+
+$random male3/hurt { male3/hurt1 male3/hurt2 male3/hurt3 male3/hurt4 male3/hurt5 male3/hurt6 male3/hurt7 male3/hurt8 male3/hurt9 }
+
+male3/dickout1 sounds/npc/mulato/mm_seewang_chillitov1.wav
+male3/dickout2 sounds/npc/mulato/mm_seewang_chillitov2.wav
+male3/dickout3 sounds/npc/mulato/mm_seewang_corralisopenv1.wav
+male3/dickout4 sounds/npc/mulato/mm_seewang_dontmakemeseev1.wav
+male3/dickout5 sounds/npc/mulato/mm_seewang_havesomedignityv1.wav
+male3/dickout6 sounds/npc/mulato/mm_seewang_havesomedignityv2.wav
+male3/dickout7 sounds/npc/mulato/mm_seewang_havesomedignityv3.wav
+
+$random male3/dickout { male3/dickout1 male3/dickout2 male3/dickout3 male3/dickout4 male3/dickout5 male3/dickout6 male3/dickout7 }
+
+male3/taunt1 sounds/npc/mulato/mm_postal_gonnaregretv2.wav
+male3/taunt2 sounds/npc/mulato/mm_postal_illusethisv2.wav
+male3/taunt3 sounds/npc/mulato/mm_postal_wrongvatov2.wav
+
+$random male3/taunt { male3/taunt1 male3/taunt2 male3/taunt3 }
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 madcow/spit1 sounds/madcow/Mikej_OOah.wav
