@@ -494,6 +494,8 @@ $random player/healthpipehurt { dudeline11 dudeline62 }
 krotchy/bump sounds/wm_krotchy_getoffme.wav
 krotchy/taunt sounds/wm_krotchy_youthinkyou.wav
 
+/////Bystander Lines
+
 male1/hurt1 sounds/npc/whitemale/wm_aahimhit.wav
 male1/hurt2 sounds/npc/whitemale/wm_aghk.wav
 male1/hurt3 sounds/npc/whitemale/wm_argh.wav
@@ -522,8 +524,9 @@ $random male1/bump { male1/bump1 male1/bump2 male1/bump3 }
 
 male1/dickout1 sounds/npc/whitemale/wm_geezstopdoingthat.wav
 male1/dickout2 sounds/npc/whitemale/wm_geezpullyourpants.wav
+male1/dickout3 sounds/npc/whitemale/wm_noonesimpressed.wav
 
-$random male1/dickout { male1/dickout1 male1/dickout2 }
+$random male1/dickout { male1/dickout1 male1/dickout2 male1/dickout3 }
 
 malecop1/suspect1 sounds/npc/whitemale/wm_cop_gotthescumbag.wav
 malecop1/suspect2 sounds/npc/whitemale/wm_cop_ivegottheperp.wav
