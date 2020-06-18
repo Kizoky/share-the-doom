@@ -1,6 +1,7 @@
 // This is an example of how you can add custom NPCs
 // Note: You don't need to copy states from NPCCore because it will most likely break
-// Adding new functions would require also editing NPCCore which is over 2000+ lines
+// For now you can't really add new custom features because NPCCore (the main actor for NPCs) is not
+// code flexible yet, poke me hard enough and I'll get it done!
 
 // Make sure to inherit from NPCCore
 // Note: Use the same frames you found from NPCCore to use custom models for this actor
