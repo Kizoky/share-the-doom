@@ -32,6 +32,7 @@
 #include "models/modeldef/bystanders/MaleWhite/Male9.txt"
 #include "models/modeldef/bystanders/MaleWhite/Male10.txt"
 #include "models/modeldef/bystanders/MaleWhite/Male11.txt"
+#include "models/modeldef/bystanders/WJIguys/Mikey.txt"
 #include "models/modeldef/bystanders/example.txt"
 
 // Animals
