@@ -1826,7 +1826,7 @@ class table_round : PostalDecoration
 		Height 40;
 		+ROLLSPRITE
 		+ABSMASKPITCH
-		+NOINTERACTION;
+		+SOLID
 	}
 	States
 	{
