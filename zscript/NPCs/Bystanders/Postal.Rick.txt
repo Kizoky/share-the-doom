@@ -36,6 +36,9 @@ class NPCRick : NPCCore
 	
 	Default
 	{
+		//$Category NPCs
+		//$Title "WJI Rick"
+		//$Sprite DUDEA0
 		Health 150;
 		Radius 12;
 		Height 65;

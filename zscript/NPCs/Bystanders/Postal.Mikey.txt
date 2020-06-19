@@ -36,6 +36,9 @@ class NPCJaret : NPCCore
 	
 	Default
 	{
+		//$Category NPCs
+		//$Title "WJI Mike J"
+		//$Sprite DUDEA0
 		Health 150;
 		Radius 12;
 		Height 65;

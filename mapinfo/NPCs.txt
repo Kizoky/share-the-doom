@@ -13,4 +13,11 @@ DoomEdNums
   29990 = PostalCar
   29989 = Postal_CarNode
   29988 = DummyDude
+  29987 = NPCJaret
+  29986 = NPCBob
+  29985 = NPCKurt
+  29984 = NPCJon
+  29983 = NPCMick
+  29982 = NPCRick
+  29981 = NPCRicky
 }

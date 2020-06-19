@@ -36,6 +36,9 @@ class NPCKurt : NPCCore
 	
 	Default
 	{
+		//$Category NPCs
+		//$Title "WJI Kurt"
+		//$Sprite DUDEA0
 		Health 150;
 		Radius 12;
 		Height 65;

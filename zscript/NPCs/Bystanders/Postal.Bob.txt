@@ -36,6 +36,9 @@ class NPCBob : NPCCore
 	
 	Default
 	{
+		//$Category NPCs
+		//$Title "WJI Bob"
+		//$Sprite DUDEA0
 		Health 150;
 		Radius 12;
 		Height 65;

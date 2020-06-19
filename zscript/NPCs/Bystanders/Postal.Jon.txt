@@ -36,6 +36,9 @@ class NPCJon : NPCCore
 	
 	Default
 	{
+		//$Category NPCs
+		//$Title "WJI Jon"
+		//$Sprite DUDEA0
 		Health 150;
 		Radius 12;
 		Height 65;
