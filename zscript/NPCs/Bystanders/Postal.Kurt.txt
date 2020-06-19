@@ -1,13 +1,13 @@
-class NPCJaret : NPCCore
+class NPCKurt : NPCCore
 {
 	override void NPC_Settings()
 	{
 	
-		NPC_Scream = "mikej/scream";
-		NPC_Bump = "mikej/bump";
+		NPC_Scream = "male1/scream";
+		NPC_Bump = "male1/bump";
 		NPC_PetitionDeny = "noway";
-		NPC_Dickout = "mikej/dickout";
-		NPC_Taunt = "mikej/taunt";
+		NPC_Dickout = "male1/dickout";
+		NPC_Taunt = "male1/taunt";
 		
 
 		WalkingStyle = random[mystyle](1,6);
