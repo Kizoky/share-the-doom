@@ -4658,3 +4658,60 @@ class BurgerObject : PostalDecoration
 		Loop;
 	}
 }
+
+
+class DieselSign : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "SEXLOCO SIGN"
+		Radius 25;
+		Height 306;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class GasSign : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Gas Prices"
+		Radius 25;
+		Height 306;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class GasPump : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Gas Pump"
+		Radius 25;
+		Height 40;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

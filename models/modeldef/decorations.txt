@@ -4317,3 +4317,54 @@ Model "BurgerObject"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "DieselSign"
+{
+	Path "models\props"
+	Model 0 "zo_dieselsign.md3"
+	SurfaceSkin 0 0 "gas_sign_512x256.png"
+	SurfaceSkin 0 1 "zo_shortstack.png"
+	SurfaceSkin 0 2 "zo_crackedcement.png"
+	AngleOffset 0
+	Scale -0.80 -0.80 0.80
+	Offset -199 140 140 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "GasSign"
+{
+	Path "models\props"
+	Model 0 "gas_station_sign.md3"
+	SurfaceSkin 0 0 "gas_sign.png"
+	SurfaceSkin 0 1 "gas_price_sign.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "GasPump"
+{
+	Path "models\props"
+	Model 0 "gas_pump_timb.md3"
+	SurfaceSkin 0 0 "gas_pump_timb.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 28.5 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

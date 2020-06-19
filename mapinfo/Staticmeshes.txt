@@ -347,4 +347,7 @@ DoomEdNums
   32449 = PostalDoor17
   32448 = PostalDoor18
   32447 = BurgerObject
+  32446 = DieselSign
+  32445 = GasSign
+  32444 = GasPump
 }
