@@ -111,6 +111,8 @@ version "4.2"
 #include "zscript/NPCs/Bystanders/Postal.Kurt.txt"
 #include "zscript/NPCs/Bystanders/Postal.Jon.txt"
 #include "zscript/NPCs/Bystanders/Postal.Mick.txt"
+#include "zscript/NPCs/Bystanders/Postal.Rick.txt"
+#include "zscript/NPCs/Bystanders/Postal.Ricky.txt"
 
 //------------ Postal Decorations
 
