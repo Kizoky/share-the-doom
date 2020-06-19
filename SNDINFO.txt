@@ -528,6 +528,20 @@ male1/dickout3 sounds/npc/whitemale/wm_noonesimpressed.wav
 
 $random male1/dickout { male1/dickout1 male1/dickout2 male1/dickout3 }
 
+male1/panic1 sounds/npc/whitemale/wm_help.wav
+male1/panic2 sounds/npc/whitemale/wm_holyshit.wav
+male1/panic3 sounds/npc/whitemale/wm_imcallingthecops.wav
+male1/panic4 sounds/npc/whitemale/wm_itshorrible.wav
+male1/panic5 sounds/npc/whitemale/wm_ohgod.wav
+male1/panic6 sounds/npc/whitemale/wm_ohmygod.wav
+male1/panic7 sounds/npc/whitemale/wm_runrun.wav
+male1/panic8 sounds/npc/whitemale/wm_shit.wav
+male1/panic9 sounds/npc/whitemale/wm_stayawayfromme.wav
+male1/panic10 sounds/npc/whitemale/wm_thehorror.wav
+male1/panic11 sounds/npc/whitemale/wm_thiscantbereal.wav
+
+$random male1/panic { male1/panic1 male1/panic2 male1/panic3 male1/panic4 male1/panic5 male1/panic6 male1/panic7 male1/panic8 male1/panic9 male1/panic10 male1/panic11 }
+
 malecop1/suspect1 sounds/npc/whitemale/wm_cop_gotthescumbag.wav
 malecop1/suspect2 sounds/npc/whitemale/wm_cop_ivegottheperp.wav
 
