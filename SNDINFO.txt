@@ -617,6 +617,46 @@ male2/panic12 sounds/npc/whitemale2/wm_seecarnage_cantbelievehedidv1.wav
 male2/panic13 sounds/npc/whitemale2/wm_seecarnage_cantbelievehedidv2.wav
 male2/panic14 sounds/npc/whitemale2/wm_seecarnage_cantbelievethisv1.wav
 male2/panic15 sounds/npc/whitemale2/wm_seecarnage_cantbelievethisv2.wav
+male2/panic16 sounds/npc/whitemale2/wm_seecarnage_getthatguyv1.wav
+male2/panic17 sounds/npc/whitemale2/wm_seecarnage_getthatguyv2.wav
+male2/panic18 sounds/npc/whitemale2/wm_seecarnage_goingtovomitv1.wav
+male2/panic19 sounds/npc/whitemale2/wm_seecarnage_goingtovomitv2.wav
+male2/panic20 sounds/npc/whitemale2/wm_seecarnage_helpv1.wav
+male2/panic21 sounds/npc/whitemale2/wm_seecarnage_helpv2.wav
+male2/panic22 sounds/npc/whitemale2/wm_seecarnage_hesgotagunv1.wav
+male2/panic23 sounds/npc/whitemale2/wm_seecarnage_hesgotagunv2.wav
+male2/panic24 sounds/npc/whitemale2/wm_seecarnage_holyfuckv1.wav
+male2/panic25 sounds/npc/whitemale2/wm_seecarnage_holyfuckv2.wav
+male2/panic26 sounds/npc/whitemale2/wm_seecarnage_ifihadcamerav1.wav
+male2/panic27 sounds/npc/whitemale2/wm_seecarnage_ifihadcamerav2.wav
+male2/panic28 sounds/npc/whitemale2/wm_seecarnage_jesushelpv1.wav
+male2/panic29 sounds/npc/whitemale2/wm_seecarnage_jesushelpv2.wav
+male2/panic30 sounds/npc/whitemale2/wm_seecarnage_killedthatguyv1.wav
+male2/panic31 sounds/npc/whitemale2/wm_seecarnage_killedthatguyv2.wav
+male2/panic32 sounds/npc/whitemale2/wm_seecarnage_killingeveryonev1.wav
+male2/panic33 sounds/npc/whitemale2/wm_seecarnage_killingeveryonev2.wav
+male2/panic34 sounds/npc/whitemale2/wm_seecarnage_makeitstopv1.wav
+male2/panic35 sounds/npc/whitemale2/wm_seecarnage_makeitstopv2.wav
+male2/panic36 sounds/npc/whitemale2/wm_seecarnage_needtherapyv1.wav
+male2/panic37 sounds/npc/whitemale2/wm_seecarnage_needtherapyv2.wav
+male2/panic38 sounds/npc/whitemale2/wm_seecarnage_nightmarev1.wav
+male2/panic39 sounds/npc/whitemale2/wm_seecarnage_nightmarev2.wav
+male2/panic40 sounds/npc/whitemale2/wm_seecarnage_ohmygodv1.wav
+male2/panic41 sounds/npc/whitemale2/wm_seecarnage_ohmygodv2.wav
+male2/panic42 sounds/npc/whitemale2/wm_seecarnage_outtaherev1.wav
+male2/panic43 sounds/npc/whitemale2/wm_seecarnage_outtaherev2.wav
+male2/panic44 sounds/npc/whitemale2/wm_seecarnage_runrunv1.wav
+male2/panic45 sounds/npc/whitemale2/wm_seecarnage_runrunv2.wav
+male2/panic46 sounds/npc/whitemale2/wm_seecarnage_someguyskillingv1.wav
+male2/panic47 sounds/npc/whitemale2/wm_seecarnage_someguyskillingv2.wav
+male2/panic48 sounds/npc/whitemale2/wm_seecarnage_sooftenv1.wav
+male2/panic49 sounds/npc/whitemale2/wm_seecarnage_sooftenv2.wav
+male2/panic50 sounds/npc/whitemale2/wm_seecarnage_sweetlordnov1.wav
+male2/panic51 sounds/npc/whitemale2/wm_seecarnage_sweetlordnov2.wav
+male2/panic52 sounds/npc/whitemale2/wm_seecarnage_thehorrorv1.wav
+male2/panic53 sounds/npc/whitemale2/wm_seecarnage_thehorrorv2.wav
+
+$random male2/panic { male2/panic1 male2/panic2 male2/panic3 male2/panic4 male2/panic5 male2/panic6 male2/panic7 male2/panic8 male2/panic9 male2/panic10 male2/panic11 male2/panic12 male2/panic13 male2/panic14 male2/panic15 male2/panic16 male2/panic17 male2/panic18 male2/panic19 male2/panic20 male2/panic21 male2/panic22 male2/panic23 male2/panic24 male2/panic25 male2/panic26 male2/panic27 male2/panic28 male2/panic29 male2/panic30 male2/panic31 male2/panic32 male2/panic33 male2/panic34 male2/panic35 male2/panic36 male2/panic37 male2/panic38 male2/panic39 male2/panic40 male2/panic41 male2/panic42 male2/panic44 male2/panic45 male2/panic46 male2/panic47 male2/panic48 male2/panic49 male2/panic50 male2/panic52 male2/panic53 }
 
 male2/taunt1 sounds/npc/whitemale2/wm_postal_illusethisv2.wav
 male2/taunt2 sounds/npc/whitemale2/wm_tough_bringitv1.wav
