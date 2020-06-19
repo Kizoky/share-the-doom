@@ -107,6 +107,7 @@ version "4.2"
 #include "zscript/NPCs/Bystanders/Postal.Male10.txt"
 #include "zscript/NPCs/Bystanders/Postal.Male11.txt"
 #include "zscript/NPCs/Bystanders/Postal.Mikey.txt"
+#include "zscript/NPCs/Bystanders/Postal.Bob.txt"
 
 //------------ Postal Decorations
 

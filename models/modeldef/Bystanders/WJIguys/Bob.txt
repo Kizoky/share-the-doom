@@ -1,9 +1,9 @@
-Model "NPCJaret"
+Model "NPCBob"
 {
 	Path "models\misc\NPCs\WJIguys"
 	Model 0 "Malewithheadout.md3"
 	SurfaceSkin 0 0 "AvgMale_RWS_Dev01.png"
-	SurfaceSkin 0 1 "head/MWA__008__MIKEJ.png"
+	SurfaceSkin 0 1 "head/MWA__010__BOB.png"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
 	Offset 0 0 0 //X Y Z
@@ -147,7 +147,7 @@ Model "NPCJaret"
 	
 }
 
-Model "NPCJaret"
+Model "NPCBob"
 {
 	Path "models\misc\NPCs\WJIguys"
 	Model 0 "Malewithheadout.md3"
@@ -203,12 +203,12 @@ Model "NPCJaret"
 }
 
 
-Model "NPCJaret"
+Model "NPCBob"
 {
 	Path "models\misc\NPCs\WJIguys"
 	Model 0 "MalewithPistolout.md3"
 	SurfaceSkin 0 0 "AvgMale_RWS_Dev01.png"
-	SurfaceSkin 0 1 "head/MWA__008__MIKEJ.png"
+	SurfaceSkin 0 1 "head/MWA__010__BOB.png"
 	SurfaceSkin 0 2 "desertEagle_256.tga"
 	AngleOffset 270
 	Scale -0.50 -0.50 0.50
@@ -238,7 +238,7 @@ Model "NPCJaret"
 	
 }
 
-Model "NPCJaret"
+Model "NPCBob"
 {
 	Path "models\misc\NPCs\WJIguys"
 	Model 0 "Dudewithshotgunout.md3"
