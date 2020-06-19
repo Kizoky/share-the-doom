@@ -7,7 +7,7 @@ class NPCWhiteDude7 : NPCCore
 		NPC_Bump = "male1/bump";
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male1/dickout";
-		NPC_Taunt = "male1/taunt";
+		NPC_Taunt = "male1/panic";
 		
 
 		WalkingStyle = random[mystyle](1,6);
