@@ -432,14 +432,14 @@ class PostalActor : Actor
 			FLineTraceData lineData;
 			
 			// And now we check for any potential walls
-			LineTrace(angle,150,0, TRF_BLOCKSELF, offsetz: height-20, data: LineData);
+			LineTrace(angle,150,0, offsetz: height-20, data: LineData);
 			
 			bool maybestairs;
 			if (LineData.HitType == TRACE_HitWall)
 			{
 				// This LineTrace checks if at -25 pitch there's a wall or not
 				// This is useful if the NPC is walking on stairs and up
-				LineTrace(angle,105,-25, TRF_THRUACTORS | TRF_BLOCKSELF, offsetz: height-20, data: LineData);
+				LineTrace(angle,105,-25, offsetz: height-20, data: LineData);
 				//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FFFFFF", 2);
 				
 				if (LineData.HitType == TRACE_HitWall)
@@ -460,7 +460,7 @@ class PostalActor : Actor
 						
 						i += 27.5;
 							
-						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						LineTrace(angle-i,100,0, offsetz: 15, data: LineData);
 						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
 						{
 							NewSearchFinished = true;
@@ -468,7 +468,7 @@ class PostalActor : Actor
 							break;
 						}
 						
-						LineTrace(angle+i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						LineTrace(angle+i,100,0, offsetz: 15, data: LineData);
 						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
 						{
 							NewSearchFinished = true;
@@ -485,7 +485,7 @@ class PostalActor : Actor
 				// Are we bumping into a wall we can't "see"?
 				LineTrace(angle,10,0, TRF_BLOCKSELF , offsetz: 15, offsetforward: -4, data: LineData);
 				vector2 trydist = (LineData.HitLocation.x, LineData.HitLocation.y);
-				bool canmovetodist = CheckMove(trydist, 0);
+				bool canmovetodist = CheckMove(trydist, !PCM_NOLINES);
 				
 				// We can't move onto the LineTrace's end, so we are checking if we can move around
 				if (!canmovetodist)
