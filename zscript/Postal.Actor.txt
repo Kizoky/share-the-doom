@@ -483,9 +483,12 @@ class PostalActor : Actor
 			else
 			{ 	// We aren't hitting any walls at all
 				// Are we bumping into a wall we can't "see"?
-				LineTrace(angle,10,0, TRF_BLOCKSELF , offsetz: 15, offsetforward: -4, data: LineData);
+				LineTrace(angle,13,0, TRF_BLOCKSELF , offsetz: 15, offsetforward: -4, data: LineData);
 				vector2 trydist = (LineData.HitLocation.x, LineData.HitLocation.y);
-				bool canmovetodist = CheckMove(trydist, !PCM_NOLINES);
+				
+				// Bug: CheckMove does a lot of witchcraft that I don't really want it to do that's why NPCs are twitching
+				// but I don't know if there's any other way to check if an actor can "move" to LineTrace's hit location
+				bool canmovetodist = CheckMove(trydist, 0);
 				
 				// We can't move onto the LineTrace's end, so we are checking if we can move around
 				if (!canmovetodist)
@@ -517,6 +520,7 @@ class PostalActor : Actor
 					}
 					
 					angle = newang;
+					//TryMove(trydist, 5, null);
 					
 				}
 			}
