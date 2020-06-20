@@ -607,7 +607,10 @@ class NPCCore : PostalActor
 	
 	override void Deactivate(Actor activator)
 	{
-		activate(activator);
+		if (activator)
+		{
+			activate(activator);
+		}
 	}
 	
 	Default
