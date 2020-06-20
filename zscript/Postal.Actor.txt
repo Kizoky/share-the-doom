@@ -430,43 +430,6 @@ class PostalActor : Actor
 			A_Recoil(-0.35);
 			
 			FLineTraceData lineData;
-			LineTrace(angle,150,0,offsetz: height-20, offsetforward: 25, data: LineData);
-			//VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "FF0000", 2);
-			
-			// This always checks for actors, if it found it will try to move it's angle
-			if (LineData.HitType == TRACE_HitActor)
-			{
-				if (lineData.HitActor is 'PostalDecoration' || 
-					lineData.HitActor is 'PostalWindow' || 
-					lineData.HitActor is 'PostalWindow_Extender')
-				{
-					NewSearchFinished = false;
-					int i = 0;
-					
-					newang = angle;
-					while (i < 190)
-					{
-						i += 25;
-						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
-						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
-						{
-							NewSearchFinished = true;
-							newang -= i;
-							break;
-						}
-						
-						LineTrace(angle+i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
-						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
-						{
-							NewSearchFinished = true;
-							newang += i;
-							break;
-						}
-					}
-					
-					angle = newang;
-				}
-			}
 			
 			// And now we check for any potential walls
 			LineTrace(angle,150,0, TRF_BLOCKSELF, offsetz: height-20, data: LineData);
@@ -493,7 +456,9 @@ class PostalActor : Actor
 					
 					while (i < 190)
 					{
-						i += 25;
+						if (NewSearchFinished) break;
+						
+						i += 27.5;
 							
 						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
 						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
@@ -518,7 +483,7 @@ class PostalActor : Actor
 			else
 			{ 	// We aren't hitting any walls at all
 				// Are we bumping into a wall we can't "see"?
-				LineTrace(angle,10,0, TRF_BLOCKSELF , offsetz: 15, offsetforward: -2, data: LineData);
+				LineTrace(angle,10,0, TRF_BLOCKSELF , offsetz: 15, offsetforward: -4, data: LineData);
 				vector2 trydist = (LineData.HitLocation.x, LineData.HitLocation.y);
 				bool canmovetodist = CheckMove(trydist, 0);
 				
@@ -531,7 +496,9 @@ class PostalActor : Actor
 					newang = angle;
 					while (i < 190)
 					{
-						i += 25;
+						if (NewSearchFinished) break;
+						
+						i += 27.5;
 						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
 						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
 						{
@@ -562,58 +529,40 @@ class PostalActor : Actor
 			{
 				if (DirectionTurnCD < level.time)
 				{
-					bool hitintoright, hitintoleft, hitintoactor;
+					NewSearchFinished = false;
+					int i = 0;
 					
-					LineTrace(angle+45,100,0, TRF_BLOCKSELF, offsetz: height-20, offsetforward: 25, data: LineData);
-					if (LineData.HitType == TRACE_HitActor)
+					newang = angle;
+					while (i < 190)
 					{
-						hitintoright = true; hitintoactor = true;
-						if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
-						{	
-							A_SetAngle(angle-25, SPF_INTERPOLATE);
-						}
-						else A_SetAngle(angle+25, SPF_INTERPOLATE);
-					}
+						if (NewSearchFinished) break;
 						
-					LineTrace(angle-45,100,0, TRF_BLOCKSELF, offsetz: height-20, offsetforward: 25, data: LineData);
-					if (LineData.HitType == TRACE_HitActor)
-					{
-						hitintoleft = true; hitintoactor = true;
-						if (((AngleTo (lineData.HitActor)) - angle + 360) % 360 < 180)
-						{	
-							A_SetAngle(angle-15, SPF_INTERPOLATE);
+						i += 27.5;
+						LineTrace(angle-i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
+						{
+							NewSearchFinished = true;
+							newang -= i;
+							break;
 						}
-						else A_SetAngle(angle+15, SPF_INTERPOLATE);
+						
+						LineTrace(angle+i,100,0, TRF_BLOCKSELF , offsetz: 15, data: LineData);
+						if (!(LineData.HitType == TRACE_HitWall) && !(LineData.HitType == TRACE_HitActor))
+						{
+							NewSearchFinished = true;
+							newang += i;
+							break;
+						}
 					}
 					
-					LineTrace(angle+45,100,0, TRF_THRUACTORS | TRF_BLOCKSELF, offsetz: height-20, data: LineData);
-					if (LineData.HitType == TRACE_HitWall)
-						hitintoright = true;
-					LineTrace(angle-45,100,0, TRF_THRUACTORS | TRF_BLOCKSELF, offsetz: height-20, data: LineData);
-					if (LineData.HitType == TRACE_HitWall)
-						hitintoleft = true;
+					angle = newang;
 					
 					double TimeMin, TimeMax;
 					
 					TimeMin = 6;
 					TimeMax = 15;
 					
-					if (!hitintoright && !hitintoleft)
-					{
-						angle += random[rangle](0,1) == 1 ? 45 : -45;
-						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
-					}	
-					
-					if (!hitintoright && hitintoleft)
-					{
-						angle += random[dturn](5,45);
-						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
-					}
-					else if (hitintoright && !hitintoleft)
-					{
-						angle -= random[negturn](5,45);
-						DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
-					}
+					DirectionTurnCD = level.time + 35 * frandom[DTC](TimeMin,TimeMax);
 					
 				}
 			}
