@@ -1529,7 +1529,7 @@ extend class NPCCore
 					}
 				}
 				
-				if (toucher is 'PlayerPawn' && isAfterTarget != true)
+				if (toucher is 'PlayerPawn' && isAfterTarget != true && !(toucher is 'PostalDude'))
 				{
 					target = toucher;
 					MyTarget = toucher;
@@ -1538,7 +1538,6 @@ extend class NPCCore
 					SetStateLabel("Bumping");
 					return;
 				}
-				
 				
 				// If our target is another NPCCore, then do the following
 				if (toucher is 'NPCCore' && isAfterTarget != true)
