@@ -601,7 +601,10 @@ class NPCCore : PostalActor
 	{
 		if (activator)
 		{
-			touch(activator);
+			if (InStateSequence(CurState, ResolveState("Spawn")) || InStateSequence(CurState, ResolveState("Standing")))
+			{
+				touch(activator);
+			}
 		}
 	}
 	
