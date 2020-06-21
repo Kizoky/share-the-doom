@@ -4974,3 +4974,24 @@ class KichenSet6 : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class gamenews : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Gaming Room Logo"
+		Radius 5;
+		Height 56;
+		+FLOAT;
+		+NOGRAVITY;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

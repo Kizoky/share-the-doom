@@ -365,4 +365,5 @@ DoomEdNums
   32432 = KichenSet4
   32431 = KichenSet5
   32430 = KichenSet6
+  32429 = gamenews
 }

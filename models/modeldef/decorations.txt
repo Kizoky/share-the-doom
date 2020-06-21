@@ -4580,3 +4580,18 @@ Model "KichenSet6"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "gamenews"
+{
+	Path "models\props"
+	Model 0 "bewareofdog.md3"
+	SurfaceSkin 0 0 "gm_Tex2.png"
+	AngleOffset 180
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
