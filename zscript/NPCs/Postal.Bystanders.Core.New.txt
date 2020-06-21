@@ -1526,6 +1526,16 @@ extend class NPCCore
 					}
 				}
 				
+				if (toucher is 'PlayerPawn' && isAfterTarget != true)
+				{
+					target = toucher;
+					MyTarget = toucher;
+					A_FacePostalTarget();
+					isBusy = true;
+					SetStateLabel("Bumping");
+					return;
+				}
+				
 				
 				// If our target is another NPCCore, then do the following
 				if (toucher is 'NPCCore' && isAfterTarget != true)
