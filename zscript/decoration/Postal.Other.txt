@@ -4715,3 +4715,262 @@ class GasPump : PostalDecoration
 		Loop;
 	}
 }
+
+
+class CoatHanger : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Coat Hanger"
+		Radius 35;
+		Height 90;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class KauchWhite01 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "White Armchair"
+		Radius 25;
+		Height 40;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class DerevyanniDevan : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Couch Old 2"
+		Radius 25;
+		Height 40;
+		//+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class CochOftheBlack : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Couch Black"
+		Radius 25;
+		Height 40;
+		//+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class CouchWhited : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Couch White"
+		Radius 25;
+		Height 40;
+		//+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class StripbarChair : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Stripbar Chair"
+		Radius 25;
+		Height 40;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class ShelvesOfRussia : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Wooden Shelves (empty)"
+		Radius 27;
+		Height 90;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class TableDresser : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Dresser HD"
+		Radius 25;
+		Height 40;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class KichenSet1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Kitchen Cupboard, Metallica surface"
+		Radius 20;
+		Height 40;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class KichenSet2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Kitchen Sinks"
+		Radius 20;
+		Height 40;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class KichenSet3 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Kitchen Cupboard Tall"
+		Radius 20;
+		Height 40;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class KichenSet4 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Kitchen Cupboard 1"
+		Radius 20;
+		Height 40;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class KichenSet5 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Kitchen Cupboard Hanging"
+		Radius 20;
+		Height 40;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class KichenSet6 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Kitchen Cupboard 2"
+		Radius 20;
+		Height 40;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

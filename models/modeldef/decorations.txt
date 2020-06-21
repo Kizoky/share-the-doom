@@ -4368,3 +4368,215 @@ Model "GasPump"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "CoatHanger"
+{
+	Path "models\props"
+	Model 0 "Furniture_Set_01_Coathanger.md3"
+	SurfaceSkin 0 0 "furniture_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 3 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "KauchWhite01"
+{
+	Path "models\props"
+	Model 0 "CouchWhite_Set_B.md3"
+	SurfaceSkin 0 0 "couch_05_a.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "DerevyanniDevan"
+{
+	Path "models\props"
+	Model 0 "Couch02.md3"
+	SurfaceSkin 0 0 "couch_02.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "CochOftheBlack"
+{
+	Path "models\props"
+	Model 0 "Couch01.md3"
+	SurfaceSkin 0 0 "couch_03.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -25 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "CouchWhited"
+{
+	Path "models\props"
+	Model 0 "CouchWhite_Set_C.md3"
+	SurfaceSkin 0 0 "couch_05_a.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "StripbarChair"
+{
+	Path "models\props"
+	Model 0 "Chair01.md3"
+	SurfaceSkin 0 0 "pw_stripbar_chair_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "ShelvesOfRussia"
+{
+	Path "models\props"
+	Model 0 "Furniture_Set_01_Shelves_Thick02.md3"
+	SurfaceSkin 0 0 "furniture_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -15 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "TableDresser"
+{
+	Path "models\props"
+	Model 0 "Furniture_Set_01_Drawers_Small2.md3"
+	SurfaceSkin 0 0 "furniture_set_01.png"
+	AngleOffset 0
+	Scale -0.75 -0.75 0.75
+	Offset 0 0 -5.5 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "KichenSet1"
+{
+	Path "models\props"
+	Model 0 "Kitchen_Set_01_SurfaceTop_Small.md3"
+	SurfaceSkin 0 0 "kitchen_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -19 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "KichenSet2"
+{
+	Path "models\props"
+	Model 0 "Kitchen_Set_01_Sink.md3"
+	SurfaceSkin 0 0 "kitchen_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -19 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "KichenSet3"
+{
+	Path "models\props"
+	Model 0 "Kitchen_Set_01_Cupboard2.md3"
+	SurfaceSkin 0 0 "kitchen_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -19 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "KichenSet4"
+{
+	Path "models\props"
+	Model 0 "Kitchen_Set_01_Cupboard1.md3"
+	SurfaceSkin 0 0 "kitchen_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -19 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "KichenSet5"
+{
+	Path "models\props"
+	Model 0 "Kitchen_Set_01_Cupboard3.md3"
+	SurfaceSkin 0 0 "kitchen_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 -19 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "KichenSet6"
+{
+	Path "models\props"
+	Model 0 "Kitchen_Set_01_Drawers.md3"
+	SurfaceSkin 0 0 "kitchen_set_01.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

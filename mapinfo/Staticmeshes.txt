@@ -350,4 +350,19 @@ DoomEdNums
   32446 = DieselSign
   32445 = GasSign
   32444 = GasPump
+  
+  32443 = CoatHanger
+  32442 = KauchWhite01
+  32441 = DerevyanniDevan
+  32440 = CochOftheBlack
+  32439 = CouchWhited
+  32438 = StripbarChair
+  32437 = ShelvesOfRussia
+  32436 = TableDresser
+  32435 = KichenSet1
+  32434 = KichenSet2
+  32433 = KichenSet3
+  32432 = KichenSet4
+  32431 = KichenSet5
+  32430 = KichenSet6
 }
