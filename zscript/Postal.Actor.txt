@@ -434,6 +434,12 @@ class PostalActor : Actor
 			// And now we check for any potential walls
 			LineTrace(angle,150,0, offsetz: height-20, data: LineData);
 			
+			if (LineData.HitType == TRACE_HitActor)
+			{
+				if (LineData.HitActor is 'PostalDoor' || LineData.HitActor is 'PostalDoor_Extender')
+					return;
+			}
+			
 			bool maybestairs;
 			if (LineData.HitType == TRACE_HitWall)
 			{
@@ -484,6 +490,13 @@ class PostalActor : Actor
 			{ 	// We aren't hitting any walls at all
 				// Are we bumping into a wall we can't "see"?
 				LineTrace(angle,13,0, TRF_BLOCKSELF , offsetz: 15, offsetforward: -4, data: LineData);
+				
+				if (LineData.HitType == TRACE_HitActor)
+				{
+					if (LineData.HitActor is 'PostalDoor' || LineData.HitActor is 'PostalDoor_Extender')
+						return;
+				}
+				
 				vector2 trydist = (LineData.HitLocation.x, LineData.HitLocation.y);
 				
 				// Bug: CheckMove does a lot of witchcraft that I don't really want it to do that's why NPCs are twitching
