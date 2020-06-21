@@ -5,12 +5,14 @@ class DudeCoreHandler : EventHandler
 	bool SavedTrigger;
 	
    override void NetworkProcess (ConsoleEvent e)
-   {
+   {	
 	  //let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
       if (e.Name ~== "Kicking")
 	  {
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
+			
+			if (!p || !p.PlayerData) return;
 			
 			if (p.bKILLED) return;
 			if (p.SuicideCamera) return;
@@ -100,10 +102,9 @@ class DudeCoreHandler : EventHandler
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
 			
-			if (p.bKILLED) return;
+			if (!p || !p.PlayerData) return;
 			
-			//Console.Printf("K pressed (I regret nothing)");
-			if (p == null || p.PlayerData == null) return;
+			if (p.bKILLED) return;
 			
 			if (!(p.pos.z ~== p.floorz)) return;
 			
@@ -119,7 +120,7 @@ class DudeCoreHandler : EventHandler
 			PlayerInfo player = players [e.Player];
 			
 			if (p.bKILLED) return;
-			if (p == null) return;
+			if (!p || !p.PlayerData) return;
 			if (p.SuicideCamera) return;
 			
 			Console.Printf("M pressed");
@@ -139,7 +140,9 @@ class DudeCoreHandler : EventHandler
 	  {
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
-		
+			
+			if (!p || !p.PlayerData) return;
+			
 		if (p)
 			p.A_DamageSelf(5);
 		
@@ -152,6 +155,8 @@ class DudeCoreHandler : EventHandler
 			
 			// Player drops currently selected inventory item
 			// todo: Special inventory drops, for ex.: Catnip, pissed donuts, etc...
+			
+			if (!p || !p.PlayerData) return;
 			
 			if (p && e.Name ~== "DropInventoryItem")
 			{
@@ -221,6 +226,8 @@ class DudeCoreHandler : EventHandler
 				PostalDude p = PostalDude(players[e.Player].mo);
 				PlayerInfo player = players [e.Player];
 				
+				if (!p || !p.PlayerData) return;
+				
 				if (p.SuicideCamera && p)
 				{
 					let a = CameraRunner(p.SuicideCamera);
@@ -263,6 +270,7 @@ class DudeCoreHandler : EventHandler
 			n.A_GiveInventory("HUDViewable",1);
 			n.A_GiveInventory("YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound",1);
 		}
+		
    }
    
    //Needed for fire and other things
