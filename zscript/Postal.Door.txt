@@ -238,7 +238,22 @@ class PostalDoor_Extender : PostalActor
 			A_StartSound("error", CHAN_VOICE, CHANF_LOCAL);
 			WarningSent = true;
 		}
-		
+	}
+	
+	override void Activate(Actor activator)
+	{
+		if (activator)
+		{
+			touch(activator);
+		}
+	}
+	
+	override void Deactivate(Actor activator)
+	{
+		if (activator)
+		{
+			activate(activator);
+		}
 	}
 	
 	Default
@@ -257,10 +272,14 @@ class PostalDoor_Extender : PostalActor
 		+FRIENDLY
 		+INTERPOLATEANGLES
 		+NOBLOOD
-		+SPECIAL
+		//+SPECIAL
 		PainChance 0;
 		BloodType "null";
 		Health 99999999;
+		
+		// We don't need +SPECIAL
+		+BUMPSPECIAL
+		Activation THINGSPEC_Default | THINGSPEC_Switch | THINGSPEC_ThingActs | THINGSPEC_Activate | THINGSPEC_MonsterTrigger;
 		
 		PostalActor.NeverTarget true;
 		PostalActor.NoKillLine true;
