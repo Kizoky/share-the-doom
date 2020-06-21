@@ -1660,7 +1660,7 @@ extend class NPCCore
 					if (next is 'PostalDude' && !(next.bKILLED))
 					{
 						let PlayerDude = PostalDude(next);
-						if (PlayerDude != null && PlayerDude.player.ReadyWeapon != null && PlayerDude == PlayerDude.Player.mo)
+						if (PlayerDude && PlayerDude.Player.mo && PlayerDude.player.ReadyWeapon != null && PlayerDude == PlayerDude.Player.mo)
 						{
 							if (PlayerDude.Player.ReadyWeapon == Weapon(PlayerDude.FindInventory("PostUrethra")))
 							{
