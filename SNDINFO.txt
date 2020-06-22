@@ -239,6 +239,7 @@ SwampCooler sounds/ambient_p2/SwampCooler.wav
 NeonSign2 sounds/ambient_p2/NeonSign2.wav
 Freezer_humHi sounds/ambient_p2/Freezer_humHi.wav
 $volume Freezer_humHi 0.2
+FrigHum sounds/ambient_p2/FrigHum.wav
 StormGrate sounds/ambient_p2/StormGrate.wav
 washingMachine sounds/ambient_p2/washingMachine.wav
 Air_conditioner_hum sounds/Air_conditioner_hum.ogg

@@ -1056,7 +1056,7 @@ class Stove1 : PostalDecoration
 }
 
 
-class OldFridge : PostalDecoration
+class OldFridge : Actor
 {
 	Default
 	{
@@ -1071,6 +1071,9 @@ class OldFridge : PostalDecoration
 	States
 	{
 	Spawn:
+		PROP A 1 Nodelay A_StartSound("FrigHum", CHAN_BODY, CHANF_LOOP);
+		goto exist;
+	Exist:
 		PROP A -1;
 		Loop;
 	}
@@ -1446,7 +1449,7 @@ class table2 : PostalDecoration
 }
 
 
-class Fridge2 : PostalDecoration
+class Fridge2 : Actor
 {
 	Default
 	{
@@ -1461,6 +1464,9 @@ class Fridge2 : PostalDecoration
 	States
 	{
 	Spawn:
+		PROP A 1 Nodelay A_StartSound("FrigHum", CHAN_BODY, CHANF_LOOP);
+		goto exist;
+	Exist:
 		PROP A -1;
 		Loop;
 	}
