@@ -4582,7 +4582,7 @@ class beerbox : PostalDecoration
 }
 
 
-class airConditioner : PostalDecoration
+class airConditioner : Actor
 {
 	Default
 	{
@@ -4597,6 +4597,9 @@ class airConditioner : PostalDecoration
 	States
 	{
 	Spawn:
+		PROP A 1 Nodelay A_StartSound("Air_conditioner_hum", CHAN_BODY, CHANF_LOOP);
+		goto exist;
+	Exist:
 		PROP A -1;
 		Loop;
 	}
