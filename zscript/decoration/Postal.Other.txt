@@ -5055,3 +5055,44 @@ class lustra : PostalDecoration
 		Loop;
 	}
 }
+
+
+class BeachNest : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Beach Lounge"
+		Radius 25;
+		Height 30;
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class BeachUmbrella : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Beach Umbrella"
+		Radius 25;
+		Height 30;
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

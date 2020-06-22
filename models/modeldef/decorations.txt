@@ -4644,3 +4644,35 @@ Model "lustra"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "BeachNest"
+{
+	Path "models\props"
+	Model 0 "BeachNest.md3"
+	SurfaceSkin 0 0 "Seat1Tex.png"
+	AngleOffset 0
+	Scale -12 -10 15
+	Offset 0 -4 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "BeachUmbrella"
+{
+	Path "models\props"
+	Model 0 "BeachUmbrella.md3"
+	SurfaceSkin 0 0 "PortableBeach1Tex.png"
+	AngleOffset 0
+	Scale -12 -10 15
+	Offset 0 -55 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
