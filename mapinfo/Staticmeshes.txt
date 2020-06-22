@@ -373,4 +373,8 @@ DoomEdNums
   32425 = BeachNest
   32424 = BeachUmbrella
   32423 = sedan
+  32422 = sedan_bl
+  32421 = sedan_bu
+  32420 = sedan_rd
+  32419 = sedan_gd
 }

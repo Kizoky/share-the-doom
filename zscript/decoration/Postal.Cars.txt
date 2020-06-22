@@ -446,7 +446,77 @@ class sedan : PostalDecoration
 	Default
 	{
 		//$Category Cars
-		//$Title "White Sedan"
+		//$Title "Sedan White"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class sedan_bl : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Sedan Black"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class sedan_bu : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Sedan Blue"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class sedan_rd : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Sedan Red"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class sedan_gd : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Sedan Gold"
 		Radius 55;
 		Height 88;
 	}
