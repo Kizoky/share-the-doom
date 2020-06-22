@@ -165,7 +165,7 @@ class fortyoz : PostalDecoration
 	}
 }
 
-class sixtyninefine : PostalDecoration
+class sixtyninefine : Actor
 {
 	Default
 	{
@@ -178,6 +178,9 @@ class sixtyninefine : PostalDecoration
 	States
 	{
 	Spawn:
+		PROP A 1 Nodelay A_StartSound("Freezer_humHi", CHAN_BODY, CHANF_LOOP);
+		goto exist;
+	Exist:
 		PROP A -1;
 		Loop;
 	}
@@ -1569,7 +1572,7 @@ class MilchRack : PostalDecoration
 }
 
 
-class cracko : PostalDecoration
+class cracko : Actor
 {
 	Default
 	{
@@ -1582,6 +1585,9 @@ class cracko : PostalDecoration
 	States
 	{
 	Spawn:
+		PROP A 1 Nodelay A_StartSound("Freezer_humHi", CHAN_BODY, CHANF_LOOP);
+		goto exist;
+	Exist:
 		PROP A -1;
 		Loop;
 	}

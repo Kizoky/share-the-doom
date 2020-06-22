@@ -238,6 +238,7 @@ fountain_big_LP sounds/ambient_p2/fountain_big_LP.wav
 SwampCooler sounds/ambient_p2/SwampCooler.wav
 NeonSign2 sounds/ambient_p2/NeonSign2.wav
 Freezer_humHi sounds/ambient_p2/Freezer_humHi.wav
+$volume Freezer_humHi 0.2
 StormGrate sounds/ambient_p2/StormGrate.wav
 washingMachine sounds/ambient_p2/washingMachine.wav
 Air_conditioner_hum sounds/Air_conditioner_hum.ogg
@@ -357,8 +358,8 @@ $ambient 37 SwampCoolage point continuous 1.0
 $alias SignNeon NeonSign2
 $ambient 38 SignNeon point continuous 1.0
 
-$alias FreezerCum_High Freezer_humHi
-$ambient 39 FreezerCum_High point continuous 1.0
+//$alias FreezerCum_High Freezer_humHi
+//$ambient 39 FreezerCum_High point continuous 1.0
 
 $alias StreetBoiling StormGrate
 $ambient 40 StreetBoiling point continuous 1.0
@@ -369,8 +370,8 @@ $ambient 41 washer_amb point continuous 1.0
 $alias Pizza_Parlor pizzas
 $ambient 42 Pizza_Parlor point continuous 1.0
 
-$alias AirConditioner Air_conditioner_hum
-$ambient 43 AirConditioner point continuous 1.0
+//$alias AirConditioner Air_conditioner_hum
+//$ambient 43 AirConditioner point continuous 1.0
 
 $alias PalmParrots parrots_tree
 $ambient 44 PalmParrots point continuous 1.0
