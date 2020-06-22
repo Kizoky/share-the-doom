@@ -4995,3 +4995,63 @@ class gamenews : PostalDecoration
 		Loop;
 	}
 }
+
+
+class LCDtv_stand : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "LCD TV with stand"
+		Radius 20;
+		Height 40;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class BLUREI : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Bluray"
+		Radius 15;
+		Height 20;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class lustra : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Ceiling Light Fixture"
+		Radius 25;
+		Height 30;
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

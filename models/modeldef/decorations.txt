@@ -4595,3 +4595,52 @@ Model "gamenews"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "LCDtv_stand"
+{
+	Path "models\props"
+	Model 0 "lcdtv_stand.md3"
+	SurfaceSkin 0 0 "shiny.png"
+	SurfaceSkin 0 1 "tvfront.png"
+	SurfaceSkin 0 2 "tvback.png"
+	SurfaceSkin 0 3 "tvstand.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "BLUREI"
+{
+	Path "models\props"
+	Model 0 "bluray.md3"
+	SurfaceSkin 0 0 "bluray.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -13 -10 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "lustra"
+{
+	Path "models\props"
+	Model 0 "Light_Fixture06.md3"
+	SurfaceSkin 0 0 "Light_Fixture_06.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 5 0 35 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

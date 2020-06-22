@@ -366,4 +366,8 @@ DoomEdNums
   32431 = KichenSet5
   32430 = KichenSet6
   32429 = gamenews
+  
+  32428 = LCDtv_stand
+  32427 = BLUREI
+  32426 = lustra
 }
