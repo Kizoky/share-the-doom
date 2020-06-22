@@ -4676,3 +4676,19 @@ Model "BeachUmbrella"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "sedan"
+{
+	Path "models\props"
+	Model 0 "sedan.md3"
+	SurfaceSkin 0 0 "textures/sedan.png"
+	AngleOffset 0
+	Scale -0.60 -0.60 0.60
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

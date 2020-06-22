@@ -372,4 +372,5 @@ DoomEdNums
   32426 = lustra
   32425 = BeachNest
   32424 = BeachUmbrella
+  32423 = sedan
 }
