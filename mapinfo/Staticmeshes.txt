@@ -377,4 +377,5 @@ DoomEdNums
   32421 = sedan_bu
   32420 = sedan_rd
   32419 = sedan_gd
+  32418 = sportcar
 }

@@ -527,3 +527,21 @@ class sedan_gd : PostalDecoration
 		Loop;
 	}
 }
+
+
+class sportcar : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Sportscar red"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

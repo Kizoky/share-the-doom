@@ -4787,3 +4787,24 @@ Model "sedan_gd"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "sportcar"
+{
+	Path "models\props"
+	Model 0 "sportcar.md3"
+	SurfaceSkin 0 0 "textures/sports_wheeltop.png"
+	SurfaceSkin 0 1 "textures/sports_black.png"
+	SurfaceSkin 0 2 "textures/sports_wheel.png"
+	SurfaceSkin 0 3 "textures/sports_front.png"
+	SurfaceSkin 0 4 "textures/sports_side.png"
+	SurfaceSkin 0 5 "textures/sports_back.png"
+	SurfaceSkin 0 6 "textures/sports_timb.png"
+	AngleOffset 0
+	Scale 1.25 1.25 1.25
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
