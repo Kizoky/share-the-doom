@@ -34,6 +34,9 @@ class DudeCoreHandler : EventHandler
 			// There was no holstering, let's save the Weapon we hold
 			if (p.PlayerData.Holster == false)
 			{
+				// no, we don't want to "Holster" our peepee
+				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra"))) return;
+				
 				p.PlayerData.HolsterSave = p.player.ReadyWeapon;
 				//Console.Printf("E is pressed (Holster is true)");
 				p.Player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
@@ -81,7 +84,7 @@ class DudeCoreHandler : EventHandler
 			}
 			
 			if (p.PlayerData.Urethra)
-			{
+			{	
 				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")))
 				{
 					p.Player.PendingWeapon = p.PlayerData.HolsterSave;
