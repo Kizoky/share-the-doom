@@ -10,7 +10,7 @@ class Piss : Ammo
 
 class PostUrethra : PostalWeapon
 {
-	bool Sigh;
+	bool Sigh, PlaySoundOnce;
 	
 	override void Tick()
 	{
@@ -37,11 +37,21 @@ class PostUrethra : PostalWeapon
 		URET A 1 A_WeaponReady;
 		Goto Ready;
 	Deselect:
-		URET A 0 A_StartSound("piss/zipperup", CHAN_BODY);
+		URET A 0
+		{
+			if (!invoker.PlaySoundOnce)
+			{
+				A_StartSound("piss/zipperup", CHAN_BODY);
+				invoker.PlaySoundOnce = true;
+			}
+		}
 		URET A 1 A_Lower;
 		Loop;
 	Select:
-		URET A 0 A_StartSound("piss/zipperdown", CHAN_BODY);
+		URET A 0
+		{
+			invoker.PlaySoundOnce = false;
+		}
 		URET A 1 A_Raise;
 		Loop;
 	Fire:

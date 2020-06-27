@@ -35,7 +35,9 @@ class DudeCoreHandler : EventHandler
 			if (p.PlayerData.Holster == false)
 			{
 				// no, we don't want to "Holster" our peepee
-				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra"))) return;
+				// Nor Holster our Hands, Schrödinger would be proud then
+				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")) ||
+					p.player.ReadyWeapon == Weapon(p.FindInventory("PostHands"))) return;
 				
 				p.PlayerData.HolsterSave = p.player.ReadyWeapon;
 				//Console.Printf("E is pressed (Holster is true)");
@@ -76,6 +78,10 @@ class DudeCoreHandler : EventHandler
 			
 			if (p.PlayerData.Urethra == false)
 			{
+				// A glitch in the matrix
+				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra"))) return;
+				
+				p.A_StartSound("piss/zipperdown", CHAN_BODY);
 				p.PlayerData.HolsterSave = p.player.ReadyWeapon;
 				//Console.Printf("E is pressed (Holster is true)");
 				p.Player.PendingWeapon = Weapon(p.FindInventory("PostUrethra"));
@@ -92,6 +98,7 @@ class DudeCoreHandler : EventHandler
 				}
 				else
 				{
+					p.A_StartSound("piss/zipperdown", CHAN_BODY);
 					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
 					p.Player.PendingWeapon = Weapon(p.FindInventory("PostUrethra"));
 					//Console.Printf("If ReadyWeapon not same as PD_UrethraSave (else)");
