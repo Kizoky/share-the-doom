@@ -31,27 +31,32 @@ class DudeCoreHandler : EventHandler
 			if (p == null || p.PlayerData == null) return;
 			if (p.SuicideCamera) return;
 			
-				if (p.PlayerData.Holster == false)
+			// There was no holstering, let's save the Weapon we hold
+			if (p.PlayerData.Holster == false)
+			{
+				p.PlayerData.HolsterSave = p.player.ReadyWeapon;
+				//Console.Printf("E is pressed (Holster is true)");
+				p.Player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
+				p.PlayerData.Holster = true;
+				return;
+			}
+			
+			if (p.PlayerData.Holster)
+			{
+				// We are not holding anything, equip the saved weapon
+				if (p.Player.ReadyWeapon == Weapon(p.FindInventory("PostHands")))
 				{
-					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
-					//Console.Printf("E is pressed (Holster is true)");
-					p.Player.PendingWeapon = p.PlayerData.HolsterWeapon;
-					p.PlayerData.Holster = true;
+					p.player.PendingWeapon = p.PlayerData.HolsterSave;
+					p.PlayerData.Holster = false;
 				}
 				else
 				{
-					//Console.Printf("E is pressed (Holster is false)");
-					if (p.Player.ReadyWeapon == p.PlayerData.HolsterWeapon)
-					{
-						p.player.PendingWeapon = p.PlayerData.HolsterSave;
-						p.PlayerData.Holster = false;
-					}
-					else
-					{
-						p.PlayerData.HolsterSave = p.player.ReadyWeapon;
-						p.PlayerData.Holster = false;
-					}
+					// Player decided to select an other weapon while Holstering previously, just save it
+					// and select Hands
+					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
+					p.Player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
 				}
+			}
 	  }
 
 	  if (e.Name ~== "Urethra")
