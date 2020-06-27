@@ -73,30 +73,24 @@ class DudeCoreHandler : EventHandler
 			
 			if (p.PlayerData.Urethra == false)
 			{
-				if (p.Player.ReadyWeapon == p.PlayerData.UrethraWeapon)
-				{
-					p.PlayerData.Urethra = false;
-					//Console.Printf("ReadyWeapon is same as UrethraWeapon");
-				}
-				else
-				{
-					p.PlayerData.UrethraSave = p.Player.ReadyWeapon;
-					p.PlayerData.Urethra = true;
-					p.Player.PendingWeapon = p.PlayerData.UrethraWeapon;
-					//Console.Printf("ReadyWeapon is not same as UrethraWeapon");
-				}
+				p.PlayerData.HolsterSave = p.player.ReadyWeapon;
+				//Console.Printf("E is pressed (Holster is true)");
+				p.Player.PendingWeapon = Weapon(p.FindInventory("PostUrethra"));
+				p.PlayerData.Urethra = true;
+				return;
 			}
-			else
+			
+			if (p.PlayerData.Urethra)
 			{
-				if (p.player.ReadyWeapon != p.PlayerData.UrethraSave)
+				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")))
 				{
-					p.Player.PendingWeapon = p.PlayerData.UrethraSave;
+					p.Player.PendingWeapon = p.PlayerData.HolsterSave;
 					p.PlayerData.Urethra = false;
-					//Console.Printf("If ReadyWeapon not same as PD_UrethraSave");
 				}
 				else
 				{
-					p.PlayerData.Urethra = false;
+					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
+					p.Player.PendingWeapon = Weapon(p.FindInventory("PostUrethra"));
 					//Console.Printf("If ReadyWeapon not same as PD_UrethraSave (else)");
 				}
 			}
