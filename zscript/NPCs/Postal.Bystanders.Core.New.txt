@@ -1091,6 +1091,18 @@ class NPCCore : PostalActor
 		
 		DUDW A 0
 		{
+			if (G_GotTauntedAt)
+			{
+				bool laugh = random[lgh](0,1);
+				if (laugh)
+				{
+					SetStateLabel("Laughing");
+					return;
+				}
+				
+				G_GotTauntedAt = false;
+				
+			}
 			//Clear our target, so we won't be going after it
 			isBusy = false;
 			A_ClearTarget();
@@ -1098,16 +1110,23 @@ class NPCCore : PostalActor
 			
 			//Before eventually going back to Spawn, let's check our surroundings
 			A_BystanderThink();
+		}
+		Goto Spawn;
+	Laughing:
+		LAUG A 0 A_StartSound("male1/laugh", CHAN_VOICE);
+		LAUG ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); A_BystanderThink(); }
+		LAU2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); A_BystanderThink(); }
+		LAU3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); A_BystanderThink(); }
+		LAU4 ABCDEFGHIJKLM 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); }
+		LAU4 M 0
+		{
+			//Clear our target, so we won't be going after it
+			isBusy = false;
+			A_ClearTarget();
+			MyTarget = null;
 			
-			if (G_GotTauntedAt)
-			{
-				/*
-				bool laugh = random[lgh](0,1);
-				if (laugh)
-					SetStateLabel("Laughing");
-				*/
-				G_GotTauntedAt = false;
-			}
+			//Before eventually going back to Spawn, let's check our surroundings
+			A_BystanderThink();
 		}
 		Goto Spawn;
 	Standing:

@@ -569,6 +569,7 @@ male1/taunt4 sounds/npc/whitemale/wm_illkillyou.wav
 male1/taunt5 sounds/npc/whitemale/wm_imnotavictim.wav
 male1/taunt6 sounds/npc/whitemale/wm_motherfucker.wav
 
+male1/laugh sounds/npc/whitemale/wm_laugh.wav
 
 $random male1/taunt { male1/taunt1 male1/taunt2 male1/taunt3 male1/taunt4 male1/taunt5 male1/taunt6 }
 
