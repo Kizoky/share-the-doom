@@ -16,7 +16,7 @@ DefaultBind "E" "ToggleHolster"
 Alias "ToggleDudeUrethra" "netevent \"Urethra\""
 DefaultBind "R" "ToggleDudeUrethra"
 
-Alias "ToggleDudeTaunt" ""
+Alias "ToggleDudeTaunt" "netevent \"Taunt\""
 DefaultBind "G" "ToggleDudeTaunt"
 
 Alias "ToggleDudeMap" "netevent \"Map\""

@@ -123,13 +123,19 @@ class DudeCoreHandler : EventHandler
 			
 	  }
 	  
-	  if (e.Name ~== "Insult")
+	  if (e.Name ~== "Taunt")
 	  {
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
 			
 			if (!p || !p.PlayerData) return;
 			if (p.bKILLED || p.SuicideCamera) return;
+			
+			if (p.PlayerData.InsultCooldown < level.time)
+			{
+				p.A_StartSound("dudeline6", CHAN_VOICE);
+				p.PlayerData.InsultCooldown = level.time + 35 * 2.5;
+			}
 	  }
 	  
 	  if (e.Name ~== "Map")

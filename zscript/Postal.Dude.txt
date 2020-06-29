@@ -46,6 +46,8 @@ class PostalDude_Data : Inventory
 	bool DudeLineTriggered;
 	int TimeBeforeDudeLine, DudeLineCooldown;
 	
+	int InsultCooldown;
+	
 	int IdlingTime;
 	vector3 IdlingPos;
 	
