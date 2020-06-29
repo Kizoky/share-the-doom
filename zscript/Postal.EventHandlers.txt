@@ -156,6 +156,7 @@ class DudeCoreHandler : EventHandler
 							pp.isBusy = true;
 							pp.MyTarget = p;
 							pp.vel.xy = (0,0);
+							pp.G_GotTauntedAt = true;
 							pp.SetStateLabel("Stare");
 						}
 					}

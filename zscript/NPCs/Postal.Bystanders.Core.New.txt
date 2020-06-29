@@ -38,6 +38,10 @@ class NPCCore : PostalActor
 	bool StopGoingAfterNode;
 	int NodeCooldown;
 	
+	// Surrounding variables
+	
+	bool G_GotTauntedAt, G_SawInteresting, G_WTF;
+	
 	// GZDoom Builder stuff here
 	
 	bool user_StandingInOnePlace;
@@ -1082,7 +1086,6 @@ class NPCCore : PostalActor
 		}
 		Goto Spawn;
 	Stare:
-		DUDE A 0;
 		DUDE A 0 { vel.xy = (0,0); }
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); }
 		
@@ -1095,6 +1098,16 @@ class NPCCore : PostalActor
 			
 			//Before eventually going back to Spawn, let's check our surroundings
 			A_BystanderThink();
+			
+			if (G_GotTauntedAt)
+			{
+				/*
+				bool laugh = random[lgh](0,1);
+				if (laugh)
+					SetStateLabel("Laughing");
+				*/
+				G_GotTauntedAt = false;
+			}
 		}
 		Goto Spawn;
 	Standing:
