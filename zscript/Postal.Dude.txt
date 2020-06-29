@@ -32,7 +32,7 @@ class PostalDude_Data : Inventory
 	
 	bool KickDone;
 	
-	Weapon HolsterSave, UrethraSave;
+	Weapon HolsterSave;
 	Weapon HolsterWeapon, UrethraWeapon;
 	
 	bool RunningStop;

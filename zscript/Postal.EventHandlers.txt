@@ -123,6 +123,15 @@ class DudeCoreHandler : EventHandler
 			
 	  }
 	  
+	  if (e.Name ~== "Insult")
+	  {
+			PostalDude p = PostalDude(players[e.Player].mo);
+			PlayerInfo player = players [e.Player];
+			
+			if (!p || !p.PlayerData) return;
+			if (p.bKILLED || p.SuicideCamera) return;
+	  }
+	  
 	  if (e.Name ~== "Map")
 	  {
 			PostalDude p = PostalDude(players[e.Player].mo);
