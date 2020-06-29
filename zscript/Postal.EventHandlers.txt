@@ -133,7 +133,13 @@ class DudeCoreHandler : EventHandler
 			
 			if (p.PlayerData.InsultCooldown < level.time)
 			{
-				p.A_StartSound("dudeline6", CHAN_VOICE);
+				bool rr = random[randoms](0,1);
+				
+				if (rr)
+					p.A_StartSound("dudeline64", CHAN_VOICE);
+				else 
+					p.A_StartSound("dudeline6", CHAN_VOICE);
+				
 				p.PlayerData.InsultCooldown = level.time + 35 * 2.5;
 			}
 	  }

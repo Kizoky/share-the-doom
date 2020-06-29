@@ -95,6 +95,7 @@ dudeline60 sounds/DudeDialog/Laughing.wav
 dudeline61 sounds/DudeDialog/mybad.wav
 dudeline62 sounds/DudeDialog/dude_iknewishouldnt.wav // Health Pipe; hurt
 dudeline63 sounds/DudeDialog/dude_imsowrong.wav
+dudeline64 sounds/DudeDialog/dude_getdownifyoudont.wav
 
 dude/sissy sounds/DudeDialog/dude_sissy.wav
 
