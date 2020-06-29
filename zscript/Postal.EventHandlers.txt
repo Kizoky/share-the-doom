@@ -140,6 +140,27 @@ class DudeCoreHandler : EventHandler
 				else 
 					p.A_StartSound("dudeline6", CHAN_VOICE);
 				
+				
+				BlockThingsIterator it;
+				
+				it = BlockThingsIterator.Create (p, 350);
+						
+				while (it.Next ()) {
+					let next = it.Thing;
+					
+					if (next is 'NPCCore' && !(next.bKILLED))
+					{
+						let pp = NPCCore(next);
+						if (!pp.isBusy && !pp.isAfterTarget && pp)
+						{
+							pp.isBusy = true;
+							pp.MyTarget = p;
+							pp.vel.xy = (0,0);
+							pp.SetStateLabel("Stare");
+						}
+					}
+				}
+				
 				p.PlayerData.InsultCooldown = level.time + 35 * 2.5;
 			}
 	  }

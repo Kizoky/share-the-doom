@@ -366,7 +366,8 @@ class NPCCore : PostalActor
 		if (InStateSequence(CurState, ResolveState("StaringWeapon")) ||
 			InStateSequence(CurState, ResolveState("StaringNPC")) ||
 			InStateSequence(CurState, ResolveState("StaringCorpse")) ||
-			InStateSequence(CurState, ResolveState("Bumping")))
+			InStateSequence(CurState, ResolveState("Bumping")) ||
+			InStateSequence(CurState, ResolveState("Stare")))
 		A_FacePostalTarget();
 		
 		if (InStateSequence(CurState, ResolveState("Missile.Pistol")) ||
@@ -1066,6 +1067,22 @@ class NPCCore : PostalActor
 		DUDE A 0 { return ResolveState("See"); }
 	Bumping:
 		DUDE A 0 A_PlaySound(NPC_Bump,0, 1.0, false, 1, false, MyVoice);
+		DUDE A 0 { vel.xy = (0,0); }
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); }
+		
+		DUDW A 0
+		{
+			//Clear our target, so we won't be going after it
+			isBusy = false;
+			A_ClearTarget();
+			MyTarget = null;
+			
+			//Before eventually going back to Spawn, let's check our surroundings
+			A_BystanderThink();
+		}
+		Goto Spawn;
+	Stare:
+		DUDE A 0;
 		DUDE A 0 { vel.xy = (0,0); }
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); }
 		
