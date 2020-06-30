@@ -1009,23 +1009,22 @@ class DummyDude : Actor
 		}
 	}
 	
-	/*
 	override String GetObituary(Actor victim, Actor inflictor, Name mod, bool playerattack)
 	{
 		let p = PostalDude(MyDude);
+		let vctm = PlayerPawn(victim);
 		
-		if (p)
+		if (p && vctm)
 		{
-			inflictor = p;
-			string PlayerName = p.GetCvar(name);
-			string NewObituary = String.Format("%o stood next to %s's suicide-show.", PlayerName);
+			string PlayerKillerName = String.Format(p.Player.GetUserName());
+			string PlayerVictimName = String.Format(vctm.Player.GetUserName());
+			string NewObituary = String.Format("%s stood next to %s's suicide-show.", PlayerVictimName, PlayerKillerName);
 			
 			return NewObituary;
 		}
 		
 		return Obituary;
 	}
-	*/
 	
 	Default
 	{
