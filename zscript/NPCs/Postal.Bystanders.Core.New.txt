@@ -26,7 +26,7 @@ class NPCCore : PostalActor
 	MachineObituary, KickObituary, TazerObituary, BatonObituary, ShovelObituary, CowHeadObituary, GrenadeObituary, PlagueObituary;
 	
 	
-	string NPC_Scream, NPC_Bump, NPC_PetitionDeny, NPC_PetitionAccept, NPC_Dickout, NPC_Laugh, NPC_Taunt, NPC_Cry, NPC_Pickup, NPC_Confusion, NPC_Cat, NPC_Dog, NPC_House, NPC_PissedOn;
+	string NPC_Scream, NPC_Bump, NPC_PetitionDeny, NPC_PetitionAccept, NPC_Dickout, NPC_Laugh, NPC_Taunt, NPC_Cry, NPC_Pickup, NPC_Confusion, NPC_Cat, NPC_Dog, NPC_House, NPC_PissedOn, NPC_YaGotProblem;
 	
 	double MyVoice;
 	
@@ -180,6 +180,15 @@ class NPCCore : PostalActor
 		NPC_Bump = "mikej/bump";
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "mikej/dickout";
+		NPC_Laugh = "male1/laugh";
+		NPC_Cry = "";
+		NPC_Pickup = ""; // Played when they find something interesting on the ground and they pick it up
+		NPC_Confusion = ""; // Played when something happens in the background (Huh, what, what the)
+		NPC_Cat = ""; // Damn cat!
+		NPC_Dog = ""; // Stupid mutt!
+		NPC_House = ""; // Saw intruder in own house
+		NPC_PissedOn = "";
+		NPC_YaGotProblem = "";
 		
 		//Walking styles are randomized, but you can set it manually if wanted
 		WalkingStyle = random[mystyle](1,6);
@@ -1134,7 +1143,7 @@ class NPCCore : PostalActor
 		}
 		Goto Spawn;
 	Laughing:
-		LAUG A 0 A_StartSound("male1/laugh", CHAN_VOICE);
+		LAUG A 0 A_StartSound(NPC_Laugh, CHAN_VOICE);
 		LAUG ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 { if (MyTarget) target = MyTarget; }
 		LAU2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 { if (MyTarget) target = MyTarget; }
 		LAU3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 { if (MyTarget) target = MyTarget; }
