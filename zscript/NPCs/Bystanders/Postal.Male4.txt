@@ -8,6 +8,7 @@ class NPCWhiteDude4 : NPCCore
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male2/dickout";
 		NPC_Taunt = "male2/taunt";
+		NPC_Panic = "male2/panic";
 		NPC_Laugh = "male2/laugh";
 		
 
@@ -30,7 +31,7 @@ class NPCWhiteDude4 : NPCCore
 			}
 		}
 		
-		Hostility = (random[rndhost](0,1) == 1) ? "Hostile" : "Pussy";
+		Hostility = (random[rndhost](0,1) == 1) ? "Pussy" : "Hostile";
 		NPCWeapon = "Pistol";
 		
 	}

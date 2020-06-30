@@ -31,7 +31,7 @@ class NPCWhiteDude8 : NPCCore
 			}
 		}
 		
-		Hostility = (random[rndhost](0,1) == 1) ? "Hostile" : "Pussy";
+		Hostility = (random[rndhost](0,1) == 1) ? "Pussy" : "Hostile";
 		NPCWeapon = "Pistol";
 		
 	}
