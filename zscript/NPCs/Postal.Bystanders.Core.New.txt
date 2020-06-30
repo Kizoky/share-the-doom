@@ -109,23 +109,23 @@ class NPCCore : PostalActor
 	{
 		"Pistol",
 		"Shotgun",
-		"RocketLauncher"
+		"RLauncher"
 		/*
-		"Scissor",
+		"Scissors",
 		"Machete",
 		"Scythe",
 		"Sledge",
-		"Sniper",
+		"Rifle",
 		"Molotov",
 		"Napalm",
 		"M16",
-		"Fists",
+		"Hands",
 		"Tazer",
 		"Baton",
 		"Shovel",
 		"Cowhead",
 		"Grenade",
-		"Plague"
+		"WMD"
 		*/
 	};
 	
@@ -387,7 +387,7 @@ class NPCCore : PostalActor
 		
 		if (InStateSequence(CurState, ResolveState("Missile.Pistol")) ||
 			(InStateSequence(CurState, ResolveState("Missile.Shotgun")) ||
-			(InStateSequence(CurState, ResolveState("Missile.RocketLauncher")))))
+			(InStateSequence(CurState, ResolveState("Missile.RLauncher")))))
 		A_FaceTarget();
 		
 		// I want to kill myself
@@ -986,8 +986,8 @@ class NPCCore : PostalActor
 				SetStateLabel("HostileChase.Pistol");
 			if (NPCWeapon ~== "Shotgun")
 				SetStateLabel("HostileChase.Shotgun");
-			if (NPCWeapon ~== "RocketLauncher")
-				SetStateLabel("HostileChase.RocketLauncher");
+			if (NPCWeapon ~== "RLauncher")
+				SetStateLabel("HostileChase.RLauncher");
 			
 			
 		}
@@ -1003,7 +1003,7 @@ class NPCCore : PostalActor
 		SHOT ABCDEFGHIJKLMNOPQRSTU 2 A_HostileWalk(2);
 		SHOT A 0 { vel.xy = (0,0); }
 		Loop;
-	HostileChase.RocketLauncher:
+	HostileChase.RLauncher:
 		ROCK A 0 { Pitch = 0; }
 		ROCK ABCDEFGHIJKLMNOPQRS 2 A_HostileWalk(1);
 		ROCK ABCDEFGHIJKLMNOPQRS 2 A_HostileWalk(2);
@@ -1023,8 +1023,8 @@ class NPCCore : PostalActor
 					SetStateLabel("Missile.Pistol");
 				if (NPCWeapon == "Shotgun")
 					SetStateLabel("Missile.Shotgun");
-				if (NPCWeapon == "RocketLauncher")
-					SetStateLabel("Missile.RocketLauncher");
+				if (NPCWeapon == "RLauncher")
+					SetStateLabel("Missile.RLauncher");
 			}
 		}
 	Missile.Pistol:
@@ -1045,7 +1045,7 @@ class NPCCore : PostalActor
 		SHOF A 6;
 		SHOF A 0 A_ConcentratedTarget();
 		Goto HostileChase.Shotgun;
-	Missile.RocketLauncher:
+	Missile.RLauncher:
 		ROCF A 0 { vel.xy = (0,0); A_CheckObstacleTarget(); }
 		ROCF A 10 A_FaceTarget();
 		ROCF A 0 A_PostalTarget();
@@ -1075,7 +1075,7 @@ class NPCCore : PostalActor
 		ROCF A 4;
 		ROCF A 6;
 		ROCF A 0 A_ConcentratedTarget();
-		Goto HostileChase.RocketLauncher;
+		Goto HostileChase.RLauncher;
 	Pain:
 		DUDE A 0 { if (gotPissedOn == true) { isAfterTarget = false; SetStateLabel("Debug"); }}
 		DUDE A 0 { isBusy = false; }
@@ -1315,10 +1315,18 @@ class NPCCore : PostalActor
 		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		DUD2 A 0
 		{
-			if (NPCWeapon ~== "Pistol")
-				A_SpawnItemEx("PostPistol");
-			if (NPCWeapon ~== "Shotgun")
-				A_SpawnItemEx("PostShotgun");
+			if (NPCWeapon ~== "Hands")
+				return;
+			
+			for(int i = 0; i < WeaponList.Size(); i++)
+			{
+				if (NPCWeapon ~== WeaponList[i])
+				{
+					string DroppedWeapon = string.Format("Post%s",WeaponList[i]);
+					A_SpawnItemEx(DroppedWeapon);
+					return;
+				}
+			}
 		
 		}
 		DUD2 A 0 A_NoBlocking;
@@ -1330,10 +1338,18 @@ class NPCCore : PostalActor
 		XYXY ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		XYX2 A 0
 		{
-			if (NPCWeapon ~== "Pistol")
-				A_SpawnItemEx("PostPistol");
-			if (NPCWeapon ~== "Shotgun")
-				A_SpawnItemEx("PostShotgun");
+			if (NPCWeapon ~== "Hands")
+				return;
+				
+			for(int i = 0; i < WeaponList.Size(); i++)
+			{
+				if (NPCWeapon ~== WeaponList[i])
+				{
+					string DroppedWeapon = string.Format("Post%s",WeaponList[i]);
+					A_SpawnItemEx(DroppedWeapon);
+					return;
+				}
+			}
 		
 		}
 		XYX2 A 0 A_NoBlocking;
@@ -1402,7 +1418,7 @@ extend class NPCCore
 		"Grenade",
 		"Molotov",
 		"NapalmLauncher",
-		"RocketLauncher",
+		"RLauncher",
 		"Shotgun",
 		"WMD"
 	};
