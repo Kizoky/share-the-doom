@@ -217,6 +217,7 @@ crickets sounds/ambient_p2/crickets.wav
 crickets_2 sounds/ambient_p2/crickets2.wav
 buzz sounds/ambient_p2/LampBuzz.wav
 drill sounds/ambient_p2/drill.wav
+dryer sounds/ambient_p2/dryer.wav
 circuitBreakerLP sounds/ambient_p2/circuitBreakerLP.wav
 IndustAmb sounds/ambient_p2/IndustAmb.wav
 breweryPipeAmb1 sounds/ambient_p2/breweryPipeAmb1.wav
@@ -361,8 +362,8 @@ $ambient 37 SwampCoolage point continuous 1.0
 $alias SignNeon NeonSign2
 $ambient 38 SignNeon point continuous 1.0
 
-//$alias FreezerCum_High Freezer_humHi
-//$ambient 39 FreezerCum_High point continuous 1.0
+$alias Dryer_punching dryer
+$ambient 39 Dryer_punching point continuous 1.0
 
 $alias StreetBoiling StormGrate
 $ambient 40 StreetBoiling point continuous 1.0
