@@ -8,6 +8,7 @@ class NPCWhiteDude11 : NPCCore
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male2/dickout";
 		NPC_Taunt = "male2/taunt";
+		NPC_Laugh = "male2/laugh";
 		
 
 		WalkingStyle = random[mystyle](1,6);

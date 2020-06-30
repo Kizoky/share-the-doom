@@ -670,6 +670,11 @@ male2/taunt4 sounds/npc/whitemale2/wm_tough_youthinkimscaredv2.wav
 
 $random male2/taunt { male2/taunt1 male2/taunt2 male2/taunt3 male2/taunt4 }
 
+male2/laugh1 sounds/npc/whitemale2/wm_laughv1.wav
+male2/laugh2 sounds/npc/whitemale2/wm_laughv2.wav
+
+$random male2/laugh { male2/laugh1 male2/laugh2 }
+
 male3/scream1 sounds/npc/mulato/mm_scream1.wav
 male3/scream2 sounds/npc/mulato/mm_scream2.wav
 male3/scream3 sounds/npc/mulato/mm_scream3.wav
@@ -717,6 +722,11 @@ male3/taunt2 sounds/npc/mulato/mm_postal_illusethisv2.wav
 male3/taunt3 sounds/npc/mulato/mm_postal_wrongvatov2.wav
 
 $random male3/taunt { male3/taunt1 male3/taunt2 male3/taunt3 }
+
+male3/laugh1 sounds/npc/mulato/mm_laughv1.wav
+male3/laugh2 sounds/npc/mulato/mm_laughv2.wav
+
+$random male3/laugh { male3/laugh1 male3/laugh2 }
 
 gary/laugh sounds/gary_bwahahaha.wav
 
