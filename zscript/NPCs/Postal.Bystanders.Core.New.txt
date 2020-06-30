@@ -491,7 +491,7 @@ class NPCCore : PostalActor
 		int Prob = random[iscream](0,100);
 		if (Prob > 78)
 		{
-			A_StartSound(NPC_Scream,0 , 1.0, false, 1, false, MyVoice);
+			A_StartSound(NPC_Scream, 0 , 1.0, ATTN_NORM, MyVoice);
 		}
 	}
 	
@@ -699,7 +699,7 @@ class NPCCore : PostalActor
 		}
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FacePostalTarget(); target = MyTarget; }
 		DUDE ABCDEFGHIJKLMNOP 3 { A_FacePostalTarget(); if (MyTarget) target = MyTarget; }
-		PINK A 0 A_PlaySound(NPC_PetitionDeny,0);
+		PINK A 0 A_StartSound(NPC_PetitionDeny,0);
 		PINK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_FacePostalTarget(); if (MyTarget) target = MyTarget; }
 		DUDW A 0
 		{
@@ -837,7 +837,7 @@ class NPCCore : PostalActor
 				bFRIGHTENED = true;
 				Speed = 2;
 				SetStateLabel("PussyChase");
-				A_StartSound(NPC_Scream, CHAN_VOICE , 1.0, false, 1, false, MyVoice);
+				A_StartSound(NPC_Scream, CHAN_VOICE, 1.0, ATTN_NORM, MyVoice);
 				bNOTARGETSWITCH = true;
 				
 				A_ConcentratedTarget();
@@ -1041,7 +1041,7 @@ class NPCCore : PostalActor
 		SHOF A 0 A_PostalTarget();
 		SHOF A 6 { A_NPCShotgunAttack(); A_FaceTarget(); }
 		SHOF A 4;
-		SHOF A 0 A_PlaySound("weapons/shotgr", CHAN_WEAPON);
+		SHOF A 0 A_StartSound("weapons/shotgr", CHAN_WEAPON);
 		SHOF A 6;
 		SHOF A 0 A_ConcentratedTarget();
 		Goto HostileChase.Shotgun;
@@ -1082,7 +1082,7 @@ class NPCCore : PostalActor
 		DUDE A 3 A_Pain;
 		DUDE A 0 { return ResolveState("See"); }
 	Bumping:
-		DUDE A 0 A_PlaySound(NPC_Bump,0, 1.0, false, 1, false, MyVoice);
+		DUDE A 0 A_StartSound(NPC_Bump, CHAN_VOICE, 1.0, ATTN_NORM, MyVoice);
 		DUDE A 0 { vel.xy = (0,0); }
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { if (MyTarget) target = MyTarget; A_FacePostalTarget(); }
 		
@@ -1170,7 +1170,7 @@ class NPCCore : PostalActor
 		}
 		Loop;
 	DickOut:
-		DUDE A 0 A_PlaySound(NPC_Dickout,0 , 1.0, false, 1, false, MyVoice);
+		DUDE A 0 A_StartSound(NPC_Dickout, CHAN_VOICE, 1.0, ATTN_NORM, MyVoice);
 		DUDE A 0 { vel.xy = (0,0); }
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2 { target = MyTarget; A_FacePostalTarget(); }
@@ -1206,11 +1206,11 @@ class NPCCore : PostalActor
 		{ 
 			vel.xy = (0,0);
 			if (Hostility ~== "Pussy")
-				A_StartSound(NPC_Panic, 0 , 1.0, false, 1, false, MyVoice);
+				A_StartSound(NPC_Panic, 0 , 1.0, ATTN_NORM, MyVoice);
 		}
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		//Be hostile, or flee from the frightening Player
-		DUDE A 0 { isAfterTarget = true; if (Hostility ~== "Hostile") A_StartSound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice); }
+		DUDE A 0 { isAfterTarget = true; if (Hostility ~== "Hostile") A_StartSound(NPC_Taunt, 0, 1.0, ATTN_NORM, MyVoice); }
 		DUDE A 0
 		{
 			if (Hostility == "Pussy")
@@ -1274,7 +1274,7 @@ class NPCCore : PostalActor
 									target = pp;
 									MyTarget = pp;
 									isBusy = false;
-									A_StartSound(NPC_Taunt, 0 , 1.0, false, 1, false, MyVoice);
+									A_StartSound(NPC_Taunt, 0 ,1.0, ATTN_NORM, MyVoice);
 									isAfterTarget = true;
 									SetStateLabel("See");
 									return;
@@ -1285,7 +1285,7 @@ class NPCCore : PostalActor
 									target = pp;
 									MyTarget = pp;
 									isBusy = false;
-									A_StartSound(NPC_Panic, 0 , 1.0, false, 1, false, MyVoice);
+									A_StartSound(NPC_Panic, 0 , 1.0, ATTN_NORM, MyVoice);
 									isAfterTarget = true;
 									SetStateLabel("See");
 									angle = -angle;
@@ -1609,7 +1609,7 @@ extend class NPCCore
 									target = PlayerDude;
 									MyTarget = PlayerDude;
 									isAfterTarget = true;
-									A_StartSound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
+									A_StartSound(NPC_Taunt,0 , 1.0, ATTN_NORM, MyVoice);
 									SetStateLabel("HostileChase");
 									return;
 								}
@@ -1619,7 +1619,7 @@ extend class NPCCore
 									target = PlayerDude;
 									MyTarget = PlayerDude;
 									isAfterTarget = true;
-									A_StartSound(NPC_Panic,0 , 1.0, false, 1, false, MyVoice);
+									A_StartSound(NPC_Panic,0 , 1.0, ATTN_NORM, MyVoice);
 									SetStateLabel("See");
 									return;
 								}
@@ -1689,7 +1689,7 @@ extend class NPCCore
 								target = pp;
 								MyTarget = pp;
 								isAfterTarget = true;
-								A_StartSound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
+								A_StartSound(NPC_Taunt,0 , 1.0, ATTN_NORM, MyVoice);
 								SetStateLabel("HostileChase");
 								return;
 							}
@@ -1699,7 +1699,7 @@ extend class NPCCore
 								isAfterTarget = true;
 								target = pp;
 								MyTarget = pp;
-								A_StartSound(NPC_Panic,0 , 1.0, false, 1, false, MyVoice);
+								A_StartSound(NPC_Panic,0 , 1.0, ATTN_NORM, MyVoice);
 								SetStateLabel("See");
 								return;
 							}
@@ -1722,7 +1722,7 @@ extend class NPCCore
 						target = toucher;
 						MyTarget = toucher;
 						isAfterTarget = true;
-						A_StartSound(NPC_Taunt, 0 , 1.0, false, 1, false, MyVoice);
+						A_StartSound(NPC_Taunt, 0 , 1.0, ATTN_NORM, MyVoice);
 						SetStateLabel("HostileChase");
 						return;
 					}
@@ -1732,7 +1732,7 @@ extend class NPCCore
 						isAfterTarget = true;
 						target = toucher;
 						MyTarget = toucher;
-						A_StartSound(NPC_Panic, 0 , 1.0, false, 1, false, MyVoice);
+						A_StartSound(NPC_Panic, 0 , 1.0, ATTN_NORM, MyVoice);
 						SetStateLabel("See");
 						return;
 					}
@@ -1862,9 +1862,9 @@ extend class NPCCore
 					{
 						invoker.isAfterTarget = true;
 						if (invoker.Hostility ~== "Hostile")
-							A_StartSound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+							A_StartSound(invoker.NPC_Taunt,0 , 1.0, ATTN_NORM, invoker.MyVoice);
 						else if (invoker.Hostility ~== "Pussy")
-							A_StartSound(invoker.NPC_Panic,0 , 1.0, false, 1, false, invoker.MyVoice);
+							A_StartSound(invoker.NPC_Panic,0 , 1.0, ATTN_NORM, invoker.MyVoice);
 							
 						invoker.MyTarget = next;
 						target = next;
@@ -1880,7 +1880,7 @@ extend class NPCCore
 						if (invoker.Hostility == "Hostile")
 						{
 							invoker.isAfterTarget = true;
-							A_StartSound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+							A_StartSound(invoker.NPC_Taunt,0 , 1.0, ATTN_NORM, invoker.MyVoice);
 							invoker.MyTarget = madcow;
 							vel.xy = (0,0);
 							SetStateLabel("See");
@@ -1891,7 +1891,7 @@ extend class NPCCore
 						if (invoker.Hostility == "Pussy")
 						{
 							invoker.isAfterTarget = true;
-							A_StartSound(invoker.NPC_Panic,0 , 1.0, false, 1, false, invoker.MyVoice);
+							A_StartSound(invoker.NPC_Panic,0 ,1.0, ATTN_NORM, invoker.MyVoice);
 							invoker.MyTarget = madcow;
 							vel.xy = (0,0);
 							SetStateLabel("See");
@@ -1912,7 +1912,7 @@ extend class NPCCore
 			invoker.A_FacePostalTarget();
 			double ang = angle;
 			double slope = AimLineAttack(ang, MISSILERANGE);
-			A_PlaySound("weapons/pistol", CHAN_WEAPON);
+			A_StartSound("weapons/pistol", CHAN_WEAPON);
 			//ang  += Random2[PosAttack]() * (22.5/256);
 			int damage = Random[PosAttack](1, 5) * 3;
 			LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff", 0, null, 30, 0.5);
@@ -1928,7 +1928,7 @@ extend class NPCCore
 			double bangle = angle;
 			double slope = AimLineAttack(bangle, MISSILERANGE);
 			
-			A_PlaySound("weapons/shotgf", CHAN_WEAPON);
+			A_StartSound("weapons/shotgf", CHAN_WEAPON);
 			
 			for (int i=0 ; i<3 ; i++)
 			{
