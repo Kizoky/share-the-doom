@@ -145,6 +145,101 @@ Model "NPCWhiteDude10"
 	FrameIndex PINK Y 0 2044
 	FrameIndex PINK Z 0 2046
 	
+	FrameIndex LAUG A 0 1755
+	FrameIndex LAUG B 0 1757
+	FrameIndex LAUG C 0 1759
+	FrameIndex LAUG D 0 1761
+	FrameIndex LAUG E 0 1763
+	FrameIndex LAUG F 0 1765
+	FrameIndex LAUG G 0 1767
+	FrameIndex LAUG H 0 1769
+	FrameIndex LAUG I 0 1771
+	FrameIndex LAUG J 0 1773
+	FrameIndex LAUG K 0 1775
+	FrameIndex LAUG L 0 1777
+	FrameIndex LAUG M 0 1779
+	FrameIndex LAUG N 0 1781
+	FrameIndex LAUG O 0 1783
+	FrameIndex LAUG P 0 1785
+	FrameIndex LAUG Q 0 1787
+	FrameIndex LAUG R 0 1789
+	FrameIndex LAUG S 0 1791
+	FrameIndex LAUG T 0 1793
+	FrameIndex LAUG U 0 1795
+	FrameIndex LAUG V 0 1797
+	FrameIndex LAUG W 0 1799
+	FrameIndex LAUG X 0 1801
+	FrameIndex LAUG Y 0 1803
+	FrameIndex LAUG Z 0 1805
+	
+	FrameIndex LAU2 A 0 1807
+	FrameIndex LAU2 B 0 1809
+	FrameIndex LAU2 C 0 1811
+	FrameIndex LAU2 D 0 1813
+	FrameIndex LAU2 E 0 1815
+	FrameIndex LAU2 F 0 1817
+	FrameIndex LAU2 G 0 1819
+	FrameIndex LAU2 H 0 1821
+	FrameIndex LAU2 I 0 1823
+	FrameIndex LAU2 J 0 1825
+	FrameIndex LAU2 K 0 1827
+	FrameIndex LAU2 L 0 1829
+	FrameIndex LAU2 M 0 1831
+	FrameIndex LAU2 N 0 1833
+	FrameIndex LAU2 O 0 1835
+	FrameIndex LAU2 P 0 1837
+	FrameIndex LAU2 Q 0 1839
+	FrameIndex LAU2 R 0 1841
+	FrameIndex LAU2 S 0 1843
+	FrameIndex LAU2 T 0 1845
+	FrameIndex LAU2 U 0 1847
+	FrameIndex LAU2 V 0 1849
+	FrameIndex LAU2 W 0 1851
+	FrameIndex LAU2 X 0 1853
+	FrameIndex LAU2 Y 0 1855
+	FrameIndex LAU2 Z 0 1857
+	
+	FrameIndex LAU3 A 0 1859
+	FrameIndex LAU3 B 0 1861
+	FrameIndex LAU3 C 0 1863
+	FrameIndex LAU3 D 0 1865
+	FrameIndex LAU3 E 0 1867
+	FrameIndex LAU3 F 0 1869
+	FrameIndex LAU3 G 0 1871
+	FrameIndex LAU3 H 0 1873
+	FrameIndex LAU3 I 0 1875
+	FrameIndex LAU3 J 0 1877
+	FrameIndex LAU3 K 0 1879
+	FrameIndex LAU3 L 0 1881
+	FrameIndex LAU3 M 0 1883
+	FrameIndex LAU3 N 0 1885
+	FrameIndex LAU3 O 0 1887
+	FrameIndex LAU3 P 0 1889
+	FrameIndex LAU3 Q 0 1891
+	FrameIndex LAU3 R 0 1893
+	FrameIndex LAU3 S 0 1895
+	FrameIndex LAU3 T 0 1897
+	FrameIndex LAU3 U 0 1899
+	FrameIndex LAU3 V 0 1901
+	FrameIndex LAU3 W 0 1903
+	FrameIndex LAU3 X 0 1905
+	FrameIndex LAU3 Y 0 1907
+	FrameIndex LAU3 Z 0 1909
+	
+	FrameIndex LAU4 A 0 1911
+	FrameIndex LAU4 B 0 1913
+	FrameIndex LAU4 C 0 1915
+	FrameIndex LAU4 D 0 1917
+	FrameIndex LAU4 E 0 1919
+	FrameIndex LAU4 F 0 1921
+	FrameIndex LAU4 G 0 1923
+	FrameIndex LAU4 H 0 1925
+	FrameIndex LAU4 I 0 1927
+	FrameIndex LAU4 J 0 1929
+	FrameIndex LAU4 K 0 1931
+	FrameIndex LAU4 L 0 1933
+	FrameIndex LAU4 M 0 1935
+	
 }
 
 Model "NPCWhiteDude10"
