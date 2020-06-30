@@ -717,6 +717,40 @@ male3/dickout7 sounds/npc/mulato/mm_seewang_havesomedignityv3.wav
 
 $random male3/dickout { male3/dickout1 male3/dickout2 male3/dickout3 male3/dickout4 male3/dickout5 male3/dickout6 male3/dickout7 }
 
+male3/panic1 sounds/npc/mulato/mm_seecarnage_anyoneseethatv1.wav
+male3/panic2 sounds/npc/mulato/mm_seecarnage_anyoneseethatv2.wav
+male3/panic3 sounds/npc/mulato/mm_seecarnage_callambulancev1.wav
+male3/panic4 sounds/npc/mulato/mm_seecarnage_callgalavisionv1.wav
+male3/panic5 sounds/npc/mulato/mm_seecarnage_callgalavisionv2.wav
+male3/panic6 sounds/npc/mulato/mm_seecarnage_callnationalguardv1.wav
+male3/panic7 sounds/npc/mulato/mm_seecarnage_goingtohurlv1.wav
+male3/panic8 sounds/npc/mulato/mm_seecarnage_helpv1.wav
+male3/panic9 sounds/npc/mulato/mm_seecarnage_hesgotagunv1.wav
+male3/panic10 sounds/npc/mulato/mm_seecarnage_hesgotagunv1.wav
+male3/panic11 sounds/npc/mulato/mm_seecarnage_holyfuckv1.wav
+male3/panic12 sounds/npc/mulato/mm_seecarnage_holyshitv1.wav
+male3/panic13 sounds/npc/mulato/mm_seecarnage_ifihadacamerav1.wav
+male3/panic14 sounds/npc/mulato/mm_seecarnage_ifihadacamerav2.wav
+male3/panic15 sounds/npc/mulato/mm_seecarnage_jesushelpmev1.wav
+male3/panic16 sounds/npc/mulato/mm_seecarnage_jesushelpmev2.wav
+male3/panic17 sounds/npc/mulato/mm_seecarnage_justkilledthatguyv1.wav
+male3/panic18 sounds/npc/mulato/mm_seecarnage_justkilledthatguyv2.wav
+male3/panic19 sounds/npc/mulato/mm_seecarnage_killingeveryonev1.wav
+male3/panic20 sounds/npc/mulato/mm_seecarnage_killingeveryonev2.wav
+male3/panic21 sounds/npc/mulato/mm_seecarnage_killingeveryonev3.wav
+male3/panic22 sounds/npc/mulato/mm_seecarnage_killingeveryonev4.wav
+male3/panic23 sounds/npc/mulato/mm_seecarnage_makeitstopv1.wav
+male3/panic24 sounds/npc/mulato/mm_seecarnage_makeitstopv2.wav
+male3/panic25 sounds/npc/mulato/mm_seecarnage_makeitstopv3.wav
+male3/panic26 sounds/npc/mulato/mm_seecarnage_notagainv1.wav
+male3/panic27 sounds/npc/mulato/mm_seecarnage_ohmygodv1.wav
+male3/panic28 sounds/npc/mulato/mm_seecarnage_outtaherev1.wav
+male3/panic29 sounds/npc/mulato/mm_seecarnage_outtaherev2.wav
+male3/panic30 sounds/npc/mulato/mm_seecarnage_runrunv1.wav
+male3/panic31 sounds/npc/mulato/mm_seecarnage_sweetlordnov1.wav
+
+$random male3/panic { male3/panic1 male3/panic2 male3/panic3 male3/panic4 male3/panic5 male3/panic6 male3/panic7 male3/panic8 male3/panic9 male3/panic10 male3/panic11 male3/panic12 male3/panic13 male3/panic14 male3/panic15 male3/panic16 male3/panic17 male3/panic18 male3/panic19 male3/panic20 male3/panic21 male3/panic22 male3/panic23 male3/panic24 male3/panic25 male3/panic26 male3/panic27 male3/panic29 male3/panic30 male3/panic31 male3/panic28 }
+
 male3/taunt1 sounds/npc/mulato/mm_postal_gonnaregretv2.wav
 male3/taunt2 sounds/npc/mulato/mm_postal_illusethisv2.wav
 male3/taunt3 sounds/npc/mulato/mm_postal_wrongvatov2.wav
