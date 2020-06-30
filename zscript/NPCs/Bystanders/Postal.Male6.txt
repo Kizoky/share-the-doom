@@ -8,6 +8,7 @@ class NPCMulato1 : NPCCore
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male3/dickout";
 		NPC_Taunt = "male3/taunt";
+		NPC_Panic = "male3/panic";
 		NPC_Laugh = "male3/laugh";
 		
 

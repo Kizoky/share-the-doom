@@ -7,7 +7,8 @@ class NPCWhiteDude6 : NPCCore
 		NPC_Bump = "male2/bump";
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male2/dickout";
-		NPC_Taunt = "male2/panic";
+		NPC_Taunt = "male2/taunt";
+		NPC_Panic = "male2/panic";
 		NPC_Laugh = "male2/laugh";
 		
 

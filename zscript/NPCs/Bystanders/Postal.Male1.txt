@@ -8,6 +8,7 @@ class NPCWhiteDude : NPCCore
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "male1/dickout";
 		NPC_Taunt = "male1/taunt";
+		NPC_Panic = "male1/panic";
 		NPC_Laugh = "male1/laugh";
 		
 
