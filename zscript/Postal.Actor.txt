@@ -15,7 +15,11 @@ class PostalActor : Actor
 			
 		if (bInChase)
 			return;
-			
+		
+		// [Kizoky] If the target is a PostalDecoration actor, stop targeting it
+		if (target && target is 'PostalDecoration')
+			target = null;
+		
 		bInChase = true;
 		
 		bool isFast = bALWAYSFAST ? true : false;
@@ -36,7 +40,7 @@ class PostalActor : Actor
 		}
 		
 		// modify target threshold
-		if (target != null || target.Health <= 0)
+		if (target != null || (target && target.Health <= 0))
 			threshold = 0;
 		else
 			threshold--;
@@ -72,10 +76,6 @@ class PostalActor : Actor
 				angle += 45;
 			}
 		}
-		
-		// [Kizoky] If the target is a PostalDecoration actor, stop targeting it
-		if (target && target is 'PostalDecoration')
-			target = null;
 		
 		// [RH] Friendly monsters will consider chasing whoever hurts a player if they
 		// don't already have a target.

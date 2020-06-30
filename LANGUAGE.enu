@@ -40,7 +40,7 @@ STSTR_FAADDED = "Woah, hold on buddy, this isn't Postal 3";
 STSTR_CHOPPERS = "I’d prefer a Weed Whacker, personally.";
 STSTR_CLEV = "%o entered the cheater Load Zone...\n";
 
-OB_SUICIDE = "%o had a sudden heart attack.";
+OB_SUICIDE = "%o suicided.";
 OB_FALLING = "%o left a small crater.";
 OB_CRUSH = "%o was crushed.";
 OB_EXIT = "%o tried to leave, what a loser!";

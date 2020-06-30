@@ -1008,14 +1008,32 @@ class DummyDude : Actor
 				SetOrigin(MyDude.pos+(0,0,0), TRUE);
 		}
 	}
-
+	
+	/*
+	override String GetObituary(Actor victim, Actor inflictor, Name mod, bool playerattack)
+	{
+		let p = PostalDude(MyDude);
+		
+		if (p)
+		{
+			inflictor = p;
+			string PlayerName = p.GetCvar(name);
+			string NewObituary = String.Format("%o stood next to %s's suicide-show.", PlayerName);
+			
+			return NewObituary;
+		}
+		
+		return Obituary;
+	}
+	*/
+	
 	Default
 	{
 		Health 50;
 		Radius 1;
 		Height 1;
 		-SOLID
-		Obituary "%k did not regret anything, said to the world.";
+		Obituary "%o stood next to a suicide-show.";
 	}
 	States
 	{
@@ -1034,11 +1052,12 @@ class DummyDude : Actor
 			if (p)
 			{
 				p.Suicided = true;
-				p.A_Die();
+				int dd = p.DamageMobj(null, null, p.Health, "Suicide");
+				
+				A_StartSound("weapons/rocklx",6);
+				A_Explode(200, 256, XF_NOTMISSILE);
 			}
 			
-			A_playSound("weapons/rocklx",6);
-			A_Explode(200, 256, XF_NOTMISSILE);
 			//let p = PostalDude(MyDude);
 			//p.MissileOnce = false;
 		}
