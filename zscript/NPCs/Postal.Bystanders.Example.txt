@@ -53,7 +53,11 @@ class NPCExample : NPCCore
 		// Note: If wrong data was given, their behavior will be random, unless NPCWeapon was invalid
 		// in that case that will be only randomized
 		// They aren't case-sensitive so you are free to name it as shotgun, ShotguN, PuSsY, and so on...
-		Hostility = "Hostile";
+		//Hostility = "Hostile";
+		
+		// You can also randomize the Hostility like this
+		Hostility = (random[rndhost](0,1) == 1) ? "Hostile" : "Pussy";
+		
 		NPCWeapon = "Shotgun";
 		
 	}
