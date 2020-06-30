@@ -26,7 +26,7 @@ class NPCCore : PostalActor
 	MachineObituary, KickObituary, TazerObituary, BatonObituary, ShovelObituary, CowHeadObituary, GrenadeObituary, PlagueObituary;
 	
 	
-	string NPC_Scream, NPC_Bump, NPC_PetitionDeny, NPC_PetitionAccept, NPC_Dickout, NPC_Laugh, NPC_Taunt, NPC_Cry, NPC_Pickup, NPC_Confusion, NPC_Cat, NPC_Dog, NPC_House, NPC_PissedOn, NPC_YaGotProblem;
+	string NPC_Scream, NPC_Bump, NPC_PetitionDeny, NPC_PetitionAccept, NPC_Dickout, NPC_Laugh, NPC_Taunt, NPC_Panic, NPC_Cry, NPC_Pickup, NPC_Confusion, NPC_Cat, NPC_Dog, NPC_House, NPC_PissedOn, NPC_YaGotProblem;
 	
 	double MyVoice;
 	
@@ -181,6 +181,8 @@ class NPCCore : PostalActor
 		NPC_PetitionDeny = "noway";
 		NPC_Dickout = "mikej/dickout";
 		NPC_Laugh = "male1/laugh";
+		NPC_Taunt = "";
+		NPC_Panic = "";
 		NPC_Cry = "";
 		NPC_Pickup = ""; // Played when they find something interesting on the ground and they pick it up
 		NPC_Confusion = ""; // Played when something happens in the background (Huh, what, what the)
@@ -489,7 +491,7 @@ class NPCCore : PostalActor
 		int Prob = random[iscream](0,100);
 		if (Prob > 78)
 		{
-			A_PlaySound(NPC_Scream,0 , 1.0, false, 1, false, MyVoice);
+			A_StartSound(NPC_Scream,0 , 1.0, false, 1, false, MyVoice);
 		}
 	}
 	
@@ -835,6 +837,7 @@ class NPCCore : PostalActor
 				bFRIGHTENED = true;
 				Speed = 2;
 				SetStateLabel("PussyChase");
+				A_StartSound(NPC_Scream, CHAN_VOICE , 1.0, false, 1, false, MyVoice);
 				bNOTARGETSWITCH = true;
 				
 				A_ConcentratedTarget();
@@ -1199,10 +1202,15 @@ class NPCCore : PostalActor
 		}
 		Goto Spawn;
 	StaringWeapon:
-		DUDE A 0 { vel.xy = (0,0); }
+		DUDE A 0 
+		{ 
+			vel.xy = (0,0);
+			if (Hostility ~== "Pussy")
+				A_StartSound(NPC_Panic, 0 , 1.0, false, 1, false, MyVoice);
+		}
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FacePostalTarget(); }
 		//Be hostile, or flee from the frightening Player
-		DUDE A 0 { isAfterTarget = true; A_PlaySound(NPC_Taunt,0); }
+		DUDE A 0 { isAfterTarget = true; if (Hostility ~== "Hostile") A_StartSound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice); }
 		DUDE A 0
 		{
 			if (Hostility == "Pussy")
@@ -1213,7 +1221,7 @@ class NPCCore : PostalActor
 		DUDE A 0 { vel.xy = (0,0); }
 		
 		DUDE A 0 
-		{
+		{	
 			let pp = NPCCore(MyTarget);
 			
 			//If the Unique ID attached to the corpse is the same in our deadpeople array, then forget about it
@@ -1258,25 +1266,26 @@ class NPCCore : PostalActor
 						
 						if (pp)
 						{
-							if (pp.Hostility == "Hostile")
+							if (pp.Hostility ~== "Hostile")
 							{
 								let pp = NPCCore(target);
-								if (Hostility == "Hostile")
+								if (Hostility ~== "Hostile")
 								{
 									target = pp;
 									MyTarget = pp;
 									isBusy = false;
-									A_PlaySound(NPC_Taunt,0);
+									A_StartSound(NPC_Taunt, 0 , 1.0, false, 1, false, MyVoice);
 									isAfterTarget = true;
 									SetStateLabel("See");
 									return;
 								}
 								
-								if (Hostility == "Pussy")
+								if (Hostility ~== "Pussy")
 								{
 									target = pp;
 									MyTarget = pp;
 									isBusy = false;
+									A_StartSound(NPC_Panic, 0 , 1.0, false, 1, false, MyVoice);
 									isAfterTarget = true;
 									SetStateLabel("See");
 									angle = -angle;
@@ -1306,9 +1315,9 @@ class NPCCore : PostalActor
 		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		DUD2 A 0
 		{
-			if (NPCWeapon == "Pistol")
+			if (NPCWeapon ~== "Pistol")
 				A_SpawnItemEx("PostPistol");
-			if (NPCWeapon == "Shotgun")
+			if (NPCWeapon ~== "Shotgun")
 				A_SpawnItemEx("PostShotgun");
 		
 		}
@@ -1321,9 +1330,9 @@ class NPCCore : PostalActor
 		XYXY ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		XYX2 A 0
 		{
-			if (NPCWeapon == "Pistol")
+			if (NPCWeapon ~== "Pistol")
 				A_SpawnItemEx("PostPistol");
-			if (NPCWeapon == "Shotgun")
+			if (NPCWeapon ~== "Shotgun")
 				A_SpawnItemEx("PostShotgun");
 		
 		}
@@ -1336,9 +1345,9 @@ class NPCCore : PostalActor
 		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		DUD2 A 0
 		{
-			if (NPCWeapon == "Pistol")
+			if (NPCWeapon ~== "Pistol")
 				A_SpawnItemEx("PostPistol");
-			if (NPCWeapon == "Shotgun")
+			if (NPCWeapon ~== "Shotgun")
 				A_SpawnItemEx("PostShotgun");
 		
 		}
@@ -1584,7 +1593,7 @@ extend class NPCCore
 									target = PlayerDude;
 									MyTarget = PlayerDude;
 									isAfterTarget = true;
-									A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
+									A_StartSound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
 									SetStateLabel("HostileChase");
 									return;
 								}
@@ -1594,6 +1603,7 @@ extend class NPCCore
 									target = PlayerDude;
 									MyTarget = PlayerDude;
 									isAfterTarget = true;
+									A_StartSound(NPC_Panic,0 , 1.0, false, 1, false, MyVoice);
 									SetStateLabel("See");
 									return;
 								}
@@ -1663,7 +1673,7 @@ extend class NPCCore
 								target = pp;
 								MyTarget = pp;
 								isAfterTarget = true;
-								A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
+								A_StartSound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
 								SetStateLabel("HostileChase");
 								return;
 							}
@@ -1673,6 +1683,7 @@ extend class NPCCore
 								isAfterTarget = true;
 								target = pp;
 								MyTarget = pp;
+								A_StartSound(NPC_Panic,0 , 1.0, false, 1, false, MyVoice);
 								SetStateLabel("See");
 								return;
 							}
@@ -1695,7 +1706,7 @@ extend class NPCCore
 						target = toucher;
 						MyTarget = toucher;
 						isAfterTarget = true;
-						A_PlaySound(NPC_Taunt,0 , 1.0, false, 1, false, MyVoice);
+						A_StartSound(NPC_Taunt, 0 , 1.0, false, 1, false, MyVoice);
 						SetStateLabel("HostileChase");
 						return;
 					}
@@ -1705,6 +1716,7 @@ extend class NPCCore
 						isAfterTarget = true;
 						target = toucher;
 						MyTarget = toucher;
+						A_StartSound(NPC_Panic, 0 , 1.0, false, 1, false, MyVoice);
 						SetStateLabel("See");
 						return;
 					}
@@ -1833,7 +1845,11 @@ extend class NPCCore
 					&& !(next is 'RandomPostalFire') && !(next is 'FireParticleBottom') && !(next is 'FireSmokeUp') && !(next is 'PostalDoor') && !(next is 'PostalDoor_Extender'))
 					{
 						invoker.isAfterTarget = true;
-						A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+						if (invoker.Hostility ~== "Hostile")
+							A_StartSound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+						else if (invoker.Hostility ~== "Pussy")
+							A_StartSound(invoker.NPC_Panic,0 , 1.0, false, 1, false, invoker.MyVoice);
+							
 						invoker.MyTarget = next;
 						target = next;
 						vel.xy = (0,0);
@@ -1848,7 +1864,7 @@ extend class NPCCore
 						if (invoker.Hostility == "Hostile")
 						{
 							invoker.isAfterTarget = true;
-							A_PlaySound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
+							A_StartSound(invoker.NPC_Taunt,0 , 1.0, false, 1, false, invoker.MyVoice);
 							invoker.MyTarget = madcow;
 							vel.xy = (0,0);
 							SetStateLabel("See");
@@ -1859,6 +1875,7 @@ extend class NPCCore
 						if (invoker.Hostility == "Pussy")
 						{
 							invoker.isAfterTarget = true;
+							A_StartSound(invoker.NPC_Panic,0 , 1.0, false, 1, false, invoker.MyVoice);
 							invoker.MyTarget = madcow;
 							vel.xy = (0,0);
 							SetStateLabel("See");
