@@ -31,7 +31,8 @@ class NPCMulato2 : NPCCore
 			}
 		}
 		
-		Hostility = (random[rndhost](0,1) == 1) ? "Pussy" : "Hostile";
+		int rnd = random[rrr](0,3);
+        Hostility = (rnd == 0) ? "Hostile" : "Pussy";
 		NPCWeapon = "Pistol";
 		
 	}
