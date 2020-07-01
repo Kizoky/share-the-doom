@@ -599,3 +599,21 @@ class pickup_old : PostalDecoration
 		Loop;
 	}
 }
+
+
+class iveco2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Box Truck Food Store"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

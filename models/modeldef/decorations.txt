@@ -4860,3 +4860,18 @@ Model "pickup_old"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "iveco2"
+{
+	Path "models\props"
+	Model 0 "Truck01.md3"
+	SurfaceSkin 0 0 "textures/iveco2.png"
+	AngleOffset 0
+	Scale -30 -30 30
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
