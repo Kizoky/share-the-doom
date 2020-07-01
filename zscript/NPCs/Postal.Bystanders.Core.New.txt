@@ -1059,7 +1059,7 @@ class NPCCore : PostalActor
 			if (pp)
 			{
 				let p2 = PostalRocket(pp);
-				if (p2)
+				if (p2 && target)
 				{
 					p2.Speed = 10;
 					p2.AddedTime = 666;
