@@ -313,6 +313,10 @@ class DudeCoreHandler : EventHandler
 		{
 			p.A_TakeInventory("PostKick",100);
 			p.Kick = false;
+			
+			if (p.PlayerData)
+				p.PlayerData.InsultCooldown = level.time + 35 * 2.5;
+			
 			return;
 		}
 		
