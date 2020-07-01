@@ -378,4 +378,7 @@ DoomEdNums
   32420 = sedan_rd
   32419 = sedan_gd
   32418 = sportcar
+  32417 = trashtruk
+  32416 = iveco
+  32415 = pickup_old
 }

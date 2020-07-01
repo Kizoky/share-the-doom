@@ -4808,3 +4808,55 @@ Model "sportcar"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "trashtruk"
+{
+	Path "models\props"
+	Model 0 "garbageTruck.md3"
+	SurfaceSkin 0 0 "textures/garbageTruck.png"
+	AngleOffset 0
+	Scale -1.15 -1 1.25
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "iveco"
+{
+	Path "models\props"
+	Model 0 "Truck01.md3"
+	SurfaceSkin 0 0 "textures/iveco.png"
+	AngleOffset 0
+	Scale -30 -30 30
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pickup_old"
+{
+	Path "models\props"
+	Model 0 "car69.md3"
+	SurfaceSkin 0 0 "textures/69back2.png"
+	SurfaceSkin 0 1 "textures/69back1.png"
+	SurfaceSkin 0 2 "textures/69head.png"
+	SurfaceSkin 0 3 "textures/69tyres.png"
+	SurfaceSkin 0 4 "textures/69FABRIC.png"
+	SurfaceSkin 0 5 "textures/69REK.png"
+	SurfaceSkin 0 6 "textures/69tyre.png"
+	AngleOffset 0
+	Scale 1.27 1.27 1.27
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

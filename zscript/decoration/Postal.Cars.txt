@@ -545,3 +545,57 @@ class sportcar : PostalDecoration
 		Loop;
 	}
 }
+
+
+class trashtruk : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Garbage Truck"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class iveco : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Box Truck Blank"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class pickup_old : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Pickup Vintage"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
