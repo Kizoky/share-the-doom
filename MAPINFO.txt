@@ -221,122 +221,42 @@ map SCREENT  "Cinematic experience"
 
 clearskills
 
-skill liebermode
+skill journalistmode
 {
    SpawnFilter = Easy
-   Name = "Liebermode"
+   Name = "Journalistmode"
    Key = "1"
-   
-}
-
-skill tooeasy
-{
-   SpawnFilter = Easy
-   Name = "Too Easy"
-   
-}
-
-skill veryeasy
-{
-   SpawnFilter = Easy
-   Name = "Very Easy"
-   
-}
-
-skill easy
-{
-   SpawnFilter = Easy
-   Name = "Easy"
-   Key = "2"
-   
-}
-
-skill remedial
-{
-   SpawnFilter = Easy
-   Name = "Remedial"
-   
 }
 
 skill average
 {
    SpawnFilter = Normal
    Name = "Average"
+   Key = "2"
+}
+
+skill whackjobmode
+{
+   SpawnFilter = Hard
+   Name = "Whackjobmode"
    Key = "3"
-   
-}
-
-skill agressive
-{
-   SpawnFilter = Hard
-   Name = "Agressive"
-   
-}
-
-skill hard
-{
-   SpawnFilter = Hard
-   Name = "Hard"
-   Key = "4"
-   
-}
-
-skill veryhard
-{
-   SpawnFilter = Hard
-   Name = "Very Hard"
-   
-}
-
-skill manic
-{
-   SpawnFilter = Hard
-   Name = "Manic"
-   
-}
-
-skill hestonworld
-{
-   SpawnFilter = Hard
-   Name = "Hestonworld"
-   Key = "5"
-   
-}
-
-skill insaneo
-{
-   SpawnFilter = Hard
-   Name = "Insane-o"
-   Key = "6"
-   
-}
-
-skill theyhateme
-{
-   SpawnFilter = Hard
-   Name = "They Hate Me"
-   Key = "7"
    
 }
 
 skill POSTAL
 {
-   SpawnFilter = Nightmare
-   FastMonsters
+   SpawnFilter = Hard
    DamageFactor = 1.5
-   Aggressiveness = 0.75
    Name = "POSTAL"
-   MustConfirm = "Warning, everyone will try to kill you at sight!"
-   Key = "8"
+   MustConfirm = "Warning, Bystanders will have high tier weapons and you gain more damage than usual!"
+   Key = "4"
 }
 
-skill impossible
+skill theycancelledme
 {
-   SpawnFilter = Nightmare
-   FastMonsters
+   SpawnFilter = Hard
    DamageFactor = 2.5
-   Aggressiveness = 5.75
-   Name = "Impossible"
-   MustConfirm = "Warning, everyone will try to kill you at sight!"
-   Key = "9"
+   Name = "They Cancelled Me"
+   MustConfirm = "You were cancelled on the social media, everyone now wants to kill you!"
+   Key = "5"
 }
