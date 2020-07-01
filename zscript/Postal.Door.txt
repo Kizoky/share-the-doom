@@ -107,6 +107,27 @@ class PostalDoor_Extender : PostalActor
 			
 			A_PlaySound("door/kick", 0);
 			
+			BlockThingsIterator it;
+				
+			it = BlockThingsIterator.Create (self, 250);
+			
+			while (it.Next ()) {
+				let next = it.Thing;
+				
+				if (next is 'NPCCore' && !(next.bKILLED))
+				{
+					let pp = NPCCore(next);
+					if (pp && !pp.isBusy && !pp.isAfterTarget)
+					{
+						pp.isBusy = true;
+						pp.MyTarget = source;
+						pp.vel.xy = (0,0);
+						pp.G_WTF = true;
+						pp.SetStateLabel("Stare");
+					}
+				}
+			}
+			
 			// A simple check to detect if Door was hit in front or back
 			if (abs (DeltaAngle (door.AngleBefore, source.angle)) >= 90)
 			{
