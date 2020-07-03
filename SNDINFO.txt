@@ -725,6 +725,28 @@ male2/panic53 sounds/npc/whitemale2/wm_seecarnage_thehorrorv2.wav
 
 $random male2/panic { male2/panic1 male2/panic2 male2/panic3 male2/panic4 male2/panic5 male2/panic6 male2/panic7 male2/panic8 male2/panic9 male2/panic10 male2/panic11 male2/panic12 male2/panic13 male2/panic14 male2/panic15 male2/panic16 male2/panic17 male2/panic18 male2/panic19 male2/panic20 male2/panic21 male2/panic22 male2/panic23 male2/panic24 male2/panic25 male2/panic26 male2/panic27 male2/panic28 male2/panic29 male2/panic30 male2/panic31 male2/panic32 male2/panic33 male2/panic34 male2/panic35 male2/panic36 male2/panic37 male2/panic38 male2/panic39 male2/panic40 male2/panic41 male2/panic42 male2/panic44 male2/panic45 male2/panic46 male2/panic47 male2/panic48 male2/panic49 male2/panic50 male2/panic52 male2/panic53 }
 
+male2/react1 sounds/npc/whitemale2/wm_ghaspv1.wav
+male2/react2 sounds/npc/whitemale2/wm_ghaspv2.wav
+male2/react3 sounds/npc/whitemale2/wm_ghaspv3.wav
+male2/react4 sounds/npc/whitemale2/wm_hmmmmv1.wav
+male2/react5 sounds/npc/whitemale2/wm_hmmmmv2.wav
+male2/react6 sounds/npc/whitemale2/wm_huhv1.wav
+male2/react7 sounds/npc/whitemale2/wm_huhv2.wav
+male2/react8 sounds/npc/whitemale2/wm_indicate_cantbelievev1.wav
+male2/react9 sounds/npc/whitemale2/wm_indicate_cantbelievev2.wav
+male2/react10 sounds/npc/whitemale2/wm_indicate_fuckingseeingv1.wav
+male2/react11 sounds/npc/whitemale2/wm_indicate_fuckingseeingv2.wav
+male2/react12 sounds/npc/whitemale2/wm_indicate_lookatthatshitv1.wav
+male2/react13 sounds/npc/whitemale2/wm_indicate_lookatthatshitv2.wav
+male2/react14 sounds/npc/whitemale2/wm_indicate_lookovertherev1.wav
+male2/react15 sounds/npc/whitemale2/wm_indicate_lookovertherev2.wav
+male2/react16 sounds/npc/whitemale2/wm_indicate_ohmygodv1.wav
+male2/react17 sounds/npc/whitemale2/wm_indicate_ohmygodv2.wav
+male2/react18 sounds/npc/whitemale2/wm_indicate_stupidshitv1.wav
+male2/react18 sounds/npc/whitemale2/wm_indicate_stupidshitv2.wav
+
+$random male2/react { male2/react1 male2/react2 male2/react3 male2/react4 male2/react5 male2/react6 male2/react7 male2/react8 male2/react9 male2/react10 male2/react11 male2/react12 male2/react13 male2/react14 male2/react15 male2/react16 male2/react17 male2/react18 }
+
 male2/taunt1 sounds/npc/whitemale2/wm_postal_illusethisv2.wav
 male2/taunt2 sounds/npc/whitemale2/wm_tough_bringitv1.wav
 male2/taunt3 sounds/npc/whitemale2/wm_tough_tryandstopmev1.wav
