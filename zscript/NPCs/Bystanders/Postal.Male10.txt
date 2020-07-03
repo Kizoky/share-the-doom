@@ -10,6 +10,7 @@ class NPCWhiteDude8 : NPCCore
 		NPC_Taunt = "male1/taunt";
 		NPC_Panic = "male1/panic";
 		NPC_Laugh = "male1/laugh";
+		NPC_Reaction = "male1/react";
 		
 
 		WalkingStyle = random[mystyle](1,6);
