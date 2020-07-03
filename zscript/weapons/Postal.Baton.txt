@@ -25,6 +25,7 @@ class PostBaton : PostalWeapon
 		Tag "$PSTL_WP_BATON";
 		Inventory.PickupMessage "$PSTL_PP_BATON";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

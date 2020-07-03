@@ -12,6 +12,7 @@ class PostMolotov : PostalWeapon
 		Inventory.PickupMessage "$PSTL_PP_MOLOTOV";
 		+Weapon.NoAlert;
 		Obituary "$PSTL_OB_MOLOTOV";
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

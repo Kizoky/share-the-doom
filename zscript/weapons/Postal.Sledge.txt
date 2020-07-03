@@ -83,6 +83,7 @@ class PostSledge : PostalWeapon
 		Tag "$PSTL_WP_SLEDGEHAMMER";
 		Inventory.PickupMessage "$PSTL_PP_SLEDGEHAMMER";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

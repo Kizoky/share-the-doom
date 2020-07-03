@@ -13,6 +13,7 @@ class PostNapalmLauncher : PostalWeapon
 		Tag "$PSTL_WP_NAPALM";
 		Inventory.PickupMessage "$PSTL_PP_NAPALM";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

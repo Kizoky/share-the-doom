@@ -13,6 +13,7 @@ class PostGascan : PostalWeapon
 		Tag "$PSTL_WP_GASCAN";
 		Inventory.PickupMessage "$PSTL_PP_GASCAN";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

@@ -66,6 +66,7 @@ class PostChainSickle : PostalWeapon
 		Tag "$PSTL_WP_MACHETE";
 		Inventory.PickupMessage "$PSTL_PP_MACHETE";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

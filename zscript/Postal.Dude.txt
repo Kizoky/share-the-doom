@@ -144,6 +144,7 @@ class PostalDude : PlayerPawn
 	
 	//This function triggers killing spree lines.
 	//Called by an EventHandler
+	bool KillWithGun, KillWithMelee, KillWithProj;
 	void A_TriggerDudeLine()
 	{
 		if (level.time < PlayerData.DudeLineCooldown)
@@ -153,6 +154,22 @@ class PostalDude : PlayerPawn
 		
 		if (InitLine == true)
 		{
+			let wep = Player.ReadyWeapon;
+			
+			let nweapon = PostalWeapon(wep);
+			if (nweapon)
+			{
+				if (nweapon.STD_Melee)
+					KillWithMelee = true;
+				
+				if (nweapon.STD_Gun)
+					KillWithGun = true;
+				
+				if (nweapon.STD_Projectile)
+					KillWithProj = true;
+			}
+			
+			
 			PlayerData.TimeBeforeDudeLine = level.time + 40;
 			PlayerData.DudeLineTriggered = true;
 			InitLine = false;
@@ -169,7 +186,30 @@ class PostalDude : PlayerPawn
 			
 			if (Chance > 50)
 			{
-				A_StartSound("dudekill", CHAN_VOICE, CHANF_NOSTOP);
+				if (KillWithGun)
+				{
+					int randomnumber = random[pickline](1,26);
+					string Dude_KillWithGun = string.Format("Dude_KillWithGun%i",randomnumber);
+					A_StartSound(Dude_KillWithGun, CHAN_VOICE, CHANF_NOSTOP);
+					KillWithGun = false;
+				}
+				
+				if (KillWithMelee)
+				{
+					int randomnumber = random[pickline](1,22);
+					string Dude_KillWithMelee = string.Format("Dude_KillWithMelee%i",randomnumber);
+					A_StartSound(Dude_KillWithMelee, CHAN_VOICE, CHANF_NOSTOP);
+					KillWithMelee = false;
+				}
+				
+				if (KillWithProj)
+				{
+					int randomnumber = random[pickline](1,22);
+					string Dude_KillWithProjectile = string.Format("Dude_KillWithProjectile%i",randomnumber);
+					A_StartSound(Dude_KillWithProjectile, CHAN_VOICE, CHANF_NOSTOP);
+					KillWithProj = false;
+				}
+				
 				PlayerData.DudeLineCooldown = level.time + 35 * 5;
 			}
 			PlayerData.DudeLineTriggered = false;

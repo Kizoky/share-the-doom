@@ -1,6 +1,9 @@
 class PostalWeapon : Weapon
 {
-	bool STD_Dropped;
+	bool STD_Dropped, STD_Melee, STD_Gun, STD_Projectile;
+	property STD_Melee : STD_Melee;
+	property STD_Gun : STD_Gun;
+	property STD_Projectile : STD_Projectile;
 	
 	// unused
 	bool isWeaponReady()

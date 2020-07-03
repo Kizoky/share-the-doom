@@ -26,6 +26,7 @@ class PostGrenade : PostalWeapon
 		Tag "$PSTL_WP_GRENADE";
 		Inventory.PickupMessage "$PSTL_PP_GRENADE";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

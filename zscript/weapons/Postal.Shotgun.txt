@@ -54,6 +54,7 @@ class PostShotgun : PostalWeapon replaces Shotgun
 		Obituary "$PSTL_OB_SHOTGUN";
 		Tag "$PSTL_WP_SHOTGUN";
 		Inventory.PickupMessage "$PSTL_PP_SHOTGUN";
+		PostalWeapon.STD_Gun true;
 	}
 	States
 	{

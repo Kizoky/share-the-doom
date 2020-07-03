@@ -31,6 +31,7 @@ class PostRLauncher : PostalWeapon
 		Obituary "$PSTL_OB_ROCKET";
 		Tag "$PSTL_WP_ROCKET";
 		Inventory.PickupMessage "$PSTL_PP_ROCKET";
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

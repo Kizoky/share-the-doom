@@ -11,6 +11,7 @@ class PostCowhead : PostalWeapon
 		Tag "$PSTL_WP_COWHEAD";
 		Inventory.PickupMessage "$PSTL_PP_COWHEAD";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

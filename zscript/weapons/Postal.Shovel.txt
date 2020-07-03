@@ -88,6 +88,7 @@ class PostShovel : PostalWeapon
 		Tag "$PSTL_WP_SHOVEL";
 		Inventory.PickupMessage "$PSTL_PP_SHOVEL";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

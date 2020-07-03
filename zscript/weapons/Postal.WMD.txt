@@ -13,6 +13,7 @@ class PostWMD : PostalWeapon
 		Tag "$PSTL_WP_WMD";
 		Inventory.PickupMessage "$PSTL_PP_WMD";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

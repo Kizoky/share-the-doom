@@ -125,6 +125,7 @@ class PostTazer : PostalWeapon
 		Tag "$PSTL_WP_TAZER";
 		Inventory.PickupMessage "$PSTL_PP_TAZER";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

@@ -16,6 +16,7 @@ class PostRifle : PostalWeapon
 		Obituary "$PSTL_OB_RIFLE";
 		Tag "$PSTL_WP_RIFLE";
 		Inventory.PickupMessage "$PSTL_PP_RIFLE";
+		PostalWeapon.STD_Gun true;
 	}
 	States
 	{	

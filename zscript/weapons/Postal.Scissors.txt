@@ -50,6 +50,7 @@ class PostScissors : PostalWeapon
 		+ABSMASKPITCH;
 		Radius 12;
 		Height 5;
+		PostalWeapon.STD_Projectile true;
 	}
 	States
 	{

@@ -83,6 +83,7 @@ class PostScythe : PostalWeapon
 		Tag "$PSTL_WP_SCYTHE";
 		Inventory.PickupMessage "$PSTL_PP_SCYTHE";
 		+Weapon.NoAlert;
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

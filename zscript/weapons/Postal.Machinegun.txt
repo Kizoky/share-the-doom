@@ -58,6 +58,7 @@ class PostM16 : PostalWeapon replaces Chaingun
 		Obituary "$PSTL_OB_M16";
 		Tag "$PSTL_WP_M16";
 		Inventory.PickupMessage "$PSTL_PP_M16";
+		PostalWeapon.STD_Gun true;
 	}
 	States
 	{
