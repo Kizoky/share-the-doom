@@ -590,8 +590,9 @@ male1/react5 sounds/npc/whitemale/wm_heey.wav
 male1/react6 sounds/npc/whitemale/wm_what.wav
 male1/react7 sounds/npc/whitemale/wm_whatthe.wav
 male1/react8 sounds/npc/whitemale/wm_whuh.wav
+male1/react9 sounds/npc/whitemale/wm_ghasp.wav
 
-$random male1/react { male1/react1 male1/react2 male1/react3 male1/react4 male1/react5 male1/react6 male1/react7 male1/react8 }
+$random male1/react { male1/react1 male1/react2 male1/react3 male1/react4 male1/react5 male1/react6 male1/react7 male1/react8 male1/react9 }
 
 male1/panic1 sounds/npc/whitemale/wm_help.wav
 male1/panic2 sounds/npc/whitemale/wm_holyshit.wav
