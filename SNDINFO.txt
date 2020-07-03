@@ -501,6 +501,55 @@ krotchy/taunt sounds/wm_krotchy_youthinkyou.wav
 
 /////Bystander Lines
 
+dev/scream1 sounds/npc/gamedev/rws_scream.ogg
+dev/scream2 sounds/npc/gamedev/rws_scream2.ogg
+dev/scream3 sounds/npc/gamedev/rws_scream3.ogg
+
+$random dev/scream { dev/scream1 dev/scream2 dev/scream3 }
+
+dev/panic1 sounds/npc/gamedev/rws_omg.ogg
+dev/panic2 sounds/npc/gamedev/rws_omg2.ogg
+dev/panic3 sounds/npc/gamedev/rws_panic.ogg
+dev/panic4 sounds/npc/gamedev/rws_panic2.ogg
+dev/panic4 sounds/npc/gamedev/rws_panic3.ogg
+dev/panic5 sounds/npc/gamedev/rws_panic4.ogg
+dev/panic6 sounds/npc/gamedev/rws_panic5.ogg
+
+$random dev/panic { dev/panic1 dev/panic2 dev/panic3 dev/panic4 dev/panic5 dev/panic6 }
+
+dev/bump1 sounds/npc/gamedev/rws_bump.ogg
+dev/bump2 sounds/npc/gamedev/rws_bump2.ogg
+dev/bump3 sounds/npc/gamedev/rws_bump3.ogg
+
+$random dev/bump { dev/bump1 dev/bump2 dev/bump3 }
+
+dev/laugh1 sounds/npc/gamedev/rws_laugh.ogg
+dev/laugh2 sounds/npc/gamedev/rws_laugh2.ogg
+dev/laugh3 sounds/npc/gamedev/rws_laugh3.ogg
+
+$random dev/laugh { dev/laugh1 dev/laugh2 dev/laugh3 }
+
+dev/dickout1 sounds/npc/gamedev/rws_dickout.ogg
+dev/dickout2 sounds/npc/gamedev/rws_dickout2.ogg
+dev/dickout3 sounds/npc/gamedev/rws_dickout3.ogg
+
+$random dev/laugh { dev/laugh1 dev/laugh2 dev/laugh3 }
+
+dev/taunt1 sounds/npc/gamedev/rws_taunt.ogg
+dev/taunt2 sounds/npc/gamedev/rws_taunt2.ogg
+dev/taunt3 sounds/npc/gamedev/rws_taunt3.ogg
+dev/taunt4 sounds/npc/gamedev/rws_taunt4.ogg
+
+$random dev/taunt { dev/taunt1 dev/taunt2 dev/taunt3 dev/taunt4 }
+
+dev/pain1 sounds/npc/gamedev/rws_pain.ogg
+dev/pain2 sounds/npc/gamedev/rws_pain3.ogg
+dev/pain3 sounds/npc/gamedev/rws_pain4.ogg
+dev/pain4 sounds/npc/gamedev/rws_pain5.ogg
+dev/pain5 sounds/npc/gamedev/rws_pain6.ogg
+
+$random dev/pain { dev/pain1 dev/pain2 dev/pain3 dev/pain4 dev/pain5 dev/pain6 }
+
 male1/hurt1 sounds/npc/whitemale/wm_aahimhit.wav
 male1/hurt2 sounds/npc/whitemale/wm_aghk.wav
 male1/hurt3 sounds/npc/whitemale/wm_argh.wav

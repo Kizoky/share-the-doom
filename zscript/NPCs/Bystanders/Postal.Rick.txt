@@ -3,11 +3,13 @@ class NPCRick : NPCCore
 	override void NPC_Settings()
 	{
 	
-		NPC_Scream = "male2/scream";
-		NPC_Bump = "male2/bump";
+		NPC_Scream = "dev/scream";
+		NPC_Bump = "dev/bump";
 		NPC_PetitionDeny = "noway";
-		NPC_Dickout = "male2/dickout";
-		NPC_Taunt = "male2/taunt";
+		NPC_Dickout = "dev/dickout";
+		NPC_Taunt = "dev/taunt";
+		NPC_Panic = "dev/panic";
+		NPC_Laugh = "dev/laugh";
 		
 
 		WalkingStyle = random[mystyle](1,6);
@@ -43,8 +45,8 @@ class NPCRick : NPCCore
 		Radius 12;
 		Height 65;
 		AttackSound "";
-		PainSound "male1/hurt";
-		DeathSound "male1/death";
+		PainSound "dev/pain";
+		DeathSound "dev/pain";
 		Obituary "%o should replace this text of string.";
 		CameraHeight 59;
 		

@@ -3,11 +3,13 @@ class NPCKurt : NPCCore
 	override void NPC_Settings()
 	{
 	
-		NPC_Scream = "male1/scream";
-		NPC_Bump = "male1/bump";
+		NPC_Scream = "dev/scream";
+		NPC_Bump = "dev/bump";
 		NPC_PetitionDeny = "noway";
-		NPC_Dickout = "male1/dickout";
-		NPC_Taunt = "male1/taunt";
+		NPC_Dickout = "dev/dickout";
+		NPC_Taunt = "dev/taunt";
+		NPC_Panic = "dev/panic";
+		NPC_Laugh = "dev/laugh";
 		
 
 		WalkingStyle = random[mystyle](1,6);
@@ -43,8 +45,8 @@ class NPCKurt : NPCCore
 		Radius 12;
 		Height 65;
 		AttackSound "";
-		PainSound "male1/hurt";
-		DeathSound "male1/death";
+		PainSound "dev/pain";
+		DeathSound "dev/pain";
 		Obituary "%o should replace this text of string.";
 		CameraHeight 59;
 		
