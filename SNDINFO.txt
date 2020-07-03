@@ -511,11 +511,11 @@ dev/panic1 sounds/npc/gamedev/rws_omg.ogg
 dev/panic2 sounds/npc/gamedev/rws_omg2.ogg
 dev/panic3 sounds/npc/gamedev/rws_panic.ogg
 dev/panic4 sounds/npc/gamedev/rws_panic2.ogg
-dev/panic4 sounds/npc/gamedev/rws_panic3.ogg
-dev/panic5 sounds/npc/gamedev/rws_panic4.ogg
-dev/panic6 sounds/npc/gamedev/rws_panic5.ogg
+dev/panic5 sounds/npc/gamedev/rws_panic3.ogg
+dev/panic6 sounds/npc/gamedev/rws_panic4.ogg
+dev/panic7 sounds/npc/gamedev/rws_panic5.ogg
 
-$random dev/panic { dev/panic1 dev/panic2 dev/panic3 dev/panic4 dev/panic5 dev/panic6 }
+$random dev/panic { dev/panic1 dev/panic2 dev/panic3 dev/panic4 dev/panic5 dev/panic6 dev/panic7 }
 
 dev/bump1 sounds/npc/gamedev/rws_bump.ogg
 dev/bump2 sounds/npc/gamedev/rws_bump2.ogg
@@ -533,7 +533,7 @@ dev/dickout1 sounds/npc/gamedev/rws_dickout.ogg
 dev/dickout2 sounds/npc/gamedev/rws_dickout2.ogg
 dev/dickout3 sounds/npc/gamedev/rws_dickout3.ogg
 
-$random dev/laugh { dev/laugh1 dev/laugh2 dev/laugh3 }
+$random dev/dickout { dev/dickout1 dev/dickout2 dev/dickout3 }
 
 dev/taunt1 sounds/npc/gamedev/rws_taunt.ogg
 dev/taunt2 sounds/npc/gamedev/rws_taunt2.ogg
