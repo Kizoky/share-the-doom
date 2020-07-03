@@ -1,0 +1,429 @@
+// Contains all lines according to Postal 2's Unrealscript
+
+Dude_Greeting 								sounds/DudeDialog/dude_hithere.wav
+
+Dude_RespondToGreeting 						sounds/DudeDialog/dude_hi.wav
+
+Dude_Yes 									sounds/DudeDialog/dude_yes.wav
+
+Dude_No 									sounds/DudeDialog/dude_no.wav
+
+Dude_Thanks 								sounds/DudeDialog/dude_thanks2.wav
+
+Dude_Arrested1 								sounds/DudeDialog/dude_okaytakemein.wav
+Dude_Arrested2 								sounds/DudeDialog/dude_yeahblahjustcuff.wav
+Dude_Arrested3 								sounds/DudeDialog/dude_ihavefaithinsys.wav
+Dude_Arrested4 								sounds/DudeDialog/dude_ineededavacation.wav
+Dude_Arrested5 								sounds/DudeDialog/dude_cmonhurryup.wav
+Dude_Arrested6 								sounds/DudeDialog/dude_heyitsnotmyfault.wav
+
+Dude_EscapeJail1 							sounds/DudeDialog/dude_ahjail.wav
+Dude_EscapeJail2 							sounds/DudeDialog/dude_imboredalready.wav
+Dude_EscapeJail3 							sounds/DudeDialog/dude_nojailcanholdme.wav
+//Dude_EscapeJail4 							sounds/DudeDialog/dude_ohlooktheyleft.wav nonsense
+//Dude_EscapeJail5 							sounds/DudeDialog/dude_heytheyleftthe.wav
+//Dude_EscapeJail6 							sounds/DudeDialog/dude_illbetthatdooris.wav
+//Dude_EscapeJail7 							sounds/DudeDialog/dude_maybeishouldtry.wav
+
+Dude_JailHint 								sounds/DudeDialog/dude_ohlookistill.wav
+
+//Dude_BecomeCop 							sounds/DudeDialog/dude_saywhatsthis.wav
+
+Dude_BecomingCop 							sounds/DudeDialog/dude_thisisgonnabe.wav
+
+Dude_NowIsCop 								sounds/DudeDialog/dude_iamthelaw.wav
+
+Dude_NowIsDude 								sounds/DudeDialog/dude_gunsdontkill.wav
+
+Dude_AttackAsCop1 							sounds/DudeDialog/dude_nothingtoseehere.wav
+Dude_AttackAsCop2 							sounds/DudeDialog/dude_movealong.wav
+Dude_AttackAsCop3 							sounds/DudeDialog/dude_geeisurehope.wav
+Dude_AttackAsCop4 							sounds/DudeDialog/dude_someonestolemy.wav
+
+Dude_FirstSeenWithWeapon 					sounds/DudeDialog/dude_heyimJustexercise.wav
+
+Dude_WeaponFirstUse1 						sounds/DudeDialog/dude_sothatswhatthat.wav
+Dude_WeaponFirstUse2 						sounds/DudeDialog/dude_fascinating.wav
+Dude_WeaponFirstUse3 						sounds/DudeDialog/dude_ohigetit.wav
+Dude_WeaponFirstUse4 						sounds/DudeDialog/dude_yess.wav
+Dude_WeaponFirstUse5 						sounds/DudeDialog/dude_sweet.wav
+Dude_WeaponFirstUse6 						sounds/DudeDialog/dude_ohlikethatsnot.wav
+Dude_WeaponFirstUse7 						sounds/DudeDialog/dude_viagraworks.wav
+
+Dude_ThrowGrenade1 							sounds/DudeDialog/dude_herecatch.wav
+Dude_ThrowGrenade2 							sounds/DudeDialog/dude_golong.wav
+
+Dude_KillWithGun1 							sounds/DudeDialog/dude_gunsdontkill.wav
+Dude_KillWithGun2 							sounds/DudeDialog/dude_mypresidentis.wav
+Dude_KillWithGun3 							sounds/DudeDialog/dude_onlymyweapon.wav
+Dude_KillWithGun4 							sounds/DudeDialog/dude_isupposeitwould.wav
+Dude_KillWithGun5 							sounds/DudeDialog/dude_youprobablythink.wav
+Dude_KillWithGun6 							sounds/DudeDialog/dude_andonetogrowon.wav
+Dude_KillWithGun7 							sounds/DudeDialog/dude_dontcrowdtheres.wav
+Dude_KillWithGun8 							sounds/DudeDialog/dude_todaysthefirst.wav
+Dude_KillWithGun9 							sounds/DudeDialog/dude_howwouldyoulike.wav
+Dude_KillWithGun10							sounds/DudeDialog/dude_yougogirl.wav
+Dude_KillWithGun11							sounds/DudeDialog/dude_haveaniceday.wav
+Dude_KillWithGun12							sounds/DudeDialog/dude_damnhereiwas.wav
+Dude_KillWithGun13							sounds/DudeDialog/dude_youthoughtyou.wav
+Dude_KillWithGun14							sounds/DudeDialog/dude_thatstheone.wav
+Dude_KillWithGun15							sounds/DudeDialog/dude_iknowwhatyoure.wav
+Dude_KillWithGun16							sounds/DudeDialog/dude_yeahthatswhat.wav
+Dude_KillWithGun17							sounds/DudeDialog/dude_thisgenepoolis.wav
+Dude_KillWithGun18							sounds/DudeDialog/dude_hehhehheh.wav
+Dude_KillWithGun19							sounds/DudeDialog/dude_sorry.wav
+Dude_KillWithGun20							sounds/DudeDialog/dude_justkiddin.wav
+Dude_KillWithGun21							sounds/DudeDialog/dude_ohthatsgottahurt.wav
+Dude_KillWithGun22							sounds/DudeDialog/dude_thatsgoingto.wav
+Dude_KillWithGun23							sounds/DudeDialog/dude_buttsauce.wav
+Dude_KillWithGun24							sounds/DudeDialog/dude_imsoryapparently.wav
+Dude_KillWithGun25							sounds/DudeDialog/imprettygoodatthis.wav
+Dude_KillWithGun26							sounds/DudeDialog/Laughing.wav
+
+Dude_KillWithProjectile1 					sounds/DudeDialog/dude_nicecatch.wav
+Dude_KillWithProjectile2 					sounds/DudeDialog/dude_isupposeitwould.wav
+Dude_KillWithProjectile3 					sounds/DudeDialog/dude_youprobablythink.wav
+Dude_KillWithProjectile4 					sounds/DudeDialog/dude_andonetogrowon.wav
+Dude_KillWithProjectile5 					sounds/DudeDialog/dude_dontcrowdtheres.wav
+Dude_KillWithProjectile6 					sounds/DudeDialog/dude_todaysthefirst.wav
+Dude_KillWithProjectile7 					sounds/DudeDialog/dude_howwouldyoulike.wav
+Dude_KillWithProjectile8 					sounds/DudeDialog/dude_damnhereiwas.wav
+Dude_KillWithProjectile9 					sounds/DudeDialog/dude_yougogirl.wav
+Dude_KillWithProjectile10					sounds/DudeDialog/dude_haveaniceday.wav
+Dude_KillWithProjectile11					sounds/DudeDialog/dude_youthoughtyou.wav
+Dude_KillWithProjectile12					sounds/DudeDialog/dude_thatstheone.wav
+Dude_KillWithProjectile13					sounds/DudeDialog/dude_iknowwhatyoure.wav
+Dude_KillWithProjectile14					sounds/DudeDialog/dude_yeahthatswhat.wav
+Dude_KillWithProjectile15					sounds/DudeDialog/dude_hehhehheh.wav
+Dude_KillWithProjectile16					sounds/DudeDialog/dude_sorry.wav
+Dude_KillWithProjectile17					sounds/DudeDialog/dude_justkiddin.wav
+Dude_KillWithProjectile18					sounds/DudeDialog/dude_ohthatsgottahurt.wav
+Dude_KillWithProjectile19					sounds/DudeDialog/dude_thatsgoingto.wav
+Dude_KillWithProjectile20					sounds/DudeDialog/dude_buttsauce.wav
+Dude_KillWithProjectile21					sounds/DudeDialog/dude_imprettygoodatthis.wav
+Dude_KillWithProjectile22					Dude_KillWithGun26
+
+Dude_KillWithMelee1 						sounds/DudeDialog/dude_isupposeitwould.wav
+Dude_KillWithMelee2 						sounds/DudeDialog/dude_youprobablythink.wav
+Dude_KillWithMelee3 						sounds/DudeDialog/dude_andonetogrowon.wav
+Dude_KillWithMelee4 						sounds/DudeDialog/dude_dontcrowdtheres.wav
+Dude_KillWithMelee5 						sounds/DudeDialog/dude_todaysthefirst.wav
+Dude_KillWithMelee6 						sounds/DudeDialog/dude_howwouldyoulike.wav
+Dude_KillWithMelee7 						sounds/DudeDialog/dude_damnhereiwas.wav
+Dude_KillWithMelee8 						sounds/DudeDialog/dude_yougogirl.wav
+Dude_KillWithMelee9 						sounds/DudeDialog/dude_haveaniceday.wav
+Dude_KillWithMelee10						sounds/DudeDialog/dude_youthoughtyou.wav
+Dude_KillWithMelee11						sounds/DudeDialog/dude_thatstheone.wav
+Dude_KillWithMelee12						sounds/DudeDialog/dude_iknowwhatyoure.wav
+Dude_KillWithMelee13						sounds/DudeDialog/dude_yeahthatswhat.wav
+Dude_KillWithMelee14						sounds/DudeDialog/dude_hehhehheh.wav
+Dude_KillWithMelee15						sounds/DudeDialog/dude_sorry.wav
+Dude_KillWithMelee16						sounds/DudeDialog/dude_justkiddin.wav
+Dude_KillWithMelee17						sounds/DudeDialog/dude_ohthatsgottahurt.wav
+Dude_KillWithMelee18						sounds/DudeDialog/dude_thatsgoingto.wav
+Dude_KillWithMelee19						sounds/DudeDialog/dude_buttsauce.wav
+Dude_KillWithMelee20						sounds/DudeDialog/dude_iseedeadpeople.wav
+Dude_KillWithMelee21						sounds/DudeDialog/imprettygoodatthis.wav
+Dude_KillWithMelee22						Dude_KillWithGun26
+
+Dude_QuickKills1							sounds/DudeDialog/dude_oneforyourmother.wav
+Dude_QuickKills2							sounds/DudeDialog/dude_oneforthepope.wav
+Dude_QuickKills3							sounds/DudeDialog/dude_oneforjohnny.wav
+Dude_QuickKills4							sounds/DudeDialog/dude_oneforbebo.wav
+Dude_QuickKills5							sounds/DudeDialog/dude_onecauseugly.wav
+Dude_QuickKills6							sounds/DudeDialog/dude_onebecauseican.wav
+Dude_QuickKills7							sounds/DudeDialog/dude_onebecauseihave.wav
+
+Dude_QuickKillsS1							sounds/DudeDialog/oohtheresanotherone.wav
+Dude_QuickKillsS2							sounds/DudeDialog/oneformom.wav
+Dude_QuickKillsS3							sounds/DudeDialog/oneforstevenhawking.wav
+Dude_QuickKillsS4							sounds/DudeDialog/oneforjimmy.wav
+Dude_QuickKillsS5							sounds/DudeDialog/oneforpresidenthilary.wav
+Dude_QuickKillsS6							sounds/DudeDialog/oneforuncledad.wav
+Dude_QuickKillsS7							sounds/DudeDialog/dude_onebecauseihave.wav
+
+Dude_PlayerCheating1						sounds/DudeDialog/dude_yougogirl.wav
+Dude_PlayerCheating2						sounds/DudeDialog/dude_youvegottabekid.wav
+Dude_PlayerCheating3						sounds/DudeDialog/dude_buttsauce.wav
+
+Dude_PlayerSissy							sounds/DudeDialog/dude_sissy.wav
+
+Dude_ReusedPeople1							sounds/DudeDialog/dude_damndothesepeople.wav
+Dude_ReusedPeople2							sounds/DudeDialog/dude_definitelysome.wav
+Dude_ReusedPeople3							sounds/DudeDialog/dude_heylookitsuncle.wav
+Dude_ReusedPeople4							sounds/DudeDialog/dude_holyshitimnot.wav
+Dude_ReusedPeople5							sounds/DudeDialog/dude_thisgenepoolis.wav
+Dude_ReusedPeople6							sounds/DudeDialog/dude_andjoebobsonof.wav
+Dude_ReusedPeople7							sounds/DudeDialog/dude_grandfatherof.wav
+Dude_ReusedPeople8							sounds/DudeDialog/dude_woulditbesafeto.wav
+	
+Dude_BurningPeople1							sounds/DudeDialog/dude_saythatactually.wav
+Dude_BurningPeople2							sounds/DudeDialog/dude_slowroastedgood.wav
+Dude_BurningPeople3							sounds/DudeDialog/dude_smellslikechick.wav
+Dude_BurningPeople4							sounds/DudeDialog/sothatswhatthesmellslike.wav
+
+Dude_ShootMinorities1						sounds/DudeDialog/dude_igotyeraffirm.wav
+Dude_ShootMinorities2						sounds/DudeDialog/dude_pleasedontthink.wav
+Dude_ShootMinorities3						sounds/DudeDialog/dude_imanequalopport.wav
+Dude_ShootMinorities4						sounds/DudeDialog/dude_nowthatswhaticall.wav
+
+Dude_ShootGays								sounds/DudeDialog/dude_sorryfolksbible.wav
+		
+Dude_ShootOlds1								sounds/DudeDialog/dude_justcallmedr.wav
+Dude_ShootOlds2								sounds/DudeDialog/dude_rightaboutnow.wav
+Dude_ShootOlds3								sounds/DudeDialog/dude_hehiknowyouve.wav
+Dude_ShootOlds4								sounds/DudeDialog/dude_oohmedicareaint.wav
+		
+Dude_ShootBum1								sounds/DudeDialog/dude_heressomeleadfor.wav
+Dude_ShootBum2								sounds/DudeDialog/dude_heresyertaxrelief.wav
+Dude_ShootBum3								sounds/DudeDialog/dude_nowthatswhaticall.wav
+
+Dude_DidSomethingCool1						sounds/DudeDialog/dude_wellwhodathought.wav
+Dude_DidSomethingCool2						sounds/DudeDialog/dude_thatsdefinitely.wav
+Dude_DidSomethingCool3						sounds/DudeDialog/dude_geethatwasntso.wav
+
+Dude_Pissing1								sounds/DudeDialog/dude_ohyeah.wav
+Dude_Pissing2								sounds/DudeDialog/dude_thatstheticket.wav
+Dude_Pissing3								sounds/DudeDialog/dude_sigh.wav
+Dude_Pissing4								sounds/DudeDialog/dude_nowtheflowers.wav
+		
+Dude_PissOnSelf								sounds/DudeDialog/dude_pissingonself.wav
+		
+Dude_PissOutFireOnSelf1						sounds/DudeDialog/dude_thatstheticket.wav
+Dude_PissOutFireOnSelf2						sounds/DudeDialog/dude_ohyeah.wav
+Dude_PissOutFireOnSelf3						sounds/DudeDialog/dude_sigh.wav
+
+//Dude_SniperBreathing					"WeaponSounds.sniper_zoombreathing.wav
+
+Dude_RetortToNameCalling					sounds/DudeDialog/dude_howwouldyoulike.wav
+
+Dude_LongLine1								sounds/DudeDialog/dude_everyonesameidea.wav
+Dude_LongLine2								sounds/DudeDialog/dude_quiteawait.wav
+Dude_LongLine3								sounds/DudeDialog/dude_donttheyhavejobs.wav
+Dude_LongLine4								sounds/DudeDialog/dude_lineinevitable.wav
+Dude_LongLine5								sounds/DudeDialog/dude_lookslikemeeting.wav
+
+Dude_LackOfMoney1							sounds/DudeDialog/dude_hmmalloutofcash.wav
+Dude_LackOfMoney2							sounds/DudeDialog/dude_hmmalloutofcash2.wav
+	
+Dude_RandomLevel1							sounds/DudeDialog/dude_ifeellikeillget.wav
+Dude_RandomLevel2							sounds/DudeDialog/dude_nothingacoatof.wav
+Dude_RandomLevel3							sounds/DudeDialog/dude_whoeverdesigned.wav
+Dude_RandomLevel4							sounds/DudeDialog/dude_doesmyvoiceannoy.wav
+Dude_RandomLevel5							sounds/DudeDialog/dude_noreallydoesthe.wav
+Dude_RandomLevel6							sounds/DudeDialog/dude_ifthesheriff.wav
+	
+Dude_CantBeGood1							sounds/DudeDialog/dude_wasthatsupposed.wav
+Dude_CantBeGood2							sounds/DudeDialog/dude_youvegottabe.wav
+Dude_CantBeGood3							sounds/DudeDialog/dude_thatsclearly.wav
+Dude_CantBeGood4							sounds/DudeDialog/dude_thatcantbegood.wav
+Dude_CantBeGood5							sounds/DudeDialog/dude_ididntexpectthat.wav
+Dude_CantBeGood6							sounds/DudeDialog/dude_howconvenient.wav
+	
+Dude_GotHitInCrotch							sounds/DudeDialog/dude_ohmynads.wav
+	
+Dude_GotHit1 								sounds/DudeDialog/dude_damnthatstings.wav
+Dude_GotHit2 								sounds/DudeDialog/dude_owmyclavichord.wav
+Dude_GotHit3 								sounds/DudeDialog/dude_ohrightinthestuff.wav
+Dude_GotHit4 								sounds/DudeDialog/dude_ohthatcanthave.wav
+Dude_GotHit5 								sounds/DudeDialog/dude_ohmommy.wav
+Dude_GotHit6 								sounds/DudeDialog/dude_aughthatsgonnabe2.wav
+Dude_GotHit7 								sounds/DudeDialog/dude_heynowicantfeel.wav
+Dude_GotHit8 								sounds/DudeDialog/dude_ughnowmyspleens.wav
+Dude_GotHit9 								sounds/DudeDialog/dude_owsothatswhatthat.wav
+Dude_GotHit10								sounds/DudeDialog/dude_excusemewhilei.wav
+
+Dude_Grunt1									sounds/DudeDialog/dude_oof.wav
+Dude_Grunt2									sounds/DudeDialog/dude_augh.wav
+Dude_Grunt3									sounds/DudeDialog/dude_augh2.wav
+Dude_Grunt4									sounds/DudeDialog/dude_ow.wav
+Dude_Grunt5									sounds/DudeDialog/dude_whuff.wav
+Dude_Grunt6									sounds/DudeDialog/dude_ak.wav
+Dude_Grunt7									sounds/DudeDialog/dude_augh3.wav
+Dude_Grunt8									sounds/DudeDialog/oww.wav
+Dude_Grunt9									sounds/DudeDialog/oww2.wav
+
+Dude_Cussing1								sounds/DudeDialog/dude_shit.wav
+Dude_Cussing2								sounds/DudeDialog/shit.wav
+Dude_Cussing3								sounds/DudeDialog/dude_fuck.wav
+
+Dude_GetDown1								sounds/DudeDialog/dude_getdown.wav
+Dude_GetDown2								sounds/DudeDialog/dude_getdownifyoudont.wav
+Dude_GetDown3								sounds/DudeDialog/dude_getthefuckdown.wav
+
+Dude_FollowMe1								sounds/DudeDialog/dude_movealong.wav
+	
+Dude_StayHere								sounds/DudeDialog/dude_getdown.wav
+	
+Dude_CloseEnough							sounds/DudeDialog/dude_closeenough.wav
+
+Dude_LastWords1								sounds/DudeDialog/dude_alliwantedwas.wav
+Dude_LastWords2								sounds/DudeDialog/dude_ifthereweregun.wav
+Dude_LastWords3								sounds/DudeDialog/dude_cantwealljustget.wav
+		
+Dude_Suicide								sounds/DudeDialog/dude_iregretnothing.wav
+
+Dude_Arcade									sounds/DudeDialog/dude_videogamesdont.wav
+
+Dude_GottaBeKidding1						sounds/DudeDialog/dude_youvegottabekid.wav
+Dude_GottaBeKidding2						sounds/DudeDialog/yougottabefuckingkidding.wav
+
+Dude_NegativeResponse1						sounds/DudeDialog/dude_youvegottabekid.wav
+Dude_NegativeResponse2						sounds/DudeDialog/dude_fuckyou.wav
+Dude_NegativeResponse3						sounds/DudeDialog/dude_shutupmoron.wav
+Dude_NegativeResponse4						sounds/DudeDialog/dude_idontthinkso.wav
+Dude_NegativeResponse5						sounds/DudeDialog/dude_notachance.wav
+Dude_NegativeResponse6						sounds/DudeDialog/dude_idontthinkso2.wav
+
+Dude_PositiveResponse1						sounds/DudeDialog/dude_sure.wav
+Dude_PositiveResponse2						sounds/DudeDialog/dude_ifyousayso.wav
+//Dude_PositiveResponse,					sounds/DudeDialog/dude_icanbuythat.wav
+Dude_PositiveResponse3						sounds/DudeDialog/dude_soundsreasonable.wav
+Dude_PositiveResponse4						sounds/DudeDialog/dude_okay.wav
+
+Dude_NegativeResponseCashier1				sounds/DudeDialog/dude_youvegottabekid.wav
+Dude_NegativeResponseCashier2				sounds/DudeDialog/dude_fuckyou.wav
+Dude_NegativeResponseCashier3				sounds/DudeDialog/dude_shit.wav
+
+Dude_Apologize1								sounds/DudeDialog/dude_imsowrong.wav
+Dude_Apologize2								sounds/DudeDialog/dude_imsorry.wav
+Dude_Apologize3								sounds/DudeDialog/dude_oops.wav
+Dude_Apologize4								sounds/DudeDialog/oops.wav
+Dude_Apologize5								sounds/DudeDialog/dude_mybad.wav
+Dude_Apologize6								sounds/DudeDialog/mybad.wav
+Dude_Apologize7								sounds/DudeDialog/dude_thatwasbadofme.wav
+
+Dude_GetFired								sounds/DudeDialog/dude_butijuststarted.wav
+		
+Dude_HaveToPee1								sounds/DudeDialog/dude_ivegottatakea.wav
+Dude_HaveToPee2								sounds/DudeDialog/dude_ivereallygotta.wav
+Dude_HaveToPee3								sounds/DudeDialog/dude_ineedtotakeapiss.wav
+Dude_HaveToPee4								sounds/DudeDialog/dude_imreallygonna.wav
+
+Dude_HasDisease1							sounds/DudeDialog/dude_owoohthatcantbe.wav
+Dude_HasDisease2							sounds/DudeDialog/dude_jeezbetterget.wav
+	
+Dude_GotHealth1								sounds/DudeDialog/dude_thatstuffreally.wav
+Dude_GotHealth2								sounds/DudeDialog/dude_ifeelbetter.wav
+Dude_GotHealth3								sounds/DudeDialog/dude_aahthatsthestuff.wav
+Dude_GotHealth4								sounds/DudeDialog/dude_idefinitelyneed.wav
+Dude_GotHealth5								sounds/DudeDialog/dude_igottafindmore.wav
+	
+Dude_GotHealthFood1							sounds/DudeDialog/dude_thatstuffreally.wav
+Dude_GotHealthFood2							sounds/DudeDialog/dude_ifeelbetter.wav
+Dude_GotHealthFood3							sounds/DudeDialog/dude_aahthatsthestuff.wav
+Dude_GotHealthFood4							sounds/DudeDialog/dude_idefinitelyneed.wav
+Dude_GotHealthFood5							sounds/DudeDialog/dude_igottafindmore.wav
+	
+//Dude_CuredGonorrhea,						sounds/DudeDialog/dude_ifeelbetter.wav
+
+Dude_SmokedCatnip1							sounds/DudeDialog/dude_thewallsare.wav
+Dude_SmokedCatnip2							sounds/DudeDialog/dude_yeahbabyiam.wav
+Dude_SmokedCatnip3							sounds/DudeDialog/dude_innagadda.wav
+		
+Dude_GotCrackHealth							sounds/DudeDialog/dude_healthcantbegood.wav
+		
+Dude_NeedMoreCrackHealth1					sounds/DudeDialog/dude_stuffwasntgood.wav
+Dude_NeedMoreCrackHealth2					sounds/DudeDialog/dude_gottastopsmoking.wav
+Dude_NeedMoreCrackHealth3					sounds/DudeDialog/dude_idontfeelsogood.wav
+Dude_NeedMoreCrackHealth4					sounds/DudeDialog/dude_ifeellikeshit.wav
+
+Dude_GotHurtByCrack1						sounds/DudeDialog/dude_coldturkey.wav
+Dude_GotHurtByCrack2						sounds/DudeDialog/dude_healthpipemy.wav
+Dude_GotHurtByCrack3						sounds/DudeDialog/dude_withdrawalisa.wav
+
+Dude_LowHealth1								sounds/DudeDialog/dude_idontfeelsogood.wav
+Dude_LowHealth2								sounds/DudeDialog/dude_ifeellikeshit.wav
+Dude_LowHealth3								sounds/DudeDialog/dude_igottafindmore.wav
+
+Dude_EnterHabibs1							sounds/DudeDialog/dude_whatsthataweful.wav
+Dude_EnterHabibs2							sounds/DudeDialog/dude_didslaughtergoat.wav
+Dude_EnterHabibs3							sounds/DudeDialog/dude_youjustknowtheres.wav
+Dude_EnterHabibs4							sounds/DudeDialog/dude_areyousotring.wav
+
+Addto(lDude_enterhabibstestes				sounds/DudeDialog/dude_youjustknowtheres.wav
+
+Dude_seeTestes								sounds/DudeDialog/dude_iknewit.wav
+
+Dude_CallForHabib							sounds/DudeDialog/dude_heyayatollah.wav
+
+Dude_KillHabib								sounds/DudeDialog/dude_welliguessidont.wav
+
+Dude_DropOffBook1							sounds/DudeDialog/dude_wonderwherethebox.wav
+Dude_DropOffBook2							sounds/DudeDialog/dude_stupidbook.wav
+
+Dude_CashingPaycheck						sounds/DudeDialog/dude_idliketocash.wav
+
+Dude_KillBankTeller							sounds/DudeDialog/dude_whowillcash.wav
+	
+Dude_RobbersShowUp							sounds/DudeDialog/dude_nowmydayis.wav
+
+Dude_EmptyVault								sounds/DudeDialog/dude_whydoesthisnot.wav
+
+Dude_DayChallenge1							sounds/DudeDialog/dude_bettergethome.wav
+Dude_DayChallenge2							sounds/DudeDialog/dude_bettergetoutta.wav
+
+Dude_NeedsItem1								sounds/DudeDialog/dude_ithinkineedthat.wav
+Dude_NeedsItem2								sounds/DudeDialog/dude_maybeishouldkeep.wav
+
+Dude_KillLibrary1							sounds/DudeDialog/dude_findthedropbox.wav
+
+Dude_PetitionOne1							sounds/DudeDialog/dude_petition1a.wav
+Dude_PetitionOne2							sounds/DudeDialog/dude_petition1b.wav
+
+Dude_PetitionTwo1							sounds/DudeDialog/dude_petition2a.wav
+Dude_PetitionTwo2							sounds/DudeDialog/dude_petition2b.wav
+
+Dude_PetitionThree1							sounds/DudeDialog/dude_petition3a.wav
+Dude_PetitionThree2							sounds/DudeDialog/dude_petition3b.wav
+
+Dude_GaryTalk1								sounds/DudeDialog/dude_hellomrcoleman.wav
+
+Dude_GaryTalk2								sounds/DudeDialog/dude_itsformymother.wav
+
+Dude_GaryBullhorn							sounds/DudeDialog/dude_icanrelatebro.wav
+
+Dude_ConfessSins							sounds/DudeDialog/dude_blessmefather.wav
+
+Dude_GetNormalClothes						sounds/DudeDialog/dude_getnormalclothes.wav
+
+Dude_KillReception							sounds/DudeDialog/dude_thatwasimpetuous.wav
+
+Dude_FindSteaks								sounds/DudeDialog/dude_thesebetterbefine.wav
+
+Dude_GiveToUncleDave						sounds/DudeDialog/dude_hereuncledave.wav
+		
+Dude_PayTraffic								sounds/DudeDialog/dude_paytrafficticket.wav
+		
+Dude_PayTraffic2							sounds/DudeDialog/dude_carsareprops.wav
+		
+Dude_BuyNapalm								sounds/DudeDialog/dude_ineedsomenapalm.wav
+		
+Dude_KillNapalm								sounds/DudeDialog/dude_whereisnapalm.wav
+		
+Dude_FindNapalm								sounds/DudeDialog/dude_partywithnapalm.wav
+		
+Dude_FreeHealth								sounds/DudeDialog/dude_imexperiencinga.wav
+
+Dude_CureSelf								sounds/DudeDialog/dude_nowimgoingto.wav
+		
+Dude_BuyAlternator							sounds/DudeDialog/dude_heychicoineedan.wav
+		
+Dude_GetPackage								sounds/DudeDialog/dude_hereforpackage.wav
+		
+Dude_TalkToKrotchy							sounds/DudeDialog/dude_heymascotineeda.wav
+		
+Dude_NoKrotchy								sounds/DudeDialog/dude_crapsoldout.wav
+		
+Dude_KillKrotchy							sounds/DudeDialog/dude_nowimgonnahaveto.wav
+		
+Dude_FindToy								sounds/DudeDialog/dude_wonderhowmuchon.wav
+		
+Dude_BribeKrotchyMoney						sounds/DudeDialog/dude_lookwebothknow.wav
+		
+Dude_BribeKrotchyBook						sounds/DudeDialog/dude_howsthissound.wav
+		
+Dude_SaveTooMuch1							sounds/DudeDialog/dude_areyousaving.wav
+Dude_SaveTooMuch2							sounds/DudeDialog/dude_mygrandmothercould.wav
+Dude_SaveTooMuch3							sounds/DudeDialog/dude_didntyoujustsave.wav
+
