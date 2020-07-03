@@ -615,23 +615,46 @@ class PostalDude : PlayerPawn
 		
 		if (level.time > TimeBeforeNextPainLine)
 		{
-			if (LongChance < 85)
-				TimeBeforeNextPainLine = level.time + 32;
-			else
-				TimeBeforeNextPainLine = level.time + 35 * 3;
+			// stub
 		}
 		else
 			return;
 		
-		if (LongChance > 85)
-		{
-			A_StartSound("dudelonghurt", CHAN_VOICE, CHANF_NOSTOP);
-			return;
-		}
+		int randomnumber;
+		int nadschance = random[nads](0,85);
 		
-		A_StartSound("dudehurt", CHAN_VOICE, CHANF_NOSTOP);
-			
-		//A_PlaySound("hitflesh",6);
+		if (nadschance > 85)
+			randomnumber = random[pickhurtchnc](1,4);
+		else
+			randomnumber = random[pickhurtchnc](2,4);
+		
+		switch (randomnumber)
+		{
+			case 1:
+				A_StartSound("Dude_GotHitInCrotch", CHAN_VOICE, CHANF_NOSTOP);
+				TimeBeforeNextPainLine = level.time + 35 * 2;
+				break;
+			case 2:
+				int rnd2 = random[rndgrunt](1,9);
+				string Dude_Grunt = string.Format("Dude_Grunt%i",rnd2);
+				A_StartSound(Dude_Grunt, CHAN_VOICE, CHANF_NOSTOP);
+				TimeBeforeNextPainLine = level.time + 15;
+				break;
+			case 3:
+				int rnd3 = random[rndghit](1,10);
+				string Dude_GotHit = string.Format("Dude_GotHit%i",rnd3);
+				A_StartSound(Dude_GotHit, CHAN_VOICE, CHANF_NOSTOP);
+				TimeBeforeNextPainLine = level.time + 35 * 2.3;
+				break;
+			case 4:
+				int rnd4 = random[rndgcuss](1,3);
+				string Dude_Cussing = string.Format("Dude_Cussing%i",rnd4);
+				A_StartSound(Dude_Cussing, CHAN_VOICE, CHANF_NOSTOP);
+				TimeBeforeNextPainLine = level.time + 25;
+				break;
+			default:
+				break;
+		}
 	}
 	
 	// Spawns a Dummy for suiciding
