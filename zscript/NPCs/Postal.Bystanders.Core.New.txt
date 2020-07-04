@@ -1349,10 +1349,10 @@ class NPCCore : PostalActor
 		}
 		Goto See;
 	Death:
-		DUDD A 0 A_Scream;
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
-		DUD2 A 0
+		DUDD A 0 
 		{
+			A_Scream();
+			
 			if (NPCWeapon ~== "Hands")
 				return;
 			
@@ -1360,51 +1360,37 @@ class NPCCore : PostalActor
 			{
 				if (NPCWeapon ~== WeaponList[i])
 				{
+					vector3 droploc = (pos.x+random[tr](0,35), pos.y+random[rr](0,35), pos.z+50);
 					string DroppedWeapon = string.Format("Post%s",WeaponList[i]);
-					A_SpawnItemEx(DroppedWeapon);
+					class<actor> dropthisweapon = DroppedWeapon;
+					let WeaponOnTheGround = spawn(dropthisweapon, droploc);
+					if (WeaponOnTheGround)
+					{
+						WeaponOnTheGround.Angle = random[rangle](-360,360);
+					}
+					
 					return;
 				}
 			}
-		
+			
 		}
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		DUD2 A 0 A_NoBlocking;
 		DUD2 ABCDEFGHIJKLMNOP 2;
 		DUD2 P -1;
 		Stop;
 	Headless.Death:
-		XYXY A 0 A_Scream;
-		XYXY ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
-		XYX2 A 0
+		XYXY A 0 
 		{
-			if (NPCWeapon ~== "Hands")
-				return;
-				
-			for(int i = 0; i < WeaponList.Size(); i++)
-			{
-				if (NPCWeapon ~== WeaponList[i])
-				{
-					string DroppedWeapon = string.Format("Post%s",WeaponList[i]);
-					A_SpawnItemEx(DroppedWeapon);
-					return;
-				}
-			}
-		
+			A_Scream();
 		}
+		XYXY ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		XYX2 A 0 A_NoBlocking;
 		XYX2 ABCDEFGHIJKLMNOP 2;
 		XYX2 P -1;
 		Stop;
 	XDeath:
-		DUDD A 0 A_Scream;
 		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		DUD2 A 0
-		{
-			if (NPCWeapon ~== "Pistol")
-				A_SpawnItemEx("PostPistol");
-			if (NPCWeapon ~== "Shotgun")
-				A_SpawnItemEx("PostShotgun");
-		
-		}
 		DUD2 A 0 A_NoBlocking;
 		DUD2 ABCDEFGHIJKLMNOP 2;
 		DUD2 P -1;
