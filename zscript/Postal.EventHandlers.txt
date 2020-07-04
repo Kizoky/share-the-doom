@@ -479,13 +479,19 @@ class DudeCoreHandler : EventHandler
 				PDude.InitLine = false;
 				PDude.isinPain = false;
 				PDude.TimeBeforeNextPainLine = level.time;
-				
+				PDude.A_GiveInventory("HUDViewable",1);
+				PDude.A_TakeInventory("CameraRunner",1);
+				PDude.bDONTTHRUST = false;
+				PDude.Speed = PDude.Default.Speed;
+				PDude.JumpZ = PDude.Default.JumpZ;
 				if (PDude.PlayerData)
 				{
 					PDude.PlayerData.InsultCooldown = level.time;
 					PDude.PlayerData.DudeLineCooldown = level.time;
 					PDude.PlayerData.DudeLineTriggered = false;
 					PDude.PlayerData.RunningStopCooldown = level.time;
+					PDude.PlayerData.SpawnedOnce = false;
+					PDude.PlayerData.Suicide = false;
 				}
 				
 				Currentmap = Level.Mapname;
