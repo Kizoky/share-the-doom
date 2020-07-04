@@ -341,7 +341,7 @@ Dude_EnterHabibs2							sounds/DudeDialog/dude_didslaughtergoat.wav
 Dude_EnterHabibs3							sounds/DudeDialog/dude_youjustknowtheres.wav
 Dude_EnterHabibs4							sounds/DudeDialog/dude_areyousotring.wav
 
-Addto(lDude_enterhabibstestes				sounds/DudeDialog/dude_youjustknowtheres.wav
+Dude_enterhabibstestes						sounds/DudeDialog/dude_youjustknowtheres.wav
 
 Dude_seeTestes								sounds/DudeDialog/dude_iknewit.wav
 

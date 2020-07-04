@@ -144,13 +144,15 @@ class PostalDude : PlayerPawn
 	
 	//This function triggers killing spree lines.
 	//Called by an EventHandler
-	bool KillWithGun, KillWithMelee, KillWithProj;
+	bool KillWithGun, KillWithMelee, KillWithProj, QuickKillsinProgress, QuickKillVersion;
+	int QuickKillCount;
 	void A_TriggerDudeLine()
 	{
 		if (level.time < PlayerData.DudeLineCooldown)
 			return;
 		
 		int Chance = random[DudeLine](0,100);
+		int QuickKillsChance = random[QuickChance](0,100);
 		
 		if (InitLine == true)
 		{
@@ -184,7 +186,13 @@ class PostalDude : PlayerPawn
 				return;
 			}
 			
-			if (Chance > 50)
+			if (QuickKillsChance > 85 && !QuickKillsinProgress)
+			{
+				QuickKillsinProgress = true;
+				QuickKillVersion = random[ver](0,1);
+			}
+			
+			if (Chance > 45 && !QuickKillsinProgress)
 			{
 				if (KillWithGun)
 				{
@@ -212,6 +220,32 @@ class PostalDude : PlayerPawn
 				
 				PlayerData.DudeLineCooldown = level.time + 35 * 5;
 			}
+			
+			if (QuickKillsinProgress)
+			{
+				if (QuickKillVersion)
+				{
+					QuickKillCount++;
+					string Dude_QuickKills = string.Format("Dude_QuickKills%i",QuickKillCount);
+					A_StartSound(Dude_QuickKills, CHAN_VOICE, CHANF_NOSTOP);
+					PlayerData.DudeLineCooldown = level.time + 35 * 2;
+				}
+				else
+				{
+					QuickKillCount++;
+					string Dude_QuickKillsS = string.Format("Dude_QuickKillsS%i",QuickKillCount);
+					A_StartSound(Dude_QuickKillsS, CHAN_VOICE, CHANF_NOSTOP);
+					PlayerData.DudeLineCooldown = level.time + 35 * 2;
+				}
+				
+				if (QuickKillCount >= 7)
+				{
+					QuickKillsinProgress = false;
+					QuickKillCount = 0;
+				}
+			
+			}
+			
 			PlayerData.DudeLineTriggered = false;
 		}
 	}
