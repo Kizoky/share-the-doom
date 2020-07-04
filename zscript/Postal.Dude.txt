@@ -186,13 +186,13 @@ class PostalDude : PlayerPawn
 				return;
 			}
 			
-			if (QuickKillsChance > 85 && !QuickKillsinProgress)
+			if (QuickKillsChance >= 95 && !QuickKillsinProgress)
 			{
 				QuickKillsinProgress = true;
 				QuickKillVersion = random[ver](0,1);
 			}
 			
-			if (Chance > 45 && !QuickKillsinProgress)
+			if (Chance >= 35 && !QuickKillsinProgress)
 			{
 				if (KillWithGun)
 				{
