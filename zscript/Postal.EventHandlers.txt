@@ -457,9 +457,14 @@ class DudeCoreHandler : EventHandler
 		
 		if (!STD_Levels && player && CurrentMap != Level.Mapname && player is 'PostalDude')
 		{
-			int randomnumber = random[pickline](1,6);
-			string Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
-			player.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
+			bool trigorno = random[trig](0,1);
+			
+			if (trigorno)
+			{
+				int randomnumber = random[pickline](1,6);
+				string Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
+				player.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
+			}
 		}
 		
 		//Unfuck situations
