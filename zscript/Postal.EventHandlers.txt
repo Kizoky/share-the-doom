@@ -332,6 +332,13 @@ class DudeCoreHandler : EventHandler
    //Needed for fire and other things
    override void WorldThingSpawned (Worldevent e)
    {
+		// Replacing ZDoom patrolpoints on STD levels with Carnodes
+		bool STD_Levels =
+		(
+			Level.Mapname.Left(5) ~== "world" ||
+			Level.Mapname ~== "DOOMTEST"
+		);
+		
 		/*
 		if (!(e.thing is 'PostalActor') && e.thing.bISMONSTER && !(e.thing is 'PlayerPawn')) 
 		{
@@ -357,13 +364,6 @@ class DudeCoreHandler : EventHandler
 			if (e.thing is 'grass1' || e.thing is 'grass2' || e.thing is 'weedS1' || e.thing is 'weedS2')
 				e.thing.Destroy();
 		}
-		
-		// Replacing ZDoom patrolpoints on STD levels with Carnodes
-		bool STD_Levels =
-		(
-			Level.Mapname.Left(5) ~== "world" ||
-			Level.Mapname ~== "DOOMTEST"
-		);
 		
 		let SpawnedThing = e.Thing;
 		
@@ -444,10 +444,50 @@ class DudeCoreHandler : EventHandler
 		
    }
 	
-	// Purely only used for mocking the player for cheating
-	// Totally harmless!
+	string CurrentMap;
 	override void WorldTick()
 	{
+		bool STD_Levels =
+		(
+			Level.Mapname.Left(5) ~== "world" ||
+			Level.Mapname ~== "DOOMTEST"
+		);
+		
+		let player = players[consoleplayer].mo;
+		
+		if (!STD_Levels && player && CurrentMap != Level.Mapname && player is 'PostalDude')
+		{
+			int randomnumber = random[pickline](1,6);
+			string Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
+			player.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
+		}
+		
+		//Unfuck situations
+		
+		let PDude = PostalDude(player);
+		if (PDude)
+		{
+			if (CurrentMap != Level.Mapname)
+			{
+				PDude.A_TakeInventory("PostKick",100);
+				PDude.Kick = false;
+				PDude.InitLine = false;
+				PDude.isinPain = false;
+				PDude.TimeBeforeNextPainLine = level.time;
+				
+				if (PDude.PlayerData)
+				{
+					PDude.PlayerData.InsultCooldown = level.time;
+					PDude.PlayerData.DudeLineCooldown = level.time;
+					PDude.PlayerData.DudeLineTriggered = false;
+					PDude.PlayerData.RunningStopCooldown = level.time;
+				}
+				
+				Currentmap = Level.Mapname;
+			}
+		}
+		
+		
 		if (gameaction == ga_savegame || gameaction == ga_autosave)
 		{
 			let player = players[consoleplayer].mo;
