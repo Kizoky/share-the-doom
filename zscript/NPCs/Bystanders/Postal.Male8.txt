@@ -43,8 +43,8 @@ class NPCWhiteDude6 : NPCCore
 		Radius 12;
 		Height 65;
 		AttackSound "";
-		PainSound "male1/hurt";
-		DeathSound "male1/death";
+		PainSound "male2/hurt";
+		DeathSound "male2/hurt";
 		Obituary "%o should replace this text of string.";
 		CameraHeight 59;
 		

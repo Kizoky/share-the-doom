@@ -670,6 +670,39 @@ male2/dickout10 sounds/npc/whitemale2/wm_seewang_xyzv2.wav
 
 $random male2/dickout { male2/dickout1 male2/dickout2 male2/dickout3 male2/dickout4 male2/dickout5 male2/dickout6 male2/dickout7 male2/dickout8 male2/dickout9 male2/dickout10 }
 
+male2/hurt1 sounds/npc/whitemale2/wm_damage_aghkv1.wav
+male2/hurt2 sounds/npc/whitemale2/wm_damage_aghkv2.wav
+male2/hurt3 sounds/npc/whitemale2/wm_damage_aghkv1.wav
+male2/hurt4 sounds/npc/whitemale2/wm_damage_aiieev1.wav
+male2/hurt5 sounds/npc/whitemale2/wm_damage_aiieev2.wav
+male2/hurt6 sounds/npc/whitemale2/wm_damage_akv1.wav
+male2/hurt7 sounds/npc/whitemale2/wm_damage_akv2.wav
+male2/hurt8 sounds/npc/whitemale2/wm_damage_akv3.wav
+male2/hurt9 sounds/npc/whitemale2/wm_damage_arghv1.wav
+male2/hurt10 sounds/npc/whitemale2/wm_damage_arghv2.wav
+male2/hurt11 sounds/npc/whitemale2/wm_damage_aughv1.wav
+male2/hurt12 sounds/npc/whitemale2/wm_damage_aughv2.wav
+male2/hurt13 sounds/npc/whitemale2/wm_damage_badtouchv1.wav
+male2/hurt14 sounds/npc/whitemale2/wm_damage_badtouchv2.wav
+male2/hurt15 sounds/npc/whitemale2/wm_damage_christv1.wav
+male2/hurt16 sounds/npc/whitemale2/wm_damage_christv2.wav
+male2/hurt17 sounds/npc/whitemale2/wm_damage_christv3.wav
+male2/hurt18 sounds/npc/whitemale2/wm_damage_fuckv1.wav
+male2/hurt19 sounds/npc/whitemale2/wm_damage_fuckv2.wav
+male2/hurt20 sounds/npc/whitemale2/wm_damage_gakv1.wav
+male2/hurt21 sounds/npc/whitemale2/wm_damage_gakv2.wav
+male2/hurt22 sounds/npc/whitemale2/wm_damage_mommyv1.wav
+male2/hurt23 sounds/npc/whitemale2/wm_damage_mommyv2.wav
+male2/hurt24 sounds/npc/whitemale2/wm_damage_mommyv3.wav
+male2/hurt25 sounds/npc/whitemale2/wm_damage_myspinev1.wav
+male2/hurt26 sounds/npc/whitemale2/wm_damage_myspinev2.wav
+male2/hurt27 sounds/npc/whitemale2/wm_damage_owv1.wav
+male2/hurt28 sounds/npc/whitemale2/wm_damage_owv2.wav
+male2/hurt29 sounds/npc/whitemale2/wm_damage_shitv1.wav
+male2/hurt30 sounds/npc/whitemale2/wm_damage_shitv2.wav
+
+$random male2/hurt { male2/hurt1 male2/hurt2 male2/hurt3 male2/hurt4 male2/hurt5 male2/hurt6 male2/hurt7 male2/hurt8 male2/hurt9 male2/hurt10 male2/hurt11 male2/hurt12 male2/hurt13 male2/hurt14 male2/hurt15 male2/hurt16 male2/hurt17 male2/hurt18 male2/hurt19 male2/hurt20 male2/hurt21 male2/hurt22 male2/hurt23 male2/hurt24 male2/hurt25 male2/hurt26 male2/hurt27 male2/hurt28 male2/hurt29 male2/hurt30 }
+
 male2/panic1 sounds/npc/whitemale2/wm_seecarnage_ambulancev1.wav
 male2/panic2 sounds/npc/whitemale2/wm_seecarnage_ambulancev2.wav
 male2/panic3 sounds/npc/whitemale2/wm_seecarnage_anyoneseethatv1.wav
