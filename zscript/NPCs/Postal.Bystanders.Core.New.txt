@@ -3,7 +3,8 @@ class NPCShop : NPCCore { } // todo: port to latest codebase
 
 // The core of all Bystanders
 // If spawned it will use Postal Dude's model
-// in the future this actor will be marked as abstract and it will not be possible to spawn it without removing abstract
+// in the future this actor will be marked as abstract and it will not be possible to spawn it
+// For creating custom NPCs please check "Postal.Bystanders.Example.txt" found in the same directory 
 
 class NPCCore : PostalActor
 {	
