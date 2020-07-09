@@ -286,6 +286,11 @@ class barrelcactus : PostalDecoration
 		}
 	
 	}
+
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		return Super.DamageMobj(inflictor,source,0,mod,flags,angle);
+	}
 	
 	override void Tick()
 	{
@@ -303,6 +308,8 @@ class barrelcactus : PostalDecoration
 		-NOBLOCKMAP
 		-NOINTERACTION
 		+SHOOTABLE
+		+NOBLOOD
+		BloodType "null";
 		
 		Obituary "%o hugged a cactus to death.";
 	}
