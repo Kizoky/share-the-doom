@@ -3,7 +3,7 @@
 
 GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recommended!!
 
-If you have downloaded the mod from here, on Windows: run build.bat - otherwise on Linux just do `bash build` this will build you a GZPostal.pk3 for you.
+If you have downloaded the mod from here, on Windows: run build.bat - otherwise on Linux just do `bash build` this will build a GZPostal.pk3 for you.
 
 ### Status: Unfinished
 
