@@ -80,7 +80,9 @@ class NPCExample : NPCCore
 		// Not lethal, but annoyingly cute.
 		// Now of course this one is a little bit harder since we don't want the NPC spamming
 		// Krotchies non-stop. So we use a boolean called KrotchyMadness found above
-		if (target && target is 'PostalDude' && !bKILLED)
+		// Important, since in STD sadly we rely on bool checks if a certain NPC is doing something
+		// Make sure to always check for "isBusy" and "isAfterTarget"
+		if (target && target is 'PostalDude' && !bKILLED && !isBusy && isAfterTarget)
 		{
 			// if KrotchyMadness isn't initiated yet.
 			if (!KrotchyMadness)
