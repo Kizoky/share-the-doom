@@ -59,7 +59,67 @@ class NPCExample : NPCCore
 		Hostility = (random[rndhost](0,1) == 1) ? "Hostile" : "Pussy";
 		
 		NPCWeapon = "Shotgun";
-		
+	}
+
+	bool KrotchyMadness;
+	// Put everything here you want to change when the NPC is active, this can be anything
+	override void Tick()
+	{
+		Super.Tick();
+
+		// Champ is our target, we shall die.
+		// We must check if "target" pointer is not null, and is not killed, and we aren't dead either!
+		// If we don't check if our NPC isn't dead some unforeseen events may happen, and that ain't pretty.
+		if (target && target is 'Champ' && !target.bKILLED && !bKILLED)
+		{
+			A_Die();
+		}
+
+		// Now let's do something more fun!
+		// If the target is a Player, we shall send dozen of Krotchies at him.
+		// Not lethal, but annoyingly cute.
+		// Now of course this one is a little bit harder since we don't want the NPC spamming
+		// Krotchies non-stop. So we use a boolean called KrotchyMadness found above
+		if (target && target is 'PostalDude' && !bKILLED)
+		{
+			// if KrotchyMadness isn't initiated yet.
+			if (!KrotchyMadness)
+			{
+				// if the Player isn't killed
+				if (!target.bKILLED)
+				{
+					class<actor> KrotchyToy = "GiantKrotchyToy";
+					int NumberOfKrotchies = 0;
+					// 11 Krotchies should be enough?
+					while (NumberOfKrotchies <= 10)
+					{
+						// increment the integer so we won't crash GZDoom :)
+						NumberOfKrotchies++;
+						// Let's randomize the position of the Krotchies..
+						// But of course make them spawn in the air!
+						vector3 rndpos = (random[x](-25,25), random[y](-25,25), random[z](100,175));
+						// Spawn them
+						spawn(KrotchyToy, target.pos+rndpos, ALLOW_REPLACE);
+					}
+
+					// Let's not forget about setting the boolean to true
+					// otherwise the Toy Krotchies would eventually crash GZDoom :)
+					KrotchyMadness = true;
+				}
+				// If the Player was killed somehow
+				// Low effort
+				else
+				{
+					Console.Printf("You suck. HAHA!");
+					KrotchyMadness = true;
+				}
+			}
+
+		}
+
+		// Must have, NEVER delete it unless you know what you are doing
+		// This is NPCCore's Tick moved onto a function for easier moddability
+		NPC_Tick();
 	}
 	
 	Default

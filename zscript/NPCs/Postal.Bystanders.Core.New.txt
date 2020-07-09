@@ -324,10 +324,8 @@ class NPCCore : PostalActor
 		
 	}
 	
-	override void Tick()
+	virtual void NPC_Tick()
 	{
-		Super.Tick();
-		
 		if (bKILLED) return;
 		
 		// If our head hitbox is missing, most likely we are immortal
@@ -440,7 +438,12 @@ class NPCCore : PostalActor
 				}
 			}
 		}
-			
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		NPC_Tick();
 	}
 	
 	virtual void A_PostalTarget()
