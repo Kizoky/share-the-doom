@@ -450,7 +450,9 @@ class DudeCoreHandler : EventHandler
 		bool STD_Levels =
 		(
 			Level.Mapname.Left(5) ~== "world" ||
-			Level.Mapname ~== "DOOMTEST"
+			Level.Mapname ~== "DOOMTEST" ||
+			Level.Mapname ~== "titlemap" ||
+			Level.Mapname ~== "screent"
 		);
 		
 		let player = players[consoleplayer].mo;
