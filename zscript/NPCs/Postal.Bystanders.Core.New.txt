@@ -27,7 +27,7 @@ class NPCCore : PostalActor
 	MachineObituary, KickObituary, TazerObituary, BatonObituary, ShovelObituary, CowHeadObituary, GrenadeObituary, PlagueObituary;
 	
 	
-	string NPC_Scream, NPC_Bump, NPC_PetitionDeny, NPC_PetitionAccept, NPC_Dickout, NPC_Laugh, NPC_Taunt, NPC_Panic, NPC_Cry, NPC_Pickup, NPC_Confusion, NPC_Cat, NPC_Dog, NPC_House, NPC_PissedOn, NPC_YaGotProblem, NPC_Reaction;
+	sound NPC_Scream, NPC_Bump, NPC_PetitionDeny, NPC_PetitionAccept, NPC_Dickout, NPC_Laugh, NPC_Taunt, NPC_Panic, NPC_Cry, NPC_Pickup, NPC_Confusion, NPC_Cat, NPC_Dog, NPC_House, NPC_PissedOn, NPC_YaGotProblem, NPC_Reaction;
 	
 	double MyVoice;
 	
