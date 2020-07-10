@@ -197,7 +197,7 @@ class PostalDude : PlayerPawn
 				if (KillWithGun)
 				{
 					int randomnumber = random[pickline](1,26);
-					string Dude_KillWithGun = string.Format("Dude_KillWithGun%i",randomnumber);
+					sound Dude_KillWithGun = string.Format("Dude_KillWithGun%i",randomnumber);
 					A_StartSound(Dude_KillWithGun, CHAN_VOICE, CHANF_NOSTOP);
 					KillWithGun = false;
 				}
@@ -205,7 +205,7 @@ class PostalDude : PlayerPawn
 				if (KillWithMelee)
 				{
 					int randomnumber = random[pickline](1,22);
-					string Dude_KillWithMelee = string.Format("Dude_KillWithMelee%i",randomnumber);
+					sound Dude_KillWithMelee = string.Format("Dude_KillWithMelee%i",randomnumber);
 					A_StartSound(Dude_KillWithMelee, CHAN_VOICE, CHANF_NOSTOP);
 					KillWithMelee = false;
 				}
@@ -213,7 +213,7 @@ class PostalDude : PlayerPawn
 				if (KillWithProj)
 				{
 					int randomnumber = random[pickline](1,22);
-					string Dude_KillWithProjectile = string.Format("Dude_KillWithProjectile%i",randomnumber);
+					sound Dude_KillWithProjectile = string.Format("Dude_KillWithProjectile%i",randomnumber);
 					A_StartSound(Dude_KillWithProjectile, CHAN_VOICE, CHANF_NOSTOP);
 					KillWithProj = false;
 				}
@@ -226,14 +226,14 @@ class PostalDude : PlayerPawn
 				if (QuickKillVersion)
 				{
 					QuickKillCount++;
-					string Dude_QuickKills = string.Format("Dude_QuickKills%i",QuickKillCount);
+					sound Dude_QuickKills = string.Format("Dude_QuickKills%i",QuickKillCount);
 					A_StartSound(Dude_QuickKills, CHAN_VOICE, CHANF_NOSTOP);
 					PlayerData.DudeLineCooldown = level.time + 35 * 2;
 				}
 				else
 				{
 					QuickKillCount++;
-					string Dude_QuickKillsS = string.Format("Dude_QuickKillsS%i",QuickKillCount);
+					sound Dude_QuickKillsS = string.Format("Dude_QuickKillsS%i",QuickKillCount);
 					A_StartSound(Dude_QuickKillsS, CHAN_VOICE, CHANF_NOSTOP);
 					PlayerData.DudeLineCooldown = level.time + 35 * 2;
 				}
