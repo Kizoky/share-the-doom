@@ -2,10 +2,106 @@ class DudeCoreHandler : EventHandler
 {
 	
 	int SavedTimes;
-	bool SavedTrigger;
+	bool SavedTrigger, STD_Levels;
+	string CurrentMap;
+
+	override void WorldLoaded(WorldEvent e)
+	{
+		if (Level.Mapname.Left(5) ~== "world" ||
+			Level.Mapname ~== "DOOMTEST" ||
+			Level.Mapname ~== "titlemap" ||
+			Level.Mapname ~== "screent" ||
+			Level.Mapname ~== "devmap" ||
+			Level.Mapname.Left(5) ~== "SEW")
+		{
+			STD_Levels = true;
+		}
+		else
+			STD_Levels = false;
+		
+	}
+
+	override void WorldTick()
+	{
+		let player = players[consoleplayer].mo;
+		
+		if (!STD_Levels && player && CurrentMap != Level.Mapname && player is 'PostalDude')
+		{
+			bool trigorno = random[trig](0,1);
+			
+			Console.Printf("Called!");
+
+			if (trigorno)
+			{
+				int randomnumber = random[pickline](1,6);
+				string Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
+				player.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
+			}
+		}
+		
+		//Unfuck situations
+		
+		let PDude = PostalDude(player);
+		if (PDude)
+		{
+			if (CurrentMap != Level.Mapname)
+			{
+				PDude.A_TakeInventory("PostKick",100);
+				PDude.Kick = false;
+				PDude.InitLine = false;
+				PDude.isinPain = false;
+				PDude.TimeBeforeNextPainLine = level.time;
+				PDude.A_GiveInventory("HUDViewable",1);
+				PDude.A_TakeInventory("CameraRunner",1);
+				PDude.bDONTTHRUST = false;
+				PDude.Speed = PDude.Default.Speed;
+				PDude.JumpZ = PDude.Default.JumpZ;
+				if (PDude.PlayerData)
+				{
+					PDude.PlayerData.InsultCooldown = level.time;
+					PDude.PlayerData.DudeLineCooldown = level.time;
+					PDude.PlayerData.DudeLineTriggered = false;
+					PDude.PlayerData.RunningStopCooldown = level.time;
+					PDude.PlayerData.SpawnedOnce = false;
+					PDude.PlayerData.Suicide = false;
+				}
+				
+				Currentmap = Level.Mapname;
+			}
+		}
+		
+		
+		if (gameaction == ga_savegame || gameaction == ga_autosave)
+		{
+			let player = players[consoleplayer].mo;
+			
+			if (SavedTimes == 4 && SavedTrigger != true)
+			{
+				player.A_PlaySound("dude_save2",0);
+				SavedTrigger = true;
+			}
+			
+			if (SavedTimes == 5 && SavedTrigger != true)
+			{
+				player.A_PlaySound("dude_save1",0);
+				SavedTrigger = true;
+			}
+			
+			if (SavedTimes == 6 && SavedTrigger != true)
+			{
+				player.A_PlaySound("dude_save3",0);
+				SavedTimes = 0;
+				SavedTrigger = true;
+			}
+			
+			SavedTimes++;
+			SavedTrigger = false;
+		}
 	
+	}
+
    override void NetworkProcess (ConsoleEvent e)
-   {	
+   {
 	  //let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
       if (e.Name ~== "Kicking")
 	  {
@@ -332,23 +428,6 @@ class DudeCoreHandler : EventHandler
    //Needed for fire and other things
    override void WorldThingSpawned (Worldevent e)
    {
-		// Replacing ZDoom patrolpoints on STD levels with Carnodes
-		bool STD_Levels =
-		(
-			Level.Mapname.Left(5) ~== "world" ||
-			Level.Mapname ~== "DOOMTEST" ||
-			Level.Mapname ~== "titlemap" ||
-			Level.Mapname ~== "screent"
-		);
-		
-		/*
-		if (!(e.thing is 'PostalActor') && e.thing.bISMONSTER && !(e.thing is 'PlayerPawn')) 
-		{
-			//e.thing.bSPECIAL = true;
-			//e.thing.bPICKUP = true;
-		}
-		*/
-		
 		CVar lightscvar = CVar.FindCVar('postal_lights');
 		bool lights = (lightscvar != null && lightscvar.GetBool ());
 		
@@ -445,92 +524,6 @@ class DudeCoreHandler : EventHandler
 		}
 		
    }
-	
-	string CurrentMap;
-	override void WorldTick()
-	{
-		bool STD_Levels =
-		(
-			Level.Mapname.Left(5) ~== "world" ||
-			Level.Mapname ~== "DOOMTEST" ||
-			Level.Mapname ~== "titlemap" ||
-			Level.Mapname ~== "screent"
-		);
-		
-		let player = players[consoleplayer].mo;
-		
-		if (!STD_Levels && player && CurrentMap != Level.Mapname && player is 'PostalDude')
-		{
-			bool trigorno = random[trig](0,1);
-			
-			if (trigorno)
-			{
-				int randomnumber = random[pickline](1,6);
-				string Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
-				player.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
-			}
-		}
-		
-		//Unfuck situations
-		
-		let PDude = PostalDude(player);
-		if (PDude)
-		{
-			if (CurrentMap != Level.Mapname)
-			{
-				PDude.A_TakeInventory("PostKick",100);
-				PDude.Kick = false;
-				PDude.InitLine = false;
-				PDude.isinPain = false;
-				PDude.TimeBeforeNextPainLine = level.time;
-				PDude.A_GiveInventory("HUDViewable",1);
-				PDude.A_TakeInventory("CameraRunner",1);
-				PDude.bDONTTHRUST = false;
-				PDude.Speed = PDude.Default.Speed;
-				PDude.JumpZ = PDude.Default.JumpZ;
-				if (PDude.PlayerData)
-				{
-					PDude.PlayerData.InsultCooldown = level.time;
-					PDude.PlayerData.DudeLineCooldown = level.time;
-					PDude.PlayerData.DudeLineTriggered = false;
-					PDude.PlayerData.RunningStopCooldown = level.time;
-					PDude.PlayerData.SpawnedOnce = false;
-					PDude.PlayerData.Suicide = false;
-				}
-				
-				Currentmap = Level.Mapname;
-			}
-		}
-		
-		
-		if (gameaction == ga_savegame || gameaction == ga_autosave)
-		{
-			let player = players[consoleplayer].mo;
-			
-			if (SavedTimes == 4 && SavedTrigger != true)
-			{
-				player.A_PlaySound("dude_save2",0);
-				SavedTrigger = true;
-			}
-			
-			if (SavedTimes == 5 && SavedTrigger != true)
-			{
-				player.A_PlaySound("dude_save1",0);
-				SavedTrigger = true;
-			}
-			
-			if (SavedTimes == 6 && SavedTrigger != true)
-			{
-				player.A_PlaySound("dude_save3",0);
-				SavedTimes = 0;
-				SavedTrigger = true;
-			}
-			
-			SavedTimes++;
-			SavedTrigger = false;
-		}
-	
-	}
 	
 	// Used for initiating Dude's killing spree lines
 	// This is universal
