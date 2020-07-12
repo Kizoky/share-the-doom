@@ -195,6 +195,12 @@ $singular dudehurt14
 $singular dudehurt15
 $singular dudehurt17
 
+//Sewer hauntings
+
+ghost1 sounds/hauntings/ghost.ogg
+ghost2 sounds/hauntings/ghost2.ogg
+
+
 //This was an attempt to limit pain sounds playing just once, and not triggering while
 //an another is still playing
 
