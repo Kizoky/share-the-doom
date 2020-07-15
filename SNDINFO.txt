@@ -828,8 +828,27 @@ male3/hurt6 sounds/npc/mulato/mm_damage_akv2.wav
 male3/hurt7 sounds/npc/mulato/mm_damage_arghv1.wav
 male3/hurt8 sounds/npc/mulato/mm_damage_arghv2.wav
 male3/hurt9 sounds/npc/mulato/mm_damage_aughv1.wav
+male3/hurt10 sounds/npc/mulato/mm_damage_badtouchv1.wav
+male3/hurt11 sounds/npc/mulato/mm_damage_badtouchv2.wav
+male3/hurt12 sounds/npc/mulato/mm_damage_carajov1.wav
+male3/hurt13 sounds/npc/mulato/mm_damage_carajov2.wav
+male3/hurt14 sounds/npc/mulato/mm_damage_chingav1.wav
+male3/hurt15 sounds/npc/mulato/mm_damage_chingav2.wav
+male3/hurt16 sounds/npc/mulato/mm_damage_gakv1.wav
+male3/hurt17 sounds/npc/mulato/mm_damage_higadov1.wav
+male3/hurt18 sounds/npc/mulato/mm_damage_imhitv1.wav
+male3/hurt19 sounds/npc/mulato/mm_damage_jesusv1.wav
+male3/hurt20 sounds/npc/mulato/mm_damage_jesusv2.wav
+male3/hurt21 sounds/npc/mulato/mm_damage_mommav1.wav
+male3/hurt22 sounds/npc/mulato/mm_damage_mommav2.wav
+male3/hurt23 sounds/npc/mulato/mm_damage_mommav3.wav
+male3/hurt24 sounds/npc/mulato/mm_damage_myeyev1.wav
+male3/hurt25 sounds/npc/mulato/mm_damage_myeyev2.wav
+male3/hurt26 sounds/npc/mulato/mm_damage_owv1.wav
+male3/hurt27 sounds/npc/mulato/mm_damage_owv2.wav
+male3/hurt28 sounds/npc/mulato/mm_damage_owv3.wav
 
-$random male3/hurt { male3/hurt1 male3/hurt2 male3/hurt3 male3/hurt4 male3/hurt5 male3/hurt6 male3/hurt7 male3/hurt8 male3/hurt9 }
+$random male3/hurt { male3/hurt1 male3/hurt2 male3/hurt3 male3/hurt4 male3/hurt5 male3/hurt6 male3/hurt7 male3/hurt8 male3/hurt9 male3/hurt10 male3/hurt11 male3/hurt12 male3/hurt13 male3/hurt14 male3/hurt15 male3/hurt16 male3/hurt17 male3/hurt18 male3/hurt19 male3/hurt20 male3/hurt21 male3/hurt22 male3/hurt23 male3/hurt24 male3/hurt25 male3/hurt26 male3/hurt27 male3/hurt28 }
 
 male3/dickout1 sounds/npc/mulato/mm_seewang_chillitov1.wav
 male3/dickout2 sounds/npc/mulato/mm_seewang_chillitov2.wav
