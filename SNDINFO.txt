@@ -894,6 +894,26 @@ male3/panic31 sounds/npc/mulato/mm_seecarnage_sweetlordnov1.wav
 
 $random male3/panic { male3/panic1 male3/panic2 male3/panic3 male3/panic4 male3/panic5 male3/panic6 male3/panic7 male3/panic8 male3/panic9 male3/panic10 male3/panic11 male3/panic12 male3/panic13 male3/panic14 male3/panic15 male3/panic16 male3/panic17 male3/panic18 male3/panic19 male3/panic20 male3/panic21 male3/panic22 male3/panic23 male3/panic24 male3/panic25 male3/panic26 male3/panic27 male3/panic29 male3/panic30 male3/panic31 male3/panic28 }
 
+male3/react1 sounds/npc/mulato/mm_ghaspv1.wav
+male3/react2 sounds/npc/mulato/mm_ghaspv2.wav
+male3/react3 sounds/npc/mulato/mm_ghaspv3.wav
+male3/react4 sounds/npc/mulato/mm_ghaspv4.wav
+male3/react5 sounds/npc/mulato/mm_hmmmmv1.wav
+male3/react6 sounds/npc/mulato/mm_hmmmmv2.wav
+male3/react7 sounds/npc/mulato/mm_huhv1.wav
+male3/react8 sounds/npc/mulato/mm_huhv2.wav
+male3/react9 sounds/npc/mulato/mm_indicate_amiseeingthatv1.wav
+male3/react10 sounds/npc/mulato/mm_indicate_amiseeingthatv2.wav
+male3/react11 sounds/npc/mulato/mm_indicate_cantbelievev1.wav
+male3/react12 sounds/npc/mulato/mm_indicate_lookovertherev1.wav
+male3/react13 sounds/npc/mulato/mm_indicate_notseeingthatv1.wav
+male3/react14 sounds/npc/mulato/mm_indicate_ohmygodv1.wav
+male3/react15 sounds/npc/mulato/mm_indicate_tellmeimreallyv1.wav
+male3/react16 sounds/npc/mulato/mm_indicate_thatissomev1.wav
+male3/react17 sounds/npc/mulato/mm_indicate_thatissomev2.wav
+
+$random male3/react { male3/react1 male3/react2 male3/react3 male3/react4 male3/react5 male3/react6 male3/react7 male3/react8 male3/react9 male3/react10 male3/react11 male3/react12 male3/react13 male3/react14 male3/react15 male3/react16 male3/react17 }
+
 male3/taunt1 sounds/npc/mulato/mm_postal_gonnaregretv2.wav
 male3/taunt2 sounds/npc/mulato/mm_postal_illusethisv2.wav
 male3/taunt3 sounds/npc/mulato/mm_postal_wrongvatov2.wav
