@@ -199,6 +199,7 @@ $singular dudehurt17
 
 ghost1 sounds/hauntings/ghost.ogg
 ghost2 sounds/hauntings/ghost2.ogg
+jumpscare sounds/hauntings/jumpscare.ogg
 
 
 //This was an attempt to limit pain sounds playing just once, and not triggering while
