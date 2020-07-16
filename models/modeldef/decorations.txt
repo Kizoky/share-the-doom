@@ -4875,3 +4875,19 @@ Model "iveco2"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "RoadRough"
+{
+	Path "models\props"
+	Model 0 "Road_Long02.md3"
+	SurfaceSkin 0 0 "road1024_rough_asphalt2_alpha.png"
+	AngleOffset 0
+	renderradius 32767
+	Scale -100 -100 100
+	Offset 0.0 -1000 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

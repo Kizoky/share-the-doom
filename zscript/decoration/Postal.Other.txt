@@ -5118,3 +5118,23 @@ class BeachUmbrella : PostalDecoration
 		Loop;
 	}
 }
+
+class RoadRough : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "IntroRoad"
+		Radius 25;
+		Height 30;
+		//+FLOAT;
+		//+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

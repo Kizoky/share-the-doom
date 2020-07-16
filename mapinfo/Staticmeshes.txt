@@ -10,7 +10,7 @@ DoomEdNums
   32760 = Doghouse
   32759 = TelephonePolemd3
   32758 = Phonepole
-  //32757 = PhonepoleOBJ
+  32757 = RoadRough
   32756 = Billboard
   //32755 = BillboardOBJ
   32754 = Billboard2
