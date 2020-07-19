@@ -1,0 +1,374 @@
+Model "NPCAsiatic1"
+{
+	Path "models\misc\NPCs\MaleWhite"
+	Model 0 "Malewithheadout.md3"
+	SurfaceSkin 0 0 "body/Avg_M_SS_Pants_AsianTourist01.png"
+	SurfaceSkin 0 1 "head/AvgMale_BillyBob_A01.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+
+	// Idle Pose 541-603	
+		
+	FrameIndex DUDE A 0 541 
+	FrameIndex DUDE B 0 543
+	FrameIndex DUDE C 0 545
+	FrameIndex DUDE D 0 547
+	FrameIndex DUDE E 0 549
+	FrameIndex DUDE F 0 551
+	FrameIndex DUDE G 0 553
+	FrameIndex DUDE H 0 555
+	FrameIndex DUDE I 0 557
+	FrameIndex DUDE J 0 559
+	FrameIndex DUDE K 0 561
+	FrameIndex DUDE L 0 563
+	FrameIndex DUDE M 0 565
+	FrameIndex DUDE N 0 567
+	FrameIndex DUDE O 0 569
+	FrameIndex DUDE P 0 571
+	FrameIndex DUDE Q 0 573
+	FrameIndex DUDE R 0 575
+	FrameIndex DUDE S 0 577
+	FrameIndex DUDE T 0 579
+	FrameIndex DUDE U 0 581
+	FrameIndex DUDE V 0 583
+	FrameIndex DUDE W 0 585
+	FrameIndex DUDE X 0 587
+	FrameIndex DUDE Y 0 589
+	FrameIndex DUDE Z 0 591
+	
+	FrameIndex DUDF A 0 3540
+
+	
+	// Death 221 to 287
+	
+	FrameIndex DUDD A 0 1211
+	FrameIndex DUDD B 0 1213
+	FrameIndex DUDD C 0 1215
+	FrameIndex DUDD D 0 1217
+	FrameIndex DUDD E 0 1219
+	FrameIndex DUDD F 0 1221
+	FrameIndex DUDD G 0 1223
+	FrameIndex DUDD H 0 1225
+	FrameIndex DUDD I 0 1227
+	FrameIndex DUDD J 0 1229
+	FrameIndex DUDD K 0 1231
+	FrameIndex DUDD L 0 1233
+	FrameIndex DUDD M 0 1235
+	FrameIndex DUDD N 0 1237
+	FrameIndex DUDD O 0 1239
+	FrameIndex DUDD P 0 1241
+	FrameIndex DUDD Q 0 1243
+	FrameIndex DUDD R 0 1245
+	FrameIndex DUDD S 0 1247
+	FrameIndex DUDD T 0 1249
+	FrameIndex DUDD U 0 1251
+	FrameIndex DUDD V 0 1253
+	FrameIndex DUDD W 0 1255
+	FrameIndex DUDD X 0 1257
+	FrameIndex DUDD Y 0 1259
+	FrameIndex DUDD Z 0 1261
+	
+	FrameIndex DUD2 A 0 1263
+	FrameIndex DUD2 B 0 1265
+	FrameIndex DUD2 C 0 1267
+	FrameIndex DUD2 D 0 1269
+	FrameIndex DUD2 E 0 1271
+	FrameIndex DUD2 F 0 1273
+	FrameIndex DUD2 G 0 1275
+	FrameIndex DUD2 H 0 1277
+	FrameIndex DUD2 I 0 1279
+	FrameIndex DUD2 J 0 1281
+	FrameIndex DUD2 K 0 1283
+	FrameIndex DUD2 L 0 1285
+	FrameIndex DUD2 M 0 1287
+	FrameIndex DUD2 N 0 1289
+	FrameIndex DUD2 O 0 1291
+	FrameIndex DUD2 P 0 1293
+	// ------------------------------
+	
+	
+	FrameIndex DUDW A 0 3236
+	FrameIndex DUDW B 0 3238
+	FrameIndex DUDW C 0 3240
+	FrameIndex DUDW D 0 3242
+	FrameIndex DUDW E 0 3244
+	FrameIndex DUDW F 0 3246
+	FrameIndex DUDW G 0 3248
+	FrameIndex DUDW H 0 3250
+	FrameIndex DUDW I 0 3252
+	FrameIndex DUDW J 0 3254
+	FrameIndex DUDW K 0 3256
+	FrameIndex DUDW L 0 3258
+	FrameIndex DUDW M 0 3260
+	FrameIndex DUDW N 0 3262
+	FrameIndex DUDW O 0 3264
+	FrameIndex DUDW P 0 3266
+	FrameIndex DUDW Q 0 3268
+	FrameIndex DUDW R 0 3270
+	
+	FrameIndex FLEE A 0 2195
+	FrameIndex FLEE B 0 2197
+	FrameIndex FLEE C 0 2199
+	FrameIndex FLEE D 0 2201
+	FrameIndex FLEE E 0 2203
+	FrameIndex FLEE F 0 2205
+	FrameIndex FLEE G 0 2207
+	FrameIndex FLEE H 0 2209
+	FrameIndex FLEE I 0 2211
+	FrameIndex FLEE J 0 2213
+	
+	FrameIndex PINK A 0 1996
+	FrameIndex PINK B 0 1998
+	FrameIndex PINK C 0 2000
+	FrameIndex PINK D 0 2002
+	FrameIndex PINK E 0 2004
+	FrameIndex PINK F 0 2006
+	FrameIndex PINK G 0 2008
+	FrameIndex PINK H 0 2010
+	FrameIndex PINK I 0 2012
+	FrameIndex PINK J 0 2014
+	FrameIndex PINK K 0 2016
+	FrameIndex PINK L 0 2018
+	FrameIndex PINK M 0 2020
+	FrameIndex PINK N 0 2022
+	FrameIndex PINK O 0 2024
+	FrameIndex PINK P 0 2026
+	FrameIndex PINK Q 0 2028
+	FrameIndex PINK R 0 2030
+	FrameIndex PINK S 0 2032
+	FrameIndex PINK T 0 2034
+	FrameIndex PINK U 0 2036
+	FrameIndex PINK V 0 2038
+	FrameIndex PINK W 0 2040
+	FrameIndex PINK X 0 2042
+	FrameIndex PINK Y 0 2044
+	FrameIndex PINK Z 0 2046
+	
+	FrameIndex LAUG A 0 1755
+	FrameIndex LAUG B 0 1757
+	FrameIndex LAUG C 0 1759
+	FrameIndex LAUG D 0 1761
+	FrameIndex LAUG E 0 1763
+	FrameIndex LAUG F 0 1765
+	FrameIndex LAUG G 0 1767
+	FrameIndex LAUG H 0 1769
+	FrameIndex LAUG I 0 1771
+	FrameIndex LAUG J 0 1773
+	FrameIndex LAUG K 0 1775
+	FrameIndex LAUG L 0 1777
+	FrameIndex LAUG M 0 1779
+	FrameIndex LAUG N 0 1781
+	FrameIndex LAUG O 0 1783
+	FrameIndex LAUG P 0 1785
+	FrameIndex LAUG Q 0 1787
+	FrameIndex LAUG R 0 1789
+	FrameIndex LAUG S 0 1791
+	FrameIndex LAUG T 0 1793
+	FrameIndex LAUG U 0 1795
+	FrameIndex LAUG V 0 1797
+	FrameIndex LAUG W 0 1799
+	FrameIndex LAUG X 0 1801
+	FrameIndex LAUG Y 0 1803
+	FrameIndex LAUG Z 0 1805
+	
+	FrameIndex LAU2 A 0 1807
+	FrameIndex LAU2 B 0 1809
+	FrameIndex LAU2 C 0 1811
+	FrameIndex LAU2 D 0 1813
+	FrameIndex LAU2 E 0 1815
+	FrameIndex LAU2 F 0 1817
+	FrameIndex LAU2 G 0 1819
+	FrameIndex LAU2 H 0 1821
+	FrameIndex LAU2 I 0 1823
+	FrameIndex LAU2 J 0 1825
+	FrameIndex LAU2 K 0 1827
+	FrameIndex LAU2 L 0 1829
+	FrameIndex LAU2 M 0 1831
+	FrameIndex LAU2 N 0 1833
+	FrameIndex LAU2 O 0 1835
+	FrameIndex LAU2 P 0 1837
+	FrameIndex LAU2 Q 0 1839
+	FrameIndex LAU2 R 0 1841
+	FrameIndex LAU2 S 0 1843
+	FrameIndex LAU2 T 0 1845
+	FrameIndex LAU2 U 0 1847
+	FrameIndex LAU2 V 0 1849
+	FrameIndex LAU2 W 0 1851
+	FrameIndex LAU2 X 0 1853
+	FrameIndex LAU2 Y 0 1855
+	FrameIndex LAU2 Z 0 1857
+	
+	FrameIndex LAU3 A 0 1859
+	FrameIndex LAU3 B 0 1861
+	FrameIndex LAU3 C 0 1863
+	FrameIndex LAU3 D 0 1865
+	FrameIndex LAU3 E 0 1867
+	FrameIndex LAU3 F 0 1869
+	FrameIndex LAU3 G 0 1871
+	FrameIndex LAU3 H 0 1873
+	FrameIndex LAU3 I 0 1875
+	FrameIndex LAU3 J 0 1877
+	FrameIndex LAU3 K 0 1879
+	FrameIndex LAU3 L 0 1881
+	FrameIndex LAU3 M 0 1883
+	FrameIndex LAU3 N 0 1885
+	FrameIndex LAU3 O 0 1887
+	FrameIndex LAU3 P 0 1889
+	FrameIndex LAU3 Q 0 1891
+	FrameIndex LAU3 R 0 1893
+	FrameIndex LAU3 S 0 1895
+	FrameIndex LAU3 T 0 1897
+	FrameIndex LAU3 U 0 1899
+	FrameIndex LAU3 V 0 1901
+	FrameIndex LAU3 W 0 1903
+	FrameIndex LAU3 X 0 1905
+	FrameIndex LAU3 Y 0 1907
+	FrameIndex LAU3 Z 0 1909
+	
+	FrameIndex LAU4 A 0 1911
+	FrameIndex LAU4 B 0 1913
+	FrameIndex LAU4 C 0 1915
+	FrameIndex LAU4 D 0 1917
+	FrameIndex LAU4 E 0 1919
+	FrameIndex LAU4 F 0 1921
+	FrameIndex LAU4 G 0 1923
+	FrameIndex LAU4 H 0 1925
+	FrameIndex LAU4 I 0 1927
+	FrameIndex LAU4 J 0 1929
+	FrameIndex LAU4 K 0 1931
+	FrameIndex LAU4 L 0 1933
+	FrameIndex LAU4 M 0 1935
+	
+}
+
+Model "NPCAsiatic1"
+{
+	Path "models\misc\NPCs\MaleWhite"
+	Model 0 "Malewithheadout.md3"
+	SurfaceSkin 0 0 "body/Avg_M_SS_Pants_AsianTourist01.png"
+	SurfaceSkin 0 1 "invis.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+
+	FrameIndex XYXY A 0 1211
+	FrameIndex XYXY B 0 1213
+	FrameIndex XYXY C 0 1215
+	FrameIndex XYXY D 0 1217
+	FrameIndex XYXY E 0 1219
+	FrameIndex XYXY F 0 1221
+	FrameIndex XYXY G 0 1223
+	FrameIndex XYXY H 0 1225
+	FrameIndex XYXY I 0 1227
+	FrameIndex XYXY J 0 1229
+	FrameIndex XYXY K 0 1231
+	FrameIndex XYXY L 0 1233
+	FrameIndex XYXY M 0 1235
+	FrameIndex XYXY N 0 1237
+	FrameIndex XYXY O 0 1239
+	FrameIndex XYXY P 0 1241
+	FrameIndex XYXY Q 0 1243
+	FrameIndex XYXY R 0 1245
+	FrameIndex XYXY S 0 1247
+	FrameIndex XYXY T 0 1249
+	FrameIndex XYXY U 0 1251
+	FrameIndex XYXY V 0 1253
+	FrameIndex XYXY W 0 1255
+	FrameIndex XYXY X 0 1257
+	FrameIndex XYXY Y 0 1259
+	FrameIndex XYXY Z 0 1261
+	
+	FrameIndex XYX2 A 0 1263
+	FrameIndex XYX2 B 0 1265
+	FrameIndex XYX2 C 0 1267
+	FrameIndex XYX2 D 0 1269
+	FrameIndex XYX2 E 0 1271
+	FrameIndex XYX2 F 0 1273
+	FrameIndex XYX2 G 0 1275
+	FrameIndex XYX2 H 0 1277
+	FrameIndex XYX2 I 0 1279
+	FrameIndex XYX2 J 0 1281
+	FrameIndex XYX2 K 0 1283
+	FrameIndex XYX2 L 0 1285
+	FrameIndex XYX2 M 0 1287
+	FrameIndex XYX2 N 0 1289
+	FrameIndex XYX2 O 0 1291
+	FrameIndex XYX2 P 0 1293
+}
+
+
+Model "NPCAsiatic1"
+{
+	Path "models\misc\NPCs\MaleWhite"
+	Model 0 "MalewithPistolout.md3"
+	SurfaceSkin 0 0 "body/Avg_M_SS_Pants_AsianTourist01.png"
+	SurfaceSkin 0 1 "head/AvgMale_BillyBob_A01.png"
+	SurfaceSkin 0 2 "desertEagle_256.tga"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+
+	// Idling 1 to 63
+	
+	FrameIndex XXXX A 0 637
+	FrameIndex XXXX B 0 638
+	FrameIndex XXXX C 0 639
+	FrameIndex XXXX D 0 640
+	FrameIndex XXXX E 0 641
+	FrameIndex XXXX F 0 642
+	FrameIndex XXXX G 0 643
+	FrameIndex XXXX H 0 644
+	FrameIndex XXXX I 0 645
+	FrameIndex XXXX J 0 646
+	FrameIndex XXXX K 0 647
+	FrameIndex XXXX L 0 648
+	FrameIndex XXXX M 0 649
+	FrameIndex XXXX N 0 650
+	FrameIndex XXXX O 0 651
+	FrameIndex XXXX P 0 652
+	FrameIndex XXXX Q 0 653
+	
+	FrameIndex XXXF A 0 687
+	
+}
+
+Model "NPCAsiatic1"
+{
+	Path "models\misc\NPCs\MaleWhite"
+	Model 0 "Dudewithshotgunout.md3"
+	SurfaceSkin 0 0 "MWA__001__AvgMale.tga"
+	SurfaceSkin 0 1 "MW__035__Avg_M_SS_Pants.tga"
+	Path "textures\weapons\shotgun"
+	SurfaceSkin 0 2 "shotgun_timb.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+
+	// Idling 1 to 63
+	
+	FrameIndex SHOT A 0 232
+	FrameIndex SHOT B 0 233
+	FrameIndex SHOT C 0 234
+	FrameIndex SHOT D 0 235
+	FrameIndex SHOT E 0 236
+	FrameIndex SHOT F 0 237
+	FrameIndex SHOT G 0 238
+	FrameIndex SHOT H 0 239
+	FrameIndex SHOT I 0 240
+	FrameIndex SHOT J 0 241
+	FrameIndex SHOT K 0 242
+	FrameIndex SHOT L 0 243
+	FrameIndex SHOT M 0 244
+	FrameIndex SHOT N 0 245
+	FrameIndex SHOT O 0 246
+	FrameIndex SHOT P 0 247
+	FrameIndex SHOT Q 0 248
+	FrameIndex SHOT R 0 249
+	FrameIndex SHOT S 0 250
+	FrameIndex SHOT T 0 251
+	FrameIndex SHOT U 0 252
+	
+	FrameIndex SHOF A 0 230
+	
+}
