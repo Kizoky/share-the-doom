@@ -36,6 +36,7 @@
 #include "models/modeldef/bystanders/MaleWhite/Male13.txt"
 #include "models/modeldef/bystanders/MaleWhite/Male14.txt"
 #include "models/modeldef/bystanders/MaleWhite/Male15.txt"
+#include "models/modeldef/bystanders/MaleWhite/Male16.txt"
 #include "models/modeldef/bystanders/WJIguys/Mikey.txt"
 #include "models/modeldef/bystanders/WJIguys/Bob.txt"
 #include "models/modeldef/bystanders/WJIguys/Kurt.txt"

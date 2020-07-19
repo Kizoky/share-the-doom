@@ -1,0 +1,54 @@
+class NPCAsiatic2 : NPCCore
+{
+	override void NPC_Settings()
+	{
+	
+		NPC_Scream = "male4/scream";
+		NPC_Bump = "male4/bump";
+		NPC_PetitionDeny = "noway";
+		NPC_Dickout = "male4/dickout";
+		NPC_Taunt = "male4/taunt";
+		NPC_Panic = "male4/panic";
+		NPC_Laugh = "male4/laugh";
+		NPC_Reaction = "male4/react";
+
+		WalkingStyle = random[mystyle](1,6);
+		
+
+		MyVoice = frandom[voicef](0.95,1.12);
+		
+
+		class<actor> Head = "NPCHead";
+		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
+		if (MyHead)
+		{
+			MyHead.Angle = self.Angle;
+			let p = NPCHead(MyHead);
+			if (p)
+			{
+				p.Owner = self;
+				HeadHitbox = p;
+			}
+		}
+		
+		int rnd = random[rrr](0,3);
+        Hostility = (rnd == 0) ? "Hostile" : "Pussy";
+		NPCWeapon = "Pistol";
+		
+	}
+	
+	Default
+	{
+		Health 150;
+		Radius 12;
+		Height 65;
+		AttackSound "";
+		PainSound "male4/hurt";
+		DeathSound "male4/hurt";
+		Obituary "%o should replace this text of string.";
+		CameraHeight 59;
+		
+		// Set this to enable custom Hostility and Weapon
+		NPCCore.CustomBehavior true;
+	}
+}
