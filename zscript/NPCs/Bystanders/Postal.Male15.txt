@@ -3,13 +3,13 @@ class NPCAsiatic1 : NPCCore
 	override void NPC_Settings()
 	{
 	
-		NPC_Scream = "male2/scream";
-		NPC_Bump = "male2/bump";
+		NPC_Scream = "male4/scream";
+		NPC_Bump = "male4/bump";
 		NPC_PetitionDeny = "noway";
-		NPC_Dickout = "male2/dickout";
-		NPC_Taunt = "male2/taunt";
-		NPC_Panic = "male2/panic";
-		NPC_Laugh = "male2/laugh";
+		NPC_Dickout = "male4/dickout";
+		NPC_Taunt = "male4/taunt";
+		NPC_Panic = "male4/panic";
+		NPC_Laugh = "male4/laugh";
 		NPC_Reaction = "male2/react";
 
 		WalkingStyle = random[mystyle](1,6);

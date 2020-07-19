@@ -926,6 +926,71 @@ male3/laugh2 sounds/npc/mulato/mm_laughv2.wav
 
 $random male3/laugh { male3/laugh1 male3/laugh2 }
 
+male4/scream1 sounds/npc/china/msushi_scream1.wav
+male4/scream2 sounds/npc/china/msushi_scream2.wav
+male4/scream3 sounds/npc/china/msushi_scream3.wav
+male4/scream4 sounds/npc/china/msushi_scream4.wav
+male4/scream5 sounds/npc/china/msushi_scream5.wav
+
+$random male4/scream { male4/scream1 male4/scream2 male4/scream3 male4/scream4 male4/scream5 }
+
+male4/bump1 sounds/npc/china/msushi_bumped_cominthroughv1.wav
+male4/bump2 sounds/npc/china/msushi_bumped_cominthroughv2.wav
+male4/bump3 sounds/npc/china/msushi_bumped_heywatchitv1.wav
+male4/bump4 sounds/npc/china/msushi_bumped_heywatchitv2.wav
+male4/bump5 sounds/npc/china/msushi_bumped_heywatchitv3.wav
+male4/bump6 sounds/npc/china/msushi_bumped_lookoutv1.wav
+male4/bump7 sounds/npc/china/msushi_bumped_lookoutv2.wav
+male4/bump8 sounds/npc/china/msushi_bumped_onesidev1.wav
+male4/bump9 sounds/npc/china/msushi_bumped_onesidev2.wav
+male4/bump10 sounds/npc/china/msushi_bumped_oofidiotv1.wav
+
+$random male4/bump { male4/bump1 male4/bump2 male4/bump3 male4/bump4 male4/bump5 male4/bump6 male4/bump7 male4/bump8 male4/bump9 male4/bump10 }
+
+male4/dickout1 sounds/npc/china/msushi_seewang_dontmakemeseev1.wav
+male4/dickout2 sounds/npc/china/msushi_seewang_dontmakemeseev2.wav
+male4/dickout3 sounds/npc/china/msushi_seewang_messawayv1.wav
+male4/dickout4 sounds/npc/china/msushi_seewang_messawayv2.wav
+male4/dickout5 sounds/npc/china/msushi_seewang_openforbidnizv1.wav
+male4/dickout6 sounds/npc/china/msushi_seewang_openforbidnizv2.wav
+male4/dickout7 sounds/npc/china/msushi_seewang_pullyourpantsupv1.wav
+male4/dickout8 sounds/npc/china/msushi_seewang_pullyourpantsupv2.wav
+male4/dickout9 sounds/npc/china/msushi_seewang_pullyourpantsupv3.wav
+male4/dickout10 sounds/npc/china/msushi_seewang_pullyourpantsupv4.wav
+male4/dickout11 sounds/npc/china/msushi_seewang_whyyourschwartzv1.wav
+male4/dickout12 sounds/npc/china/msushi_seewang_whyyourschwartzv2.wav
+
+$random male4/dickout { male4/dickout1 male4/dickout2 male4/dickout3 male4/dickout4 male4/dickout5 male4/dickout6 male4/dickout7 male4/dickout8 male4/dickout9 male4/dickout10 male4/dickout11 male4/dickout12 }
+
+male4/panic1 sounds/npc/china/msushi_fearful_donthurtmev1.wav
+male4/panic2 sounds/npc/china/msushi_fearful_donthurtmev2.wav
+male4/panic3 sounds/npc/china/msushi_fearful_imleavingv1.wav
+male4/panic4 sounds/npc/china/msushi_fearful_imleavingv2.wav
+male4/panic5 sounds/npc/china/msushi_fearful_isnthappeningv1.wav
+male4/panic6 sounds/npc/china/msushi_fearful_isnthappeningv2.wav
+male4/panic7 sounds/npc/china/msushi_fearful_shitgetoutv1.wav
+male4/panic8 sounds/npc/china/msushi_fearful_shitgetoutv2.wav
+
+$random male4/panic { male4/panic1 male4/panic2 male4/panic3 male4/panic4 male4/panic5 male4/panic6 male4/panic7 male4/panic8 }
+
+male4/taunt1 sounds/npc/china/msushi_taunt_cmonfightlikeamanv1.wav
+male4/taunt2 sounds/npc/china/msushi_taunt_ohyeahbigmanwithav1.wav
+male4/taunt3 sounds/npc/china/msushi_taunt_ohyeahbigmanwithav2.wav
+male4/taunt4 sounds/npc/china/msushi_taunt_wacktacularv1.wav
+male4/taunt5 sounds/npc/china/msushi_taunt_wacktacularv2.wav
+male4/taunt6 sounds/npc/china/msushi_taunt_whereyougoingsissyv1.wav
+male4/taunt7 sounds/npc/china/msushi_taunt_whereyougoingsissyv2.wav
+male4/taunt8 sounds/npc/china/msushi_taunt_yourenotsotoughv1.wav
+male4/taunt9 sounds/npc/china/msushi_taunt_yourenotsotoughv2.wav
+male4/taunt10 sounds/npc/china/msushi_taunt_yourenotsotoughv3.wav
+
+$random male4/taunt { male4/taunt1 male4/taunt2 male4/taunt3 male4/taunt4 male4/taunt5 male4/taunt6 male4/taunt7 male4/taunt8 male4/taunt9 male4/taunt10 }
+
+male4/laugh1 sounds/npc/china/msushi_laughv1.wav
+male4/laugh2 sounds/npc/china/msushi_laughv2.wav
+
+$random male4/laugh { male4/laugh1 male4/laugh2 }
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 example/bump1 sounds/npc/example/example_bump1.wav
