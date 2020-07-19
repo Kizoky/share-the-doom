@@ -1018,6 +1018,20 @@ male4/hurt24 sounds/npc/china/msushi_damage_shitv2.wav
 
 $random male4/hurt { male4/hurt1 male4/hurt2 male4/hurt3 male4/hurt4 male4/hurt5 male4/hurt6 male4/hurt7 male4/hurt8 male4/hurt9 male4/hurt10 male4/hurt11 male4/hurt12 male4/hurt13 male4/hurt14 male4/hurt15 male4/hurt16 male4/hurt17 male4/hurt18 male4/hurt19 male4/hurt20 male4/hurt21 male4/hurt22 male4/hurt23 male4/hurt24 }
 
+male4/react1 sounds/npc/china/msushi_snickerv1.wav
+male4/react2 sounds/npc/china/msushi_snickerv2.wav
+male4/react3 sounds/npc/china/msushi_snickerv3.wav
+male4/react4 sounds/npc/china/msushi_didntseenothinv1.wav
+male4/react5 sounds/npc/china/msushi_didntseenothinv2.wav
+male4/react6 sounds/npc/china/msushi_didntseenothinv3.wav
+male4/react7 sounds/npc/china/msushi_hearexplosion_whatthefuckv1.wav
+male4/react8 sounds/npc/china/msushi_hearexplosion_whatthefuckv2.wav
+male4/react9 sounds/npc/china/msushi_hearexplosion_whatthefuckv3.wav
+male4/react10 sounds/npc/china/msushi_damage_jesusv1.wav
+male4/react11 sounds/npc/china/msushi_damage_jesusv2.wav
+
+$random male4/react { male4/react1 male4/react2 male4/react3 male4/react4 male4/react5 male4/react6 male4/react7 male4/react8 male4/react9 male4/react10 male4/react11 }
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 example/bump1 sounds/npc/example/example_bump1.wav

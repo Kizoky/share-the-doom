@@ -10,7 +10,7 @@ class NPCAsiatic1 : NPCCore
 		NPC_Taunt = "male4/taunt";
 		NPC_Panic = "male4/panic";
 		NPC_Laugh = "male4/laugh";
-		NPC_Reaction = "male2/react";
+		NPC_Reaction = "male4/react";
 
 		WalkingStyle = random[mystyle](1,6);
 		
