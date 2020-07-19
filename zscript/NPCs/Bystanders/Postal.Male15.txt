@@ -43,8 +43,8 @@ class NPCAsiatic1 : NPCCore
 		Radius 12;
 		Height 65;
 		AttackSound "";
-		PainSound "male2/hurt";
-		DeathSound "male2/hurt";
+		PainSound "male4/hurt";
+		DeathSound "male4/hurt";
 		Obituary "%o should replace this text of string.";
 		CameraHeight 59;
 		

@@ -991,6 +991,33 @@ male4/laugh2 sounds/npc/china/msushi_laughv2.wav
 
 $random male4/laugh { male4/laugh1 male4/laugh2 }
 
+male4/hurt1 sounds/npc/china/msushi_damage_aiieev1.wav
+male4/hurt2 sounds/npc/china/msushi_damage_akv1.wav
+male4/hurt3 sounds/npc/china/msushi_damage_akv2.wav
+male4/hurt4 sounds/npc/china/msushi_damage_arghv1.wav
+male4/hurt5 sounds/npc/china/msushi_damage_arghv2.wav
+male4/hurt6 sounds/npc/china/msushi_damage_aughv1.wav
+male4/hurt7 sounds/npc/china/msushi_damage_aughv1.wav
+male4/hurt8 sounds/npc/china/msushi_damage_badtouchv1.wav
+male4/hurt9 sounds/npc/china/msushi_damage_badtouchv2.wav
+male4/hurt10 sounds/npc/china/msushi_damage_christv1.wav
+male4/hurt11 sounds/npc/china/msushi_damage_fuckv1.wav
+male4/hurt12 sounds/npc/china/msushi_damage_fuckv2.wav
+male4/hurt13 sounds/npc/china/msushi_damage_gakv1.wav
+male4/hurt14 sounds/npc/china/msushi_damage_imhitv1.wav
+male4/hurt15 sounds/npc/china/msushi_damage_imhitv2.wav
+male4/hurt16 sounds/npc/china/msushi_damage_jesusv1.wav
+male4/hurt17 sounds/npc/china/msushi_damage_jesusv2.wav
+male4/hurt18 sounds/npc/china/msushi_damage_mommav1.wav
+male4/hurt19 sounds/npc/china/msushi_damage_mycolonv1.wav
+male4/hurt20 sounds/npc/china/msushi_damage_mycolonv2.wav
+male4/hurt21 sounds/npc/china/msushi_damage_owv1.wav
+male4/hurt22 sounds/npc/china/msushi_damage_owv2.wav
+male4/hurt23 sounds/npc/china/msushi_damage_shitv1.wav
+male4/hurt24 sounds/npc/china/msushi_damage_shitv2.wav
+
+$random male4/hurt { male4/hurt1 male4/hurt2 male4/hurt3 male4/hurt4 male4/hurt5 male4/hurt6 male4/hurt7 male4/hurt8 male4/hurt9 male4/hurt10 male4/hurt11 male4/hurt12 male4/hurt13 male4/hurt14 male4/hurt15 male4/hurt16 male4/hurt17 male4/hurt18 male4/hurt19 male4/hurt20 male4/hurt21 male4/hurt22 male4/hurt23 male4/hurt24 }
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 example/bump1 sounds/npc/example/example_bump1.wav
