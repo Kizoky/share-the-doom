@@ -1032,6 +1032,69 @@ male4/react11 sounds/npc/china/msushi_damage_jesusv2.wav
 
 $random male4/react { male4/react1 male4/react2 male4/react3 male4/react4 male4/react5 male4/react6 male4/react7 male4/react8 male4/react9 male4/react10 male4/react11 }
 
+gay/scream1 sounds/npc/fag/gay_scream1.wav
+gay/scream2 sounds/npc/fag/gay_scream2.wav
+gay/scream3 sounds/npc/fag/gay_scream3.wav
+gay/scream4 sounds/npc/fag/gay_scream4.wav
+
+$random gay/scream { gay/scream1 gay/scream2 gay/scream3 gay/scream4 }
+
+gay/react1 sounds/npc/fag/gay_ghaspv1.wav
+gay/react2 sounds/npc/fag/gay_huhv1.wav
+gay/react3 sounds/npc/fag/gay_indicate_cantbelieveitv1.wav
+gay/react4 sounds/npc/fag/gay_indicate_doyouseethatv1.wav
+gay/react5 sounds/npc/fag/gay_indicate_kiddingmev1.wav
+gay/react6 sounds/npc/fag/gay_indicate_lookovertherev1.wav
+gay/react7 sounds/npc/fag/gay_indicate_seeingthatv1.wav
+gay/react8 sounds/npc/fag/gay_indicate_stupidshitv1.wav
+
+$random gay/react { gay/react1 gay/react2 gay/react3 gay/react4 gay/react5 gay/react6 gay/react7 gay/react8 }
+
+gay/panic1 sounds/npc/fag/gay_seecarnage_ambulancev1.wav
+gay/panic2 sounds/npc/fag/gay_seecarnage_aniceguyv1.wav
+gay/panic3 sounds/npc/fag/gay_seecarnage_callthenavyv1.wav
+gay/panic4 sounds/npc/fag/gay_seecarnage_cantbelievehappeningv1.wav
+gay/panic5 sounds/npc/fag/gay_seecarnage_cantbelievehedidthatv1.wav
+gay/panic6 sounds/npc/fag/gay_seecarnage_forchristsakev1.wav
+gay/panic7 sounds/npc/fag/gay_seecarnage_helpv1.wav
+gay/panic8 sounds/npc/fag/gay_seecarnage_holyshitv1.wav
+gay/panic9 sounds/npc/fag/gay_seecarnage_howcanthisbev1.wav
+gay/panic10 sounds/npc/fag/gay_seecarnage_imgoingtobesickv1.wav
+gay/panic11 sounds/npc/fag/gay_seecarnage_itshorriblev1.wav
+gay/panic12 sounds/npc/fag/gay_seecarnage_killingeveryonev1.wav
+gay/panic13 sounds/npc/fag/gay_seecarnage_needcouncellingv1.wav
+gay/panic14 sounds/npc/fag/gay_seecarnage_nightmnarev1.wav
+gay/panic15 sounds/npc/fag/gay_seecarnage_ohmygodv1.wav
+gay/panic16 sounds/npc/fag/gay_seecarnage_pleasemakeitstopv1.wav
+gay/panic17 sounds/npc/fag/gay_seecarnage_runrunv1.wav
+gay/panic18 sounds/npc/fag/gay_seecarnage_thehorrorv1.wav
+gay/panic19 sounds/npc/fag/gay_seecarnage_thiscantberealv1.wav
+
+$random gay/panic { gay/panic1 gay/panic2 gay/panic3 gay/panic4 gay/panic5 gay/panic6 gay/panic7 gay/panic8 gay/panic9 gay/panic10 gay/panic11 gay/panic12 gay/panic13 gay/panic14 gay/panic15 gay/panic16 gay/panic17 gay/panic18 }
+
+gay/hurt1 sounds/npc/fag/gay_damage_aghkv1.wav
+gay/hurt2 sounds/npc/fag/gay_damage_aiieev1.wav
+gay/hurt3 sounds/npc/fag/gay_damage_akv1.wav
+gay/hurt4 sounds/npc/fag/gay_damage_aughv1.wav
+gay/hurt5 sounds/npc/fag/gay_damage_badtouchv1.wav
+gay/hurt6 sounds/npc/fag/gay_damage_crapv1.wav
+gay/hurt7 sounds/npc/fag/gay_damage_eekv1.wav
+gay/hurt8 sounds/npc/fag/gay_damage_fuckinghurtv1.wav
+gay/hurt9 sounds/npc/fag/gay_damage_myspleenv1.wav
+gay/hurt10 sounds/npc/fag/gay_damage_nov1.wav
+gay/hurt11 sounds/npc/fag/gay_damage_owbitchv1.wav
+gay/hurt12 sounds/npc/fag/gay_damage_owv1.wav
+gay/hurt13 sounds/npc/fag/gay_damage_owv2.wav
+gay/hurt14 sounds/npc/fag/gay_damage_painv1.wav
+gay/hurt15 sounds/npc/fag/gay_damage_shatnerv1.wav
+gay/hurt16 sounds/npc/fag/gay_damage_stopitv1.wav
+gay/hurt17 sounds/npc/fag/gay_damage_thathurtv1.wav
+gay/hurt18 sounds/npc/fag/gay_damage_youbitchv1.wav
+
+$random gay/hurt { gay/hurt1 gay/hurt2 gay/hurt3 gay/hurt4 gay/hurt5 gay/hurt6 gay/hurt7 gay/hurt8 gay/hurt9 gay/hurt10 gay/hurt11 gay/hurt12 gay/hurt13 gay/hurt14 gay/hurt15 gay/hurt16 gay/hurt17 gay/hurt18 }
+
+gay/laugh sounds/npc/fag/gay_laughv1.wav
+
 gary/laugh sounds/gary_bwahahaha.wav
 
 example/bump1 sounds/npc/example/example_bump1.wav
