@@ -1032,6 +1032,72 @@ male4/react11 sounds/npc/china/msushi_damage_jesusv2.wav
 
 $random male4/react { male4/react1 male4/react2 male4/react3 male4/react4 male4/react5 male4/react6 male4/react7 male4/react8 male4/react9 male4/react10 male4/react11 }
 
+male5/scream1 sounds/npc/russian/rus_scream1.wav
+male5/scream2 sounds/npc/russian/rus_scream2.wav
+male5/scream3 sounds/npc/russian/rus_scream3.wav
+male5/scream4 sounds/npc/russian/rus_scream4.wav
+
+$random male5/scream { male5/scream1 male5/scream2 male5/scream3 male5/scream4 }
+
+male5/hurt1 sounds/npc/russian/rus_aah.wav
+male5/hurt2 sounds/npc/russian/rus_argh.wav
+male5/hurt3 sounds/npc/russian/rus_gak.wav
+male5/hurt4 sounds/npc/russian/rus_hooligans.wav
+male5/hurt5 sounds/npc/russian/rus_imhit.wav
+male5/hurt6 sounds/npc/russian/rus_ow.wav
+
+$random male5/hurt { male5/hurt1 male5/hurt2 male5/hurt3 male5/hurt4 male5/hurt5 male5/hurt6 }
+
+male5/bump1 sounds/npc/russian/rus_bump1.wav
+male5/bump2 sounds/npc/russian/rus_bump2.wav
+male5/bump3 sounds/npc/russian/rus_bump3.wav
+male5/bump4 sounds/npc/russian/rus_bump4.wav
+male5/bump5 sounds/npc/russian/rus_bump5.wav
+male5/bump6 sounds/npc/russian/rus_bump6.wav
+male5/bump7 sounds/npc/russian/rus_bump7.wav
+
+$random male5/bump { male5/bump1 male5/bump2 male5/bump3 male5/bump4 male5/bump5 male5/bump6 male5/bump7 }
+
+male5/laugh sounds/npc/russian/rus_laugh.wav
+
+male5/taunt1 sounds/npc/russian/rus_tough1.wav
+male5/taunt2 sounds/npc/russian/rus_tough2.wav
+male5/taunt3 sounds/npc/russian/rus_tough3.wav
+male5/taunt4 sounds/npc/russian/rus_tough4.wav
+male5/taunt5 sounds/npc/russian/rus_tough5.wav
+male5/taunt6 sounds/npc/russian/rus_tough6.wav
+
+$random male5/taunt { male5/taunt1 male5/taunt2 male5/taunt3 male5/taunt4 male5/taunt5 male5/taunt6 }
+
+male5/panic1 sounds/npc/russian/rus_seecarnage1.wav
+male5/panic2 sounds/npc/russian/rus_seecarnage2.wav
+male5/panic3 sounds/npc/russian/rus_seecarnage3.wav
+male5/panic4 sounds/npc/russian/rus_seecarnage4.wav
+male5/panic5 sounds/npc/russian/rus_seecarnage5.wav
+male5/panic6 sounds/npc/russian/rus_seecarnage6.wav
+
+$random male5/panic { male5/panic1 male5/panic2 male5/panic3 male5/panic4 male5/panic5 male5/panic6 }
+
+male5/dickout1 sounds/npc/russian/rus_seewang1.wav
+male5/dickout2 sounds/npc/russian/rus_seewang2.wav
+male5/dickout3 sounds/npc/russian/rus_seewang3.wav
+male5/dickout4 sounds/npc/russian/rus_seewang4.wav
+male5/dickout5 sounds/npc/russian/rus_seewang5.wav
+
+$random male5/dickout { male5/dickout1 male5/dickout2 male5/dickout3 male5/dickout4 male5/dickout5 }
+
+male5/react1 sounds/npc/russian/rus_ghasp.wav
+male5/react2 sounds/npc/russian/rus_heey.wav
+male5/react3 sounds/npc/russian/rus_indicate1.wav
+male5/react4 sounds/npc/russian/rus_indicate2.wav
+male5/react5 sounds/npc/russian/rus_indicate3.wav
+male5/react6 sounds/npc/russian/rus_indicate4.wav
+male5/react7 sounds/npc/russian/rus_indicate5.wav
+male5/react8 sounds/npc/russian/rus_indicate6.wav
+male5/react9 sounds/npc/russian/rus_indicate7.wav
+
+$random male5/react { male5/react1 male5/react2 male5/react3 male5/react4 male5/react5 male5/react6 male5/react7 male5/react8 male5/react9 }
+
 gay/scream1 sounds/npc/fag/gay_scream1.wav
 gay/scream2 sounds/npc/fag/gay_scream2.wav
 gay/scream3 sounds/npc/fag/gay_scream3.wav
