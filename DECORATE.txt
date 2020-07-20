@@ -48,4 +48,5 @@ ACTOR RandomNPCSpawner : RandomSpawner 1111
 	DropItem "NPCAsiatic1"
 	DropItem "NPCAsiatic2"
 	DropItem "NPCRussian1"
+	DropItem "NPCRussian2"
 }

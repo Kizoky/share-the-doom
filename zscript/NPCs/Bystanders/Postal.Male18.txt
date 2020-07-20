@@ -1,0 +1,54 @@
+class NPCRussian2 : NPCCore
+{
+	override void NPC_Settings()
+	{
+	
+		NPC_Scream = "male5/scream";
+		NPC_Bump = "male5/bump";
+		NPC_PetitionDeny = "noway";
+		NPC_Dickout = "male5/dickout";
+		NPC_Taunt = "male5/taunt";
+		NPC_Panic = "male5/panic";
+		NPC_Laugh = "male5/laugh";
+		NPC_Reaction = "male5/react";
+
+		WalkingStyle = random[mystyle](1,6);
+		
+
+		MyVoice = frandom[voicef](0.95,1.12);
+		
+
+		class<actor> Head = "NPCHead";
+		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
+		if (MyHead)
+		{
+			MyHead.Angle = self.Angle;
+			let p = NPCHead(MyHead);
+			if (p)
+			{
+				p.Owner = self;
+				HeadHitbox = p;
+			}
+		}
+		
+		int rnd = random[rrr](0,3);
+        Hostility = (rnd == 0) ? "Hostile" : "Pussy";
+		NPCWeapon = "Pistol";
+		
+	}
+	
+	Default
+	{
+		Health 150;
+		Radius 12;
+		Height 65;
+		AttackSound "";
+		PainSound "male5/hurt";
+		DeathSound "male5/hurt";
+		Obituary "%o should replace this text of string.";
+		CameraHeight 59;
+		
+		// Set this to enable custom Hostility and Weapon
+		NPCCore.CustomBehavior true;
+	}
+}
