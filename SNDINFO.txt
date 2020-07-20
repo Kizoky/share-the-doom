@@ -1093,6 +1093,34 @@ gay/hurt18 sounds/npc/fag/gay_damage_youbitchv1.wav
 
 $random gay/hurt { gay/hurt1 gay/hurt2 gay/hurt3 gay/hurt4 gay/hurt5 gay/hurt6 gay/hurt7 gay/hurt8 gay/hurt9 gay/hurt10 gay/hurt11 gay/hurt12 gay/hurt13 gay/hurt14 gay/hurt15 gay/hurt16 gay/hurt17 gay/hurt18 }
 
+gay/bump1 sounds/npc/fag/gay_deadtaunt_assholev1.wav
+gay/bump2 sounds/npc/fag/gay_deadtaunt_idiotv1.wav
+gay/bump3 sounds/npc/fag/gay_taunt_compensatev1.wav
+gay/bump4 sounds/npc/fag/gay_nottalking2mev1.wav
+gay/bump5 sounds/npc/fag/gay_lawsuit1v1.wav
+gay/bump6 sounds/npc/fag/gay_lawsuit2v1.wav
+gay/bump7 sounds/npc/fag/gay_lawsuit3v1.wav
+
+$random gay/bump { gay/bump1 gay/bump2 gay/bump3 gay/bump4 gay/bump5 gay/bump6 gay/bump7 }
+
+gay/dickout1 sounds/npc/fag/gay_seewang_heybuddyyourbarnv1.wav
+gay/dickout2 sounds/npc/fag/gay_seewang_somedignityv1.wav
+gay/dickout3 sounds/npc/fag/gay_seewang_tinytimv1.wav
+gay/dickout4 sounds/npc/fag/gay_seewang_xyzv1.wav
+
+$random gay/dickout { gay/dickout1 gay/dickout2 gay/dickout3 gay/dickout4 }
+
+gay/taunt1 sounds/npc/fag/gay_tough_bringitv1.wav
+gay/taunt2 sounds/npc/fag/gay_tough_cantstopv1.wav
+gay/taunt3 sounds/npc/fag/gay_tough_howaboutsomeofthisv1.wav
+gay/taunt4 sounds/npc/fag/gay_tough_rahv1.wav
+gay/taunt5 sounds/npc/fag/gay_tough_rahv2.wav
+gay/taunt6 sounds/npc/fag/gay_tough_tryandstopmev1.wav
+gay/taunt7 sounds/npc/fag/gay_tough_youthinkimscaredv1.wav
+gay/taunt8 sounds/npc/fag/gay_tough_youthinkthatcanv1.wav
+
+$random gay/taunt { gay/taunt1 gay/taunt2 gay/taunt3 gay/taunt4 gay/taunt5 gay/taunt6 gay/taunt7 gay/taunt8 }
+
 gay/laugh sounds/npc/fag/gay_laughv1.wav
 
 gary/laugh sounds/gary_bwahahaha.wav

@@ -4,10 +4,10 @@ class NPCWhiteDude10 : NPCCore
 	{
 	
 		NPC_Scream = "gay/scream";
-		NPC_Bump = "male1/bump";
+		NPC_Bump = "gay/bump";
 		NPC_PetitionDeny = "noway";
-		NPC_Dickout = "male1/dickout";
-		NPC_Taunt = "male1/taunt";
+		NPC_Dickout = "gay/dickout";
+		NPC_Taunt = "gay/taunt";
 		NPC_Panic = "gay/panic";
 		NPC_Laugh = "gay/laugh";
 		NPC_Reaction = "gay/react";
