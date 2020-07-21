@@ -136,7 +136,7 @@ map WORLD10 "Downtown - Day"
 	cluster=1
 }
 
-map WORLD6 "Richwood - Day" //Very subtle, I know
+map WORLD6 "Ferret Drive"
 {
 	levelnum = 6
 	music=Amb_06
