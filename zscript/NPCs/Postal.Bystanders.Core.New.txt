@@ -863,7 +863,8 @@ class NPCCore : PostalActor
 				bFRIGHTENED = true;
 				Speed = 2;
 				SetStateLabel("PussyChase");
-				A_StartSound(NPC_Scream, CHAN_VOICE, 1.0, ATTN_NORM, MyVoice);
+				// todo: find another way to do this correctly
+				//A_StartSound(NPC_Scream, CHAN_VOICE, 1.0, ATTN_NORM, MyVoice);
 				bNOTARGETSWITCH = true;
 				
 				A_ConcentratedTarget();
