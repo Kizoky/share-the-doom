@@ -12,7 +12,7 @@ DoomEdNums
   32758 = Phonepole
   32757 = RoadRough
   32756 = Billboard
-  //32755 = BillboardOBJ
+  32755 = jacuzi
   32754 = Billboard2
   32753 = BillboardCustom
   32752 = fortyoz

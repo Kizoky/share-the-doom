@@ -5138,3 +5138,24 @@ class RoadRough : PostalDecoration
 		Loop;
 	}
 }
+
+
+class jacuzi : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Hot Tub"
+		Radius 25;
+		Height 30;
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
