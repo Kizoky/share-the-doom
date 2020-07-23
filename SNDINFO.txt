@@ -507,6 +507,8 @@ $random player/healthpipehurt { dudeline11 dudeline62 }
 krotchy/bump sounds/wm_krotchy_getoffme.wav
 krotchy/taunt sounds/wm_krotchy_youthinkyou.wav
 
+bodyfall sounds/bodyhitground1.wav
+
 /////Bystander Lines
 
 dev/scream1 sounds/npc/gamedev/rws_scream.ogg
