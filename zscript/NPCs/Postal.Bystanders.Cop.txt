@@ -9,6 +9,8 @@ class NPCCop : NPCCore
 	
 	override void NPC_Settings()
 	{
+		ThrowAbortException("Cops will crash the game.");
+		
 		//Sounds are defined here for NPCs
 		NPC_Scream = "male1/scream";
 		NPC_Bump = "male1/bump";
