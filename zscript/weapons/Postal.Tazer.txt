@@ -38,8 +38,8 @@ class TazerStun : Powerup
 		Super.Tick();
 		if (owner == null) return;
 		
-		Console.Printf("%d", EffectTics);
-		Console.Printf("%d < %d", TimeBeforeEnd,level.time);
+		//Console.Printf("%d", EffectTics);
+		//Console.Printf("%d < %d", TimeBeforeEnd,level.time);
 		
 		if (TimeBeforeEnd < level.time)
 		{
@@ -92,11 +92,12 @@ class PostTazer : PostalWeapon
 			
 			if (LineData.HitActor is 'postaldoor' || LineData.HitActor is 'postaldoor_extender') return;
 			if (LineData.HitActor is 'postalwindow' || LineData.HitActor is 'postalwindow_extender') return;
+			if (LineData.HitActor is 'postalkarmaactor') return;
 			
 			A_PlaySound("weapons/tazer_hit", CHAN_WEAPON | 4096);
 			if (LineData.HitActor.CheckInventory("TazerStun",1))
 			{
-				Console.Printf("Already has a powerup");
+				//Console.Printf("Already has a powerup");
 				
 				let p = LineData.HitActor.FindInventory("TazerStun");
 				let pp = TazerStun(p);
