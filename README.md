@@ -21,8 +21,8 @@ If you have downloaded the mod from here, on Windows: run build.bat - otherwise 
 
 | Developer | Role |
 | --- | --- |
-| Kizoky | lead developer |
-| olzhas1one | co-lead developer |
+| Kizoky | lead developer, programmer, story writer, mapper |
+| olzhas1one | co-lead developer, story writer, mapper |
 | IDDQD_1337 | custom asset management |
 
 | Credits |
