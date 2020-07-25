@@ -328,6 +328,8 @@ class NPCCore : PostalActor
 	{
 		if (bKILLED) return;
 		
+		if (isFrozen()) return;
+		
 		// If our head hitbox is missing, most likely we are immortal
 		
 		if (HeadHitBox == null && !(self is 'NPCKrotchy'))
@@ -641,7 +643,7 @@ class NPCCore : PostalActor
 	
 	override void Activate(Actor activator)
 	{
-		if (activator)
+		if (activator && !isFrozen())
 		{
 			if (InStateSequence(CurState, ResolveState("Spawn")) || InStateSequence(CurState, ResolveState("Standing")))
 			{
