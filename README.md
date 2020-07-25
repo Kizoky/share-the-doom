@@ -29,6 +29,7 @@ If you have downloaded the mod from here, on Windows: run build.bat - otherwise 
 | --- |
 | Running With Scissors |
 | WhackJob Interactive |
+| KeeRaizy |
 | Marise Kirisame |
 | phantombeta |
 | Jekyll Grim Payne |
