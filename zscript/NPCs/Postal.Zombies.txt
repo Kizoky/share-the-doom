@@ -36,6 +36,8 @@ class NPCZombie : PostalActor
 		{
 			if (InStateSequence(CurState, ResolveState("WalkOne")) || InStateSequence(CurState, ResolveState("WalkTwo")))
 			{
+				if(Distance2D(target) > 250) return;
+				
 				if(Distance2D(target) < 37)
 					SetStateLabel("Melee");
 				else
@@ -142,11 +144,12 @@ class NPCZombie : PostalActor
 	void A_PlanRoute()
 	{
 		if (target == null) return;
-		
-		if(Distance2D(target) > 500)
+		/*
+		if(Distance2D(target) > 500 && !goal)
 		{
-			A_Chase2(null,null);
+			A_Chase(null,null);
 		}
+		*/
 	}
 	
 	Default
@@ -159,7 +162,7 @@ class NPCZombie : PostalActor
 		Health 15;
 		Radius 13;
 		Height 65;
-		Speed 3;
+		Speed 0.1;
 		PainChance 256;
 		Monster;
 		SeeSound "";
@@ -213,7 +216,7 @@ class NPCZombie : PostalActor
 		IDL2 ABCD 3 A_Look;
 		Loop;
 	See:
-		TNT1 A 0
+		#### A 0 NoDelay
 		{
 			int Prob = random[rch3](0,100);
 			if (Prob > 78)
@@ -222,14 +225,14 @@ class NPCZombie : PostalActor
 			}
 			
 			int prob2 = random[rch4](0,100);
-			if (prob2 > 85)
+			if (prob2 > 85 && CheckSight(target, SF_SeePastShootableLines))
 			{
 				SetStateLabel("Missile");
 				return;
 			}
 			
 			int Charge = random[rch5](1,100);
-			if (Charge > 85)
+			if (Charge > 85 && CheckSight(target, SF_SeePastShootableLines))
 			{
 				SetStateLabel("Charge");
 				return;
@@ -243,12 +246,12 @@ class NPCZombie : PostalActor
 		IDLE A 1 A_Star;
 		Loop;
 	WalkOne:
-		WALK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); A_PlanRoute(); }
-		WAL2 ABCD 3 { A_Recoil(-0.35); A_PlanRoute(); }
+		WALK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); A_Chase(); }
+		WAL2 ABCD 3 { A_Recoil(-0.35); A_Chase(); }
 		Goto See;
 	WalkTwo:
-		W2LK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); A_PlanRoute(); }
-		W2L2 ABCD 3 { A_Recoil(-0.35); A_PlanRoute(); }
+		W2LK ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { A_Recoil(-0.25); A_Chase(); }
+		W2L2 ABCD 3 { A_Recoil(-0.35); A_Chase(); }
 		Goto See;
 	Charge:
 		CHAR ABCDEFGHIJKLMNOPQRSTUVWXYZ 2
