@@ -37,4 +37,6 @@ If you have downloaded the mod from here, on Windows: run build.bat - otherwise 
 | Project Brutality (UT bobbing) |
 | Lewisk3 (StatusBarScreen) |
 | m8f (Stupid Achievements) |
+| Cherno (SunSim Shader) |
+| TheMisterCat (Splatmap shader) |
 | ... |
