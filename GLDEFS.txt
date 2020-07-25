@@ -2,6 +2,8 @@
 #include "GLDEF-Textures.gl"
 #include "GLDEF-Props.gl"
 #include "GLDEF-Sun.gl"
+#include "GLDEF-Splatmap.gl"
+
 
 PointLight Light_FloatingTestLight
 {
