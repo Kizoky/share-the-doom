@@ -1,7 +1,7 @@
 //Big thanks to TheMisterCat for the Splatmap shader
 
 
-material texture "textures/htopos/TERRAINTEST.png"
+material texture "textures/htopos/terraintest.png"
  { 
  shader "shaders/glsl/splatmap.gl" 
     texture tex_in2 "textures/STV-3/Texture/dirt-yellow.png"
