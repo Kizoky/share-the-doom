@@ -1,7 +1,7 @@
 Model "NPCAsiatic1"
 {
 	Path "models\misc\NPCs\MaleWhite"
-	Model 0 "Malewithheadout.md3"
+	Model 0 "Char01.md3"
 	SurfaceSkin 0 0 "body/Avg_M_SS_Pants_AsianTourist01.png"
 	SurfaceSkin 0 1 "head/AvgMale_BillyBob_A01.png"
 	AngleOffset 270
@@ -245,7 +245,7 @@ Model "NPCAsiatic1"
 Model "NPCAsiatic1"
 {
 	Path "models\misc\NPCs\MaleWhite"
-	Model 0 "Malewithheadout.md3"
+	Model 0 "Char01.md3"
 	SurfaceSkin 0 0 "body/Avg_M_SS_Pants_AsianTourist01.png"
 	SurfaceSkin 0 1 "invis.png"
 	AngleOffset 270
@@ -301,7 +301,7 @@ Model "NPCAsiatic1"
 Model "NPCAsiatic1"
 {
 	Path "models\misc\NPCs\MaleWhite"
-	Model 0 "MalewithPistolout.md3"
+	Model 0 "Char01_Pistol.md3"
 	SurfaceSkin 0 0 "body/Avg_M_SS_Pants_AsianTourist01.png"
 	SurfaceSkin 0 1 "head/AvgMale_BillyBob_A01.png"
 	SurfaceSkin 0 2 "desertEagle_256.tga"
