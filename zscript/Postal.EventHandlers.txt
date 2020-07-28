@@ -546,8 +546,10 @@ class DudeCoreHandler : EventHandler
 						let pa = PostalActor(e.Thing);
 						if (pa && pa.STD_NoKillLine) return;
 						
-						if (p.PlayerData && level.time > p.PlayerData.TimeBeforeDudeLine)
+						if (p.PlayerData && !p.PlayerData.DudeLineTriggered && level.time > p.PlayerData.DudeLineCooldown)
+						{
 							p.InitLine = true;
+						}
 					}
 				}
 			}
