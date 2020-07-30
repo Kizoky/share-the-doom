@@ -34,3 +34,12 @@ material texture "textures/htopos/TERRAINTEST3.jpg"
     texture tex_in3 "textures/mount/cliff-3.png"
     texture tex_in1 "textures/ParadiseLost/RevTextures01/Texture/Rocks01Tex.png"
  }
+ 
+material texture "textures/htopos/WORLD2_z2bixpkz.jpg"
+ { 
+ shader "shaders/glsl/splatmap.gl" 
+    texture tex_in2 "textures/STD/Zo_Industrial/Texture/zo_asphalt1.png"
+    texture tex_in3 "textures/STD/Zo_Industrial/Texture/zo_asphalt1.png"
+    texture tex_in1 "textures/STV-3/Texture/T1-dirt-chunky.png"
+ }
+ 
