@@ -382,4 +382,13 @@ DoomEdNums
   32416 = iveco
   32415 = pickup_old
   32414 = helicopter
+  32413 = coolant_tower
+  32412 = mill
+  32411 = truss
+  32410 = watertank1
+  32409 = smokestack1
+  32408 = zo_funnel
+  32407 = watertank2
+  32406 = trans1
+  32405 = trans2
 }

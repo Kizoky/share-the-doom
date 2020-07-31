@@ -5159,3 +5159,182 @@ class jacuzi : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class coolant_tower : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Coolant Tower"
+		Radius 25;
+		Height 30;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class mill : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Mill Tower"
+		Radius 25;
+		Height 30;
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class truss : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Truss"
+		Radius 25;
+		Height 30;
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class watertank1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Water Tank 1"
+		Radius 145;
+		Height 300;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class smokestack1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Smokestack Brick"
+		Radius 75;
+		Height 450;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class zo_funnel : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Funnel"
+		Radius 25;
+		Height 30;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class watertank2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Water tank 2 Rusty"
+		Radius 125;
+		Height 400;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class trans1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Transformer 1"
+		Radius 25;
+		Height 30;
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class trans2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Transformer 2"
+		Radius 25;
+		Height 30;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

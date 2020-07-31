@@ -195,7 +195,7 @@ map BLISS "The Bliss"  ///Some story related stuff
 map OLZTEST "Nazi Testing Camp" 
 {
 	levelnum = 1488
-	music=kizoky
+	//music=kizoky
 	sky1=F_SKY1
 	cluster=1352
 }

@@ -4927,3 +4927,153 @@ Model "helicopter"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "coolant_tower"
+{
+	Path "models\props"
+	Model 0 "zo_coolanttower.md3"
+	SurfaceSkin 0 0 "zo_corrugatedgray.png"
+	SurfaceSkin 0 1 "zo_graymetal1.png"
+	SurfaceSkin 0 2 "zo_corrugated1.png"
+	SurfaceSkin 0 3 "zo_graywood.png"
+	SurfaceSkin 0 4 "zo_wash_opaque.png"
+	AngleOffset 0
+	Scale -5 -5 5
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "mill"
+{
+	Path "models\props"
+	Model 0 "zo_milltower2.md3"
+	SurfaceSkin 0 0 "zo_whiteflakeymetal.png"
+	SurfaceSkin 0 1 "zo_blackmetalic.png"
+	SurfaceSkin 0 2 "zo_genericdarkgray.png"
+	AngleOffset 0
+	Scale -35 -35 35
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "truss"
+{
+	Path "models\props"
+	Model 0 "zo_struct_truss.md3"
+	SurfaceSkin 0 0 "zo_truss.png"
+	SurfaceSkin 0 1 "zo_genericred.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset -165 0 -10	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "watertank1"
+{
+	Path "models\props"
+	Model 0 "zo_tanks1.md3"
+	SurfaceSkin 0 0 "zo_layeredconcrete.png"
+	AngleOffset 0
+	Scale -5 -5 5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "smokestack1"
+{
+	Path "models\props"
+	Model 0 "zo_napalm_smokestack.md3"
+	SurfaceSkin 0 0 "zo_napalmbrick.png"
+	SurfaceSkin 0 1 "zo_napalmbrick_trim.png"
+	AngleOffset 0
+	Scale -5 -5 5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "zo_funnel"
+{
+	Path "models\props"
+	Model 0 "zo_napalm_funnel.md3"
+	SurfaceSkin 0 0 "zo_rust0.png"
+	SurfaceSkin 0 1 "zo_rust1.png"
+	AngleOffset 0
+	Scale -5 -5 5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "watertank2"
+{
+	Path "models\props"
+	Model 0 "zo_aftank2.md3"
+	SurfaceSkin 0 0 "zo_rivets1.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 -1
+	Offset 0 0 427	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "trans1"
+{
+	Path "models\props"
+	Model 0 "zo_transformer1.md3"
+	SurfaceSkin 0 0 "zo_corrugatedgray.png"
+	SurfaceSkin 0 1 "zo_corrugatedgraytop.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 -0.5
+	Offset 5 15 40	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "trans2"
+{
+	Path "models\props"
+	Model 0 "zo_transformer2.md3"
+	SurfaceSkin 0 0 "zo_whitestained.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 -0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
