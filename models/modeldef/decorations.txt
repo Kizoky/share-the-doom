@@ -5054,7 +5054,7 @@ Model "trans1"
 	SurfaceSkin 0 1 "zo_corrugatedgraytop.png"
 	AngleOffset 0
 	Scale -0.5 -0.5 0.5
-	Offset 5 15 0	//X Y Z6.5
+	Offset 35 15 0	//X Y Z6.5
 	USEACTORPITCH
 	USEACTORROLL
 	
