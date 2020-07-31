@@ -391,4 +391,6 @@ DoomEdNums
   32407 = watertank2
   32406 = trans1
   32405 = trans2
+  32404 = tran_spike
+  32403 = gaspipie
 }

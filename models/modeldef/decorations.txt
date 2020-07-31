@@ -5053,8 +5053,8 @@ Model "trans1"
 	SurfaceSkin 0 0 "zo_corrugatedgray.png"
 	SurfaceSkin 0 1 "zo_corrugatedgraytop.png"
 	AngleOffset 0
-	Scale -0.5 -0.5 -0.5
-	Offset 5 15 40	//X Y Z6.5
+	Scale -0.5 -0.5 0.5
+	Offset 5 15 0	//X Y Z6.5
 	USEACTORPITCH
 	USEACTORROLL
 	
@@ -5069,8 +5069,40 @@ Model "trans2"
 	Model 0 "zo_transformer2.md3"
 	SurfaceSkin 0 0 "zo_whitestained.png"
 	AngleOffset 0
-	Scale -0.5 -0.5 -0.5
+	Scale -0.3 -0.3 0.3
+	Offset -22 35 16	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "tran_spike"
+{
+	Path "models\props"
+	Model 0 "zo_transformer_spike.md3"
+	SurfaceSkin 0 0 "zo_genericlightgray.png"
+	SurfaceSkin 0 1 "zo_transformer2.png"
+	AngleOffset 0
+	Scale -1 -1 1
 	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "gaspipie"
+{
+	Path "models\props"
+	Model 0 "zo_gaspipe.md3"
+	SurfaceSkin 0 0 "zo_gaspipe.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 36	//X Y Z6.5
 	USEACTORPITCH
 	USEACTORROLL
 	

@@ -5338,3 +5338,42 @@ class trans2 : PostalDecoration
 		Loop;
 	}
 }
+
+
+class tran_spike : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Transformer Spike"
+		Radius 20;
+		Height 65;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class gaspipie : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Gas Pipe"
+		Radius 5;
+		Height 65;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
