@@ -174,7 +174,7 @@ class PostalDude : PlayerPawn
 					KillWithProj = true;
 			}
 			
-			Console.Printf("initline triggered");
+			//Console.Printf("initline triggered");
 			
 			PlayerData.TimeBeforeDudeLine = level.time + 30;
 			PlayerData.DudeLineTriggered = true;
