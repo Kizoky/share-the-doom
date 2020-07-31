@@ -95,7 +95,9 @@ class PostTazer : PostalWeapon
 			if (LineData.HitActor is 'postalkarmaactor') return;
 			if (LineData.HitActor is 'postaldecoration') return;
 			
-			A_PlaySound("weapons/tazer_hit", CHAN_WEAPON | 4096);
+			if (!(IsActorPlayingSound(CHAN_WEAPON)))
+				A_PlaySound("weapons/tazer_hit", CHAN_WEAPON | 4096);
+			
 			if (LineData.HitActor.CheckInventory("TazerStun",1))
 			{
 				//Console.Printf("Already has a powerup");
