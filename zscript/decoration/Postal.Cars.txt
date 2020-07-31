@@ -617,3 +617,21 @@ class iveco2 : PostalDecoration
 		Loop;
 	}
 }
+
+
+class helicopter : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Helicopter"
+		Radius 55;
+		Height 88;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

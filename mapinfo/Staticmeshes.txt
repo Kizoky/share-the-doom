@@ -381,5 +381,5 @@ DoomEdNums
   32417 = trashtruk
   32416 = iveco
   32415 = pickup_old
-  32414 = iveco2
+  32414 = helicopter
 }

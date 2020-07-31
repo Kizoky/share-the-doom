@@ -4908,3 +4908,22 @@ Model "jacuzi"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+
+Model "helicopter"
+{
+	Path "models\props"
+	Model 0 "Heli.md3"
+	SurfaceSkin 0 0 "heli01.png"
+	SurfaceSkin 0 1 "heli_window.png"
+	SurfaceSkin 0 2 "heli01.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0.0 0 0 //X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
