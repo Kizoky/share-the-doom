@@ -12,7 +12,7 @@ class DudeCoreHandler : EventHandler
 			Level.Mapname ~== "titlemap" ||
 			Level.Mapname ~== "screent" ||
 			Level.Mapname ~== "devmap" ||
-			Level.Mapname.Left(3) ~== "BLISS" ||
+			Level.Mapname ~== "BLISS" ||
 			Level.Mapname.Left(3) ~== "SEW")
 		{
 			STD_Levels = true;
