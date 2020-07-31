@@ -862,7 +862,7 @@ class PostalDude : PlayerPawn
 	{
 		if (PlayerData == null) return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		
-		PlayerData.isinPainCooldown = level.time + 35;
+		PlayerData.isinPainCooldown = level.time + 35 * 2;
 		PlayerData.isinPainAlpha = 0;
 		isinPain = true;
 		

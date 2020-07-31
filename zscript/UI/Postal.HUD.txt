@@ -188,8 +188,8 @@ class PostalStatusBar : BaseStatusBar
 		{
 			if (PPlayer.isinPain == true)
 			{
-				DrawImage ("YourDead", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.65)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (HealthtoAlpha, HealthtoAlpha));
-				DrawImage ("YourRed", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.60)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (HealthtoAlpha, HealthtoAlpha));
+				DrawImage ("YourDead", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.40)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (HealthtoAlpha, HealthtoAlpha));
+				DrawImage ("YourRed", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.35)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (HealthtoAlpha, HealthtoAlpha));
 				
 				// Experimental hurt bars
 				
