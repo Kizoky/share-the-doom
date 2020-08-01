@@ -4988,7 +4988,7 @@ Model "watertank1"
 	Model 0 "zo_tanks1.md3"
 	SurfaceSkin 0 0 "zo_layeredconcrete.png"
 	AngleOffset 0
-	Scale -5 -5 5
+	Scale -10 -10 10
 	Offset 0 0 0	//X Y Z6.5
 	USEACTORPITCH
 	USEACTORROLL

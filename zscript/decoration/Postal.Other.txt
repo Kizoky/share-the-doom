@@ -5230,8 +5230,8 @@ class watertank1 : PostalDecoration
 	{
 		//$Category Industrial
 		//$Title "Water Tank 1"
-		Radius 145;
-		Height 300;
+		Radius 300;
+		Height 650;
 		+SOLID;
 	}
 	States
