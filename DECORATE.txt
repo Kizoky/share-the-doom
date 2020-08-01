@@ -30,7 +30,10 @@ ACTOR SlomoScreenGiver : PowerupGiver
 
 
 ACTOR RandomNPCSpawner : RandomSpawner 1111
-{
+{ 
+		//$Category NPCs
+		//$Title "Random NPC Spawner"
+		//$Sprite ZSRNA0
     DropItem "NPCWhiteDude"
     DropItem "NPCWhiteDude2"
 	DropItem "NPCWhiteDude3"
