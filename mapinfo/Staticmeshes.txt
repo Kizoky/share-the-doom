@@ -393,4 +393,5 @@ DoomEdNums
   32405 = trans2
   32404 = tran_spike
   32403 = gaspipie
+  32402 = chainfence
 }

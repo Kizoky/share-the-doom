@@ -5377,3 +5377,22 @@ class gaspipie : PostalDecoration
 		Loop;
 	}
 }
+
+class chainfence : PostalDecoration
+{
+	Default
+	{
+		//$Category Fences
+		//$Title "Chainlink Fence"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
