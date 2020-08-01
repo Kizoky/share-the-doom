@@ -4,8 +4,8 @@
 material texture "textures/htopos/terraintest.png"
  { 
  shader "shaders/glsl/splatmap.gl" 
-    texture tex_in2 "textures/STV-3/Texture/dirt-yellow.png"
-    texture tex_in3 "textures/STV-3/Texture/T1-dirt-chunky.png"
+    texture tex_in2 "textures/STV-3/Texture/T1-dirt-chunky.png"
+    texture tex_in3 "textures/STV-3/Texture/dirt-yellow.png"
     texture tex_in1 "textures/STV-3/Texture/T1-dirt-lumpy.png"
  }
  
