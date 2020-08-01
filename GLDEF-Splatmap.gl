@@ -43,3 +43,11 @@ material texture "textures/htopos/WORLD2_z2bixpkz.jpg"
     texture tex_in1 "textures/STV-3/Texture/T1-dirt-chunky.png"
  }
  
+ 
+material texture "textures/htopos/WORLD3_lxissfe4.jpg"
+ { 
+ shader "shaders/glsl/splatmap.gl" 
+    texture tex_in2 "textures/STD/Zo_Industrial/Texture/zo_asphalt1.png"
+    texture tex_in3 "textures/STD/Zo_Industrial/Texture/zo_asphalt1.png"
+    texture tex_in1 "textures/STV-3/Texture/T1-dirt-chunky.png"
+ }
