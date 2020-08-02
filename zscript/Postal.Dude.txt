@@ -677,25 +677,25 @@ class PostalDude : PlayerPawn
 		{
 			case 1:
 				A_StartSound("Dude_GotHitInCrotch", CHAN_VOICE, CHANF_NOSTOP);
-				TimeBeforeNextPainLine = level.time + 35 * 2;
+				//TimeBeforeNextPainLine = level.time + 35 * 2;
 				break;
 			case 2:
 				int rnd2 = random[rndgrunt](1,9);
 				string Dude_Grunt = string.Format("Dude_Grunt%i",rnd2);
 				A_StartSound(Dude_Grunt, CHAN_VOICE, CHANF_NOSTOP);
-				TimeBeforeNextPainLine = level.time + 15;
+				//TimeBeforeNextPainLine = level.time + 15;
 				break;
 			case 3:
 				int rnd3 = random[rndghit](1,10);
 				string Dude_GotHit = string.Format("Dude_GotHit%i",rnd3);
 				A_StartSound(Dude_GotHit, CHAN_VOICE, CHANF_NOSTOP);
-				TimeBeforeNextPainLine = level.time + 35 * 2.3;
+				//TimeBeforeNextPainLine = level.time + 35 * 2.3;
 				break;
 			case 4:
 				int rnd4 = random[rndgcuss](1,3);
 				string Dude_Cussing = string.Format("Dude_Cussing%i",rnd4);
 				A_StartSound(Dude_Cussing, CHAN_VOICE, CHANF_NOSTOP);
-				TimeBeforeNextPainLine = level.time + 25;
+				//TimeBeforeNextPainLine = level.time + 25;
 				break;
 			default:
 				break;
