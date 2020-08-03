@@ -1,3 +1,259 @@
+
+material texture "models/misc/NPCs/MaleWhite/body/AvgMale_Troll01.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/Avg_M_SS_Pants_AsianTourist01.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/Avg_M_SS_Pants_AsianTourist02.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MM__027__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MM__052__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MM__210__Tall_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__022__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__024__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__025__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__028__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__055__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__059__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__160__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__367__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__437__Fat_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__828__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__829__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__830__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__831__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/body/MW__832__Avg_M_SS_Pants.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/AvgMale_BillyBob_A01.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/AvgMale_BillyBob_Asian01.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/Head_Downerup.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/Head_Jon_M.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/Head_Kamek.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MMA__003__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MMA__016__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__002__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__004__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__005__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__006__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__007__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__008__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__009__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__010__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__011__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__015__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__035__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__432__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__436__AvgMale.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/MaleWhite/head/MWA__469__AvgRussianMob.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/AvgMale_RWS_Dev01.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/desertEagle_256.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/MWA__002__KURT.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/MWA__006__JON.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/MWA__008__MIKEJ.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/MWA__010__BOB.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/MWA__010__MICK.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/MWA__010__RICK.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/MWA__010__RICKKI.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/misc/NPCs/WJIguys/head/PU_CEO_Head.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
 material texture "models/props/7th_heaven.png"
 {
 	shader "shaders/simsun_prop.fp"
@@ -1459,6 +1715,2211 @@ material texture "models/props/zo_wirebundle.png"
 }
 
 material texture "models/props/zo_wires_notile.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/100bill.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/40_bottom_copy.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/40_cap.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/40_juice.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/69back1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/69back2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/69FABRIC.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/69head.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/69REK.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/69tyre.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/69tyres.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/7up01a.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/7up_Front01a_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/AC_unit_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/airliner_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/APC_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/asphalt-1-tile-256-C.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/Asylum.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/Asylum_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/Asylum_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/ATF_tank_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bank.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bank_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bank_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bball_HOOP_texture.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bball_net__TRANS_texture.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bed_bars_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bewareofdog.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bewareofdog2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/billboard-custom.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/billboard-placeholder.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/black_metal_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/black_panel_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/black_panel_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/black_panel_timb_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/blue-128-dirty.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bondage_ring_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/booksa_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/booksa_timb_new.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/booksa_timb_new_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/boombox.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bureau_decor_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bureau_side_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bush_bark_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bush_manicured_NEW.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/bush_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/camper.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/campground.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/campground_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/candle_end_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_copcar_new.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_copcar_new_burnt.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_copcar_security_vandalized_burnt.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_cop_cruiser2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_crushaa1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_crushaa3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_minivan.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_minivan_new_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_schoolbus_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_smocklar.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_taxist_new.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/car_underbelly.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/ceiling_fan.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/cemetery.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/cemetery_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/cemetery_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/ceramic-roof-tile-blue-JL.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/ceramic-roof-tile-red-JL.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/chair_dinner.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/chair_dinner_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/champ_bone_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/champ_spraypaint_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/champ_spraypaint_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/chandelier_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/church.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/cigs_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/clock.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/coffin_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/coffin_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/Coke_Front01a_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/Coke_Side01a_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/concrete-dingy-JL.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/confessional1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/constr2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/constr_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/constr_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/cop_car_security.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/crackola_vender_side_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/crackola_vender_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/crack_pipe_metal_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dairy_marquis_grate_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dairy_marquis_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/darkbrown_leather.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/darkwood_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/darkwood_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/deli_door.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/digital_tues.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/doghouse_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/doghouse_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dog_shit.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/doughnut_chocolate_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/doughnut_chocolate_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/doughnut_slimey_glazed_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dresser_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dresser_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dryer_single_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_4.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_5.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_6.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_7.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_8.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/dull_metal_9.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/exec_desk_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/exec_desk_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/FeeOfA_ATM_new.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/feeofa_counter.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/feeofa_counter2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/feeofa_counter2_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/feeofa_counter_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/fence_country.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/fence_country_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/first_aid.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/first_aid2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/foodbowl_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/fridge_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/fslamp_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/garbagebag_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/garbageTruck.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/garbage_can_metal_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/garbage_can_ss_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/garbage_can_ss_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/gas_price_sign.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/gas_pump_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/gas_sign.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/ghetto40.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/glass-brick-64.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/goblintree_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/goblintree_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/gothic_bureau_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/grave_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/grave_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/green-128-dirty.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/guard_tower_roof.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/gurney_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/halogen_lamp.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/hookah_texture.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/hospital_bed_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/hydrant_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/i-beam_2-256x1024-sw.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/i-beam_2-256x1024-sw_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/icebox-top-vent-dk.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/interstate_sign.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/interstate_sign_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/interstate_sign_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/interstate_sign_paradise.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/interstate_sign_religious.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/invis.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/iveco.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/iveco2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/jailbars.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/jarshelf_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/jarshelf_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/krotchy_larry_toy.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/lamp2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/lampshade2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/leaves3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/leaves666.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/library_bookshelf.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/light_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/machinegun_flare.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/machine_gun_corona.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/mailbox_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/matress_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/matress_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_10.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_11.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_12.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_13.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_14.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_15.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_16.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_17.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_18.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_19.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_20.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_21.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_22.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_4.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_5.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_6.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_7.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_8.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/metal_bar_timb_9.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/mex_rustybrown.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/mex_rustybrown_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/milk_cage_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/milk_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_blue.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_blue_burnt.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_brown.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_brown_burnt.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_gold.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_gold_burnt.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_green.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_green_burnt.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/minivan_white_burnt.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/moneybag.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/nasty666.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/noskid_plate_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/outhouse_door.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/outhouse_door_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/outhouse_roof.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/outhouse_roof_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/outhous_walls.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/outhous_walls_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/palmfranz_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/palmtree_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/palm_bark_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/palm_branch_new.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/palm_brush_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/palm_stick_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/payphone_front.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/payphone_side.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/pear.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/pine_bark.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/pine_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/pistol_corona.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/pistol_flare.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/plaid_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/plaid_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/police_station.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/porcelain2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/porcelain_drain.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/porcelain_immaculate_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/porcelain_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/razorwire_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/rc_ahead.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/rc_pole.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/refrigerator_NEW_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/rs_keepright.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/Ruf-wood-256.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/rusty-waffletread-sw.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/rusty-waffletread-sw_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/rusty_gerder_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/saguaro.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/searchformytexture.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sedan.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sedan_black.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sedan_blue.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sedan_gold.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sedan_red.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sheets_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sheets_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelf2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelf3_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelfside_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelfside_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelfside_timb_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelfside_timb_4.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelfside_timb_5.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelfside_timb_6.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelf_hires1_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelf_hires2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelf_hires4_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shelf_hires_pickles_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shotgun_corona.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/shotgun_flare.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/side_of_beef_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sign_grime.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sign_grime_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sign_grime_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sign_grime_4.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sign_grime_5.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_10.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_11.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_12.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_13.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_14.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_4.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_5.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_6.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_7.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_8.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/simwood_9.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/slippery_when_wet.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/slushie.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/slushie_handle_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_blue.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_burnt_blue.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_burnt_cream.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_burnt_red.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_burnt_silver.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_cream.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_engine.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_new_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/smocklar_red.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sports_back.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sports_black.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sports_front.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sports_side.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sports_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sports_wheel.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/sports_wheeltop.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/ss_nopeds.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/stop_sign_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/stove.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/stove2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/streetlight_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/stucco-dk-stained.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/table_4_food_court.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/tacky80slamp.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/tazer_mf.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/telephone-pole-256.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/tin-roof-rusted-sw.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/toilethole_immaculate_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/toilethole_pissy_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/toilethole_slightly_dirty_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/trailer_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/trash_mcdonalds_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/tree_bark.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/urinate_here_sign.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/washer_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/welcome-mat_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/wheel_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/wicker_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/wires_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/wood-fence-nasty-dark-solid-sw.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/wool_blanket_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/wool_blanket_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/wornleather_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_billboardback.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_cactus.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_foa_ad1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_graymetal1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_graymetal1_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_graywood.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_rivets1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_rivets1_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_rust0.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_rust0_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_telephonepole.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_transformer.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_truss.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_truss_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/props/textures/zo_woodtiles.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/Dude.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_DISP.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_NORM.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_NRM.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_SPEC.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/baton/baton_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/clipboard/blank.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/clipboard/clipboard_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/cowhead/CowHead_new.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/cowhead/scissors_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/gascan/gas_can_label.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/gascan/gas_can_metal.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/gascan/Matchbox.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/machinegun/brass-01_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/machinegun/m-16_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/matchbox/Matchbox_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/molotov/Matchbox_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/molotov/molotov_glass2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/molotov/molotov_label3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/napalmlauncher/crosshairs_ben.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/napalmlauncher/napalmCanister.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/napalmlauncher/napalmGun_JL.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/pistol/pistol_brass.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/pistol/pistol_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_10.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_11.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_12.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_13.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_3.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_4.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_5.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_6.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_7.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_8.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_9.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_full.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_NEW.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/launcher_timb2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/rocket_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/scissors/scissors_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/scythe/ScytheBlade.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/scythe/ScytheMetal.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/scythe/Scythewood.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/shotgun/shotgun_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/shovel/shovel_texture.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/sledge/sledge_1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/sledge/sledge_wood.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/sniper/brass-01_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/sniper/sniper_timb_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/tazer/taser_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/WMD/WMD.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/animals/textures/Cat_Orange.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/animals/textures/Dog.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/cashregister-sides.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/catpic.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/chair_dinner.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/Cleaner_Products_Tex.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/computer-keyboard.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/computer-monitor.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/computer-vents.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/computer.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/exec_desk_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/garbagebag_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/garbage_can_metal_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/garbage_can_ss_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/garbage_can_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/LAMP.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/lamp2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/lampshade2_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/lung_dumplings_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/mayonaisse_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/microwave_01.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/pickle_jar_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/tacky80slamp.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/tamxxx_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/physobj/tiny-dk-wood-sw.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/inv/100bill.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/inv/crack_pipe_metal_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/inv/doughnut_chocolate_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/inv/pizza-slice.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/grenade/grenade3_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/grenade/jailbars.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/machete/machete_1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "models/weapons/a_textures/machete/machete_2.png"
 {
 	shader "shaders/simsun_prop.fp"
 }

@@ -1,0 +1,22 @@
+Enter path to folder (i.e. "models\props\*.png") without "" (must be .png at the end)
+
+material texture "share-the-doom/models/weapons/a_textures/grenade/grenade3_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "share-the-doom/models/weapons/a_textures/grenade/jailbars.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "share-the-doom/models/weapons/a_textures/machete/machete_1.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
+material texture "share-the-doom/models/weapons/a_textures/machete/machete_2.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
+
