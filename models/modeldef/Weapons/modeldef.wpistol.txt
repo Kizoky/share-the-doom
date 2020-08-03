@@ -217,9 +217,9 @@ Model "PostPistol"
 	Model 0 "PistolPickup.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "pistol/pistol_timb.png"
-	SurfaceSkin 0 1 "pistol/pistol_brass.png"
+	Path "models\weapons\a_textures\pistol" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "pistol_timb.png"
+	SurfaceSkin 0 1 "pistol_brass.png"
 	
 	AngleOffset 90 //40
 	RollOffset 90

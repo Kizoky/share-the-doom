@@ -4,11 +4,11 @@ Model "PostScythe"
 	Model 0 "PostScythe.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "scythe/ScytheBlade.tga"
-	SurfaceSkin 0 2 "scythe/ScytheMetal.tga"
-	SurfaceSkin 0 3 "scythe/Scythewood.tga"
+	Path "models\weapons\a_textures\scythe" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "ScytheBlade.png"
+	SurfaceSkin 0 2 "ScytheMetal.png"
+	SurfaceSkin 0 3 "Scythewood.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 1 0 -12 //X Y Z
@@ -100,10 +100,10 @@ Model "ThrownScythe"
 	Model 0 "Scythe_throw.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "scythe/ScytheBlade.tga"
-	SurfaceSkin 0 1 "scythe/ScytheMetal.tga"
-	SurfaceSkin 0 2 "scythe/Scythewood.tga"
+	Path "models\weapons\a_textures\scythe" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "ScytheBlade.png"
+	SurfaceSkin 0 1 "ScytheMetal.png"
+	SurfaceSkin 0 2 "Scythewood.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 0 0 11 //X Y Z
@@ -122,10 +122,10 @@ Model "PostScythe"
 	Model 0 "ScythePickup.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "scythe/ScytheBlade.tga"
-	SurfaceSkin 0 1 "scythe/ScytheMetal.tga"
-	SurfaceSkin 0 2 "scythe/Scythewood.tga"
+	Path "models\weapons\a_textures\scythe" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "ScytheBlade.png"
+	SurfaceSkin 0 1 "ScytheMetal.png"
+	SurfaceSkin 0 2 "Scythewood.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 0 0 0 //X Y Z

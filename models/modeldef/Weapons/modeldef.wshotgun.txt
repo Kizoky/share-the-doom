@@ -4,12 +4,12 @@ Model "PostShotgun"
 	Model 0 "PostShotgun.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "shotgun/shotgun_timb.png"
-	SurfaceSkin 0 2 "dude_hands.png"
-	SurfaceSkin 0 3 "dude_hands.png"
-	SurfaceSkin 0 4 "dude_hands.png"
+	Path "models\weapons\a_textures\shotgun" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "shotgun_timb.png"
+	SurfaceSkin 0 2 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 3 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 4 "models\weapons\a_textures\dude_hands.png"
 	
 	AngleOffset 0 //40
 	Scale -1.25 0.70 1.25
@@ -108,8 +108,8 @@ Model "PostShotgun"
 	Model 0 "ShotgunPickup.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "shotgun/shotgun_timb.png"
+	Path "models\weapons\a_textures\shotgun" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "shotgun_timb.png"
 	
 	AngleOffset 90 //40
 	RollOffset 90

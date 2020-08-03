@@ -4,9 +4,9 @@ Model "PostUrethra"
 	Model 0 "PostUrethra.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "urethra/Censored.tga"
-	SurfaceSkin 0 1 "urethra/Censored.tga"
+	Path "models\weapons\a_textures\urethra" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "Censored.png"
+	SurfaceSkin 0 1 "Censored.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 1 0 -12 //X Y Z

@@ -4,10 +4,10 @@ Model "PostTazer"
 	Model 0 "PostTazer.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "tazer/taser_timb.tga"
-	SurfaceSkin 0 2 "gascan/gas_can_metal.tga"
+	Path "models\weapons\a_textures\tazer" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "taser_timb.png"
+	SurfaceSkin 0 2 "models\weapons\a_textures\gascan\gas_can_metal.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 1 -1.000000 -10.0000 //X Y Z
@@ -144,9 +144,9 @@ Model "PostTazer"
 	Model 0 "TazerPickup.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "tazer/taser_timb.tga"
-	SurfaceSkin 0 1 "gascan/gas_can_metal.tga"
+	Path "models\weapons\a_textures\tazer" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "taser_timb.png"
+	SurfaceSkin 0 1 "models\weapons\a_textures\gascan\gas_can_metal.png"
 	
 	AngleOffset 90 //40
 	RollOffset 90

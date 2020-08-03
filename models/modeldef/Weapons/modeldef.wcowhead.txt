@@ -163,8 +163,8 @@ Model "PostalCowhead"
 	Model 0 "CowHeadPickup.md3"
 	
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "cowhead/CowHead_new.tga"
+	Path "models\weapons\a_textures\cowhead" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "CowHead_new.png"
 	AngleOffset 90 //40
 	Scale -1 0.75 1
 	Offset 0 0 0 //X Y Z

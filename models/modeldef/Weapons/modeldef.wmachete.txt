@@ -148,9 +148,9 @@ Model "ThrownMachete"
 	Model 0 "Machete_throw.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "machete/machete_1.png"
-	SurfaceSkin 0 1 "machete/machete_2.png"
+	Path "models\weapons\a_textures\machete" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "machete_1.png"
+	SurfaceSkin 0 1 "machete_2.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 0 0 11 //X Y Z
@@ -169,9 +169,9 @@ Model "PostMachete"
 	Model 0 "MachetePickup.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "machete/machete_1.png"
-	SurfaceSkin 0 1 "machete/machete_2.png"
+	Path "models\weapons\a_textures\machete" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "machete_1.png"
+	SurfaceSkin 0 1 "machete_2.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 0 0 0 //X Y Z
