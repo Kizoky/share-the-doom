@@ -559,6 +559,15 @@ class NPCCore : PostalActor
 	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
+		if (!IsActorPlayingSound(CHAN_VOICE))
+		{
+			if (Health > damage)
+				A_StartSound(PainSound, CHAN_VOICE, CHANF_DEFAULT, 1.0, ATTN_NORM, MyVoice);
+		}
+		else
+			if (damage > Health)
+				A_StartSound(DeathSound, CHAN_VOICE, CHANF_DEFAULT, 1.0, ATTN_NORM, MyVoice);
+		
 		if (source != self)
 		{	
 			if (source is 'PostalDecoration')
@@ -675,7 +684,7 @@ class NPCCore : PostalActor
 		PainChance 256;
 		Monster;
 		SeeSound "";
-		AttackSound "weapons/pistol";
+		AttackSound "";
 		PainSound "male1/hurt";
 		DeathSound "male1/death";
 		ActiveSound "";
@@ -1110,7 +1119,7 @@ class NPCCore : PostalActor
 	Pain:
 		DUDE A 0 { if (gotPissedOn == true) { isAfterTarget = false; SetStateLabel("Debug"); }}
 		DUDE A 0 { isBusy = false; }
-		DUDE A 3 A_Pain;
+		DUDE A 3;
 		DUDE A 0 { return ResolveState("See"); }
 	Bumping:
 		DUDE A 0 A_StartSound(NPC_Bump, CHAN_VOICE, CHANF_DEFAULT, 1.0, ATTN_NORM, MyVoice);
@@ -1360,7 +1369,7 @@ class NPCCore : PostalActor
 	Death:
 		DUDD A 0 
 		{
-			A_Scream();
+			//A_Scream();
 			
 			if (NPCWeapon ~== "Hands")
 				return;
@@ -1393,7 +1402,7 @@ class NPCCore : PostalActor
 	Headless.Death:
 		XYXY A 0 
 		{
-			A_Scream();
+			//A_Scream();
 		}
 		XYXY ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
 		XYX2 A 0 A_NoBlocking;
