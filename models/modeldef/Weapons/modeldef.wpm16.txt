@@ -88,7 +88,7 @@ Model "PostM16"
 	Model 0 "MachineGunPickup.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "models\weapons\a_textures\pistol" // after model is loaded, redirect to texture path
+	Path "models\weapons\a_textures\machinegun" // after model is loaded, redirect to texture path
 	SurfaceSkin 0 0 "m-16_timb.png"
 	
 	AngleOffset 90 //40
