@@ -4,10 +4,10 @@ Model "PostM16"
 	Model 0 "PostMachinegun.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "machinegun/m-16_timb.png"
-	SurfaceSkin 0 2 "machinegun/m-16_timb.png"
+	Path "models\weapons\a_textures\machinegun" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "m-16_timb.png"
+	SurfaceSkin 0 2 "m-16_timb.png"
 	AngleOffset -6
 	Scale -1 0.75 1.00
 	Offset 1 0.300000 -10.3000 //X Y Z

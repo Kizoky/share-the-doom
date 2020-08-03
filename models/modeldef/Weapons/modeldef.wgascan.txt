@@ -4,10 +4,10 @@ Model "PostGascan"
 	Model 0 "PostGascan.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "gascan/gas_can_label.tga"
-	SurfaceSkin 0 2 "gascan/gas_can_metal.tga"
+	Path "models\weapons\a_textures\gascan" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "gas_can_label.png"
+	SurfaceSkin 0 2 "gas_can_metal.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 4.0000 0.000000 -8.0000 //X Y Z

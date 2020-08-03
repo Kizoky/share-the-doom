@@ -4,9 +4,9 @@ Model "PostBaton"
 	Model 0 "PostBaton.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "baton/baton_timb.tga"
+	Path "models\weapons\a_textures\baton" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "baton_timb.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 1 0 -26.5 //X Y Z
@@ -126,8 +126,8 @@ Model "PostBaton"
 	Model 0 "BatonPickup.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "baton/baton_timb.tga"
+	Path "models\weapons\a_textures\baton" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "baton_timb.png"
 	
 	AngleOffset 90 //40
 	RollOffset 90

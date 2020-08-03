@@ -4,10 +4,10 @@ Model "PostMachete"
 	Model 0 "PostMachete.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "machete/machete_1.png"
-	SurfaceSkin 0 2 "machete/machete_2.png"
+	Path "models\weapons\a_textures\machete" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "machete_1.png"
+	SurfaceSkin 0 2 "machete_2.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 1 0 -12 //X Y Z

@@ -4,10 +4,10 @@ Model "PostGrenade"
 	Model 0 "PostGrenade.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "grenade/grenade3_timb.tga"
-	SurfaceSkin 0 2 "grenade/jailbars.tga"
+	Path "models\weapons\a_textures\grenade" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "grenade3_timb.png"
+	SurfaceSkin 0 2 "jailbars.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 1.0000 0.000000 -17.0000 //X Y Z

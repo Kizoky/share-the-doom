@@ -4,11 +4,11 @@ Model "PostNapalmLauncher"
 	Model 0 "PostNapalm.md3"
 
 	// You should be able to use another Path here and call models from it.
-	Path "textures\weapons" // after model is loaded, redirect to texture path
-	SurfaceSkin 0 0 "dude_hands.png"
-	SurfaceSkin 0 1 "napalmlauncher/napalmGun_JL.tga"
-	SurfaceSkin 0 2 "napalmlauncher/crosshairs_ben.png"
-	SurfaceSkin 0 3 "napalmlauncher/napalmCanister.tga"
+	Path "models\weapons\a_textures\napalmlauncher" // after model is loaded, redirect to texture path
+	SurfaceSkin 0 0 "models\weapons\a_textures\dude_hands.png"
+	SurfaceSkin 0 1 "napalmGun_JL.png"
+	SurfaceSkin 0 2 "crosshairs_ben.png"
+	SurfaceSkin 0 3 "napalmCanister.png"
 	AngleOffset 0 //40
 	Scale -1 0.75 1
 	Offset 1.7000 0.000000 -6.3000 //X Y Z
