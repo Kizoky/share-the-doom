@@ -382,6 +382,50 @@ class PostalActor : Actor
 	double newang;
 	
 	actor UnstuckHelper;
+	
+	// 99% exactly like C++ A_Wander
+	void A_OldPostalWander (int flags = 0)
+	{
+		// [RH] Strife probably clears this flag somewhere, but I couldn't find where.
+		// This seems as good a place as any.
+		bINCOMBAT = false;
+
+		if (bINCONVERSATION)
+			return;
+
+		if (bSTANDSTILL)
+			return;
+
+		if (reactiontime != 0)
+		{
+			reactiontime--;
+			return;
+		}
+
+		// turn towards movement direction if not there yet
+		if (!(flags & CHF_NODIRECTIONTURN) && (movedir < DI_NODIR))
+		{
+			A_Recoil(-0.35);
+			angle = floor(angle / 45) * 45.;
+			double delta = deltaangle(angle,(moveDir * 45));
+			if (delta < 0)
+			{
+				angle -= 45;
+			}
+			else if (delta > 0)
+			{
+				angle += 45;
+			}
+		}
+
+		if ((--movecount < 0 && !(flags & CHF_NORANDOMTURN)) || (!MonsterMove() && !(flags & CHF_STOPIFBLOCKED)))
+		{
+			RandomChaseDir();
+			movecount += 5;
+		}
+		return;
+	}
+	
 	void A_PostalWander (int flags = 0)
 	{
 		// [RH] Strife probably clears this flag somewhere, but I couldn't find where.
