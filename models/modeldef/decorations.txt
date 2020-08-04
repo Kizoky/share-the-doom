@@ -5127,3 +5127,163 @@ Model "chainfence"
 	
 }
 
+Model "ligomanitura"
+{
+	Path "models\props"
+	Model 0 "zo_aftank.md3"
+	SurfaceSkin 0 0 "zo_rivets1.png"
+	SurfaceSkin 0 1 "zo_smokestack2.png"
+	SurfaceSkin 0 2 "zo_genericgray.png"
+	SurfaceSkin 0 3 "zo_genericdarkgray.png"
+	SurfaceSkin 0 4 "zo_ruststainedconcrete.png"
+	SurfaceSkin 0 5 "zo_graymetal1.png"
+	AngleOffset 0
+	Scale -5 -5 5
+	Offset -70 60 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "generikmaschine1"
+{
+	Path "models\props"
+	Model 0 "zo_genericmachine1.md3"
+	SurfaceSkin 0 0 "zo_genericgreen.png"
+	SurfaceSkin 0 1 "zo_genericgray.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "largedraine"
+{
+	Path "models\props"
+	Model 0 "zo_largedrain.md3"
+	SurfaceSkin 0 0 "zo_graymetal1.png"
+	SurfaceSkin 0 1 "zo_poolcement.png"
+	AngleOffset 0
+	Scale -3.5 -3.5 3.5
+	Offset 0 0 110	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "barbfence"
+{
+	Path "models\props"
+	Model 0 "ParkingLotFence.md3"
+	SurfaceSkin 0 0 "metal_fan.png"
+	SurfaceSkin 0 1 "zo_kennel_fence_mask.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "genericwatertankfence"
+{
+	Path "models\props"
+	Model 0 "zo_generic_tank.md3"
+	SurfaceSkin 0 0 "zo_genericred.png"
+	SurfaceSkin 0 1 "zo_crackedcement.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 55 33	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "junkiebox_rusted"
+{
+	Path "models\props"
+	Model 0 "zo_junctionbox.md3"
+	SurfaceSkin 0 0 "zo_graymetal.png"
+	SurfaceSkin 0 1 "zo_junctionbox.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 20	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "zo_pallete1"
+{
+	Path "models\props"
+	Model 0 "zo_pallete.md3"
+	SurfaceSkin 0 0 "zo_palletewood.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "zo_pallete2"
+{
+	Path "models\props"
+	Model 0 "zo_pallete2.md3"
+	SurfaceSkin 0 0 "zo_palletewood.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "la_woodenito_spooooooooool"
+{
+	Path "models\props"
+	Model 0 "zo_woodspool.md3"
+	SurfaceSkin 0 0 "zo_palletewood.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "large_white_pipe"
+{
+	Path "models\props"
+	Model 0 "design1_roof_largepipes.md3"
+	SurfaceSkin 0 0 "fridgepaint-dk.png"
+	SurfaceSkin 0 1 "mex_boltplate.png"
+	AngleOffset 0
+	Scale -3 -3 3
+	Offset -50 86 402	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

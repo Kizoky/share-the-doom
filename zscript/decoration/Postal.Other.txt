@@ -5396,3 +5396,216 @@ class chainfence : PostalDecoration
 		Loop;
 	}
 }
+
+
+
+class ligomanitura : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "AFT Tank"
+		Radius 220;
+		Height 800;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class generikmaschine1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Generic Machine"
+		Radius 65;
+		Height 220;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class largedraine : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Large Drain"
+		Radius 65;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class barbfence : PostalDecoration
+{
+	Default
+	{
+		//$Category Fences
+		//$Title "Barbed Fence"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class genericwatertankfence : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Generic Watertank"
+		Radius 10;
+		Height 85;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class junkiebox_rusted : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Junction Box Rusted"
+		Radius 20;
+		Height 50;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class zo_pallete1 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Wooden Pellet"
+		Radius 35;
+		Height 10;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class zo_pallete2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Wooden Pellet Destructed"
+		Radius 35;
+		Height 10;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class la_woodenito_spooooooooool : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Wooden Spool"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+SOLID;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class large_white_pipe : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Long White Pipe"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

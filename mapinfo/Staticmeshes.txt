@@ -394,4 +394,15 @@ DoomEdNums
   32404 = tran_spike
   32403 = gaspipie
   32402 = chainfence
+  
+  32401 = ligomanitura
+  32400 = generikmaschine1
+  32399 = largedraine
+  32398 = barbfence
+  32397 = genericwatertankfence
+  32396 = junkiebox_rusted
+  32395 = zo_pallete1
+  32394 = zo_pallete2
+  32393 = la_woodenito_spooooooooool
+  32392 = large_white_pipe
 }
