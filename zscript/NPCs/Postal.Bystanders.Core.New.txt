@@ -1812,7 +1812,7 @@ extend class NPCCore
 			
 			if (AbsAngle (AngleTo (next), angle) > (fov / 2.)) continue;
 			
-			if (!CheckSight (next, SF_SeePastShootableLines)) continue;
+			if (!CheckSight (next, SF_SeePastShootableLines | SF_SEEPASTBLOCKEVERYTHING)) continue;
 			
 			
 
@@ -2004,7 +2004,7 @@ extend class NPCCore
 				}
 				
 				
-				if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				if (!CheckSight (next, SF_SeePastShootableLines | SF_SEEPASTBLOCKEVERYTHING)) // Not in sight
 					continue;
 				
 				if (invoker.ActiveNode == null)
