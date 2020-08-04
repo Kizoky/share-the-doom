@@ -145,6 +145,12 @@ carhorn sounds/carhorn.wav
 caridle sounds/caridle.wav
 carskid sounds/carskid.wav
 
+gator1 sounds/gator1.wav
+gator2 sounds/gator2.wav
+gator3 sounds/gator3.wav
+
+$random gator_sounds { gator1 gator2 gator3 } 
+
 $random missp { missp1 missp2 }
 
 doghit1 sounds/dog_hit1.wav
