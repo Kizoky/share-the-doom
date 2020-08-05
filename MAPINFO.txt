@@ -144,7 +144,7 @@ map WORLD6 "Ferret Drive"
 	cluster=1
 }
 
-map WORLD7 "Badlands - Day" 
+map WORLD7 "Grewen" 
 {
 	levelnum = 7
 	music=Amb_07
