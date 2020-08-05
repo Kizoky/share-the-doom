@@ -5609,3 +5609,26 @@ class large_white_pipe : PostalDecoration
 		Loop;
 	}
 }
+
+
+class crap_sign : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "C.R.A.P. Industries Sign"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

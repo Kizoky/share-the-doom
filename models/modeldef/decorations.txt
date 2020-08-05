@@ -5287,3 +5287,19 @@ Model "large_white_pipe"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "crap_sign"
+{
+	Path "models\props"
+	Model 0 "warehouse_sign.md3"
+	SurfaceSkin 0 0 "warehouse_Lol.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
