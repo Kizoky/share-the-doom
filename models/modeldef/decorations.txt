@@ -4956,7 +4956,7 @@ Model "mill"
 	SurfaceSkin 0 1 "zo_blackmetalic.png"
 	SurfaceSkin 0 2 "zo_genericdarkgray.png"
 	AngleOffset 0
-	Scale -35 -35 35
+	Scale -65 -65 65
 	Offset 0.0 0 0 //X Y Z6.5
 	USEACTORPITCH
 	USEACTORROLL
