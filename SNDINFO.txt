@@ -258,6 +258,7 @@ FrigHum sounds/ambient_p2/FrigHum.wav
 $volume FrigHum 0.2
 StormGrate sounds/ambient_p2/StormGrate.wav
 washingMachine sounds/ambient_p2/washingMachine.wav
+ElectricBox sounds/ambient_p2/ElectricBox.wav
 Air_conditioner_hum sounds/Air_conditioner_hum.ogg
 parrots_tree sounds/parrots_tree.ogg
 tree_whisper sounds/tree_whisper.ogg
@@ -393,6 +394,10 @@ $ambient 43 TreeWindNoise point continuous 1.0
 
 $alias PalmParrots parrots_tree
 $ambient 44 PalmParrots point continuous 1.0
+
+$alias PowerstationNoize ElectricBox
+$ambient 45 PowerstationNoize point continuous 1.0
+
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
