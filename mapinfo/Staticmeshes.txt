@@ -406,4 +406,11 @@ DoomEdNums
   32393 = la_woodenito_spooooooooool
   32392 = large_white_pipe
   32391 = crap_sign
+  32390 = gantri_kraine
+  32389 = portfence
+  32388 = cart_grey
+  32387 = cart_blu
+  32386 = cart_ylw
+  32385 = cart_red
+  32384 = badabing_badaboom
 }

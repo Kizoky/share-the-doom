@@ -5632,3 +5632,145 @@ class crap_sign : PostalDecoration
 		Loop;
 	}
 }
+
+class gantri_kraine : PostalDecoration
+{
+	Default
+	{
+		//$Category Industrial
+		//$Title "Gantry Crane"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+
+class portfence : PostalDecoration
+{
+	Default
+	{
+		//$Category Fences
+		//$Title "Port Fence"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class cart_grey : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Container Gray"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class cart_blu : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Container Blue (Ballsax)"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class cart_ylw : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Container Yellow (Westka Actual)"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class cart_red : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Container Red"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class badabing_badaboom : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Caution Door Frames"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

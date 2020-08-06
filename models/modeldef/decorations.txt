@@ -5303,3 +5303,120 @@ Model "crap_sign"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "gantri_kraine"
+{
+	Path "models\props"
+	Model 0 "zo_gantrycrane_gantry.md3"
+	SurfaceSkin 0 0 "zo_checkered.png"
+	SurfaceSkin 0 1 "zo_excavator_trackside.png"
+	SurfaceSkin 0 2 "zo_catside.png"
+	SurfaceSkin 0 3 "zo_excavator_tracks.png"
+	SurfaceSkin 0 4 "zo_graytruss1.png"
+	AngleOffset 0
+	Scale -10 -10 10
+	Offset 0 0 5	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "portfence"
+{
+	Path "models\props"
+	Model 0 "zo_slattedfence.md3"
+	SurfaceSkin 0 0 "zo_graymetal.png"
+	SurfaceSkin 0 1 "mex_fence_crisscrossgrimey1.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cart_grey"
+{
+	Path "models\props"
+	Model 0 "zo_container.md3"
+	SurfaceSkin 0 0 "zo_containerback.png"
+	SurfaceSkin 0 1 "zo_containerside.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "cart_blu"
+{
+	Path "models\props"
+	Model 0 "zo_container.md3"
+	SurfaceSkin 0 0 "zo_containerend1.png"
+	SurfaceSkin 0 1 "zo_containerside1.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cart_ylw"
+{
+	Path "models\props"
+	Model 0 "zo_container.md3"
+	SurfaceSkin 0 0 "zo_containerend3.png"
+	SurfaceSkin 0 1 "zo_containerside3.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "cart_red"
+{
+	Path "models\props"
+	Model 0 "zo_container.md3"
+	SurfaceSkin 0 0 "zo_containerend2.png"
+	SurfaceSkin 0 1 "zo_containerside2.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "badabing_badaboom"
+{
+	Path "models\props"
+	Model 0 "cautiondoorframes.md3"
+	SurfaceSkin 0 0 "cautionstrip.png"
+	AngleOffset 0
+	Scale -5 -5 5
+	Offset 0 0 60	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
