@@ -88,7 +88,7 @@ map DEVMAP2 "Maisth loves corruption"
 map WORLD1 "Hampton"
 {
 	levelnum = 1
-	music=Amb_01
+	//music=Amb_01
 	sky1=F_SKY1
 	cluster=1
 }
