@@ -5766,6 +5766,28 @@ class badabing_badaboom : PostalDecoration
 		Height 35;
 		+ROLLSPRITE
 		+ABSMASKPITCH
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class shitbed : PostalDecoration
+{
+	Default
+	{
+		//$Category Cars
+		//$Title "Ship"
+		Radius 40;
+		Height 35;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+NOINTERACTION
 	}
 	States
 	{

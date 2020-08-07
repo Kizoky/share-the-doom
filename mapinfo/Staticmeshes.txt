@@ -413,4 +413,5 @@ DoomEdNums
   32386 = cart_ylw
   32385 = cart_red
   32384 = badabing_badaboom
+  32383 = shitbed
 }

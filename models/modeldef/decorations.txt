@@ -5420,3 +5420,18 @@ Model "badabing_badaboom"
 	
 }
 
+Model "shitbed"
+{
+	Path "models\props"
+	Model 0 "shipmesh.md3"
+	SurfaceSkin 0 0 "ship_ideal.png"
+	AngleOffset 0
+	Scale -2500 -2500 2500
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
