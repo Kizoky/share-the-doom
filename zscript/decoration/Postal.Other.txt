@@ -5796,3 +5796,24 @@ class shitbed : PostalDecoration
 		Loop;
 	}
 }
+
+
+class biotoilet : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Porter Potty"
+		Radius 35;
+		Height 97;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

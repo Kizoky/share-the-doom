@@ -414,4 +414,5 @@ DoomEdNums
   32385 = cart_red
   32384 = badabing_badaboom
   32383 = shitbed
+  32382 = biotoilet
 }
