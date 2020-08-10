@@ -97,7 +97,7 @@ map WORLD1 "Hampton"
 map WORLD2 "South Joint"
 {
 	levelnum = 2
-	music=Amb_02
+	//music=Amb_02
 	sky1=F_SKY1
 	cluster=2
 }
