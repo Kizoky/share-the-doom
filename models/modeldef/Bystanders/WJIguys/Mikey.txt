@@ -1,7 +1,7 @@
 Model "NPCJaret"
 {
 	Path "models\misc\NPCs\WJIguys"
-	Model 0 "Char01.md3"
+	Model 0 "models\misc\NPCs\MaleWhite\Char01.md3"
 	SurfaceSkin 0 0 "AvgMale_RWS_Dev01.png"
 	SurfaceSkin 0 1 "head/MWA__008__MIKEJ.png"
 	AngleOffset 270
@@ -245,7 +245,7 @@ Model "NPCJaret"
 Model "NPCJaret"
 {
 	Path "models\misc\NPCs\WJIguys"
-	Model 0 "Char01.md3"
+	Model 0 "models\misc\NPCs\MaleWhite\Char01.md3"
 	SurfaceSkin 0 0 "AvgMale_RWS_Dev01.png"
 	SurfaceSkin 0 1 "invis.png"
 	AngleOffset 270
@@ -301,7 +301,7 @@ Model "NPCJaret"
 Model "NPCJaret"
 {
 	Path "models\misc\NPCs\WJIguys"
-	Model 0 "Char01_Pistol.md3"
+	Model 0 "models\misc\NPCs\MaleWhite\Char01_Pistol.md3"
 	SurfaceSkin 0 0 "AvgMale_RWS_Dev01.png"
 	SurfaceSkin 0 1 "head/MWA__008__MIKEJ.png"
 	SurfaceSkin 0 2 "desertEagle_256.tga"
