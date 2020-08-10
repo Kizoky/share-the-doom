@@ -105,7 +105,7 @@ map WORLD2 "South Joint"
 map WORLD3 "Blumefold"
 {
 	levelnum = 3
-	music=Amb_03
+	//music=Amb_03
 	sky1=F_SKY1
 	cluster=1
 }
