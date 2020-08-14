@@ -114,7 +114,7 @@ map WORLD3 "Blumefold"
 map WORLD4 "Seriezza Heights"
 {
 	levelnum = 4
-	music=Amb_04
+	//music=Amb_04
 	sky1=F_SKY1
 	cluster=1
 }
@@ -122,7 +122,7 @@ map WORLD4 "Seriezza Heights"
 map WORLD5 "Haldea"  ///Kizoky's fun place
 {
 	levelnum = 5
-	music=Amb_05
+	//music=Amb_05
 	sky1=F_SKY1
 	cluster=1
 }
@@ -139,7 +139,7 @@ map WORLD10 "Downtown - Day"
 map WORLD6 "Ferret Drive"
 {
 	levelnum = 6
-	music=Amb_06
+	//music=Amb_06
 	sky1=F_SKY1
 	cluster=1
 }
@@ -147,7 +147,7 @@ map WORLD6 "Ferret Drive"
 map WORLD7 "Grewen" 
 {
 	levelnum = 7
-	music=Amb_07
+	//music=Amb_07
 	sky1=F_SKY1
 	cluster=1
 }
