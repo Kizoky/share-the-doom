@@ -262,6 +262,7 @@ ElectricBox sounds/ambient_p2/ElectricBox.wav
 Air_conditioner_hum sounds/Air_conditioner_hum.ogg
 parrots_tree sounds/parrots_tree.ogg
 tree_whisper sounds/tree_whisper.ogg
+port_ambiance sounds/port_ambiance.ogg
 
 $alias BeirdSkairy BirdAmbient
 $ambient 1 BeirdSkairy point periodic 7.0 1.0
@@ -398,6 +399,8 @@ $ambient 44 PalmParrots point continuous 1.0
 $alias PowerstationNoize ElectricBox
 $ambient 45 PowerstationNoize point continuous 1.0
 
+$alias soundsPort port_ambiance
+$ambient 46 soundsPort point continuous 1.0
 
 //There may be "deeper" hurt sounds for Dude playing at lower health
 //I'm not sure
