@@ -152,10 +152,10 @@ map WORLD7 "Grewen"
 	cluster=1
 }
 
-map WORLD8 "Russian Diaspora - Day" 
+map WORLD8 "Renort Port" 
 {
 	levelnum = 8
-	music=Amb_08
+	//music=Amb_08
 	sky1=F_SKY1
 	cluster=1
 }
