@@ -5450,4 +5450,174 @@ Model "biotoilet"
 	
 }
 
+Model "znak1"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "electro_store.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
 
+Model "znak2"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "perestroika.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "znak3"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "faggotry.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "znak4"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "kebab.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "znak5"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "homefood.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "znak6"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "gym.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "znak7"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "gastronom.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "znak8"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "turist.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "znak9"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "workshop_rus.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "znak10"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "forgery.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "znak11"
+{
+	Path "models\props"
+	Model 0 "meatyourmaker1_timb.md3"
+	SurfaceSkin 0 0 "finland.png"
+	AngleOffset 0
+	Scale -1.50 -1.50 1.50
+	Offset 0 0 50	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

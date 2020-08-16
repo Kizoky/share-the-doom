@@ -5817,3 +5817,258 @@ class biotoilet : PostalDecoration
 		Loop;
 	}
 }
+
+
+class znak1 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 1"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak2 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 2"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak3 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 3"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class znak4 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 4"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak5 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 5"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak6 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 6"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak7 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 7"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak8 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 8"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak9 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 9"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class znak10 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 10"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+
+class znak11 : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Russian Sign 11"
+		Radius 20;
+		Height 20;
+		+ROLLSPRITE
+		+ABSMASKPITCH
+		+FLOAT;
+		+NOGRAVITY;
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

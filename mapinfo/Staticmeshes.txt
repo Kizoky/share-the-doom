@@ -415,4 +415,15 @@ DoomEdNums
   32384 = badabing_badaboom
   32383 = shitbed
   32382 = biotoilet
+  32381 = znak1
+  32380 = znak2
+  32379 = znak3
+  32378 = znak4
+  32377 = znak5
+  32376 = znak6
+  32375 = znak7
+  32374 = znak8
+  32373 = znak9
+  32372 = znak10
+  32371 = znak11
 }
