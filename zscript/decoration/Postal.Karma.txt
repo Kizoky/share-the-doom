@@ -653,3 +653,21 @@ class redplasticecrate : PostalKarmaActor
 		Loop;
 	}
 }
+
+class trashcan4 : PostalKarmaActor
+{
+	Default
+	{
+		//$Category Physics Objects
+		//$Title "Trashcan Green"
+		Radius 10;
+		Height 35;
+		PostalKarmaActor.Heaviness -15;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

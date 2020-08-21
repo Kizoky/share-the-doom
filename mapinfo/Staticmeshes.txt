@@ -426,4 +426,11 @@ DoomEdNums
   32373 = znak9
   32372 = znak10
   32371 = znak11
+  32370 = detail_fan2
+  32369 = fence_clothedoff_n
+  32368 = visceral_parnter
+  32367 = plate
+  32365 = govno
+  32364 = pipez_extra
+  32363 = trashcan4
 }

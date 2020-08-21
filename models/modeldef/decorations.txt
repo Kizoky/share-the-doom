@@ -5621,3 +5621,97 @@ Model "znak11"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+Model "detail_fan2"
+{
+	Path "models\props"
+	Model 0 "air_conditioner03.md3"
+	SurfaceSkin 0 0 "air_conditioner03.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "fence_clothedoff_n"
+{
+	Path "models\props"
+	Model 0 "FenceCloth.md3"
+	SurfaceSkin 0 0 "fence_01.png"
+	SurfaceSkin 0 1 "fence_01_close.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "visceral_parnter"
+{
+	Path "models\props"
+	Model 0 "PPCCSign.md3"
+	SurfaceSkin 0 0 "Panther Pilsner Chemical CoDiffuseMap.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "plate"
+{
+	Path "models\props"
+	Model 0 "dinnerplate-sw.md3"
+	SurfaceSkin 0 0 "dinnerplate-sw.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset -32 0 -2	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "govno"
+{
+	Path "models\props"
+	Model 0 "poo_log.md3"
+	SurfaceSkin 0 0 "dog_shit.png"
+	AngleOffset 0
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "pipez_extra"
+{
+	Path "models\props"
+	Model 0 "zo_brew_pipes.md3"
+	SurfaceSkin 0 0 "zo_genericred.png"
+	SurfaceSkin 0 1 "zo_dumpsterdoor.png"
+	AngleOffset 0
+	Scale -5 -5 5
+	Offset 0 100 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}

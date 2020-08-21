@@ -6072,3 +6072,122 @@ class znak11 : PostalDecoration
 		Loop;
 	}
 }
+
+
+class detail_fan2 : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Fan 2"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class fence_clothedoff_n : PostalDecoration
+{
+	Default
+	{
+		//$Category Fences
+		//$Title "Clothed Fence"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class visceral_parnter : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "PPCC Sign"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class plate : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Plate"
+		Radius 10;
+		Height 10;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+class govno : PostalDecoration
+{
+	Default
+	{
+		//$Category miscellaneous
+		//$Title "Shit"
+		Radius 10;
+		Height 10;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class pipez_extra : PostalDecoration
+{
+	Default
+	{
+		//$Category Sewers
+		//$Title "Doubled Pipes"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

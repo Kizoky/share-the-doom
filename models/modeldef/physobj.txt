@@ -335,3 +335,20 @@ Model "trashcan3"
 	FrameIndex PROP A 0 0
 	
 }
+
+
+
+Model "trashcan4"
+{
+	Path "models\physobj"
+	Model 0 "trashcan.md3"
+	SurfaceSkin 0 0 "trashcan.png"
+	AngleOffset 0
+	Scale -0.40 -0.40 0.40
+	Offset 0 0 0 //X Y Z
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
