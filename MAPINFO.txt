@@ -161,10 +161,10 @@ map WORLD8 "Renort Port"
 }
 
 
-map WORLD9 "Jihad - Day" 
+map WORLD9 "Une-Borren" 
 {
 	levelnum = 9
-	music=Amb_09
+	//music=Amb_09
 	sky1=F_SKY1
 	cluster=1
 }
