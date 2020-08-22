@@ -6219,7 +6219,7 @@ class quonset : PostalDecoration
 	{
 		//$Category Details
 		//$Title "Metal Building"
-		Radius 20;
+		Radius 50;
 		Height 56;
 		+noclip;
 		+nointeraction;
