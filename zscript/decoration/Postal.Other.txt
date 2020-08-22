@@ -6191,3 +6191,102 @@ class pipez_extra : PostalDecoration
 		Loop;
 	}
 }
+
+
+class boiler_object : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Boiler Rusty"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class quonset : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Metal Building"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class support_rusted_truss_triple_object_3d : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Support Trusses"
+		Radius 15;
+		Height 226;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class zo_wallboard : PostalDecoration
+{
+	Default
+	{
+		//$Category Details
+		//$Title "Wallboard"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}
+
+
+class scafoldinng : PostalDecoration
+{
+	Default
+	{
+		//$Category Props
+		//$Title "Scaffolding"
+		Radius 20;
+		Height 56;
+		+noclip;
+		+nointeraction;
+	}
+	States
+	{
+	Spawn:
+		PROP A -1;
+		Loop;
+	}
+}

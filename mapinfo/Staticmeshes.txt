@@ -433,4 +433,10 @@ DoomEdNums
   32365 = govno
   32364 = pipez_extra
   32363 = trashcan4
+  
+  32362 = boiler_object
+  32361 = quonset
+  32360 = support_rusted_truss_triple_object_3d
+  32359 = zo_wallboard
+  32358 = scafoldinng
 }

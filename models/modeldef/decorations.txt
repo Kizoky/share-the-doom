@@ -5715,3 +5715,84 @@ Model "pipez_extra"
 	FrameIndex PROP A 0 0
 	
 }
+
+Model "boiler_object"
+{
+	Path "models\props"
+	Model 0 "zo_boiler.md3"
+	SurfaceSkin 0 0 "zo_rust0.png"
+	SurfaceSkin 0 1 "zo_boilerplate.png"
+	AngleOffset 0
+	Scale -0.45 -0.45 0.45
+	Offset 0 70 32	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "quonset"
+{
+	Path "models\props"
+	Model 0 "zo_base_quonset.md3"
+	SurfaceSkin 0 0 "zo_base_whitewood.png"
+	SurfaceSkin 0 1 "zo_base_corrugatedmetal2.png"
+	SurfaceSkin 0 2 "zo_base_corrugation.png"
+	AngleOffset 0
+	Scale -8 -8 8
+	Offset 0 400 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "support_rusted_truss_triple_object_3d"
+{
+	Path "models\props"
+	Model 0 "zo_railyard_support1.md3"
+	SurfaceSkin 0 0 "zo_poolcement.png"
+	SurfaceSkin 0 1 "zo_rust0.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+Model "zo_wallboard"
+{
+	Path "models\props"
+	Model 0 "zo_mall_closedbusiness2.md3"
+	SurfaceSkin 0 0 "zo_palletewood.png"
+	SurfaceSkin 0 1 "zo_wallboard.png"
+	AngleOffset 0
+	Scale -1 -1 1
+	Offset 0 0 0	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
+
+
+Model "scafoldinng"
+{
+	Path "models\props"
+	Model 0 "zo_scaffold.md3"
+	SurfaceSkin 0 0 "zo_graymetal1.png"
+	AngleOffset 0
+	Scale -0.5 -0.5 0.5
+	Offset 0 95 -10	//X Y Z6.5
+	USEACTORPITCH
+	USEACTORROLL
+	
+	FrameIndex PROP A 0 0
+	
+}
