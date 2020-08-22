@@ -3926,6 +3926,7 @@ class pipe1 : PostalDecoration
 		//$Title "Pipe Straight"
 		Radius 10;
 		Height 85;
+		RenderRadius 2.0;
 		+ROLLSPRITE
 		+ABSMASKPITCH
 		+NOINTERACTION
@@ -6221,6 +6222,7 @@ class quonset : PostalDecoration
 		//$Title "Metal Building"
 		Radius 50;
 		Height 56;
+		RenderRadius 1.0;
 		+noclip;
 		+nointeraction;
 	}
