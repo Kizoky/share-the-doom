@@ -113,8 +113,7 @@ class DudeCoreHandler : EventHandler
 			
 			if (!p || !p.PlayerData) return;
 			
-			if (p.bKILLED) return;
-			if (p.SuicideCamera) return;
+			if (p.bKILLED || p.SuicideCamera) return;
 			
 			//Console.Printf("Q pressed (Mighty Foot Engaged)");
 			if (p)
@@ -126,9 +125,8 @@ class DudeCoreHandler : EventHandler
 			PlayerInfo player = players [e.Player];
 			PostalDude p = PostalDude(players[e.Player].mo);
 			
-			if (p.bKILLED) return;
-			if (p == null || p.PlayerData == null) return;
-			if (p.SuicideCamera) return;
+			if (!p || !p.PlayerData) return;
+			if (p.SuicideCamera || p.bKILLED) return;
 			
 			// There was no holstering, let's save the Weapon we hold
 			if (p.PlayerData.Holster == false)
@@ -142,6 +140,7 @@ class DudeCoreHandler : EventHandler
 				//Console.Printf("E is pressed (Holster is true)");
 				p.Player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
 				p.PlayerData.Holster = true;
+				
 				return;
 			}
 			
@@ -171,9 +170,8 @@ class DudeCoreHandler : EventHandler
 			
 			//Pretty much it works the same way like Holster
 			
-			if (p.bKILLED) return;
-			if (p == null || p.PlayerData == null) return;
-			if (p.SuicideCamera) return;
+			if (!p || !p.PlayerData) return;
+			if (p.SuicideCamera || p.bKILLED) return;
 			
 			if (p.PlayerData.Urethra == false)
 			{
@@ -185,6 +183,7 @@ class DudeCoreHandler : EventHandler
 				//Console.Printf("E is pressed (Holster is true)");
 				p.Player.PendingWeapon = Weapon(p.FindInventory("PostUrethra"));
 				p.PlayerData.Urethra = true;
+				
 				return;
 			}
 			
@@ -214,6 +213,7 @@ class DudeCoreHandler : EventHandler
 			
 			if (p.bKILLED) return;
 			
+			// No, you can't attempt suicide in air.
 			if (!(p.pos.z ~== p.floorz)) return;
 			
 			p.PlayerData.Suicide = true;
@@ -247,7 +247,7 @@ class DudeCoreHandler : EventHandler
 				while (it.Next ()) {
 					let next = it.Thing;
 					
-					if (next is 'NPCCore' && !(next.bKILLED))
+					if (next && next is 'NPCCore' && !(next.bKILLED))
 					{
 						let pp = NPCCore(next);
 						if (!pp.isBusy && !pp.isAfterTarget && pp)
@@ -270,20 +270,18 @@ class DudeCoreHandler : EventHandler
 			PostalDude p = PostalDude(players[e.Player].mo);
 			PlayerInfo player = players [e.Player];
 			
-			if (p.bKILLED) return;
 			if (!p || !p.PlayerData) return;
-			if (p.SuicideCamera) return;
+			if (p.SuicideCamera || p.bKILLED) return;
 			
-			Console.Printf("M pressed");
-			if (p.Map == false)
+			if (!p.Map)
 			{
 				p.Map = true;
-				p.A_PlaySound("map/uncrumple",0);
+				p.A_StartSound("map/uncrumple", CHAN_AUTO);
 			}
 			else
 			{
 				p.Map = false;
-				p.A_PlaySound("map/crumple",0);
+				p.A_PlaySound("map/crumple", CHAN_AUTO);
 			}
 	  }
 	  
@@ -294,8 +292,8 @@ class DudeCoreHandler : EventHandler
 			
 			if (!p || !p.PlayerData) return;
 			
-		if (p)
-			p.A_DamageSelf(5);
+			if (p)
+				p.A_DamageSelf(5);
 		
 	  }
 	  
@@ -423,7 +421,7 @@ class DudeCoreHandler : EventHandler
 		if (n && p == null)
 		{
 			n.A_GiveInventory("HUDViewable",1);
-			n.A_GiveInventory("YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound",1);
+			//n.A_GiveInventory("YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound",1);
 		}
 		
    }
@@ -473,7 +471,7 @@ class DudeCoreHandler : EventHandler
 		{
 			if (!SpawnedThing) return;
 			
-			if (SpawnedThing is 'PostalDecoration' || SpawnedThing is 'PostalActor') return;
+			if (SpawnedThing is 'PostalDecoration' || SpawnedThing is 'PostalActor' || SpawnedThing is 'PlayerPawn') return;
 			
 			if (SpawnedThing is 'BossBrain' ||
 				SpawnedThing is 'BossEye' ||
