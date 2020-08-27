@@ -19,12 +19,6 @@ If you have downloaded the mod from here, on Windows: run build.bat - otherwise 
 | How to add Postal-styled weapon(s) |
 | How to make NPCs/Traffic follow a route in a level |
 
-| Developer | Role |
-| --- | --- |
-| Kizoky | lead developer, programmer, story writer, mapper |
-| olzhas1one | co-lead developer, story writer, mapper |
-| IDDQD_1337 | custom asset management |
-
 | Credits |
 | --- |
 | Running With Scissors |
@@ -40,4 +34,6 @@ If you have downloaded the mod from here, on Windows: run build.bat - otherwise 
 | m8f (Stupid Achievements) |
 | Cherno (SunSim Shader) |
 | TheMisterCat (Splatmap shader) |
+| olzhas1one |
+| IDDQD_1337 |
 | ... |
