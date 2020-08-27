@@ -29,12 +29,12 @@ gameinfo
 	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit", "ia_EventHandler", "sa_Achiever"
 	statusbarclass = "PostalStatusBar"
 }
-
+/*
 episode WORLD1
 {
 	name="Share the Doom"
 }
-
+*/
 
 episode DEVMAP
 {
