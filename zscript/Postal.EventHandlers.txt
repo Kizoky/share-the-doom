@@ -76,21 +76,23 @@ class DudeCoreHandler : EventHandler
 		{
 			let player = players[consoleplayer].mo;
 			
+			if (!player is 'PostalDude') return;
+			
 			if (SavedTimes == 4 && SavedTrigger != true)
 			{
-				player.A_PlaySound("dude_save2",0);
+				player.A_StartSound("dude_save2", CHAN_AUTO);
 				SavedTrigger = true;
 			}
 			
 			if (SavedTimes == 5 && SavedTrigger != true)
 			{
-				player.A_PlaySound("dude_save1",0);
+				player.A_StartSound("dude_save1", CHAN_AUTO);
 				SavedTrigger = true;
 			}
 			
 			if (SavedTimes == 6 && SavedTrigger != true)
 			{
-				player.A_PlaySound("dude_save3",0);
+				player.A_StartSound("dude_save3", CHAN_AUTO);
 				SavedTimes = 0;
 				SavedTrigger = true;
 			}
