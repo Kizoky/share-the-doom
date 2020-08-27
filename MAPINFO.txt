@@ -36,7 +36,7 @@ episode WORLD1
 }
 */
 
-episode DEVMAP
+episode DEVMAP2
 {
 	name="Developer Test Map"
 }

@@ -76,7 +76,7 @@ class DudeCoreHandler : EventHandler
 		{
 			let player = players[consoleplayer].mo;
 			
-			if (!player is 'PostalDude') return;
+			if (!(player is 'PostalDude')) return;
 			
 			if (SavedTimes == 4 && SavedTrigger != true)
 			{
