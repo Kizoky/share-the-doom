@@ -94,6 +94,10 @@ OptionMenu "PostalOptionMenu"
 	StaticText ""
 	Option "Developer mode (increased speed, jump)", "postal_developer", "OnOff"
 	StaticText ""
+	StaticText "Disable the following (needs level restart)", "White"
+	Option "Postal Actor (NPCs, Doors)", "postal_developer_actor", "OnOff"
+	Option "Postal Decoration", "postal_developer_decoration", "OnOff"
+	Option "Postal Karma", "postal_developer_karma", "OnOff"
 	
 
 }

@@ -429,6 +429,35 @@ class DudeCoreHandler : EventHandler
    //Needed for fire and other things
    override void WorldThingSpawned (Worldevent e)
    {
+		// Developer stuff
+		
+		CVar postal_developer_actor = CVar.FindCVar('postal_developer_actor');
+		bool postalactors = (postal_developer_actor != null && postal_developer_actor.GetBool ());
+		
+		if (postalactors)
+		{
+			if (e.thing is 'PostalActor')
+				e.thing.Destroy();
+		}
+		
+		CVar postal_developer_decoration = CVar.FindCVar('postal_developer_decoration');
+		bool postaldecorations = (postal_developer_decoration != null && postal_developer_decoration.GetBool ());
+		
+		if (postaldecorations)
+		{
+			if (e.thing is 'PostalDecoration')
+				e.thing.Destroy();
+		}
+		
+		CVar postal_developer_karma = CVar.FindCVar('postal_developer_karma');
+		bool postalkarmas = (postal_developer_karma != null && postal_developer_karma.GetBool ());
+		
+		if (postalkarmas)
+		{
+			if (e.thing is 'PostalKarmaActor')
+				e.thing.Destroy();
+		}
+		
 		CVar lightscvar = CVar.FindCVar('postal_lights');
 		bool lights = (lightscvar != null && lightscvar.GetBool ());
 		
