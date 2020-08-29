@@ -439,4 +439,5 @@ DoomEdNums
   32360 = support_rusted_truss_triple_object_3d
   32359 = zo_wallboard
   32358 = scafoldinng
+  32357 = screent2
 }

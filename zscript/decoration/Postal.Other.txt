@@ -6292,3 +6292,18 @@ class scafoldinng : PostalDecoration
 		Loop;
 	}
 }
+
+Class SCREENT2 : Actor {
+	Default {
+		Radius 384;
+		Height 672;
+		+nointeraction;
+		+noclip;
+	}
+
+	States {
+		Spawn:
+			PROP A -1;
+			Stop;
+	}
+}

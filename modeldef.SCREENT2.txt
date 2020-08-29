@@ -1,0 +1,10 @@
+Model SCREENT2
+{
+	Model 0 "models/SCREENT2.obj"
+	SurfaceSkin 0 0 "textures/mount/boulder_timb.png"
+	
+	USEACTORPITCH
+	USEACTORROLL
+   
+	FrameIndex PROP A 0 0
+}
