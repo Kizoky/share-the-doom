@@ -761,6 +761,7 @@ class NPCCore : PostalActor
 	Spawn:
 		DUDW A 0
 		{
+			/*
 			if (!target && !MyTarget)
 			{
 				//isAfterTarget = false;
@@ -827,13 +828,14 @@ class NPCCore : PostalActor
 				Console.Printf("NPC Spawn Debug: pos: %d %d %d",pos.x,pos.y,pos.z);
 				Console.Printf("");
 			}
+			*/
 			
 			A_BystanderNode();
 			
 		}
 		DUDW ABCD 3
 		{
-			A_PostalWander(flags: CHF_STOPIFBLOCKED);
+			A_Wander(flags: CHF_STOPIFBLOCKED);
 			if (Petitioning == true)
 				SetStateLabel("Petitioning");
 			A_BystanderNode();
@@ -841,19 +843,19 @@ class NPCCore : PostalActor
 		//TNT1 A 0 A_BystanderNode();
 		DUDW EFGH 3
 		{
-			A_PostalWander(flags: CHF_STOPIFBLOCKED);
+			A_Wander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		DUDW I 0 A_BystanderThink();
 		DUDW IJKL 3
 		{
-			A_PostalWander(flags: CHF_STOPIFBLOCKED);
+			A_Wander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		//TNT1 A 0 A_BystanderNode();
 		DUDW MNOPQR 3
 		{
-			A_PostalWander(flags: CHF_STOPIFBLOCKED);
+			A_Wander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		Loop;
