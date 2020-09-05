@@ -415,6 +415,7 @@ Class PostalGrenadeTrail : PostalActor
 		+ROLLSPRITE
 		+RANDOMIZE
 		+NOBLOCKMAP
+		+NOINTERACTION
 		Renderstyle "Translucent";
 		alpha 0.90;
 		scale 0.40;

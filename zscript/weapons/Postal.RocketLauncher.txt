@@ -540,6 +540,8 @@ Class PostalSmokeTrail : PostalActor
 		+FORCEXYBILLBOARD
 		+ROLLSPRITE
 		+RANDOMIZE
+		+NOBLOCKMAP
+		+NOINTERACTION
 		Renderstyle "Translucent";
 		alpha 0.90;
 		scale 1.70;
@@ -606,6 +608,7 @@ Class PostalFireTrail : PostalActor
 	Default 
 	{
 		+NOINTERACTION
+		+NOBLOCKMAP
 		+FORCEXYBILLBOARD
 		+ROLLSPRITE
 		+RANDOMIZE
