@@ -651,7 +651,8 @@ class PostalDecoration : Actor
 		//+ABSMASKANGLE
 		//+NOGRAVITY
 		//+SOLID
-		//+NOINTERACTION
+		+NOINTERACTION
+		//+NOBLOCKMAP
 	}
 }
 

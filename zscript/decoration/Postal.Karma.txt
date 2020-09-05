@@ -153,7 +153,7 @@ class trashcan1 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -171,7 +171,7 @@ class trashcan2 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -192,7 +192,7 @@ class lampshade1 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -212,7 +212,7 @@ class dirtbag : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -232,7 +232,7 @@ class trashcan_plasticed : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -251,7 +251,7 @@ class banka_mayoneza : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -270,7 +270,7 @@ class ogurchiki : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -291,7 +291,7 @@ class lampshade2 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -310,7 +310,7 @@ class lavalampo : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -330,7 +330,7 @@ class keyboard_sw : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -350,7 +350,7 @@ class monitorus : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -371,7 +371,7 @@ class pctower : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -391,7 +391,7 @@ class deskpic : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -410,7 +410,7 @@ class DinnerChairSmocklar : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -429,7 +429,7 @@ class bosschair : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -450,7 +450,7 @@ class microwave : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -470,7 +470,7 @@ class Tamxxx : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -490,7 +490,7 @@ class lungdump : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -511,7 +511,7 @@ class pot_timb : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -530,7 +530,7 @@ class pan_timb : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -550,7 +550,7 @@ class pot_timb2 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -571,7 +571,7 @@ class cleaner1 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -591,7 +591,7 @@ class cleaner2 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -611,7 +611,7 @@ class trashcan3 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -631,7 +631,7 @@ class SquareBox : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -650,7 +650,7 @@ class redplasticecrate : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
 
@@ -668,6 +668,6 @@ class trashcan4 : PostalKarmaActor
 	{
 	Spawn:
 		PROP A -1;
-		Loop;
+		Stop;
 	}
 }
