@@ -1,3 +1,7 @@
+material texture "textures/mount/boulder_timb.png"
+{
+	shader "shaders/simsun_prop.fp"
+}
 
 material texture "models/misc/NPCs/MaleWhite/body/AvgMale_Troll01.png"
 {
