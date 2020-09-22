@@ -797,6 +797,29 @@ class PostalDude : PlayerPawn
 			}
     }
 	
+	void PissTick() // -74 -> -90
+	{	
+		if (MyAnnoyingFire)
+		{
+			if (pitch < -73 && pitch > -91)
+			{
+				if (Player.ReadyWeapon == Weapon(FindInventory("PostUrethra")) && player.cmd.buttons & BT_ATTACK)
+				{
+					let HazardousFire = PostalFire(MyAnnoyingFire);
+					
+					if (HazardousFire)
+					{
+						HazardousFire.TimeBeforeDisappearing -= 6;
+						
+						if (level.time % 11 == 0) // avoid lag
+							HazardousFire.A_SpawnItemEx("FireSmokeUp",0,0,0);
+						
+					}
+				}
+			}
+		}
+	}
+	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -837,6 +860,7 @@ class PostalDude : PlayerPawn
 		SuicideTick();
 		//IdlingTick();
 		FootstepTick();
+		PissTick();
 		
 		// Kicking
 		if (Kick == true)

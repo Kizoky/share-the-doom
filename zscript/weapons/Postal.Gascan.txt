@@ -322,10 +322,8 @@ class PostalFire : PostalActor
 			TimeBeforeDisappearing -= 6;
 			A_SpawnItemEx("FireSmokeUp",0,0,0);
 		}
-		else
-			Health += damage;
 	
-		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+		return Super.DamageMobj(inflictor,source,0,mod,flags,angle);
 	}
 	
 	Default
