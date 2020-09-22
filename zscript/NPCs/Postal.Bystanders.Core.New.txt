@@ -330,6 +330,8 @@ class NPCCore : PostalActor
 		
 		if (isFrozen()) return;
 		
+		A_Recoil(-0.35);
+		
 		// If our head hitbox is missing, most likely we are immortal
 		
 		if (HeadHitBox == null && !(self is 'NPCKrotchy'))
@@ -680,7 +682,7 @@ class NPCCore : PostalActor
 		Health 150;
 		Radius 12;
 		Height 65;
-		Speed 0;
+		Speed 1;
 		PainChance 256;
 		Monster;
 		SeeSound "";
