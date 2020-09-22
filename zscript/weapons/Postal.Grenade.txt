@@ -152,6 +152,7 @@ class PostGrenade : PostalWeapon
 			GGGrenade.Minesweeper = true;
 			GGGrenade.bTHRUSPECIES = true;
 			GGGrenade.Owner = invoker.owner;
+			GGGrenade.target = invoker.owner;
 		
 		}
 		GRTS IJKLMN 2;
@@ -176,7 +177,14 @@ class PostalGrenade : PostalActor
 	// -1 = default
 	override int SpecialMissileHit(Actor victim)
 	{
-		if ((victim is 'PostalWindow' || victim is 'PostalWindow_Extender') && victim)
+		// Goes through owners
+		if (victim && target)
+		{
+			if (victim == target)
+				return 1;
+		}
+		
+		if ((victim is 'PostalWindow' || victim is 'PostalWindow_Extender'))
 		{
 			int dd = victim.DamageMobj(self, target, 1, "Melee");
 			return 1;
@@ -189,7 +197,7 @@ class PostalGrenade : PostalActor
 	{
 		Super.PostBeginPlay();
 		
-		target = Owner;
+		//target = Owner;
 		
 		// Spawn initially a last bounce spot, obviously just to stop the Grenade to arm immediately
 		SavedBouncePos = spawn("PostalGrenadeHelper", pos);

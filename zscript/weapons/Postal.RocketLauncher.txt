@@ -205,8 +205,15 @@ class PostalRocket : PostalActor
 	// 0 = explodes on actors
 	// -1 = default
 	override int SpecialMissileHit(Actor victim)
-	{	
-		if ((victim is 'PostalWindow' || victim is 'PostalWindow_Extender' || victim == target && target is 'PostalDude') && victim)
+	{
+		// Goes through owners
+		if (victim && target)
+		{
+			if (victim == target)
+				return 1;
+		}
+		
+		if (victim is 'PostalWindow' || victim is 'PostalWindow_Extender')
 		{
 			int dd = victim.DamageMobj(self, target, 1, "Melee");
 			return 1;
@@ -278,12 +285,7 @@ class PostalRocket : PostalActor
 	{
 		Super.PostBeginPlay();
 		
-		if (owner is 'PostalDude')
-		{
-			target = owner;
-		}
-		
-		if (Seeking != true)
+		if (!Seeking)
 			SpawnTime = level.time + AddedTime;
 		else
 		{
@@ -317,12 +319,15 @@ class PostalRocket : PostalActor
 	{
 		Super.Tick();
 		
-		if (KickCooldown < level.time && SeekingTarget)
+		if (SeekingTarget)
 		{
-			Seeking = true;
+			if (KickCooldown < level.time)
+			{
+				Seeking = true;
+			}
+			else return;
 		}
-		else return;
-		
+	
 		if (level.time > BleepTime && SeekingTarget)
 		{
 			SeekingTarget.A_StartSound("weapons/rocket_bleep", CHAN_BODY, CHANF_LOCAL);

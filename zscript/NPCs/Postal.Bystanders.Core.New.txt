@@ -330,7 +330,6 @@ class NPCCore : PostalActor
 		
 		if (isFrozen()) return;
 		
-		A_Recoil(-0.35);
 		
 		// If our head hitbox is missing, most likely we are immortal
 		
@@ -837,6 +836,7 @@ class NPCCore : PostalActor
 		}
 		DUDW ABCD 3
 		{
+			A_Recoil(-0.35);
 			A_Wander(flags: CHF_STOPIFBLOCKED);
 			if (Petitioning == true)
 				SetStateLabel("Petitioning");
@@ -845,18 +845,21 @@ class NPCCore : PostalActor
 		//TNT1 A 0 A_BystanderNode();
 		DUDW EFGH 3
 		{
+			A_Recoil(-0.35);
 			A_Wander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		DUDW I 0 A_BystanderThink();
 		DUDW IJKL 3
 		{
+			A_Recoil(-0.35);
 			A_Wander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
 		//TNT1 A 0 A_BystanderNode();
 		DUDW MNOPQR 3
 		{
+			A_Recoil(-0.35);
 			A_Wander(flags: CHF_STOPIFBLOCKED);
 			A_BystanderNode();
 		}
