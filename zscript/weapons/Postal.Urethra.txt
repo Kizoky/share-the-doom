@@ -136,7 +136,7 @@ class Urine : Actor
 		Radius 5;
 		Height 5;
 		Speed 10;
-		Damage 1;
+		Damage 0;
 		Projectile;
 		+THRUSPECIES
 		-NOBLOCKMAP
