@@ -29,14 +29,8 @@ gameinfo
 	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit", "ia_EventHandler", "sa_Achiever"
 	statusbarclass = "PostalStatusBar"
 }
-/*
-episode WORLD1
-{
-	name="Share the Doom"
-}
-*/
 
-episode DEVMAP2
+episode DOOMTEST
 {
 	name="Developer Test Map"
 }
@@ -52,160 +46,10 @@ defaultmap
 	PrecacheClasses = "NPCDude", "NPCshop", "Champ", "PostalCatInv"
 }
 
-cluster 1
-{
-	hub
-}
-
-cluster 2
-{
-	hub
-}
-
 map TITLEMAP "11011010101"
 {
 	sky1 = "zo_dusk1", 0.035
 	next = screent
-}
-
-map DEVMAP "Whoever designed this was on serious crack"
-{
-	levelnum = 0
-	music=Amb_00
-	sky1=F_SKY1
-	cluster=1
-}
-
-map DEVMAP2 "Maisth loves corruption"
-{
-	levelnum = 0
-	//music=D_FFL1
-	sky1=F_SKY1
-	cluster=1
-}
-
-
-map WORLD1 "Hampton"
-{
-	levelnum = 1
-	//music=Amb_01
-	sky1=F_SKY1
-	cluster=1
-}
-
-
-map WORLD2 "South Joint"
-{
-	levelnum = 2
-	//music=Amb_02
-	sky1=F_SKY1
-	cluster=2
-}
-
-map WORLD3 "Blumefold"
-{
-	levelnum = 3
-	//music=Amb_03
-	sky1=F_SKY1
-	cluster=1
-}
-
-
-map WORLD4 "Seriezza Heights"
-{
-	levelnum = 4
-	//music=Amb_04
-	sky1=F_SKY1
-	cluster=1
-}
-
-map WORLD5 "Haldea"  ///Kizoky's fun place
-{
-	levelnum = 5
-	//music=Amb_05
-	sky1=F_SKY1
-	cluster=1
-}
-
-
-map WORLD10 "Downtown - Day"  
-{
-	levelnum = 15
-	music=Amb_10
-	sky1=F_SKY1
-	cluster=1
-}
-
-map WORLD6 "Ferret Drive"
-{
-	levelnum = 6
-	//music=Amb_06
-	sky1=F_SKY1
-	cluster=1
-}
-
-map WORLD7 "Grewen" 
-{
-	levelnum = 7
-	//music=Amb_07
-	sky1=F_SKY1
-	cluster=1
-}
-
-map WORLD8 "Renort Port" 
-{
-	levelnum = 8
-	//music=Amb_08
-	sky1=F_SKY1
-	cluster=1
-}
-
-
-map WORLD9 "Une-Borren" 
-{
-	levelnum = 9
-	//music=Amb_09
-	sky1=F_SKY1
-	cluster=1
-}
-
-
-map SEW1 "Sewers 1" 
-{
-	levelnum = 11
-	music=sewer
-	sky1=F_SKY1
-	cluster=1
-	UsePlayerStartZ=496
-}
-
-
-map BLISS "The Bliss"  ///Some story related stuff
-{
-	//levelnum = 5
-	music=god2
-	sky1=heaven
-	cluster=1
-}
-
-
-///Technical Stuff
-
-
-map OLZTEST "Nazi Testing Camp" 
-{
-	levelnum = 1488
-	//music=kizoky
-	sky1=F_SKY1
-	cluster=1352
-}
-
-
-
-map TESTPOST lookup "Cinematic experience"
-{
-	//music=D_FFL1
-	sky1 = "zo_dusk1", 0.035
 }
 
 map SCREENT  "Cinematic experience"
@@ -214,8 +58,6 @@ map SCREENT  "Cinematic experience"
 	sky1 = "magichour"
 	//lightning
 }
-
-
 
 //Skills
 
@@ -257,6 +99,6 @@ skill theycancelledme
    SpawnFilter = Hard
    DamageFactor = 2.5
    Name = "They Cancelled Me"
-   MustConfirm = "You were cancelled on the social media, everyone now wants to kill you!"
+   MustConfirm = "You were cancelled on the social media, now everyone wants to cancel you personally!"
    Key = "5"
 }
