@@ -60,6 +60,11 @@ OptionMenu "PostalOptionMenu"
 	//StaticText "on STD weapons (in realtime)", "White"
 	//StaticText ""
 	
+	StaticText "Gameplay Settings", "Yellow"
+	StaticText "Spawns NPCs in non-STD levels, replaces monsters but not all of them (50%)", "White"
+	Option "Share the Doom", "postal_monsterreplacee", "OnOff"
+	StaticText ""
+	
 	StaticText "Performance Options", "Gold"
 	StaticText "Note: OpenGL runs poorly with this mod, make sure you have Vulkan renderer enabled!", "White"
 	StaticText "If you are playing on STD levels it's recommended to use LZDoom", "White"
@@ -80,11 +85,6 @@ OptionMenu "PostalOptionMenu"
 	
 	StaticText "Misc. Settings", "Gold"
 	Option "Help tips (HUD)", "", "OnOff"
-	StaticText ""
-	
-	StaticText "Gameplay Settings", "Yellow"
-	StaticText "Spawns NPCs in non-STD levels, replaces monsters but not all of them", "White"
-	Option "Share the Doom", "postal_monsterreplacee", "OnOff"
 	StaticText ""
 	
 	StaticText "Debug Settings", "Gold"
