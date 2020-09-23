@@ -140,7 +140,7 @@ class PostRLauncher : PostalWeapon
 				
 				if (LineData.HitType == TRACE_HitActor && lineData.HitActor != invoker.Owner && lineData.HitActor.Health > 1)
 				{
-					Console.Printf("Got a target for seeking");
+					//Console.Printf("Got a target for seeking");
 					PPRocket.SeekingTarget = LineData.HitActor;
 				}
 				

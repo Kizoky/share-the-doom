@@ -30,7 +30,7 @@ class DudeCoreHandler : EventHandler
 		{
 			bool trigorno = random[trig](0,1);
 			
-			Console.Printf("Called!");
+			//Console.Printf("Called!");
 
 			if (trigorno)
 			{
