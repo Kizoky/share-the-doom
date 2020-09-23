@@ -426,6 +426,37 @@ class DudeCoreHandler : EventHandler
 		
    }
    
+   // Used by Share the Doom option
+   static const string NPCSpawnList[] =
+	{
+		"NPCBob",
+		"NPCJon",
+		"NPCKurt",
+		"NPCWhiteDude",
+		"NPCWhiteDude2",
+		"NPCWhiteDude3",
+		"NPCWhiteDude4",
+		"NPCWhiteDude5",
+		"NPCMulato1",
+		"NPCMulato2",
+		"NPCWhiteDude6",
+		"NPCWhiteDude7",
+		"NPCMick",
+		"NPCJaret",
+		"NPCRick",
+		"NPCRicky",
+		"NPCWhiteDude8",
+		"NPCRedneck1",
+		"NPCWhiteDude9",
+		"NPCWhiteDude10",
+		"NPCWhiteDude11",
+		"NPCAsiatic1",
+		"NPCAsiatic2",
+		"NPCRussian1",
+		"NPCRussian2",
+		"NPCCore"
+	};
+   
    //Needed for fire and other things
    override void WorldThingSpawned (Worldevent e)
    {
@@ -530,7 +561,12 @@ class DudeCoreHandler : EventHandler
 					int chance = random[cc](0,50);
 					if (chance >= 25 && SpawnedThing.Tid == 0)
 					{
-						actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
+						int RandomNPCorder = random[spawnNPCee](0,NPCSpawnList.Size()-1);
+						actor NPC = SpawnedThing.Spawn(NPCSpawnList[RandomNPCorder], SpawnedThing.pos);
+				
+						//NPCWeapon = WeaponList[i];
+						
+						//actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
 						if (NPC)
 						{
 							NPC.angle = SpawnedThing.angle;
