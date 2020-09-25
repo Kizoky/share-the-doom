@@ -13,9 +13,13 @@ class PostSledge : PostalWeapon
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
-			if (lineData.hitActor == null) return;
+			if (!lineData.hitActor) return;
 			
-			if (LineData.HitActor is 'NPCHead')
+			FLineTraceData TraceData;
+			LineTrace(invoker.owner.angle,125.0,invoker.owner.pitch,0,Player.ViewHeight-18,0,0,TraceData);
+			
+			// Headshot
+			if (TraceData.HitLocation.Z > pos.z + height-16)
 			{
 				A_PlaySound("weapons/hammer_bodyhit", CHAN_WEAPON);
 				A_SledgeHit(LineData.HitActor.Health);

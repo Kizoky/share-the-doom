@@ -13,14 +13,7 @@ class PostScythe : PostalWeapon
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
-			if (lineData.hitActor == null) return;
-			
-			if (LineData.HitActor is 'NPCHead')
-			{
-				A_PlaySound("weapons/scythe_slice", CHAN_WEAPON);
-				A_ScytheHit(50);
-				return;
-			}
+			if (!lineData.hitActor) return;
 			
 			A_PlaySound("weapons/scythe_slice", CHAN_WEAPON);
 			A_ScytheHit(0);

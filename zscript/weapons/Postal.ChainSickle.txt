@@ -12,14 +12,7 @@ class PostChainSickle : PostalWeapon
 		}
 		
 		if (LineData.HitType == TRACE_HitActor)
-		{
-			if (LineData.HitActor is 'NPCHead')
-			{
-				A_PlaySound("weapons/machete_slice", CHAN_WEAPON);
-				A_ChainHit(50);
-				return;
-			}
-			
+		{	
 			A_PlaySound("weapons/machete_slice", CHAN_WEAPON);
 			A_ChainHit(0);
 			return;

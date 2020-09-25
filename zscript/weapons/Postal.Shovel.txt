@@ -1,11 +1,11 @@
 class PostShovel : PostalWeapon
 {
 	
-	action void A_ShovelHit()
+	action void A_ShovelHit(int xtra)
 	{
 		FTranslatedLineTarget t;
 
-		int damage = random[shovel](9, 13);
+		int damage = random[shovel](9+xtra, 13+xtra);
 
 		double ang = angle;
 		double pitch = AimLineAttack (ang, DEFMELEERANGE, null, 0., ALF_CHECK3D);
@@ -31,27 +31,29 @@ class PostShovel : PostalWeapon
 		{
 			if (lineData.hitActor == null) return;
 			
-			if (lineData.HitActor is 'NPCHead')
-			{
-				if (SecondaryOrPrimary ~== "primary")
-					A_PlaySound("weapons/shovel_hithead", CHAN_WEAPON);
-				else if (SecondaryOrPrimary ~== "secondary")
-					A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
-				
-				A_ShovelHit();
-				//Console.Printf("Hit head!");
-				return;
-			}
-			
 			if (lineData.HitActor is 'NPCCore')
 			{
+				FLineTraceData TraceData;
+				LineTrace(invoker.owner.angle,125.0,invoker.owner.pitch,0,Player.ViewHeight-18,0,0,TraceData);
+				
+				// Headshot
+				if (TraceData.HitLocation.Z > pos.z + height-16)
+				{
+					if (SecondaryOrPrimary ~== "primary")
+						A_PlaySound("weapons/shovel_hithead", CHAN_WEAPON);
+					else if (SecondaryOrPrimary ~== "secondary")
+						A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
+					
+					A_ShovelHit(7);
+					return;
+				}
+				
 				if (SecondaryOrPrimary ~== "primary")
 					A_PlaySound("weapons/shovel_hitbody", CHAN_WEAPON);
 				else if (SecondaryOrPrimary ~== "secondary")
 					A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
 				
-				A_ShovelHit();
-				//Console.Printf("Hit an NPC!");
+				A_ShovelHit(0);
 				return;
 			}
 			
@@ -62,8 +64,7 @@ class PostShovel : PostalWeapon
 				else if (SecondaryOrPrimary ~== "secondary")
 					A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
 				
-				A_ShovelHit();
-				//Console.Printf("Hit body: PostalActor or not PostalActor");
+				A_ShovelHit(0);
 				return;
 			}
 		}
@@ -71,7 +72,7 @@ class PostShovel : PostalWeapon
 		if (LineData.HitType == TRACE_HitWall || LineData.HitType == TRACE_HitFloor || LineData.HitType == TRACE_HitCeiling)
 		{
 			A_PlaySound("weapons/shovel_hitwall", 7 | 4096);
-			A_ShovelHit();
+			A_ShovelHit(0);
 		}
 	
 	

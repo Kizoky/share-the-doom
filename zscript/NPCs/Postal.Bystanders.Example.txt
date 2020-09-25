@@ -30,22 +30,6 @@ class NPCExample : NPCCore
 		// The pitch of the NPC's voice is randomized
 		MyVoice = frandom[voicef](0.7,1.2);
 		
-		// Spawn head hitbox
-		// Note: You MUST set a Headbox for the NPC, otherwise they will die instantly
-		// Currently this is hardcoded and there's no way you can't not add Hitbox to the NPC
-		class<actor> Head = "NPCHead";
-		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
-		if (MyHead)
-		{
-			MyHead.Angle = self.Angle;
-			let p = NPCHead(MyHead);
-			if (p)
-			{
-				p.Owner = self;
-				HeadHitbox = p;
-			}
-		}
-		
 		// Set hostility and weapon
 		// For hostility use:
 		// 'Hostile' or 'Pussy', the latter is unarmed Bystander behavior

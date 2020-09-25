@@ -63,7 +63,7 @@ version "4.2"
 
 //------------ Postal Core NPCs
 
-#include "zscript/NPCs/Postal.Bystanders.Bodyparts.txt"
+//#include "zscript/NPCs/Postal.Bystanders.Bodyparts.txt"
 #include "zscript/NPCs/Postal.Bystanders.Node.txt"
 #include "zscript/NPCs/Postal.Dog.txt"
 #include "zscript/NPCs/Postal.Bystanders.Core.Debug.txt"

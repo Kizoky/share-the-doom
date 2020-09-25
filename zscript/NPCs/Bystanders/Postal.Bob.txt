@@ -17,19 +17,6 @@ class NPCBob : NPCCore
 
 		MyVoice = frandom[voicef](0.95,1.12);
 		
-
-		class<actor> Head = "NPCHead";
-		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
-		if (MyHead)
-		{
-			MyHead.Angle = self.Angle;
-			let p = NPCHead(MyHead);
-			if (p)
-			{
-				p.Owner = self;
-				HeadHitbox = p;
-			}
-		}
 		
 		Hostility = "Hostile";
 		NPCWeapon = "Pistol";

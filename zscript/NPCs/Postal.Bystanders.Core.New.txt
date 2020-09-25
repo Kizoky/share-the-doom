@@ -203,6 +203,7 @@ class NPCCore : PostalActor
 		
 		if (!(self is 'NPCKrotchy'))
 		{
+			/*
 			//Spawn head hitbox
 			class<actor> Head = "NPCHead";
 			Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
@@ -216,6 +217,7 @@ class NPCCore : PostalActor
 					HeadHitbox = p;
 				}
 			}
+			*/
 			
 			//Spawn Left and Right Arm
 			
@@ -333,11 +335,13 @@ class NPCCore : PostalActor
 		
 		// If our head hitbox is missing, most likely we are immortal
 		
+		/*
 		if (HeadHitBox == null && !(self is 'NPCKrotchy'))
 		{
 			if (!bKILLED)
 				A_Die();
 		}
+		*/
 		
 		// Some absurd way of doing pathnodes, probably will be replaced by something greater
 		// or it will be even worse
@@ -569,28 +573,125 @@ class NPCCore : PostalActor
 			if (damage > Health)
 				A_StartSound(DeathSound, CHAN_VOICE, CHANF_DEFAULT, 1.0, ATTN_NORM, MyVoice);
 		
-		if (source != self)
-		{	
-			if (source is 'PostalDecoration')
-			{
-				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
-			}
-			
-			MyTarget = source;
-			target = source;
+		
+		// We will never retaliate against Decorations
+		if (source is 'PostalDecoration')
+		{
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
 		
-		if (inflictor is 'Bulletpuff')
+		// Check for bullets
+		if (inflictor && inflictor is 'Bulletpuff')
 		{
-			//Console.Printf("Clip clip clip");
 			A_StartSound("hitflesh", CHAN_BODY);
+		}
+		
+		// Check for melee weapons
+		/*
+		if (inflictor && inflictor is 'PostalMeleeHitPuff')
+		{
+			if (source is 'PostalDude')
+			{
+				if (inflictor.pos.z > pos.z + height-16)
+				{
+					
+					
+				}
+			}
+		}
+		*/
+		
+		if (inflictor is 'ThrownMachete' || 
+			inflictor is 'ThrownScythe' || 
+			inflictor is 'ThrownHammer')
+		{
+			if (inflictor && inflictor.pos.z > pos.z + height-18)
+			{
+				A_StartSound("misc/gibbed", CHAN_BODY);
+				A_Die();
+				
+				SpawnHeadshot();
+				SetStateLabel("Headless.Death");
+				
+				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			}
+		}
+		
+		// Headshot check
+		if (inflictor && inflictor.pos.z > pos.z + height-14)
+		{
+			if ((Health - damage) < 1)
+			{
+				bNoBlood = true;
+				
+				// Killed by the Player
+				let t = PostalDude(source);
+				if (t)
+				{
+					t.InitLine = true;
+					if ((t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) || 
+						 t.Player.ReadyWeapon == Weapon(t.FindInventory("PostSledge"))) && Distance2D(source) < 165)
+					{
+						A_StartSound("misc/gibbed", CHAN_BODY);
+						A_Die();
+						
+						SpawnHeadshot();
+						SetStateLabel("Headless.Death");
+					}
+				}
+				
+				// Killed by Bystander
+				let foe = NPCCore(source);
+				if (foe)
+				{
+					if (foe.NPCWeapon ~== "Shotgun"  && Distance2D(source) < 125)
+					{
+						A_StartSound("misc/gibbed", CHAN_BODY);
+						A_Die();
+						
+						SpawnHeadshot();
+						SetStateLabel("Headless.Death");
+					}
+				}
+				
+				return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+			}
+			else
+			{
+				MyTarget = source;
+				target = source;
+				return Super.DamageMobj(inflictor,source,damage * 2.25,mod,flags,angle);
+			}
+		}
+		
+		if (source != self)
+		{	
 			MyTarget = source;
 			target = source;
 			return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
 		}
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	// Todo: replace A_SpawnItemEx with proper coding
+	virtual void SpawnHeadshot()
+	{
+		int HeightFloor = pos.z + height+40;
+		
+		A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(4.0+HeightFloor, 6.0+HeightFloor));
+		A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(4.0+HeightFloor, 6.0+HeightFloor));
+		
+		A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(4.0+HeightFloor, 6.0+HeightFloor));
+		A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(4.0+HeightFloor, 6.0+HeightFloor));
+		
+		int i = 0;
+		while (i < 8) {
+			A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(4.0+HeightFloor, 6.0+HeightFloor), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(12.0+HeightFloor, 15.0+HeightFloor), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			i++;
+		}
+		
 	}
 	
 	// Mimics Postal 2's weird slow rotation towards it's target
@@ -638,7 +739,7 @@ class NPCCore : PostalActor
 		
 		if (LineData.HitType == TRACE_HitActor)
 		{
-			if (lineData.HitActor != target && !(lineData.HitActor is 'NPCHead'))
+			if (lineData.HitActor != target)
 			{
 				bool ff = random[gogo](0,1);
 				

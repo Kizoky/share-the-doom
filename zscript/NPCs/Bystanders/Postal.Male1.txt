@@ -18,19 +18,6 @@ class NPCWhiteDude : NPCCore
 
 		MyVoice = frandom[voicef](0.95,1.12);
 		
-
-		class<actor> Head = "NPCHead";
-		Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
-		if (MyHead)
-		{
-			MyHead.Angle = self.Angle;
-			let p = NPCHead(MyHead);
-			if (p)
-			{
-				p.Owner = self;
-				HeadHitbox = p;
-			}
-		}
 		
 		int rnd = random[rrr](0,3);
         Hostility = (rnd == 0) ? "Hostile" : "Pussy";

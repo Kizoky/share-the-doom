@@ -56,7 +56,7 @@ class PostalNPCMonsterChecker : Powerup
 		
 		if (owner.bKILLED) return;
 		
-		if (owner is 'NPCCore' || owner is 'NPCHead') return;
+		if (owner is 'NPCCore') return;
 		
 		angle = owner.angle;
 		
