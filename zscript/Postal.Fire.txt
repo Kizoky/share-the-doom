@@ -1,3 +1,4 @@
+// Used by non-Postal actors, although it's broken
 class FireSpawnerAid : Powerup
 {
 	Actor AttachedFire;
@@ -64,7 +65,7 @@ class FireSpawnerAid : Powerup
 
 // Fire on the Player lasts 10 seconds
 // Fire on an NPC lasts 15 seconds
-// Fire lasts 25 seconds, at 20 seconds it starts to disappear
+// Fire lasts 25 seconds, at 20 seconds it starts to disappear (ground)
 
 // This is attached to the Actor, the ground version is PostalLiquidGas which is below
 class PostalFire : PostalActor
