@@ -138,28 +138,28 @@ version "4.2"
 #include "zscript/Traffic/Postal.CarAI.txt"
 
 //------------- Debug stuff
-#include "zscript/RadiusDebug/RadiusDebug.zc" //made by Nash
-#include "zscript/RadiusDebug/kodi.zc" //LineTrace debugger made by kodi
+#include "zscript/BorrowedCode/RadiusDebug/RadiusDebug.zc" //made by Nash
+#include "zscript/BorrowedCode/RadiusDebug/kodi.zc" //LineTrace debugger made by kodi
 
 //------------- ChaseCam2
-#include "zscript/ChaseCam2/ChaseCam2.txt"
+#include "zscript/BorrowedCode/ChaseCam2/ChaseCam2.txt"
 
 //------------- mk_math (Marisa Kirisame's Math helper classes)
-#include "zscript/mk_math/mk_coordutil.zsc"
-#include "zscript/mk_math/mk_matrix.zsc"
-#include "zscript/mk_math/mk_quaternion.zsc"
+#include "zscript/BorrowedCode/mk_math/mk_coordutil.zsc"
+#include "zscript/BorrowedCode/mk_math/mk_matrix.zsc"
+#include "zscript/BorrowedCode/mk_math/mk_quaternion.zsc"
 
 //------------- Pathfinding
-#include "zscript/pathfinding/navmesh.zc"
-#include "zscript/pathfinding/pathfinder.zc"
+#include "zscript/BorrowedCode/pathfinding/navmesh.zc"
+#include "zscript/BorrowedCode/pathfinding/pathfinder.zc"
 
 //------------- Lewisk3's StatusBarScreen
-#include "zscript/StatusBarScreen/StatusScreen_base.zsc"
-#include "zscript/StatusBarScreen/StatusScreen_3D.zsc"
+#include "zscript/BorrowedCode/StatusBarScreen/StatusScreen_base.zsc"
+#include "zscript/BorrowedCode/StatusBarScreen/StatusScreen_3D.zsc"
 
 //------------- m8f's Stupid Achievements
-#include "zscript/StupidAchievements/ImpAchievements.zs"
-#include "zscript/StupidAchievements/StupidAchievements.zs"
+#include "zscript/BorrowedCode/StupidAchievements/ImpAchievements.zs"
+#include "zscript/BorrowedCode/StupidAchievements/StupidAchievements.zs"
 
 enum Bobbing
 {
