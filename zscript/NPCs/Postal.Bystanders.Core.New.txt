@@ -389,6 +389,8 @@ class NPCCore : PostalActor
 			}
 		}
 		
+		HostileWeaponDistancing();
+		
 		if (InStateSequence(CurState, ResolveState("StaringWeapon")) ||
 			InStateSequence(CurState, ResolveState("StaringNPC")) ||
 			InStateSequence(CurState, ResolveState("StaringCorpse")) ||
@@ -774,6 +776,20 @@ class NPCCore : PostalActor
 		if (activator)
 		{
 			activate(activator);
+		}
+	}
+	
+	virtual void HostileWeaponDistancing()
+	{
+		if (target && Hostility ~== "Hostile")
+		{
+			double DistanceTarget = Distance2D(target);
+			
+			if (DistanceTarget < 125)
+				bFRIGHTENED = true;
+			else
+				bFRIGHTENED = false;
+		
 		}
 	}
 	
