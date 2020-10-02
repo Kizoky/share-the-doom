@@ -72,6 +72,7 @@ class PostSledge : PostalWeapon
 		if (pos.z == floorz && HitGroundOnce != true)
 		{
 			A_PlaySound("weapons/hammer_hitground", CHAN_WEAPON);
+			A_SpawnItemEx("PostalBulletPuff");
 			HitGroundOnce = true;
 		}
 	}
@@ -183,6 +184,7 @@ class ThrownHammer : PostalActor
 		if (BounceCount == 1)
 		{
 			A_SpawnItemEx("PostSledge");
+			A_SpawnItemEx("PostalBulletPuff");
 			Destroy();
 		}
 	
@@ -228,7 +230,7 @@ class ThrownHammer : PostalActor
 	}
 	Loop;
   Death:
-	TNT1 A 0 A_SpawnItemEx("PostSledge");
+	TNT1 A 0;
     Stop;
   }
 }

@@ -61,6 +61,7 @@ class PostScythe : PostalWeapon
 		if (pos.z == floorz && HitGroundOnce != true)
 		{
 			A_PlaySound("weapons/scythe_hitground", CHAN_WEAPON);
+			A_SpawnItemEx("PostalBulletPuff");
 			HitGroundOnce = true;
 		}
 	}
@@ -183,6 +184,7 @@ class ThrownScythe : PostalActor
 		if (BounceCount == 1)
 		{
 			A_SpawnItemEx("PostScythe");
+			A_SpawnItemEx("PostalBulletPuff");
 			Destroy();
 		}
 	

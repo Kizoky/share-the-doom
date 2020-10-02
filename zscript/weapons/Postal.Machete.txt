@@ -64,6 +64,7 @@ class PostMachete : PostalWeapon
 		if (pos.z == floorz && HitGroundOnce != true)
 		{
 			A_PlaySound("weapons/machete_hitground", CHAN_WEAPON);
+			A_SpawnItemEx("PostalBulletPuff");
 			HitGroundOnce = true;
 		}
 	}
@@ -311,6 +312,7 @@ class ThrownMachete : PostalActor
 		+BOUNCEONWALLS
 		+BOUNCEONFLOORS
 		+BOUNCEONCEILINGS
+		+USEBOUNCESTATE
 		BounceCount 10;
 		BounceSound "weapons/machete_hitwall";
 		SeeSound "";
@@ -343,6 +345,9 @@ class ThrownMachete : PostalActor
 		}
 	}
 	Loop;
+  Bounce:
+	THRO A 0 A_SpawnItemEx("PostalBulletPuff");
+	Goto Spawn;
   Death:
 	TNT1 A 0 A_SpawnItemEx("PostMachete");
     Stop;

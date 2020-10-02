@@ -18,6 +18,9 @@ class PostalBulletPuff : BulletPuff replaces BulletPuff
 		}
 		
 		/*
+		
+		// Totally pointless to have 2 different whiles but who knows who wants to customize these
+		
 		int dirt = 1;
 		while (dirt <= DIRT_MAX_SPAWN)
 		{
@@ -27,8 +30,6 @@ class PostalBulletPuff : BulletPuff replaces BulletPuff
 				
 			dirt++;
 		}
-		
-		// Technically only 2 will be spawned both for Dirt and Spark but who knows in the future...
 		
 		int spark = 1;
 		while (spark <= SPARK_MAX_SPAWN)
