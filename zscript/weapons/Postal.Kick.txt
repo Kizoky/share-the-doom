@@ -4,7 +4,7 @@ class PostKick : CustomInventory
 	{
 		int damage = random[kick](5, 7) << 1;
 
-		LineAttack (angle, 115, pitch, damage, 'Melee', "PostalKickPuff");
+		LineAttack (angle, 100, pitch, damage, 'Melee', "PostalKickPuff");
 	}
 	
    default
@@ -60,13 +60,17 @@ class PostKick : CustomInventory
 				if (bKILLED) return;
 				
 				FLineTraceData lineData;
-				LineTrace(angle,115,pitch,offsetz: height-3, data: LineData);
-				if (LineData.HitType == TRACE_HitWall && LineData.HitType != TRACE_HitActor)
+				LineTrace(angle,85,pitch,offsetz: height, data: LineData);
+				if ((LineData.HitType == TRACE_HitWall || LineData.HitType == TRACE_HitFloor || LineData.HitType == TRACE_HitCeiling) && LineData.HitType != TRACE_HitActor)
 				{
 					//LineData.HitLine.Activate(self,0,SPAC_Use);
 					A_QuakeEx(0, 3, 3, 7, 0, 60 );
-					A_PlaySound("footWall", 7 | 4096);
-					//Console.Printf("Got Usable stuff!");
+					A_StartSound("footWall", CHAN_BODY | 4096);
+					
+					FTranslatedLineTarget t;
+			
+					LineAttack (angle, 85, pitch, 0, 'Melee', "PostalMeleeHitPuff", LAF_ISMELEEATTACK, t);
+					
 				}
 				else
 				{
@@ -79,7 +83,7 @@ class PostKick : CustomInventory
 							pp.PainChance = 256;
 							//Console.Printf("Scumbag kicked");
 							A_QuakeEx(0, 3, 3, 7, 0, 60 );
-							A_PlaySound("footLiving", 7 | 4096);
+							pp.A_StartSound("footLiving", CHAN_BODY | 4096);
 						}
 						
 						let wep = Player.ReadyWeapon;
@@ -113,30 +117,4 @@ class PostKick : CustomInventory
          Stop;
    }
 
-}
-
-class PostalKickPuff : BulletPuff
-{
-	Default
-	{
-		+NOBLOCKMAP
-		+NOGRAVITY
-		+ALLOWPARTICLES
-		+RANDOMIZE
-		+DONTSPLASH
-		+ZDOOMTRANS
-		RenderStyle "Translucent";
-		Alpha 0.5;
-		VSpeed 1;
-		Mass 5;
-		SeeSound "";
-		AttackSound "";
-		ActiveSound "";
-	}
-	States
-	{
-	Spawn:
-		TNT1 AAA 4;
-		Stop;
-	}
 }

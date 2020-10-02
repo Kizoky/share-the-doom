@@ -1,0 +1,132 @@
+class PostalBulletPuff : BulletPuff replaces BulletPuff
+{
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		int i = 0;
+		while (i <= 2)
+		{
+			let Smoke = Spawn("PostalSmokePuff", pos);
+			if (Smoke)
+				Smoke.vel = (frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
+				
+			i++;
+		}
+	
+	}
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ALLOWPARTICLES
+		+RANDOMIZE
+		+DONTSPLASH
+		+ZDOOMTRANS
+		RenderStyle "Translucent";
+		Alpha 0.75;
+		VSpeed 1;
+		Mass 5;
+		SeeSound "missp";
+		AttackSound "hitwall";
+		ActiveSound "missp";
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 1;
+		Stop;
+	Melee:
+		TNT1 A 1;
+		Stop;
+	}
+}
+
+class PostalSmokePuff : Actor
+{
+	bool rroll;
+	int type;
+	double scall;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		roll = random[rl](0,360);
+		rroll = random[rol](0,1);
+		type = random[typ](0,2);
+		Alpha = frandom[pha](0.60,0.99);
+		scall = frandom[scl](0.015, 0.020);
+		
+		switch(type)
+		{
+			case 1:
+				SetStateLabel("Two");
+				break;
+			case 2:
+				SetStateLabel("Three");
+				break;
+			default:
+				SetStateLabel("Three");
+				break;
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		Alpha -= 0.016;
+		Scale.X += scall;
+		Scale.Y += scall;
+		
+		if (Alpha <= 0)
+			Destroy();
+		
+		if (rroll)
+			roll += 1;
+		else
+			roll -= 1;
+	}
+	
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+		+ALLOWPARTICLES
+		+RANDOMIZE
+		+DONTSPLASH
+		+ZDOOMTRANS
+		+NOINTERACTION
+		+ROLLSPRITE
+		RenderStyle "Translucent";
+		Alpha 0.95;
+		//VSpeed 1;
+		Mass 5;
+		SeeSound "missp";
+		AttackSound "hitwall";
+		ActiveSound "missp";
+	}
+	States
+	{
+	Spawn:
+		SKKK A 4;
+		Loop;
+	Two:
+		SKKK B 4;
+		Loop;
+	Three:
+		SKKK C 4;
+		Loop;
+	}
+}
+
+class PostalKickPuff : PostalBulletPuff { }
+
+class PostalMeleeHitPuff : PostalBulletPuff
+{
+	Default
+	{
+		SeeSound "";
+		AttackSound "";
+		ActiveSound "";
+	}
+}

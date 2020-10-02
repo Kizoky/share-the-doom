@@ -122,31 +122,3 @@ class PostShovel : PostalWeapon
 		Stop;
 	}
 }
-
-//todo: Find the texture Postal is using for that "smoke" when hitting the wall or anything with the shovel
-class PostalMeleeHitPuff : Actor
-{
-	Default
-	{
-		+NOBLOCKMAP
-		+NOGRAVITY
-		+ALLOWPARTICLES
-		+RANDOMIZE
-		+DONTSPLASH
-		+ZDOOMTRANS
-		RenderStyle "Translucent";
-		Alpha 0.5;
-		VSpeed 1;
-		Mass 5;
-		SeeSound "";
-		AttackSound "";
-		ActiveSound "";
-	}
-	States
-	{
-	Spawn:
-		TNT1 A 4;
-		TNT1 AAA 4;
-		Stop;
-	}
-}
