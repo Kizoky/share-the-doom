@@ -636,7 +636,7 @@ class NPCCore : PostalActor
 				{
 					t.InitLine = true;
 					if ((t.Player.ReadyWeapon == Weapon(t.FindInventory("PostShotgun")) || 
-						 t.Player.ReadyWeapon == Weapon(t.FindInventory("PostSledge"))) && Distance2D(source) < 165)
+						 t.Player.ReadyWeapon == Weapon(t.FindInventory("PostSledge"))) && Distance2D(source) < 215)
 					{
 						A_StartSound("misc/gibbed", CHAN_BODY);
 						A_Die();
@@ -650,7 +650,7 @@ class NPCCore : PostalActor
 				let foe = NPCCore(source);
 				if (foe)
 				{
-					if (foe.NPCWeapon ~== "Shotgun"  && Distance2D(source) < 125)
+					if (foe.NPCWeapon ~== "Shotgun"  && Distance2D(source) < 215)
 					{
 						A_StartSound("misc/gibbed", CHAN_BODY);
 						A_Die();
