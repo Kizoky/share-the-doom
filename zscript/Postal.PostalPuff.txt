@@ -1,18 +1,46 @@
 class PostalBulletPuff : BulletPuff replaces BulletPuff
 {
+	const SMOKE_MAX_SPAWN = 3;
+	const DIRT_MAX_SPAWN = 2;
+	const SPARK_MAX_SPAWN = 2;
+	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		int i = 0;
-		while (i <= 2)
+		int smoke = 1;
+		while (smoke <= SMOKE_MAX_SPAWN)
 		{
-			let Smoke = Spawn("PostalSmokePuff", pos);
-			if (Smoke)
-				Smoke.vel = (frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
+			let SmokePuff = Spawn("PostalSmokePuff", pos);
+			if (SmokePuff)
+				SmokePuff.vel = (frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
 				
-			i++;
+			smoke++;
 		}
-	
+		
+		/*
+		int dirt = 1;
+		while (dirt <= DIRT_MAX_SPAWN)
+		{
+			let DirtPuff = Spawn("PostalDirtPuff", pos);
+			if (DirtPuff)
+				DirtPuff.vel;
+				
+			dirt++;
+		}
+		
+		// Technically only 2 will be spawned both for Dirt and Spark but who knows in the future...
+		
+		int spark = 1;
+		while (spark <= SPARK_MAX_SPAWN)
+		{
+			let SparkPuff = Spawn("PostalSparkPuff", pos);
+			if (SparkPuff)
+				SparkPuff.vel;
+				
+			spark++;
+		}
+		*/
+		
 	}
 	Default
 	{
