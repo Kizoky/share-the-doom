@@ -137,13 +137,13 @@ class PostalSmokePuff : Actor
 	States
 	{
 	Spawn:
-		SKKK A 4;
+		SKK9 A 4;
 		Loop;
 	Two:
-		SKKK B 4;
+		SKK9 B 4;
 		Loop;
 	Three:
-		SKKK C 4;
+		SKK9 C 4;
 		Loop;
 	}
 }
