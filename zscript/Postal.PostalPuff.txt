@@ -126,7 +126,7 @@ class PostalSmokePuff : Actor
 		+ZDOOMTRANS
 		+NOINTERACTION
 		+ROLLSPRITE
-		RenderStyle "Translucent";
+		RenderStyle "Add";
 		Alpha 0.95;
 		//VSpeed 1;
 		Mass 5;
