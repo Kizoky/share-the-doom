@@ -194,6 +194,23 @@ class NPCCore : PostalActor
 		NPC_Bully = "";
 		NPC_Reaction = ""; //Generic Reaction
 		
+		////// 1 = Pussy; will shriek in whatever occusion
+		////// 2 = Hostile; has a weapon, and will attack back if provoked
+		////// 3 = Ally; ignores the player, will attack back if a certain amount of HP was lost because of the Player
+		////// 4 = Companion; Same as like ally, with the exception that it will follow the Player on sight, and won't attack it no matter what
+		int RandomizedHostility = random[myhostility](1,2);
+		
+		switch(RandomizedHostility)
+		{
+			default:
+			case 1:
+				Hostility = "Pussy";
+				break;
+			case 2:
+				Hostility = "Hostile";
+				break;
+		}
+		
 		//Walking styles are randomized, but you can set it manually if wanted
 		WalkingStyle = random[mystyle](1,6);
 		
@@ -201,69 +218,11 @@ class NPCCore : PostalActor
 		if (!(self is 'NPCKrotchy'))
 			MyVoice = frandom[voicef](0.7,1.2);
 		
-		if (!(self is 'NPCKrotchy'))
+		if (Hostility ~== "Hostile")
 		{
-			/*
-			//Spawn head hitbox
-			class<actor> Head = "NPCHead";
-			Actor MyHead = spawn(Head, self.pos, ALLOW_REPLACE);
-			if (MyHead)
-			{
-				MyHead.Angle = self.Angle;
-				let p = NPCHead(MyHead);
-				if (p)
-				{
-					p.Owner = self;
-					HeadHitbox = p;
-				}
-			}
-			*/
+			int i = random[myweapon](0,WeaponList.Size()-1);
 			
-			//Spawn Left and Right Arm
-			
-			/*
-			
-			int i = 1;
-			while (i <= 2)
-			{
-				class<actor> Arm = "NPCArm";
-				Actor MyArm = spawn(Arm, self.pos, ALLOW_REPLACE);
-				if (MyArm)
-				{
-					MyArm.Angle = self.Angle;
-					let p = NPCArm(MyArm);
-					if (p)
-					{
-						p.master = self;
-						if (i == 2)
-							p.L = true;
-					}
-				}
-				i++;
-			}
-			
-			//Spawn Left and Right Leg
-			
-			int j = 1;
-			while (j <= 2)
-			{
-				class<actor> Leg = "NPCLeg";
-				Actor MyLeg = spawn(Leg, self.pos, ALLOW_REPLACE);
-				if (MyLeg)
-				{
-					MyLeg.Angle = self.Angle;
-					let p = NPCLeg(MyLeg);
-					if (p)
-					{
-						p.master = self;
-						if (j == 2)
-							p.L = true;
-					}
-				}
-				j++;
-			}
-			*/
-			
+			NPCWeapon = WeaponList[i];
 		}
 		
 	}
@@ -273,6 +232,9 @@ class NPCCore : PostalActor
 	{
 		Super.PostBeginPlay();
 		
+		if (Hostility == "Pussy")
+			NPCWeapon = "Hands";
+		
 		NPC_Debug();
 		
 		//Shader.SetUniform3f( players[consoleplayer], "ColorTint", "tintColor", (1.0,0.0,0.0) );
@@ -281,42 +243,31 @@ class NPCCore : PostalActor
 		
 		if (BehaviorOverriden != true)
 		{
-			////// 1 = Pussy; will shriek in whatever occusion
-			////// 2 = Hostile; has a weapon, and will attack back if provoked
-			////// 3 = Ally; ignores the player, will attack back if a certain amount of HP was lost because of the Player
-			////// 4 = Companion; Same as like ally, with the exception that it will follow the Player on sight, and won't attack it no matter what
-			int RandomizedHostility = random[myhostility](1,2);
-			
-			switch(RandomizedHostility)
-			{
-				default:
-				case 1:
-					Hostility = "Pussy";
-					break;
-				case 2:
-					Hostility = "Hostile";
-					break;
-			}
-			
-			if (user_attacksplayeronsight == true)
-				Hostility = "Hostile";
-			
-			if (Hostility == "Pussy")
-				NPCWeapon = "Hands";
-			
-			if (Hostility == "Hostile")
-			{
-				int i = random[myweapon](0,WeaponList.Size()-1);
-				
-				NPCWeapon = WeaponList[i];
-			}
-			
-			if (!(user_weapon == ""))
-				NPCWeapon = user_weapon;
+			// stub
 		}
 		
 		NPC_Settings();
-		//NPC_Obituaries();
+		
+		if (user_attacksplayeronsight == true)
+			Hostility = "Hostile";
+			
+		if (!(user_weapon == ""))
+			NPCWeapon = user_weapon;
+		
+		// A series of user error checks
+		if (Hostility ~== "Hostile" && NPCWeapon == "")
+		{
+			ThrowAbortException("One Hostile NPC doesn't have a weapon set.\nMaybe it wasn't defined?\nNPC's classname: %s\nIf you believe this is not your fault write a message to Kizoky#0375 on Discord.\n", GetClassName());
+		}
+		
+		if (Hostility == "")
+		{
+			ThrowAbortException("One NPC doesn't have a hostility set.\nMaybe it wasn't defined?\nNPC's classname: %s\nIf you believe this is not your fault write a message to Kizoky#0375 on Discord.\n", GetClassName());
+		}
+		
+		// We are assuming the user didn't wanted to do randomization, so it's disabled.
+		if (MyVoice == 0)
+			MyVoice = 1;
 		
 		// Fail safe check
 		if (Hostility ~== "Pussy")
