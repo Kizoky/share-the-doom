@@ -25,6 +25,24 @@ class DudeCoreHandler : EventHandler
 	override void WorldTick()
 	{
 		let player = players[consoleplayer].mo;
+		let PDude = PostalDude(player);
+		
+		// Hurt bar (whole screen, forward)
+		if (PDude && PDude.PlayerData)
+		{
+			if (PDude.PlayerData.isinPainCooldown > level.time)
+			{
+				float hurtValue = 1 - (PDude.Health / 100.);
+				Shader.SetEnabled(PDude.player,"Hurtframe",true);
+				Shader.SetUniform3f(PDude.player, "Hurtframe", "tintColor", (1.0-PDude.PlayerData.isinPainAlpha,0.0,0.0));
+				Shader.SetUniform1f(PDude.player, "Hurtframe", "alphaValue", 1.0+PDude.PlayerData.isinPainAlpha);
+				Console.Printf("%f", hurtValue);
+				//Shader.SetUniform1f(PDude.player, "Hurtframe", "hurtValue", hurtValue - (PDude.PlayerData.isinPainAlpha - 0.50));
+				Shader.SetUniform1f(PDude.player, "Hurtframe", "hurtValue", hurtValue);
+			}
+			else
+				Shader.SetEnabled(PDude.player,"Hurtframe",false);
+		}
 		
 		if (!STD_Levels && player && CurrentMap != Level.Mapname && player is 'PostalDude')
 		{
@@ -41,8 +59,6 @@ class DudeCoreHandler : EventHandler
 		}
 		
 		//Unfuck situations
-		
-		let PDude = PostalDude(player);
 		if (PDude)
 		{
 			if (CurrentMap != Level.Mapname)

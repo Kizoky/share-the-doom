@@ -192,13 +192,13 @@ class PostalStatusBar : BaseStatusBar
 				DrawImage ("YourRed", (0, -18), DI_ITEM_CENTER | DI_SCREEN_CENTER, (HealthtoAlpha-0.35)-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (HealthtoAlpha, HealthtoAlpha));
 				
 				// Experimental hurt bars
-				
+				/*
 				DrawImage("hurt", (438, -14), DI_ITEM_TOP | DI_SCREEN_TOP, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (22+HealthtoAlpha, 1+HealthtoAlpha));
 				DrawImage("hurt", (478, 15), DI_ITEM_BOTTOM | DI_SCREEN_BOTTOM, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (22+HealthtoAlpha, 1+HealthtoAlpha));
 				
 				DrawImage("hurt", (-17, 900), DI_ITEM_LEFT | DI_SCREEN_LEFT, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1+HealthtoAlpha, 21+HealthtoAlpha));
 				DrawImage("hurt", (12, 900), DI_ITEM_RIGHT | DI_SCREEN_RIGHT, 0.55-PPlayer.PlayerData.isinPainAlpha, (-1, -1), (1+HealthtoAlpha, 21+HealthtoAlpha));
-				
+				*/
 			}
 		}
 		

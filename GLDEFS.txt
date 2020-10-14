@@ -4,6 +4,17 @@
 #include "GLDEF-Sun.gl"
 #include "GLDEF-Splatmap.gl"
 
+HardwareShader PostProcess Scene
+{
+	Name "Hurtframe"
+	Shader "shaders/Hurtframe.fp" 330
+	Uniform vec3 tintColor
+	Uniform float hurtValue
+	Uniform float alphaValue
+	//texture reflection "textures/misc/reflection2.png"
+	texture reflection "graphics/HUD/hurt.png"
+	Enabled
+}
 
 PointLight Light_FloatingTestLight
 {
