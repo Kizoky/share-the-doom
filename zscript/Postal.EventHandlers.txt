@@ -7,7 +7,7 @@ class DudeCoreHandler : EventHandler
 	
 	//todo: port this later I'm lazy
 	float hurtValue;
-	double alphaValue, orighurt;
+	double alphaValue, orighurt, transAlpha;
 
 	override void WorldLoaded(WorldEvent e)
 	{
@@ -41,9 +41,13 @@ class DudeCoreHandler : EventHandler
 				alphaValue = 0;
 				orighurt = 0;
 				
+				transAlpha += 0.20;
+				if (transAlpha >= 1.0)
+					transAlpha = 1.0;
+				
 				hurtValue = 1 - (PDude.Health / 100.);
 				Shader.SetEnabled(PDude.player,"Hurtframe",true);
-				Shader.SetUniform3f(PDude.player, "Hurtframe", "tintColor", (1.0-PDude.PlayerData.isinPainAlpha,0,0));
+				Shader.SetUniform3f(PDude.player, "Hurtframe", "tintColor", (1.0,1.0-transAlpha,1.0-transAlpha));
 				Shader.SetUniform1f(PDude.player, "Hurtframe", "alphaValue", 1.0+PDude.PlayerData.isinPainAlpha);
 				Shader.SetUniform1f(PDude.player, "Hurtframe", "hurtValue", hurtValue);
 			}
@@ -54,13 +58,15 @@ class DudeCoreHandler : EventHandler
 				
 				hurtValue -= 0.001;
 				
-				alphaValue += 0.08;
+				alphaValue += 0.15;
 				if (alphaValue >= 1.0)
 					alphaValue = 1.0;
 				
 				Shader.SetUniform3f(PDude.player, "Hurtframe", "tintColor", (1.0,alphaValue,alphaValue));
 				Shader.SetUniform1f(PDude.player, "Hurtframe", "hurtValue", hurtValue);
 				Shader.SetUniform1f(PDude.player, "Hurtframe", "alphaValue", hurtValue);
+				
+				transAlpha = 0;
 			}
 		}
 		
