@@ -18,8 +18,8 @@ void main()
 		float dis2 = dis - (0.9 - dis);
 		
 		
-		if (dis2 < hurtValue) 
-		//if (dis < hurtValue + ((1.0 - hurtValue) * 0.5)) 
+		//if (dis2 < hurtValue) 
+		if (dis < hurtValue + ((1.0 - hurtValue) * 0.5)) 
 		{
 			doTint = 1;
 		} 
@@ -31,7 +31,7 @@ void main()
 			doTint == 1 ? fade * (1.0 - tintColor.r) + tintColor.r : 1.0,
 			doTint == 1 ? fade * (1.0 - tintColor.g) + tintColor.g : 1.0,
 			doTint == 1 ? fade * (1.0 - tintColor.b) + tintColor.b : 1.0,
-			1.0
+			0
 		);
 	}
 	FragColor = (tex * c);
