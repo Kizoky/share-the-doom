@@ -118,16 +118,23 @@ class PostalSmokePuff : Actor
 	
 	Default
 	{
-		+NOBLOCKMAP
+		-NOBLOCKMAP
 		+NOGRAVITY
 		+ALLOWPARTICLES
 		+RANDOMIZE
 		+DONTSPLASH
 		+ZDOOMTRANS
-		+NOINTERACTION
+		-NOINTERACTION
 		+ROLLSPRITE
 		+FORCEXYBILLBOARD
+		+BOUNCEONWALLS
+		+BOUNCEONFLOORS
+		+BOUNCEONCEILINGS
+		+DONTBOUNCEONSKY
+		BounceFactor 0.50;
 		RenderStyle "Add";
+		Radius 3;
+		Height 3;
 		Alpha 0.95;
 		//VSpeed 1;
 		Mass 5;
