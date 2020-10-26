@@ -1,9 +1,12 @@
 class PostalBulletPuff : BulletPuff replaces BulletPuff
 {
+	// You might want to change the amount of spawns here
 	const SMOKE_MAX_SPAWN = 3;
 	const DIRT_MAX_SPAWN = 2;
 	const SPARK_MAX_SPAWN = 2;
 	
+	// I have probably done it in the most stupidest way possible 
+	// but I think this is the best way to deal with it
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -19,12 +22,10 @@ class PostalBulletPuff : BulletPuff replaces BulletPuff
 		
 		/*
 		
-		// Totally pointless to have 2 different whiles but who knows who wants to customize these
-		
 		int dirt = 1;
 		while (dirt <= DIRT_MAX_SPAWN)
 		{
-			let DirtPuff = Spawn("PostalDirtPuff", pos);
+			let DirtPuff = Spawn("PostalDirtClods", pos);
 			if (DirtPuff)
 				DirtPuff.vel;
 				
@@ -34,12 +35,13 @@ class PostalBulletPuff : BulletPuff replaces BulletPuff
 		int spark = 1;
 		while (spark <= SPARK_MAX_SPAWN)
 		{
-			let SparkPuff = Spawn("PostalSparkPuff", pos);
+			let SparkPuff = Spawn("PostalSparkHit", pos);
 			if (SparkPuff)
 				SparkPuff.vel;
 				
 			spark++;
 		}
+		
 		*/
 		
 	}
