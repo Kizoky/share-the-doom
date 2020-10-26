@@ -126,6 +126,7 @@ class PostalSmokePuff : Actor
 		+ZDOOMTRANS
 		+NOINTERACTION
 		+ROLLSPRITE
+		+FORCEXYBILLBOARD
 		RenderStyle "Add";
 		Alpha 0.95;
 		//VSpeed 1;
