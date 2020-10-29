@@ -1,0 +1,98 @@
+class animStanding : HUDViewable { }
+class animRunning : HUDViewable { }
+class animWalking : HUDViewable { }
+class animCollapse : HUDViewable { }
+class animGroundShivering : HUDViewable { }
+class animMeleeShoot : HUDViewable { }
+class animHeavyGunStanding : HUDViewable { }
+class animPistolStanding : HUDViewable { }
+
+class PostalCutsceneDoll : Actor
+{
+	string user_AnimationSpawn;
+	
+	// Possible list of animations
+	static const string AnimList[] =
+	{
+		"Standing",
+		"Running",
+		"Walking",
+		"Collapse"
+	};
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if (!(user_AnimationSpawn == ""))
+		{
+			for(int i = 0; i < AnimList.Size(); i++)
+			{
+				if (user_AnimationSpawn ~== AnimList[i])
+				{
+					string s = String.Format("anim%s", user_AnimationSpawn);
+					A_GiveInventory(s);
+				}
+			}
+		}
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (FindInventory("animStanding"))
+		{
+			SetStateLabel("Standing");
+			A_TakeInventory("animStanding");
+		}
+		
+		if (FindInventory("animRunning"))
+		{
+			SetStateLabel("Running");
+			A_TakeInventory("animRunning");
+		}
+		
+		if (FindInventory("animWalking"))
+		{
+			SetStateLabel("Walking");
+			A_TakeInventory("animWalking");
+		}
+		
+		if (FindInventory("animCollapse"))
+		{
+			SetStateLabel("Collapse");
+			A_TakeInventory("animCollapse");
+		}
+		
+	}
+	
+	Default
+	{
+		Health 1010101010;
+		Radius 1;
+		Height 1;
+		-SOLID
+		Obituary "%o broke the mod somehow";
+	}
+	States
+	{
+	Spawn:
+		DUDE A 1;
+		Loop;
+	Standing:
+		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3;
+		Loop;
+	Walking:
+		DUDW ABCDEFGHIJKLMNOPQR 3;
+		Loop;
+	Running:
+		XXXX ABCDEFGHIJKLMNOPQ 2;
+		Loop;
+	Collapse:
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DUD2 AB 2;
+		DUD2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		DUD2 DEFGHIJKLMNOP 2;
+		DUD2 P -1;
+		Stop;
+	}
+}

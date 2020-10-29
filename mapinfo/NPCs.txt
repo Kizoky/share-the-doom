@@ -20,4 +20,6 @@ DoomEdNums
   29983 = NPCMick
   29982 = NPCRick
   29981 = NPCRicky
+  
+  29980 = PostalCutsceneDoll
 }

@@ -47,6 +47,7 @@
 #include "models/modeldef/bystanders/WJIguys/Rick.txt"
 #include "models/modeldef/bystanders/WJIguys/Ricky.txt"
 #include "models/modeldef/bystanders/example.txt"
+#include "models/modeldef/bystanders/cutsceneDoll.txt"
 
 // Animals
 #include "models/modeldef/animals/Cat.txt"
