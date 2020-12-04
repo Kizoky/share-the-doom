@@ -122,13 +122,53 @@ class PostalDude : PlayerPawn
 		}
 	}
 	
+	float hurtValue;
+	double alphaValue, orighurt, transAlpha;
+	
 	//I needed a function to access it within ZScript HUD, probably not needed so I will investigate later
 	virtual void PD_Pain()
 	{
-		if (PlayerData.isinPainCooldown < level.time)
+		// Hurt bar (whole screen, forward)
+		
+		if (!PlayerData) return;
+		
+		if (PlayerData.isinPainCooldown - (35 + 16) < level.time)
 		{
-			isinPain = false;
+			if (orighurt == 0)
+				orighurt = hurtValue;
+			
+			hurtValue -= 0.001;
+			
+			alphaValue += 0.15;
+			if (alphaValue >= 1.0)
+				alphaValue = 1.0;
+			
+			Shader.SetUniform3f(player, "Hurtframe", "tintColor", (1.0,alphaValue,alphaValue));
+			Shader.SetUniform1f(player, "Hurtframe", "hurtValue", hurtValue);
+			Shader.SetUniform1f(player, "Hurtframe", "alphaValue", hurtValue);
+			
+			transAlpha = 0;
 		}
+		else
+		{
+			//These must be always cleared
+			alphaValue = 0;
+			orighurt = 0;
+			
+			//transAlpha += 0.33;
+			//if (transAlpha >= 1.0)
+				transAlpha = 1.0;
+			
+			hurtValue = 1 - (Health / 100.);
+			Shader.SetEnabled(player,"Hurtframe",true);
+			Shader.SetUniform3f(player, "Hurtframe", "tintColor", (1.0,1.0-transAlpha,1.0-transAlpha));
+			Shader.SetUniform1f(player, "Hurtframe", "alphaValue", 1.0+PlayerData.isinPainAlpha);
+			Shader.SetUniform1f(player, "Hurtframe", "hurtValue", hurtValue);
+		}
+		
+		// Skull
+		if (PlayerData.isinPainCooldown < level.time)
+			isinPain = false;
 		else
 			PlayerData.isinPainAlpha += 0.01;
 			
