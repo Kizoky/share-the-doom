@@ -13,7 +13,7 @@ class PostalCutsceneDoll : Actor
 	}
 	
 	// NOTE: StateLabels currently cannot be used in ternary operations, or convert to/from strings and/or names.
-	static void PlayAnim(Actor caller, string anim)
+	static void ACS_PlayAnim(Actor caller, string anim)
 	{
 		if (!caller) return;
 
