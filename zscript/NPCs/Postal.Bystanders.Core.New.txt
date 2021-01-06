@@ -72,6 +72,57 @@ class NPCCore : PostalActor
 	
 	property CustomBehavior : BehaviorOverriden;
 	
+	static void ACS_SetProperty(Actor caller, string property, string strSetting = "n/a", int intSetting = 987987987)
+	{
+		if (!caller) return;
+
+		if (!(caller is "NPCCore"))
+			ThrowAbortException("ACS_SetProperty: Function only works on Postal NPCs!");
+
+		let NPC = NPCCore(caller);
+
+		if (property ~== "weapon")
+		{
+			if (strSetting ~== "none" || strSetting ~== "Hands" || strSetting ~== "Nothing")
+			{
+				NPC.Hostility = "Pussy";
+				NPC.NPCWeapon = "Hands";
+				return;
+			}
+
+			bool found = false;
+			for(int i = 0; i < NPC.WeaponList.Size(); i++)
+			{
+				if (strSetting ~== NPC.WeaponList[i])
+				{
+					NPC.NPCWeapon = NPC.WeaponList[i];
+					found = true;
+				}
+			}
+
+			if (!found)
+				ThrowAbortException("ACS_SetProperty: Unknown weapon name: '%s'\n Look at 'WeaponList' in ./zscript/NPCs/Postal.Bystanders.Core.New.txt", strSetting);
+
+			return;
+		}
+
+		if (property ~== "hostility" || property ~== "mode")
+		{
+			if (strSetting ~== "Hostile")
+				NPC.Hostility = "Hostile";
+			else if (strSetting ~== "Pussy" || strSetting ~== "Unarmed" || strSetting ~== "Passive")
+			{
+				NPC.Hostility = "Pussy";
+				NPC.NPCWeapon = "Hands";
+			}
+			else
+				ThrowAbortException("ACS_SetProperty: Only Hostile and Pussy/Unarmed/Passive is supported as Hostility.\nUnknown Hostility mode: '%s'", strSetting);
+
+			return;
+		}
+
+	}
+
 	virtual void NPC_Debug()
 	{
 		if (debug_hostility == D_NONE) return;

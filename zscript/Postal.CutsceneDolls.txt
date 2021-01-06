@@ -8,7 +8,7 @@ class PostalCutsceneDoll : Actor
 		if (!(user_AnimationSpawn == ""))
 		{
 			string s = String.Format("%s", user_AnimationSpawn);
-			PlayAnim(self, s);
+			ACS_PlayAnim(self, s);
 		}
 	}
 	
