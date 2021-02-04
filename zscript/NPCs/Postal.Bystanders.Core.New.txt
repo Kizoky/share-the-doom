@@ -14,7 +14,7 @@ class NPCCore : PostalActor
 	
 	//Each NPC has an Unique ID, but mainly for the corpse feature so they won't forgot about it
 	int UniqueID;
-	int deadpeople[999999];
+	//int deadpeople[999999];
 	int WalkingStyle;
 	
 	//NPC is currently in a state - or was
@@ -289,7 +289,7 @@ class NPCCore : PostalActor
 		NPC_Debug();
 		
 		//Shader.SetUniform3f( players[consoleplayer], "ColorTint", "tintColor", (1.0,0.0,0.0) );
-		UniqueID = random[unique](1,999999);
+		//UniqueID = random[unique](1,999999);
 		isAfterTarget = false;
 		
 		if (BehaviorOverriden != true)
@@ -1414,7 +1414,7 @@ class NPCCore : PostalActor
 			
 			if (pp)
 			{
-			
+				/*
 				if (deadpeople[pp.UniqueID] == pp.UniqueID && Hostility == "Hostile")
 				{
 					SetStateLabel("Spawn");
@@ -1426,6 +1426,7 @@ class NPCCore : PostalActor
 					deadpeople[pp.UniqueID] = pp.UniqueID;
 					hasSeenCorpse = true;
 				}
+				*/
 			}
 			
 			
@@ -1981,6 +1982,7 @@ extend class NPCCore
 					if (next is 'NPCCore' && next != self)
 					{
 						let pp = NPCCore(next);
+						/*
 						if (pp.bCORPSE && pp)
 						{
 							if (!(invoker.deadpeople[pp.UniqueID] == pp.UniqueID))
@@ -1994,7 +1996,7 @@ extend class NPCCore
 								return;
 							}
 						}
-						
+						*/
 						
 						if (pp.Hostility == "Hostile" && pp.isAfterTarget == true && !pp.bKILLED && pp)
 						{

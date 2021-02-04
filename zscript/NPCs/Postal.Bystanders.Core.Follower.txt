@@ -482,7 +482,7 @@ class NPCFollower : NPCCore
 			//If the Unique ID attached to the corpse is the same in our deadpeople array, then forget about it
 			//If this is the first time then just assign the element of deadpeople to the corpse's element
 			//so the NPC will always ignore it, that is if it's a Hostile-type NPC
-			
+			/*
 			if (pp)
 			{
 			
@@ -496,6 +496,7 @@ class NPCFollower : NPCCore
 					hasSeenCorpse = true;
 				}
 			}
+			*/
 			
 		}
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 3 { target = MyTarget; A_FaceTarget(); }
