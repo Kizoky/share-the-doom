@@ -5,7 +5,9 @@ GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recom
 
 If you have downloaded the mod from here, on Windows: run build.bat - otherwise on Linux just do `bash build` this will build a GZPostal.pk3 for you.
 
-### Status: Unfinished
+### Status: Open World is Scrapped
+
+Unfortunately due to how complex the NPCs are, and how many models are needed to be created for each weapon, each NPC skin, etc.. it's best to just leave everything alone for now, and who knows what'll happen to GZDoom in the future, hopefully one day there will be proper skeletal model support, but if not the models needs to be redone and optimized properly
 
 **Note:** Multiplayer works, but it's recommended to ***only play on Doom levels***
 
