@@ -1,7 +1,4 @@
-include "mapinfo/Staticmeshes.txt"
-include "mapinfo/NPCs.txt"
 include "mapinfo/Weapons.txt"
-include "mapinfo/precache.txt"
 
 gameinfo
 {
@@ -21,45 +18,13 @@ gameinfo
 	CursorPic = "strfcurs"
 	PauseSign = "M_DOOM"
 	
-	PrecacheClasses = "PostalDude", "DummyDude"
-	
+	PrecacheClasses = "PostalDude"
 	
 	NoMergePickupMsg = true
 	
 	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit", "ia_EventHandler", "sa_Achiever"
 	statusbarclass = "PostalStatusBar"
 }
-
-episode DOOMTEST
-{
-	name="Developer Test Map"
-}
-
-defaultmap
-{
-	sky1=F_SKY1
-	//music=D_RUNRUN
-	Nointermission
-	EvenLighting
-	FallingDamage
-	MonsterFallingDamage
-	PrecacheClasses = "NPCDude", "NPCshop", "Champ", "PostalCatInv"
-}
-
-map TITLEMAP "11011010101"
-{
-	sky1 = "zo_dusk1", 0.035
-	next = screent
-}
-
-map SCREENT  "Cinematic experience"
-{
-	music=title
-	sky1 = "magichour"
-	//lightning
-}
-
-//Skills
 
 clearskills
 

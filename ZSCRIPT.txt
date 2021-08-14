@@ -2,10 +2,6 @@ version "4.2"
 
 //------------ Postal stuff
 #include "zscript/Postal.Actor.txt"
-#include "zscript/Postal.Compatibility.txt"
-#include "zscript/Postal.CutsceneDolls.txt"
-#include "zscript/Postal.Door.txt"
-#include "zscript/Postal.Window.txt"
 #include "zscript/Postal.Blood.txt"
 #include "zscript/Postal.PostalWeapon.txt"
 #include "zscript/Postal.PostalPuff.txt"
@@ -14,7 +10,6 @@ version "4.2"
 #include "zscript/Postal.Dude.DeathTips.txt"
 #include "zscript/Postal.Test.txt"
 #include "zscript/Postal.Fire.txt"
-//#include "zscript/Postal.GlobalVariables.txt"
 #include "zscript/Postal.EventHandlers.txt"
 #include "zscript/Postal.ExplosionSFX.txt"
 
@@ -64,81 +59,9 @@ version "4.2"
 #include "zscript/inventory/Postal.Map.txt"
 #include "zscript/inventory/Postal.RocketCamera.txt"
 
-//------------ Postal Core NPCs
-
-//#include "zscript/NPCs/Postal.Bystanders.Bodyparts.txt"
-#include "zscript/NPCs/Postal.Bystanders.Node.txt"
-#include "zscript/NPCs/Postal.Dog.txt"
-#include "zscript/NPCs/Postal.Bystanders.Core.Debug.txt"
-#include "zscript/NPCs/Postal.Bystanders.Core.New.txt"
-#include "zscript/NPCs/Postal.Bystanders.Example.txt"
-#include "zscript/NPCs/Postal.Bystanders.Core.Follower.txt"
-//#include "zscript/NPCs/Postal.Bystanders.Cop.txt"
-//#include "zscript/NPCs/Postal.Bystanders.Shop.txt"
-#include "zscript/NPCs/Postal.Cat.txt"
-#include "zscript/NPCs/Postal.Cow.txt"
-#include "zscript/NPCs/Postal.CowMike.txt"
-#include "zscript/NPCs/Postal.Monkey.txt"
-#include "zscript/NPCs/Postal.Zombies.txt"
-#include "zscript/NPCs/Postal.Essential.txt"
-
-//------------ Postal Bystanders
-
-//#include "zscript/NPCs/Bystanders/Postal.Male.Shorts.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Male.Fat.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Female.Fat.txt"
-//#include "zscript/NPCs/Bystanders/Postal.RWS.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Female.Shorts.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Male.Cop.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Female.Pants.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Male.Jacket.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Gimp.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Military.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Male.Band.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Female.Band.txt"
-//#include "zscript/NPCs/Bystanders/Postal.Male.Pants.txt"
-#include "zscript/NPCs/Bystanders/Postal.Krotchy.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male1.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male2.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male3.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male4.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male5.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male6.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male7.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male8.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male9.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male10.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male11.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male12.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male13.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male14.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male15.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male16.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male17.txt"
-#include "zscript/NPCs/Bystanders/Postal.Male18.txt"
-#include "zscript/NPCs/Bystanders/Postal.Mikey.txt"
-#include "zscript/NPCs/Bystanders/Postal.Bob.txt"
-#include "zscript/NPCs/Bystanders/Postal.Kurt.txt"
-#include "zscript/NPCs/Bystanders/Postal.Jon.txt"
-#include "zscript/NPCs/Bystanders/Postal.Mick.txt"
-#include "zscript/NPCs/Bystanders/Postal.Rick.txt"
-#include "zscript/NPCs/Bystanders/Postal.Ricky.txt"
-
-//------------ Postal Decorations
-
-#include "zscript/decoration/Postal.Cars.txt"
-#include "zscript/decoration/Postal.Other.txt"
-#include "zscript/decoration/Postal.Trees.txt"
-#include "zscript/decoration/Postal.Karma.txt"
-
 //------------ Postal UI stuff
 
 #include "zscript/UI/Postal.HUD.txt"
-
-//------------ Postal Train(s)
-
-#include "zscript/Traffic/Postal.Train.txt"
-#include "zscript/Traffic/Postal.CarAI.txt"
 
 //------------- Debug stuff
 #include "zscript/BorrowedCode/RadiusDebug/RadiusDebug.zc" //made by Nash
@@ -146,23 +69,6 @@ version "4.2"
 
 //------------- ChaseCam2
 #include "zscript/BorrowedCode/ChaseCam2/ChaseCam2.txt"
-
-//------------- mk_math (Marisa Kirisame's Math helper classes)
-#include "zscript/BorrowedCode/mk_math/mk_coordutil.zsc"
-#include "zscript/BorrowedCode/mk_math/mk_matrix.zsc"
-#include "zscript/BorrowedCode/mk_math/mk_quaternion.zsc"
-
-//------------- Pathfinding
-#include "zscript/BorrowedCode/pathfinding/navmesh.zc"
-#include "zscript/BorrowedCode/pathfinding/pathfinder.zc"
-
-//------------- Lewisk3's StatusBarScreen
-#include "zscript/BorrowedCode/StatusBarScreen/StatusScreen_base.zsc"
-#include "zscript/BorrowedCode/StatusBarScreen/StatusScreen_3D.zsc"
-
-//------------- m8f's Stupid Achievements
-#include "zscript/BorrowedCode/StupidAchievements/ImpAchievements.zs"
-#include "zscript/BorrowedCode/StupidAchievements/StupidAchievements.zs"
 
 enum Bobbing
 {
@@ -174,57 +80,3 @@ enum Bobbing
 	Bob_InverseSmooth,
 	Bob_Postal
 };
-
-class FloatingTestLight : Actor
-{
-	int TimeStart, TimeReset;
-	bool Reset;
-	
-	override void PostBeginPlay()
-	{
-		Super.PostBeginPlay();
-		TimeStart = level.time + (35 * 3);
-	}
-	
-	override void Tick()
-	{
-		Super.Tick();
-		
-		if (Reset)
-		{
-			if (TimeReset > level.time)
-				SetOrigin(pos-(1,0,0), TRUE);
-			else
-			{
-				Reset = false;
-				TimeStart = level.time + (35 * 3);
-			}
-				
-			return;
-		}
-		
-		if (TimeStart > level.time)
-			SetOrigin(pos+(1,0,0), TRUE);
-		else
-		{
-			Reset = true;
-			TimeReset = level.time + (35 * 3);
-		}
-			
-	
-	}
-	
-	Default
-	{
-		Gravity 0;
-		RenderStyle "Add";
-		+FORCEXYBILLBOARD
-	}
-
-	States
-	{
-	Spawn:
-		BAL1 A -1 BRIGHT;
-		Stop;
-	}
-}

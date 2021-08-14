@@ -1,60 +1,6 @@
 #include "models/RadiusDebug/_models.txt"
 
 #include "models/modeldef/!Postal_Dude.txt"
-#include "models/modeldef/decorations.txt"
-#include "models/modeldef/physobj.txt"
-
-// Gameplay
-#include "models/modeldef/gameplay/Door.txt"
-#include "models/modeldef/gameplay/Window.txt"
-
-// Special
-#include "models/modeldef/special/CowBoss.txt"
-
-// Zombies
-#include "models/modeldef/zombies/zombieCore.txt"
-
-// Bystanders
-#include "models/modeldef/bystanders/bystanderCore.txt"
-#include "models/modeldef/bystanders/Cop_Core.txt"
-#include "models/modeldef/bystanders/Follower_Core.txt"
-//#include "models/modeldef/bystanders/Protest_Core.txt"
-//#include "models/modeldef/bystanders/Shop_Core.txt"
-#include "models/modeldef/bystanders/Krotchy/Krotchy.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male1.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male2.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male3.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male4.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male5.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male6.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male7.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male8.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male9.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male10.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male11.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male12.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male13.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male14.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male15.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male16.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male17.txt"
-#include "models/modeldef/bystanders/MaleWhite/Male18.txt"
-#include "models/modeldef/bystanders/WJIguys/Mikey.txt"
-#include "models/modeldef/bystanders/WJIguys/Bob.txt"
-#include "models/modeldef/bystanders/WJIguys/Kurt.txt"
-#include "models/modeldef/bystanders/WJIguys/Jon.txt"
-#include "models/modeldef/bystanders/WJIguys/Mick.txt"
-#include "models/modeldef/bystanders/WJIguys/Rick.txt"
-#include "models/modeldef/bystanders/WJIguys/Ricky.txt"
-#include "models/modeldef/bystanders/example.txt"
-#include "models/modeldef/bystanders/cutsceneDoll.txt"
-
-// Animals
-#include "models/modeldef/animals/Cat.txt"
-#include "models/modeldef/animals/Champ.txt"
-//#include "models/modeldef/animals/Cow.txt"
-//#include "models/modeldef/animals/Monkey.txt"
-//#include "models/modeldef/animals/Pigeon.txt"
 
 // Inventory
 #include "models/modeldef/inventories/Cash.txt"
