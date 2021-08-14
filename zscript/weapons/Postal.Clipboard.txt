@@ -2,17 +2,17 @@ class PostClipboard : PostalWeapon
 {
 	Default
 	{
-	Weapon.Kickback 100;
-	Decal "bulletchip";
-	Weapon.SelectionOrder 1900;
-	//Weapon.AmmoUse 1;
-	//Weapon.AmmoGive 20;
-	//Weapon.AmmoType "Clip";
-	Obituary "$PSTL_OB_CLIPBOARD";
-	//+WEAPON.WIMPY_WEAPON;
-	+Weapon.NoAlert;
-	Tag "$PSTL_WP_CLIPBOARD";
-	Inventory.PickupMessage "$PSTL_PP_CLIPBOARD";
+		Weapon.Kickback 100;
+		Decal "bulletchip";
+		Weapon.SelectionOrder 1900;
+		//Weapon.AmmoUse 1;
+		//Weapon.AmmoGive 20;
+		//Weapon.AmmoType "Clip";
+		Obituary "$PSTL_OB_CLIPBOARD";
+		//+WEAPON.WIMPY_WEAPON;
+		+Weapon.NoAlert;
+		Tag "$PSTL_WP_CLIPBOARD";
+		Inventory.PickupMessage "$PSTL_PP_CLIPBOARD";
 	}
 	States
 	{
@@ -32,34 +32,15 @@ class PostClipboard : PostalWeapon
 	Fire:
 		TNT1 A 0
 		{
-			if (invoker.Monsta == null && invoker.PetitionedNPC == null)
+			FLineTraceData lineData;
+			LineTrace(angle,100,pitch,offsetz: height-12, data: LineData);
+			
+			if (LineData.HitType == TRACE_HitActor)
 			{
-				FLineTraceData lineData;
-				LineTrace(angle,100,pitch,offsetz: height-12, data: LineData);
-				
-				if (LineData.HitType == TRACE_HitActor)
-				{
-					if (!(lineData.HitActor is 'PostalActor'))
-						{
-							int randomm = random[petition](1,2);
-							
-							if (randomm == 1)
-								A_PlaySound("dudeline31", 7 | 4096);
-							else
-								A_PlaySound("dudeline32", 7 | 4096);
-							
-							return ResolveState("Ready");
-							
-						}
-						else
-						{
-							A_PlaySound("dudepetition1a", 7 | 4096);
-							A_Petition();
-						}
-				}
-			}
-			else
+				A_StartSound("dudepetition1a", CHAN_VOICE);
+				//A_Petition();
 				return ResolveState ("Ready");
+			}
 				
 			return ResolveState (null);
 		}
@@ -69,116 +50,15 @@ class PostClipboard : PostalWeapon
 		Goto Ready;
 	AltFire:
 		PLSG A 0 
-			{
-				FLineTraceData TraceData;
-				LineTrace(Self.angle,9000.0,Self.pitch,0,Player.ViewHeight-5.0,0,0,TraceData);
-				VectorBeam.SpawnVectorBeam(Self.pos + (0,0,Player.ViewHeight - 5.0), TraceData.HitLocation, 2.0, "FF0000", 2);
-			}
+		{
+			FLineTraceData TraceData;
+			LineTrace(Self.angle,9000.0,Self.pitch,0,Player.ViewHeight-5.0,0,0,TraceData);
+			VectorBeam.SpawnVectorBeam(Self.pos + (0,0,Player.ViewHeight - 5.0), TraceData.HitLocation, 2.0, "FF0000", 2);
+		}
 		Goto Ready;
 	Spawn:
 		TNT1 A 0;
 		PICK A -1;
 		Stop;
 	}
-}
-
-extend class PostClipboard
-{
-	action void A_Petition()
-	{
-				FLineTraceData lineData;
-				LineTrace(angle,100,pitch,offsetz: height-12, data: LineData);
-				
-					if (LineData.HitType == TRACE_HitActor)
-					{
-						if (lineData.hitActor == null) return;
-						
-						if (lineData.HitActor is 'NPCCore')
-						{
-							Console.Printf("target is NPCCore");
-							let pp = NPCCore(lineData.HitActor);
-							if (pp)
-							{
-								pp.target = self;
-								pp.MyTarget = self;
-								pp.Petitioning = true;
-								
-								invoker.PetitionedNPC = pp;
-								invoker.TimeBeforeBoomBoom = level.time + 125;
-							}
-						}
-						
-						if (lineData.HitActor is 'PostalActor')
-						{
-							let aactor = PostalActor(lineData.HitActor);
-							
-							if (aactor == null) return;
-							
-							if (aactor.target != invoker.owner && !(aactor.bKILLED))
-							{
-								aactor.target = invoker.owner;
-								aactor.Angle = AngleTo(invoker.owner);
-								aactor.SetStateLabel("Spawn");
-								invoker.Monsta = aactor;
-								invoker.TimeBeforeBoomBoom = level.time + 125;
-							}
-							else
-								if (aactor.bFRIENDLY && aactor.target == null)
-								{
-									aactor.target = invoker.owner;
-									aactor.Angle = AngleTo(invoker.owner);
-									aactor.SetStateLabel("Spawn");
-									invoker.Monsta = aactor;
-									invoker.TimeBeforeBoomBoom = level.time + 125;
-								}
-						}
-					}
-	}
-	
-	actor Monsta, PetitionedNPC;
-	int TimeBeforeBoomBoom;
-	
-	override void Tick()
-	{
-		Super.Tick();
-		if (Monsta != null && !(Monsta.bKILLED))
-		{
-			if (TimeBeforeBoomBoom > level.time)
-			{
-				Monsta.A_FaceTarget();
-				Monsta.Tics = -1;
-			}
-			
-			if (level.time > TimeBeforeBoomBoom)
-			{
-				Console.Printf("Entered?");
-				
-				let p = PostalActor(Monsta);
-				if (p)
-					p.A_PlaySelfSound();
-				
-				if (Monsta.bFRIENDLY)
-				{
-					Monsta.target = null;
-					Monsta.SetStateLabel("Spawn");
-				}
-				else
-					Monsta.SetStateLabel("See");
-					
-				Monsta.Tics = 1;
-				Monsta = null;
-				
-			}
-		}
-		
-		if (PetitionedNPC != null)
-		{
-			if (level.time > TimeBeforeBoomBoom)
-				PetitionedNPC = null;
-		
-		}
-		
-	}
-	
-	
 }

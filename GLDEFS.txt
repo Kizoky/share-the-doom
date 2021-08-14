@@ -1,8 +1,5 @@
 #include "GLDEF-Weapons.gl"
-#include "GLDEF-Textures.gl"
-#include "GLDEF-Props.gl"
-#include "GLDEF-Sun.gl"
-#include "GLDEF-Splatmap.gl"
+//#include "GLDEF-Sun.gl"
 
 HardwareShader PostProcess Scene
 {
@@ -14,16 +11,4 @@ HardwareShader PostProcess Scene
 	//texture reflection "textures/misc/reflection2.png"
 	texture reflection "graphics/HUD/hurt.png"
 	Enabled
-}
-
-PointLight Light_FloatingTestLight
-{
-	Color 1.0 0.5 0.2
-	Size 350
-	Attenuate 1
-}
-
-object FloatingTestLight
-{
-    frame BAL1 { light Light_FloatingTestLight }
 }

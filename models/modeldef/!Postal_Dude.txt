@@ -38,53 +38,7 @@ Model "PostalDude"
 	FrameIndex DUDE Z 0 591
 	
 	FrameIndex DUDF A 0 3540
-
 	
-	// Death 221 to 287
-	
-	FrameIndex XYXY A 0 1211
-	FrameIndex XYXY B 0 1213
-	FrameIndex XYXY C 0 1215
-	FrameIndex XYXY D 0 1217
-	FrameIndex XYXY E 0 1219
-	FrameIndex XYXY F 0 1221
-	FrameIndex XYXY G 0 1223
-	FrameIndex XYXY H 0 1225
-	FrameIndex XYXY I 0 1227
-	FrameIndex XYXY J 0 1229
-	FrameIndex XYXY K 0 1231
-	FrameIndex XYXY L 0 1233
-	FrameIndex XYXY M 0 1235
-	FrameIndex XYXY N 0 1237
-	FrameIndex XYXY O 0 1239
-	FrameIndex XYXY P 0 1241
-	FrameIndex XYXY Q 0 1243
-	FrameIndex XYXY R 0 1245
-	FrameIndex XYXY S 0 1247
-	FrameIndex XYXY T 0 1249
-	FrameIndex XYXY U 0 1251
-	FrameIndex XYXY V 0 1253
-	FrameIndex XYXY W 0 1255
-	FrameIndex XYXY X 0 1257
-	FrameIndex XYXY Y 0 1259
-	FrameIndex XYXY Z 0 1261
-	
-	FrameIndex XYX2 A 0 1263
-	FrameIndex XYX2 B 0 1265
-	FrameIndex XYX2 C 0 1267
-	FrameIndex XYX2 D 0 1269
-	FrameIndex XYX2 E 0 1271
-	FrameIndex XYX2 F 0 1273
-	FrameIndex XYX2 G 0 1275
-	FrameIndex XYX2 H 0 1277
-	FrameIndex XYX2 I 0 1279
-	FrameIndex XYX2 J 0 1281
-	FrameIndex XYX2 K 0 1283
-	FrameIndex XYX2 L 0 1285
-	FrameIndex XYX2 M 0 1287
-	FrameIndex XYX2 N 0 1289
-	FrameIndex XYX2 O 0 1291
-	FrameIndex XYX2 P 0 1293
 	// ------------------------------
 	
 	

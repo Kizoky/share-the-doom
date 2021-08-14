@@ -1,4 +1,4 @@
-material texture "textures/weapons/dude_hands.png"
+material texture "models/weapons/a_textures/dude_hands.png"
 {
 	normal "materials/normalmaps/NormalMap.png"
 	specular "materials/specular/dude_hands_s.png"
@@ -7,7 +7,7 @@ material texture "textures/weapons/dude_hands.png"
 	SpecularLevel 0.3
 }
 
-material texture "textures/weapons/shotgun/shotgun_timb.png"
+material texture "models/weapons/a_textures/shotgun/shotgun_timb.png"
 {
 	normal "materials/normalmaps/shotgun_timb.png"
 	specular "materials/specular/shotgun_timb_s.png"
@@ -15,7 +15,7 @@ material texture "textures/weapons/shotgun/shotgun_timb.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/pistol/pistol_timb.png"
+material texture "models/weapons/a_textures/pistol/pistol_timb.png"
 {
 	normal "materials/normalmaps/pistol_timb_d.png"
 	specular "materials/specular/pistol_timb_s.png"
@@ -23,7 +23,7 @@ material texture "textures/weapons/pistol/pistol_timb.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/machinegun/m-16_timb.png"
+material texture "models/weapons/a_textures/machinegun/m-16_timb.png"
 {
 	normal "materials/normalmaps/m-16_timb_d.png"
 	specular "materials/specular/m16_timb_s.png"
@@ -31,7 +31,7 @@ material texture "textures/weapons/machinegun/m-16_timb.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/rocketlauncher/launcher_timb2.png"
+material texture "models/weapons/a_textures/rocketlauncher/launcher_timb2.png"
 {
 	normal "materials/normalmaps/launcher_timb2_d.png"
 	specular "materials/specular/launcher_timb2_s.png"
@@ -39,7 +39,7 @@ material texture "textures/weapons/rocketlauncher/launcher_timb2.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/machete/machete_1.png"
+material texture "models/weapons/a_textures/machete/machete_1.png"
 {
 	normal "materials/normalmaps/machete_1_NRM.png"
 	specular "materials/specular/machete_1_SPEC.png"
@@ -47,7 +47,7 @@ material texture "textures/weapons/machete/machete_1.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/tazer/taser_timb.png"
+material texture "models/weapons/a_textures/tazer/taser_timb.png"
 {
 	normal "materials/normalmaps/taser_timb_NRM.png"
 	specular "materials/specular/taser_timb_SPEC.png"
@@ -55,7 +55,7 @@ material texture "textures/weapons/tazer/taser_timb.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/sledge/sledge_1.png"
+material texture "models/weapons/a_textures/sledge/sledge_1.png"
 {
 	normal "materials/normalmaps/sledge_1_NRM.png"
 	specular "materials/specular/sledge_1_SPEC.png"
@@ -63,7 +63,7 @@ material texture "textures/weapons/sledge/sledge_1.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/sledge/sledge_wood.png"
+material texture "models/weapons/a_textures/sledge/sledge_wood.png"
 {
 	normal "materials/normalmaps/sledge_wood_NRM.png"
 	specular "materials/specular/sledge_wood_SPEC.png"
@@ -71,7 +71,7 @@ material texture "textures/weapons/sledge/sledge_wood.png"
 	SpecularLevel 0.5
 }
 
-material texture "textures/weapons/molotov/molotov_glass2.png"
+material texture "models/weapons/a_textures/molotov/molotov_glass2.png"
 {
 	normal "materials/normalmaps/molotov_glass2_NRM.png"
 	specular "materials/specular/molotov_glass2_SPEC.png"

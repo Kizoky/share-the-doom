@@ -213,12 +213,6 @@ class PostalRocket : PostalActor
 				return 1;
 		}
 		
-		if (victim is 'PostalWindow' || victim is 'PostalWindow_Extender')
-		{
-			int dd = victim.DamageMobj(self, target, 1, "Melee");
-			return 1;
-		}
-		
 		return -1;
 	}
 	

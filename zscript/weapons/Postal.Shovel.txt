@@ -31,32 +31,6 @@ class PostShovel : PostalWeapon
 		{
 			if (lineData.hitActor == null) return;
 			
-			if (lineData.HitActor is 'NPCCore')
-			{
-				FLineTraceData TraceData;
-				LineTrace(invoker.owner.angle,125.0,invoker.owner.pitch,0,Player.ViewHeight-18,0,0,TraceData);
-				
-				// Headshot
-				if (TraceData.HitLocation.Z > pos.z + height-16)
-				{
-					if (SecondaryOrPrimary ~== "primary")
-						A_PlaySound("weapons/shovel_hithead", CHAN_WEAPON);
-					else if (SecondaryOrPrimary ~== "secondary")
-						A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
-					
-					A_ShovelHit(7);
-					return;
-				}
-				
-				if (SecondaryOrPrimary ~== "primary")
-					A_PlaySound("weapons/shovel_hitbody", CHAN_WEAPON);
-				else if (SecondaryOrPrimary ~== "secondary")
-					A_PlaySound("weapons/shovel_stab", CHAN_WEAPON);
-				
-				A_ShovelHit(0);
-				return;
-			}
-			
 			if (lineData.HitActor is 'PostalActor' || lineData.HitActor.Health > 0)
 			{
 				if (SecondaryOrPrimary ~== "primary")

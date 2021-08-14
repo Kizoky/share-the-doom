@@ -2,7 +2,7 @@ include "mapinfo/Weapons.txt"
 
 gameinfo
 {
-	playerclasses="PostalDude"//, "DoomPlayer"
+	playerclasses = "PostalDude"
 	//dimcolor = "RED"
 	menufontcolor_title = "WHITE"
 	menufontcolor_label = "WHITE"
@@ -22,7 +22,7 @@ gameinfo
 	
 	NoMergePickupMsg = true
 	
-	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler", "NavMeshInit", "ia_EventHandler", "sa_Achiever"
+	AddEventHandlers = "RadiusDebugHandler", "DudeCoreHandler"
 	statusbarclass = "PostalStatusBar"
 }
 

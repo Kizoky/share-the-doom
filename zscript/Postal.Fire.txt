@@ -91,47 +91,13 @@ class PostalFire : PostalActor
 			if (PlayerDude == null) return;
 			
 			if (TimeBeforeDisappearing < level.time)
-			{
 				Destroy();
-			}
 				
 			if (PlayerDude.MyAnnoyingFire == null)
 				Destroy();
 			
 			if (Counter == 0)
 				SetOrigin(Owner.pos+(0,0,60), TRUE);
-			
-			
-			A_SpawnItemEx("RandomPostalFire",frandom(-3,3),frandom(-3,3),frandom(-12, -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.6,1.2));
-            A_SpawnItemEx("FireParticleBottom",frandom(-3,3),frandom(-3,3),frandom(-12 , -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.1,0.25));
-			
-			return;
-		}
-		
-		if (Owner is 'PostalActor')
-		{
-			let ppostal = PostalActor(Owner);
-			
-			if (ppostal == null) return;
-			
-			if (TimeBeforeDisappearing < level.time && EnterFireEndState == false)
-			{
-				if (ppostal is 'NPCCore')
-				{
-					if (ppostal.bKILLED)
-					{
-						Destroy();
-						return;
-					}
-					
-					ppostal.SetStateLabel("FireChaseEnd");
-					EnterFireEndState = true;
-				
-				}
-			
-			}
-			if (ppostal.AnnoyingFire == null) Destroy();
-			if (Counter == 0) SetOrigin(Owner.pos+(0,0,50), TRUE);
 			
 			A_SpawnItemEx("RandomPostalFire",frandom(-3,3),frandom(-3,3),frandom(-12, -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.6,1.2));
             A_SpawnItemEx("FireParticleBottom",frandom(-3,3),frandom(-3,3),frandom(-12 , -22),frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.1,0.25));
@@ -185,19 +151,11 @@ class PostalFire : PostalActor
 					if (EnterFireEndState == true)
 						return;
 					
-					if ((Owner is 'PostalDude' || Owner is 'PostalActor') && !(Owner is 'NPCCore'))
+					if ((Owner is 'PostalDude' || Owner is 'PostalActor'))
 						Owner.A_DamageSelf(3);
 						
 					if (!(Owner is 'PostalActor'))
 						Owner.A_DamageSelf(3);
-						
-					if (Owner is 'NPCCore')
-					{
-						if ((Owner.Health - 3) < 1)
-							Owner.A_DamageSelf(Owner.Health);
-						else
-							Owner.Health -= 3;
-					}
 					
 				}
 			}
@@ -362,54 +320,6 @@ class PostalLiquidGas : PostalActor
 				}
 				
 				return;
-			}
-			
-			if (toucher is 'PostalActor')
-			{
-				if (helpme != true) return;
-				
-				let ppostal = PostalActor(toucher);
-				
-				class<actor> Fire = "PostalFire";
-				
-				actor AttachedFire = spawn(Fire, toucher.pos, ALLOW_REPLACE);
-				
-				// Set the corpse's angle with the PostalCatInv's angle before it disappears/gets replaced, 
-				// but make sure to check it's not null or else GZDoom will crash
-				if (AttachedFire && ppostal)
-				{
-					let dd = PostalFire(AttachedFire);
-					if (dd)
-					{
-						dd.Owner = toucher;
-						dd.ThisOneHurts = true;
-						dd.Counter = 0;
-					}
-					
-					//PlayerDude.isonFire = true;
-					if (ppostal.AnnoyingFire != null)
-					{
-						//There's not enough time for the newly spawned Fire to cause damage
-						AttachedFire.Destroy();
-						
-						let pp = PostalFire(ppostal.AnnoyingFire);
-						if (pp)
-							pp.TimeBeforeDisappearing = level.time + (35 * 12);
-						
-						if (toucher is 'NPCCore')
-						{
-							let p2 = NPCCore(toucher);
-							
-							// Check if NPC is in said State
-							if (!(InStateSequence(p2.CurState, p2.ResolveState("FireChase"))) && p2)
-							{
-								p2.SetStateLabel("FireChase");
-							}
-						}
-					}
-					else
-						ppostal.AnnoyingFire = AttachedFire;
-				}
 			}
 		}
 	}

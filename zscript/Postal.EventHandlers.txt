@@ -1,25 +1,12 @@
 class DudeCoreHandler : EventHandler 
 {
-	
 	int SavedTimes;
 	bool SavedTrigger, STD_Levels;
 	string CurrentMap;
 
 	override void WorldLoaded(WorldEvent e)
 	{
-		if (Level.Mapname.Left(5) ~== "world" ||
-			Level.Mapname ~== "DOOMTEST" ||
-			Level.Mapname ~== "titlemap" ||
-			Level.Mapname ~== "screent" ||
-			Level.Mapname ~== "devmap" ||
-			Level.Mapname.Left(5) ~== "BLISS" ||
-			Level.Mapname.Left(3) ~== "SEW")
-		{
-			STD_Levels = true;
-		}
-		else
-			STD_Levels = false;
-		
+		//
 	}
 
 	override void WorldTick()
@@ -42,6 +29,7 @@ class DudeCoreHandler : EventHandler
 		}
 		
 		//Unfuck situations
+		// todo: put this elsewhere, WorldLoaded 
 		if (PDude)
 		{
 			if (CurrentMap != Level.Mapname)
@@ -237,28 +225,8 @@ class DudeCoreHandler : EventHandler
 					p.A_StartSound("dudeline64", CHAN_VOICE);
 				else 
 					p.A_StartSound("dudeline6", CHAN_VOICE);
-				
-				
-				BlockThingsIterator it;
-				
-				it = BlockThingsIterator.Create (p, 250);
-						
-				while (it.Next ()) {
-					let next = it.Thing;
 					
-					if (next && next is 'NPCCore' && !(next.bKILLED))
-					{
-						let pp = NPCCore(next);
-						if (!pp.isBusy && !pp.isAfterTarget && pp)
-						{
-							pp.isBusy = true;
-							pp.MyTarget = p;
-							pp.vel.xy = (0,0);
-							pp.G_GotTauntedAt = true;
-							pp.SetStateLabel("Stare");
-						}
-					}
-				}
+				// todo: execute this from the player pointer instead
 				
 				p.PlayerData.InsultCooldown = level.time + 35 * 2.5;
 			}
@@ -421,171 +389,6 @@ class DudeCoreHandler : EventHandler
 		{
 			n.A_GiveInventory("HUDViewable",1);
 			//n.A_GiveInventory("YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound",1);
-		}
-		
-   }
-   
-   // Used by Share the Doom option
-   static const string NPCSpawnList[] =
-	{
-		"NPCBob",
-		"NPCJon",
-		"NPCKurt",
-		"NPCWhiteDude",
-		"NPCWhiteDude2",
-		"NPCWhiteDude3",
-		"NPCWhiteDude4",
-		"NPCWhiteDude5",
-		"NPCMulato1",
-		"NPCMulato2",
-		"NPCWhiteDude6",
-		"NPCWhiteDude7",
-		"NPCMick",
-		"NPCJaret",
-		"NPCRick",
-		"NPCRicky",
-		"NPCWhiteDude8",
-		"NPCRedneck1",
-		"NPCWhiteDude9",
-		"NPCWhiteDude10",
-		"NPCWhiteDude11",
-		"NPCAsiatic1",
-		"NPCAsiatic2",
-		"NPCRussian1",
-		"NPCRussian2",
-		"NPCCore"
-	};
-   
-   //Needed for fire and other things
-   override void WorldThingSpawned (Worldevent e)
-   {
-		// Developer stuff
-		
-		CVar postal_developer_actor = CVar.FindCVar('postal_developer_actor');
-		bool postalactors = (postal_developer_actor != null && postal_developer_actor.GetBool ());
-		
-		if (postalactors)
-		{
-			if (e.thing is 'PostalActor')
-				e.thing.Destroy();
-		}
-		
-		CVar postal_developer_decoration = CVar.FindCVar('postal_developer_decoration');
-		bool postaldecorations = (postal_developer_decoration != null && postal_developer_decoration.GetBool ());
-		
-		if (postaldecorations)
-		{
-			if (e.thing is 'PostalDecoration')
-				e.thing.Destroy();
-		}
-		
-		CVar postal_developer_karma = CVar.FindCVar('postal_developer_karma');
-		bool postalkarmas = (postal_developer_karma != null && postal_developer_karma.GetBool ());
-		
-		if (postalkarmas)
-		{
-			if (e.thing is 'PostalKarmaActor')
-				e.thing.Destroy();
-		}
-		
-		CVar lightscvar = CVar.FindCVar('postal_lights');
-		bool lights = (lightscvar != null && lightscvar.GetBool ());
-		
-		if (!lights)
-		{
-			if (e.thing is 'PointLight')
-				e.thing.Destroy();
-		}
-		
-		CVar grasscvar = CVar.FindCVar('postal_grass');
-		bool grass = (grasscvar != null && grasscvar.GetBool ());
-		
-		if (!grass)
-		{
-			if (e.thing is 'grass1' || e.thing is 'grass2' || e.thing is 'weedS1' || e.thing is 'weedS2')
-				e.thing.Destroy();
-		}
-		
-		let SpawnedThing = e.Thing;
-		
-		if (SpawnedThing is "PatrolPoint" && STD_Levels)
-		{
-			actor nodee = SpawnedThing.Spawn("Postal_Carnode", SpawnedThing.pos);
-			let node = Postal_Carnode(nodee);
-			let ZDpatrolpoint = PatrolPoint(SpawnedThing);
-			
-			if (node && ZDpatrolpoint)
-			{
-				node.user_PatrolNextTag = ZDpatrolpoint.args[0];
-				node.user_PatrolTag = ZDpatrolpoint.tid;
-				node.angle = ZDpatrolpoint.angle;
-				ZDpatrolpoint.Destroy();
-			}
-		}
-		
-		CVar monstacvar = CVar.FindCVar('postal_monsterreplacee');
-		bool monsta = (monstacvar != null && monstacvar.GetBool ());
-		
-		if (!STD_Levels && monsta)
-		{
-			if (!SpawnedThing) return;
-			
-			if (SpawnedThing is 'PostalDecoration' || SpawnedThing is 'PostalActor' || SpawnedThing is 'PlayerPawn') return;
-			
-			if (SpawnedThing is 'BossBrain' ||
-				SpawnedThing is 'BossEye' ||
-				SpawnedThing is 'BossTarget' ||
-				SpawnedThing is 'CommanderKeen' ||
-				SpawnedThing is 'Sorcerer1' ||
-				SpawnedThing is 'Sorcerer2' ||
-				SpawnedThing is 'Dragon' ||
-				SpawnedThing is 'ClericBoss' ||
-				SpawnedThing is 'MageBoss' ||
-				SpawnedThing is 'FighterBoss' ||
-				SpawnedThing is 'Heresiarch' ||
-				SpawnedThing is 'Korax' ||
-				SpawnedThing is 'StrifeHumanoid' ||
-				SpawnedThing is 'SpectralMonster' ||
-				SpawnedThing is 'EntityNest' ||
-				SpawnedThing is 'EntityPod' ||
-				SpawnedThing is 'Loremaster' ||
-				SpawnedThing is 'Oracle' ||
-				SpawnedThing is 'Programmer' ||
-				SpawnedThing is 'StrifeBishop' ||
-				SpawnedThing is 'KneelingGuy')
-					return;
-			
-				if (SpawnedThing.bISMONSTER && SpawnedThing.Health > 0 && SpawnedThing)
-				{
-					int chance = random[cc](0,50);
-					if (chance >= 25 && SpawnedThing.Tid == 0)
-					{
-						int RandomNPCorder = random[spawnNPCee](0,NPCSpawnList.Size()-1);
-						actor NPC = SpawnedThing.Spawn(NPCSpawnList[RandomNPCorder], SpawnedThing.pos);
-				
-						//NPCWeapon = WeaponList[i];
-						
-						//actor NPC = SpawnedThing.Spawn("NPCCore", SpawnedThing.pos);
-						if (NPC)
-						{
-							NPC.angle = SpawnedThing.angle;
-							
-							/*
-							NPC.ChangeTid(SpawnedThing.tid);
-							
-							int j = 0;
-							while (j < 5)
-							{
-								NPC.args[j] = SpawnedThing.args[j];
-								j++;
-							}
-							*/
-							
-							SpawnedThing.Destroy();
-						}
-					}
-					else SpawnedThing.A_GiveInventory("PostalNPCMonsterChecker");
-				}
 		}
 		
    }

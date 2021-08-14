@@ -70,6 +70,9 @@ version "4.2"
 //------------- ChaseCam2
 #include "zscript/BorrowedCode/ChaseCam2/ChaseCam2.txt"
 
+//------------- StatusBarScreen
+#include "zscript/BorrowedCode/StatusBarScreen/StatusScreen_base.zsc"
+
 enum Bobbing
 {
 	Bob_Normal,

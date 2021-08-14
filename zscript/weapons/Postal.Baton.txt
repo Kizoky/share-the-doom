@@ -15,24 +15,6 @@ class PostBaton : PostalWeapon
 		{
 			if (!lineData.hitActor) return;
 			
-			if (lineData.HitActor is 'NPCCore')
-			{
-				FLineTraceData TraceData;
-				LineTrace(invoker.owner.angle,125.0,invoker.owner.pitch,0,Player.ViewHeight-18,0,0,TraceData);
-				
-				// Headshot
-				if (TraceData.HitLocation.Z > pos.z + height-16)
-				{
-					A_PlaySound("weapons/baton_hit", CHAN_WEAPON);
-					A_BatonHit(5);
-					return;
-				}
-				
-				A_PlaySound("weapons/baton_hit", CHAN_WEAPON);
-				A_BatonHit(0);
-				return;
-			}
-			
 			// Normal actor got hit
 			A_PlaySound("weapons/baton_hit", CHAN_WEAPON);
 			A_BatonHit(0);

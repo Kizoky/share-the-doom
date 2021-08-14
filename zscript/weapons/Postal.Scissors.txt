@@ -150,30 +150,24 @@ class PostalScissor : PostalActor
 	// 1 = passes thru actors
 	// 0 = explodes on actors
 	// -1 = default
-override int SpecialMissileHit(Actor victim)
-{
-	if ((victim is 'PostalWindow' || victim is 'PostalWindow_Extender') && victim)
+	override int SpecialMissileHit(Actor victim)
 	{
-		int dd = victim.DamageMobj(self, target, 1, "Melee");
-		return 1;
-	}
-	
-	if (victim && victim.bShootable && victim.Health >= 1)
-	{
-		if (victim == target)
+		if (victim && victim.bShootable && victim.Health >= 1)
 		{
+			if (victim == target)
+			{
+				return 1;
+			}
+			
+			hitActor = true;
+			int dd = victim.DamageMobj(self, target, 11, "Melee");
+			victim.A_StartSound("scissors/bodystick", CHAN_BODY);
+			
 			return 1;
 		}
 		
-		hitActor = true;
-		int dd = victim.DamageMobj(self, target, 11, "Melee");
-		victim.A_StartSound("scissors/bodystick", CHAN_BODY);
-		
 		return 1;
 	}
-	
-	return 1;
-}
 	
 	override void Tick()
 	{

@@ -33,7 +33,8 @@ class PostDebug : PostalWeapon
 		Goto Ready;
 	AltFire:
 		XXXX B 0
-		{	
+		{
+			/*
 			BlockThingsIterator it = BlockThingsIterator.Create (self, 10000);
 			
 			A_Print("Marked alive NPCs with 'hasSeenCorpse' and Pussy");
@@ -52,6 +53,7 @@ class PostDebug : PostalWeapon
 					}
 				}
 			}
+			*/
 			
 		}
 		XXXX BCDEFGHIJ 1;
@@ -62,58 +64,12 @@ class PostDebug : PostalWeapon
 	}
 }
 
-class PostalNPCDebugger : Powerup
-{
-	bool oneinstance;
-	actor control;
-	
-	Default
-	{
-		Powerup.Duration -99999;
-		+INVENTORY.HUBPOWER
-	}
-
-	override void InitEffect ()
-	{
-		Super.InitEffect();
-		if (!oneinstance)
-		{
-			let head = spawn("Postal_FailedPathnode", owner.pos+(0,0,100), ALLOW_REPLACE);
-			oneinstance = true;
-			control = head;
-		}
-	}
-
-	override void EndEffect ()
-	{
-		Super.EndEffect();
-		if (Owner == NULL || Owner.player == NULL)
-		{
-			return;
-		}
-		if (control)
-			control.Destroy();
-	}
-	
-	override void Tick()
-	{
-		Super.Tick();
-		
-		if (owner)
-		{
-			if (!owner.bKILLED)
-				control.SetOrigin(owner.pos+(0,0,80), TRUE);
-			else
-				control.Destroy();
-		}
-	}
-}
-
 extend class PostDebug
 {
 	//This is basically Doom's Fist
 	action void A_Debug1()
 	{
+		/*
 		FLineTraceData lineData;
 		LineTrace(angle,100,pitch,offsetz: height-12, data: LineData);
 				
@@ -177,5 +133,6 @@ extend class PostDebug
 				else
 					Console.Printf("SPECIAL is false");
 		}
+		*/
 	}
 }
