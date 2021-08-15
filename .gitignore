@@ -7,3 +7,6 @@
 *.php
 *.psd
 *.pk3
+GLDEFGen.cfg
+GLDEFGen_Output.txt
+GLDEFGen.exe

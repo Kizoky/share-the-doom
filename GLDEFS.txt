@@ -1,5 +1,5 @@
 #include "GLDEF-Weapons.gl"
-//#include "GLDEF-Sun.gl"
+#include "GLDEF-Sun.gl"
 
 HardwareShader PostProcess Scene
 {

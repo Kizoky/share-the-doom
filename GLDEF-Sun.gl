@@ -1,1 +1,297 @@
 // fix later
+// Generated: 15 Aug 2021 11:07:01
+material texture "models/weapons/a_textures/Dude.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_DISP.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_NORM.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_NRM.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/dude_hands_SPEC.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/baton/baton_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/clipboard/blank.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/clipboard/clipboard_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/cowhead/CowHead_new.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/cowhead/scissors_timb_2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/gascan/gas_can_label.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/gascan/gas_can_metal.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/gascan/Matchbox.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/grenade/grenade3_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/grenade/jailbars.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/machete/machete_1.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/machete/machete_2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/machinegun/brass-01_3.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/machinegun/m-16_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/matchbox/Matchbox_2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/molotov/Matchbox_3.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/molotov/molotov_glass2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/molotov/molotov_label3.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/napalmlauncher/crosshairs_ben.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/napalmlauncher/napalmCanister.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/napalmlauncher/napalmGun_JL.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/pistol/pistol_brass.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/pistol/pistol_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_1.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_10.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_11.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_12.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_13.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_3.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_4.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_5.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_6.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_7.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_8.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_9.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_full.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/fuel_gauge_NEW.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/launcher_timb2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/rocketlauncher/rocket_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/scissors/scissors_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/scythe/ScytheBlade.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/scythe/ScytheMetal.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/scythe/Scythewood.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/shotgun/shotgun_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/shovel/shovel_texture.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/sledge/sledge_1.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/sledge/sledge_wood.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/sniper/brass-01_2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/sniper/sniper_timb_2.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/tazer/taser_timb.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/urethra/Censored.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
+material texture "models/weapons/a_textures/WMD/WMD.png"
+{
+   shader "shaders/SimSun_Wep.fp"
+}
+
