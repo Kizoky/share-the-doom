@@ -1,85 +1,93 @@
 class DudeCoreHandler : EventHandler 
 {
 	int SavedTimes;
-	bool SavedTrigger, STD_Levels;
-	string CurrentMap;
+	bool SavedTrigger;
 
+	override void WorldUnloaded(WorldEvent e)
+	{
+		// Don't even mention it.... Spaghetti
+		for (uint i = 0; i < MAXPLAYERS; i++)
+		{
+			if (Players[i].mo && Players[i].mo is 'PostalDude')
+			{
+				let DudePawn = PostalDude(Players[i].mo);
+				if (DudePawn)
+				{
+					DudePawn.A_TakeInventory("PostKick",100);
+					DudePawn.Kick = false;
+					DudePawn.InitLine = false;
+					DudePawn.isinPain = false;
+					DudePawn.TimeBeforeNextPainLine = level.time;
+					DudePawn.A_GiveInventory("HUDViewable",1);
+					DudePawn.A_TakeInventory("CameraRunner",1);
+					DudePawn.bDONTTHRUST = false;
+					DudePawn.Speed = DudePawn.Default.Speed;
+					DudePawn.JumpZ = DudePawn.Default.JumpZ;
+					if (DudePawn.PlayerData)
+					{
+						DudePawn.PlayerData.InsultCooldown = level.time;
+						DudePawn.PlayerData.DudeLineCooldown = level.time;
+						DudePawn.PlayerData.DudeLineTriggered = false;
+						DudePawn.PlayerData.RunningStopCooldown = level.time;
+						DudePawn.PlayerData.SpawnedOnce = false;
+						DudePawn.PlayerData.Suicide = false;
+					}
+				}
+			}
+		}
+	}
+	
 	override void WorldLoaded(WorldEvent e)
 	{
-		//
-	}
-
-	override void WorldTick()
-	{
-		let player = players[consoleplayer].mo;
-		let PDude = PostalDude(player);
-		
-		if (!STD_Levels && player && CurrentMap != Level.Mapname && player is 'PostalDude')
+		Array<actor> NumOfDudes;
+		for (uint i = 0; i < MAXPLAYERS; i++)
 		{
-			bool trigorno = random[trig](0,1);
-			
-			//Console.Printf("Called!");
+			if (Players[i].mo && Players[i].mo is 'PostalDude')
+			{
+				NumOfDudes.Push(Players[i].mo);
+			}
+		}
+		
+		int Roastee = random[roastee](0,NumOfDudes.Size()-1);
+		
+		let Roaster = PostalDude(NumOfDudes[Roastee]);
+		if (Roaster)
+		{
+			bool trigorno = random[roastmap](0,1);
 
 			if (trigorno)
 			{
 				int randomnumber = random[pickline](1,6);
 				string Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
-				player.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
+				Roaster.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
 			}
 		}
-		
-		//Unfuck situations
-		// todo: put this elsewhere, WorldLoaded 
-		if (PDude)
-		{
-			if (CurrentMap != Level.Mapname)
-			{
-				PDude.A_TakeInventory("PostKick",100);
-				PDude.Kick = false;
-				PDude.InitLine = false;
-				PDude.isinPain = false;
-				PDude.TimeBeforeNextPainLine = level.time;
-				PDude.A_GiveInventory("HUDViewable",1);
-				PDude.A_TakeInventory("CameraRunner",1);
-				PDude.bDONTTHRUST = false;
-				PDude.Speed = PDude.Default.Speed;
-				PDude.JumpZ = PDude.Default.JumpZ;
-				if (PDude.PlayerData)
-				{
-					PDude.PlayerData.InsultCooldown = level.time;
-					PDude.PlayerData.DudeLineCooldown = level.time;
-					PDude.PlayerData.DudeLineTriggered = false;
-					PDude.PlayerData.RunningStopCooldown = level.time;
-					PDude.PlayerData.SpawnedOnce = false;
-					PDude.PlayerData.Suicide = false;
-				}
-				
-				Currentmap = Level.Mapname;
-			}
-		}
-		
-		
+	}
+
+	override void WorldTick()
+	{
 		if (gameaction == ga_savegame || gameaction == ga_autosave)
 		{
-			let player = players[consoleplayer].mo;
+			// Only the host can save (atleast in theory)
+			let player = PostalDude(Players[0].mo);
 			
-			if (!(player is 'PostalDude')) return;
+			if (!player) return;
 			
 			if (SavedTimes == 4 && SavedTrigger != true)
 			{
-				player.A_StartSound("dude_save2", CHAN_AUTO);
+				player.A_StartSound("dude_save2", CHAN_VOICE, CHANF_NOSTOP);
 				SavedTrigger = true;
 			}
 			
 			if (SavedTimes == 5 && SavedTrigger != true)
 			{
-				player.A_StartSound("dude_save1", CHAN_AUTO);
+				player.A_StartSound("dude_save1", CHAN_VOICE, CHANF_NOSTOP);
 				SavedTrigger = true;
 			}
 			
 			if (SavedTimes == 6 && SavedTrigger != true)
 			{
-				player.A_StartSound("dude_save3", CHAN_AUTO);
+				player.A_StartSound("dude_save3", CHAN_VOICE, CHANF_NOSTOP);
 				SavedTimes = 0;
 				SavedTrigger = true;
 			}
@@ -87,293 +95,121 @@ class DudeCoreHandler : EventHandler
 			SavedTimes++;
 			SavedTrigger = false;
 		}
-	
 	}
 
-   override void NetworkProcess (ConsoleEvent e)
-   {
-	  //let vars = PostalVariables(GlobalsContainer.Find("PostalVariables"));
-      if (e.Name ~== "Kicking")
-	  {
+	override void NetworkProcess (ConsoleEvent e)
+	{
+		if (e.Name ~== "Kicking")
+		{
 			PostalDude p = PostalDude(players[e.Player].mo);
-			PlayerInfo player = players [e.Player];
 			
 			if (!p || !p.PlayerData) return;
 			
 			if (p.bKILLED || p.SuicideCamera) return;
 			
-			//Console.Printf("Q pressed (Mighty Foot Engaged)");
 			if (p)
 				p.Kick = true;
-	  }
-	  
-	  if (e.Name ~== "Holster")
-	  {
-			PlayerInfo player = players [e.Player];
+		}
+		
+		if (e.Name ~== "Holster")
+		{
 			PostalDude p = PostalDude(players[e.Player].mo);
 			
-			if (!p || !p.PlayerData) return;
-			if (p.SuicideCamera || p.bKILLED) return;
+			if (!p) return;
 			
-			// There was no holstering, let's save the Weapon we hold
-			if (p.PlayerData.Holster == false)
-			{
-				// no, we don't want to "Holster" our peepee
-				// Nor Holster our Hands, Schrödinger would be proud then
-				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")) ||
-					p.player.ReadyWeapon == Weapon(p.FindInventory("PostHands"))) return;
-				
-				p.PlayerData.HolsterSave = p.player.ReadyWeapon;
-				//Console.Printf("E is pressed (Holster is true)");
-				p.Player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
-				p.PlayerData.Holster = true;
-				
-				return;
-			}
-			
-			if (p.PlayerData.Holster)
-			{
-				// We are not holding anything, equip the saved weapon
-				if (p.Player.ReadyWeapon == Weapon(p.FindInventory("PostHands")))
-				{
-					p.player.PendingWeapon = p.PlayerData.HolsterSave;
-					p.PlayerData.Holster = false;
-				}
-				else
-				{
-					// Player decided to select an other weapon while Holstering previously, just save it
-					// and select Hands
-					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
-					p.Player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
-				}
-			}
-	  }
-
-	  if (e.Name ~== "Urethra")
-	  {
-			PlayerInfo player = players [e.Player];
+			p.E_Holster();
+		}
+		
+		if (e.Name ~== "Urethra")
+		{
 			PostalDude p = PostalDude(players[e.Player].mo);
-			//Console.Printf("R is pressed (Now the flowers will grow)");
 			
-			//Pretty much it works the same way like Holster
+			if (!p) return;
 			
-			if (!p || !p.PlayerData) return;
-			if (p.SuicideCamera || p.bKILLED) return;
-			
-			if (p.PlayerData.Urethra == false)
-			{
-				// A glitch in the matrix
-				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra"))) return;
-				
-				p.A_StartSound("piss/zipperdown", CHAN_BODY);
-				p.PlayerData.HolsterSave = p.player.ReadyWeapon;
-				//Console.Printf("E is pressed (Holster is true)");
-				p.Player.PendingWeapon = Weapon(p.FindInventory("PostUrethra"));
-				p.PlayerData.Urethra = true;
-				
-				return;
-			}
-			
-			if (p.PlayerData.Urethra)
-			{	
-				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")))
-				{
-					p.Player.PendingWeapon = p.PlayerData.HolsterSave;
-					p.PlayerData.Urethra = false;
-				}
-				else
-				{
-					p.A_StartSound("piss/zipperdown", CHAN_BODY);
-					p.PlayerData.HolsterSave = p.player.ReadyWeapon;
-					p.Player.PendingWeapon = Weapon(p.FindInventory("PostUrethra"));
-					//Console.Printf("If ReadyWeapon not same as PD_UrethraSave (else)");
-				}
-			}
-	  }
-	  
-	  if (e.Name ~== "Suicide")
-	  {
+			p.E_Urethra();
+		}
+		
+		if (e.Name ~== "Suicide")
+		{
 			PostalDude p = PostalDude(players[e.Player].mo);
-			PlayerInfo player = players [e.Player];
 			
-			if (!p || !p.PlayerData) return;
+			if (!p) return;
 			
-			if (p.bKILLED) return;
-			
-			// No, you can't attempt suicide in air.
-			if (!(p.pos.z ~== p.floorz)) return;
-			
-			p.PlayerData.Suicide = true;
-			p.SuicideAngle = p.Angle;
-			
-			
-	  }
-	  
-	  if (e.Name ~== "Taunt")
-	  {
+			p.E_Suicide();
+		}
+		
+		if (e.Name ~== "Taunt")
+		{
 			PostalDude p = PostalDude(players[e.Player].mo);
-			PlayerInfo player = players [e.Player];
 			
-			if (!p || !p.PlayerData) return;
-			if (p.bKILLED || p.SuicideCamera) return;
+			if (!p) return;
 			
-			if (p.PlayerData.InsultCooldown < level.time)
-			{
-				bool rr = random[randoms](0,1);
-				
-				if (rr)
-					p.A_StartSound("dudeline64", CHAN_VOICE);
-				else 
-					p.A_StartSound("dudeline6", CHAN_VOICE);
-					
-				// todo: execute this from the player pointer instead
-				
-				p.PlayerData.InsultCooldown = level.time + 35 * 2.5;
-			}
-	  }
-	  
-	  if (e.Name ~== "Map")
-	  {
+			p.E_Taunt();
+		}
+		
+		// for testing purposes only
+		if (e.Name ~== "DamageSelf")
+		{
 			PostalDude p = PostalDude(players[e.Player].mo);
-			PlayerInfo player = players [e.Player];
-			
-			if (!p || !p.PlayerData) return;
-			if (p.SuicideCamera || p.bKILLED) return;
-			
-			if (!p.Map)
-			{
-				p.Map = true;
-				p.A_StartSound("map/uncrumple", CHAN_AUTO);
-			}
-			else
-			{
-				p.Map = false;
-				p.A_PlaySound("map/crumple", CHAN_AUTO);
-			}
-	  }
-	  
-	  if (e.Name ~== "DamageSelf")
-	  {
-			PostalDude p = PostalDude(players[e.Player].mo);
-			PlayerInfo player = players [e.Player];
 			
 			if (!p || !p.PlayerData) return;
 			
 			if (p)
 				p.A_DamageSelf(5);
+		}
 		
-	  }
-	  
-	  if (e.Name ~== "DropInventoryItem" || e.Name ~== "DropWeaponItem")
-	  {
+		// Reinvented the wheel
+		if (e.Name ~== "DropInventoryItem" || e.Name ~== "DropWeaponItem")
+		{
 			PostalDude p = PostalDude(players[e.Player].mo);
-			PlayerInfo player = players [e.Player];
 			
-			// Player drops currently selected inventory item
-			// todo: Special inventory drops, for ex.: Catnip, pissed donuts, etc...
+			bool WeaponDrop = false;
+			if (e.Name ~== "DropWeaponItem")
+				WeaponDrop = true;
+			
+			p.E_Drop(WeaponDrop);
+		}
+	  
+		// Zoom in or out Suiciding
+		// todo: replace this garbage with my Tower Defense mod code
+	
+		if (e.Name ~== "ZoomSuicide")
+		{
+			PostalDude p = PostalDude(players[e.Player].mo);
 			
 			if (!p || !p.PlayerData) return;
 			
-			if (p && e.Name ~== "DropInventoryItem")
+			if (p.SuicideCamera && p)
 			{
-				if (p.SuicideCamera || p.isInventoryUsed) return;
+				let a = CameraRunner(p.SuicideCamera);
 				
-				let item = p.invSel.GetClassName();
-				p.A_TakeInventory(item,1);
-				
-				let itemspawn = p.Spawn(item, p.pos+(0,0,45));
-				if (itemspawn)
+				if (a)
 				{
-					itemspawn.angle = p.angle;
-					itemspawn.A_Recoil(-4);
-					itemspawn.vel.z += 0.5;
-					itemspawn.angle = random(0,360);
-				}
-			}
-			
-			// Player drops currently equipped weapon
-			
-			if (p && e.Name ~== "DropWeaponItem")
-			{
-				if (p.SuicideCamera || p.isWeaponThrown) return;
-				
-				// Note: Player must absolutely not drop these 3 weapons
-				if (p.player.ReadyWeapon == Weapon(p.FindInventory("PostHands")) ||
-					p.player.ReadyWeapon == Weapon(p.FindInventory("PostUrethra")) ||
-					p.player.ReadyWeapon == Weapon(p.FindInventory("PostMatchbox"))) return;
-				
-				// Check if weapon is in Ready state, if not do NOT drop the weapon
-				// Note: This makes isWeaponThrown check totally useless
-				let psp = p.player.getpsprite(1);
-				let wep = p.player.ReadyWeapon;
-				
-				if (psp && wep && !(p.InStateSequence(psp.curstate, wep.ResolveState("Ready")))) return;
-				
-				// Get the weapon's name directly
-				let item = wep.GetClassName();
-				
-				// Force the player to holster
-				p.player.PendingWeapon = Weapon(p.FindInventory("PostHands"));
-				
-				// Take away the weapon
-				p.A_TakeInventory(item);
-				
-				// Let's spawn a new weapon
-				let itemspawn = p.Spawn(item, p.pos+(0,0,55));
-				if (itemspawn)
-				{
-					let a = PostalWeapon(itemspawn);
-					if (a)
+					if(e.Args[0] == 0x198)
 					{
-						a.angle = p.angle;
-						a.A_Recoil(-6);
-						a.vel.z += 0.5;
-						a.angle = random(0,360);
-						a.STD_Dropped = true;
+						if (a.zoomH + 2 >= 100) return;
+						
+						a.zoomH += 2;
+					}
+						
+					if (e.Args[0] == 0x199)
+					{
+						if (a.zoomH - 2 <= -80) return;
+						
+						a.zoomH -= 2;
 					}
 				}
 			}
-	  }
-	  
-			// Zoom in or out Suiciding
-			
-			if (e.Name ~== "ZoomSuicide")
-			{
-				PostalDude p = PostalDude(players[e.Player].mo);
-				PlayerInfo player = players [e.Player];
-				
-				if (!p || !p.PlayerData) return;
-				
-				if (p.SuicideCamera && p)
-				{
-					let a = CameraRunner(p.SuicideCamera);
-					
-					if (a)
-					{
-						if(e.Args[0] == 0x198)
-						{
-							if (a.zoomH + 2 >= 100) return;
-							
-							a.zoomH += 2;
-						}
-							
-						if (e.Args[0] == 0x199)
-						{
-							if (a.zoomH - 2 <= -80) return;
-							
-							a.zoomH -= 2;
-						}
-					}
-				}
-			}
-	  
-   }
+		}
+	}
    
-   override void PlayerEntered (PlayerEvent e)
-   {
+	override void PlayerEntered (PlayerEvent e)
+	{
 		PostalDude p = PostalDude(players[e.PlayerNumber].mo);
 		
-		if (p != null)
+		// todo: No, this is not how the Kick should behave and work
+		// Make the Kick not remove itself after finishing the kicking animation
+		if (p)
 		{
 			p.A_TakeInventory("PostKick",100);
 			p.Kick = false;
@@ -385,13 +221,12 @@ class DudeCoreHandler : EventHandler
 		}
 		
 		PlayerPawn n = PlayerPawn(players[e.PlayerNumber].mo);
-		if (n && p == null)
+		if (n && !p)
 		{
 			n.A_GiveInventory("HUDViewable",1);
 			//n.A_GiveInventory("YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound",1);
 		}
-		
-   }
+	}
 	
 	// Used for initiating Dude's killing spree lines
 	// This is universal
@@ -399,30 +234,38 @@ class DudeCoreHandler : EventHandler
 	{	
 		if (e.Inflictor && e.Thing)
 		{
-			let player = players[consoleplayer].mo;
-			let p = PostalDude(player);
-			
-			if (!p) return;
-			
-			if (e.Thing != p)
+			if (!(e.Thing is 'PostalDude'))
 			{
 				//Is there a way to maybe get the killer and not the target?
-				if (e.Thing.target == p)
+				if (e.Thing.target is 'PostalDude')
 				{
-					if (p != null && !(p.bKILLED))
+					actor DudeTarget = null;
+					for (uint i = 0; i < MAXPLAYERS; i++)
+					{
+						if (Players[i].mo)
+						{
+							if (Players[i].mo == e.Thing.target)
+							{
+								DudeTarget = Players[i].mo;
+								break;
+							}
+						}
+					}
+					
+					let DudePawn = PostalDude(DudeTarget);
+					
+					if (DudePawn && !DudePawn.bKILLED)
 					{
 						let pa = PostalActor(e.Thing);
 						if (pa && pa.STD_NoKillLine) return;
 						
-						if (p.PlayerData && !p.PlayerData.DudeLineTriggered && level.time > p.PlayerData.DudeLineCooldown)
+						if (DudePawn.PlayerData && !DudePawn.PlayerData.DudeLineTriggered && level.time > DudePawn.PlayerData.DudeLineCooldown)
 						{
-							p.InitLine = true;
+							DudePawn.InitLine = true;
 						}
 					}
 				}
 			}
-			//else if (e.Thing == PostalDude(e.Inflictor))
-			//	Console.Printf("Player suicided!");
 		}
 	}
 	

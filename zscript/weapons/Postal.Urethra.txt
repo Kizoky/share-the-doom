@@ -30,6 +30,8 @@ class PostUrethra : PostalWeapon
 		Tag "$PSTL_WP_URETHRA";
 		Inventory.PickupMessage "$PSTL_PP_URETHRA";
 		+Weapon.NoAlert;
+		+INVENTORY.UNDROPPABLE;
+		+INVENTORY.UNTOSSABLE;
 	}
 	States
 	{

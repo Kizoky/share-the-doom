@@ -2,12 +2,14 @@ class PostHands : PostalWeapon
 {
 	Default
 	{
-	Weapon.Kickback 100;
-	Weapon.SelectionOrder 9999;
-	Obituary "$PSTL_OB_HANDS";
-	Tag "$PSTL_WP_HANDS";
-	Inventory.PickupMessage "$PSTL_PP_HANDS";
-	+Weapon.NoAlert;
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 9999;
+		Obituary "$PSTL_OB_HANDS";
+		Tag "$PSTL_WP_HANDS";
+		Inventory.PickupMessage "$PSTL_PP_HANDS";
+		+Weapon.NoAlert;
+		+INVENTORY.UNDROPPABLE;
+		+INVENTORY.UNTOSSABLE;
 	}
 	States
 	{

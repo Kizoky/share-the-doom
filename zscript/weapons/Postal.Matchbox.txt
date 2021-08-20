@@ -2,13 +2,15 @@ class PostMatchbox : PostalWeapon
 {
 	Default
 	{
-    Weapon.Kickback 100;
-    Weapon.SelectionOrder 1300;
-	Obituary "$OB_MPSHOTGUN";
-    Tag "$PSTL_WP_MATCHBOX";
-	Inventory.PickupMessage "$PSTL_PP_MATCHBOX";
-	+Weapon.NoAlert;
-	Obituary "$PSTL_OB_MATCHBOX";
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$PSTL_WP_MATCHBOX";
+		Inventory.PickupMessage "$PSTL_PP_MATCHBOX";
+		+Weapon.NoAlert;
+		+INVENTORY.UNDROPPABLE;
+		+INVENTORY.UNTOSSABLE;
+		Obituary "$PSTL_OB_MATCHBOX";
 	}
 	States
 	{

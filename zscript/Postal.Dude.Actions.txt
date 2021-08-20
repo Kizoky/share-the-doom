@@ -1,0 +1,146 @@
+// Moved very long "actions" from EventHandler to here
+
+extend class PostalDude
+{
+	// --------------------------------------- Holster
+	void E_Holster()
+	{
+		if (!PlayerData) return;
+		if (SuicideCamera || bKILLED) return;
+		
+		// There was no holstering, let's save the Weapon we hold
+		if (!PlayerData.Holster)
+		{
+			// no, we don't want to "Holster" our peepee
+			// Nor Holster our Hands, Schrödinger would be proud then
+			if (player.ReadyWeapon == Weapon(FindInventory("PostUrethra")) ||
+				player.ReadyWeapon == Weapon(FindInventory("PostHands"))) return;
+			
+			PlayerData.HolsterSave = player.ReadyWeapon;
+			Player.PendingWeapon = Weapon(FindInventory("PostHands"));
+			PlayerData.Holster = true;
+			
+			return;
+		}
+		
+		if (PlayerData.Holster)
+		{
+			// We are not holding anything, equip the saved weapon
+			if (Player.ReadyWeapon == Weapon(FindInventory("PostHands")))
+			{
+				player.PendingWeapon = PlayerData.HolsterSave;
+				PlayerData.Holster = false;
+			}
+			else
+			{
+				// Player decided to select an other weapon while Holstering previously, just save it
+				// and select Hands
+				PlayerData.HolsterSave = player.ReadyWeapon;
+				Player.PendingWeapon = Weapon(FindInventory("PostHands"));
+			}
+		}
+	}
+	
+	// --------------------------------------- Zipper
+	void E_Urethra()
+	{	
+		if (!PlayerData) return;
+		if (SuicideCamera || bKILLED) return;
+		
+		if (!PlayerData.Urethra)
+		{
+			// A glitch in the matrix
+			if (player.ReadyWeapon == Weapon(FindInventory("PostUrethra"))) return;
+			
+			A_StartSound("piss/zipperdown", CHAN_BODY);
+			PlayerData.HolsterSave = player.ReadyWeapon;
+			Player.PendingWeapon = Weapon(FindInventory("PostUrethra"));
+			PlayerData.Urethra = true;
+			
+			return;
+		}
+		
+		if (PlayerData.Urethra)
+		{	
+			if (player.ReadyWeapon == Weapon(FindInventory("PostUrethra")))
+			{
+				Player.PendingWeapon = PlayerData.HolsterSave;
+				PlayerData.Urethra = false;
+			}
+			else
+			{
+				A_StartSound("piss/zipperdown", CHAN_BODY);
+				PlayerData.HolsterSave = player.ReadyWeapon;
+				Player.PendingWeapon = Weapon(FindInventory("PostUrethra"));
+			}
+		}
+	}
+	
+	// --------------------------------------- Suicide
+	void E_Suicide()
+	{
+		if (!PlayerData) return;
+		if (bKILLED) return;
+		
+		// No, you can't attempt suicide in air.
+		if (pos.z > floorz) return;
+		
+		if (PlayerData.Suicide) return;
+		
+		PlayerData.Suicide = true;
+		SuicideAngle = Angle;
+	}
+	
+	// --------------------------------------- Taunt
+	void E_Taunt()
+	{
+		if (!PlayerData) return;
+		if (bKILLED || SuicideCamera) return;
+		
+		if (PlayerData.InsultCooldown < level.time)
+		{
+			bool rr = random[randomtaunt](0,1);
+			
+			if (rr)
+				A_StartSound("dudeline64", CHAN_VOICE);
+			else 
+				A_StartSound("dudeline6", CHAN_VOICE);
+			
+			PlayerData.InsultCooldown = level.time + 35 * 2.5;
+		}
+	}
+	
+	// --------------------------------------- Drop Inventory or Weapon
+	void E_Drop(bool WeaponDrop)
+	{
+		if (WeaponDrop)
+		{
+			let Wep = FindInventory(Player.ReadyWeapon.GetClassName());
+			
+			if (Wep)
+			{
+				let Inven = PostalWeapon(DropInventory(Wep));
+				if (Inven)
+				{
+					Inven.SetOrigin(Inven.pos +(0,0,40),true);
+					Inven.Angle = random[iangle](0,360);
+					Inven.STD_Dropped = true;
+				}
+			}
+		}
+		else
+		{
+			Inventory Inv = FindInventory(invSel.GetClassName());
+			
+			if (Inv)
+			{
+				let Inven = DropInventory(Inv, 1);
+				if (Inven)
+				{
+					Inven.SetOrigin(Inven.pos +(0,0,40),true);
+					Inven.Angle = random[iangle](0,360);
+				}
+			}
+		}
+	}
+}
