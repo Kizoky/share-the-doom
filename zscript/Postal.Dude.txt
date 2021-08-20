@@ -95,6 +95,7 @@ class PostalDude : PlayerPawn
 	string ChosenTip;
 	
 	bool InitLine;
+	int ChanceLocal;
 	
 	bool Suicided;
 	
@@ -195,7 +196,7 @@ class PostalDude : PlayerPawn
 	//Called by an EventHandler
 	bool KillWithGun, KillWithMelee, KillWithProj, QuickKillsinProgress, QuickKillVersion;
 	int QuickKillCount;
-	void A_TriggerDudeLine()
+	void A_TriggerDudeLine(int Chance = 0)
 	{
 		if (IsActorPlayingSound(CHAN_VOICE) && !PlayerData.DudeLineTriggered)
 		{
@@ -203,14 +204,9 @@ class PostalDude : PlayerPawn
 			return;
 		}
 		
-		int Chance = random[DudeLine]();
-		int QuickKillsChance = random[QuickChance]();
-		
 		if (InitLine == true)
 		{
-			let wep = Player.ReadyWeapon;
-			
-			let nweapon = PostalWeapon(wep);
+			let nweapon = PostalWeapon(Weapon(Player.ReadyWeapon));
 			if (nweapon)
 			{
 				if (nweapon.STD_Melee)
@@ -223,8 +219,6 @@ class PostalDude : PlayerPawn
 					KillWithProj = true;
 			}
 			
-			//Console.Printf("initline triggered");
-			
 			PlayerData.TimeBeforeDudeLine = level.time + 30;
 			PlayerData.DudeLineTriggered = true;
 			InitLine = false;
@@ -232,14 +226,18 @@ class PostalDude : PlayerPawn
 		
 		if (PlayerData.DudeLineTriggered == true)
 		{
-			//Corpses doesn't talk
+			Chance = ChanceLocal;
+			Console.Printf("Chance: %d", Chance);
+			bool fail = true;
+			
+			// Corpses doesn't talk
 			if (self.bKILLED)
 			{
 				PlayerData.DudeLineTriggered = false;
 				return;
 			}
 			
-			if (Chance < 3 && !QuickKillsinProgress)
+			if (Chance < 7 && !QuickKillsinProgress)
 			{
 				QuickKillsinProgress = true;
 				QuickKillVersion = random[ver](0,1);
@@ -247,7 +245,7 @@ class PostalDude : PlayerPawn
 			
 			if (Chance < 200 && !QuickKillsinProgress && level.time > PlayerData.TimeBeforeDudeLine)
 			{
-				PlayerData.DudeLineCooldown = level.time + 35 * 5;
+				PlayerData.DudeLineCooldown = level.time + 35 * 2;
 				
 				if (KillWithGun)
 				{
@@ -256,6 +254,7 @@ class PostalDude : PlayerPawn
 					A_StartSound(Dude_KillWithGun, CHAN_VOICE, CHANF_NOSTOP);
 					KillWithGun = false;
 					PlayerData.DudeLineTriggered = false;
+					fail = false;
 				}
 				
 				if (KillWithMelee)
@@ -265,6 +264,7 @@ class PostalDude : PlayerPawn
 					A_StartSound(Dude_KillWithMelee, CHAN_VOICE, CHANF_NOSTOP);
 					KillWithMelee = false;
 					PlayerData.DudeLineTriggered = false;
+					fail = false;
 				}
 				
 				if (KillWithProj)
@@ -274,6 +274,7 @@ class PostalDude : PlayerPawn
 					A_StartSound(Dude_KillWithProjectile, CHAN_VOICE, CHANF_NOSTOP);
 					KillWithProj = false;
 					PlayerData.DudeLineTriggered = false;
+					fail = false;
 				}
 			}
 			
@@ -286,6 +287,7 @@ class PostalDude : PlayerPawn
 					A_StartSound(Dude_QuickKills, CHAN_VOICE, CHANF_NOSTOP);
 					PlayerData.TimeBeforeDudeLine = level.time + 30;
 					PlayerData.DudeLineTriggered = false;
+					fail = false;
 				}
 				else
 				{
@@ -294,6 +296,7 @@ class PostalDude : PlayerPawn
 					A_StartSound(Dude_QuickKillsS, CHAN_VOICE, CHANF_NOSTOP);
 					PlayerData.TimeBeforeDudeLine = level.time + 30;
 					PlayerData.DudeLineTriggered = false;
+					fail = false;
 				}
 				
 				if (QuickKillCount >= 7)
@@ -302,6 +305,11 @@ class PostalDude : PlayerPawn
 					QuickKillCount = 0;
 				}
 			
+			}
+			
+			if (fail && level.time > PlayerData.TimeBeforeDudeLine)
+			{
+				PlayerData.DudeLineTriggered = false;
 			}
 		}
 	}

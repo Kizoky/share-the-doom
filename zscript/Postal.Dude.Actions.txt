@@ -125,6 +125,7 @@ extend class PostalDude
 					Inven.SetOrigin(Inven.pos +(0,0,40),true);
 					Inven.Angle = random[iangle](0,360);
 					Inven.STD_Dropped = true;
+					Player.ReadyWeapon = Weapon(FindInventory("PostHands"));
 				}
 			}
 		}

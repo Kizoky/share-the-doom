@@ -15,7 +15,6 @@ class DudeCoreHandler : EventHandler
 				{
 					DudePawn.A_TakeInventory("PostKick",100);
 					DudePawn.Kick = false;
-					DudePawn.InitLine = false;
 					DudePawn.isinPain = false;
 					DudePawn.TimeBeforeNextPainLine = 0;
 					DudePawn.A_GiveInventory("HUDViewable",1);
@@ -53,12 +52,12 @@ class DudeCoreHandler : EventHandler
 		let Roaster = PostalDude(NumOfDudes[Roastee]);
 		if (Roaster)
 		{
-			bool trigorno = random[roastmap](0,1);
+			int trigorno = random[roastmap](0,2);
 
-			if (trigorno)
+			if (trigorno == 1)
 			{
 				int randomnumber = random[pickline](1,6);
-				string Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
+				sound Dude_RandomLevel = string.Format("Dude_RandomLevel%i",randomnumber);
 				Roaster.A_StartSound(Dude_RandomLevel, CHAN_VOICE, CHANF_NOSTOP);
 			}
 		}
@@ -239,20 +238,7 @@ class DudeCoreHandler : EventHandler
 				//Is there a way to maybe get the killer and not the target?
 				if (e.Thing.target is 'PostalDude')
 				{
-					actor DudeTarget = null;
-					for (uint i = 0; i < MAXPLAYERS; i++)
-					{
-						if (Players[i].mo)
-						{
-							if (Players[i].mo == e.Thing.target)
-							{
-								DudeTarget = Players[i].mo;
-								break;
-							}
-						}
-					}
-					
-					let DudePawn = PostalDude(DudeTarget);
+					let DudePawn = PostalDude(e.Thing.target);
 					
 					if (DudePawn && !DudePawn.bKILLED)
 					{
@@ -262,6 +248,7 @@ class DudeCoreHandler : EventHandler
 						if (DudePawn.PlayerData && !DudePawn.PlayerData.DudeLineTriggered && level.time > DudePawn.PlayerData.DudeLineCooldown)
 						{
 							DudePawn.InitLine = true;
+							DudePawn.ChanceLocal = random[DudeLine](0,350);
 						}
 					}
 				}
