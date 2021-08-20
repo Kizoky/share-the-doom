@@ -17,7 +17,7 @@ class DudeCoreHandler : EventHandler
 					DudePawn.Kick = false;
 					DudePawn.InitLine = false;
 					DudePawn.isinPain = false;
-					DudePawn.TimeBeforeNextPainLine = level.time;
+					DudePawn.TimeBeforeNextPainLine = 0;
 					DudePawn.A_GiveInventory("HUDViewable",1);
 					DudePawn.A_TakeInventory("CameraRunner",1);
 					DudePawn.bDONTTHRUST = false;
@@ -25,10 +25,10 @@ class DudeCoreHandler : EventHandler
 					DudePawn.JumpZ = DudePawn.Default.JumpZ;
 					if (DudePawn.PlayerData)
 					{
-						DudePawn.PlayerData.InsultCooldown = level.time;
-						DudePawn.PlayerData.DudeLineCooldown = level.time;
+						DudePawn.PlayerData.InsultCooldown = 0;
+						DudePawn.PlayerData.DudeLineCooldown = 0;
 						DudePawn.PlayerData.DudeLineTriggered = false;
-						DudePawn.PlayerData.RunningStopCooldown = level.time;
+						DudePawn.PlayerData.RunningStopCooldown = 0;
 						DudePawn.PlayerData.SpawnedOnce = false;
 						DudePawn.PlayerData.Suicide = false;
 					}
