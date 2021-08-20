@@ -7,15 +7,15 @@ extend class PostalDude
 		"Tip: Want to die less? \nJust die less.",
 		"Tip: No tips for a loser who keeps dying.",
 		"Tip: Imagine dodging! \nYeah, just dodge like a ballerina!",
-		"Tip: Ever considered moving to Catharsis? \nProbably this wouldn't have happen.",
+		"Tip: Ever considered moving to Catharsis?\nProbably this wouldn't have happen.",
 		"Tip: Piss off your foes more often. \nNot just literally.",
 		
 		//Actual useful tips
-		"Tip: Try provoking one Bystander to start a chain in-fighting \nthis might help with your job!",
-		"Tip: If you are ever on Fire, maybe try pissing yourself \njust not your pants, aim upwards!",
-		"Tip: Catnip does wonders in a battle.",
-		"Tip: If you feel hopeless, try smoking some crack \nmight save your life!",
-		"Tip: Try walking towards the cats slowly to catch them \nrunning will make them shriek! - they are also good silencers",
-		"Tip: If you ever wanted to kick something so bad \nmight be the right time to do it! \nEver heard of Grenade soccer?"
+		"Tip: If you are ever on Fire, maybe try pissing yourself\nAim upwards with your weewee!",
+		"Tip: Becoming the Lizard King will slow down monsters.",
+		"Tip: If you feel hopeless, try smoking some crack\nit might save your life!",
+		"Tip: If you ever wanted to kick something so bad\nmight be the right time to do it! \nEver heard of Grenade soccer?",
+		"Tip: You can piss off monsters by taunting them.\nUse it to your advantage - or not!",
+		"Tip: Utilize traps via Grenades and Molotovs\nThey can save lives."
 	};
 }
