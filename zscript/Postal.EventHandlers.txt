@@ -16,6 +16,7 @@ class DudeCoreHandler : EventHandler
 					DudePawn.A_TakeInventory("PostKick",100);
 					DudePawn.Kick = false;
 					DudePawn.isinPain = false;
+					DudePawn.InitLine = false;
 					DudePawn.TimeBeforeNextPainLine = 0;
 					DudePawn.A_GiveInventory("HUDViewable",1);
 					DudePawn.A_TakeInventory("CameraRunner",1);
