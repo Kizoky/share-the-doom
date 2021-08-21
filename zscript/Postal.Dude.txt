@@ -851,7 +851,7 @@ class PostalDude : PlayerPawn
 		Player.JumpZ 9.2; // Default 8 Don't touch it, everytime Dude jumps it would trigger OOF for some reason
 		Player.GruntSpeed 1000;
 		Player.DamageScreenColor "red",0.68;
-		Player.AttackZOffset 28;
+		Player.AttackZOffset 30;
 		Mass 100;
 		Radius 16;
 		Height 56;
