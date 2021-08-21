@@ -11,6 +11,7 @@ class PostMatchbox : PostalWeapon
 		+INVENTORY.UNDROPPABLE;
 		+INVENTORY.UNTOSSABLE;
 		Obituary "$PSTL_OB_MATCHBOX";
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

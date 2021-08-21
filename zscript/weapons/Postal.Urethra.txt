@@ -32,6 +32,7 @@ class PostUrethra : PostalWeapon
 		+Weapon.NoAlert;
 		+INVENTORY.UNDROPPABLE;
 		+INVENTORY.UNTOSSABLE;
+		PostalWeapon.STD_Melee true;
 	}
 	States
 	{

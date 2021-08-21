@@ -15,9 +15,10 @@ class PostalDude_Data : Inventory
 	bool lastground;
 	double lastvelz, prevvelz, MoveSpeed;
 	
-	// GZPostal related variables
+	// Share The Doom variables
 	
 	bool Urethra, Holster, Kick, Suicide, SpawnedOnce;
+	
 	// Health Pipe
 	bool PipeSmoked, SavedLevelTimePipe, InitPipeTimeCheck, DoOnce, InitPipeValue, SmokeInhale, SmokeFinished, SmokePain, FirstWarning, SecondWarning;
 	double PipeTime, PipeTimeStatic, PipeDuration, InitPipeTime, FixedPipeDuration, InHaleCount;
@@ -25,12 +26,6 @@ class PostalDude_Data : Inventory
 	// Catnip
 	bool CatnipInProgress, CatnipTimeSaved, CatnipInhale, CatnipInhaleFinished, CatnipDurationSaved;
 	double CatnipTime, CatnipTimeSecond, CatnipTimeContinous, CatnipTimeContinousSecond, CatnipCountdown, SavedCatnipTime;
-	
-	// Cop
-	double CooldownTime;
-	bool CooldownTimeDone;
-	
-	bool KickDone;
 	
 	Weapon HolsterSave;
 	Weapon HolsterWeapon, UrethraWeapon;
@@ -45,11 +40,7 @@ class PostalDude_Data : Inventory
 	
 	bool DudeLineTriggered;
 	int TimeBeforeDudeLine, DudeLineCooldown, DudeLineDelay;
-	
 	int InsultCooldown;
-	
-	int IdlingTime;
-	vector3 IdlingPos;
 	
 	override void AttachToOwner(Actor other)
 	{
@@ -74,26 +65,21 @@ class PostalDude_Data : Inventory
 class PostalDude : PlayerPawn
 {
 	PostalDude_Data PlayerData;
-	bool Kick, Map;
+	bool Kick;
+	bool isDead;
 	bool isinPain;
-	bool isDead, DummyCorpseSpawned;
-	bool scndSuicide;
+	bool DummyCorpseSpawned;
 	bool isonFire;
 	bool MissileOnce;
 	Actor MyAnnoyingFire;
 	
 	Actor DummyCorpse;
 	
-	Actor IdlingTarget;
-	
 	int SuicideAngle;
-	
-	// Needed for Cop AI
-	double PunishPoints;
-	bool ResetDoneByCop;
 	
 	string ChosenTip;
 	
+	// Trigger killing lines
 	bool InitLine;
 	int ChanceLocal;
 	
@@ -101,10 +87,7 @@ class PostalDude : PlayerPawn
 	
 	Actor SuicideCamera;
 	
-	bool isWeaponThrown, isInventoryUsed;
-	
-	// This variable shouldn't really matter much being here
-	int TimeBeforeNextPainLine;
+	bool isInventoryUsed, isWeaponThrown;
 	
 	//Initial function for giving the Data inventory to the player.
 	//According to phantombeta if these are stored in the PlayerPawn the information will get lost eventually.
@@ -182,14 +165,6 @@ class PostalDude : PlayerPawn
 		else
 			PlayerData.isinPainAlpha += 0.01;
 			
-	}
-	
-	//This function is called by NPCCop when hurt by the player.
-	//It makes the Wanted meter wider
-	virtual void ResetPunishment()
-	{
-		PlayerData.CooldownTime = level.time + (35 * 15);
-		ResetDoneByCop = true;
 	}
 	
 	//This function triggers killing spree lines.
@@ -349,7 +324,6 @@ class PostalDude : PlayerPawn
 		}
 		
 		// Disable bobbing when walking
-		// Note: this variable is also used by the Cat's AI to check the Player if it's walking or running
 		if (PlayerData)
 			PlayerData.MoveSpeed = vel.xy.Length();
 			
@@ -402,28 +376,6 @@ class PostalDude : PlayerPawn
 			}
 			
 			//A_Print(ChosenTip);
-		}
-	}
-	
-	// Wanted-related checks
-	void WantedSystem()
-	{
-		// 8 is the maximum number which will fill the Badge, going over 8 will draw a nice long red line you don't want
-		if (PunishPoints > 8)
-			PunishPoints = 8;
-			
-		// Check if we were naughty, note that the cooldown stuff is in ResetPunishment()
-		// Continously decreases wanted meter after a period of time if no Cop saw the Player
-		if (level.time > PlayerData.CooldownTime && ResetDoneByCop == true && PlayerData)
-		{
-			PunishPoints -= 0.01;
-			
-			if (PunishPoints < 0)
-			{
-				PlayerData.CooldownTimeDone = false;
-				ResetDoneByCop = false;
-				PunishPoints = 0;
-			}
 		}
 	}
 	
@@ -633,39 +585,11 @@ class PostalDude : PlayerPawn
 		}
 	}
 	
-	// Idling
-	// This is currently broken
-	void IdlingTick()
-	{
-		if (level.time > PlayerData.IdlingTime && PlayerData && level.mapname != "TITLEMAP")
-		{
-			PlayerData.IdlingTime = level.time + 2100;
-				
-			if (PlayerData.IdlingPos == pos)
-			{
-				int randomm = random[idle](1,1);
-				
-				switch(randomm)
-				{
-					default:
-						Console.Printf("An error has occured: Idling states randomization");
-						break;
-						
-					case 1:
-						SetStateLabel("Idling.Seeing");
-						break;
-				}		
-				return;
-			}		
-			PlayerData.IdlingPos = pos;
-		}
-	}
-	
 	void FootstepTick()
 	{
 		// Footstep code from Marisa's Doom Tournament
 		// edited a little bit to only make footsteps when running
-		if (PlayerData.MoveSpeed > 3 && PlayerData)
+		if (PlayerData && PlayerData.MoveSpeed > 3)
 		{
 			bool forcefootstep = false;
 			double ang = level.time/(20*8.4/35.)*360.;
@@ -713,16 +637,7 @@ class PostalDude : PlayerPawn
 		
 		int LongChance = random[pain](0,100);
 		
-		/*
-		if (level.time > TimeBeforeNextPainLine)
-		{
-			// stub
-		}
-		else
-			return;
-		*/
-		
-		int randomnumber;
+		int randomnumber = 0;
 		int nadschance = random[nads](0,85);
 		
 		if (nadschance > 85)
@@ -795,7 +710,6 @@ class PostalDude : PlayerPawn
 						
 						if (level.time % 11 == 0) // avoid lag
 							HazardousFire.A_SpawnItemEx("FireSmokeUp",0,0,0);
-						
 					}
 				}
 			}
@@ -836,16 +750,14 @@ class PostalDude : PlayerPawn
 		CheckForNonPostalWeapons();
 		DoomDeletus();
 		DeathCheck();
-		WantedSystem();
 		HealthPipeTick();
 		CatnipTick();
 		SuicideTick();
-		//IdlingTick();
 		FootstepTick();
 		PissTick();
 		
 		// Kicking
-		if (Kick == true)
+		if (Kick)
 			A_GiveInventory("PostKick", 1);
 			
 		// Zombie's Autoaim disabler
@@ -925,7 +837,7 @@ class PostalDude : PlayerPawn
 		Player.StartItem "HUDViewable", 1;
 		Player.StartItem "Piss", 20;
 		Player.Soundclass "PostalDude";
-		Player.WeaponSlot 0, "PostClipboard", "PostDebug";
+		Player.WeaponSlot 0, "PostClipboard";
 		Player.WeaponSlot 1, "PostMachete", "PostSledge", "PostShovel", "PostScythe", "PostBaton", "PostMatchbox", "PostTazer";
 		Player.WeaponSlot 2, "PostPistol";
 		Player.WeaponSlot 3, "PostShotgun", "";
