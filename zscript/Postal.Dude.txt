@@ -905,7 +905,7 @@ class PostalDude : PlayerPawn
 		DUDE A 6 BRIGHT;
 		Goto Missile;
 	Pain:
-		TNT1 A 0
+		DUDE A 0
 		{
 			if (PlayerData == null) return;
 			
@@ -1028,10 +1028,11 @@ class DummyDude : Actor
 	
 	Default
 	{
-		Health 50;
+		Health 9999;
 		Radius 1;
 		Height 1;
 		-SOLID
+		+NOPAIN
 		Obituary "%o stood next to a suicide-show.";
 	}
 	States
@@ -1040,12 +1041,12 @@ class DummyDude : Actor
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		Loop;
 	Suicide:
-		SUIC A 0 A_PlaySound("dudeline27",6);
+		SUIC A 0 A_StartSound("dudeline27", CHAN_VOICE);
 		SUIC ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		SUI2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		SUI3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		SUI4 ABCDEF 2;
-		DUDD A 0
+		SUI4 F 0
 		{
 			let p = PostalDude(MyDude);
 			if (p)
@@ -1053,17 +1054,30 @@ class DummyDude : Actor
 				p.Suicided = true;
 				int dd = p.DamageMobj(null, null, p.Health, "Suicide");
 				
-				A_StartSound("weapons/rocklx",6);
+				A_StartSound("weapons/rocklx", CHAN_BODY);
 				A_Explode(200, 256, XF_NOTMISSILE);
 			}
 			
-			//let p = PostalDude(MyDude);
-			//p.MissileOnce = false;
+			A_Quake(5,15,0,800);
+			
+			A_StartSound("weapons/rocket_explode", CHAN_WEAPON, CHAN_NOSTOP);
+			
+			int i = 0;
+			while (i < 10) {
+				vector3 poss = (frandom(-52.5, 52.5), frandom(-52.5, 52.5),frandom(10, 52.5));
+				let Smoke = Spawn("PostalExplosionSmoke", pos+poss+(0,0,30));
+				if (Smoke)
+				{
+					Smoke.Scale.X = 0.05;
+					Smoke.Scale.Y = Smoke.Scale.X;
+					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+				}
+				i++;
+			}
 		}
-		MISL BCD 7 Bright Offset(45,45);
 		Stop;
 	Corpse:
-		DUDD A 0 A_PlaySound("misc/gibbed",0);
+		DUDD A 0 A_StartSound("misc/gibbed", CHAN_AUTO);
 		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(54.0, 56.0));
 		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(54.0, 56.0));
 		//Spawn blood particle too to make it feel like the head is crushed
@@ -1085,7 +1099,7 @@ class DummyDude : Actor
 		DUD2 P -1;
 		Stop;
 	Corpse.Head:
-		TNT1 A 0
+		HEAD A 0
 		{
 			if (MyDude)
 				angle = MyDude.angle;

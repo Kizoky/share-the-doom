@@ -77,5 +77,264 @@ Model "PostalDude"
 	FrameIndex XXXX O 0 2247
 	FrameIndex XXXX P 0 2248
 	FrameIndex XXXX Q 0 2249
+}
+
+// ------------------------ Suicide doll
+
+Model "DummyDude"
+{
+	Path "models\misc\dude"
+	Model 0 "Dudewithheadout.md3"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+
+	// Idling 1 to 63
+	
+	FrameIndex DUDE A 0 541 
+	FrameIndex DUDE B 0 543
+	FrameIndex DUDE C 0 545
+	FrameIndex DUDE D 0 547
+	FrameIndex DUDE E 0 549
+	FrameIndex DUDE F 0 551
+	FrameIndex DUDE G 0 553
+	FrameIndex DUDE H 0 555
+	FrameIndex DUDE I 0 557
+	FrameIndex DUDE J 0 559
+	FrameIndex DUDE K 0 561
+	FrameIndex DUDE L 0 563
+	FrameIndex DUDE M 0 565
+	FrameIndex DUDE N 0 567
+	FrameIndex DUDE O 0 569
+	FrameIndex DUDE P 0 571
+	FrameIndex DUDE Q 0 573
+	FrameIndex DUDE R 0 575
+	FrameIndex DUDE S 0 577
+	FrameIndex DUDE T 0 579
+	FrameIndex DUDE U 0 581
+	FrameIndex DUDE V 0 583
+	FrameIndex DUDE W 0 585
+	FrameIndex DUDE X 0 587
+	FrameIndex DUDE Y 0 589
+	FrameIndex DUDE Z 0 591
+	
+	// Death 221 to 287
+	SurfaceSkin 0 1 "invis.png"
+	
+	FrameIndex DUDD A 0 1211
+	FrameIndex DUDD B 0 1213
+	FrameIndex DUDD C 0 1215
+	FrameIndex DUDD D 0 1217
+	FrameIndex DUDD E 0 1219
+	FrameIndex DUDD F 0 1221
+	FrameIndex DUDD G 0 1223
+	FrameIndex DUDD H 0 1225
+	FrameIndex DUDD I 0 1227
+	FrameIndex DUDD J 0 1229
+	FrameIndex DUDD K 0 1231
+	FrameIndex DUDD L 0 1233
+	FrameIndex DUDD M 0 1235
+	FrameIndex DUDD N 0 1237
+	FrameIndex DUDD O 0 1239
+	FrameIndex DUDD P 0 1241
+	FrameIndex DUDD Q 0 1243
+	FrameIndex DUDD R 0 1245
+	FrameIndex DUDD S 0 1247
+	FrameIndex DUDD T 0 1249
+	FrameIndex DUDD U 0 1251
+	FrameIndex DUDD V 0 1253
+	FrameIndex DUDD W 0 1255
+	FrameIndex DUDD X 0 1257
+	FrameIndex DUDD Y 0 1259
+	FrameIndex DUDD Z 0 1261
+	
+	FrameIndex DUD2 A 0 1263
+	FrameIndex DUD2 B 0 1265
+	FrameIndex DUD2 C 0 1267
+	FrameIndex DUD2 D 0 1269
+	FrameIndex DUD2 E 0 1271
+	FrameIndex DUD2 F 0 1273
+	FrameIndex DUD2 G 0 1275
+	FrameIndex DUD2 H 0 1277
+	FrameIndex DUD2 I 0 1279
+	FrameIndex DUD2 J 0 1281
+	FrameIndex DUD2 K 0 1283
+	FrameIndex DUD2 L 0 1285
+	FrameIndex DUD2 M 0 1287
+	FrameIndex DUD2 N 0 1289
+	FrameIndex DUD2 O 0 1291
+	FrameIndex DUD2 P 0 1293
+	
+	// Used for Head death anim
+	SurfaceSkin 0 1 "DudeHead.png"
+	
+	FrameIndex HEAD A 0 1211
+	FrameIndex HEAD B 0 1213
+	FrameIndex HEAD C 0 1215
+	FrameIndex HEAD D 0 1217
+	FrameIndex HEAD E 0 1219
+	FrameIndex HEAD F 0 1221
+	FrameIndex HEAD G 0 1223
+	FrameIndex HEAD H 0 1225
+	FrameIndex HEAD I 0 1227
+	FrameIndex HEAD J 0 1229
+	FrameIndex HEAD K 0 1231
+	FrameIndex HEAD L 0 1233
+	FrameIndex HEAD M 0 1235
+	FrameIndex HEAD N 0 1237
+	FrameIndex HEAD O 0 1239
+	FrameIndex HEAD P 0 1241
+	FrameIndex HEAD Q 0 1243
+	FrameIndex HEAD R 0 1245
+	FrameIndex HEAD S 0 1247
+	FrameIndex HEAD T 0 1249
+	FrameIndex HEAD U 0 1251
+	FrameIndex HEAD V 0 1253
+	FrameIndex HEAD W 0 1255
+	FrameIndex HEAD X 0 1257
+	FrameIndex HEAD Y 0 1259
+	FrameIndex HEAD Z 0 1261
+	
+	FrameIndex HEA2 A 0 1263
+	FrameIndex HEA2 B 0 1265
+	FrameIndex HEA2 C 0 1267
+	FrameIndex HEA2 D 0 1269
+	FrameIndex HEA2 E 0 1271
+	FrameIndex HEA2 F 0 1273
+	FrameIndex HEA2 G 0 1275
+	FrameIndex HEA2 H 0 1277
+	FrameIndex HEA2 I 0 1279
+	FrameIndex HEA2 J 0 1281
+	FrameIndex HEA2 K 0 1283
+	FrameIndex HEA2 L 0 1285
+	FrameIndex HEA2 M 0 1287
+	FrameIndex HEA2 N 0 1289
+	FrameIndex HEA2 O 0 1291
+	FrameIndex HEA2 P 0 1293
+	
+}
+
+Model "DummyDude"
+{
+	Path "models\misc\dude"
+	Model 0 "DudeSuicideInitout.md3"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
+	Path "models\weapons\a_textures\grenade"
+	SurfaceSkin 0 2 "grenade3_timb.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+
+	// Init Suicidum 0 to 77
+	
+	FrameIndex SUIC A 0 0 
+	FrameIndex SUIC B 0 2 
+	FrameIndex SUIC C 0 4 
+	FrameIndex SUIC D 0 6 
+	FrameIndex SUIC E 0 8 
+	FrameIndex SUIC F 0 10
+	FrameIndex SUIC G 0 12
+	FrameIndex SUIC H 0 14
+	FrameIndex SUIC I 0 16
+	FrameIndex SUIC J 0 18
+	FrameIndex SUIC K 0 20
+	FrameIndex SUIC L 0 22
+	FrameIndex SUIC M 0 24
+	FrameIndex SUIC N 0 26
+	FrameIndex SUIC O 0 28
+	FrameIndex SUIC P 0 30
+	FrameIndex SUIC Q 0 32
+	FrameIndex SUIC R 0 34
+	FrameIndex SUIC S 0 36
+	FrameIndex SUIC T 0 38
+	FrameIndex SUIC U 0 40
+	FrameIndex SUIC V 0 42
+	FrameIndex SUIC W 0 44
+	FrameIndex SUIC X 0 46
+	FrameIndex SUIC Y 0 48
+	FrameIndex SUIC Z 0 50
+	
+	FrameIndex SUI2 A 0 52 
+	FrameIndex SUI2 B 0 54 
+	FrameIndex SUI2 C 0 56 
+	FrameIndex SUI2 D 0 58 
+	FrameIndex SUI2 E 0 60 
+	FrameIndex SUI2 F 0 62 
+	FrameIndex SUI2 G 0 64 
+	FrameIndex SUI2 H 0 66 
+	FrameIndex SUI2 I 0 68 
+	FrameIndex SUI2 J 0 70 
+	FrameIndex SUI2 K 0 72 
+	FrameIndex SUI2 L 0 74 
+	FrameIndex SUI2 M 0 76 
+	FrameIndex SUI2 N 0 78
+	
+	//---------------------
+	
+}
+
+Model "DummyDude"
+{
+	Path "models\misc\dude"
+	Model 0 "DudeSuicideMouthout.md3"
+	SurfaceSkin 0 0 "Dude.png"
+	SurfaceSkin 0 1 "DudeHead.png"
+	Path "models\weapons\a_textures\grenade"
+	SurfaceSkin 0 2 "grenade3_timb.png"
+	AngleOffset 270
+	Scale -0.50 -0.50 0.50
+	Offset 0 0 0 //X Y Z
+	
+	FrameIndex SUI2 O 0 80 
+	FrameIndex SUI2 P 0 82 
+	FrameIndex SUI2 Q 0 84 
+	FrameIndex SUI2 R 0 86 
+	FrameIndex SUI2 S 0 88 
+	FrameIndex SUI2 T 0 90 
+	FrameIndex SUI2 U 0 92 
+	FrameIndex SUI2 V 0 94 
+	FrameIndex SUI2 W 0 96 
+	FrameIndex SUI2 X 0 98 
+	FrameIndex SUI2 Y 0 100
+	FrameIndex SUI2 Z 0 102
+	
+	FrameIndex SUI3 A 0 104
+	FrameIndex SUI3 B 0 106
+	FrameIndex SUI3 C 0 108
+	FrameIndex SUI3 D 0 110
+	FrameIndex SUI3 E 0 112
+	FrameIndex SUI3 F 0 114
+	FrameIndex SUI3 G 0 116
+	FrameIndex SUI3 H 0 118
+	FrameIndex SUI3 I 0 120
+	FrameIndex SUI3 J 0 122
+	FrameIndex SUI3 K 0 124
+	FrameIndex SUI3 L 0 126
+	FrameIndex SUI3 M 0 128
+	FrameIndex SUI3 N 0 130
+	FrameIndex SUI3 O 0 132
+	FrameIndex SUI3 P 0 134
+	FrameIndex SUI3 Q 0 136
+	FrameIndex SUI3 R 0 138
+	FrameIndex SUI3 S 0 140
+	FrameIndex SUI3 T 0 142
+	FrameIndex SUI3 U 0 144
+	FrameIndex SUI3 V 0 146
+	FrameIndex SUI3 W 0 148
+	FrameIndex SUI3 X 0 150
+	FrameIndex SUI3 Y 0 152
+	FrameIndex SUI3 Z 0 154
+	
+	FrameIndex SUI4 A 0 156
+	FrameIndex SUI4 B 0 158
+	FrameIndex SUI4 C 0 160
+	FrameIndex SUI4 D 0 162
+	FrameIndex SUI4 E 0 164
+	FrameIndex SUI4 F 0 166
+	FrameIndex SUI4 G 0 168
+	FrameIndex SUI4 H 0 170
 	
 }
