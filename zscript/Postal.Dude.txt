@@ -388,7 +388,7 @@ class PostalDude : PlayerPawn
 			//Count to 3 seconds
 			if (PlayerData.SmokeInhale != true)
 			{
-				A_PlaySound("smoke/exhale", CHAN_WEAPON | CHAN_UI, 2.0, false, ATTN_NONE);
+				A_StartSound("smoke/exhale", CHAN_VOICE);
 				PlayerData.InHaleCount = level.time + (35 * 3);
 				PlayerData.SmokeInhale = true;
 			}
@@ -397,7 +397,7 @@ class PostalDude : PlayerPawn
 			//and start the counting
 			if (level.time > PlayerData.InHaleCount && PlayerData.SmokeFinished != true)
 			{
-				A_PlaySound("dudeline10", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+				A_StartSound("dudeline10", CHAN_VOICE);
 				A_SetHealth(125);
 				A_TakeInventory("PostalCrackPipe", 1);
 				isInventoryUsed = false;
@@ -449,14 +449,14 @@ class PostalDude : PlayerPawn
 				// If PipeDuration exceeds more than +14000 ticks, do this
 				if (PlayerData.PipeDuration > PlayerData.PipeTimeStatic && PlayerData.FirstWarning != true)
 				{
-					A_PlaySound("player/healthpipewarning", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+					A_StartSound("player/healthpipewarning", CHAN_VOICE);
 					PlayerData.FirstWarning = true;
 				}
 				
 				//Let's assume the second warning kicks after 60 seconds
 				if (PlayerData.PipeDuration > (PlayerData.PipeTimeStatic + (35 * 60)) && PlayerData.SecondWarning != true)
 				{
-					A_PlaySound("player/healthpipewarning", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+					A_StartSound("player/healthpipewarning", CHAN_VOICE);
 					PlayerData.SecondWarning = true;
 				}
 				
@@ -464,8 +464,7 @@ class PostalDude : PlayerPawn
 				if (PlayerData.PipeDuration > (PlayerData.PipeTimeStatic + (35 * 120)))
 				{
 					PlayerData.SmokePain = true;
-					Console.Printf("You are starting to feel worse... Take some Health pipe!");
-					A_PlaySound("player/healthpipehurt", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+					A_StartSound("player/healthpipehurt", CHAN_VOICE);
 					PlayerData.PipeSmoked = false;
 					PlayerData.SavedLevelTimePipe = false;
 					PlayerData.InitPipeValue = false;
@@ -498,7 +497,7 @@ class PostalDude : PlayerPawn
 		{
 			if (PlayerData.CatnipInhale != true)
 			{
-				A_PlaySound("smoke/exhale", CHAN_WEAPON | CHAN_UI, 2.0, false, ATTN_NONE);
+				A_StartSound("smoke/exhale", CHAN_VOICE);
 				PlayerData.CatnipCountdown = level.time + (35 * 3);
 				//CatnipTimeContinousSecond = -5;
 				PlayerData.CatnipInhale = true;		
@@ -510,7 +509,7 @@ class PostalDude : PlayerPawn
 				PlayerData.CatnipTimeSecond = level.time + 3;
 				A_GiveInventory("CatnipSphere", 1);
 				A_GiveInventory("SMPowerTimeFreezerSound", 1);
-				A_PlaySound("dudecatnip", CHAN_WEAPON | CHAN_UI, 1.0, false, ATTN_NONE);
+				A_StartSound("dudecatnip", CHAN_VOICE);
 				PlayerData.CatnipTimeSaved = true;
 				PlayerData.CatnipInhaleFinished = true;
 				PlayerData.CatnipTimeContinous = level.time;
