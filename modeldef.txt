@@ -15,6 +15,7 @@
 #include "models/modeldef/inventories/PizzaSlice.txt"
 
 // Weapons
+#include "models/modeldef/weapons/modeldef.aakick.txt"
 #include "models/modeldef/weapons/modeldef.holster.txt"
 #include "models/modeldef/weapons/modeldef.wbaton.txt"
 #include "models/modeldef/weapons/modeldef.wchainsickle.txt"

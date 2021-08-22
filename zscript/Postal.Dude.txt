@@ -761,7 +761,7 @@ class PostalDude : PlayerPawn
 			
 		// Zombie's Autoaim disabler
 		
-		if (player.readyWeapon && !player.readyWeapon.default.bNOAUTOAIM)
+		if (player.readyWeapon && !player.readyWeapon.default.bNOAUTOAIM && !player.Bot)
 		{
 			// Disable auto-aim when the player is looking at an enemy.
 			// This enables the player to pull off headshots even when
@@ -825,7 +825,7 @@ class PostalDude : PlayerPawn
 		//Player.StartItem "PostScythe";
 		//Player.StartItem "PostGascan";
 		//Player.StartItem "PostBaton";
-		Player.StartItem "PostCowhead";
+		//Player.StartItem "PostCowhead";
 		//Player.StartItem "PostGrenade";
 		//Player.StartItem "PostMolotov";
 		//Player.StartItem "PostNapalmLauncher";
@@ -916,41 +916,51 @@ class PostalDude : PlayerPawn
 		DUDE A 4;
 		Goto Spawn;
 	Death:
-		TNT1 A 0 A_PlayerScream;
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		TNT1 A 0 A_NoBlocking;
-		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUDD A 0 A_PlayerScream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DUD2 A 0 A_NoBlocking;
+		DUD2 AB 2;
+		DUD2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		DUD2 DEFGHIJKLMNOP 2;
 		DUD2 P -1;
 		Stop;
 	Invis:
 		TNT1 A 2;
 		Loop;
 	XDeath:
-		TNT1 A 0 A_PlayerScream;
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		TNT1 A 0 A_NoBlocking;
-		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUDD A 0 A_PlayerScream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DUD2 A 0 A_NoBlocking;
+		DUD2 AB 2;
+		DUD2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		DUD2 DEFGHIJKLMNOP 2;
 		DUD2 P -1;
 		Stop;
 	XDeath1:
-		TNT1 A 0 A_PlayerScream;
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		TNT1 A 0 A_NoBlocking;
-		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUDD A 0 A_PlayerScream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DUD2 A 0 A_NoBlocking;
+		DUD2 AB 2;
+		DUD2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		DUD2 DEFGHIJKLMNOP 2;
 		DUD2 P -1;
 		Stop;
 	AltSkinDeath:
-		TNT1 A 0 A_PlayerScream;
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		TNT1 A 0 A_NoBlocking;
-		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUDD A 0 A_PlayerScream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DUD2 A 0 A_NoBlocking;
+		DUD2 AB 2;
+		DUD2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		DUD2 DEFGHIJKLMNOP 2;
 		DUD2 P -1;
 		Stop;
 	AltSkinXDeath:
-		TNT1 A 0 A_PlayerScream;
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		TNT1 A 0 A_NoBlocking;
-		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUDD A 0 A_PlayerScream;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DUD2 A 0 A_NoBlocking;
+		DUD2 AB 2;
+		DUD2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		DUD2 DEFGHIJKLMNOP 2;
 		DUD2 P -1;
 		Stop;
 	}
@@ -969,6 +979,7 @@ class DummyDude : Actor
 {
 	actor MyDude;
 	bool Done, CorpseOnly, Multiplayer;
+	bool RegretNothing;
 	
 	override void Tick()
 	{
@@ -1003,6 +1014,11 @@ class DummyDude : Actor
 					
 				}
 			}
+			else
+			{
+				if (p && MyDude.bKILLED && RegretNothing)
+					Destroy();
+			}
 			
 			if (MyDude.bKILLED && MyDude)
 				SetOrigin(MyDude.pos+(0,0,0), TRUE);
@@ -1016,11 +1032,14 @@ class DummyDude : Actor
 		
 		if (p && vctm)
 		{
-			string PlayerKillerName = String.Format(p.Player.GetUserName());
-			string PlayerVictimName = String.Format(vctm.Player.GetUserName());
-			string NewObituary = String.Format("%s stood next to %s's suicide-show.", PlayerVictimName, PlayerKillerName);
-			
-			return NewObituary;
+			if (vctm != p)
+			{
+				string PlayerKillerName = String.Format(p.Player.GetUserName());
+				string PlayerVictimName = String.Format(vctm.Player.GetUserName());
+				string NewObituary = String.Format("%s stood next to %s's suicide-show.", PlayerVictimName, PlayerKillerName);
+				
+				return NewObituary;
+			}
 		}
 		
 		return Obituary;
@@ -1028,7 +1047,7 @@ class DummyDude : Actor
 	
 	Default
 	{
-		Health 9999;
+		Health 50;
 		Radius 1;
 		Height 1;
 		-SOLID
@@ -1041,13 +1060,19 @@ class DummyDude : Actor
 		DUDE ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		Loop;
 	Suicide:
-		SUIC A 0 A_StartSound("dudeline27", CHAN_VOICE);
+		SUIC A 0
+		{
+			A_StartSound("dudeline27", CHAN_VOICE);
+			RegretNothing = true;
+		}
 		SUIC ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		SUI2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		SUI3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
 		SUI4 ABCDEF 2;
 		SUI4 F 0
 		{
+			RegretNothing = false;
+			
 			let p = PostalDude(MyDude);
 			if (p)
 			{
@@ -1094,8 +1119,10 @@ class DummyDude : Actor
 				i++;
 			}
 		}
-		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		DUD2 ABCDEFGHIJKLMNOP 2;
+		DUDD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		DUD2 AB 2;
+		DUD2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		DUD2 DEFGHIJKLMNOP 2;
 		DUD2 P -1;
 		Stop;
 	Corpse.Head:
@@ -1104,8 +1131,10 @@ class DummyDude : Actor
 			if (MyDude)
 				angle = MyDude.angle;
 		}
-		HEAD ABCDEFGHIJKLMNOPQRSTUVWXYZ 2;
-		HEA2 ABCDEFGHIJKLMNOP 2;
+		HEAD ABCDEFGHIJKLMNOPQRSTUVWXYZ 1;
+		HEA2 AB 2;
+		HEA2 C 2 A_StartSound("bodyfall", CHAN_BODY);
+		HEA2 DEFGHIJKLMNOP 2;
 		HEA2 P -1;
 		Stop;
 	Disappear:

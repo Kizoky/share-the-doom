@@ -3,8 +3,7 @@
 /////
 ///// I'm sorry, don't blame me
 
-/*
-Model "PostHands"
+Model "PostKick"
 {
 	Path "models\weapons\kick"
 	Model 1 "PostKick.md3"
@@ -35,4 +34,3 @@ Model "PostHands"
 	FrameIndex KICK S 1 21
 	FrameIndex KICK T 1 22
 }
-*/

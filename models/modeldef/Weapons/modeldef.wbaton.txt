@@ -137,35 +137,3 @@ Model "PostBaton"
 	FrameIndex PICK A 0 0
 	
 }
-
-Model "PostBaton"
-{
-	Path "models\weapons\kick"
-	Model 1 "PostKick.md3"
-	SurfaceSkin 1 0 "Dude.png"
-	
-	AngleOffset 5 //40
-	Scale -1 0.75 1
-	Offset -3 0 -12 //X Y Z
-
-	FrameIndex KICK A 1 3
-	FrameIndex KICK B 1 4
-	FrameIndex KICK C 1 5
-	FrameIndex KICK D 1 6
-	FrameIndex KICK E 1 7
-	FrameIndex KICK F 1 8
-	FrameIndex KICK G 1 9
-	FrameIndex KICK H 1 10
-	FrameIndex KICK I 1 11
-	FrameIndex KICK J 1 12
-	FrameIndex KICK K 1 13
-	FrameIndex KICK L 1 14
-	FrameIndex KICK M 1 15
-	FrameIndex KICK N 1 16
-	FrameIndex KICK O 1 17
-	FrameIndex KICK P 1 18
-	FrameIndex KICK Q 1 19
-	FrameIndex KICK R 1 20
-	FrameIndex KICK S 1 21
-	FrameIndex KICK T 1 22
-}
