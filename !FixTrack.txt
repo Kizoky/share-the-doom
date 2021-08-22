@@ -1,0 +1,20 @@
+(Gameplay-only)
+- Removed Human NPCs
+- Removed features/or functions related to Human NPCs
+- Removed models
+- Removed textures
+- Removed other stuff to reduce size
+
+- Updated Death tips
+- Fixed Event Handler causing desyncs in Multiplayer and Demos
+- Fixed level roasting lines playing too much frequently
+- Fixed rare chain kill lines playing too commonly making regular kill lines rare
+- Improved Drop Inventory/Weapon code
+- Fixed kill lines not triggering while Kicking when Hands, Urethra, and Matchbox is equipped
+- Fixed Crack Pipe and Catnip voice lines breaking when getting hurt
+- Fixed Z Attack offset not matching Dude's height
+- Fixed Suicide Doll not rendering the Grenade
+- Fixed Suicide Doll blinking for a millisecond when falling onto the ground
+- Suicide Doll will now produce Grenade explosion effect
+- Fixed Dude playing a death sound when killed
+- Fixed Intermission and Secret not playing a sound
