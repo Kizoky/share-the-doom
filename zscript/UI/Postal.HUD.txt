@@ -144,6 +144,24 @@ class PostalStatusBar : BaseStatusBar
 		
 	}
 	
+	// res X 256 only
+	void DrawWeaponIcon (string name, int res)
+	{
+		switch (res)
+		{
+			default:
+			case 128:
+				DrawImage(name, (-61, 56), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+				break;
+			case 256:
+				DrawImage(name, (-74, 53), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+				break;
+			case 512:
+				DrawImage(name, (-85, 61), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+				break;
+		}
+	}
+	
 	protected void DrawMainBar (double TicFrac)
 	{
 		PostalDude PPlayer = PostalDude(CPlayer.mo);
@@ -254,52 +272,52 @@ class PostalStatusBar : BaseStatusBar
 		double Bsecond = 61;
 		
 		if (CheckWeaponSelected("PostDebug")) // 256x256
-			DrawImage("ICNDBG", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNDBG", 256);
 		
 		if (CheckWeaponSelected("PostHands")) // 256x256
-			DrawImage("emptyh", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("emptyh", 256);
 		if (CheckWeaponSelected("PostShovel")) // 512x256
-			DrawImage("ICNSHVL", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNSHVL", 512);
 		if (CheckWeaponSelected("PostPistol")) // 256x256
-			DrawImage("ICNPSTL", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNPSTL", 256);
 		if (CheckWeaponSelected("PostShotgun")) // 512x256
-			DrawImage("ICNSHTG", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNSHTG", 512);
 		if (CheckWeaponSelected("PostMachete")) // 512x256
-			DrawImage("ICNMCHT", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNMCHT", 512);
 		if (CheckWeaponSelected("PostSledge")) // 512x256
-			DrawImage("ICNSLDG", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNSLDG", 512);
 		if (CheckWeaponSelected("PostM16")) // 512x256
-			DrawImage("ICNMCHN", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNMCHN", 512);
 		if (CheckWeaponSelected("PostRLauncher")) // 512x256
-			DrawImage("ICNRL", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNRL", 512);
 		if (CheckWeaponSelected("PostClipboard")) // 256x256
-			DrawImage("ICNCLP", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNCLP", 256);
 		if (CheckWeaponSelected("PostUrethra")) // 128x256
-			DrawImage("zipper", (-61, 56), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("zipper", 128);
 		if (CheckWeaponSelected("PostGrenade")) // 256x256
-			DrawImage("ICNGRND", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNGRND", 256);
 		//if (CheckWeaponSelected("PostBetaShotgun")) // 256x256
-		//	DrawImage("ICNBSHT", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+		//	DrawWeaponIcon("ICNBSHT", 256);
 		if (CheckWeaponSelected("PostMatchbox")) // 256x256
-			DrawImage("ICNMTCH", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNMTCH", 256);
 		if (CheckWeaponSelected("PostCowhead")) // 256x256
-			DrawImage("ICNCOW", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNCOW", 256);
 		if (CheckWeaponSelected("PostGascan")) // 256x256
-			DrawImage("ICNGAS", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNGAS", 256);
 		if (CheckWeaponSelected("PostMolotov")) // 256x256
-			DrawImage("ICNMLTV", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNMLTV", 256);
 		if (CheckWeaponSelected("PostNapalmLauncher")) // 512x256
-			DrawImage("ICNNAPM", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNNAPM", 512);
 		if (CheckWeaponSelected("PostRifle")) // 512x256
-			DrawImage("ICNRIFL", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNRIFL", 512);
 		if (CheckWeaponSelected("PostBaton")) // 512x256
-			DrawImage("ICNBATN", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNBATN", 512);
 		if (CheckWeaponSelected("PostScissors")) // 256x256
-			DrawImage("ICNSISS", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNSISS", 256);
 		if (CheckWeaponSelected("PostTazer")) // 256x256
-			DrawImage("ICNTASR", (Sfirst, Ssecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.18, 0.18));
+			DrawWeaponIcon("ICNTASR", 256);
 		if (CheckWeaponSelected("PostScythe")) // 512x256
-			DrawImage("ICNSYTH", (Bfirst, Bsecond), DI_ITEM_OFFSETS, 1, (-1, -1), (0.13, 0.13));
+			DrawWeaponIcon("ICNSYTH", 512);
 		if (CheckWeaponSelected("PostWMD")) // 128x64
 			DrawImage("ICNWMD", (-82, 62), DI_ITEM_OFFSETS, 1, (-1, -1), (0.50, 0.50));
 		
