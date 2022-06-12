@@ -1,9 +1,15 @@
 ![Logo](https://media.moddb.com/images/mods/1/38/37937/STD.2.png)
 # Postal 2: Share the Doom
 
-GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recommended!!
+GZDoom 4.7.0+ is required to run this mod! Vulkan renderer is recommended if you have more than 4GB RAM!
 
 If you have downloaded the mod from here, on Windows: run build.bat - otherwise on Linux just do `bash build` this will build a GZPostal.pk3 for you.
+
+### Welcome to Sindum
+
+After Dude being kicked into a portal, he's being forced to do decade old chores that are no longer funny...
+
+What will happen in this cursed land?
 
 ### Status: Unfinished
 
