@@ -66,7 +66,7 @@ class GiantKrotchyToy : Actor
 		MADD A 10;
 		TNT1 A 0
 		{
-			bool randomm = random(0,1);
+			bool randomm = random[krtchy](0,1);
 			
 			if (randomm)
 				SetStateLabel("Leap");

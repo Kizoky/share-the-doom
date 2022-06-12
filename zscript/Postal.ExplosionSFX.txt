@@ -24,14 +24,14 @@ Class PostalExplosionSmoke : PostalActor
 	{
 		super.PostBeginPlay();
 		//scale *= frandom(0.8,1.2);
-		bSPRITEFLIP = random(0,1);
-		rrotate = random(0,1);
+		bSPRITEFLIP = random[sprtflp](0,1);
+		rrotate = random[rrot](0,1);
 		
-		rX = frandom(-0.2, 0.2);
-		rY = frandom(-0.2, 0.2);
-		rZ = frandom(-0.2, 0.5);
+		rX = frandom[explx](-0.2, 0.2);
+		rY = frandom[exply](-0.2, 0.2);
+		rZ = frandom[explz](-0.2, 0.5);
 		
-		int randomtime = random(0,8);
+		int randomtime = random[rndtm](0,8);
 		Delayyy = level.time + randomtime;
 		
     }
@@ -58,7 +58,7 @@ Class PostalExplosionSmoke : PostalActor
 				
 				if (Evaporating != true)
 				{
-					bool y = random(0,1);
+					bool y = random[yyy](0,1);
 					if (y)
 						SetStateLabel("Evaporate");
 					else

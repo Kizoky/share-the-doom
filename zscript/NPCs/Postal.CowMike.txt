@@ -47,7 +47,7 @@ class CowMike : PostalActor
 					if (MyHead)
 					{
 						SetStateLabel("Spit");
-						MyHead.Angle = random(0,360);
+						MyHead.Angle = random[rndhead](0,360);
 						let p = GaryHead(MyHead);
 						if (p)
 						{

@@ -350,11 +350,11 @@ class PostalRocket : PostalActor
 					
 				int i = 0;
 				while (i < 3) {
-					vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-8,8));
+					vector3 poss = (frandom[rcket](-8,8),frandom[rcket](-8,8),frandom[rcket](-8,8));
 					let Smoke = Spawn("PostalSmokeTrail", pos+poss);
 					if (Smoke)
 					{	
-						Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+						Smoke.vel = (frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3));
 						
 						let pp = PostalSmokeTrail(Smoke);
 						if (pp)
@@ -420,7 +420,7 @@ class PostalRocket : PostalActor
 		RRRR A 1 Bright
 		{
 			if (KickCooldown < level.time)
-				A_SpawnItemEx("PostalSmokeTrail", FRandom(-3, 3), FRandom(-3, 3), FRandom(-3, 3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), FRandom(-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+				A_SpawnItemEx("PostalSmokeTrail", FRandom[rcket](-3, 3), FRandom[rcket](-3, 3), FRandom[rcket](-3, 3), FRandom[rcket](-0.3, 0.3), FRandom[rcket](-0.3, 0.3), FRandom[rcket](-0.3, 0.3), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
 			
 			if ((Seeking || !Falling) && KickCooldown < level.time)
 			{
@@ -428,11 +428,11 @@ class PostalRocket : PostalActor
 				
 				int i = 0;
 				while (i < 15) {
-					vector3 poss = (frandom(-5,5),frandom(-5,5),frandom(-5,5));
+					vector3 poss = (frandom[rcket](-5,5),frandom[rcket](-5,5),frandom[rcket](-5,5));
 					let Fire = Spawn("PostalFireTrail", pos+poss);
 					if (Fire)
 					{	
-						Fire.vel = (frandom(-0.5,0.5),frandom(-0.3,0.3),frandom(-0.5,0.5));
+						Fire.vel = (frandom[rcket](-0.5,0.5),frandom[rcket](-0.3,0.3),frandom[rcket](-0.5,0.5));
 					}
 					i++;
 				}
@@ -468,11 +468,11 @@ class PostalRocket : PostalActor
 			BounceCooldown = level.time + 9;
 			int i = 0;
 			while (i < 3) {
-				vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-8,8));
+				vector3 poss = (frandom[rcket](-8,8),frandom[rcket](-8,8),frandom[rcket](-8,8));
 				let Smoke = Spawn("PostalSmokeTrail", pos+poss);
 				if (Smoke)
 				{	
-					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					Smoke.vel = (frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3));
 					
 					let pp = PostalSmokeTrail(Smoke);
 					if (pp)
@@ -491,11 +491,11 @@ class PostalRocket : PostalActor
 			
 			int i = 0;
 			while (i < 10) {
-				vector3 poss = (frandom(-52.5, 52.5), frandom(-52.5, 52.5),frandom(10, 52.5));
+				vector3 poss = (frandom[rcket](-52.5, 52.5), frandom[rcket](-52.5, 52.5),frandom[rcket](10, 52.5));
 				let Smoke = Spawn("PostalExplosionSmoke", pos+poss);
 				if (Smoke)
 				{
-					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					Smoke.vel = (frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3));
 				}
 				i++;
 			}
@@ -505,11 +505,11 @@ class PostalRocket : PostalActor
 		{
 			int i = 0;
 			while (i < 3) {
-				vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-8,8));
+				vector3 poss = (frandom[rcket](-8,8),frandom[rcket](-8,8),frandom[rcket](-8,8));
 				let Smoke = Spawn("PostalSmokeTrail", pos+poss);
 				if (Smoke)
 				{	
-					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					Smoke.vel = (frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3),frandom[rcket](-0.3,0.3));
 					
 					let pp = PostalSmokeTrail(Smoke);
 					if (pp)
@@ -552,15 +552,15 @@ Class PostalSmokeTrail : PostalActor
 	override void PostBeginPlay() 
 	{
 		super.PostBeginPlay();
-		bSPRITEFLIP = random(0,1);
-		rrotate = random(0,1);
-		randomScale.x = frandom(1.70, 2.10);
+		bSPRITEFLIP = random[bsprtflp](0,1);
+		rrotate = random[rrotate](0,1);
+		randomScale.x = frandom[rx](1.70, 2.10);
 		randomScale.y = randomScale.x;
 		
 		if (bouncesmoke != true)
 			Scale = (randomScale.x, randomScale.y);
 		
-		int spawn = random(0,2);
+		int spawn = random[spn](0,2);
 		if (spawn == 1)
 			SetStateLabel("Variant2");
 		if (spawn == 2)
@@ -623,11 +623,11 @@ Class PostalFireTrail : PostalActor
 	override void PostBeginPlay() 
 	{
 		super.PostBeginPlay();
-		bSPRITEFLIP = random(0,1);
-		rrotate = random(0,1);
-		randomScale.x = frandom(0.020, 0.080);
+		bSPRITEFLIP = random[sprtflip](0,1);
+		rrotate = random[rrotate](0,1);
+		randomScale.x = frandom[frnd](0.020, 0.080);
 		randomScale.y = randomScale.x;
-		roll = frandom(-180,180);
+		roll = frandom[frnd](-180,180);
 		
 		Scale = (randomScale.x,randomScale.y);
 		

@@ -1,11 +1,8 @@
 class DudeCoreHandler : EventHandler 
 {
-	int SavedTimes;
-	bool SavedTrigger;
-
 	override void WorldUnloaded(WorldEvent e)
 	{
-		// Don't even mention it.... Spaghetti
+		// Some data needs to be reset
 		for (uint i = 0; i < MAXPLAYERS; i++)
 		{
 			if (Players[i].mo && Players[i].mo is 'PostalDude')
@@ -63,36 +60,49 @@ class DudeCoreHandler : EventHandler
 		}
 	}
 
+	int SavedTimes;
+	bool SavedTrigger;
+	int SaveTimeThreshold;
+
 	override void WorldTick()
 	{
 		if (gameaction == ga_savegame || gameaction == ga_autosave)
 		{
-			// Only the host can save (atleast in theory)
-			let player = PostalDude(Players[0].mo);
+			// Check for 15 seconds if the Player saves again
+			if (SaveTimeThreshold == 0)
+				SaveTimeThreshold = level.time + 35 * 15;
 			
-			if (!player) return;
-			
-			if (SavedTimes == 4 && SavedTrigger != true)
+			if (SaveTimeThreshold > level.time)
 			{
-				player.A_StartSound("dude_save2", CHAN_VOICE, CHANF_NOSTOP);
-				SavedTrigger = true;
+				// Only the host can save (atleast in theory)
+				let player = PostalDude(Players[0].mo);
+				
+				if (!player) return;
+				
+				if (SavedTimes == 4 && SavedTrigger != true)
+				{
+					player.A_StartSound("dude_save2", CHAN_VOICE, CHANF_NOSTOP);
+					SavedTrigger = true;
+				}
+				
+				if (SavedTimes == 5 && SavedTrigger != true)
+				{
+					player.A_StartSound("dude_save1", CHAN_VOICE, CHANF_NOSTOP);
+					SavedTrigger = true;
+				}
+				
+				if (SavedTimes == 6 && SavedTrigger != true)
+				{
+					player.A_StartSound("dude_save3", CHAN_VOICE, CHANF_NOSTOP);
+					SavedTimes = 0;
+					SavedTrigger = true;
+				}
+				
+				SavedTimes++;
+				SavedTrigger = false;
 			}
-			
-			if (SavedTimes == 5 && SavedTrigger != true)
-			{
-				player.A_StartSound("dude_save1", CHAN_VOICE, CHANF_NOSTOP);
-				SavedTrigger = true;
-			}
-			
-			if (SavedTimes == 6 && SavedTrigger != true)
-			{
-				player.A_StartSound("dude_save3", CHAN_VOICE, CHANF_NOSTOP);
-				SavedTimes = 0;
-				SavedTrigger = true;
-			}
-			
-			SavedTimes++;
-			SavedTrigger = false;
+			else if (SaveTimeThreshold != 0)
+				SaveTimeThreshold = 0;
 		}
 	}
 
@@ -102,7 +112,7 @@ class DudeCoreHandler : EventHandler
 		{
 			PostalDude p = PostalDude(players[e.Player].mo);
 			
-			if (!p || !p.PlayerData) return;
+			if (!p) return;
 			
 			if (p.bKILLED || p.SuicideCamera) return;
 			
@@ -151,7 +161,7 @@ class DudeCoreHandler : EventHandler
 		{
 			PostalDude p = PostalDude(players[e.Player].mo);
 			
-			if (!p || !p.PlayerData) return;
+			if (!p) return;
 			
 			if (p)
 				p.A_DamageSelf(5);
@@ -160,6 +170,8 @@ class DudeCoreHandler : EventHandler
 		if (e.Name ~== "DropInventoryItem" || e.Name ~== "DropWeaponItem")
 		{
 			PostalDude p = PostalDude(players[e.Player].mo);
+			
+			if (!p) return;
 			
 			bool WeaponDrop = false;
 			if (e.Name ~== "DropWeaponItem")
@@ -175,7 +187,7 @@ class DudeCoreHandler : EventHandler
 		{
 			PostalDude p = PostalDude(players[e.Player].mo);
 			
-			if (!p || !p.PlayerData) return;
+			if (!p || (p && !p.PlayerData)) return;
 			
 			if (p.SuicideCamera && p)
 			{
@@ -203,26 +215,25 @@ class DudeCoreHandler : EventHandler
    
 	override void PlayerEntered (PlayerEvent e)
 	{
-		PostalDude p = PostalDude(players[e.PlayerNumber].mo);
+		PostalDude pDude = PostalDude(players[e.PlayerNumber].mo);
 		
 		// todo: No, this is not how the Kick should behave and work
 		// Make the Kick not remove itself after finishing the kicking animation
-		if (p)
+		if (pDude)
 		{
-			p.A_TakeInventory("PostKick",100);
-			p.Kick = false;
+			pDude.A_TakeInventory("PostKick",100);
+			pDude.Kick = false;
 			
-			if (p.PlayerData)
-				p.PlayerData.InsultCooldown = level.time + 35 * 2.5;
+			if (pDude.PlayerData)
+				pDude.PlayerData.InsultCooldown = level.time + 35 * 2.5;
 			
 			return;
 		}
 		
-		PlayerPawn n = PlayerPawn(players[e.PlayerNumber].mo);
-		if (n && !p)
+		PlayerPawn pPlayerClass = PlayerPawn(players[e.PlayerNumber].mo);
+		if (pPlayerClass)
 		{
-			n.A_GiveInventory("HUDViewable",1);
-			//n.A_GiveInventory("YouSpinMyHeadRightRoundRightRoundLikeARecordBabyRightRoundRightRound",1);
+			pPlayerClass.A_GiveInventory("HUDViewable",1);
 		}
 	}
 	
@@ -234,7 +245,7 @@ class DudeCoreHandler : EventHandler
 		{
 			if (!(e.Thing is 'PostalDude'))
 			{
-				//Is there a way to maybe get the killer and not the target?
+				// todo: Give every monster an inventory item, and always store the last attacker there
 				if (e.Thing.target is 'PostalDude')
 				{
 					let DudePawn = PostalDude(e.Thing.target);

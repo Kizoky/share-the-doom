@@ -1088,14 +1088,15 @@ class DummyDude : Actor
 			A_StartSound("weapons/rocket_explode", CHAN_WEAPON, CHAN_NOSTOP);
 			
 			int i = 0;
-			while (i < 10) {
-				vector3 poss = (frandom(-52.5, 52.5), frandom(-52.5, 52.5),frandom(10, 52.5));
+			while (i < 10) 
+			{
+				vector3 poss = (frandom[suic](-52.5, 52.5), frandom[suic](-52.5, 52.5),frandom[suic](10, 52.5));
 				let Smoke = Spawn("PostalExplosionSmoke", pos+poss+(0,0,30));
 				if (Smoke)
 				{
 					Smoke.Scale.X = 0.05;
 					Smoke.Scale.Y = Smoke.Scale.X;
-					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					Smoke.vel = (frandom[suic](-0.3,0.3),frandom[suic](-0.3,0.3),frandom[suic](-0.3,0.3));
 				}
 				i++;
 			}
@@ -1103,19 +1104,20 @@ class DummyDude : Actor
 		Stop;
 	Corpse:
 		DUDD A 0 A_StartSound("misc/gibbed", CHAN_AUTO);
-		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(54.0, 56.0));
-		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom(54.0, 56.0));
+		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom[head](54.0, 56.0));
+		DUDD A 0 A_SpawnItemEx("Postal_HeadExplode", 0, 0, FRandom[head](54.0, 56.0));
 		//Spawn blood particle too to make it feel like the head is crushed
-		DUDD A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(54.0, 56.0));
-		DUDD A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom(54.0, 56.0));
+		DUDD A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom[head](54.0, 56.0));
+		DUDD A 0 A_SpawnItemEx("Postal_Blood", 0, 0, FRandom[head](54.0, 56.0));
 		
 		//Spawn spinning Skull and brain chunks that are slightly bouncing off from the floors, walls, etc..
 		DUDD A 0
 		{
 			int i = 0;
-			while (i < 8) {
-				A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom(54.0, 56.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
-				A_SpawnItemEx("Postal_Brainchunk", FRandom(0.5,1.2), FRandom(0.5,1.2), FRandom(52.0, 55.0), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.1, 2.0) * RandomPick(-1, 1), FRandom(0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+			while (i < 8) 
+			{
+				A_SpawnItemEx("Postal_Skullchunk", 0, 0, FRandom[head](54.0, 56.0), FRandom[head](0.1, 2.0) * RandomPick[head](-1, 1), FRandom[head](0.1, 2.0) * RandomPick[head](-1, 1), FRandom[head](0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
+				A_SpawnItemEx("Postal_Brainchunk", FRandom[head](0.5,1.2), FRandom[head](0.5,1.2), FRandom[head](52.0, 55.0), FRandom[head](0.1, 2.0) * RandomPick[head](-1, 1), FRandom[head](0.1, 2.0) * RandomPick[head](-1, 1), FRandom[head](0.0, 2.0), 0, SXF_TRANSFERTRANSLATION | SXF_ABSOLUTEPOSITION | SXF_ABSOLUTEANGLE | SXF_ABSOLUTEVELOCITY, 64);
 				i++;
 			}
 		}

@@ -15,7 +15,7 @@ class PostalBulletPuff : BulletPuff replaces BulletPuff
 		{
 			let SmokePuff = Spawn("PostalSmokePuff", pos);
 			if (SmokePuff)
-				SmokePuff.vel = (frandom(-0.5,0.5),frandom(-0.5,0.5),frandom(-0.5,0.5));
+				SmokePuff.vel = (frandom[pufff](-0.5,0.5),frandom[pufff](-0.5,0.5),frandom[pufff](-0.5,0.5));
 				
 			smoke++;
 		}

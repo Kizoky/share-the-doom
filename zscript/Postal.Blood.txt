@@ -58,7 +58,7 @@ class Postal_Skullchunk : PostalActor
 		Super.PostBeginPlay();
 		//A_PlaySound("hitflesh",0 | 4096);
 		spawnpos = pos;
-		int random = random(1,2);
+		int random = random[bld](1,2);
 		if (random == 1)
 			SetStateLabel("SkullChunk1");
 		else
@@ -169,7 +169,7 @@ class Postal_Brainchunk : PostalActor
 		Super.PostBeginPlay();
 		//A_PlaySound("hitflesh",0 | 4096);
 		spawnpos = pos;
-		int random = random(1,4);
+		int random = random[brnrnd](1,4);
 		if (random == 1)
 			SetStateLabel("BrainChunk1");
 		if (random == 2)
