@@ -3,22 +3,32 @@
 
 class PostalWindow : PostalActor
 {
-	void SpawnShards()
+	bool C_PrimaryClass;
+	property PrimaryClass : C_PrimaryClass;
+
+	virtual void SpawnShards(bool Extender = false)
 	{
-		if (DamageActor)
+		if (!Extender)
 		{
-			int dd = DamageActor.DamageMobj(self, self, 3, "Melee");
+			if (DamageActor)
+			{
+				int dd = DamageActor.DamageMobj(self, self, 3, "Melee");
+			}
+			
+			A_StartSound("glass/break", CHAN_BODY);
 		}
-		A_StartSound("glass/break", CHAN_BODY);
 		
 		int i = 0;
-		while (i <= 35) {
-			vector3 poss = (frandom(-25,50),frandom(-25,50),frandom(-5,50));
+		while (i <= 35) 
+		{
+			vector3 poss = (frandom[fwind](-25,50),frandom[fwind](-25,50),frandom[fwind](-5,50));
+			
 			let Shard = Spawn("Postal_GlassShard", pos+poss);
 			if (Shard)
 			{	
-				Shard.vel = (frandom(-2.5,2.5),frandom(-2.5,2.5),frandom(-2.5,2.5));
+				Shard.vel = (frandom[fwind](-2.5,2.5),frandom[fwind](-2.5,2.5),frandom[fwind](-2.5,2.5));
 			}
+			
 			i++;
 		}
 	}
@@ -26,27 +36,6 @@ class PostalWindow : PostalActor
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		SpawnShards();
-		
-		BlockThingsIterator it;
-				
-		it = BlockThingsIterator.Create (self, 250);
-		
-		while (it.Next ()) {
-			let next = it.Thing;
-			
-			if (next is 'NPCCore' && !(next.bKILLED))
-			{
-				let pp = NPCCore(next);
-				if (pp && !pp.isBusy && !pp.isAfterTarget)
-				{
-					pp.isBusy = true;
-					pp.MyTarget = source;
-					pp.vel.xy = (0,0);
-					pp.G_WTF = true;
-					pp.SetStateLabel("Stare");
-				}
-			}
-		}
 		
 		Destroy();
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
@@ -108,6 +97,7 @@ class PostalWindow : PostalActor
 		PainChance 0;
 		Health 666;
 		Obituary "%o ran into a Window.";
+		PrimaryClass true;
 		
 		PostalActor.NeverTarget true;
 		PostalActor.NoKillLine true;
@@ -120,7 +110,7 @@ class PostalWindow : PostalActor
 	}
 }
 
-class PostalWindow_Extender : PostalActor
+class PostalWindow_Extender : PostalWindow
 {
 	Actor AttachedWindow;
 	bool GotActor;
@@ -133,19 +123,24 @@ class PostalWindow_Extender : PostalActor
 		
 		BlockThingsIterator it = BlockThingsIterator.Create (self, 150);
 		
-		while (it.Next ()) 
+		while ( it.Next() ) 
 		{
 			let next = it.Thing;
 			if (!next) return;
 			
-			if (next is 'PostalWindow' && (next.pos.z ~== pos.z))
+			let Window = PostalWindow(next);
+			if (Window)
 			{
-				Windows.Push(next);
-			}	
+				if (Window.C_PrimaryClass && (next.pos.z ~== pos.z))
+				{
+					Windows.Push(next);
+				}
+			}
 		}
 		
 		double dist = 100000;
 		int i = 0;
+		
 		while (i < Windows.Size())
 		{
 			if (Distance2D(Windows[i]) < dist)
@@ -160,28 +155,15 @@ class PostalWindow_Extender : PostalActor
 		Windows.Clear();
     }
 	
-	void SpawnShardsExtender()
-	{
-		int i = 0;
-		while (i <= 35) {
-			vector3 poss = (frandom(-25,50),frandom(-25,50),frandom(-5,50));
-			let Shard = Spawn("Postal_GlassShard", pos+poss);
-			if (Shard)
-			{	
-				Shard.vel = (frandom(-2.5,2.5),frandom(-2.5,2.5),frandom(-2.5,2.5));
-			}
-			i++;
-		}
-	}
-	
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
 		let pp = PostalWindow(AttachedWindow);
 		if (pp)
 		{
 			int dd = pp.DamageMobj(inflictor,source,damage,mod);
-			SpawnShardsExtender();
+			SpawnShards(true);
 		}
+		
 		Destroy();
 		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
@@ -193,22 +175,18 @@ class PostalWindow_Extender : PostalActor
 	{
 		Super.PostBeginPlay();
 		TimeBeforeWarning = level.time + 35 * 2;
+		A_SearchForWindow();
 	}
 	
 	override void Tick()
 	{
 		Super.Tick();
-		if (!AttachedWindow)
-			A_SearchForWindow();
 		
 		if (level.time > TimeBeforeWarning && !AttachedWindow && !GotActor)
 		{
 			Console.Printf("Window not found! warp: %d %d %d", pos.x,pos.y,pos.z);
 			Destroy();
 		}
-		
-		if (!AttachedWindow && GotActor)
-			Destroy();
 	}
 	
 	override void Touch (actor toucher)
@@ -245,6 +223,7 @@ class PostalWindow_Extender : PostalActor
 		PainChance 0;
 		Health 666;
 		
+		PostalWindow.PrimaryClass false;
 		PostalActor.NeverTarget true;
 		PostalActor.NoKillLine true;
 	}
@@ -264,8 +243,8 @@ class Postal_GlassShard : PostalActor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		Type = random(1,4);
-		minus = random(0,1);
+		Type = random[typ](1,4);
+		minus = random[mns](0,1);
 		
 		switch(Type)
 		{
@@ -339,7 +318,7 @@ class Postal_GlassShard : PostalActor
 				if (pp)
 				{
 					pp.Type = Type;
-					pp.Angle = random(-360,360);
+					pp.Angle = random[wndangl](-360,360);
 				}		
 			}
 			Destroy();

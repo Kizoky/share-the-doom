@@ -23,7 +23,7 @@ class NPCZombie : PostalActor
 	{
 		Super.PostBeginPlay();
 		
-		WalkingStyle = random(1,2);
+		WalkingStyle = random[wlkng](1,2);
 	}
 	
 	override void Tick()

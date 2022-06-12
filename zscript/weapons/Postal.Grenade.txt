@@ -309,11 +309,11 @@ class PostalGrenade : PostalActor
 			
 			int i = 0;
 			while (i < 10) {
-				vector3 poss = (frandom(-1,1),frandom(-1,1),frandom(-1,1));
+				vector3 poss = (frandom[grnd](-1,1),frandom[grnd](-1,1),frandom[grnd](-1,1));
 				let Grenade = Spawn("PostalGrenadeTrail", pos+poss);
 				if (Grenade)
 				{	
-					Grenade.vel = (frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(-0.1,0.1));
+					Grenade.vel = (frandom[grnd](-0.1,0.1),frandom[grnd](-0.1,0.1),frandom[grnd](-0.1,0.1));
 				}
 				i++;
 			}
@@ -371,11 +371,11 @@ class PostalGrenade : PostalActor
 			
 			int i = 0;
 			while (i < 10) {
-				vector3 poss = (frandom(-52.5, 52.5), frandom(-52.5, 52.5),frandom(10, 52.5));
+				vector3 poss = (frandom[grnd](-52.5, 52.5), frandom[grnd](-52.5, 52.5),frandom[grnd](10, 52.5));
 				let Smoke = Spawn("PostalExplosionSmoke", pos+poss);
 				if (Smoke)
 				{
-					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					Smoke.vel = (frandom[grnd](-0.3,0.3),frandom[grnd](-0.3,0.3),frandom[grnd](-0.3,0.3));
 				}
 				i++;
 			}
@@ -385,11 +385,11 @@ class PostalGrenade : PostalActor
 		{	
 			int i = 0;
 			while (i < 3) {
-				vector3 poss = (frandom(-8,8),frandom(-8,8),frandom(-8,8));
+				vector3 poss = (frandom[grnd](-8,8),frandom([grnd]-8,8),frandom[grnd](-8,8));
 				let Smoke = Spawn("PostalSmokeTrail", pos+poss);
 				if (Smoke)
 				{	
-					Smoke.vel = (frandom(-0.3,0.3),frandom(-0.3,0.3),frandom(-0.3,0.3));
+					Smoke.vel = (frandom[grnd](-0.3,0.3),frandom[grnd](-0.3,0.3),frandom[grnd](-0.3,0.3));
 					
 					let pp = PostalSmokeTrail(Smoke);
 					if (pp)
@@ -429,9 +429,9 @@ Class PostalGrenadeTrail : PostalActor
 	override void PostBeginPlay() 
 	{
 		super.PostBeginPlay();
-		bSPRITEFLIP = random(0,1);
-		rrotate = random(0,1);
-		randomScale.x = frandom(0.40, 0.80);
+		bSPRITEFLIP = random[bsprtflip](0,1);
+		rrotate = random[rrotate](0,1);
+		randomScale.x = frandom[grnd](0.40, 0.80);
 		randomScale.y = randomScale.x;
 		
 		Scale = (randomScale.x, randomScale.y);

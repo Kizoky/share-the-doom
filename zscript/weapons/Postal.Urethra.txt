@@ -71,7 +71,7 @@ class PostUrethra : PostalWeapon
 			int i = 0;
 			while (i < 3)
 			{
-				actor piss = A_FireProjectile("Urine",0,0,0,frandom(-14,-15));
+				actor piss = A_FireProjectile("Urine",0,0,0,frandom[piss](-14,-15));
 				i++;
 			}
 			
@@ -94,14 +94,14 @@ class Urine : Actor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		Scale.X = frandom(0.07,0.20);
-		Scale.Y = frandom(0.05,1);
-		bSPRITEFLIP = random(0,1);
+		Scale.X = frandom[sx](0.07,0.20);
+		Scale.Y = frandom[sy](0.05,1);
+		bSPRITEFLIP = random[sprtflp](0,1);
 		
-		int r = random(1,2);
-		d = random(0,1);
+		int r = random[r](1,2);
+		d = random[d](0,1);
 		
-		bool e = random(0,1);
+		bool e = random[e](0,1);
 		if (e)
 			roll = 180;
 		else
@@ -189,11 +189,11 @@ class Urine : Actor
 				int i = 0;
 				while (i < 1)
 				{
-					vector3 poss = (frandom(-0.1,0.1),frandom(-0.1,0.1),frandom(0.1,0.3));
+					vector3 poss = (frandom[piss](-0.1,0.1),frandom[piss](-0.1,0.1),frandom[piss](0.1,0.3));
 					let Splash = Spawn("UrineSplash", pos+poss);
 					if (Splash)
 					{	
-						Splash.vel = (frandom(-1.0,1.0),frandom(-1.5,1.5),frandom(-3.5,3.5));
+						Splash.vel = (frandom[piss](-1.0,1.0),frandom[piss](-1.5,1.5),frandom[piss](-3.5,3.5));
 					}
 					i++;
 				}
@@ -210,15 +210,15 @@ class UrineSplash : Actor
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		bSPRITEFLIP = random(0,1);
+		bSPRITEFLIP = random[sprtflip](0,1);
 		
-		int r = random(1,2);
-		d = random(0,1);
+		int r = random[r](1,2);
+		d = random[d](0,1);
 		
-		Scale.Y = frandom(0.05,0.15);
-		Scale.X = frandom(0.25,0.45);
+		Scale.Y = frandom[y](0.05,0.15);
+		Scale.X = frandom[x](0.25,0.45);
 		
-		bool e = random(0,1);
+		bool e = random[e](0,1);
 		if (e)
 			roll = 180;
 		else

@@ -105,7 +105,7 @@ class PostalCar : PostalActor
 					if (level.time > HonkTime)
 					{
 						A_StartSound("carhorn", CHAN_BODY, CHANF_OVERLAP);
-						HonkTime = level.time + 35 * frandom(0,3);
+						HonkTime = level.time + 35 * frandom[honk](0,3);
 					}
 					isStanding = true;
 					return;

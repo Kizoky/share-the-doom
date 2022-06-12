@@ -101,7 +101,7 @@ class PouringGas : PostalActor
 			GASP AB 5;
 			Loop;
 		Death:
-			TNT1 A 0 A_SpawnItemEx("PostalLiquidGas", FRandom(2.0, 15.0), FRandom(2.0, 15.0));
+			TNT1 A 0 A_SpawnItemEx("PostalLiquidGas", FRandom[gas](2.0, 15.0), FRandom[gas](2.0, 15.0));
 			Stop;
 	
 	

@@ -383,7 +383,7 @@ class Postal_Woosh : PostalActor
 		spawnpos = pos;
 		SetOrigin(spawnpos+(0,0,0), TRUE);
 		
-		randomroll = random(0,1);
+		randomroll = random[rndroll](0,1);
 		
 	}
 	
