@@ -385,7 +385,7 @@ class PostalGrenade : PostalActor
 		{	
 			int i = 0;
 			while (i < 3) {
-				vector3 poss = (frandom[grnd](-8,8),frandom([grnd]-8,8),frandom[grnd](-8,8));
+				vector3 poss = (frandom[grnd](-8,8),frandom[grnd](-8,8),frandom[grnd](-8,8));
 				let Smoke = Spawn("PostalSmokeTrail", pos+poss);
 				if (Smoke)
 				{	
