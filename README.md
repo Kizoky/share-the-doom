@@ -5,26 +5,24 @@ GZDoom 4.3+ or LZDoom 3.85 is required to run this mod! Vulkan renderer is recom
 
 If you have downloaded the mod from here, on Windows: run build.bat - otherwise on Linux just do `bash build` this will build a GZPostal.pk3 for you.
 
-### Status: Unfinished
+### Status: Rewrite needed
 
-**Note:** Multiplayer works, but it's recommended to ***only play on Doom levels***
+Some of the code needs to be rewritten to be as clean as possible (the NPC code is in a dire state), models need to be updated to IQM format with support for anim data.
+
+**Note:** Multiplayer works, but it's not always tested! Expect some glitches to happen
 
 | Mod-related Information(s) |
 | --- |
 | [Planned GZDB/UDB Flags](GZDBFlags.md) |
 | [Using content from this mod](LICENSE.md) |
 | [List of unfinished things (Postal Dude playerclass)](https://github.com/Kizoky/share-the-doom/milestone/1) |
-| List of unfinished features of NPCs |
-| [How to create custom NPCs as an addon](https://github.com/Kizoky/share-the-doom/blob/master/zscript/NPCs/Postal.Bystanders.Example.txt) |
-| How to add Postal-styled weapon(s) |
-| How to make NPCs/Traffic follow a route in a level |
 
 | Credits |
 | --- |
 | Running With Scissors |
 | WhackJob Interactive |
 | KeeRaizy |
-| Marise Kirisame |
+| Marisa Kirisame |
 | phantombeta |
 | Jekyll Grim Payne |
 | the ZDoom discord |
